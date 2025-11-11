@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'OmarPT Staging',
-  description: 'OmarPT website - staging environment',
+  title: 'OmarPT Website',
+  description: 'OmarPT Website - Coming soon ...',
 };
 
 export default function RootLayout({
