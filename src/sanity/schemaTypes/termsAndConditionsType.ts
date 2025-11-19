@@ -3,8 +3,8 @@
 // Follow the existing patterns in other schema files for consistency.
 
 import { DocumentTextIcon } from '@sanity/icons';
-import { defineField, defineType, defineArrayMember } from 'sanity';
-import { commonContentBlocks } from './shared/sectionFactory';
+import { defineField, defineType } from 'sanity';
+import { PAGE_CONTENT_BLOCK_LIST } from './shared/blockLists';
 
 export const termsAndConditionsType = defineType({
   name: 'termsAndConditions',
@@ -46,12 +46,7 @@ export const termsAndConditionsType = defineType({
       title: 'Terms & Conditions Content',
       type: 'array',
       description: 'Build your Terms & Conditions content using page sections and content blocks',
-      of: [
-        defineArrayMember({
-          type: 'pageSection',
-        }),
-        ...commonContentBlocks,
-      ],
+      of: PAGE_CONTENT_BLOCK_LIST,
       options: {
         insertMenu: {
           views: [

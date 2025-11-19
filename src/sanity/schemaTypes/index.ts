@@ -14,7 +14,6 @@ import { dividerType } from './blocks/dividerType';
 import { richTextType } from './blocks/richTextType';
 import { cardType } from './blocks/cardType';
 import { gridLayoutType } from './blocks/gridLayoutType';
-import { iconType } from './blocks/iconType';
 import { imageType } from './blocks/imageType';
 import { imageGalleryType } from './blocks/imageGalleryType';
 import { youTubeVideoType } from './blocks/youTubeVideoType';
@@ -65,7 +64,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     richTextType,
     cardType,
     gridLayoutType,
-    iconType,
     imageType,
     imageGalleryType,
     youTubeVideoType,

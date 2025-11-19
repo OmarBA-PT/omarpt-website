@@ -1,27 +1,6 @@
-import { defineType, defineArrayMember, defineField, type FieldDefinition } from 'sanity';
+import { defineType, defineField, type FieldDefinition } from 'sanity';
 import { AnchorIdInput } from '../../components/AnchorIdInput';
-
-// Common content blocks available to all sections
-export const commonContentBlocks = [
-  defineArrayMember({ type: 'divider' }),
-  defineArrayMember({ type: 'twoColumnLayout' }),
-  defineArrayMember({ type: 'gridLayout' }),
-  defineArrayMember({ type: 'richText' }),
-  defineArrayMember({ type: 'blockListWithStats' }),
-  defineArrayMember({ type: 'checkList' }),
-  defineArrayMember({ type: 'itemList' }),
-  defineArrayMember({ type: 'contactForm' }),
-  defineArrayMember({ type: 'quote' }),
-  defineArrayMember({ type: 'imageBlock' }),
-  defineArrayMember({ type: 'imageGallery' }),
-  defineArrayMember({ type: 'ctaButton' }),
-  defineArrayMember({ type: 'ctaCalloutLink' }),
-  defineArrayMember({ type: 'card' }),
-  defineArrayMember({ type: 'youTubeVideo' }),
-  defineArrayMember({ type: 'spotifyWidget' }),
-  defineArrayMember({ type: 'bandcampWidget' }),
-  defineArrayMember({ type: 'companyLinksBlock' }),
-];
+import { createSectionBlockList } from './blockLists';
 
 interface SectionFactoryConfig {
   name: string;
@@ -169,12 +148,8 @@ export function createSectionSchema(config: SectionFactoryConfig) {
     );
   }
 
-  // Build content array with allowed child sections and common blocks
-  const contentOf = [
-    ...(config.allowedChildSections?.map((childType) => defineArrayMember({ type: childType })) ||
-      []),
-    ...commonContentBlocks,
-  ];
+  // Build content array with allowed child sections and standard blocks
+  const contentOf = createSectionBlockList(config.allowedChildSections);
 
   fields.push(
     defineField({

@@ -343,6 +343,10 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentId={documentId}
             documentType={documentType}
             fieldPathPrefix={blockPath}
+            siteSettings={siteSettings}
+            companyLinks={companyLinks}
+            contactFormSettings={contactFormSettings}
+            alignment={alignment}
           />
         </BlockWrapper>
       );

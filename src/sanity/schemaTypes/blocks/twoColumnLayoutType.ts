@@ -2,8 +2,9 @@
 // When modifying, ensure all fields have appropriate validation, titles, and descriptions for content editors.
 // Follow the existing patterns in other schema files for consistency.
 
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { ComponentIcon } from '@sanity/icons';
+import { STANDARD_BLOCK_LIST } from '../shared/blockLists';
 
 export const twoColumnLayoutType = defineType({
   name: 'twoColumnLayout',
@@ -24,24 +25,7 @@ export const twoColumnLayoutType = defineType({
       title: 'Left Column',
       type: 'array',
       description: 'Content for the left column (appears first on mobile)',
-      of: [
-        defineArrayMember({ type: 'divider' }),
-        defineArrayMember({ type: 'richText' }),
-        defineArrayMember({ type: 'blockListWithStats' }),
-        defineArrayMember({ type: 'checkList' }),
-        defineArrayMember({ type: 'contactForm' }),
-        defineArrayMember({ type: 'quote' }),
-        defineArrayMember({ type: 'imageBlock' }),
-        defineArrayMember({ type: 'imageGallery' }),
-        defineArrayMember({ type: 'ctaButton' }),
-        defineArrayMember({ type: 'ctaCalloutLink' }),
-        defineArrayMember({ type: 'card' }),
-        defineArrayMember({ type: 'gridLayout' }),
-        defineArrayMember({ type: 'youTubeVideo' }),
-        defineArrayMember({ type: 'spotifyWidget' }),
-        defineArrayMember({ type: 'bandcampWidget' }),
-        defineArrayMember({ type: 'companyLinksBlock' }),
-      ],
+      of: STANDARD_BLOCK_LIST,
       validation: (Rule) =>
         Rule.required().min(1).error('Left column must contain at least one item'),
     }),
@@ -50,24 +34,7 @@ export const twoColumnLayoutType = defineType({
       title: 'Right Column',
       type: 'array',
       description: 'Content for the right column (appears after left column on mobile)',
-      of: [
-        defineArrayMember({ type: 'divider' }),
-        defineArrayMember({ type: 'richText' }),
-        defineArrayMember({ type: 'blockListWithStats' }),
-        defineArrayMember({ type: 'checkList' }),
-        defineArrayMember({ type: 'contactForm' }),
-        defineArrayMember({ type: 'quote' }),
-        defineArrayMember({ type: 'imageBlock' }),
-        defineArrayMember({ type: 'imageGallery' }),
-        defineArrayMember({ type: 'ctaButton' }),
-        defineArrayMember({ type: 'ctaCalloutLink' }),
-        defineArrayMember({ type: 'card' }),
-        defineArrayMember({ type: 'gridLayout' }),
-        defineArrayMember({ type: 'youTubeVideo' }),
-        defineArrayMember({ type: 'spotifyWidget' }),
-        defineArrayMember({ type: 'bandcampWidget' }),
-        defineArrayMember({ type: 'companyLinksBlock' }),
-      ],
+      of: STANDARD_BLOCK_LIST,
       validation: (Rule) =>
         Rule.required().min(1).error('Right column must contain at least one item'),
     }),

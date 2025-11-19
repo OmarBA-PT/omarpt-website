@@ -50,7 +50,6 @@ export default defineConfig({
             'header',
             'footer',
             'homePage',
-            'blogIndexPage',
             'companyLinks',
             'clients',
             'equipmentListSingleton',

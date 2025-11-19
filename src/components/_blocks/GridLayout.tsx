@@ -1,17 +1,19 @@
 import React from 'react';
 import { stegaClean } from 'next-sanity';
-import type { GridLayoutBlock, RichTextBlock, CardBlock, ImageBlock as ImageBlockType, YouTubeVideoBlock, SpotifyWidgetBlock, BandcampWidgetBlock } from '@/types/blocks';
+import type { GridLayoutBlock, NestedBlock } from '@/types/blocks';
+import { renderBlock } from '@/utils/blockRenderer';
+import type { SiteSettingsProps } from '@/types/shared';
+import type { COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
 import Card from './Card';
-import RichText from './RichText';
-import ImageBlock from './Image';
-import YouTubeVideo from './YouTubeVideo';
-import SpotifyWidget from './SpotifyWidget';
-import BandcampWidget from './BandcampWidget';
 
 interface GridLayoutProps extends GridLayoutBlock {
   documentId?: string;
   documentType?: string;
   fieldPathPrefix?: string;
+  siteSettings?: SiteSettingsProps;
+  companyLinks?: COMPANY_LINKS_QUERYResult;
+  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  alignment?: 'left' | 'center' | 'right';
 }
 
 const GridLayout = ({
@@ -20,6 +22,10 @@ const GridLayout = ({
   documentId,
   documentType,
   fieldPathPrefix,
+  siteSettings,
+  companyLinks,
+  contactFormSettings,
+  alignment = 'center',
 }: GridLayoutProps) => {
   if (!content || !Array.isArray(content) || content.length === 0) {
     return null;
@@ -43,73 +49,52 @@ const GridLayout = ({
 
   const itemClasses = getGridClasses(validColumns);
 
-  type GridContentItem = RichTextBlock | CardBlock | ImageBlockType | YouTubeVideoBlock | SpotifyWidgetBlock | BandcampWidgetBlock;
-
-  const renderGridItem = (item: GridContentItem, idx: number) => {
+  const renderGridItem = (item: NestedBlock, idx: number) => {
     const key = item._key || idx;
-    const baseProps = {
+    const blockPath = fieldPathPrefix
+      ? `${fieldPathPrefix}.content[_key=="${item._key}"]`
+      : `content[_key=="${item._key}"]`;
+
+    // Special handling for cards - they accept className and isGridChild props
+    if (item._type === 'card') {
+      return (
+        <Card
+          key={key}
+          {...item}
+          documentId={documentId}
+          documentType={documentType}
+          fieldPathPrefix={blockPath}
+          siteSettings={siteSettings}
+          companyLinks={companyLinks}
+          alignment={alignment}
+          className={itemClasses}
+          isGridChild
+        />
+      );
+    }
+
+    // For all other block types, render using shared blockRenderer and wrap in grid sizing div
+    const renderedBlock = renderBlock(item, {
       documentId,
       documentType,
-      fieldPathPrefix: fieldPathPrefix
-        ? `${fieldPathPrefix}.content[_key=="${item._key}"]`
-        : `content[_key=="${item._key}"]`,
-    };
+      blockPath,
+      siteSettings,
+      companyLinks,
+      contactFormSettings,
+      alignment,
+      config: documentId && documentType
+        ? {
+            projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+            dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+          }
+        : undefined,
+    });
 
-    switch (item._type) {
-      case 'richText':
-        return (
-          <div key={key} className={itemClasses}>
-            <RichText {...item} {...baseProps} />
-          </div>
-        );
-
-      case 'card':
-        return (
-          <Card
-            key={key}
-            {...item}
-            {...baseProps}
-            className={itemClasses}
-            isGridChild
-          />
-        );
-
-      case 'imageBlock':
-        return (
-          <div key={key} className={itemClasses}>
-            <ImageBlock
-              {...item}
-              {...baseProps}
-              pathPrefix={baseProps.fieldPathPrefix}
-            />
-          </div>
-        );
-
-      case 'youTubeVideo':
-        return (
-          <div key={key} className={itemClasses}>
-            <YouTubeVideo {...item} {...baseProps} />
-          </div>
-        );
-
-      case 'spotifyWidget':
-        return (
-          <div key={key} className={itemClasses}>
-            <SpotifyWidget {...item} {...baseProps} />
-          </div>
-        );
-
-      case 'bandcampWidget':
-        return (
-          <div key={key} className={itemClasses}>
-            <BandcampWidget {...item} {...baseProps} />
-          </div>
-        );
-
-      default:
-        console.warn(`Unknown grid item type: ${(item as { _type: string })._type}`);
-        return null;
-    }
+    return (
+      <div key={key} className={itemClasses}>
+        {renderedBlock}
+      </div>
+    );
   };
 
   return (

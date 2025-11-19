@@ -1,16 +1,11 @@
-import { defineType, defineArrayMember } from 'sanity';
-import { commonContentBlocks } from './shared/sectionFactory';
+import { defineType } from 'sanity';
+import { PAGE_CONTENT_BLOCK_LIST } from './shared/blockLists';
 
 export const pageBuilderType = defineType({
   name: 'pageBuilder',
   title: 'Page Builder',
   type: 'array',
-  of: [
-    defineArrayMember({
-      type: 'pageSection',
-    }),
-    ...commonContentBlocks,
-  ],
+  of: PAGE_CONTENT_BLOCK_LIST,
   options: {
     insertMenu: {
       views: [

@@ -2,122 +2,48 @@
 
 This file contains instructions for AI assistants working on this project.
 
-## Block Renderer Maintenance
+## Block System Architecture
 
-**CRITICAL: The `blockRenderer.tsx` utility is the single source of truth for rendering all content blocks. Missing block types will silently fail to render.**
+**CRITICAL: This project uses a centralized block system. Follow the guidelines in [docs/block-architecture.md](/docs/block-architecture.md) for complete details.**
 
-### The Problem
+### Quick Reference
 
-The `src/utils/blockRenderer.tsx` file contains a centralized `renderBlock()` function used by:
+**When adding a new block type:**
 
-- PageBuilder (main page content)
-- TwoColumnLayout (left/right columns)
-- GridLayout (grid items)
-- Card components (nested content)
+1. Create schema in `src/sanity/schemaTypes/blocks/`
+2. Add to `STANDARD_BLOCK_LIST` in `src/sanity/schemaTypes/shared/blockLists.ts`
+3. Register in `src/sanity/schemaTypes/index.ts`
+4. Run `npm run typegen`
+5. Create component in `src/components/_blocks/`
+6. Add to `blockRenderer.tsx` (type import, component import, BlockType union, switch case)
+7. Add type definitions to `src/types/blocks.ts`
+8. Run `npm run typecheck`
 
-**If a block type is missing from the switch statement, it will not render anywhere in the application.** The default case returns `null`, so there's no error - the content just doesn't appear.
+**Key benefits of this system:**
+- ✅ Single source of truth for block lists
+- ✅ New blocks automatically appear everywhere (PageBuilder, Cards, TwoColumn, Grid)
+- ✅ Compile-time safety with TypeScript exhaustiveness checking
+- ✅ No manual schema updates across multiple files
 
-### Adding New Block Types - Checklist
+**For complete documentation, see:** [docs/block-architecture.md](/docs/block-architecture.md)
 
-When creating a new block type that should be renderable, you **MUST** update `blockRenderer.tsx`:
+### Exhaustiveness Check Protection
 
-1. **Add type import:**
-
-   ```typescript
-   import type {
-     // ... existing imports
-     NewBlockType as NewBlockTypeType,
-   } from '@/sanity/types';
-   ```
-
-2. **Add component import:**
-
-   ```typescript
-   import NewBlockComponent from '@/components/_blocks/NewBlock';
-   ```
-
-3. **Add to BlockType union:**
-
-   ```typescript
-   type BlockType =
-     | WithKey<RichTextType>
-     // ... existing types
-     | WithKey<NewBlockTypeType>;
-   ```
-
-4. **Add switch case:**
-
-   ```typescript
-   case 'newBlockType': {
-     const newBlock = typedBlock as WithKey<NewBlockTypeType>;
-     return (
-       <BlockWrapper key={newBlock._key}>
-         <NewBlockComponent
-           {...newBlock}
-           documentId={documentId}
-           documentType={documentType}
-           fieldPathPrefix={blockPath}
-           // Pass other props as needed
-         />
-       </BlockWrapper>
-     );
-   }
-   ```
-
-5. **Add to schemas** where the block should be allowed (e.g., `twoColumnLayoutType.ts`, `gridLayoutType.ts`)
-
-6. **Test the block in all contexts:**
-   - [ ] PageBuilder (main content)
-   - [ ] TwoColumnLayout (if allowed)
-   - [ ] GridLayout (if allowed)
-   - [ ] Card content (if allowed)
-
-### Exhaustiveness Check System
-
-The `blockRenderer.tsx` includes **two layers of protection** against missing block types:
-
-#### 1. Compile-Time TypeScript Exhaustiveness Check
-
-The switch statement includes an exhaustiveness check in the default case:
+TypeScript exhaustiveness checking in `blockRenderer.tsx` prevents missing block implementations:
 
 ```typescript
 default: {
   const exhaustiveCheck: never = typedBlock;
-  // ... rest of default case
+  // If you see a TypeScript error here, you're missing a case in the switch statement
 }
 ```
 
-**How it works:**
-
-- If all cases in the `BlockType` union are handled, TypeScript knows the default case is unreachable
-- Assigning `typedBlock` to `never` type will **cause a TypeScript error** if any case is missing
-- This catches missing block types at **compile time**, before you even run the code
-
-**What you'll see if a case is missing:**
-
+**Error message you'll see:**
 ```
 Type 'WithKey<SomeBlockType>' is not assignable to type 'never'
 ```
 
-This error means you've added a type to the `BlockType` union but haven't added a case for it in the switch statement.
-
-#### 2. Runtime Development Warning
-
-The blockRenderer also includes development-mode warnings for blocks that slip through (e.g., from dynamic content):
-
-```
-[blockRenderer] Unhandled block type: "someType"
-```
-
-**Important:** This runtime warning only fires if a block actually reaches the renderer. The compile-time exhaustiveness check is the primary safeguard.
-
-### Common Mistake: Refactoring Block Rendering
-
-When refactoring block rendering logic, **carefully check the git diff** to ensure no switch cases are accidentally removed. This has caused issues in the past where working blocks (like `card`) stopped rendering after refactoring.
-
-### Reference Implementation
-
-See [blockRenderer.tsx](src/utils/blockRenderer.tsx) for the complete implementation with all supported block types.
+This means you added a block to the type system but forgot to implement rendering for it.
 
 ## Sanity Live Preview and Stega Encoding
 
@@ -270,7 +196,6 @@ This prevents the singleton from:
 ```javascript
 export const LINKABLE_PAGE_TYPES = [
   { type: 'homePage' },
-  { type: 'blogIndexPage' },
   // ... existing linkable types
   { type: 'newSingletonName' }, // ADD NEW SINGLETON HERE
 ];
@@ -285,7 +210,6 @@ const internalLinkProjection = `{
   // ... existing fields
   "href": select(
     _type == "homePage" => "/",
-    _type == "blogIndexPage" => "/blog",
     // ... existing URL mappings
     _type == "newSingletonName" => "/your-url-path",
     "/" + slug.current

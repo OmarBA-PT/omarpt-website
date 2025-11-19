@@ -2,8 +2,9 @@
 // When modifying, ensure all fields have appropriate validation, titles, and descriptions for content editors.
 // Follow the existing patterns in other schema files for consistency.
 
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { DocumentIcon } from '@sanity/icons';
+import { STANDARD_BLOCK_LIST } from '../shared/blockLists';
 
 export const cardType = defineType({
   name: 'card',
@@ -130,22 +131,7 @@ export const cardType = defineType({
       group: 'content',
       description:
         'Add content blocks to your card. You can include text, images, buttons, quotes, and more.',
-      of: [
-        defineArrayMember({ type: 'divider' }),
-        defineArrayMember({ type: 'twoColumnLayout' }),
-        defineArrayMember({ type: 'richText' }),
-        defineArrayMember({ type: 'blockListWithStats' }),
-        defineArrayMember({ type: 'checkList' }),
-        defineArrayMember({ type: 'quote' }),
-        defineArrayMember({ type: 'imageBlock' }),
-        defineArrayMember({ type: 'imageGallery' }),
-        defineArrayMember({ type: 'ctaButton' }),
-        defineArrayMember({ type: 'ctaCalloutLink' }),
-        defineArrayMember({ type: 'youTubeVideo' }),
-        defineArrayMember({ type: 'spotifyWidget' }),
-        defineArrayMember({ type: 'bandcampWidget' }),
-        defineArrayMember({ type: 'companyLinksBlock' }),
-      ],
+      of: STANDARD_BLOCK_LIST,
       validation: (Rule) => Rule.min(1).error('Card must have at least one content block'),
     }),
   ],

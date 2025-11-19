@@ -2,8 +2,9 @@
 // When modifying, ensure all fields have appropriate validation, titles, and descriptions for content editors.
 // Follow the existing patterns in other schema files for consistency.
 
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { ComponentIcon } from '@sanity/icons';
+import { STANDARD_BLOCK_LIST } from '../shared/blockLists';
 
 export const gridLayoutType = defineType({
   name: 'gridLayout',
@@ -30,33 +31,8 @@ export const gridLayoutType = defineType({
       name: 'content',
       title: 'Grid Content',
       type: 'array',
-      description: 'Grid content items. Note: 2 Column Layout cannot be added inside Grid Layout.',
-      of: [
-        defineArrayMember({
-          type: 'richText',
-          title: 'Rich Text',
-        }),
-        defineArrayMember({
-          type: 'card',
-          title: 'Card',
-        }),
-        defineArrayMember({
-          type: 'imageBlock',
-          title: 'Image Block',
-        }),
-        defineArrayMember({
-          type: 'youTubeVideo',
-          title: 'YouTube Video',
-        }),
-        defineArrayMember({
-          type: 'spotifyWidget',
-          title: 'Spotify Widget',
-        }),
-        defineArrayMember({
-          type: 'bandcampWidget',
-          title: 'Bandcamp Widget',
-        }),
-      ],
+      description: 'Grid content items',
+      of: STANDARD_BLOCK_LIST,
       validation: (Rule) =>
         Rule.required().min(1).error('Grid layout must contain at least one item'),
     }),
