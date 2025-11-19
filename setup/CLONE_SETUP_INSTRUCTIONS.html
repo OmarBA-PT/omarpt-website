@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Setup Instructions for New Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+
+        h4 {
+            color: #718096;
+            font-size: 1.1rem;
+            margin: 20px 0 8px 0;
+        }
+
+        p, li {
+            margin-bottom: 8px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .important {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-left: 4px solid #f56565;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .important strong {
+            color: #c53030;
+        }
+
+        .note {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .note strong {
+            color: #2f855a;
+        }
+
+        code {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.9rem;
+            color: #d63384;
+        }
+
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', Consolas, monospace;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .bash {
+            background: #2d3748;
+        }
+
+        .env {
+            background: #2a4365;
+        }
+
+        .js {
+            background: #553c9a;
+        }
+
+        .file-path {
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin: 10px 0;
+        }
+
+        .checklist {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .checklist h3 {
+            color: #2d3748;
+            margin-top: 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .checklist li:before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .toc {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Clone Setup Instructions</h1>
+            <p>Complete guide for setting up a new project from this repository</p>
+        </div>
+
+        <div class="content">
+            <div class="toc">
+                <h3>📋 Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#step1">Step 1: Clone Repository</a></li>
+                    <li><a href="#step2">Step 2: Update Dependencies</a></li>
+                    <li><a href="#step3">Step 3: Update Project Identity</a></li>
+                    <li><a href="#step4">Step 4: Environment Variables</a></li>
+                    <li><a href="#step5">Step 5: Site Configuration (NEW!)</a></li>
+                    <li><a href="#step6">Step 6: Schema Default Values</a></li>
+                    <li><a href="#step7">Step 7: Test Setup</a></li>
+                    <li><a href="#verification">Verification Checklist</a></li>
+                </ul>
+            </div>
+
+            <section id="overview">
+                <h2>📖 Overview</h2>
+                <p>This guide provides precise instructions for cloning this repository and setting it up for a brand new project. The clone will start with identical schemas and functionality, which can be modified later.</p>
+            </section>
+
+            <section id="step1">
+                <h2><span class="step-number">1</span>Clone Specific Branch and Create New GitHub Repository</h2>
+
+                <div class="important">
+                    <strong>IMPORTANT:</strong> This will clone only a specific branch without git history, then push it to a completely new GitHub repository.
+                </div>
+
+                <h3>Step 1a: Clone only the specific branch you want (without history):</h3>
+                <pre class="bash"><code># Replace 'branch-name' with the branch you want to clone
+# Replace 'new-project-name' with your desired project folder name
+git clone --depth 1 --branch &lt;branch-name&gt; &lt;current-repo-url&gt; &lt;new-project-name&gt;
+cd &lt;new-project-name&gt;</code></pre>
+
+                <div class="note">
+                    <strong>Example:</strong> If you want to clone the 'development' branch:
+                    <br><code>git clone --depth 1 --branch development https://github.com/user/repo.git my-new-project</code>
+                </div>
+
+                <h3>Step 1b: Remove existing git history and start fresh:</h3>
+                <pre class="bash"><code># Remove the existing git repository
+rm -rf .git
+
+# Initialize a new git repository
+git init
+
+# Add all files to the new repository
+git add .
+
+# Create your first commit with fresh history
+git commit -m "Initial commit from template"</code></pre>
+
+                <h3>Step 1c: Create the new repository on GitHub (in your organization):</h3>
+                <p><strong>Option A: Using GitHub CLI (recommended):</strong></p>
+                <pre class="bash"><code># Install GitHub CLI if you haven't already: https://cli.github.com/
+
+# Create a new PRIVATE repository under your organization
+gh repo create &lt;organization-name/new-repo-name&gt; --private --source=. --remote=origin --push
+
+# Or create a PUBLIC repository under your organization
+gh repo create &lt;organization-name/new-repo-name&gt; --public --source=. --remote=origin --push</code></pre>
+
+                <div class="note">
+                    <strong>Example for organization:</strong>
+                    <br><code>gh repo create my-org/my-new-cms --private --source=. --remote=origin --push</code>
+                    <br><br>
+                    <strong>Example for personal account:</strong>
+                    <br><code>gh repo create myusername/my-new-cms --private --source=. --remote=origin --push</code>
+                </div>
+
+                <p><strong>Option B: Manual GitHub creation (organization):</strong></p>
+                <ol>
+                    <li>Go to your organization page: <code>https://github.com/orgs/&lt;organization-name&gt;/repositories</code></li>
+                    <li>Click the green <strong>"New repository"</strong> button</li>
+                    <li>Enter your repository name</li>
+                    <li>Choose visibility (Private or Public)</li>
+                    <li><strong>DO NOT</strong> initialize with README, .gitignore, or license</li>
+                    <li>Click <strong>"Create repository"</strong></li>
+                    <li>Copy the repository URL (e.g., <code>https://github.com/organization-name/new-repo.git</code>)</li>
+                </ol>
+
+                <pre class="bash"><code># Connect to your new repository
+git remote add origin &lt;new-repo-url&gt;
+
+# Push to your new repository (creates main branch)
+git push -u origin main</code></pre>
+
+                <div class="note">
+                    <strong>Note:</strong> You must be an owner or have appropriate permissions in the organization to create repositories.
+                </div>
+
+                <h3>Step 1d: Create the branch from the cloned code (optional but recommended):</h3>
+                <pre class="bash"><code># Create and push the branch that matches the one you cloned
+# Replace 'branch-name' with the same branch you cloned earlier
+git checkout -b &lt;branch-name&gt;
+git push -u origin &lt;branch-name&gt;
+
+# Switch back to main if desired
+git checkout main</code></pre>
+
+                <div class="note">
+                    <strong>Example workflow:</strong>
+                    <br>If you cloned the 'development' branch:
+                    <br><code>git checkout -b development</code>
+                    <br><code>git push -u origin development</code>
+                    <br><br>Now your new repo has both <code>main</code> and <code>development</code> branches with the same code, but fresh git history.
+                </div>
+
+                <div class="note">
+                    <strong>What this approach gives you:</strong>
+                    <ul>
+                        <li>✅ Only the specific branch content you want</li>
+                        <li>✅ Fresh git history starting from scratch</li>
+                        <li>✅ New GitHub repository with your desired name</li>
+                        <li>✅ Main branch with your code</li>
+                        <li>✅ Optional matching branch name for consistency</li>
+                        <li>✅ No old commits or history from the original repo</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="step2">
+                <h2><span class="step-number">2</span>Update Dependencies to Latest Versions</h2>
+
+                <div class="important">
+                    <strong>IMPORTANT:</strong> Install latest versions of all dependencies instead of using locked versions.
+                </div>
+
+                <h3>Delete existing dependency lock files:</h3>
+                <pre class="bash"><code>rm package-lock.json</code></pre>
+
+                <h3>Update package.json with latest dependency versions:</h3>
+                <pre class="bash"><code># This command updates all dependencies to their latest versions
+npx npm-check-updates -u</code></pre>
+
+                <h3>Install the updated dependencies:</h3>
+                <pre class="bash"><code>npm install</code></pre>
+
+                <h3>Test that everything works:</h3>
+                <pre class="bash"><code>npm run build
+npm run typecheck</code></pre>
+
+                <h3>If there are any breaking changes from version updates, address them:</h3>
+                <ul>
+                    <li>Check the build output for errors</li>
+                    <li>Review dependency changelogs for breaking changes</li>
+                    <li>Update code as needed for compatibility</li>
+                </ul>
+            </section>
+
+            <section id="step3">
+                <h2><span class="step-number">3</span>Update Project Identity</h2>
+
+                <h3>A. Package.json Updates</h3>
+                <div class="file-path"><strong>File:</strong> package.json</div>
+                <ul>
+                    <li><strong>Line 2:</strong> Change <code>"name": "0717-website-cms"</code> to <code>"name": "your-new-project-name"</code></li>
+                    <li><strong>Line 3:</strong> Update version if desired (currently <code>"0.1.0"</code>)</li>
+                </ul>
+            </section>
+
+            <section id="step4">
+                <h2><span class="step-number">4</span>Update Environment Variables (CRITICAL)</h2>
+
+                <h3>A. Update .env.local file</h3>
+                <p>Replace <strong>ALL</strong> values with your new project details:</p>
+
+                <pre class="env"><code># Environment
+NEXT_PUBLIC_ENV="development"
+
+# Sanity Configuration - UPDATE THESE WITH YOUR NEW PROJECT
+NEXT_PUBLIC_SANITY_PROJECT_ID="your-new-project-id"     # Currently: "ppc11sza"
+NEXT_PUBLIC_SANITY_DATASET="your-dataset-name"          # Currently: "development"
+NEXT_PUBLIC_SANITY_STUDIO_URL="/studio"
+
+# Site Configuration
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"            # For development
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"            # For development
+
+# Sanity API Tokens - GET THESE FROM YOUR NEW SANITY PROJECT
+SANITY_API_READ_TOKEN="your-new-read-token"
+SANITY_API_WRITE_TOKEN="your-new-write-token"           # If you have one</code></pre>
+
+                <h3>B. Create .env.example Template</h3>
+                <p>Create this file for other developers:</p>
+
+                <pre class="env"><code># Copy this file to .env.local and update with your actual values
+
+# Environment
+NEXT_PUBLIC_ENV="development"
+
+# Sanity Configuration
+NEXT_PUBLIC_SANITY_PROJECT_ID="your-sanity-project-id"
+NEXT_PUBLIC_SANITY_DATASET="your-dataset-name"
+NEXT_PUBLIC_SANITY_STUDIO_URL="/studio"
+
+# Site Configuration
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+
+# Sanity API Tokens
+SANITY_API_READ_TOKEN="your-sanity-api-read-token"
+SANITY_API_WRITE_TOKEN="your-sanity-api-write-token"</code></pre>
+            </section>
+
+            <section id="step5">
+                <h2><span class="step-number">5</span>Update Site Configuration (CRITICAL)</h2>
+
+                <div class="note">
+                    <strong>✨ Centralized Configuration:</strong> This project now uses a centralized constants file, so you only need to update one file for all domain and organization references!
+                </div>
+
+                <h3>A. Update Constants File (Single Source of Truth)</h3>
+                <div class="file-path"><strong>File:</strong> src/lib/constants.ts</div>
+                <p>Update all values in this file with your project details:</p>
+
+                <pre class="js"><code>// Site configuration constants
+export const SITE_CONFIG = {
+  // Production domain - update this for your new project
+  PRODUCTION_DOMAIN: 'https://your-domain.com',        // Change from 'https://0717records.com'
+
+  // Organization information
+  ORGANIZATION_NAME: 'Your Organization Name',         // Change from '07:17 Records'
+  ORGANIZATION_DESCRIPTION: 'Your organization description', // Change from 'Thank You For Creating'
+
+  // Contact information
+  ORGANIZATION_EMAIL: 'your-email@your-domain.com',    // Change from '0717records@gmail.com'
+} as const;</code></pre>
+
+                <div class="important">
+                    <strong>That's it!</strong> All other files automatically use these values. No need to manually update robots.txt, sitemap, layouts, or schema files individually.
+                </div>
+
+                <h3>B. Files That Automatically Update</h3>
+                <p>These files now automatically use the constants (no manual changes needed):</p>
+                <ul>
+                    <li><code>src/app/robots.txt/route.ts</code> - Uses <code>SITE_CONFIG.PRODUCTION_DOMAIN</code></li>
+                    <li><code>src/app/sitemap.xml/route.ts</code> - Uses <code>SITE_CONFIG.PRODUCTION_DOMAIN</code></li>
+                    <li><code>src/app/layout.tsx</code> - Uses <code>SITE_CONFIG.PRODUCTION_DOMAIN</code> and <code>ORGANIZATION_NAME</code></li>
+                    <li><code>src/app/(frontend)/layout.tsx</code> - Uses <code>SITE_CONFIG.PRODUCTION_DOMAIN</code> and <code>ORGANIZATION_NAME</code></li>
+                </ul>
+
+                <h3>C. Additional Email References (Optional)</h3>
+                <h4>File: scripts/pages/pages.json</h4>
+                <ul>
+                    <li><strong>Line 683:</strong> Update <code>newsletter@0717records.com</code> to match your <code>ORGANIZATION_EMAIL</code> value</li>
+                </ul>
+            </section>
+
+            <section id="step6">
+                <h2><span class="step-number">6</span>Update Sanity Schema Default Values</h2>
+
+                <div class="note">
+                    <strong>Good News:</strong> Organization schema and metadata now automatically use your constants! Only Sanity schema defaults need manual updates.
+                </div>
+
+                <h3>A. Sanity Schema Default Values (Manual Updates Required)</h3>
+                <p>These schema files still need manual updates for default values:</p>
+
+                <h4>1. File: src/sanity/schemaTypes/siteSettingsType.ts</h4>
+                <ul>
+                    <li><strong>Line 19:</strong> Change <code>initialValue: '07:17 Records'</code> to <code>initialValue: 'Your Organization Name'</code></li>
+                </ul>
+
+                <h4>2. File: src/sanity/schemaTypes/footerType.ts</h4>
+                <ul>
+                    <li><strong>Line 64:</strong> Change <code>initialValue: '© 07:17 Records 2025'</code> to <code>initialValue: '© Your Organization Name 2025'</code></li>
+                </ul>
+
+                <h3>B. Additional References (Manual Updates Required)</h3>
+                <p>These files still contain hardcoded references:</p>
+
+                <h4>1. File: src/lib/structuredData.ts</h4>
+                <ul>
+                    <li><strong>Line 200:</strong> Change <code>'07:17 Records'</code> to <code>'Your Organization Name'</code></li>
+                    <li><strong>Line 215:</strong> Change <code>'07:17 Records'</code> to <code>'Your Organization Name'</code></li>
+                </ul>
+
+                <h4>2. File: src/components/Events/EventCard.tsx</h4>
+                <ul>
+                    <li><strong>Line 86:</strong> Change <code>'07:17 Records'</code> to <code>'Your Organization Name'</code></li>
+                </ul>
+
+                <h3>C. Files That Now Update Automatically</h3>
+                <p>Thanks to the constants file, these are now automatic:</p>
+                <ul>
+                    <li>✅ <strong>Organization schema</strong> in layout files</li>
+                    <li>✅ <strong>Site metadata</strong> and fallback titles</li>
+                    <li>✅ <strong>Domain references</strong> in robots.txt and sitemap</li>
+                </ul>
+            </section>
+
+            <section id="step7">
+                <h2><span class="step-number">7</span>Test the Setup</h2>
+
+                <h3>1. Start the development server:</h3>
+                <pre class="bash"><code>npm run dev</code></pre>
+
+                <h3>2. Verify the Sanity Studio works:</h3>
+                <ul>
+                    <li>Visit <code>http://localhost:3000/studio</code></li>
+                    <li>You should see an empty studio with all the schemas from the original project</li>
+                </ul>
+
+                <h3>3. Check that the frontend loads:</h3>
+                <ul>
+                    <li>Visit <code>http://localhost:3000</code></li>
+                    <li>The site should load (may show empty content since Sanity is empty)</li>
+                </ul>
+
+                <h3>4. Run type checking:</h3>
+                <pre class="bash"><code>npm run typecheck</code></pre>
+
+                <h3>5. Test the build process:</h3>
+                <pre class="bash"><code>npm run build</code></pre>
+
+                <h3>6. Test other routes:</h3>
+                <ul>
+                    <li>Visit <code>http://localhost:3000/robots.txt</code> - Should show your domain</li>
+                    <li>Visit <code>http://localhost:3000/sitemap.xml</code> - Should generate correctly</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>🔄 Optional Global Brand Replacement</h2>
+
+                <p>If you want to replace all remaining "07:17 Records" references at once (83 occurrences):</p>
+
+                <pre class="bash"><code># Use your IDE's global find/replace or command line:
+grep -r "07:17 Records" src/ --exclude-dir=node_modules
+# Then replace with your organization name</code></pre>
+
+                <div class="note">
+                    <strong>Note:</strong> Most of these are in UI components and can be updated later through the CMS or individually.
+                </div>
+            </section>
+
+            <section id="verification">
+                <h2>✅ Verification Checklist</h2>
+
+                <div class="checklist">
+                    <h3>Critical Setup (Must Work):</h3>
+                    <ul>
+                        <li>Git remote points to new repository</li>
+                        <li>Dependencies updated to latest versions and project builds (<code>npm run build</code>)</li>
+                        <li>Type checking passes (<code>npm run typecheck</code>)</li>
+                        <li>Environment variables updated with your Sanity project credentials</li>
+                        <li>Sanity Studio accessible at <code>/studio</code> with your project's empty schemas</li>
+                        <li>Frontend loads without errors at <code>http://localhost:3000</code></li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Domain Configuration:</h3>
+                    <ul>
+                        <li>Domain fallbacks updated in robots.txt, sitemap, and layout files</li>
+                        <li><code>robots.txt</code> route shows your domain</li>
+                        <li><code>sitemap.xml</code> generates with your domain</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Branding Updates:</h3>
+                    <ul>
+                        <li>Organization schema updated in layout.tsx</li>
+                        <li>Sanity schema default values updated</li>
+                        <li>Package.json name updated</li>
+                        <li>Email references updated</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>🚀 Next Steps</h2>
+
+                <p>After completing this setup, you can work with the AI assistant to:</p>
+                <ol>
+                    <li>Remove schemas and components you don't need</li>
+                    <li>Modify existing schemas for your use case</li>
+                    <li>Update remaining branding and styling throughout the UI</li>
+                    <li>Add new functionality specific to your project</li>
+                    <li>Populate with your actual content through the Sanity Studio</li>
+                </ol>
+
+                <p>The foundation will be solid and ready for customization while preserving all the performance optimizations, SEO implementation, and technical architecture.</p>
+            </section>
+
+            <section>
+                <h2>🛠 Troubleshooting</h2>
+
+                <h3>Common Issues:</h3>
+                <ul>
+                    <li><strong>Sanity Studio not loading:</strong> Check your project ID and API tokens in .env.local</li>
+                    <li><strong>Build errors after dependency updates:</strong> Review breaking changes in updated packages</li>
+                    <li><strong>Domain not showing in robots.txt:</strong> Verify NEXT_PUBLIC_BASE_URL is set correctly</li>
+                    <li><strong>TypeScript errors:</strong> Run <code>npm run typegen</code> to regenerate Sanity types</li>
+                </ul>
+
+                <h3>Getting Help:</h3>
+                <ul>
+                    <li>Check Sanity project settings at sanity.io/manage</li>
+                    <li>Verify environment variables are correctly set</li>
+                    <li>Ensure your Sanity project dataset exists and is accessible</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+'use client';
+
+import React, { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
+import UnifiedImage from '@/components/UI/UnifiedImage';
+import type { HEADER_QUERYResult } from '@/sanity/types';
+import HorizontalNav from './HorizontalNav';
+import MenuButton from './MenuButton';
+import VerticalNav from './VerticalNav/VerticalNav';
+import SkipLink from '@/components/UI/SkipLink';
+import { useHeader } from '@/contexts/HeaderContext';
+import { headerHeight } from '@/utils/spacingConstants';
+
+interface HeaderProps {
+  headerData: HEADER_QUERYResult | null;
+}
+
+const Header = ({ headerData }: HeaderProps) => {
+  const { enableOpacityFade } = useHeader();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Always start transparent - useEffect will set correct value
+  const [headerOpacity, setHeaderOpacity] = useState(0);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
+
+  // Set opacity based on enableOpacityFade state
+  useEffect(() => {
+    if (!enableOpacityFade) {
+      // Delay setting opacity to allow Hero to mount and update context first
+      const timer = setTimeout(() => {
+        setHeaderOpacity(1);
+      }, 50);
+
+      return () => clearTimeout(timer);
+    }
+  }, [enableOpacityFade]);
+
+  // Handle scroll for header background opacity fade
+  useEffect(() => {
+    // Only add scroll listener if opacity fade is enabled
+    if (!enableOpacityFade) return;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Fade in background over first xxpx of scroll
+      const opacity = Math.min(scrollY / 30, 1);
+      setHeaderOpacity(opacity);
+    };
+
+    // Set initial state
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [enableOpacityFade]);
+
+  // Close menu on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    };
+
+    // Add event listener when menu is open
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    // Cleanup event listener
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen, closeMenu]);
+
+  /*
+    HEADER HEIGHT DEFINITION:
+    -> Imported from spacingConstants.ts as headerHeight constant
+
+    ⚠️ IMPORTANT: If these heights are changed, update:
+    - src/utils/spacingConstants.ts (headerHeight and headerHeightCalc)
+    - src/components/HomeHero/styles.module.css
+    - src/components/Header/VerticalNav/VerticalNav.tsx
+  */
+  return (
+    <>
+      <SkipLink href='#main-content'>Skip to main content</SkipLink>
+      <header
+        className={`fixed top-0 left-0 right-0 w-full px-4 md:px-8 ${headerHeight} flex items-center justify-between gap-8 z-50 transition-all duration-300`}
+        style={{
+          backgroundColor: `rgba(67, 12, 8, ${headerOpacity})`, // bg-brand-secondary (#430c08) with variable opacity
+        }}>
+        {/* Logo */}
+        <Link
+          href='/#home'
+          className='flex items-center gap-2 transition-opacity duration-300'
+          style={{
+            opacity: headerOpacity,
+            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',
+          }}>
+          <UnifiedImage
+            src='/images/logos/logo-white.png'
+            alt='Taupiri Sound Logo'
+            mode='sized'
+            width={200}
+            height={125}
+            sizeContext='logo'
+            objectFit='contain'
+            className='w-[160px] md:w-[180px] h-auto'
+            priority
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className='flex-grow flex justify-end'>
+          <HorizontalNav navLinks={headerData?.horizontalNav || null} />
+        </div>
+
+        {/* Hamburger Menu Button */}
+        <MenuButton
+          variant='hamburger'
+          isMenuOpen={isMenuOpen}
+          onClick={toggleMenu}
+          ariaControls='mobile-navigation-menu'
+        />
+      </header>
+
+      {/* Vertical Menu */}
+      <VerticalNav
+        isMenuOpen={isMenuOpen}
+        onClose={closeMenu}
+        navLinks={headerData?.verticalNav || null}
+        navCtas={headerData?.verticalNavCtas || null}
+      />
+    </>
+  );
+};
+
+export default Header;

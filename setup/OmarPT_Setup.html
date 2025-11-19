@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmarPT Project Setup Instructions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+
+        h4 {
+            color: #718096;
+            font-size: 1.1rem;
+            margin: 20px 0 8px 0;
+        }
+
+        p, li {
+            margin-bottom: 8px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .important {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-left: 4px solid #f56565;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .important strong {
+            color: #c53030;
+        }
+
+        .note {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .note strong {
+            color: #2f855a;
+        }
+
+        code {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.9rem;
+            color: #d63384;
+        }
+
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', Consolas, monospace;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .bash {
+            background: #2d3748;
+        }
+
+        .env {
+            background: #2a4365;
+        }
+
+        .js {
+            background: #553c9a;
+        }
+
+        .file-path {
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin: 10px 0;
+        }
+
+        .checklist {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .checklist h3 {
+            color: #2d3748;
+            margin-top: 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .checklist li:before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .toc {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>OmarPT Project Setup</h1>
+            <p>Complete guide for cloning Taupiri Sound project for OmarPT</p>
+        </div>
+
+        <div class="content">
+            <div class="toc">
+                <h3>📋 Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#step1">Step 1: Clone Repository Without Git History</a></li>
+                    <li><a href="#step2">Step 2: Update Dependencies to Latest Versions</a></li>
+                    <li><a href="#step3">Step 3: Update Project Identity</a></li>
+                    <li><a href="#step4">Step 4: Environment Variables Setup</a></li>
+                    <li><a href="#step5">Step 5: Site Configuration Constants</a></li>
+                    <li><a href="#step6">Step 6: Brand Colors and Styling</a></li>
+                    <li><a href="#step7">Step 7: Logo and Image Assets</a></li>
+                    <li><a href="#step8">Step 8: Email Configuration</a></li>
+                    <li><a href="#step9">Step 9: Test the Setup</a></li>
+                    <li><a href="#verification">Verification Checklist</a></li>
+                </ul>
+            </div>
+
+            <section id="overview">
+                <h2>📖 Overview</h2>
+                <p>This guide will help you clone the Taupiri Sound project and set it up as a fresh project for OmarPT. The process ensures:</p>
+                <ul>
+                    <li><strong>Preserves destination branch git history</strong> - Your existing commits stay intact</li>
+                    <li><strong>No source git history transferred</strong> - Only the latest files from source, not the commit history</li>
+                    <li><strong>Complete file replacement</strong> - All files (including hidden config files) replaced from source</li>
+                    <li><strong>Latest package versions</strong> - Instead of using locked versions from source</li>
+                    <li><strong>New Sanity.io setup</strong> - Fresh Sanity project for OmarPT</li>
+                    <li><strong>New Resend setup</strong> - Fresh email service for OmarPT</li>
+                </ul>
+            </section>
+
+            <section id="step1">
+                <h2><span class="step-number">1</span>Clone Source Branch and Replace Destination Files</h2>
+
+                <div class="important">
+                    <strong>IMPORTANT:</strong> This process clones the source branch WITHOUT git history, then replaces all files in your destination branch while PRESERVING the destination's git history.
+                </div>
+
+                <h3>Step 1a: Clone the source branch and replace destination files</h3>
+                <pre class="bash"><code># Navigate to your destination project directory (the one with existing files)
+cd /path/to/your/destination-project
+
+# Make sure you're on the correct destination branch
+git checkout your-destination-branch
+
+# OPTIONAL BUT RECOMMENDED: Create a backup branch before proceeding
+git branch backup-before-template-$(date +%Y%m%d)
+
+# Clone the specific source branch (replace 'development' with your desired branch)
+# This command clones only the latest commit without history
+git clone --depth 1 --branch development https://github.com/yourusername/taupiri-website.git temp-clone
+
+# Remove ALL existing files in destination (INCLUDING hidden files, but NOT .git)
+# This ensures a complete replacement
+find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+
+# Move all files from the temp clone to the current directory
+mv temp-clone/* ./
+mv temp-clone/.??* ./ 2>/dev/null || true  # Move hidden files (but not . or ..)
+
+# Clean up temporary clone directory
+rm -rf temp-clone</code></pre>
+
+                <div class="note">
+                    <strong>Why delete hidden files?</strong> Hidden files like <code>.env.local</code>, <code>.gitignore</code>, <code>.eslintrc</code>, etc. from the destination project need to be replaced with the source project's versions to ensure configuration consistency. The only file we preserve is <code>.git</code> (the git history).
+                </div>
+
+                <div class="note">
+                    <strong>What this does:</strong>
+                    <ul>
+                        <li>✅ Preserves your destination branch's git history</li>
+                        <li>✅ Replaces ALL files (visible and hidden) with source files</li>
+                        <li>✅ No git history from source project is transferred</li>
+                        <li>✅ You can commit the changes to your existing branch</li>
+                    </ul>
+                </div>
+
+                <h3>Step 1b: Commit the replaced files to your destination branch</h3>
+                <pre class="bash"><code># Check what files were changed
+git status
+
+# Add all the new/changed files
+git add .
+
+# Commit the template files to your destination branch
+git commit -m "Replace all files with Taupiri Sound template
+
+- Complete file replacement from Taupiri Sound project
+- Preserves destination branch git history
+- Ready for customization to OmarPT project"
+
+# Push to your destination repository
+# No force push needed - we're just adding a new commit to existing history
+git push origin your-destination-branch</code></pre>
+
+                <div class="note">
+                    <strong>Result:</strong> Your destination branch now has all files from Taupiri Sound as a new commit in your existing git history. If something goes wrong, you can easily revert this commit or switch to your backup branch.
+                </div>
+            </section>
+
+            <section id="step2">
+                <h2><span class="step-number">2</span>Update Dependencies to Latest Versions</h2>
+
+                <div class="important">
+                    <strong>IMPORTANT:</strong> Install latest versions of all dependencies instead of using locked versions from Taupiri Sound.
+                </div>
+
+                <h3>Delete existing dependency lock files:</h3>
+                <pre class="bash"><code>rm package-lock.json</code></pre>
+
+                <h3>Update package.json with latest dependency versions:</h3>
+                <pre class="bash"><code># This command updates all dependencies to their latest versions
+npx npm-check-updates -u</code></pre>
+
+                <h3>Install the updated dependencies:</h3>
+                <pre class="bash"><code>npm install</code></pre>
+
+                <h3>Test that everything works:</h3>
+                <pre class="bash"><code>npm run build
+npm run typecheck</code></pre>
+
+                <div class="note">
+                    <strong>Note:</strong> If there are breaking changes from version updates, you may need to address them. Check the build output for errors and review dependency changelogs.
+                </div>
+            </section>
+
+            <section id="step3">
+                <h2><span class="step-number">3</span>Update Project Identity</h2>
+
+                <h3>Update package.json</h3>
+                <div class="file-path"><strong>File:</strong> package.json</div>
+                <ul>
+                    <li><strong>Line 2:</strong> Change <code>"name": "taupiri-website"</code> to <code>"name": "omarpt-website"</code></li>
+                    <li><strong>Line 3:</strong> Update version to <code>"0.1.0"</code> or your desired starting version</li>
+                </ul>
+            </section>
+
+            <section id="step4">
+                <h2><span class="step-number">4</span>Environment Variables Setup</h2>
+
+                <div class="important">
+                    <strong>CRITICAL:</strong> You MUST update all environment variables with your new Sanity and Resend credentials.
+                </div>
+
+                <h3>A. Create New Sanity Project</h3>
+                <ol>
+                    <li>Go to <a href="https://www.sanity.io/manage" target="_blank">sanity.io/manage</a></li>
+                    <li>Click "Create new project"</li>
+                    <li>Name your project (e.g., "OmarPT Website")</li>
+                    <li>Create a dataset (e.g., "production" and/or "development")</li>
+                    <li>Copy your <strong>Project ID</strong> (you'll need this for .env.local)</li>
+                    <li>Go to API settings and create a <strong>Read Token</strong> with Viewer permissions</li>
+                    <li>Optionally create a <strong>Write Token</strong> if needed</li>
+                </ol>
+
+                <h3>B. Create New Resend Account/Project</h3>
+                <ol>
+                    <li>Go to <a href="https://resend.com" target="_blank">resend.com</a> and sign up or log in</li>
+                    <li>Create a new API key</li>
+                    <li>Copy the API key (you'll need this for .env.local)</li>
+                    <li>For production: Add and verify your domain</li>
+                    <li>For development: You can use <code>onboarding@resend.dev</code> as the from address</li>
+                </ol>
+
+                <h3>C. Update .env.local File</h3>
+                <div class="file-path"><strong>File:</strong> .env.local</div>
+                <p>Replace <strong>ALL</strong> values with your new project details:</p>
+
+                <pre class="env"><code># Environment
+NEXT_PUBLIC_ENV="development"
+
+# Sanity Configuration - UPDATE WITH YOUR NEW PROJECT
+NEXT_PUBLIC_SANITY_PROJECT_ID="your-new-sanity-project-id"
+NEXT_PUBLIC_SANITY_DATASET="development"  # or "production"
+NEXT_PUBLIC_SANITY_STUDIO_URL="/studio"
+
+# Site Configuration
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"  # For development
+
+# Sanity API Tokens - GET THESE FROM YOUR NEW SANITY PROJECT
+SANITY_API_READ_TOKEN="your-new-sanity-read-token"
+
+# Resend API Configuration - GET THIS FROM YOUR NEW RESEND ACCOUNT
+RESEND_API_KEY="your-new-resend-api-key"
+
+# Email Configuration
+NEXT_PUBLIC_CONTACT_EMAIL="contact@omarpt.com"  # Where form submissions go
+RESEND_FROM_EMAIL="OmarPT <onboarding@resend.dev>"  # For dev; use verified domain for prod
+
+# THIS ONE NOT NEEDED ON VERCEL
+SANITY_API_WRITE_TOKEN="your-new-sanity-write-token"  # Optional</code></pre>
+
+                <div class="note">
+                    <strong>Production Environment Variables:</strong> When deploying to Vercel, you'll need to add all these variables (except SANITY_API_WRITE_TOKEN) to your Vercel project settings under "Environment Variables".
+                </div>
+            </section>
+
+            <section id="step5">
+                <h2><span class="step-number">5</span>Site Configuration Constants</h2>
+
+                <div class="note">
+                    <strong>✨ Centralized Configuration:</strong> This is the MOST IMPORTANT file to update. All site references use this single source of truth.
+                </div>
+
+                <h3>Update Constants File</h3>
+                <div class="file-path"><strong>File:</strong> src/lib/constants.ts</div>
+                <p>Update ALL values in this file with OmarPT details:</p>
+
+                <pre class="js"><code>export const SITE_CONFIG = {
+  // Production domain - UPDATE THIS
+  PRODUCTION_DOMAIN: 'https://omarpt.com',  // Change from 'https://taupirisound.co.nz'
+
+  // Maintenance Mode - Keep false unless needed
+  MAINTENANCE_MODE_ENABLED: false,
+
+  // Organization information - UPDATE ALL
+  ORGANIZATION_NAME: 'OmarPT',  // Change from 'Taupiri Sound'
+  ORGANIZATION_DESCRIPTION: 'Your OmarPT description here',  // Update description
+
+  // Contact information - UPDATE ALL
+  ORGANIZATION_EMAIL: {
+    value: 'contact@omarpt.com',  // Change from 'lance@taupirisound.co.nz'
+    link: 'mailto:contact@omarpt.com',
+  },
+  ORGANIZATION_PHONE: {
+    value: '+1 XXX XXX XXXX',  // Update phone number
+    link: 'tel:+1XXXXXXXXXX'
+  },
+  ORGANIZATION_ADDRESS: {
+    value: 'Your Address, City, State ZIP, Country',  // Update address
+    link: 'https://maps.google.com/?q=Your+Address',  // Update maps link
+  },
+
+  // Business Location Details - UPDATE FOR LOCAL SEO
+  BUSINESS_LOCATION: {
+    streetAddress: 'Your Street Address',
+    addressLocality: 'Your City',
+    postalCode: 'Your ZIP',
+    addressRegion: 'Your State/Region',
+    addressCountry: 'US',  // Update country code
+    // GPS coordinates from Google Maps
+    latitude: 0.0000000,  // Update latitude
+    longitude: 0.0000000,  // Update longitude
+    // ISO 3166-2 region code
+    regionCode: 'US-XX',  // Update region code
+  },
+
+  // Business Hours
+  BUSINESS_HOURS: 'Mon-Fri 9AM-5PM',  // Update business hours
+
+  // Price Range (leave empty if not applicable)
+  PRICE_RANGE: '$$',  // Update or leave empty
+
+  // Service Areas - UPDATE FOR YOUR BUSINESS
+  SERVICE_AREAS: [
+    { type: 'Country', name: 'United States' },
+    { type: 'State', name: 'Your State' },
+    { type: 'City', name: 'Your City' },
+  ],
+
+  // Social Media Profiles - UPDATE WITH YOUR PROFILES
+  SOCIAL_MEDIA_PROFILES: [
+    'https://www.facebook.com/omarpt/',
+    'https://www.instagram.com/omarpt/',
+    // Add more social profiles as needed
+  ],
+
+  // PWA Manifest Settings
+  PWA_MANIFEST: {
+    name: 'OmarPT - Your Tagline',
+    shortName: 'OmarPT',
+    description: 'Your OmarPT description',
+    // Theme colors - UPDATE TO MATCH YOUR BRAND
+    themeColor: '#YOUR_PRIMARY_COLOR',  // Update to your primary brand color
+    backgroundColor: '#YOUR_SECONDARY_COLOR',  // Update to your secondary brand color
+  },
+} as const;</code></pre>
+
+                <div class="important">
+                    <strong>This file is critical!</strong> After updating this file, the following will automatically update:
+                    <ul>
+                        <li>robots.txt</li>
+                        <li>sitemap.xml</li>
+                        <li>Layout metadata</li>
+                        <li>Organization schema</li>
+                        <li>SEO metadata</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="step6">
+                <h2><span class="step-number">6</span>Brand Colors and Styling</h2>
+
+                <div class="important">
+                    <strong>CRITICAL CSS DUPLICATION:</strong> Brand colors must be updated in TWO locations for performance optimization.
+                </div>
+
+                <h3>A. Update Brand Colors in Globals CSS</h3>
+                <div class="file-path"><strong>File:</strong> src/app/globals.css</div>
+                <p>Update the brand color values (around line 16-28):</p>
+
+                <pre class="js"><code>@theme {
+  --color-brand-primary: #YOUR_PRIMARY_COLOR;     /* Change from #900000 */
+  --color-brand-secondary: #YOUR_SECONDARY_COLOR; /* Change from #430c08 */
+  --color-body: #YOUR_BODY_COLOR;                 /* Change from #71221d */
+  --color-subtle: #YOUR_SUBTLE_COLOR;             /* Change from #b8956a */
+  --color-brand-black: #YOUR_DARK_COLOR;          /* Change from #0a0000 */
+  --color-brand-white: #YOUR_LIGHT_COLOR;         /* Change from #fffbe8 */
+  --color-brand-white-dark: #YOUR_LIGHT_DARK;     /* Change from #fcf3d7 */
+
+  /* Update gradient backgrounds to use your new colors */
+  --background-image-brand-gradient-brown: linear-gradient(135deg, #YOUR_SECONDARY_COLOR 0%, #YOUR_DARK_COLOR 100%);
+  --background-image-brand-gradient-red: linear-gradient(135deg, #YOUR_PRIMARY_COLOR 0%, #YOUR_SECONDARY_COLOR 100%);
+  --background-image-brand-gradient-subtle: linear-gradient(135deg, #YOUR_PRIMARY_COLOR 0%, #YOUR_MEDIUM_COLOR 100%);
+  --background-image-brand-gradient-text: linear-gradient(to right, #YOUR_PRIMARY_COLOR 0%, #YOUR_SECONDARY_COLOR 100%);
+}</code></pre>
+
+                <h3>B. Update Critical CSS in Layout</h3>
+                <div class="file-path"><strong>File:</strong> src/app/layout.tsx</div>
+                <p>Update the inline critical CSS (around line 78-81):</p>
+
+                <pre class="js"><code>/* Essential brand colors for immediate render */
+:root {
+  --color-brand-primary: #YOUR_PRIMARY_COLOR;     /* Must match globals.css */
+  --color-brand-secondary: #YOUR_SECONDARY_COLOR; /* Must match globals.css */
+}</code></pre>
+
+                <div class="note">
+                    <strong>Why update both?</strong> The inline styles in layout.tsx load immediately for faster page rendering, while globals.css contains the complete styling. They must match to prevent visual flashing.
+                </div>
+
+                <h3>C. Update PWA Manifest Colors</h3>
+                <p>The PWA manifest colors in <code>src/lib/constants.ts</code> should match your brand colors (already updated in Step 5).</p>
+            </section>
+
+            <section id="step7">
+                <h2><span class="step-number">7</span>Logo and Image Assets</h2>
+
+                <h3>Replace Logo Files</h3>
+                <div class="file-path"><strong>Directory:</strong> public/images/logos/</div>
+                <p>Replace the following logo files with your OmarPT logos:</p>
+                <ul>
+                    <li><code>logo-white.png</code> - White logo for dark backgrounds</li>
+                    <li><code>logo-black.png</code> - Black logo for light backgrounds</li>
+                    <li><code>logo-only.png</code> - Logo icon/symbol only</li>
+                    <li><code>logo-left.png</code> - Full logo with text aligned left</li>
+                </ul>
+
+                <div class="note">
+                    <strong>Logo Usage:</strong> These logos are used throughout the site in headers, footers, and email templates. Maintain the same filenames to avoid updating multiple component references.
+                </div>
+
+                <h3>Replace OG Image</h3>
+                <div class="file-path"><strong>File:</strong> public/images/og-image.png</div>
+                <p>Replace with your OmarPT social sharing image (recommended size: 1200x630px)</p>
+
+                <h3>Update Favicon</h3>
+                <div class="file-path"><strong>File:</strong> src/app/favicon.ico</div>
+                <p>Replace with your OmarPT favicon</p>
+            </section>
+
+            <section id="step8">
+                <h2><span class="step-number">8</span>Email Configuration</h2>
+
+                <h3>A. Update Email Templates (Optional)</h3>
+                <p>If you want to customize the email templates, update these files:</p>
+                <ul>
+                    <li><code>src/lib/email-templates/confirmationEmail.tsx</code> - User confirmation email</li>
+                    <li><code>src/lib/email-templates/adminNotificationEmail.tsx</code> - Admin notification email</li>
+                </ul>
+
+                <div class="note">
+                    <strong>Email Logo:</strong> The email templates use the logo from <code>public/images/logos/logo-white.png</code> which you already updated in Step 7.
+                </div>
+            </section>
+
+            <section id="step9">
+                <h2><span class="step-number">9</span>Test the Setup</h2>
+
+                <h3>1. Start the development server:</h3>
+                <pre class="bash"><code>npm run dev</code></pre>
+
+                <h3>2. Verify the Sanity Studio works:</h3>
+                <ul>
+                    <li>Visit <code>http://localhost:3000/studio</code></li>
+                    <li>You should see an empty studio with all the schemas from Taupiri Sound</li>
+                    <li>Try creating a test document to verify your Sanity credentials work</li>
+                </ul>
+
+                <h3>3. Check that the frontend loads:</h3>
+                <ul>
+                    <li>Visit <code>http://localhost:3000</code></li>
+                    <li>The site should load (may show empty content since Sanity is empty)</li>
+                    <li>Check browser console for any errors</li>
+                </ul>
+
+                <h3>4. Run type checking:</h3>
+                <pre class="bash"><code>npm run typecheck</code></pre>
+
+                <h3>5. Test the build process:</h3>
+                <pre class="bash"><code>npm run build</code></pre>
+
+                <h3>6. Test SEO routes:</h3>
+                <ul>
+                    <li>Visit <code>http://localhost:3000/robots.txt</code> - Should show your OmarPT domain</li>
+                    <li>Visit <code>http://localhost:3000/sitemap.xml</code> - Should generate correctly</li>
+                </ul>
+
+                <h3>7. Test contact form (if Resend is configured):</h3>
+                <ul>
+                    <li>Create a contact form page in Sanity Studio</li>
+                    <li>Test submitting the form</li>
+                    <li>Verify emails are received</li>
+                </ul>
+            </section>
+
+            <section id="verification">
+                <h2>✅ Verification Checklist</h2>
+
+                <div class="checklist">
+                    <h3>Critical Setup (Must Complete):</h3>
+                    <ul>
+                        <li>Git history removed and fresh repository initialized</li>
+                        <li>All files from source branch copied to destination branch</li>
+                        <li>Dependencies updated to latest versions (<code>npm run build</code> succeeds)</li>
+                        <li>Type checking passes (<code>npm run typecheck</code> succeeds)</li>
+                        <li>Package.json name updated to "omarpt-website"</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Environment Configuration:</h3>
+                    <ul>
+                        <li>.env.local created with new Sanity project ID</li>
+                        <li>.env.local has new Sanity API read token</li>
+                        <li>.env.local has new Resend API key</li>
+                        <li>NEXT_PUBLIC_CONTACT_EMAIL set to OmarPT email</li>
+                        <li>RESEND_FROM_EMAIL configured correctly</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Site Configuration (src/lib/constants.ts):</h3>
+                    <ul>
+                        <li>PRODUCTION_DOMAIN updated to OmarPT domain</li>
+                        <li>ORGANIZATION_NAME changed to "OmarPT"</li>
+                        <li>ORGANIZATION_DESCRIPTION updated</li>
+                        <li>ORGANIZATION_EMAIL updated to OmarPT email</li>
+                        <li>ORGANIZATION_PHONE updated to OmarPT phone</li>
+                        <li>ORGANIZATION_ADDRESS updated to OmarPT address</li>
+                        <li>BUSINESS_LOCATION coordinates updated</li>
+                        <li>SERVICE_AREAS updated for OmarPT</li>
+                        <li>SOCIAL_MEDIA_PROFILES updated to OmarPT profiles</li>
+                        <li>PWA_MANIFEST name and colors updated</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Brand Colors and Styling:</h3>
+                    <ul>
+                        <li>Brand colors updated in src/app/globals.css</li>
+                        <li>Critical CSS colors updated in src/app/layout.tsx</li>
+                        <li>Both files have matching color values</li>
+                        <li>PWA manifest colors match brand colors</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Assets and Images:</h3>
+                    <ul>
+                        <li>logo-white.png replaced with OmarPT logo</li>
+                        <li>logo-black.png replaced with OmarPT logo</li>
+                        <li>logo-only.png replaced with OmarPT logo</li>
+                        <li>logo-left.png replaced with OmarPT logo</li>
+                        <li>og-image.png replaced with OmarPT image</li>
+                        <li>favicon.ico replaced with OmarPT favicon</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Email Configuration:</h3>
+                    <ul>
+                        <li>Email subject lines updated in api/contact/route.ts</li>
+                        <li>Email sender names updated to "OmarPT"</li>
+                        <li>Email templates reference correct logo</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Testing:</h3>
+                    <ul>
+                        <li>Development server runs (<code>npm run dev</code>)</li>
+                        <li>Sanity Studio accessible at /studio</li>
+                        <li>Can create documents in Sanity Studio</li>
+                        <li>Frontend loads without errors</li>
+                        <li>Build succeeds (<code>npm run build</code>)</li>
+                        <li>Type checking passes (<code>npm run typecheck</code>)</li>
+                        <li>robots.txt shows OmarPT domain</li>
+                        <li>sitemap.xml generates correctly</li>
+                        <li>Contact form works and sends emails</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>🚀 Next Steps</h2>
+
+                <h3>Immediate Actions:</h3>
+                <ol>
+                    <li><strong>Commit and push:</strong> Commit all changes and push to your destination repository</li>
+                    <li><strong>Deploy to Vercel:</strong> Connect your repository to Vercel and add environment variables</li>
+                    <li><strong>Configure production domain:</strong> Set up your custom domain in Vercel</li>
+                    <li><strong>Verify domain in Resend:</strong> Add and verify your domain for production email sending</li>
+                </ol>
+
+                <h3>Content Population:</h3>
+                <ol>
+                    <li>Create site settings in Sanity Studio</li>
+                    <li>Configure header and footer</li>
+                    <li>Create initial pages</li>
+                    <li>Upload images and media</li>
+                    <li>Test all functionality in production</li>
+                </ol>
+
+                <h3>Customization:</h3>
+                <ol>
+                    <li>Remove unwanted schemas/components from Taupiri Sound</li>
+                    <li>Modify existing schemas for OmarPT's needs</li>
+                    <li>Add new functionality specific to OmarPT</li>
+                    <li>Update remaining UI text and components</li>
+                    <li>Refine styling to match OmarPT brand</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>🛠 Troubleshooting</h2>
+
+                <h3>Common Issues:</h3>
+                <ul>
+                    <li><strong>Sanity Studio not loading:</strong> Check NEXT_PUBLIC_SANITY_PROJECT_ID and SANITY_API_READ_TOKEN in .env.local</li>
+                    <li><strong>Build errors after dependency updates:</strong> Review breaking changes in package changelogs, may need to downgrade specific packages</li>
+                    <li><strong>Type errors:</strong> Run <code>npm run typegen</code> to regenerate Sanity types</li>
+                    <li><strong>Email not sending:</strong> Verify RESEND_API_KEY is correct and from address is valid</li>
+                    <li><strong>Wrong domain in robots.txt:</strong> Check PRODUCTION_DOMAIN in src/lib/constants.ts</li>
+                    <li><strong>Colors not updating:</strong> Clear browser cache and ensure both globals.css AND layout.tsx are updated</li>
+                </ul>
+
+                <h3>Getting Help:</h3>
+                <ul>
+                    <li>Check Sanity project settings at <a href="https://www.sanity.io/manage" target="_blank">sanity.io/manage</a></li>
+                    <li>Verify Resend API key at <a href="https://resend.com" target="_blank">resend.com</a></li>
+                    <li>Review browser console for JavaScript errors</li>
+                    <li>Check server logs for API errors</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>📝 Additional Notes</h2>
+
+                <h3>What Stays from Taupiri Sound:</h3>
+                <ul>
+                    <li>All Sanity schemas (can be modified/removed later)</li>
+                    <li>Component structure and architecture</li>
+                    <li>SEO optimizations and structured data</li>
+                    <li>Performance optimizations</li>
+                    <li>Email form functionality</li>
+                    <li>Responsive design patterns</li>
+                </ul>
+
+                <h3>What Gets Replaced:</h3>
+                <ul>
+                    <li>All organization/business information</li>
+                    <li>Brand colors and styling</li>
+                    <li>Logos and images</li>
+                    <li>Contact information</li>
+                    <li>Sanity project connection</li>
+                    <li>Resend email configuration</li>
+                    <li>Git history</li>
+                </ul>
+
+                <h3>Files That May Still Reference "Taupiri Sound":</h3>
+                <p>After completing this setup, there may still be some references to "Taupiri Sound" in:</p>
+                <ul>
+                    <li>Component code comments</li>
+                    <li>Sanity schema descriptions</li>
+                    <li>This CLAUDE.md file (project instructions)</li>
+                    <li>README.md</li>
+                </ul>
+                <p>These can be updated gradually as you customize the project, or you can do a global find/replace for "Taupiri Sound" → "OmarPT".</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

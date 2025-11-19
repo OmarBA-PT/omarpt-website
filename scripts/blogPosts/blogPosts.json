@@ -1,0 +1,796 @@
+[
+  {
+    "title": "Behind the Boards: The Art of Electronic Music Production",
+    "subtitle": "Exploring the creative process and technical skills behind modern electronic music production at 0717 Records.",
+    "author": "Alex Chen",
+    "hasOverrideDate": true,
+    "overrideDate": "2024-11-15T14:30:00.000Z",
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-creative-foundation",
+        "title": "The Creative Foundation",
+        "anchorId": "creative-foundation",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-intro-text",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-intro",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-intro",
+                    "text": "Electronic music production has evolved dramatically over the past decade. At 0717 Records, our artists push the boundaries of what's possible with modern technology and creative vision."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-essential-tools",
+            "title": "Essential Tools and Techniques",
+            "anchorId": "essential-tools",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "itemList",
+                "_key": "il-toolkit",
+                "alignment": "left",
+                "items": [
+                  {
+                    "_key": "item-daws",
+                    "text": "Digital Audio Workstations (DAWs)"
+                  },
+                  {
+                    "_key": "item-hardware",
+                    "text": "Hardware synthesizers and controllers"
+                  },
+                  {
+                    "_key": "item-monitors",
+                    "text": "Studio monitors and acoustic treatment"
+                  },
+                  {
+                    "_key": "item-sampling",
+                    "text": "Creative sampling techniques"
+                  }
+                ]
+              },
+              {
+                "_type": "subSubSection",
+                "_key": "sss-software-mastery",
+                "title": "Software Mastery",
+                "anchorId": "software-mastery",
+                "textAlign": "inherit",
+                "content": [
+                  {
+                    "_type": "richText",
+                    "_key": "rt-software-text",
+                    "content": [
+                      {
+                        "_type": "block",
+                        "_key": "block-software",
+                        "children": [
+                          {
+                            "_type": "span",
+                            "_key": "span-software",
+                            "text": "Mastering your DAW is just the beginning. True artistry comes from understanding how each plugin and effect shapes your sound."
+                          }
+                        ],
+                        "style": "normal"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "spotifyWidget",
+        "_key": "spotify-example",
+        "url": "https://open.spotify.com/album/5TFo10agMIibzbwDz6xhaD?si=ixbM5DJjR5OC9kPcKcIysw",
+        "title": "Featured Production Example"
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "cardStyle": "feature",
+      "title": "Start Your Production Journey",
+      "bodyText": "Ready to dive deeper into electronic music production? Connect with our community of artists and producers.",
+      "buttonType": "link",
+      "text": "Join Our Community",
+      "variant": "filled",
+      "linkType": "internal",
+      "internalLink": {
+        "_type": "reference",
+        "_ref": "homePage"
+      }
+    }
+  },
+  {
+    "title": "The Rise of Underground Electronic Music",
+    "subtitle": null,
+    "author": "Jordan Silva",
+    "hasOverrideDate": false,
+    "overrideDate": null,
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-underground-movements",
+        "title": "Underground Movements",
+        "anchorId": "underground-movements",
+        "textAlign": "center",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-underground-intro",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-underground",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-underground",
+                    "text": "The underground electronic music scene continues to thrive, with artists creating innovative sounds that challenge conventional boundaries."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "quote",
+            "_key": "quote-underground",
+            "text": "Underground music isn't just about being anti-mainstream; it's about creative freedom and authentic expression.",
+            "attribution": "Star Control",
+            "textAlign": "inherit"
+          }
+        ]
+      },
+      {
+        "_type": "bandcampWidget",
+        "_key": "bandcamp-underground",
+        "embedCode": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1036249858/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/\" seamless><a href=\"https://starcontrol1.bandcamp.com/album/mark-i\">Mark I by Star Control</a></iframe>"
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-community-connection",
+        "title": "Community and Connection",
+        "anchorId": "community-connection",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "subSection",
+            "_key": "ss-building-networks",
+            "title": "Building Networks",
+            "anchorId": "building-networks",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "richText",
+                "_key": "rt-networks",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-networks",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-networks",
+                        "text": "The underground scene thrives on community. Artists support each other, share resources, and collaborate across genres and borders."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "ctaButton",
+                "_key": "cta-explore-artists",
+                "text": "Explore Underground Artists",
+                "variant": "outline",
+                "alignment": "center",
+                "linkType": "internal",
+                "internalLink": {
+                  "_type": "reference",
+                  "_ref": "homePage"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "cardStyle": "statement",
+      "title": "Support Underground Music",
+      "bodyText": "Every stream, share, and purchase helps keep the underground scene alive and growing.",
+      "buttonType": "email",
+      "text": "Get in Touch"
+    }
+  },
+  {
+    "title": "Label Management: Building a Sustainable Music Business",
+    "subtitle": "From artist development to distribution strategies, here's how modern record labels adapt and thrive in the digital age.",
+    "author": null,
+    "hasOverrideDate": true,
+    "overrideDate": "2024-10-22T09:00:00.000Z",
+    "content": [
+      {
+        "_type": "richText",
+        "_key": "rt-label-intro",
+        "content": [
+          {
+            "_type": "block",
+            "_key": "block-label",
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-label",
+                "text": "Running a successful record label in today's music industry requires a delicate balance of creative vision and business acumen."
+              }
+            ],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-artist-development",
+        "title": "Artist Development Strategies",
+        "anchorId": "artist-development",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "subSection",
+            "_key": "ss-talent-scouting",
+            "title": "Talent Scouting and Cultivation",
+            "anchorId": "talent-scouting",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "richText",
+                "_key": "rt-talent",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-talent",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-talent",
+                        "text": "Finding the right artists is only half the battle. The real magic happens in the development process, where raw talent is refined into something extraordinary."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "subSubSection",
+                "_key": "sss-partnership",
+                "title": "Long-term Partnership Approach",
+                "anchorId": "partnership-approach",
+                "textAlign": "inherit",
+                "content": [
+                  {
+                    "_type": "itemList",
+                    "_key": "il-partnership",
+                    "alignment": "left",
+                    "items": [
+                      {
+                        "_key": "item-creative-freedom",
+                        "text": "Creative freedom with strategic guidance"
+                      },
+                      {
+                        "_key": "item-technical-support",
+                        "text": "Technical support and studio access"
+                      },
+                      {
+                        "_key": "item-marketing",
+                        "text": "Marketing and promotional expertise"
+                      },
+                      {
+                        "_key": "item-distribution",
+                        "text": "Distribution network and industry connections"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "divider",
+        "_key": "divider-sections"
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-digital-distribution",
+        "title": "Digital Distribution and Marketing",
+        "anchorId": "digital-distribution",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-distribution",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-distribution",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-distribution",
+                    "text": "The digital landscape offers unprecedented opportunities for music distribution, but it also requires sophisticated marketing strategies to cut through the noise."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-platform-strategy",
+            "title": "Platform Strategy",
+            "anchorId": "platform-strategy",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "ctaCalloutLink",
+                "_key": "cta-spotify-releases",
+                "text": "Check out our latest releases on Spotify",
+                "linkType": "internal",
+                "internalLink": {
+                  "_type": "reference",
+                  "_ref": "homePage"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hasClosingCard": false,
+    "closingCard": null
+  },
+  {
+    "title": "The Evolution of Synthwave: From Retro to Future",
+    "subtitle": "Tracing the journey of synthwave from nostalgic throwback to cutting-edge electronic genre.",
+    "author": "Mira Rodriguez",
+    "hasOverrideDate": false,
+    "overrideDate": null,
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-historical-roots",
+        "title": "Historical Roots",
+        "anchorId": "historical-roots",
+        "textAlign": "center",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-synthwave-intro",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-synthwave",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-synthwave",
+                    "text": "Synthwave emerged from the intersection of 1980s nostalgia and modern electronic music production, creating a genre that feels both familiar and futuristic."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-eighties-influence",
+            "title": "The 80s Influence",
+            "anchorId": "eighties-influence",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "subSubSection",
+                "_key": "sss-iconic-sounds",
+                "title": "Iconic Sounds and Aesthetics",
+                "anchorId": "iconic-sounds",
+                "textAlign": "inherit",
+                "content": [
+                  {
+                    "_type": "itemList",
+                    "_key": "il-synthwave-elements",
+                    "alignment": "left",
+                    "items": [
+                      {
+                        "_key": "item-arpeggios",
+                        "text": "Analog synthesizer arpeggios"
+                      },
+                      {
+                        "_key": "item-drums",
+                        "text": "Gated reverb drums"
+                      },
+                      {
+                        "_key": "item-aesthetics",
+                        "text": "Neon-soaked visual aesthetics"
+                      },
+                      {
+                        "_key": "item-atmosphere",
+                        "text": "Cinematic atmosphere and mood"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "youTubeVideo",
+        "_key": "youtube-synthwave",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "title": "Synthwave Evolution Documentary"
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-modern-innovation",
+        "title": "Modern Innovation",
+        "anchorId": "modern-innovation",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-innovation",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-innovation",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-innovation",
+                    "text": "Today's synthwave artists are pushing beyond simple nostalgia, incorporating contemporary production techniques and diverse influences to create something entirely new."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-future-directions",
+            "title": "Future Directions",
+            "anchorId": "future-directions",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "quote",
+                "_key": "quote-future",
+                "text": "Synthwave isn't about living in the past—it's about using the past to build something better for the future.",
+                "attribution": "Anonymous Producer",
+                "textAlign": "inherit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "cardStyle": "feature",
+      "title": "Discover Synthwave Artists",
+      "bodyText": "Explore the cutting-edge synthwave artists pushing the boundaries of the genre.",
+      "buttonType": "link",
+      "text": "Browse Artists",
+      "variant": "outline",
+      "linkType": "internal",
+      "internalLink": {
+        "_type": "reference",
+        "_ref": "homePage"
+      }
+    }
+  },
+  {
+    "title": "Mastering and Audio Engineering: The Final Touch",
+    "subtitle": null,
+    "author": "David Park",
+    "hasOverrideDate": true,
+    "overrideDate": "2024-09-30T16:45:00.000Z",
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-art-of-mastering",
+        "title": "The Art of Mastering",
+        "anchorId": "art-of-mastering",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-mastering-intro",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-mastering",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-mastering",
+                    "text": "Mastering is the final creative step in music production, where technical precision meets artistic vision to create the polished sound that reaches listeners' ears."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-technical-fundamentals",
+            "title": "Technical Fundamentals",
+            "anchorId": "technical-fundamentals",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "itemList",
+                "_key": "il-mastering-tools",
+                "alignment": "left",
+                "items": [
+                  {
+                    "_key": "item-eq",
+                    "text": "EQ and frequency balance"
+                  },
+                  {
+                    "_key": "item-compression",
+                    "text": "Dynamic range compression"
+                  },
+                  {
+                    "_key": "item-stereo",
+                    "text": "Stereo field enhancement"
+                  },
+                  {
+                    "_key": "item-loudness",
+                    "text": "Loudness optimization"
+                  }
+                ]
+              },
+              {
+                "_type": "subSubSection",
+                "_key": "sss-listening-environment",
+                "title": "Listening Environment",
+                "anchorId": "listening-environment",
+                "textAlign": "inherit",
+                "content": [
+                  {
+                    "_type": "richText",
+                    "_key": "rt-environment",
+                    "content": [
+                      {
+                        "_type": "block",
+                        "_key": "block-environment",
+                        "children": [
+                          {
+                            "_type": "span",
+                            "_key": "span-environment",
+                            "text": "A properly treated room and high-quality monitors are essential for making accurate mastering decisions."
+                          }
+                        ],
+                        "style": "normal"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "divider",
+        "_key": "divider-mastering"
+      },
+      {
+        "_type": "richText",
+        "_key": "rt-mastering-process",
+        "content": [
+          {
+            "_type": "block",
+            "_key": "block-process",
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-process",
+                "text": "The mastering process requires both technical knowledge and creative intuition. Each track presents unique challenges and opportunities for enhancement."
+              }
+            ],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_type": "ctaEmailButton",
+        "_key": "cta-discuss-project",
+        "text": "Discuss Your Project",
+        "alignment": "center"
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "cardStyle": "statement",
+      "title": "Professional Mastering Services",
+      "bodyText": "Get your tracks professionally mastered by our experienced audio engineers.",
+      "buttonType": "email",
+      "text": "Request Quote"
+    }
+  },
+  {
+    "title": "Building a Fanbase: Digital Marketing for Electronic Artists",
+    "subtitle": "Comprehensive strategies for growing your audience and building lasting connections with fans in the digital age.",
+    "author": null,
+    "hasOverrideDate": false,
+    "overrideDate": null,
+    "content": [
+      {
+        "_type": "richText",
+        "_key": "rt-fanbase-intro",
+        "content": [
+          {
+            "_type": "block",
+            "_key": "block-fanbase",
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-fanbase",
+                "text": "In today's crowded digital landscape, building a dedicated fanbase requires more than just great music—it demands strategic thinking and authentic engagement."
+              }
+            ],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-social-media",
+        "title": "Social Media Strategy",
+        "anchorId": "social-media-strategy",
+        "textAlign": "left",
+        "content": [
+          {
+            "_type": "subSection",
+            "_key": "ss-platform-approaches",
+            "title": "Platform-Specific Approaches",
+            "anchorId": "platform-approaches",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "richText",
+                "_key": "rt-platforms",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-platforms",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-platforms",
+                        "text": "Each social media platform has its own culture and best practices. Understanding these differences is key to effective audience engagement."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "subSubSection",
+                "_key": "sss-content-creation",
+                "title": "Content Creation Tips",
+                "anchorId": "content-creation",
+                "textAlign": "inherit",
+                "content": [
+                  {
+                    "_type": "itemList",
+                    "_key": "il-content-ideas",
+                    "alignment": "left",
+                    "items": [
+                      {
+                        "_key": "item-bts",
+                        "text": "Behind-the-scenes studio footage"
+                      },
+                      {
+                        "_key": "item-wip",
+                        "text": "Work-in-progress snippets and teasers"
+                      },
+                      {
+                        "_key": "item-tutorials",
+                        "text": "Technical tutorials and tips"
+                      },
+                      {
+                        "_key": "item-collaborations",
+                        "text": "Artist collaboration stories"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-authentic-connections",
+        "title": "Building Authentic Connections",
+        "anchorId": "authentic-connections",
+        "textAlign": "center",
+        "content": [
+          {
+            "_type": "quote",
+            "_key": "quote-fanbase",
+            "text": "The best fanbase isn't the biggest one—it's the most engaged one.",
+            "attribution": "Brother Sister",
+            "textAlign": "inherit"
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-community-engagement",
+            "title": "Community Engagement",
+            "anchorId": "community-engagement",
+            "textAlign": "inherit",
+            "content": [
+              {
+                "_type": "richText",
+                "_key": "rt-engagement",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-engagement",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-engagement",
+                        "text": "True community building happens through consistent, genuine interactions. Respond to comments, share fan content, and make your audience feel valued."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "bandcampWidget",
+        "_key": "bandcamp-support",
+        "embedCode": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1036249858/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/\" seamless><a href=\"https://starcontrol1.bandcamp.com/album/mark-i\">Mark I by Star Control</a></iframe>"
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "cardStyle": "feature",
+      "title": "Ready to Grow Your Fanbase?",
+      "bodyText": "Connect with our marketing team to develop a customized strategy for your music career.",
+      "buttonType": "link",
+      "text": "Get Marketing Help",
+      "variant": "filled",
+      "linkType": "internal",
+      "internalLink": {
+        "_type": "reference",
+        "_ref": "homePage"
+      }
+    }
+  }
+]

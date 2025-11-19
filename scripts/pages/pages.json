@@ -1,0 +1,1085 @@
+[
+  {
+    "title": "What We Can Do for You",
+    "slug": {
+      "current": "what-we-can-do-for-you"
+    },
+    "subtitle": "Discover the comprehensive services and opportunities 0717 Records offers to artists, fans, and music industry professionals.",
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-artist-services",
+        "title": "Artist Development & Support",
+        "anchorId": "artist-services",
+        "content": [
+          {
+            "_type": "richText",
+            "_key": "rt-artist-intro",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-artist-intro",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-artist-intro",
+                    "text": "At 0717 Records, we believe every artist deserves the support and resources needed to reach their full potential. Our comprehensive artist development program is designed to nurture creativity while providing the industry knowledge and connections essential for success in today's competitive music landscape."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "imageBlock",
+            "_key": "ib-artist-support",
+            "image": {
+              "_type": "image",
+              "alt": "Artists working together in our collaborative studio space"
+            }
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-production-services",
+            "title": "Production & Recording Services",
+            "anchorId": "production-services",
+            "content": [
+              {
+                "_type": "textImage",
+                "_key": "ti-studio-services",
+                "layout": "text-left",
+                "image": {
+                  "_type": "image",
+                  "alt": "State-of-the-art recording studio with analog mixing console"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-studio",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-studio",
+                        "text": "Our state-of-the-art recording facilities provide artists with access to industry-standard equipment and experienced producers who understand the nuances of electronic music production. From initial songwriting sessions to final mastering, we guide artists through every step of the creative process."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "itemList",
+                "_key": "il-production-features",
+                "alignment": "inherit",
+                "items": [
+                  {
+                    "_key": "item-mixing",
+                    "text": "Professional mixing & mastering"
+                  },
+                  {
+                    "_key": "item-collaboration",
+                    "text": "Artist collaboration opportunities"
+                  },
+                  {
+                    "_key": "item-equipment",
+                    "text": "Premium analog & digital gear"
+                  },
+                  {
+                    "_key": "item-guidance",
+                    "text": "Experienced producer guidance"
+                  },
+                  {
+                    "_key": "item-songwriting",
+                    "text": "Songwriting session support"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-marketing-promotion",
+            "title": "Marketing & Promotion",
+            "anchorId": "marketing-promotion",
+            "content": [
+              {
+                "_type": "textImage",
+                "_key": "ti-marketing-strategy",
+                "layout": "text-right",
+                "image": {
+                  "_type": "image",
+                  "alt": "Digital marketing dashboard showing streaming analytics and social media metrics"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-marketing",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-marketing",
+                        "text": "In today's digital age, great music alone isn't enough. Our marketing team develops tailored promotional strategies that help artists build authentic connections with their audience. We leverage both traditional and digital channels to maximize reach and engagement."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "itemList",
+                "_key": "il-marketing-services",
+                "alignment": "center",
+                "items": [
+                  {
+                    "_key": "item-social",
+                    "text": "Social media strategy"
+                  },
+                  {
+                    "_key": "item-streaming",
+                    "text": "Streaming platform optimization"
+                  },
+                  {
+                    "_key": "item-pr",
+                    "text": "Press & media relations"
+                  },
+                  {
+                    "_key": "item-radio",
+                    "text": "Radio campaign management"
+                  },
+                  {
+                    "_key": "item-influencer",
+                    "text": "Influencer partnerships"
+                  },
+                  {
+                    "_key": "item-analytics",
+                    "text": "Data analytics & insights"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-fan-experience",
+        "title": "Fan Engagement & Community",
+        "subtitle": "Building lasting connections between artists and their audiences",
+        "anchorId": "fan-experience",
+        "content": [
+          {
+            "_type": "imageGallery",
+            "_key": "ig-community-events",
+            "images": [
+              {
+                "_key": "img-live-show",
+                "_type": "image",
+                "alt": "Packed venue during a live 0717 Records showcase event"
+              },
+              {
+                "_key": "img-meet-greet",
+                "_type": "image", 
+                "alt": "Fans meeting artists at an exclusive backstage experience"
+              },
+              {
+                "_key": "img-community",
+                "_type": "image",
+                "alt": "Music fans connecting at our community meetup"
+              }
+            ]
+          },
+          {
+            "_type": "textImage",
+            "_key": "ti-community-building",
+            "layout": "text-left",
+            "image": {
+              "_type": "image",
+              "alt": "Fans enjoying music at an outdoor festival setting"
+            },
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-community",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-community",
+                    "text": "Music is more than entertainment—it's a catalyst for community. We create immersive experiences that bring fans closer to the artists they love while fostering connections between like-minded music enthusiasts from around the world."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-exclusive-content",
+            "title": "Exclusive Access & Content",
+            "anchorId": "exclusive-content",
+            "content": [
+              {
+                "_type": "itemList",
+                "_key": "il-member-benefits",
+                "alignment": "left",
+                "items": [
+                  {
+                    "_key": "item-early",
+                    "text": "Early access to releases"
+                  },
+                  {
+                    "_key": "item-behind",
+                    "text": "Behind-the-scenes content"
+                  },
+                  {
+                    "_key": "item-live",
+                    "text": "Exclusive live performances"
+                  },
+                  {
+                    "_key": "item-merch",
+                    "text": "Limited edition merchandise"
+                  },
+                  {
+                    "_key": "item-events",
+                    "text": "VIP event access"
+                  }
+                ]
+              },
+              {
+                "_type": "richText",
+                "_key": "rt-membership-details",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-membership",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-membership",
+                        "text": "Members of the 0717 Records community gain access to exclusive content and special events. We believe in rewarding our most dedicated fans with unique experiences that deepen their connection to our artists and their creative journey."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-technology",
+        "title": "Innovation & Technology",
+        "anchorId": "technology",
+        "content": [
+          {
+            "_type": "textImage",
+            "_key": "ti-tech-innovation",
+            "layout": "text-right",
+            "image": {
+              "_type": "image",
+              "alt": "Cutting-edge audio equipment and software in our tech lab"
+            },
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-tech",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-tech",
+                    "text": "We're constantly exploring new technologies to enhance the music creation and listening experience. From spatial audio to AI-assisted production tools, we ensure our artists have access to the latest innovations in electronic music production."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "itemList",
+            "_key": "il-tech-features",
+            "alignment": "center",
+            "items": [
+              {
+                "_key": "item-spatial",
+                "text": "Spatial audio production"
+              },
+              {
+                "_key": "item-vr",
+                "text": "Virtual reality experiences"
+              },
+              {
+                "_key": "item-ai",
+                "text": "AI production assistance"
+              },
+              {
+                "_key": "item-streaming",
+                "text": "High-quality streaming"
+              },
+              {
+                "_key": "item-mobile",
+                "text": "Mobile creation tools"
+              },
+              {
+                "_key": "item-blockchain",
+                "text": "Blockchain music rights"
+              }
+            ]
+          },
+          {
+            "_type": "imageBlock",
+            "_key": "ib-future-tech",
+            "image": {
+              "_type": "image",
+              "alt": "Futuristic visualization of sound waves and digital audio processing"
+            }
+          }
+        ]
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "_type": "card",
+      "title": "Ready to Get Started?",
+      "bodyText": "Whether you're an artist looking for representation or a fan wanting to join our community, we'd love to hear from you.",
+      "buttonType": "link",
+      "buttonText": "Contact Us Today",
+      "internalLink": {
+        "_type": "reference",
+        "_ref": "homePage"
+      }
+    }
+  },
+  {
+    "title": "0717 Summer Music Festival",
+    "slug": {
+      "current": "summer-festival-info"
+    },
+    "subtitle": "Join us for an unforgettable weekend of electronic music, community, and celebration at our inaugural summer festival.",
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-festival-overview",
+        "title": "Festival Overview",
+        "subtitle": "Three days of electronic music innovation in a stunning natural setting",
+        "anchorId": "festival-overview",
+        "content": [
+          {
+            "_type": "imageBlock",
+            "_key": "ib-festival-hero",
+            "image": {
+              "_type": "image",
+              "alt": "Aerial view of the festival grounds with main stage and surrounding landscape"
+            }
+          },
+          {
+            "_type": "richText",
+            "_key": "rt-festival-intro",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-festival-intro",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-festival-intro",
+                    "text": "The 0717 Summer Music Festival represents a new chapter in electronic music events. Set against a stunning natural backdrop, this three-day celebration brings together established and emerging artists from our roster alongside special guest performers from around the globe."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-dates-location",
+            "title": "When & Where",
+            "anchorId": "dates-location",
+            "content": [
+              {
+                "_type": "textImage",
+                "_key": "ti-venue-info",
+                "layout": "text-left",
+                "image": {
+                  "_type": "image",
+                  "alt": "Beautiful riverside venue with rolling hills and mature trees"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-venue",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-venue",
+                        "text": "Mark your calendars for July 17-19, 2025, as we transform the beautiful Riverside Park into an electronic music paradise. The venue offers 50 acres of rolling hills, mature trees, and stunning water views."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "itemList",
+                "_key": "il-venue-features",
+                "alignment": "left",
+                "items": [
+                  {
+                    "_key": "item-acres",
+                    "text": "50 acres of natural beauty"
+                  },
+                  {
+                    "_key": "item-stages",
+                    "text": "Three unique performance stages"
+                  },
+                  {
+                    "_key": "item-water",
+                    "text": "Scenic riverside location"
+                  },
+                  {
+                    "_key": "item-camping",
+                    "text": "On-site camping available"
+                  },
+                  {
+                    "_key": "item-parking",
+                    "text": "Ample parking facilities"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-ticket-info",
+        "title": "Tickets & Pricing",
+        "anchorId": "ticket-info",
+        "content": [
+          {
+            "_type": "textImage",
+            "_key": "ti-ticket-announcement",
+            "layout": "text-right",
+            "image": {
+              "_type": "image",
+              "alt": "Colorful festival tickets and wristbands laid out on a wooden surface"
+            },
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-ticket-announcement",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-ticket-announcement",
+                    "text": "Tickets for the 0717 Summer Music Festival will be available starting February 14, 2025, at 10:00 AM EST. We're offering several ticket tiers to accommodate different preferences and budgets."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-ticket-tiers",
+            "title": "Available Ticket Options",
+            "anchorId": "ticket-tiers",
+            "content": [
+              {
+                "_type": "itemList",
+                "_key": "il-ticket-types",
+                "alignment": "inherit",
+                "items": [
+                  {
+                    "_key": "item-general",
+                    "text": "General Admission: $189"
+                  },
+                  {
+                    "_key": "item-vip",
+                    "text": "VIP Experience: $349"
+                  },
+                  {
+                    "_key": "item-artist",
+                    "text": "Artist Circle: $599"
+                  },
+                  {
+                    "_key": "item-single",
+                    "text": "Single Day: From $75"
+                  },
+                  {
+                    "_key": "item-early",
+                    "text": "Early bird: 20% discount"
+                  }
+                ]
+              },
+              {
+                "_type": "imageGallery",
+                "_key": "ig-ticket-benefits",
+                "images": [
+                  {
+                    "_key": "img-vip",
+                    "_type": "image",
+                    "alt": "VIP lounge area with comfortable seating and premium viewing"
+                  },
+                  {
+                    "_key": "img-backstage",
+                    "_type": "image",
+                    "alt": "Behind-the-scenes access to artist preparation areas"
+                  },
+                  {
+                    "_key": "img-meet",
+                    "_type": "image",
+                    "alt": "Exclusive meet and greet session with festival artists"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-practical-info",
+        "title": "Festival Information",
+        "anchorId": "practical-info",
+        "content": [
+          {
+            "_type": "subSection",
+            "_key": "ss-logistics",
+            "title": "Getting There & Parking",
+            "anchorId": "logistics",
+            "content": [
+              {
+                "_type": "imageBlock",
+                "_key": "ib-transport",
+                "image": {
+                  "_type": "image",
+                  "alt": "Festival shuttle buses and parking areas with clear signage"
+                }
+              },
+              {
+                "_type": "itemList",
+                "_key": "il-transport-options",
+                "alignment": "left",
+                "items": [
+                  {
+                    "_key": "item-parking",
+                    "text": "Car parking: $25/day"
+                  },
+                  {
+                    "_key": "item-shuttle",
+                    "text": "Downtown shuttles every 30min"
+                  },
+                  {
+                    "_key": "item-carpool",
+                    "text": "Preferred carpool parking"
+                  },
+                  {
+                    "_key": "item-rideshare",
+                    "text": "Rideshare pickup zones"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-amenities",
+            "title": "Food, Drink & Amenities",
+            "anchorId": "amenities",
+            "content": [
+              {
+                "_type": "textImage",
+                "_key": "ti-food-info",
+                "layout": "text-left",
+                "image": {
+                  "_type": "image",
+                  "alt": "Diverse food vendor stalls offering various cuisines and dietary options"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-food",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-food",
+                        "text": "Over 20 local food vendors will offer diverse culinary options, from quick bites to gourmet meals. All dietary restrictions will be accommodated with clearly marked options."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "itemList",
+                "_key": "il-amenities",
+                "alignment": "center",
+                "items": [
+                  {
+                    "_key": "item-food",
+                    "text": "20+ food vendors"
+                  },
+                  {
+                    "_key": "item-bars",
+                    "text": "Multiple craft beer bars"
+                  },
+                  {
+                    "_key": "item-dietary",
+                    "text": "Vegan & gluten-free options"
+                  },
+                  {
+                    "_key": "item-restrooms",
+                    "text": "Clean restroom facilities"
+                  },
+                  {
+                    "_key": "item-charging",
+                    "text": "Device charging stations"
+                  },
+                  {
+                    "_key": "item-medical",
+                    "text": "First aid & medical tents"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-accessibility",
+            "title": "Accessibility & Inclusion",
+            "anchorId": "accessibility",
+            "content": [
+              {
+                "_type": "richText",
+                "_key": "rt-accessibility",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-accessibility",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-accessibility",
+                        "text": "The 0717 Summer Music Festival is committed to creating an inclusive environment for all attendees. The venue features accessible pathways, designated viewing areas for wheelchair users, and accessible restroom facilities."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "_type": "card",
+      "title": "Stay Updated",
+      "bodyText": "Be the first to know about ticket releases, lineup announcements, and festival updates.",
+      "buttonType": "email",
+      "buttonText": "Join Our Newsletter",
+      "emailAddress": "newsletter@0717records.com"
+    }
+  },
+  {
+    "title": "Our Story",
+    "slug": {
+      "current": "our-story"
+    },
+    "subtitle": "The journey of 0717 Records—from a passionate idea to a thriving community of electronic music innovators.",
+    "content": [
+      {
+        "_type": "pageSection",
+        "_key": "ps-origins",
+        "title": "How It All Began",
+        "anchorId": "origins",
+        "content": [
+          {
+            "_type": "textImage",
+            "_key": "ti-founding-story",
+            "layout": "text-right",
+            "image": {
+              "_type": "image",
+              "alt": "Vintage photo of the original garage studio setup with basic equipment and three friends"
+            },
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-founding",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-founding",
+                    "text": "The story of 0717 Records begins on a warm summer evening in July 2017, when three friends gathered in a converted garage studio in East London. What started as late-night sessions exploring the boundaries of electronic music has evolved into a label that champions innovation, creativity, and authentic artistic expression."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-founding-vision",
+            "title": "Our Founding Vision",
+            "anchorId": "founding-vision",
+            "content": [
+              {
+                "_type": "imageBlock",
+                "_key": "ib-early-studio",
+                "image": {
+                  "_type": "image",
+                  "alt": "The original converted garage studio with makeshift acoustic treatment and vintage synthesizers"
+                }
+              },
+              {
+                "_type": "richText",
+                "_key": "rt-vision-statement",
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-vision",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-vision",
+                        "text": "From the beginning, we knew we wanted to do things differently. The electronic music scene was saturated with labels focused purely on commercial success. We envisioned a space where artists could experiment freely and where unconventional sounds were celebrated."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "itemList",
+                "_key": "il-core-values",
+                "alignment": "left",
+                "items": [
+                  {
+                    "_key": "item-freedom",
+                    "text": "Creative artistic freedom"
+                  },
+                  {
+                    "_key": "item-innovation",
+                    "text": "Sound innovation priority"
+                  },
+                  {
+                    "_key": "item-community",
+                    "text": "Strong artist community"
+                  },
+                  {
+                    "_key": "item-integrity",
+                    "text": "Maintaining artistic integrity"
+                  },
+                  {
+                    "_key": "item-support",
+                    "text": "Comprehensive artist support"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-founders",
+        "title": "The Minds Behind the Music",
+        "subtitle": "Meet the diverse team driving 0717 Records forward",
+        "anchorId": "founders",
+        "content": [
+          {
+            "_type": "imageGallery",
+            "_key": "ig-founders-gallery",
+            "images": [
+              {
+                "_key": "img-alex",
+                "_type": "image",
+                "alt": "Alex Chen in the studio working on a new track with analog synthesizers"
+              },
+              {
+                "_key": "img-maya",
+                "_type": "image",
+                "alt": "Maya Rodriguez at a live DJ set engaging with the crowd"
+              },
+              {
+                "_key": "img-jamie",
+                "_type": "image",
+                "alt": "Jamie Thompson adjusting audio equipment in the technical control room"
+              },
+              {
+                "_key": "img-team",
+                "_type": "image",
+                "alt": "The founding team collaborating in their modern studio space"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-founder-profiles",
+            "title": "Meet the Founders",
+            "anchorId": "founder-profiles",
+            "content": [
+              {
+                "_type": "textImage",
+                "_key": "ti-founder-alex",
+                "layout": "text-left",
+                "image": {
+                  "_type": "image",
+                  "alt": "Portrait of Alex Chen in the creative workspace surrounded by music production equipment"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-alex",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-alex",
+                        "text": "Alex Chen, our Creative Director, brings over a decade of experience as a producer and sound designer. Having worked with major labels in Los Angeles and Berlin, Alex's vision for 0717 Records centers on creating a supportive ecosystem where artists can push creative boundaries."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "textImage",
+                "_key": "ti-founder-maya",
+                "layout": "text-right",
+                "image": {
+                  "_type": "image",
+                  "alt": "Maya Rodriguez speaking at a music industry conference about artist development"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-maya",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-maya",
+                        "text": "Maya Rodriguez serves as our Head of Artist Development, leveraging her experience as both a touring DJ and music business consultant. Her deep understanding of the modern music landscape ensures our artists are equipped with the tools they need to reach their audiences effectively."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "_type": "textImage",
+                "_key": "ti-founder-jamie",
+                "layout": "text-left",
+                "image": {
+                  "_type": "image",
+                  "alt": "Jamie Thompson working with cutting-edge spatial audio technology in the lab"
+                },
+                "content": [
+                  {
+                    "_type": "block",
+                    "_key": "block-jamie",
+                    "children": [
+                      {
+                        "_type": "span",
+                        "_key": "span-jamie",
+                        "text": "Jamie Thompson, our Technical Director, ensures that every release meets the highest production standards. With a background in audio engineering and passion for emerging technologies, Jamie oversees our state-of-the-art facilities."
+                      }
+                    ],
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-growth-evolution",
+        "title": "Growth & Evolution",
+        "anchorId": "growth-evolution",
+        "content": [
+          {
+            "_type": "textImage",
+            "_key": "ti-evolution-intro",
+            "layout": "text-right",
+            "image": {
+              "_type": "image",
+              "alt": "Timeline visualization showing the growth of 0717 Records from garage to global label"
+            },
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-evolution",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-evolution",
+                    "text": "What began as a small collective has grown into a globally recognized label, but our core values remain unchanged. Each milestone in our journey has been guided by the same principles that inspired that first session in 2017."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-milestones",
+            "title": "Key Milestones",
+            "anchorId": "milestones",
+            "content": [
+              {
+                "_type": "itemList",
+                "_key": "il-timeline",
+                "alignment": "inherit",
+                "items": [
+                  {
+                    "_key": "item-2017",
+                    "text": "2017: Founded in East London"
+                  },
+                  {
+                    "_key": "item-2018",
+                    "text": "2018: First #1 Beatport hit"
+                  },
+                  {
+                    "_key": "item-2019",
+                    "text": "2019: Shoreditch studio opened"
+                  },
+                  {
+                    "_key": "item-2020",
+                    "text": "2020: Virtual events launched"
+                  },
+                  {
+                    "_key": "item-2022",
+                    "text": "2022: Development program started"
+                  },
+                  {
+                    "_key": "item-2024",
+                    "text": "2024: LA facility expansion"
+                  },
+                  {
+                    "_key": "item-2025",
+                    "text": "2025: First summer festival"
+                  }
+                ]
+              },
+              {
+                "_type": "imageBlock",
+                "_key": "ib-studio-evolution",
+                "image": {
+                  "_type": "image",
+                  "alt": "Side-by-side comparison of the original garage studio and current professional facility"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "pageSection",
+        "_key": "ps-future-vision",
+        "title": "Looking Ahead",
+        "subtitle": "Our vision for the future of electronic music and artist development",
+        "anchorId": "future-vision",
+        "content": [
+          {
+            "_type": "imageGallery",
+            "_key": "ig-future-tech",
+            "images": [
+              {
+                "_key": "img-vr",
+                "_type": "image",
+                "alt": "Virtual reality music experience setup showing immersive concert technology"
+              },
+              {
+                "_key": "img-spatial",
+                "_type": "image",
+                "alt": "Spatial audio recording session with surround sound monitoring setup"
+              },
+              {
+                "_key": "img-festival",
+                "_type": "image",
+                "alt": "Concept art for the upcoming summer festival featuring multiple stages and innovative stage design"
+              }
+            ]
+          },
+          {
+            "_type": "textImage",
+            "_key": "ti-future-goals",
+            "layout": "text-left",
+            "image": {
+              "_type": "image",
+              "alt": "Futuristic visualization of music technology integration with holographic displays"
+            },
+            "content": [
+              {
+                "_type": "block",
+                "_key": "block-future",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "span-future",
+                    "text": "The future of 0717 Records is as exciting as our past has been transformative. We're expanding our global reach while maintaining the intimate, family-like atmosphere that has always defined us. Our upcoming summer festival marks a new chapter in live experiences."
+                  }
+                ],
+                "style": "normal"
+              }
+            ]
+          },
+          {
+            "_type": "subSection",
+            "_key": "ss-future-initiatives",
+            "title": "Upcoming Initiatives",
+            "anchorId": "future-initiatives",
+            "content": [
+              {
+                "_type": "itemList",
+                "_key": "il-future-plans",
+                "alignment": "center",
+                "items": [
+                  {
+                    "_key": "item-festival",
+                    "text": "Annual summer festival"
+                  },
+                  {
+                    "_key": "item-vr-concerts",
+                    "text": "VR concert experiences"
+                  },
+                  {
+                    "_key": "item-education",
+                    "text": "Music production education"
+                  },
+                  {
+                    "_key": "item-sustainability",
+                    "text": "Eco-friendly operations"
+                  },
+                  {
+                    "_key": "item-global",
+                    "text": "Global artist exchange"
+                  },
+                  {
+                    "_key": "item-tech",
+                    "text": "Cutting-edge tech integration"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hasClosingCard": true,
+    "closingCard": {
+      "_type": "card",
+      "title": "Join Our Journey",
+      "bodyText": "Whether you're an artist, fan, or industry professional, there's a place for you in the 0717 Records family.",
+      "buttonType": "link",
+      "buttonText": "Get Involved",
+      "internalLink": {
+        "_type": "reference",
+        "_ref": "homePage"
+      }
+    }
+  }
+]
