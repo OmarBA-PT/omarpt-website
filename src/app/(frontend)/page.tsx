@@ -6,12 +6,7 @@ import {
   getSiteSettings,
   getCompanyLinks,
   getContactFormSettings,
-  getClients,
-  getEquipmentList,
-  getTeamMembers,
-  getAllProjects,
 } from '@/actions';
-import type { PAGE_QUERYResult } from '@/sanity/types';
 import Container from '@/components/Layout/Container';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl } from '@/lib/metadata';
 
@@ -37,19 +32,11 @@ const Page = async () => {
     siteSettings,
     companyLinks,
     contactFormSettings,
-    clientsData,
-    equipmentListData,
-    teamMembersData,
-    allProjectsData,
   ] = await Promise.all([
     getHomePage(),
     getSiteSettings(),
     getCompanyLinks(),
     getContactFormSettings(),
-    getClients(),
-    getEquipmentList(),
-    getTeamMembers(),
-    getAllProjects(),
   ]);
 
   if (!page) {
@@ -78,15 +65,11 @@ const Page = async () => {
       {page.content && (
         <Container>
           <PageBuilder
-            content={page.content as NonNullable<PAGE_QUERYResult>['content']}
+            content={page.content}
             documentId={page._id}
             documentType={page._type}
             siteSettings={siteSettings || undefined}
             companyLinks={companyLinks}
-            clientsData={clientsData}
-            equipmentListData={equipmentListData}
-            teamMembersData={teamMembersData}
-            allProjectsData={allProjectsData}
             contactFormSettings={contactFormSettings}
             alignment='center'
           />

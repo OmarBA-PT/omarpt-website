@@ -9,8 +9,6 @@ const internalLinkProjection = `{
   "pageType": _type,
   "href": select(
     _type == "homePage" => "/",
-    _type == "blogIndexPage" => "/blog",
-    _type == "blogPost" => "/blog/" + slug.current,
     _type == "termsAndConditions" => "/terms-and-conditions",
     _type == "privacyPolicy" => "/privacy-policy",
     "/" + slug.current
@@ -30,35 +28,6 @@ const fullLinkProjection = `
     "/"
   )
 `;
-
-// Audio sample player projection that expands the audio sample reference
-const audioSamplePlayerProjection = `{
-  ...,
-  audioSamples[]->{
-    _id,
-    _type,
-    _key,
-    songName,
-    artistName,
-    services,
-    image{
-      asset,
-      alt,
-      hotspot,
-      crop
-    },
-    audioFile{
-      asset->{
-        _id,
-        url,
-        mimeType,
-        size,
-        originalFilename,
-        "duration": metadata.duration
-      }
-    }
-  }
-}`;
 
 // Closing card projection that properly expands card content including CTAs
 const closingCardProjection = `{
@@ -81,27 +50,7 @@ const closingCardProjection = `{
         hotspot,
         crop
       }
-    },
-    _type == "ctaBlogPost" => {
-      ...,
-      blogPost->{
-        _id,
-        _createdAt,
-        title,
-        slug,
-        subtitle,
-        author,
-        mainImage{
-          asset,
-          alt,
-          hotspot,
-          crop
-        },
-        hasOverrideDate,
-        overrideDate
-      }
-    },
-    _type == "audioSamplePlayer" => ${audioSamplePlayerProjection}
+    }
   }
 }`;
 
@@ -151,30 +100,9 @@ const contentProjection = `
           hotspot,
           crop
         }
-      },
-      _type == "ctaBlogPost" => {
-        ...,
-        blogPost->{
-          _id,
-          _createdAt,
-          title,
-          slug,
-          subtitle,
-          author,
-          mainImage{
-            asset,
-            alt,
-            hotspot,
-            crop
-          },
-          hasOverrideDate,
-          overrideDate
-        }
-      },
-      _type == "audioSamplePlayer" => ${audioSamplePlayerProjection}
+      }
     }
   },
-  _type == "audioSamplePlayer" => ${audioSamplePlayerProjection},
   _type == "twoColumnLayout" => {
     ...,
     leftColumn[]{
@@ -199,27 +127,7 @@ const contentProjection = `
               hotspot,
               crop
             }
-          },
-          _type == "ctaBlogPost" => {
-            ...,
-            blogPost->{
-              _id,
-              _createdAt,
-              title,
-              slug,
-              subtitle,
-              author,
-              mainImage{
-                asset,
-                alt,
-                hotspot,
-                crop
-              },
-              hasOverrideDate,
-              overrideDate
-            }
-          },
-          _type == "audioSamplePlayer" => ${audioSamplePlayerProjection}
+          }
         }
       },
       _type == "imageBlock" => {
@@ -254,27 +162,7 @@ const contentProjection = `
               hotspot,
               crop
             }
-          },
-          _type == "ctaBlogPost" => {
-            ...,
-            blogPost->{
-              _id,
-              _createdAt,
-              title,
-              slug,
-              subtitle,
-              author,
-              mainImage{
-                asset,
-                alt,
-                hotspot,
-                crop
-              },
-              hasOverrideDate,
-              overrideDate
-            }
-          },
-          _type == "audioSamplePlayer" => ${audioSamplePlayerProjection}
+          }
         }
       },
       _type == "imageBlock" => {
@@ -312,27 +200,7 @@ const contentProjection = `
               hotspot,
               crop
             }
-          },
-          _type == "ctaBlogPost" => {
-            ...,
-            blogPost->{
-              _id,
-              _createdAt,
-              title,
-              slug,
-              subtitle,
-              author,
-              mainImage{
-                asset,
-                alt,
-                hotspot,
-                crop
-              },
-              hasOverrideDate,
-              overrideDate
-            }
-          },
-          _type == "audioSamplePlayer" => ${audioSamplePlayerProjection}
+          }
         }
       },
       _type == "richText" => {...},
@@ -347,46 +215,7 @@ const contentProjection = `
       },
       _type == "youTubeVideo" => {...},
       _type == "spotifyWidget" => {...},
-      _type == "bandcampWidget" => {...},
-      _type == "audioSamplePlayer" => ${audioSamplePlayerProjection}
-    }
-  },
-  _type == "ctaBlogPost" => {
-    ...,
-    blogPost->{
-      _id,
-      _createdAt,
-      title,
-      slug,
-      subtitle,
-      author,
-      mainImage{
-        asset,
-        alt,
-        hotspot,
-        crop
-      },
-      hasOverrideDate,
-      overrideDate
-    }
-  },
-  _type == "projectList" => {...},
-  _type == "featuredProjects" => {
-    ...,
-    projects[]->{
-      _id,
-      _type,
-      name,
-      image{
-        asset,
-        alt,
-        hotspot,
-        crop
-      },
-      description,
-      linkLabel,
-      link,
-      order
+      _type == "bandcampWidget" => {...}
     }
   }
 `;
@@ -518,96 +347,6 @@ export const CONTACT_FORM_SETTINGS_QUERY = defineQuery(`*[_id == "contactFormSet
   emailOutroMessage
 }`);
 
-// Blog Post Queries
-export const BLOG_POSTS_QUERY =
-  defineQuery(`*[_type == "blogPost"]|order(select(hasOverrideDate == true && defined(overrideDate) => overrideDate, _createdAt) desc){
-  _id,
-  _createdAt,
-  title,
-  slug,
-  subtitle,
-  author,
-  mainImage{
-    asset,
-    alt,
-    hotspot,
-    crop
-  },
-  hasOverrideDate,
-  overrideDate,
-  hasClosingCard,
-  closingCard${closingCardProjection}
-}`);
-
-export const BLOG_INDEX_PAGE_QUERY = defineQuery(`*[_id == "blogIndexPage"][0]{
-  _id,
-  _type,
-  title,
-  titleTeReo,
-  heroImage{
-    asset,
-    alt,
-    hotspot,
-    crop
-  },
-  subtitle,
-  noArticlesMessage,
-  hasClosingCard,
-  closingCard${closingCardProjection}
-}`);
-
-export const BLOG_POST_QUERY = defineQuery(`*[_type == "blogPost" && slug.current == $slug][0]{
-  _id,
-  _type,
-  _createdAt,
-  _updatedAt,
-  title,
-  slug,
-  subtitle,
-  author,
-  mainImage{
-    asset,
-    alt,
-    hotspot,
-    crop
-  },
-  hasOverrideDate,
-  overrideDate,
-  ${recursiveContent},
-  hasClosingCard,
-  closingCard${closingCardProjection},
-  "blogIndexHeroImage": *[_id == "blogIndexPage"][0].heroImage{
-    asset,
-    alt,
-    hotspot,
-    crop
-  }
-}`);
-
-export const ADJACENT_BLOG_POSTS_QUERY = defineQuery(`{
-  "currentPost": *[_type == "blogPost" && slug.current == $slug][0]{
-    _id,
-    title,
-    hasOverrideDate,
-    overrideDate,
-    _createdAt,
-    "effectiveDate": select(
-      hasOverrideDate == true && defined(overrideDate) => overrideDate,
-      _createdAt
-    )
-  },
-  "prevPost": *[_type == "blogPost" && select(hasOverrideDate == true && defined(overrideDate) => overrideDate, _createdAt) < select(*[_type == "blogPost" && slug.current == $slug][0].hasOverrideDate == true && defined(*[_type == "blogPost" && slug.current == $slug][0].overrideDate) => *[_type == "blogPost" && slug.current == $slug][0].overrideDate, *[_type == "blogPost" && slug.current == $slug][0]._createdAt)]|order(select(hasOverrideDate == true && defined(overrideDate) => overrideDate, _createdAt) desc)[0]{
-    _id,
-    title,
-    slug
-  },
-  "nextPost": *[_type == "blogPost" && select(hasOverrideDate == true && defined(overrideDate) => overrideDate, _createdAt) > select(*[_type == "blogPost" && slug.current == $slug][0].hasOverrideDate == true && defined(*[_type == "blogPost" && slug.current == $slug][0].overrideDate) => *[_type == "blogPost" && slug.current == $slug][0].overrideDate, *[_type == "blogPost" && slug.current == $slug][0]._createdAt)]|order(select(hasOverrideDate == true && defined(overrideDate) => overrideDate, _createdAt) asc)[0]{
-    _id,
-    title,
-    slug
-  }
-}`);
-
 export const FOOTER_QUERY = defineQuery(`*[_type == "footer" && _id == "footer"][0]{
   _id,
   _type,
@@ -626,14 +365,6 @@ export const FOOTER_QUERY = defineQuery(`*[_type == "footer" && _id == "footer"]
 
 // Sitemap queries
 export const ALL_PAGES_QUERY = defineQuery(`*[_type == "page" && defined(slug.current)]{
-  _id,
-  _updatedAt,
-  title,
-  slug
-}`);
-
-export const ALL_BLOG_POSTS_SLUGS_QUERY =
-  defineQuery(`*[_type == "blogPost" && defined(slug.current)]{
   _id,
   _updatedAt,
   title,
@@ -667,89 +398,4 @@ export const PRIVACY_POLICY_QUERY = defineQuery(`*[_id == "privacyPolicy"][0]{
 export const LEGAL_PAGES_VISIBILITY_QUERY = defineQuery(`{
   "termsAndConditions": *[_id == "termsAndConditions"][0]{_id, hide},
   "privacyPolicy": *[_id == "privacyPolicy"][0]{_id, hide}
-}`);
-
-// Clients query
-export const CLIENTS_QUERY = defineQuery(`*[_id == "clients"][0]{
-  _id,
-  _type,
-  level1,
-  level2,
-  level3,
-  level4,
-  level5
-}`);
-
-// Equipment List query
-export const EQUIPMENT_LIST_QUERY = defineQuery(`*[_id == "equipmentListSingleton"][0]{
-  _id,
-  _type,
-  categories[]{
-    _key,
-    name,
-    icon{
-      asset,
-      alt,
-      hotspot,
-      crop
-    },
-    items[]{
-      _key,
-      name,
-      isTemporarilyUnavailable,
-      unavailableReason
-    }
-  }
-}`);
-
-export const TEAM_MEMBERS_QUERY =
-  defineQuery(`*[_type == "teamMember"] | order(displayOrder asc, name asc) {
-  _id,
-  _type,
-  _key,
-  name,
-  role,
-  category,
-  profilePicture{
-    asset,
-    alt,
-    hotspot,
-    crop
-  },
-  displayOrder,
-  description
-}`);
-
-export const ALL_PROJECTS_QUERY = defineQuery(`*[_type == "project"] | order(order asc, name asc) {
-  _id,
-  _type,
-  _key,
-  name,
-  image{
-    asset,
-    alt,
-    hotspot,
-    crop
-  },
-  description,
-  linkLabel,
-  link,
-  order
-}`);
-
-export const FEATURED_PROJECTS_QUERY = defineQuery(`*[_type == "project" && _id in $projectIds]{
-  _id,
-  _type,
-  _key,
-  name,
-  image{
-    asset,
-    alt,
-    hotspot,
-    crop
-  },
-  description,
-  linkLabel,
-  link,
-  order
 }`);

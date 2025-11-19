@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { getAllPages, getAllBlogPostsForSitemap, getTermsAndConditions, getPrivacyPolicy } from '@/actions';
+import { getAllPages, getTermsAndConditions, getPrivacyPolicy } from '@/actions';
 import { SITE_CONFIG } from '@/lib/constants';
-import type { ALL_PAGES_QUERYResult, ALL_BLOG_POSTS_SLUGS_QUERYResult } from '@/sanity/types';
+import type { ALL_PAGES_QUERYResult } from '@/sanity/types';
 
 // ISR: Cache for 1 hour, but allow immediate updates via webhook
 export const revalidate = 3600;
@@ -17,16 +17,14 @@ export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || SITE_CONFIG.PRODUCTION_DOMAIN;
 
   // Fetch all content from Sanity
-  const [pages, blogPosts, termsAndConditions, privacyPolicy] = await Promise.all([
+  const [pages, termsAndConditions, privacyPolicy] = await Promise.all([
     getAllPages(),
-    getAllBlogPostsForSitemap(),
     getTermsAndConditions(),
     getPrivacyPolicy(),
   ]);
 
   const staticPages: SitemapUrl[] = [
     { url: '', changefreq: 'weekly', priority: '1.0' },
-    { url: '/blog', changefreq: 'daily', priority: '0.9' },
   ];
 
   // Add legal pages if they exist and are not hidden
@@ -51,13 +49,6 @@ export async function GET() {
   }
 
   const dynamicUrls: SitemapUrl[] = [
-    // Blog posts
-    ...(blogPosts || []).map((post: ALL_BLOG_POSTS_SLUGS_QUERYResult[number]) => ({
-      url: `/blog/${post.slug?.current}`,
-      lastmod: post._updatedAt,
-      changefreq: 'monthly',
-      priority: '0.7'
-    })),
     // Dynamic pages
     ...(pages || []).map((page: ALL_PAGES_QUERYResult[number]) => ({
       url: `/${page.slug?.current}`,

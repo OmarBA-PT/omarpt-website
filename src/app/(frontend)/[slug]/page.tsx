@@ -7,10 +7,6 @@ import {
   getSiteSettings,
   getCompanyLinks,
   getContactFormSettings,
-  getClients,
-  getEquipmentList,
-  getTeamMembers,
-  getAllProjects,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
 import Card from '@/components/_blocks/Card';
@@ -59,19 +55,11 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     siteSettings,
     companyLinks,
     contactFormSettings,
-    clientsData,
-    equipmentListData,
-    teamMembersData,
-    allProjectsData,
   ] = await Promise.all([
     getPageBySlug(slug),
     getSiteSettings(),
     getCompanyLinks(),
     getContactFormSettings(),
-    getClients(),
-    getEquipmentList(),
-    getTeamMembers(),
-    getAllProjects(),
   ]);
 
   if (!page) {
@@ -138,10 +126,6 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             documentType={page._type}
             siteSettings={siteSettings || undefined}
             companyLinks={companyLinks}
-            clientsData={clientsData}
-            equipmentListData={equipmentListData}
-            teamMembersData={teamMembersData}
-            allProjectsData={allProjectsData}
             contactFormSettings={contactFormSettings}
           />
         )}

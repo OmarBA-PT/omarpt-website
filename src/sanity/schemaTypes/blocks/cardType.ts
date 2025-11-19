@@ -141,7 +141,6 @@ export const cardType = defineType({
         defineArrayMember({ type: 'imageGallery' }),
         defineArrayMember({ type: 'ctaButton' }),
         defineArrayMember({ type: 'ctaCalloutLink' }),
-        defineArrayMember({ type: 'ctaBlogPost' }),
         defineArrayMember({ type: 'youTubeVideo' }),
         defineArrayMember({ type: 'spotifyWidget' }),
         defineArrayMember({ type: 'bandcampWidget' }),

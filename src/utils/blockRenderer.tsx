@@ -2,33 +2,21 @@ import React from 'react';
 import { createDataAttribute } from 'next-sanity';
 import type {
   COMPANY_LINKS_QUERYResult,
-  CLIENTS_QUERYResult,
-  EQUIPMENT_LIST_QUERYResult,
-  TEAM_MEMBERS_QUERYResult,
-  ALL_PROJECTS_QUERYResult,
-  FEATURED_PROJECTS_QUERYResult,
   CONTACT_FORM_SETTINGS_QUERYResult,
   RichText as RichTextType,
   Quote as QuoteType,
   TwoColumnLayout as TwoColumnLayoutType,
   CtaButton as CtaButtonType,
   CtaCalloutLink as CtaCalloutLinkType,
-  CtaBlogPost as CtaBlogPostType,
   ImageBlock as ImageBlockType,
   ImageGallery as ImageGalleryType,
   YouTubeVideo as YouTubeVideoType,
   SpotifyWidget as SpotifyWidgetType,
   BandcampWidget as BandcampWidgetType,
-  AudioSamplePlayer as AudioSamplePlayerType,
   CompanyLinksBlock as CompanyLinksBlockType,
   BlockListWithStats as BlockListWithStatsType,
   CheckList as CheckListType,
   ItemList as ItemListType,
-  EquipmentList as EquipmentListType,
-  ClientList as ClientListType,
-  TeamMemberList as TeamMemberListType,
-  ProjectList as ProjectListType,
-  FeaturedProjects as FeaturedProjectsType,
   ContactForm as ContactFormType,
   Divider as DividerType,
   Card as CardType,
@@ -42,22 +30,15 @@ import Quote from '@/components/_blocks/Quote';
 import TwoColumnLayout from '@/components/_blocks/TwoColumnLayout';
 import CTAButton from '@/components/_blocks/CTAButton';
 import CTACalloutLinkComponent from '@/components/_blocks/CTACalloutLink';
-import CTABlogPost from '@/components/_blocks/CTABlogPost';
 import ImageBlock from '@/components/_blocks/Image';
 import ImageGallery from '@/components/_blocks/ImageGallery';
 import YouTubeVideo from '@/components/_blocks/YouTubeVideo';
 import SpotifyWidget from '@/components/_blocks/SpotifyWidget';
 import BandcampWidget from '@/components/_blocks/BandcampWidget';
-import AudioSamplePlayer from '@/components/_blocks/AudioSamplePlayer';
 import CompanyLinksBlock from '@/components/_blocks/CompanyLinksBlock';
 import BlockListWithStats from '@/components/_blocks/BlockListWithStats';
 import CheckList from '@/components/_blocks/CheckList';
 import ItemList from '@/components/_blocks/ItemList';
-import EquipmentList from '@/components/_blocks/EquipmentList';
-import ClientList from '@/components/_blocks/ClientList';
-import TeamMemberListComponent from '@/components/_blocks/TeamMemberList';
-import ProjectListComponent from '@/components/_blocks/ProjectList';
-import FeaturedProjectsComponent from '@/components/_blocks/FeaturedProjects';
 import ContactFormComponent from '@/components/_blocks/ContactForm';
 import Divider from '@/components/UI/Divider';
 import Card from '@/components/_blocks/Card';
@@ -75,10 +56,6 @@ interface RenderBlockOptions {
   blockPath: string;
   siteSettings?: SiteSettingsProps;
   companyLinks?: COMPANY_LINKS_QUERYResult;
-  clientsData?: CLIENTS_QUERYResult | null;
-  equipmentListData?: EQUIPMENT_LIST_QUERYResult | null;
-  teamMembersData?: TEAM_MEMBERS_QUERYResult | null;
-  allProjectsData?: ALL_PROJECTS_QUERYResult | null;
   contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
   alignment?: 'left' | 'center' | 'right';
   config?: RenderBlockConfig;
@@ -94,22 +71,15 @@ type BlockType =
   | WithKey<TwoColumnLayoutType>
   | WithKey<CtaButtonType>
   | WithKey<CtaCalloutLinkType>
-  | WithKey<CtaBlogPostType>
   | WithKey<ImageBlockType>
   | WithKey<ImageGalleryType>
   | WithKey<YouTubeVideoType>
   | WithKey<SpotifyWidgetType>
   | WithKey<BandcampWidgetType>
-  | WithKey<AudioSamplePlayerType>
   | WithKey<CompanyLinksBlockType>
   | WithKey<BlockListWithStatsType>
   | WithKey<CheckListType>
   | WithKey<ItemListType>
-  | WithKey<EquipmentListType>
-  | WithKey<ClientListType>
-  | WithKey<TeamMemberListType>
-  | WithKey<ProjectListType>
-  | WithKey<FeaturedProjectsType>
   | WithKey<ContactFormType>
   | WithKey<DividerType>
   | WithKey<CardType>
@@ -126,10 +96,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
     blockPath,
     siteSettings,
     companyLinks,
-    clientsData,
-    equipmentListData,
-    teamMembersData,
-    allProjectsData,
     contactFormSettings,
     alignment = 'center',
     config,
@@ -203,9 +169,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             pathPrefix={blockPath}
             siteSettings={siteSettings}
             companyLinks={companyLinks}
-            clientsData={clientsData}
-            equipmentListData={equipmentListData}
-            teamMembersData={teamMembersData}
             contactFormSettings={contactFormSettings}
             alignment={alignment}
           />
@@ -227,15 +190,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       return (
         <BlockWrapper key={ctaCalloutBlock._key}>
           <CTACalloutLinkComponent {...ctaCalloutBlock} />
-        </BlockWrapper>
-      );
-    }
-
-    case 'ctaBlogPost': {
-      const ctaBlogPostBlock = typedBlock as WithKey<CtaBlogPostType>;
-      return (
-        <BlockWrapper key={ctaBlogPostBlock._key}>
-          <CTABlogPost {...ctaBlogPostBlock} />
         </BlockWrapper>
       );
     }
@@ -305,49 +259,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       );
     }
 
-    case 'audioSamplePlayer': {
-      const audioSamplePlayerBlock = typedBlock as WithKey<AudioSamplePlayerType>;
-
-      // The audioSamples references are expanded by GROQ query
-      const audioSamples = (audioSamplePlayerBlock.audioSamples || []) as Array<{
-        _id?: string;
-        _type?: string;
-        songName?: string;
-        artistName?: string;
-        services?: string[];
-        image?: {
-          asset?: { _ref?: string; _type?: string };
-          alt?: string;
-          hotspot?: unknown;
-          crop?: unknown;
-        };
-        audioFile?: {
-          asset?: {
-            _id?: string;
-            url?: string;
-            mimeType?: string;
-            size?: number;
-            originalFilename?: string;
-            duration?: number;
-          };
-        };
-      }>;
-
-      if (!audioSamples || audioSamples.length === 0) {
-        return null;
-      }
-
-      return (
-        <BlockWrapper key={audioSamplePlayerBlock._key}>
-          <AudioSamplePlayer
-            audioSamples={audioSamples}
-            documentId={documentId}
-            documentType={documentType}
-          />
-        </BlockWrapper>
-      );
-    }
-
     case 'companyLinksBlock': {
       const companyLinksBlockBlock = typedBlock as WithKey<CompanyLinksBlockType>;
       return (
@@ -397,64 +308,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       );
     }
 
-    case 'equipmentList': {
-      const equipmentListBlock = typedBlock as WithKey<EquipmentListType>;
-      return (
-        <BlockWrapper key={equipmentListBlock._key}>
-          <EquipmentList equipmentListData={equipmentListData} />
-        </BlockWrapper>
-      );
-    }
-
-    case 'clientList': {
-      const clientListBlock = typedBlock as WithKey<ClientListType>;
-      return (
-        <BlockWrapper key={clientListBlock._key}>
-          <ClientList
-            documentId={clientsData?._id || 'clients'}
-            documentType='clients'
-            clientsData={clientsData}
-          />
-        </BlockWrapper>
-      );
-    }
-
-    case 'teamMemberList': {
-      const teamMemberListBlock = typedBlock as WithKey<TeamMemberListType>;
-      return (
-        <BlockWrapper key={teamMemberListBlock._key}>
-          <TeamMemberListComponent
-            category={teamMemberListBlock.category as 'primary' | 'secondary'}
-            displayStyle={teamMemberListBlock.displayStyle as 'detailed' | 'condensed'}
-            teamMembers={teamMembersData || []}
-          />
-        </BlockWrapper>
-      );
-    }
-
-    case 'projectList': {
-      const projectListBlock = typedBlock as WithKey<ProjectListType>;
-      return (
-        <BlockWrapper key={projectListBlock._key}>
-          <ProjectListComponent projects={allProjectsData || []} />
-        </BlockWrapper>
-      );
-    }
-
-    case 'featuredProjects': {
-      const featuredProjectsBlock = typedBlock as WithKey<FeaturedProjectsType>;
-      // Projects are already dereferenced in the GROQ query via the contentProjection
-      // The schema type shows references, but at runtime they're dereferenced objects
-      const featuredProjects = (featuredProjectsBlock.projects ||
-        []) as unknown as FEATURED_PROJECTS_QUERYResult;
-
-      return (
-        <BlockWrapper key={featuredProjectsBlock._key}>
-          <FeaturedProjectsComponent projects={featuredProjects} />
-        </BlockWrapper>
-      );
-    }
-
     case 'contactForm': {
       const contactFormBlock = typedBlock as WithKey<ContactFormType>;
       return (
@@ -490,7 +343,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentId={documentId}
             documentType={documentType}
             fieldPathPrefix={blockPath}
-            equipmentListData={equipmentListData}
           />
         </BlockWrapper>
       );

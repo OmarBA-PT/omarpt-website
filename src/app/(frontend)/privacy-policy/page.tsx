@@ -7,8 +7,6 @@ import {
   getSiteSettings,
   getCompanyLinks,
   getContactFormSettings,
-  getClients,
-  getAllProjects,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl, getBaseUrl } from '@/lib/metadata';
@@ -47,15 +45,11 @@ const PrivacyPolicyPage = async () => {
     siteSettings,
     companyLinks,
     contactFormSettings,
-    clientsData,
-    allProjectsData,
   ] = await Promise.all([
     getPrivacyPolicy(),
     getSiteSettings(),
     getCompanyLinks(),
     getContactFormSettings(),
-    getClients(),
-    getAllProjects(),
   ]);
 
   // If the page is hidden or doesn't exist, show 404
@@ -122,8 +116,6 @@ const PrivacyPolicyPage = async () => {
             documentType={privacyData._type}
             siteSettings={siteSettings || undefined}
             companyLinks={companyLinks}
-            clientsData={clientsData}
-            allProjectsData={allProjectsData}
             contactFormSettings={contactFormSettings}
             alignment='left'
           />

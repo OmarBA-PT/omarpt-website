@@ -2,13 +2,8 @@ import type { StructureResolver } from 'sanity/structure';
 import {
   HomeIcon,
   DocumentIcon,
-  EditIcon,
-  UsersIcon,
-  HeartIcon,
-  PlayIcon,
   CogIcon,
   DocumentTextIcon,
-  FolderIcon,
 } from '@sanity/icons';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -35,112 +30,6 @@ export const structure: StructureResolver = (S) =>
         .icon(DocumentIcon)
         .child(
           S.documentTypeList('page').title('Pages').filter('_type == "page" && _id != "homePage"')
-        ),
-
-      S.divider(),
-
-      // === CLIENTS ===
-      S.listItem()
-        .id('clients')
-        .title('Clients')
-        .icon(HeartIcon)
-        .child(
-          S.editor().id('clients').schemaType('clients').documentId('clients').title('Clients')
-        ),
-
-      S.divider(),
-
-      // === TEAM MEMBERS ===
-      S.listItem()
-        .id('teamMembers')
-        .title('Team Members')
-        .icon(UsersIcon)
-        .child(
-          S.documentTypeList('teamMember')
-            .title('Team Members')
-            .defaultOrdering([
-              { field: 'displayOrder', direction: 'asc' },
-              { field: 'name', direction: 'asc' },
-            ])
-        ),
-
-      S.divider(),
-
-      // === EQUIPMENT LIST ===
-      S.listItem()
-        .id('equipmentListSingleton')
-        .title('Equipment List')
-        .icon(CogIcon)
-        .child(
-          S.editor()
-            .id('equipmentListSingleton')
-            .schemaType('equipmentListSingleton')
-            .documentId('equipmentListSingleton')
-            .title('Equipment List')
-        ),
-
-      S.divider(),
-
-      // === AUDIO SAMPLES ===
-      S.listItem()
-        .id('audioSamples')
-        .title('Audio Samples')
-        .icon(PlayIcon)
-        .child(
-          S.documentTypeList('audioSample')
-            .title('Audio Samples')
-            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
-        ),
-
-      S.divider(),
-
-      // === PROJECTS ===
-      S.listItem()
-        .id('projects')
-        .title('Projects')
-        .icon(FolderIcon)
-        .child(
-          S.documentTypeList('project')
-            .title('Projects')
-            .defaultOrdering([
-              { field: 'order', direction: 'asc' },
-              { field: 'name', direction: 'asc' },
-            ])
-        ),
-
-      S.divider(),
-
-      // === BLOG ===
-      S.listItem()
-        .id('blog')
-        .title('Blog')
-        .icon(EditIcon)
-        .child(
-          S.list()
-            .title('Blog Management')
-            .items([
-              // Blog Index Page - Singleton
-              S.listItem()
-                .id('blogIndexPage')
-                .schemaType('blogIndexPage')
-                .title('Blog Index Page')
-                .child(
-                  S.editor()
-                    .id('blogIndexPage')
-                    .schemaType('blogIndexPage')
-                    .documentId('blogIndexPage')
-                    .title('Blog Index Page')
-                ),
-              // Individual Blog Posts
-              S.listItem()
-                .id('blogPosts')
-                .title('Blog Posts')
-                .child(
-                  S.documentTypeList('blogPost')
-                    .title('Blog Posts')
-                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
-                ),
-            ])
         ),
 
       S.divider(),

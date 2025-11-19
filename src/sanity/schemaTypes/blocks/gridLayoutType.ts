@@ -37,18 +37,6 @@ export const gridLayoutType = defineType({
           title: 'Rich Text',
         }),
         defineArrayMember({
-          type: 'equipmentList',
-          title: 'Equipment List',
-        }),
-        defineArrayMember({
-          type: 'projectList',
-          title: 'Project List',
-        }),
-        defineArrayMember({
-          type: 'featuredProjects',
-          title: 'Featured Projects',
-        }),
-        defineArrayMember({
           type: 'card',
           title: 'Card',
         }),
@@ -67,10 +55,6 @@ export const gridLayoutType = defineType({
         defineArrayMember({
           type: 'bandcampWidget',
           title: 'Bandcamp Widget',
-        }),
-        defineArrayMember({
-          type: 'audioSamplePlayer',
-          title: 'Audio Sample Player',
         }),
       ],
       validation: (Rule) =>

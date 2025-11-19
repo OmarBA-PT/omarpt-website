@@ -9,11 +9,8 @@ const PROTECTED_DOCUMENT_TYPES = [
   'header',
   'footer',
   'homePage',
-  'blogIndexPage',
   'companyLinks',
   'contactFormSettings',
-  'clients',
-  'equipmentListSingleton',
   'termsAndConditions',
   'privacyPolicy'
 ];

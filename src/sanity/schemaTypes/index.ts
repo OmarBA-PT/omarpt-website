@@ -20,27 +20,18 @@ import { imageGalleryType } from './blocks/imageGalleryType';
 import { youTubeVideoType } from './blocks/youTubeVideoType';
 import { spotifyWidgetType } from './blocks/spotifyWidgetType';
 import { bandcampWidgetType } from './blocks/bandcampWidgetType';
-import { audioSamplePlayerType } from './blocks/audioSamplePlayerType';
 import { quoteType } from './blocks/quoteType';
 import { twoColumnLayoutType } from './blocks/twoColumnLayoutType';
 import { ctaButtonType } from './blocks/ctaButtonType';
 import { ctaCalloutLinkType } from './blocks/ctaCalloutLinkType';
 import { embeddedCtaButtonType } from './blocks/embeddedCtaButtonType';
 import { homeHeroCtaButtonType } from './blocks/homeHeroCtaButtonType';
-import { ctaBlogPostType } from './blocks/ctaBlogPostType';
 import { companyLinksBlockType } from './blocks/companyLinksBlockType';
 import { blockListWithStatsType } from './blocks/blockListWithStatsType';
 import { checkListType } from './blocks/checkListType';
 import { itemListType } from './blocks/itemListType';
-import { equipmentListType } from './blocks/equipmentListType';
-import { clientListType } from './blocks/clientListType';
-import { teamMemberListType } from './blocks/teamMemberListType';
-import { projectListType } from './blocks/projectListType';
-import { featuredProjectsType } from './blocks/featuredProjectsType';
 import { contactFormType } from './blocks/contactFormType';
 import { siteSettingsType } from './siteSettingsType';
-import { teamMemberType } from './teamMemberType';
-import { projectType } from './projectType';
 import { companyLinksType } from './companyLinksType';
 import { companyLinksArrayType } from './shared/socialLinksArrayType';
 import { ctaListType } from './shared/ctaListType';
@@ -48,11 +39,6 @@ import { navLinkType } from './navigation/navLinkType';
 import { verticalNavLinkType } from './navigation/verticalNavLinkType';
 import { verticalNavDividerType } from './navigation/verticalNavDividerType';
 import { navSectionType } from './navigation/navSectionType';
-import { blogIndexPageType } from './blogIndexPageType';
-import { blogPostType } from './blogPostType';
-import { audioSampleType } from './audioSampleType';
-import { clientsType } from './singletons/clients';
-import { equipmentListSingletonType } from './singletons/equipmentList';
 import { termsAndConditionsType } from './termsAndConditionsType';
 import { privacyPolicyType } from './privacyPolicyType';
 import { contactFormSettingsType } from './contactFormSettingsType';
@@ -65,13 +51,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactFormSettingsType,
     homePageType,
     pageType,
-    blogIndexPageType,
-    blogPostType,
-    audioSampleType,
-    clientsType,
-    equipmentListSingletonType,
-    teamMemberType,
-    projectType,
     termsAndConditionsType,
     privacyPolicyType,
     blockContentType,
@@ -92,23 +71,16 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     youTubeVideoType,
     spotifyWidgetType,
     bandcampWidgetType,
-    audioSamplePlayerType,
     quoteType,
     twoColumnLayoutType,
     ctaButtonType,
     ctaCalloutLinkType,
     embeddedCtaButtonType,
     homeHeroCtaButtonType,
-    ctaBlogPostType,
     companyLinksBlockType,
     blockListWithStatsType,
     checkListType,
     itemListType,
-    equipmentListType,
-    clientListType,
-    teamMemberListType,
-    projectListType,
-    featuredProjectsType,
     contactFormType,
     // Shared Components
     companyLinksArrayType,

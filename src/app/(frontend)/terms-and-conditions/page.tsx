@@ -7,8 +7,6 @@ import {
   getSiteSettings,
   getCompanyLinks,
   getContactFormSettings,
-  getClients,
-  getAllProjects,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl, getBaseUrl } from '@/lib/metadata';
@@ -42,14 +40,12 @@ export async function generateMetadata() {
 }
 
 const TermsAndConditionsPage = async () => {
-  const [termsData, siteSettings, companyLinks, contactFormSettings, clientsData, allProjectsData] =
+  const [termsData, siteSettings, companyLinks, contactFormSettings] =
     await Promise.all([
       getTermsAndConditions(),
       getSiteSettings(),
       getCompanyLinks(),
       getContactFormSettings(),
-      getClients(),
-      getAllProjects(),
     ]);
 
   // If the page is hidden or doesn't exist, show 404
@@ -116,8 +112,6 @@ const TermsAndConditionsPage = async () => {
             documentType={termsData._type}
             siteSettings={siteSettings || undefined}
             companyLinks={companyLinks}
-            clientsData={clientsData}
-            allProjectsData={allProjectsData}
             contactFormSettings={contactFormSettings}
             alignment='left'
           />
