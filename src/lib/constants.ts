@@ -5,7 +5,7 @@
 export const SITE_CONFIG = {
   // Production domain - update this for your new project
   // IMPORTANT: Always use HTTPS (not HTTP) and no trailing slash for SEO consistency
-  PRODUCTION_DOMAIN: 'https://taupirisound.co.nz',
+  PRODUCTION_DOMAIN: 'https://omarpt-website-production.vercel.app',
 
   // Maintenance Mode - Enable to show placeholder page instead of full site
   // When true: All routes redirect to maintenance page (except /studio)
@@ -13,34 +13,34 @@ export const SITE_CONFIG = {
   MAINTENANCE_MODE_ENABLED: false,
 
   // Organization information
-  ORGANIZATION_NAME: 'Taupiri Sound',
+  ORGANIZATION_NAME: 'Omania Training',
   ORGANIZATION_DESCRIPTION:
-    "Taupiri Sound is a recording studio based in the countryside of northern Waikato. For over a decade we have worked on countless projects from educational resources to some of Aotearoa's best artists.",
+    'Omania Training is a personal training service based in Auckland, New Zealand.',
 
   // Contact information - single source of truth for all company contact details
   ORGANIZATION_EMAIL: {
-    value: 'lance@taupirisound.co.nz',
-    link: 'mailto:lance@taupirisound.co.nz',
+    value: 'vitesh.bava@gmail.com',
+    link: 'mailto:vitesh.bava@gmail.com',
   },
-  ORGANIZATION_PHONE: { value: '+64 21 311 903', link: 'tel:+6421311903' },
+  ORGANIZATION_PHONE: { value: '+64 12 345 678', link: 'tel:+6412345678' },
   ORGANIZATION_ADDRESS: {
-    value: 'Topview Road, Taupiri 3792, New Zealand',
-    link: 'https://maps.app.goo.gl/AXFyaZad32c1c2sx6',
+    value: 'Auckland, New Zealand',
+    link: 'https://maps.app.goo.gl/XsK8iEYiBCjBAAZb8',
   },
 
   // Business Location Details - Used for LocalBusiness structured data (SEO)
   // Update these values if the studio relocates or business details change
   BUSINESS_LOCATION: {
-    streetAddress: 'Topview Road',
-    addressLocality: 'Taupiri',
-    postalCode: '3792',
-    addressRegion: 'Waikato',
+    streetAddress: '',
+    addressLocality: 'Auckland',
+    postalCode: '',
+    addressRegion: 'Auckland',
     addressCountry: 'NZ',
     // GPS coordinates from Google Maps - used for local SEO and map integration
-    latitude: -37.5940869,
-    longitude: 175.2095489,
-    // ISO 3166-2 region code for Waikato, New Zealand
-    regionCode: 'NZ-WKO',
+    latitude: -36.8323794,
+    longitude: 174.396916,
+    // ISO 3166-2 region code for Auckland, New Zealand
+    regionCode: 'NZ-AUK',
   },
 
   // Business Hours - Used for LocalBusiness structured data
@@ -56,25 +56,23 @@ export const SITE_CONFIG = {
   // Add or remove cities/regions as needed
   SERVICE_AREAS: [
     { type: 'Country', name: 'New Zealand' },
-    { type: 'State', name: 'Waikato' },
-    { type: 'City', name: 'Hamilton' },
     { type: 'City', name: 'Auckland' },
   ],
 
   // Social Media Profiles - Used for LocalBusiness structured data
   // Add additional social media URLs as they become available
-  SOCIAL_MEDIA_PROFILES: ['https://www.facebook.com/taupirisound/'],
+  SOCIAL_MEDIA_PROFILES: [],
 
   // PWA Manifest Settings - Used for Progressive Web App configuration
   // Update these values to customize the "Add to Home Screen" experience
   PWA_MANIFEST: {
-    name: 'Taupiri Sound - Recording Studio',
-    shortName: 'Taupiri Sound',
+    name: 'Omania Training - Personal Trainer',
+    shortName: 'Omania Training',
     description:
-      'Professional recording studio in Waikato, New Zealand. Over a decade of experience working with artists and educational projects.',
+      'Professional personal training service in Auckland, New Zealand. Over a decade of experience helping clients achieve their fitness goals.',
     // Theme colors should match brand colors in globals.css
-    themeColor: '#900000', // --color-brand-primary
-    backgroundColor: '#430c08', // --color-brand-secondary
+    themeColor: '', // --color-brand-primary
+    backgroundColor: '', // --color-brand-secondary
   },
 } as const;
 
