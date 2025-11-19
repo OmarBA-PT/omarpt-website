@@ -4,7 +4,7 @@
 
 import { defineField, defineType } from 'sanity';
 import { DocumentIcon } from '@sanity/icons';
-import { STANDARD_BLOCK_LIST } from '../shared/blockLists';
+import { CONTENT_ONLY_BLOCKS } from '../shared/blockLists';
 
 export const cardType = defineType({
   name: 'card',
@@ -130,8 +130,8 @@ export const cardType = defineType({
       type: 'array',
       group: 'content',
       description:
-        'Add content blocks to your card. You can include text, images, buttons, quotes, and more.',
-      of: STANDARD_BLOCK_LIST,
+        'Add content blocks to your card. You can include text, images, buttons, quotes, and more. Note: Cards cannot contain nested cards or layout blocks.',
+      of: CONTENT_ONLY_BLOCKS,
       validation: (Rule) => Rule.min(1).error('Card must have at least one content block'),
     }),
   ],

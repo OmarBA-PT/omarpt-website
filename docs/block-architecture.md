@@ -11,9 +11,19 @@ The block system consists of:
 
 ## Block Lists (`src/sanity/schemaTypes/shared/blockLists.ts`)
 
-### STANDARD_BLOCK_LIST
+### CRITICAL: Nesting Restrictions
 
-The universal block list includes ALL content and layout blocks:
+**To prevent GROQ query depth issues and infinite recursion, we enforce strict nesting rules:**
+
+- **Top-level content**: Can contain twoColumnLayout, gridLayout, and card
+- **Layout blocks (grid/twoColumn)**: Can contain cards but NOT nested layouts
+- **Cards**: Can contain content blocks and CTAs but NOT layouts or nested cards
+
+**This ensures all internal link references are properly dereferenced in GROQ queries without hitting recursion limits.**
+
+### CONTENT_ONLY_BLOCKS
+
+Pure content blocks without any layout components. These can be safely nested at any depth without causing GROQ issues. Used inside cards and other deeply nested contexts.
 
 **Content Blocks:**
 - `richText` - Rich text content with formatting
@@ -32,7 +42,20 @@ The universal block list includes ALL content and layout blocks:
 - `contactForm` - Contact forms
 - `companyLinksBlock` - Company/social links
 
-**Layout Blocks:**
+### LAYOUT_CHILD_BLOCKS
+
+Blocks allowed inside layout components (grid/twoColumn). Allows cards but NOT nested layout blocks to prevent deep nesting.
+
+**Includes:**
+- All blocks from `CONTENT_ONLY_BLOCKS`
+- `card` - Card containers (but cards themselves can only contain CONTENT_ONLY_BLOCKS)
+
+### STANDARD_BLOCK_LIST
+
+The universal block list for top-level content. Includes ALL content and layout blocks.
+
+**Includes:**
+- All blocks from `CONTENT_ONLY_BLOCKS`
 - `twoColumnLayout` - Two-column responsive layouts
 - `gridLayout` - Multi-column grid layouts
 - `card` - Card containers with various configurations
@@ -76,16 +99,38 @@ export const newBlockType = defineType({
 });
 ```
 
-### 2. Add to Centralized Block List
+### 2. Add to Appropriate Block List
 
 Update `src/sanity/schemaTypes/shared/blockLists.ts`:
 
+**For content blocks (most common)** - Add to `CONTENT_ONLY_BLOCKS`:
+
 ```typescript
-export const STANDARD_BLOCK_LIST = [
+export const CONTENT_ONLY_BLOCKS = [
   // ... existing blocks
   defineArrayMember({ type: 'newBlock' }),
 ];
 ```
+
+**For layout blocks** - Add to `STANDARD_BLOCK_LIST` directly (after CONTENT_ONLY_BLOCKS spread):
+
+```typescript
+export const STANDARD_BLOCK_LIST = [
+  ...CONTENT_ONLY_BLOCKS,
+  // Layout Blocks - only allowed at top level
+  defineArrayMember({ type: 'twoColumnLayout' }),
+  defineArrayMember({ type: 'gridLayout' }),
+  defineArrayMember({ type: 'card' }),
+  defineArrayMember({ type: 'newLayoutBlock' }), // Add new layout blocks here
+];
+```
+
+**IMPORTANT**: Adding to `CONTENT_ONLY_BLOCKS` automatically makes it available in:
+- `LAYOUT_CHILD_BLOCKS` (inside grids/twoColumn)
+- `STANDARD_BLOCK_LIST` (top-level content)
+- `PAGE_CONTENT_BLOCK_LIST` (page content)
+
+This maintains DRY principles - content blocks only need to be added once!
 
 ### 3. Register Schema
 
@@ -237,29 +282,68 @@ Used by:
 
 ### Where Blocks Can Appear
 
-| Component         | Block List Used              | Special Behavior              |
-|-------------------|------------------------------|------------------------------|
-| PageBuilder       | PAGE_CONTENT_BLOCK_LIST      | Top-level page sections      |
-| PageSection       | createSectionBlockList()     | Can contain SubSections      |
-| SubSection        | createSectionBlockList()     | Can contain SubSubSections   |
-| SubSubSection     | createSectionBlockList()     | No nested sections           |
-| TwoColumnLayout   | STANDARD_BLOCK_LIST          | Left/right columns           |
-| GridLayout        | STANDARD_BLOCK_LIST          | Responsive grid sizing       |
-| Card              | STANDARD_BLOCK_LIST          | Card container               |
+| Component         | Block List Used              | Special Behavior                           |
+|-------------------|------------------------------|--------------------------------------------|
+| PageBuilder       | PAGE_CONTENT_BLOCK_LIST      | Top-level page sections                    |
+| PageSection       | createSectionBlockList()     | Can contain SubSections + standard blocks  |
+| SubSection        | createSectionBlockList()     | Can contain SubSubSections + standard blocks |
+| SubSubSection     | createSectionBlockList()     | No nested sections, standard blocks only   |
+| TwoColumnLayout   | LAYOUT_CHILD_BLOCKS          | Cards + content, NO nested layouts         |
+| GridLayout        | LAYOUT_CHILD_BLOCKS          | Cards + content, NO nested layouts         |
+| Card              | CONTENT_ONLY_BLOCKS          | Content only, NO cards or layouts          |
+
+## Why Nesting Restrictions Matter
+
+### The GROQ Recursion Problem
+
+Without nesting restrictions, you could create infinitely deep structures:
+
+```
+Grid → Card → Grid → Card → TwoColumn → Card → Grid → ...
+```
+
+**Problems this causes:**
+
+1. **GROQ queries can't handle infinite recursion** - They need explicit depth limits
+2. **Internal link dereferencing breaks** - CTAs deep in the structure won't get their references populated
+3. **Performance issues** - Deeply nested queries are slow and resource-intensive
+4. **Unpredictable behavior** - Some content appears, some doesn't, depending on depth
+
+### How Our Solution Works
+
+**Schema enforcement** prevents invalid nesting at the CMS level:
+- Cards use `CONTENT_ONLY_BLOCKS` → Can't add nested cards or layouts
+- Layouts use `LAYOUT_CHILD_BLOCKS` → Can't add nested layouts
+
+**GROQ queries match the schema** with explicit projections:
+- `cardContentProjection` → Handles CTAs and content inside cards
+- `contentProjection` → Handles layouts with cards, but cards are final nesting level
+- No recursive loops, all internal links are properly dereferenced
+
+**Maximum safe depth:**
+- **Level 1**: PageSection/Top-level → Grid/TwoColumn
+- **Level 2**: Grid/TwoColumn → Card
+- **Level 3**: Card → CTA with internal link ✅ (Properly dereferenced!)
+
+This controlled depth ensures **ALL internal link references work correctly** without hitting GROQ limits.
 
 ## Maintenance Guidelines
 
 ### DO ✅
 
-- **Add new blocks to `STANDARD_BLOCK_LIST` in `blockLists.ts`** - This is the single source of truth
+- **Add new content blocks to `CONTENT_ONLY_BLOCKS`** - They'll automatically appear everywhere safely
+- **Add new layout blocks to `STANDARD_BLOCK_LIST`** - But update GROQ queries if they contain CTAs
 - **Use `blockRenderer` for standard content flow** - Consistency and maintainability
 - **Add TypeScript exhaustiveness checks** - Compile-time safety for missing cases
 - **Run `npm run typegen` after schema changes** - Keep types in sync
 - **Run `npm run typecheck` before committing** - Catch type errors early
+- **Respect nesting restrictions** - Don't try to circumvent the block list system
 
 ### DON'T ❌
 
-- **Don't create separate block lists for each component** - Use centralized lists
+- **Don't allow cards in `CONTENT_ONLY_BLOCKS`** - Breaks nesting restrictions
+- **Don't allow layouts in `LAYOUT_CHILD_BLOCKS`** - Breaks nesting restrictions
+- **Don't add deeply nested layout blocks to GROQ queries** - Causes infinite recursion
 - **Don't duplicate rendering logic** - Use shared `blockRenderer`
 - **Don't hardcode block type lists** - They'll get out of sync
 - **Don't forget to add blocks to `blockRenderer.tsx`** - Blocks won't render

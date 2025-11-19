@@ -29,6 +29,35 @@ const fullLinkProjection = `
   )
 `;
 
+// Simple content projection for deeply nested content (inside cards)
+// Cards can only contain CONTENT_ONLY_BLOCKS (no nested layouts/cards)
+const cardContentProjection = `
+  ...,
+  _type == "ctaButton" => {${fullLinkProjection}},
+  _type == "ctaCalloutLink" => {${fullLinkProjection}},
+  _type == "imageBlock" => {
+    ...,
+    image{
+      asset,
+      alt,
+      hotspot,
+      crop
+    }
+  },
+  _type == "imageGallery" => {
+    ...,
+    images[]{
+      _key,
+      image{
+        asset,
+        alt,
+        hotspot,
+        crop
+      }
+    }
+  }
+`;
+
 // Closing card projection that properly expands card content including CTAs
 const closingCardProjection = `{
   ...,
@@ -38,24 +67,18 @@ const closingCardProjection = `{
     hotspot,
     crop
   },
-  content[]{
-    ...,
-    _type == "ctaButton" => {${fullLinkProjection}},
-    _type == "ctaCalloutLink" => {${fullLinkProjection}},
-    _type == "imageBlock" => {
-      ...,
-      image{
-        asset,
-        alt,
-        hotspot,
-        crop
-      }
-    }
-  }
+  content[]{${cardContentProjection}}
 }`;
 
-// Single content block projection that recursively handles nested content
-// Add new block types here and they'll work at all nesting levels automatically
+// Single content block projection for top-level content
+//
+// NESTING RULES (enforced by schema):
+// - Top-level: Can contain twoColumnLayout, gridLayout, card, and all content blocks
+// - Layout blocks (grid/twoColumn): Can contain cards and content blocks (LAYOUT_CHILD_BLOCKS)
+// - Cards: Can only contain content blocks (CONTENT_ONLY_BLOCKS) - NO nested cards or layouts
+//
+// This controlled nesting ensures all internal link references are properly dereferenced
+// without hitting GROQ recursion limits.
 const contentProjection = `
   ...,
   image{
@@ -63,6 +86,18 @@ const contentProjection = `
     alt,
     hotspot,
     crop
+  },
+  _type == "imageGallery" => {
+    ...,
+    images[]{
+      _key,
+      image{
+        asset,
+        alt,
+        hotspot,
+        crop
+      }
+    }
   },
   _type == "pageSection" => {
     ...,
@@ -88,20 +123,7 @@ const contentProjection = `
       hotspot,
       crop
     },
-    content[]{
-      ...,
-      _type == "ctaButton" => {${fullLinkProjection}},
-      _type == "ctaCalloutLink" => {${fullLinkProjection}},
-      _type == "imageBlock" => {
-        ...,
-        image{
-          asset,
-          alt,
-          hotspot,
-          crop
-        }
-      }
-    }
+    content[]{${cardContentProjection}}
   },
   _type == "twoColumnLayout" => {
     ...,
@@ -115,21 +137,10 @@ const contentProjection = `
           hotspot,
           crop
         },
-        content[]{
-          ...,
-          _type == "ctaButton" => {${fullLinkProjection}},
-          _type == "ctaCalloutLink" => {${fullLinkProjection}},
-          _type == "imageBlock" => {
-            ...,
-            image{
-              asset,
-              alt,
-              hotspot,
-              crop
-            }
-          }
-        }
+        content[]{${cardContentProjection}}
       },
+      _type == "ctaButton" => {${fullLinkProjection}},
+      _type == "ctaCalloutLink" => {${fullLinkProjection}},
       _type == "imageBlock" => {
         ...,
         image{
@@ -137,6 +148,18 @@ const contentProjection = `
           alt,
           hotspot,
           crop
+        }
+      },
+      _type == "imageGallery" => {
+        ...,
+        images[]{
+          _key,
+          image{
+            asset,
+            alt,
+            hotspot,
+            crop
+          }
         }
       }
     },
@@ -150,21 +173,10 @@ const contentProjection = `
           hotspot,
           crop
         },
-        content[]{
-          ...,
-          _type == "ctaButton" => {${fullLinkProjection}},
-          _type == "ctaCalloutLink" => {${fullLinkProjection}},
-          _type == "imageBlock" => {
-            ...,
-            image{
-              asset,
-              alt,
-              hotspot,
-              crop
-            }
-          }
-        }
+        content[]{${cardContentProjection}}
       },
+      _type == "ctaButton" => {${fullLinkProjection}},
+      _type == "ctaCalloutLink" => {${fullLinkProjection}},
       _type == "imageBlock" => {
         ...,
         image{
@@ -172,6 +184,18 @@ const contentProjection = `
           alt,
           hotspot,
           crop
+        }
+      },
+      _type == "imageGallery" => {
+        ...,
+        images[]{
+          _key,
+          image{
+            asset,
+            alt,
+            hotspot,
+            crop
+          }
         }
       }
     }
@@ -188,22 +212,10 @@ const contentProjection = `
           hotspot,
           crop
         },
-        content[]{
-          ...,
-          _type == "ctaButton" => {${fullLinkProjection}},
-          _type == "ctaCalloutLink" => {${fullLinkProjection}},
-          _type == "imageBlock" => {
-            ...,
-            image{
-              asset,
-              alt,
-              hotspot,
-              crop
-            }
-          }
-        }
+        content[]{${cardContentProjection}}
       },
-      _type == "richText" => {...},
+      _type == "ctaButton" => {${fullLinkProjection}},
+      _type == "ctaCalloutLink" => {${fullLinkProjection}},
       _type == "imageBlock" => {
         ...,
         image{
@@ -213,9 +225,18 @@ const contentProjection = `
           crop
         }
       },
-      _type == "youTubeVideo" => {...},
-      _type == "spotifyWidget" => {...},
-      _type == "bandcampWidget" => {...}
+      _type == "imageGallery" => {
+        ...,
+        images[]{
+          _key,
+          image{
+            asset,
+            alt,
+            hotspot,
+            crop
+          }
+        }
+      }
     }
   }
 `;

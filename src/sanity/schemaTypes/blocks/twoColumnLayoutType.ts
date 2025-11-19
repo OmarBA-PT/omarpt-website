@@ -4,7 +4,7 @@
 
 import { defineField, defineType } from 'sanity';
 import { ComponentIcon } from '@sanity/icons';
-import { STANDARD_BLOCK_LIST } from '../shared/blockLists';
+import { LAYOUT_CHILD_BLOCKS } from '../shared/blockLists';
 
 export const twoColumnLayoutType = defineType({
   name: 'twoColumnLayout',
@@ -24,8 +24,8 @@ export const twoColumnLayoutType = defineType({
       name: 'leftColumn',
       title: 'Left Column',
       type: 'array',
-      description: 'Content for the left column (appears first on mobile)',
-      of: STANDARD_BLOCK_LIST,
+      description: 'Content for the left column (appears first on mobile). Can contain cards and content blocks, but not nested two-column or grid layouts.',
+      of: LAYOUT_CHILD_BLOCKS,
       validation: (Rule) =>
         Rule.required().min(1).error('Left column must contain at least one item'),
     }),
@@ -33,8 +33,8 @@ export const twoColumnLayoutType = defineType({
       name: 'rightColumn',
       title: 'Right Column',
       type: 'array',
-      description: 'Content for the right column (appears after left column on mobile)',
-      of: STANDARD_BLOCK_LIST,
+      description: 'Content for the right column (appears after left column on mobile). Can contain cards and content blocks, but not nested two-column or grid layouts.',
+      of: LAYOUT_CHILD_BLOCKS,
       validation: (Rule) =>
         Rule.required().min(1).error('Right column must contain at least one item'),
     }),

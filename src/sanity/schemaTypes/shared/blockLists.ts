@@ -8,23 +8,24 @@ import { defineArrayMember } from 'sanity';
  *
  * IMPORTANT: When adding or removing block types, update this file only.
  * All components that accept block lists will automatically inherit the changes.
+ *
+ * NESTING RESTRICTIONS:
+ * To prevent GROQ query depth issues and infinite recursion, we enforce strict nesting rules:
+ * - Top-level content: Can contain twoColumnLayout, gridLayout, and card
+ * - Layout blocks (grid/twoColumn): Can contain cards but NOT nested layouts
+ * - Cards: Can contain content blocks and CTAs but NOT layouts or nested cards
+ *
+ * This ensures all internal link references are properly dereferenced in GROQ queries
+ * without hitting recursion limits.
  */
 
 /**
- * STANDARD_BLOCK_LIST - The universal block list
+ * CONTENT_ONLY_BLOCKS - Pure content blocks without any layout components
  *
- * This is the default block list that includes ALL content and layout blocks.
- * Use this for any component that should accept any type of content block.
- *
- * Includes:
- * - Content blocks: richText, quote, divider, imageBlock, imageGallery, videos, widgets, CTAs, lists, forms
- * - Layout blocks: twoColumnLayout, gridLayout, card
- *
- * Does NOT include: Section blocks (pageSection, subSection, subSubSection)
- * - Sections have special nesting rules and are added separately where needed
+ * These blocks can be safely nested at any depth without causing GROQ issues.
+ * Used inside cards and other deeply nested contexts.
  */
-export const STANDARD_BLOCK_LIST = [
-  // Content Blocks
+export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'richText' }),
   defineArrayMember({ type: 'quote' }),
   defineArrayMember({ type: 'divider' }),
@@ -40,8 +41,35 @@ export const STANDARD_BLOCK_LIST = [
   defineArrayMember({ type: 'itemList' }),
   defineArrayMember({ type: 'contactForm' }),
   defineArrayMember({ type: 'companyLinksBlock' }),
+];
 
-  // Layout Blocks
+/**
+ * LAYOUT_CHILD_BLOCKS - Blocks allowed inside layout components (grid/twoColumn)
+ *
+ * Allows cards but NOT nested layout blocks to prevent deep nesting.
+ * This ensures CTAs inside cards inside layouts get their references properly.
+ */
+export const LAYOUT_CHILD_BLOCKS = [
+  ...CONTENT_ONLY_BLOCKS,
+  defineArrayMember({ type: 'card' }),
+];
+
+/**
+ * STANDARD_BLOCK_LIST - The universal block list for top-level content
+ *
+ * This is the default block list that includes ALL content and layout blocks.
+ * Use this for top-level page content and section content.
+ *
+ * Includes:
+ * - Content blocks: richText, quote, divider, imageBlock, imageGallery, videos, widgets, CTAs, lists, forms
+ * - Layout blocks: twoColumnLayout, gridLayout, card
+ *
+ * Does NOT include: Section blocks (pageSection, subSection, subSubSection)
+ * - Sections have special nesting rules and are added separately where needed
+ */
+export const STANDARD_BLOCK_LIST = [
+  ...CONTENT_ONLY_BLOCKS,
+  // Layout Blocks - only allowed at top level
   defineArrayMember({ type: 'twoColumnLayout' }),
   defineArrayMember({ type: 'gridLayout' }),
   defineArrayMember({ type: 'card' }),

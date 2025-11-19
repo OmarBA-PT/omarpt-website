@@ -4,7 +4,7 @@
 
 import { defineField, defineType } from 'sanity';
 import { ComponentIcon } from '@sanity/icons';
-import { STANDARD_BLOCK_LIST } from '../shared/blockLists';
+import { LAYOUT_CHILD_BLOCKS } from '../shared/blockLists';
 
 export const gridLayoutType = defineType({
   name: 'gridLayout',
@@ -31,8 +31,8 @@ export const gridLayoutType = defineType({
       name: 'content',
       title: 'Grid Content',
       type: 'array',
-      description: 'Grid content items',
-      of: STANDARD_BLOCK_LIST,
+      description: 'Grid content items. Can contain cards and content blocks, but not nested grids or two-column layouts.',
+      of: LAYOUT_CHILD_BLOCKS,
       validation: (Rule) =>
         Rule.required().min(1).error('Grid layout must contain at least one item'),
     }),
