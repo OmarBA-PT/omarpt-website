@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
     cssChunking: 'strict',
   },
 
+  // Turbopack configuration (required for Next.js 16+)
+  // Empty config acknowledges Turbopack usage alongside webpack config
+  turbopack: {},
+
   // Bundle optimization
   webpack: (config, { isServer }) => {
     // Optimize CSS chunking for better loading performance

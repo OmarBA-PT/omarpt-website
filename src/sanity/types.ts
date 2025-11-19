@@ -116,6 +116,19 @@ export type CtaList = Array<{
   _key: string;
 } & EmbeddedCtaButton>;
 
+export type CompanyLinksArray = {
+  _type: "companyLinksArray";
+  socialLinksArray?: Array<{
+    url?: string;
+    detectedPlatform?: string;
+    platform?: "genericLink";
+    customTitle?: string;
+    hideFromFooter?: boolean;
+    _type: "socialLinkItem";
+    _key: string;
+  }>;
+};
+
 export type ContactForm = {
   _type: "contactForm";
   placeholder?: string;
@@ -571,6 +584,22 @@ export type Icon = {
   };
 };
 
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
 export type GridLayout = {
   _type: "gridLayout";
   columns?: "2" | "3" | "4";
@@ -597,30 +626,64 @@ export type GridLayout = {
   } & AudioSamplePlayer>;
 };
 
+export type Card = {
+  _type: "card";
+  visualStyle?: "light" | "dark";
+  title?: string;
+  subtitle?: string;
+  imageType?: "none" | "banner" | "icon";
+  iconNoImageLayoutStyle?: "stacked" | "row";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  content?: Array<{
+    _key: string;
+  } & Divider | {
+    _key: string;
+  } & TwoColumnLayout | {
+    _key: string;
+  } & RichText | {
+    _key: string;
+  } & BlockListWithStats | {
+    _key: string;
+  } & CheckList | {
+    _key: string;
+  } & Quote | {
+    _key: string;
+  } & ImageBlock | {
+    _key: string;
+  } & ImageGallery | {
+    _key: string;
+  } & CtaButton | {
+    _key: string;
+  } & CtaCalloutLink | {
+    _key: string;
+  } & CtaBlogPost | {
+    _key: string;
+  } & YouTubeVideo | {
+    _key: string;
+  } & SpotifyWidget | {
+    _key: string;
+  } & BandcampWidget | {
+    _key: string;
+  } & CompanyLinksBlock>;
+};
+
 export type RichText = {
   _type: "richText";
   isCallout?: boolean;
   textAlign?: "inherit" | "left" | "center" | "right";
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "body-3xl" | "body-2xl" | "body-xl" | "body-lg" | "body-sm" | "body-xs" | "standout";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    } | {
-      _key: string;
-    } & Color>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
+  content?: BlockContent;
 };
 
 export type Divider = {
@@ -1315,6 +1378,12 @@ export type BlogPost = {
   closingCard?: Card;
 };
 
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
 export type BlogIndexPage = {
   _id: string;
   _type: "blogIndexPage";
@@ -1396,59 +1465,6 @@ export type Page = {
   closingCard?: Card;
 };
 
-export type Card = {
-  _type: "card";
-  visualStyle?: "light" | "dark";
-  title?: string;
-  subtitle?: string;
-  imageType?: "none" | "banner" | "icon";
-  iconNoImageLayoutStyle?: "stacked" | "row";
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  };
-  content?: Array<{
-    _key: string;
-  } & Divider | {
-    _key: string;
-  } & TwoColumnLayout | {
-    _key: string;
-  } & RichText | {
-    _key: string;
-  } & BlockListWithStats | {
-    _key: string;
-  } & CheckList | {
-    _key: string;
-  } & Quote | {
-    _key: string;
-  } & ImageBlock | {
-    _key: string;
-  } & ImageGallery | {
-    _key: string;
-  } & CtaButton | {
-    _key: string;
-  } & CtaCalloutLink | {
-    _key: string;
-  } & CtaBlogPost | {
-    _key: string;
-  } & YouTubeVideo | {
-    _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
-  } & CompanyLinksBlock>;
-};
-
 export type HomePage = {
   _id: string;
   _type: "homePage";
@@ -1504,19 +1520,6 @@ export type CompanyLinks = {
   _updatedAt: string;
   _rev: string;
   companyLinks?: CompanyLinksArray;
-};
-
-export type CompanyLinksArray = {
-  _type: "companyLinksArray";
-  socialLinksArray?: Array<{
-    url?: string;
-    detectedPlatform?: string;
-    platform?: "genericLink";
-    customTitle?: string;
-    hideFromFooter?: boolean;
-    _type: "socialLinkItem";
-    _key: string;
-  }>;
 };
 
 export type SiteSettings = {
@@ -1602,20 +1605,15 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+export type SanityImageMetadata = {
+  _type: "sanity.imageMetadata";
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
 };
 
 export type SanityFileAsset = {
@@ -1638,6 +1636,13 @@ export type SanityFileAsset = {
   path?: string;
   url?: string;
   source?: SanityAssetSourceData;
+};
+
+export type SanityAssetSourceData = {
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
 };
 
 export type SanityImageAsset = {
@@ -1663,17 +1668,6 @@ export type SanityImageAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
-};
-
 export type Geopoint = {
   _type: "geopoint";
   lat?: number;
@@ -1681,20 +1675,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
-export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
-};
-
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | ContactForm | FeaturedProjects | ProjectList | TeamMemberList | ClientList | EquipmentList | ItemList | CheckList | BlockListWithStats | CompanyLinksBlock | CtaBlogPost | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | AudioSamplePlayer | BandcampWidget | SpotifyWidget | YouTubeVideo | ImageGallery | ImageBlock | Icon | GridLayout | RichText | Divider | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Project | TeamMember | EquipmentListSingleton | Clients | AudioSample | BlogPost | BlogIndexPage | Page | Card | HomePage | ContactFormSettings | CompanyLinks | CompanyLinksArray | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | FeaturedProjects | ProjectList | TeamMemberList | ClientList | EquipmentList | ItemList | CheckList | BlockListWithStats | CompanyLinksBlock | CtaBlogPost | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | AudioSamplePlayer | BandcampWidget | SpotifyWidget | YouTubeVideo | ImageGallery | ImageBlock | Icon | SanityImageCrop | SanityImageHotspot | GridLayout | Card | RichText | Divider | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Project | TeamMember | EquipmentListSingleton | Clients | AudioSample | BlogPost | Slug | BlogIndexPage | Page | HomePage | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -2317,26 +2298,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -2651,26 +2613,7 @@ export type PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -2944,26 +2887,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -3278,26 +3202,7 @@ export type PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -4131,26 +4036,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -4465,26 +4351,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -4758,26 +4625,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -5092,26 +4940,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -5909,26 +5738,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -6243,26 +6053,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -6536,26 +6327,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -6870,26 +6642,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -7416,26 +7169,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -7710,26 +7444,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -8044,26 +7759,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -8337,26 +8033,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -8671,26 +8348,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -9223,26 +8881,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -9517,26 +9156,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -9851,26 +9471,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -10144,26 +9745,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -10478,26 +10060,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -11011,26 +10574,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -11185,26 +10729,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -11626,26 +11151,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -12230,26 +11736,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -12388,26 +11875,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -12497,26 +11965,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -12797,26 +12246,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -13131,26 +12561,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -13424,26 +12835,7 @@ export type PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -13758,26 +13150,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -14070,26 +13443,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -14404,26 +13758,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -14697,26 +14032,7 @@ export type PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -15031,26 +14347,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -15345,26 +14642,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -15679,26 +14957,7 @@ export type PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -15972,26 +15231,7 @@ export type PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -16306,26 +15546,7 @@ export type PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -16668,26 +15889,7 @@ export type PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -17002,26 +16204,7 @@ export type PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -17295,26 +16478,7 @@ export type PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -17629,26 +16793,7 @@ export type PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -17909,26 +17054,7 @@ export type PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -18682,26 +17808,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -19016,26 +18123,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -19309,26 +18397,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -19643,26 +18712,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -20496,26 +19546,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -20830,26 +19861,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -21123,26 +20135,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -21457,26 +20450,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -22274,26 +21248,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -22608,26 +21563,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -22901,26 +21837,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -23235,26 +22152,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -23781,26 +22679,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -24075,26 +22954,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -24409,26 +23269,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -24702,26 +23543,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -25036,26 +23858,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -25588,26 +24391,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -25882,26 +24666,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -26216,26 +24981,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -26509,26 +25255,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -26843,26 +25570,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -27376,26 +26084,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -27550,26 +26239,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -27991,26 +26661,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -28595,26 +27246,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -28753,26 +27385,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -28862,26 +27475,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -29162,26 +27756,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -29496,26 +28071,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -29789,26 +28345,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -30123,26 +28660,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -30435,26 +28953,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -30769,26 +29268,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -31062,26 +29542,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -31396,26 +29857,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -31710,26 +30152,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -32044,26 +30467,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -32337,26 +30741,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -32671,26 +31056,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -33033,26 +31399,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -33367,26 +31714,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -33660,26 +31988,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -33994,26 +32303,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -34822,26 +33112,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -35156,26 +33427,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -35449,26 +33701,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -35783,26 +34016,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -36636,26 +34850,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -36970,26 +35165,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -37263,26 +35439,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -37597,26 +35754,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -38414,26 +36552,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -38748,26 +36867,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -39041,26 +37141,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -39375,26 +37456,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -39921,26 +37983,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -40215,26 +38258,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -40549,26 +38573,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -40842,26 +38847,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -41176,26 +39162,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -41728,26 +39695,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -42022,26 +39970,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -42356,26 +40285,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -42649,26 +40559,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -42983,26 +40874,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -43516,26 +41388,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -43690,26 +41543,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -44131,26 +41965,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -44735,26 +42550,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -44893,26 +42689,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -45002,26 +42779,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -45302,26 +43060,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -45636,26 +43375,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -45929,26 +43649,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -46263,26 +43964,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -46575,26 +44257,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -46909,26 +44572,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -47202,26 +44846,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -47536,26 +45161,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -47850,26 +45456,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -48184,26 +45771,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -48477,26 +46045,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -48811,26 +46360,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -49173,26 +46703,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -49507,26 +47018,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -49800,26 +47292,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -50134,26 +47607,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -50794,26 +48248,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -51128,26 +48563,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -51421,26 +48837,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -51755,26 +49152,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -52608,26 +49986,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -52942,26 +50301,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -53235,26 +50575,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -53569,26 +50890,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -54386,26 +51688,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -54720,26 +52003,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -55013,26 +52277,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -55347,26 +52592,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -55893,26 +53119,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -56187,26 +53394,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -56521,26 +53709,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -56814,26 +53983,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -57148,26 +54298,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -57700,26 +54831,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -57994,26 +55106,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -58328,26 +55421,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -58621,26 +55695,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -58955,26 +56010,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -59488,26 +56524,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -59662,26 +56679,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -60103,26 +57101,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -60707,26 +57686,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -60865,26 +57825,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -60974,26 +57915,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -61274,26 +58196,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -61608,26 +58511,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -61901,26 +58785,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -62235,26 +59100,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -62547,26 +59393,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -62881,26 +59708,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -63174,26 +59982,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -63508,26 +60297,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -63822,26 +60592,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -64156,26 +60907,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -64449,26 +61181,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -64783,26 +61496,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -65145,26 +61839,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -65479,26 +62154,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -65772,26 +62428,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -66106,26 +62743,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -66766,26 +63384,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -67100,26 +63699,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -67393,26 +63973,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -67727,26 +64288,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -68580,26 +65122,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -68914,26 +65437,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -69207,26 +65711,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -69541,26 +66026,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -70358,26 +66824,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -70692,26 +67139,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -70985,26 +67413,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -71319,26 +67728,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -71865,26 +68255,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -72159,26 +68530,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -72493,26 +68845,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -72786,26 +69119,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -73120,26 +69434,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -73672,26 +69967,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -73966,26 +70242,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -74300,26 +70557,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -74593,26 +70831,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -74927,26 +71146,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -75460,26 +71660,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -75634,26 +71815,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -76075,26 +72237,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -76679,26 +72822,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -76837,26 +72961,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -76946,26 +73051,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -77246,26 +73332,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -77580,26 +73647,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -77873,26 +73921,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -78207,26 +74236,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -78519,26 +74529,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -78853,26 +74844,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -79146,26 +75118,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -79480,26 +75433,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -79794,26 +75728,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -80128,26 +76043,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -80421,26 +76317,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -80755,26 +76632,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -81117,26 +76975,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -81451,26 +77290,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -81744,26 +77564,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -82078,26 +77879,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -82808,26 +78590,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -83142,26 +78905,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -83435,26 +79179,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -83769,26 +79494,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -84622,26 +80328,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -84956,26 +80643,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -85249,26 +80917,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -85583,26 +81232,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -86400,26 +82030,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -86734,26 +82345,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -87027,26 +82619,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -87361,26 +82934,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -87907,26 +83461,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -88201,26 +83736,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -88535,26 +84051,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -88828,26 +84325,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -89162,26 +84640,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -89714,26 +85173,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -90008,26 +85448,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -90342,26 +85763,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -90635,26 +86037,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -90969,26 +86352,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -91502,26 +86866,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -91676,26 +87021,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -92117,26 +87443,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -92721,26 +88028,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -92879,26 +88167,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -92988,26 +88257,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -93288,26 +88538,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -93622,26 +88853,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -93915,26 +89127,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -94249,26 +89442,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -94561,26 +89735,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -94895,26 +90050,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -95188,26 +90324,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -95522,26 +90639,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -95836,26 +90934,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -96170,26 +91249,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -96463,26 +91523,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -96797,26 +91838,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -97159,26 +92181,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -97493,26 +92496,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -97786,26 +92770,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -98120,26 +93085,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -99141,26 +94087,7 @@ export type BLOG_POSTS_QUERYResult = Array<{
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -99523,26 +94450,7 @@ export type BLOG_INDEX_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -99892,26 +94800,7 @@ export type BLOG_INDEX_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -100331,26 +95220,7 @@ export type BLOG_INDEX_PAGE_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -101155,26 +96025,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -101489,26 +96340,7 @@ export type BLOG_POST_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -101782,26 +96614,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -102116,26 +96929,7 @@ export type BLOG_POST_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -102969,26 +97763,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -103303,26 +98078,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -103596,26 +98352,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -103930,26 +98667,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -104747,26 +99465,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -105081,26 +99780,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -105374,26 +100054,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -105708,26 +100369,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -106254,26 +100896,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -106548,26 +101171,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -106882,26 +101486,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -107175,26 +101760,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -107509,26 +102075,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -108061,26 +102608,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -108355,26 +102883,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -108689,26 +103198,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -108982,26 +103472,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -109316,26 +103787,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -109849,26 +104301,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -110023,26 +104456,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -110464,26 +104878,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -111068,26 +105463,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -111226,26 +105602,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -111335,26 +105692,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -111635,26 +105973,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -111969,26 +106288,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -112262,26 +106562,7 @@ export type BLOG_POST_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -112596,26 +106877,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -112908,26 +107170,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -113242,26 +107485,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -113535,26 +107759,7 @@ export type BLOG_POST_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -113869,26 +108074,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -114183,26 +108369,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -114517,26 +108684,7 @@ export type BLOG_POST_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -114810,26 +108958,7 @@ export type BLOG_POST_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -115144,26 +109273,7 @@ export type BLOG_POST_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -115506,26 +109616,7 @@ export type BLOG_POST_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -115840,26 +109931,7 @@ export type BLOG_POST_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -116133,26 +110205,7 @@ export type BLOG_POST_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -116467,26 +110520,7 @@ export type BLOG_POST_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -116746,26 +110780,7 @@ export type BLOG_POST_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -117607,26 +111622,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -117941,26 +111937,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -118234,26 +112211,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -118568,26 +112526,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -119421,26 +113360,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -119755,26 +113675,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -120048,26 +113949,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -120382,26 +114264,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -121199,26 +115062,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -121533,26 +115377,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -121826,26 +115651,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -122160,26 +115966,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -122706,26 +116493,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -123000,26 +116768,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -123334,26 +117083,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -123627,26 +117357,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -123961,26 +117672,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -124513,26 +118205,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -124807,26 +118480,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -125141,26 +118795,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -125434,26 +119069,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -125768,26 +119384,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -126301,26 +119898,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -126475,26 +120053,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -126916,26 +120475,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -127520,26 +121060,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -127678,26 +121199,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -127787,26 +121289,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -128087,26 +121570,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -128421,26 +121885,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -128714,26 +122159,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -129048,26 +122474,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -129360,26 +122767,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -129694,26 +123082,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -129987,26 +123356,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -130321,26 +123671,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -130635,26 +123966,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -130969,26 +124281,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -131262,26 +124555,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -131596,26 +124870,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -131958,26 +125213,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -132292,26 +125528,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -132585,26 +125802,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -132919,26 +126117,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -133628,26 +126807,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -133962,26 +127122,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -134255,26 +127396,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -134589,26 +127711,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -135442,26 +128545,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -135776,26 +128860,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -136069,26 +129134,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -136403,26 +129449,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -137220,26 +130247,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -137554,26 +130562,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -137847,26 +130836,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -138181,26 +131151,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -138727,26 +131678,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -139021,26 +131953,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -139355,26 +132268,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -139648,26 +132542,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -139982,26 +132857,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -140534,26 +133390,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -140828,26 +133665,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -141162,26 +133980,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -141455,26 +134254,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -141789,26 +134569,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -142322,26 +135083,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -142496,26 +135238,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -142937,26 +135660,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -143541,26 +136245,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -143699,26 +136384,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -143808,26 +136474,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -144108,26 +136755,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -144442,26 +137070,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -144735,26 +137344,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -145069,26 +137659,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -145381,26 +137952,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -145715,26 +138267,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -146008,26 +138541,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -146342,26 +138856,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -146656,26 +139151,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -146990,26 +139466,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -147283,26 +139740,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -147617,26 +140055,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -147979,26 +140398,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -148313,26 +140713,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -148606,26 +140987,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -148940,26 +141302,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -149595,26 +141938,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -149929,26 +142253,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -150222,26 +142527,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -150556,26 +142842,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -151409,26 +143676,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -151743,26 +143991,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -152036,26 +144265,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -152370,26 +144580,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -153187,26 +145378,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -153521,26 +145693,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -153814,26 +145967,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -154148,26 +146282,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -154694,26 +146809,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -154988,26 +147084,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -155322,26 +147399,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -155615,26 +147673,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -155949,26 +147988,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -156501,26 +148521,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -156795,26 +148796,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -157129,26 +149111,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -157422,26 +149385,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -157756,26 +149700,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -158289,26 +150214,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -158463,26 +150369,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -158904,26 +150791,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -159508,26 +151376,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -159666,26 +151515,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -159775,26 +151605,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -160075,26 +151886,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -160409,26 +152201,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -160702,26 +152475,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -161036,26 +152790,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -161348,26 +153083,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -161682,26 +153398,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -161975,26 +153672,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -162309,26 +153987,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -162623,26 +154282,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -162957,26 +154597,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -163250,26 +154871,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -163584,26 +155186,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -163946,26 +155529,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -164280,26 +155844,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -164573,26 +156118,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -164907,26 +156433,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -165562,26 +157069,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -165896,26 +157384,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -166189,26 +157658,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -166523,26 +157973,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -167376,26 +158807,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -167710,26 +159122,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -168003,26 +159396,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -168337,26 +159711,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -169154,26 +160509,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -169488,26 +160824,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -169781,26 +161098,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -170115,26 +161413,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -170661,26 +161940,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -170955,26 +162215,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -171289,26 +162530,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -171582,26 +162804,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -171916,26 +163119,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -172468,26 +163652,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -172762,26 +163927,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -173096,26 +164242,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -173389,26 +164516,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -173723,26 +164831,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -174256,26 +165345,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -174430,26 +165500,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -174871,26 +165922,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -175475,26 +166507,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -175633,26 +166646,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -175742,26 +166736,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -176042,26 +167017,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -176376,26 +167332,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -176669,26 +167606,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -177003,26 +167921,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -177315,26 +168214,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -177649,26 +168529,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -177942,26 +168803,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -178276,26 +169118,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -178590,26 +169413,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -178924,26 +169728,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -179217,26 +170002,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -179551,26 +170317,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -179913,26 +170660,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -180247,26 +170975,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -180540,26 +171249,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -180874,26 +171564,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -181574,26 +172245,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -181908,26 +172560,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -182201,26 +172834,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -182535,26 +173149,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -183388,26 +173983,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -183722,26 +174298,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -184015,26 +174572,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -184349,26 +174887,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -185166,26 +175685,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -185500,26 +176000,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -185793,26 +176274,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -186127,26 +176589,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -186673,26 +177116,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -186967,26 +177391,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -187301,26 +177706,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -187594,26 +177980,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -187928,26 +178295,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -188480,26 +178828,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -188774,26 +179103,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -189108,26 +179418,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -189401,26 +179692,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -189735,26 +180007,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -190268,26 +180521,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -190442,26 +180676,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -190883,26 +181098,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -191487,26 +181683,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -191645,26 +181822,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -191754,26 +181912,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -192054,26 +182193,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -192388,26 +182508,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -192681,26 +182782,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -193015,26 +183097,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -193327,26 +183390,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -193661,26 +183705,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -193954,26 +183979,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -194288,26 +184294,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -194602,26 +184589,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -194936,26 +184904,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -195229,26 +185178,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -195563,26 +185493,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -195925,26 +185836,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -196259,26 +186151,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -196552,26 +186425,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -196886,26 +186740,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -197562,26 +187397,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -197896,26 +187712,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -198189,26 +187986,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -198523,26 +188301,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -199376,26 +189135,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -199710,26 +189450,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -200003,26 +189724,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -200337,26 +190039,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -201154,26 +190837,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -201488,26 +191152,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -201781,26 +191426,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -202115,26 +191741,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -202661,26 +192268,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -202955,26 +192543,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -203289,26 +192858,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -203582,26 +193132,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -203916,26 +193447,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -204468,26 +193980,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -204762,26 +194255,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -205096,26 +194570,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -205389,26 +194844,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -205723,26 +195159,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -206256,26 +195673,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -206430,26 +195828,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -206871,26 +196250,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -207475,26 +196835,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -207633,26 +196974,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -207742,26 +197064,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -208042,26 +197345,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -208376,26 +197660,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -208669,26 +197934,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -209003,26 +198249,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -209315,26 +198542,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -209649,26 +198857,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -209942,26 +199131,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -210276,26 +199446,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -210590,26 +199741,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -210924,26 +200056,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -211217,26 +200330,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -211551,26 +200645,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -211913,26 +200988,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -212247,26 +201303,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -212540,26 +201577,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -212874,26 +201892,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -213583,26 +202582,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -213917,26 +202897,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -214210,26 +203171,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -214544,26 +203486,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -215397,26 +204320,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -215731,26 +204635,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -216024,26 +204909,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -216358,26 +205224,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -217175,26 +206022,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -217509,26 +206337,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -217802,26 +206611,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -218136,26 +206926,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -218682,26 +207453,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -218976,26 +207728,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -219310,26 +208043,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -219603,26 +208317,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -219937,26 +208632,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -220489,26 +209165,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -220783,26 +209440,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -221117,26 +209755,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -221410,26 +210029,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -221744,26 +210344,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -222277,26 +210858,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -222451,26 +211013,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -222892,26 +211435,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -223496,26 +212020,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -223654,26 +212159,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -223763,26 +212249,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -224063,26 +212530,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -224397,26 +212845,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -224690,26 +213119,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -225024,26 +213434,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -225336,26 +213727,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -225670,26 +214042,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -225963,26 +214316,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -226297,26 +214631,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -226611,26 +214926,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -226945,26 +215241,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -227238,26 +215515,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -227572,26 +215830,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -227934,26 +216173,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -228268,26 +216488,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -228561,26 +216762,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -228895,26 +217077,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -229550,26 +217713,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -229884,26 +218028,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -230177,26 +218302,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -230511,26 +218617,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -231364,26 +219451,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -231698,26 +219766,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -231991,26 +220040,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -232325,26 +220355,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -233142,26 +221153,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -233476,26 +221468,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -233769,26 +221742,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -234103,26 +222057,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -234649,26 +222584,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -234943,26 +222859,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -235277,26 +223174,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -235570,26 +223448,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -235904,26 +223763,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -236456,26 +224296,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -236750,26 +224571,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -237084,26 +224886,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -237377,26 +225160,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -237711,26 +225475,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -238244,26 +225989,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -238418,26 +226144,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -238859,26 +226566,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -239463,26 +227151,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -239621,26 +227290,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -239730,26 +227380,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -240030,26 +227661,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -240364,26 +227976,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -240657,26 +228250,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -240991,26 +228565,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -241303,26 +228858,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -241637,26 +229173,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -241930,26 +229447,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -242264,26 +229762,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -242578,26 +230057,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -242912,26 +230372,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -243205,26 +230646,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -243539,26 +230961,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -243901,26 +231304,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -244235,26 +231619,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -244528,26 +231893,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -244862,26 +232208,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -245517,26 +232844,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -245851,26 +233159,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -246144,26 +233433,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -246478,26 +233748,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -247331,26 +234582,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -247665,26 +234897,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -247958,26 +235171,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -248292,26 +235486,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -249109,26 +236284,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -249443,26 +236599,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -249736,26 +236873,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -250070,26 +237188,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -250616,26 +237715,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -250910,26 +237990,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -251244,26 +238305,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -251537,26 +238579,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -251871,26 +238894,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -252423,26 +239427,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -252717,26 +239702,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -253051,26 +240017,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -253344,26 +240291,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -253678,26 +240606,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -254211,26 +241120,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -254385,26 +241275,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -254826,26 +241697,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -255430,26 +242282,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -255588,26 +242421,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -255697,26 +242511,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -255997,26 +242792,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -256331,26 +243107,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -256624,26 +243381,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -256958,26 +243696,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -257270,26 +243989,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -257604,26 +244304,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -257897,26 +244578,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -258231,26 +244893,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -258545,26 +245188,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -258879,26 +245503,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -259172,26 +245777,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -259506,26 +246092,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -259868,26 +246435,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -260202,26 +246750,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -260495,26 +247024,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -260829,26 +247339,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -261529,26 +248020,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -261863,26 +248335,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -262156,26 +248609,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -262490,26 +248924,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -263343,26 +249758,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -263677,26 +250073,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -263970,26 +250347,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -264304,26 +250662,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -265121,26 +251460,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -265455,26 +251775,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -265748,26 +252049,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -266082,26 +252364,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -266628,26 +252891,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -266922,26 +253166,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -267256,26 +253481,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -267549,26 +253755,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -267883,26 +254070,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -268435,26 +254603,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -268729,26 +254878,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -269063,26 +255193,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -269356,26 +255467,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -269690,26 +255782,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -270223,26 +256296,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -270397,26 +256451,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -270838,26 +256873,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -271442,26 +257458,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -271600,26 +257597,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -271709,26 +257687,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
           image: null;
         } | {
           _key: string;
@@ -272009,26 +257968,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -272343,26 +258283,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -272636,26 +258557,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "richText";
               isCallout?: boolean;
               textAlign?: "center" | "inherit" | "left" | "right";
-              content?: Array<{
-                children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-                }>;
-                style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-                listItem?: "bullet" | "number";
-                markDefs?: Array<{
-                  _key: string;
-                } & Color | {
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-                }>;
-                level?: number;
-                _type: "block";
-                _key: string;
-              }>;
+              content?: BlockContent;
             } | {
               _key: string;
               _type: "spotifyWidget";
@@ -272970,26 +258872,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -273282,26 +259165,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -273616,26 +259480,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -273909,26 +259754,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "richText";
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
-            content?: Array<{
-              children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-              }>;
-              style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                _key: string;
-              } & Color | {
-                href?: string;
-                _type: "link";
-                _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-            }>;
+            content?: BlockContent;
           } | {
             _key: string;
             _type: "spotifyWidget";
@@ -274243,26 +260069,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -274557,26 +260364,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -274891,26 +260679,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -275184,26 +260953,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "richText";
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              _key: string;
-            } & Color | {
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
+          content?: BlockContent;
         } | {
           _key: string;
           _type: "spotifyWidget";
@@ -275518,26 +261268,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -275880,26 +261611,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -276214,26 +261926,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";
@@ -276507,26 +262200,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "richText";
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            _key: string;
-          } & Color | {
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
+        content?: BlockContent;
       } | {
         _key: string;
         _type: "spotifyWidget";
@@ -276841,26 +262515,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "richText";
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
-      content?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          _key: string;
-        } & Color | {
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
+      content?: BlockContent;
     } | {
       _key: string;
       _type: "spotifyWidget";

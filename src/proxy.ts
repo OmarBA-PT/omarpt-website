@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { SITE_CONFIG } from '@/lib/constants';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // If maintenance mode is disabled, allow normal site operation
   if (!SITE_CONFIG.MAINTENANCE_MODE_ENABLED) {
     return NextResponse.next();
@@ -37,7 +37,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.rewrite(new URL('/maintenance-mode', request.url));
 }
 
-// Configure which routes the middleware runs on
+// Configure which routes the proxy runs on
 export const config = {
   // Match all routes except static files and internal Next.js routes
   matcher: [
