@@ -9,6 +9,7 @@ This file contains instructions for AI assistants working on this project.
 ### The Problem
 
 The `src/utils/blockRenderer.tsx` file contains a centralized `renderBlock()` function used by:
+
 - PageBuilder (main page content)
 - TwoColumnLayout (left/right columns)
 - GridLayout (grid items)
@@ -21,6 +22,7 @@ The `src/utils/blockRenderer.tsx` file contains a centralized `renderBlock()` fu
 When creating a new block type that should be renderable, you **MUST** update `blockRenderer.tsx`:
 
 1. **Add type import:**
+
    ```typescript
    import type {
      // ... existing imports
@@ -29,11 +31,13 @@ When creating a new block type that should be renderable, you **MUST** update `b
    ```
 
 2. **Add component import:**
+
    ```typescript
    import NewBlockComponent from '@/components/_blocks/NewBlock';
    ```
 
 3. **Add to BlockType union:**
+
    ```typescript
    type BlockType =
      | WithKey<RichTextType>
@@ -42,6 +46,7 @@ When creating a new block type that should be renderable, you **MUST** update `b
    ```
 
 4. **Add switch case:**
+
    ```typescript
    case 'newBlockType': {
      const newBlock = typedBlock as WithKey<NewBlockTypeType>;
@@ -83,11 +88,13 @@ default: {
 ```
 
 **How it works:**
+
 - If all cases in the `BlockType` union are handled, TypeScript knows the default case is unreachable
 - Assigning `typedBlock` to `never` type will **cause a TypeScript error** if any case is missing
 - This catches missing block types at **compile time**, before you even run the code
 
 **What you'll see if a case is missing:**
+
 ```
 Type 'WithKey<SomeBlockType>' is not assignable to type 'never'
 ```
@@ -126,6 +133,7 @@ When using Sanity's live preview/Presentation mode, the system embeds invisible 
 ```
 
 **Symptoms:**
+
 - Data appears in production but disappears in Presentation mode
 - Filtering/comparison logic works outside draft mode but fails in draft mode
 - Console logs show strange invisible characters in string values
@@ -147,6 +155,7 @@ const filtered = items.filter(item => stegaClean(item.category) === stegaClean(s
 ### When to Use stegaClean
 
 Use `stegaClean()` for:
+
 - **String equality comparisons** (`===`, `==`)
 - **Array includes/indexOf** operations with string values
 - **Switch statements** on string values from Sanity
@@ -156,6 +165,7 @@ Use `stegaClean()` for:
 ### When NOT to Use stegaClean
 
 You don't need `stegaClean()` for:
+
 - **Display purposes** - The invisible characters don't appear in the UI
 - **Numeric comparisons** - Numbers aren't affected by stega encoding
 - **Boolean comparisons** - Booleans aren't affected
@@ -426,12 +436,14 @@ The `PortableTextWrapper` component (`src/components/UI/PortableTextWrapper.tsx`
 **Implementation Details:**
 
 Empty blocks are rendered as truly empty `<p></p>` elements (no `&nbsp;`), which allows the CSS `:empty` selector to work correctly. Two CSS rules work together:
+
 1. `[&>:empty]:min-h-[1lh]` - Gives empty elements a minimum height of one line-height
 2. `[&>:not(:empty)+:not(:empty)]:mt-2` - Only adds `mt-2` between non-empty elements
 
 This prevents double-spacing after blank lines while ensuring blank lines create visible vertical space.
 
 **Spacing Logic:**
+
 ```
 <p>First paragraph</p>      ← No margin (first element)
 <p>Second paragraph</p>      ← mt-2 (non-empty after non-empty)
@@ -488,11 +500,13 @@ When creating a new PortableText component configuration:
 ### Common Mistakes to Avoid
 
 ❌ **Wrong - No empty block handling:**
+
 ```typescript
 normal: ({ children }) => <p className='text-body-base'>{children}</p>
 ```
 
 ❌ **Wrong - Using &nbsp; instead of truly empty:**
+
 ```typescript
 normal: ({ children }) => {
   if (!children) return <p className='text-body-base'>&nbsp;</p>; // ❌ Breaks :empty selector
@@ -501,6 +515,7 @@ normal: ({ children }) => {
 ```
 
 ✅ **Correct - Truly empty elements for CSS :empty selector:**
+
 ```typescript
 normal: ({ children }) => {
   if (!children || (Array.isArray(children) && children.length === 0) || children === '') {
@@ -602,7 +617,7 @@ The `UnifiedImage` component (`@/components/UI/UnifiedImage`) automatically hand
 ```typescript
 <UnifiedImage
   src={headerData.logo}
-  alt="Taupiri Sound"
+  alt="Omania Training"
   mode="sized"
   width={180}
   height={125}
