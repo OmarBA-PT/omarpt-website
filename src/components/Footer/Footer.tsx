@@ -114,7 +114,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
             <Link href='/#home'>
               <UnifiedImage
                 src='/images/logos/logo-white.png'
-                alt='Taupiri Sound Logo'
+                alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
                 mode='sized'
                 width={400}
                 height={190}
@@ -184,7 +184,8 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
 
                       // Determine if this should open in a new tab
                       const shouldOpenInNewTab =
-                        link.linkType === 'external' || (link.linkType === 'internal' && link.openInNewTab);
+                        link.linkType === 'external' ||
+                        (link.linkType === 'internal' && link.openInNewTab);
 
                       return (
                         <Link

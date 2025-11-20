@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 /**
  * Web App Manifest - Enables "Add to Home Screen" functionality
  *
- * This manifest allows users to install the Taupiri Sound website as a Progressive Web App (PWA)
+ * This manifest allows users to install the website as a Progressive Web App (PWA)
  * on mobile devices, providing an app-like experience.
  *
  * PWA settings (name, colors, description) are centralized in SITE_CONFIG.PWA_MANIFEST

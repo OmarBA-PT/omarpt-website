@@ -6,15 +6,16 @@ import Container from '@/components/Layout/Container';
 import CTA from '@/components/UI/CTA';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { FaQuestionCircle } from 'react-icons/fa';
+import { SITE_CONFIG } from '@/lib/constants';
 
 const META_DESCRIPTION = 'Sorry, the page you are looking for could not be found.';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found - Taupiri Sound',
+  title: `Page Not Found - ${SITE_CONFIG.ORGANIZATION_NAME}`,
   description: META_DESCRIPTION,
   robots: 'noindex, nofollow',
   openGraph: {
-    title: 'Page Not Found - Taupiri Sound',
+    title: `Page Not Found - ${SITE_CONFIG.ORGANIZATION_NAME}`,
     description: META_DESCRIPTION,
     type: 'website',
   },
@@ -72,8 +73,7 @@ export default function NotFound() {
           <div className='max-w-2xl mb-8 md:mb-12'>
             <h2 className='text-h3 md:text-h2 mb-4'>Oops! We can&apos;t find that page</h2>
             <p className='text-body-lg md:text-body-xl leading-relaxed mb-6'>
-              The page you&apos;re looking for doesn&apos;t exist or may have been moved. Don&apos;t
-              worry though - there&apos;s plenty to explore at Taupiri Sound!
+              {`The page you're looking for doesn't exist or may have been moved. Don't worry though - there's plenty to explore at ${SITE_CONFIG.ORGANIZATION_NAME}!`}
             </p>
           </div>
 

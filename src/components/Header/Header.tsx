@@ -10,6 +10,7 @@ import VerticalNav from './VerticalNav/VerticalNav';
 import SkipLink from '@/components/UI/SkipLink';
 import { useHeader } from '@/contexts/HeaderContext';
 import { headerHeight } from '@/utils/spacingConstants';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface HeaderProps {
   headerData: HEADER_QUERYResult | null;
@@ -111,7 +112,7 @@ const Header = ({ headerData }: HeaderProps) => {
           }}>
           <UnifiedImage
             src='/images/logos/logo-white.png'
-            alt='Taupiri Sound Logo'
+            alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
             mode='sized'
             width={200}
             height={125}

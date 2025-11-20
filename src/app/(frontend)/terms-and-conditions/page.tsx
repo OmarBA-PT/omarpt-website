@@ -9,7 +9,11 @@ import {
   getContactFormSettings,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
-import { generateMetadata as generatePageMetadata, generateCanonicalUrl, getBaseUrl } from '@/lib/metadata';
+import {
+  generateMetadata as generatePageMetadata,
+  generateCanonicalUrl,
+  getBaseUrl,
+} from '@/lib/metadata';
 import {
   generateArticleSchema,
   getOrganizationDataFromSiteSettings,
@@ -17,13 +21,14 @@ import {
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata() {
   const [siteSettings, termsData] = await Promise.all([getSiteSettings(), getTermsAndConditions()]);
 
   if (!siteSettings) {
     return {
-      title: 'Terms & Conditions | Taupiri Sound',
+      title: `Terms & Conditions | ${SITE_CONFIG.ORGANIZATION_NAME}`,
       description: 'Terms and conditions for using our website and services',
     };
   }
@@ -40,13 +45,12 @@ export async function generateMetadata() {
 }
 
 const TermsAndConditionsPage = async () => {
-  const [termsData, siteSettings, companyLinks, contactFormSettings] =
-    await Promise.all([
-      getTermsAndConditions(),
-      getSiteSettings(),
-      getCompanyLinks(),
-      getContactFormSettings(),
-    ]);
+  const [termsData, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
+    getTermsAndConditions(),
+    getSiteSettings(),
+    getCompanyLinks(),
+    getContactFormSettings(),
+  ]);
 
   // If the page is hidden or doesn't exist, show 404
   if (!termsData || termsData.hide) {
@@ -72,7 +76,7 @@ const TermsAndConditionsPage = async () => {
       datePublished: termsData._updatedAt,
       dateModified: termsData._updatedAt,
       author: {
-        name: siteSettings.siteTitle || 'Taupiri Sound',
+        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,

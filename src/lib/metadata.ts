@@ -49,7 +49,7 @@ export function generateMetadata({
   publishedTime,
   modifiedTime,
 }: MetadataConfig): Metadata {
-  const siteTitle = siteSettings?.siteTitle || 'Taupiri Sound';
+  const siteTitle = siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME;
   const siteTagline = siteSettings?.siteTagline ? ` | ${siteSettings.siteTagline}` : '';
   const siteDescription = siteSettings?.siteDescription || '';
   const seoKeywords = siteSettings?.seoKeywords || '';

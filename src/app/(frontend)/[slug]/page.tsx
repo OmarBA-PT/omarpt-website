@@ -2,16 +2,15 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import PageBuilder from '@/components/PageBuilder';
 import PageHero from '@/components/Page/PageHero';
-import {
-  getPageBySlug,
-  getSiteSettings,
-  getCompanyLinks,
-  getContactFormSettings,
-} from '@/actions';
+import { getPageBySlug, getSiteSettings, getCompanyLinks, getContactFormSettings } from '@/actions';
 import Container from '@/components/Layout/Container';
 import Card from '@/components/_blocks/Card';
 import { closingCardSpacing } from '@/utils/spacingConstants';
-import { generateMetadata as generatePageMetadata, generateCanonicalUrl, getBaseUrl } from '@/lib/metadata';
+import {
+  generateMetadata as generatePageMetadata,
+  generateCanonicalUrl,
+  getBaseUrl,
+} from '@/lib/metadata';
 import {
   generateArticleSchema,
   getOrganizationDataFromSiteSettings,
@@ -21,6 +20,7 @@ import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStru
 import { urlFor } from '@/sanity/lib/image';
 import { normalizeClosingCardForCard } from '@/utils/closingCardHelpers';
 import Breadcrumb from '@/components/UI/Breadcrumb';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -28,14 +28,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!siteSettings) {
     return {
-      title: 'Page | Taupiri Sound',
-      description: 'Discover more about our content',
+      title: SITE_CONFIG.ORGANIZATION_NAME,
+      description: SITE_CONFIG.ORGANIZATION_DESCRIPTION,
     };
   }
 
   if (!page) {
     return {
-      title: 'Page Not Found | Taupiri Sound',
+      title: `Page Not Found | ${SITE_CONFIG.ORGANIZATION_NAME}`,
       description: 'The page you are looking for could not be found.',
     };
   }
@@ -50,12 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const [
-    page,
-    siteSettings,
-    companyLinks,
-    contactFormSettings,
-  ] = await Promise.all([
+  const [page, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
     getPageBySlug(slug),
     getSiteSettings(),
     getCompanyLinks(),
@@ -86,7 +81,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       datePublished: page._createdAt,
       dateModified: page._updatedAt,
       author: {
-        name: siteSettings.siteTitle || 'Taupiri Sound',
+        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,

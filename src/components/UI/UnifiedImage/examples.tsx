@@ -45,7 +45,7 @@ export const BlogCardImageExample = ({ post }: { post: BlogPost }) => (
 export const HeaderLogoExample = ({ headerData }: { headerData: HeaderData }) => (
   <UnifiedImage
     src={headerData.logo}
-    alt='Taupiri Sound'
+    alt='Example image'
     mode='sized'
     width={180}
     height={125}

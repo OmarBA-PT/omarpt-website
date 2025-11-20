@@ -34,7 +34,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Thank you for contacting Taupiri Sound</title>
+      <title>Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                 <td style="background: linear-gradient(135deg, #430c08 0%, #0a0000 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
                   <img
                     src="${logoUrl}"
-                    alt="taupiri sound"
+                    alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
                     width="250"
                     height="auto"
                     style="display: block; margin: 0 auto; font-family: 'Chau Philomene One', serif; color: #cfae6b; font-size: 24px; letter-spacing: 0.25rem;"
@@ -126,7 +126,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                         <!-- Company Logo -->
                         <img
                           src="${logoUrl}"
-                          alt="taupiri sound"
+                          alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
                           width="200"
                           height="auto"
                           style="display: block; margin: 0 auto 8px auto; font-family: 'Chau Philomene One', serif; color: #cfae6b; font-size: 16px; letter-spacing: 0.25rem;"
@@ -168,7 +168,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
 
                         <!-- Footer Text -->
                         <p style="margin: 0; color: #b8956a; font-size: 12px; text-align: center; line-height: 1.5;">
-                          This is an automated confirmation email from Taupiri Sound.
+                          This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
                         </p>
                       </td>
                     </tr>

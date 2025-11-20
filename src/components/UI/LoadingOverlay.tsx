@@ -35,20 +35,6 @@ const LoadingOverlay: React.FC<LoadingOverlayProps> = ({ isLoading = false }) =>
 
   return (
     <>
-      <div className='h-screen'>
-        {/* <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[75%] h-[75%] sm:w-[500px] sm:h-[500px]'>
-          <UnifiedImage
-            src='/images/logos/logo-only.png'
-            alt='Taupiri Sound Logo'
-            mode='fill'
-            sizeContext='hero'
-            objectFit='contain'
-            fillContainer={true}
-            sizes='(max-width: 640px) 75vw, 500px'
-            className='drop-shadow-lg drop-shadow-black/40 opacity-30'
-          />
-        </div> */}
-      </div>
       <div
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           isVisible ? 'opacity-100' : 'opacity-0'

@@ -3,6 +3,7 @@ import UnifiedImage from '@/components/UI/UnifiedImage';
 import { stegaClean } from 'next-sanity';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface HeroLogoProps {
   heroLogoDisplay: NonNullable<HOME_PAGE_QUERYResult>['heroLogoDisplay'];
@@ -42,7 +43,7 @@ const HeroLogo = ({ heroLogoDisplay, heroTextColor, documentId, documentType }: 
       {...createSanityDataAttribute(documentId, documentType, 'heroLogoDisplay')}>
       <UnifiedImage
         src={logoSrc}
-        alt='Taupiri Sound Logo'
+        alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
         mode='sized'
         width={500}
         height={500}

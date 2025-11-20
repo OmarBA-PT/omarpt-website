@@ -19,6 +19,7 @@ import CTAList from '@/components/UI/CTAList';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import styles from './VerticalNav.module.css';
 import { headerHeight } from '@/utils/spacingConstants';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface VerticalNavProps {
   isMenuOpen: boolean;
@@ -71,7 +72,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
             <div className='relative w-[160px] h-[60px]'>
               <UnifiedImage
                 src='/images/logos/logo-white.png'
-                alt='Taupiri Sound Logo'
+                alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
                 mode='fill'
                 sizeContext='logo'
                 objectFit='contain'
@@ -193,7 +194,12 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
             <div className='w-full px-10 pb-10 mt-auto'>
               <div className='pt-6 border-t border-subtle/30'>
                 <div className='pt-6'>
-                  <CTAList ctaList={navCtas} alignment='flex-col' fullWidth={true} onClick={onClose} />
+                  <CTAList
+                    ctaList={navCtas}
+                    alignment='flex-col'
+                    fullWidth={true}
+                    onClick={onClose}
+                  />
                 </div>
               </div>
             </div>

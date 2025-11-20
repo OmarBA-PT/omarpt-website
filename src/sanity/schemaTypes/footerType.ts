@@ -5,6 +5,7 @@
 import { ComponentIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 import { createLinkFieldSet } from './shared/linkSystem';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const footerType = defineType({
   name: 'footer',
@@ -64,7 +65,8 @@ export const footerType = defineType({
       name: 'quickLinks',
       type: 'array',
       title: 'Quick Links',
-      description: 'Add quick navigation links to appear in the footer. This field is optional - leave empty if not needed',
+      description:
+        'Add quick navigation links to appear in the footer. This field is optional - leave empty if not needed',
       of: [
         {
           type: 'object',
@@ -75,11 +77,16 @@ export const footerType = defineType({
               type: 'string',
               title: 'Link Label',
               description: 'The text to display for this link',
-              validation: (Rule) => Rule.required().error('Link label is required').max(50).warning('Keep link labels concise for better display'),
+              validation: (Rule) =>
+                Rule.required()
+                  .error('Link label is required')
+                  .max(50)
+                  .warning('Keep link labels concise for better display'),
             }),
             ...createLinkFieldSet({
               linkTypeConfig: {
-                description: 'Choose whether this links to another page on your site or an external URL',
+                description:
+                  'Choose whether this links to another page on your site or an external URL',
                 initialValue: 'internal',
               },
               internalLinkConfig: {
@@ -102,9 +109,13 @@ export const footerType = defineType({
               let displaySubtitle = '';
 
               if (linkType === 'internal') {
-                displaySubtitle = internalLink ? `Internal: ${internalLink}` : 'Internal: (No page selected)';
+                displaySubtitle = internalLink
+                  ? `Internal: ${internalLink}`
+                  : 'Internal: (No page selected)';
               } else if (linkType === 'external') {
-                displaySubtitle = externalUrl ? `External: ${externalUrl}` : 'External: (No URL entered)';
+                displaySubtitle = externalUrl
+                  ? `External: ${externalUrl}`
+                  : 'External: (No URL entered)';
               }
 
               return {
@@ -124,7 +135,7 @@ export const footerType = defineType({
       type: 'string',
       title: 'Copyright Text',
       description: 'Copyright notice that appears at the bottom of the footer',
-      initialValue: '© Taupiri Sound 2025',
+      initialValue: `© ${SITE_CONFIG.ORGANIZATION_NAME} 2025`,
       validation: (Rule) => Rule.required().error('Copyright text is required'),
     }),
   ],

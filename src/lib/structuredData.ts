@@ -139,7 +139,7 @@ export function generateLocalBusinessSchema(data: LocalBusinessData) {
     ...(data.logo && { logo: data.logo }),
     ...(data.areaServed &&
       data.areaServed.length > 0 && {
-        areaServed: data.areaServed.map(area => ({
+        areaServed: data.areaServed.map((area) => ({
           '@type': area.type,
           name: area.name,
         })),
@@ -248,7 +248,7 @@ export function getWebSiteDataFromSiteSettings(
   baseUrl: string
 ): WebSiteData {
   return {
-    name: siteSettings?.siteTitle || 'Taupiri Sound',
+    name: siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
     url: baseUrl,
     ...(siteSettings?.siteDescription && { description: siteSettings.siteDescription }),
   };

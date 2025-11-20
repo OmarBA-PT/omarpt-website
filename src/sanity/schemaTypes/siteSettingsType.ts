@@ -4,6 +4,7 @@
 
 import { defineType, defineField } from 'sanity';
 import { ControlsIcon } from '@sanity/icons';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const siteSettingsType = defineType({
   name: 'siteSettings',
@@ -15,8 +16,8 @@ export const siteSettingsType = defineType({
       name: 'siteTitle',
       type: 'string',
       title: 'Site Title',
-      description: 'The main title/brand name of your website (e.g., "Taupiri Sound")',
-      initialValue: 'Taupiriri Sound',
+      description: 'The main title/brand name of your website',
+      initialValue: `${SITE_CONFIG.ORGANIZATION_NAME}`,
       validation: (Rule) => Rule.required(),
     }),
     defineField({

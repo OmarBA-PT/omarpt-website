@@ -130,7 +130,7 @@ export const homePageType = defineType({
       name: 'heroLogoDisplay',
       type: 'string',
       title: 'Logo Display',
-      description: 'Choose which version of the Taupiri Sound logo to display above the hero content',
+      description: 'Choose which version of the logo to display above the hero content',
       group: 'hero',
       options: {
         list: [
@@ -155,7 +155,8 @@ export const homePageType = defineType({
       name: 'heroTitle',
       type: 'blockContent',
       title: 'Hero Title (Visual Display)',
-      description: 'Main visual heading for the hero section. Use this field for both title and subtitle content - style them using rich text formatting and line breaks as needed.',
+      description:
+        'Main visual heading for the hero section. Use this field for both title and subtitle content - style them using rich text formatting and line breaks as needed.',
       group: 'hero',
     }),
     createCTAListField({

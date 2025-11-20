@@ -9,7 +9,11 @@ import {
   getContactFormSettings,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
-import { generateMetadata as generatePageMetadata, generateCanonicalUrl, getBaseUrl } from '@/lib/metadata';
+import {
+  generateMetadata as generatePageMetadata,
+  generateCanonicalUrl,
+  getBaseUrl,
+} from '@/lib/metadata';
 import {
   generateArticleSchema,
   getOrganizationDataFromSiteSettings,
@@ -17,13 +21,14 @@ import {
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata() {
   const [siteSettings, privacyData] = await Promise.all([getSiteSettings(), getPrivacyPolicy()]);
 
   if (!siteSettings) {
     return {
-      title: 'Privacy Policy | Taupiri Sound',
+      title: `Privacy Policy | ${SITE_CONFIG.ORGANIZATION_NAME}`,
       description: 'Privacy policy for our website and how we handle your data',
     };
   }
@@ -40,12 +45,7 @@ export async function generateMetadata() {
 }
 
 const PrivacyPolicyPage = async () => {
-  const [
-    privacyData,
-    siteSettings,
-    companyLinks,
-    contactFormSettings,
-  ] = await Promise.all([
+  const [privacyData, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
     getPrivacyPolicy(),
     getSiteSettings(),
     getCompanyLinks(),
@@ -76,7 +76,7 @@ const PrivacyPolicyPage = async () => {
       datePublished: privacyData._updatedAt,
       dateModified: privacyData._updatedAt,
       author: {
-        name: siteSettings.siteTitle || 'Taupiri Sound',
+        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,
