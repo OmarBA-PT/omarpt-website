@@ -1,6 +1,5 @@
 import { defineType, defineArrayMember } from 'sanity';
-import { DropIcon, LinkIcon, TextIcon } from '@sanity/icons';
-import React from 'react';
+import { DropIcon, LinkIcon } from '@sanity/icons';
 import BodyTextPreview, { type BlockStyleProps } from '../components/BodyTextPreview';
 
 /**
@@ -87,7 +86,6 @@ export const blockContentType = defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Chau Philomene One', value: 'chauPhilomeneOne', icon: TextIcon },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [

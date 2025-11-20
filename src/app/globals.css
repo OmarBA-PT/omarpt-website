@@ -60,17 +60,6 @@ html {
   font-variant: normal;
 }
 
-/* Font family utilities */
-.font-chau {
-  font-family: var(--font-chau);
-  letter-spacing: 0.25rem;
-  line-height: 1.25;
-
-  @media (min-width: 768px) {
-    letter-spacing: 0.75rem;
-  }
-}
-
 /* Brand gradient utility */
 .bg-brand-gradient {
   background: var(--background-image-brand-gradient);

@@ -111,20 +111,22 @@ const Header = ({ headerData }: HeaderProps) => {
             filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',
           }}>
           <UnifiedImage
-            src='/images/logos/logo-white.png'
+            src='/images/logos/logo.png'
             alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
             mode='sized'
             width={200}
             height={125}
             sizeContext='logo'
             objectFit='contain'
-            className='w-[160px] md:w-[180px] h-auto'
+            className='w-40 md:w-20 h-auto'
             priority
           />
+          <span>Omania</span>
+          <span>Training</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className='flex-grow flex justify-end'>
+        <div className='grow flex justify-end'>
           <HorizontalNav navLinks={headerData?.horizontalNav || null} />
         </div>
 

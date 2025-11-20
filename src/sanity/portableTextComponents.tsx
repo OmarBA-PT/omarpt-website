@@ -250,7 +250,6 @@ export const createComponents = (alignment: string = 'left'): PortableTextCompon
     marks: {
       strong: ({ children }) => <strong className='font-bold'>{children}</strong>,
       em: ({ children }) => <em className='italic'>{children}</em>,
-      chauPhilomeneOne: ({ children }) => <span className='font-chau'>{children}</span>,
 
       link: ({ value, children }) => {
         // Handle simple external link structure
