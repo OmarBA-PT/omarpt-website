@@ -6,6 +6,8 @@ This guide ensures consistent implementation of Sanity Live editing for all CMS 
 
 When adding new CMS fields that are displayed on the frontend, always implement live editing support so content updates appear instantly in Sanity Studio's presentation view without page refreshes.
 
+> **Note:** This guide focuses on implementing data attributes for live editing. For handling stega-encoded strings in comparisons and logic, see [sanity-live-preview.md](./sanity-live-preview.md).
+
 ## Standard Implementation Pattern
 
 ### 1. Component Level Implementation

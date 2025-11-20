@@ -15,9 +15,9 @@ The block system consists of:
 
 **To prevent GROQ query depth issues and infinite recursion, we enforce strict nesting rules:**
 
-- **Top-level content**: Can contain twoColumnLayout, gridLayout, and card
-- **Layout blocks (grid/twoColumn)**: Can contain cards but NOT nested layouts
-- **Cards**: Can contain content blocks and CTAs but NOT layouts or nested cards
+- **Top-level content**: Can contain all layout blocks and content blocks
+- **Layout blocks**: Can contain cards and content blocks, but NOT nested layout blocks
+- **Cards**: Can contain content blocks only - NO layouts or nested cards
 
 **This ensures all internal link references are properly dereferenced in GROQ queries without hitting recursion limits.**
 
@@ -25,22 +25,9 @@ The block system consists of:
 
 Pure content blocks without any layout components. These can be safely nested at any depth without causing GROQ issues. Used inside cards and other deeply nested contexts.
 
-**Content Blocks:**
-- `richText` - Rich text content with formatting
-- `quote` - Styled quote blocks
-- `divider` - Visual dividers
-- `imageBlock` - Single images
-- `imageGallery` - Image galleries
-- `youTubeVideo` - Embedded YouTube videos
-- `spotifyWidget` - Embedded Spotify players
-- `bandcampWidget` - Embedded Bandcamp players
-- `ctaButton` - Call-to-action buttons
-- `ctaCalloutLink` - Callout-style CTA links
-- `blockListWithStats` - Lists with statistics
-- `checkList` - Checkbox lists
-- `itemList` - Bullet point lists
-- `contactForm` - Contact forms
-- `companyLinksBlock` - Company/social links
+**Includes:**
+- All non-layout blocks (richText, images, videos, widgets, CTAs, lists, forms, etc.)
+- **See** `src/sanity/schemaTypes/shared/blockLists.ts` for the complete current list
 
 ### LAYOUT_CHILD_BLOCKS
 
@@ -48,7 +35,7 @@ Blocks allowed inside layout components (grid/twoColumn). Allows cards but NOT n
 
 **Includes:**
 - All blocks from `CONTENT_ONLY_BLOCKS`
-- `card` - Card containers (but cards themselves can only contain CONTENT_ONLY_BLOCKS)
+- Card containers (but cards themselves can only contain `CONTENT_ONLY_BLOCKS`)
 
 ### STANDARD_BLOCK_LIST
 
@@ -56,14 +43,14 @@ The universal block list for top-level content. Includes ALL content and layout 
 
 **Includes:**
 - All blocks from `CONTENT_ONLY_BLOCKS`
-- `twoColumnLayout` - Two-column responsive layouts
-- `gridLayout` - Multi-column grid layouts
-- `card` - Card containers with various configurations
+- All layout blocks (defined in `blockLists.ts`)
 
 ### PAGE_CONTENT_BLOCK_LIST
 
-For main page content areas, includes:
-- `pageSection` - Top-level sections (can contain SubSections)
+For main page content areas.
+
+**Includes:**
+- Top-level sections (pageSection)
 - All blocks from `STANDARD_BLOCK_LIST`
 
 ### Section Nesting Rules
@@ -118,15 +105,14 @@ export const CONTENT_ONLY_BLOCKS = [
 export const STANDARD_BLOCK_LIST = [
   ...CONTENT_ONLY_BLOCKS,
   // Layout Blocks - only allowed at top level
-  defineArrayMember({ type: 'twoColumnLayout' }),
-  defineArrayMember({ type: 'gridLayout' }),
-  defineArrayMember({ type: 'card' }),
+  defineArrayMember({ type: 'existingLayoutBlock1' }),
+  defineArrayMember({ type: 'existingLayoutBlock2' }),
   defineArrayMember({ type: 'newLayoutBlock' }), // Add new layout blocks here
 ];
 ```
 
 **IMPORTANT**: Adding to `CONTENT_ONLY_BLOCKS` automatically makes it available in:
-- `LAYOUT_CHILD_BLOCKS` (inside grids/twoColumn)
+- `LAYOUT_CHILD_BLOCKS` (inside layout blocks)
 - `STANDARD_BLOCK_LIST` (top-level content)
 - `PAGE_CONTENT_BLOCK_LIST` (page content)
 
@@ -249,9 +235,8 @@ npm run typecheck
 
 Used by:
 - PageBuilder (main page content)
-- TwoColumnLayout (left/right columns)
-- Card (card content)
-- GridLayout (delegates to blockRenderer for non-card items)
+- Layout blocks (column/container content)
+- Card blocks (card content)
 
 **Features:**
 - Wraps blocks with Sanity live editing data attributes
@@ -261,36 +246,24 @@ Used by:
 
 ### Layout-Specific Rendering
 
-#### GridLayout (`src/components/_blocks/GridLayout.tsx`)
+Some layout blocks may need special handling beyond the standard `blockRenderer`:
 
-- **Special handling**: Wraps items in divs with responsive column sizing classes
-- **Card exception**: Cards receive `className` and `isGridChild` props
-- **Other blocks**: Delegated to `blockRenderer` then wrapped in sizing div
-- **Why separate**: Layout components need fine control over wrapper elements
+- **Grid layouts**: May wrap items in divs with responsive sizing classes
+- **Column layouts**: May use `blockRenderer` directly without special wrapping
+- **Card blocks**: Use `blockRenderer` for nested content
 
-#### TwoColumnLayout (`src/components/_blocks/TwoColumnLayout.tsx`)
-
-- Uses `blockRenderer` directly for left/right column content
-- No special wrapping needed
-
-#### Card (`src/components/_blocks/Card.tsx`)
-
-- Uses `blockRenderer` directly for card content
-- Can render nested Cards (recursive)
+Each layout component determines how it renders its children while delegating actual block rendering to `blockRenderer` for consistency.
 
 ## Component Responsibilities
 
 ### Where Blocks Can Appear
 
-| Component         | Block List Used              | Special Behavior                           |
+| Component Type    | Block List Used              | Special Behavior                           |
 |-------------------|------------------------------|--------------------------------------------|
 | PageBuilder       | PAGE_CONTENT_BLOCK_LIST      | Top-level page sections                    |
-| PageSection       | createSectionBlockList()     | Can contain SubSections + standard blocks  |
-| SubSection        | createSectionBlockList()     | Can contain SubSubSections + standard blocks |
-| SubSubSection     | createSectionBlockList()     | No nested sections, standard blocks only   |
-| TwoColumnLayout   | LAYOUT_CHILD_BLOCKS          | Cards + content, NO nested layouts         |
-| GridLayout        | LAYOUT_CHILD_BLOCKS          | Cards + content, NO nested layouts         |
-| Card              | CONTENT_ONLY_BLOCKS          | Content only, NO cards or layouts          |
+| Sections (h2-h4)  | createSectionBlockList()     | Hierarchical nesting (h2→h3→h4)            |
+| Layout Blocks     | LAYOUT_CHILD_BLOCKS          | Cards + content, NO nested layouts         |
+| Card Blocks       | CONTENT_ONLY_BLOCKS          | Content only, NO cards or layouts          |
 
 ## Why Nesting Restrictions Matter
 
@@ -299,7 +272,7 @@ Used by:
 Without nesting restrictions, you could create infinitely deep structures:
 
 ```
-Grid → Card → Grid → Card → TwoColumn → Card → Grid → ...
+Layout → Card → Layout → Card → Layout → Card → ...
 ```
 
 **Problems this causes:**
@@ -321,9 +294,9 @@ Grid → Card → Grid → Card → TwoColumn → Card → Grid → ...
 - No recursive loops, all internal links are properly dereferenced
 
 **Maximum safe depth:**
-- **Level 1**: PageSection/Top-level → Grid/TwoColumn
-- **Level 2**: Grid/TwoColumn → Card
-- **Level 3**: Card → CTA with internal link ✅ (Properly dereferenced!)
+- **Level 1**: Top-level → Layout blocks
+- **Level 2**: Layout blocks → Cards
+- **Level 3**: Cards → CTAs with internal links ✅ (Properly dereferenced!)
 
 This controlled depth ensures **ALL internal link references work correctly** without hitting GROQ limits.
 

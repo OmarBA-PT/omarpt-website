@@ -49,59 +49,22 @@ This means you added a block to the type system but forgot to implement renderin
 
 **CRITICAL: String comparisons in Sanity live preview mode require special handling.**
 
-### The Problem
+Sanity's live preview embeds invisible Unicode characters (stega encoding) into strings for click-to-edit functionality. This causes string comparisons to fail unexpectedly.
 
-When using Sanity's live preview/Presentation mode, the system embeds invisible Unicode characters (called "stega encoding") into string values to enable click-to-edit functionality. These invisible characters cause string equality comparisons to fail:
+### Quick Reference
 
-```typescript
-// In draft/preview mode, these appear identical but are NOT equal:
-"primary" === "primary​​​​‌﻿‍﻿​‍​‍‌‍﻿﻿‌﻿​..."  // false ❌
-```
-
-**Symptoms:**
-
-- Data appears in production but disappears in Presentation mode
-- Filtering/comparison logic works outside draft mode but fails in draft mode
-- Console logs show strange invisible characters in string values
-
-### The Solution
-
-**Always use `stegaClean()` from `next-sanity` when comparing string values from Sanity:**
+**Always use `stegaClean()` when comparing Sanity string values:**
 
 ```typescript
 import { stegaClean } from 'next-sanity';
 
-// ❌ WRONG - Will fail in Presentation mode
-const filtered = items.filter(item => item.category === selectedCategory);
-
-// ✅ CORRECT - Works in both production and Presentation mode
-const filtered = items.filter(item => stegaClean(item.category) === stegaClean(selectedCategory));
+// ✅ CORRECT
+const filtered = items.filter(item =>
+  stegaClean(item.category) === stegaClean(selectedCategory)
+);
 ```
 
-### When to Use stegaClean
-
-Use `stegaClean()` for:
-
-- **String equality comparisons** (`===`, `==`)
-- **Array includes/indexOf** operations with string values
-- **Switch statements** on string values from Sanity
-- **Object key lookups** using strings from Sanity
-- **Any string matching logic** that compares Sanity data
-
-### When NOT to Use stegaClean
-
-You don't need `stegaClean()` for:
-
-- **Display purposes** - The invisible characters don't appear in the UI
-- **Numeric comparisons** - Numbers aren't affected by stega encoding
-- **Boolean comparisons** - Booleans aren't affected
-- **Null/undefined checks** - These work normally
-
-### Reference Implementation
-
-See [TeamMemberList.tsx:28](src/components/TeamMember/TeamMemberList.tsx#L28) for a working example of category filtering with `stegaClean()`.
-
-**This is a common source of bugs when developing components that filter or compare Sanity data. Always consider stega encoding when implementing string-based logic.**
+**For complete documentation, examples, and troubleshooting, see:** [docs/sanity-live-preview.md](/docs/sanity-live-preview.md)
 
 ## Sanity CMS Schema Development
 
