@@ -98,16 +98,15 @@ const Header = ({ headerData }: HeaderProps) => {
     <>
       <SkipLink href='#main-content'>Skip to main content</SkipLink>
       <header
-        className={`fixed top-0 left-0 right-0 w-full px-4 md:px-8 ${headerHeight} flex items-center justify-between gap-8 z-50 transition-all duration-300 bg-brand-gradient-charcoal-linear`}
+        className={`fixed top-0 left-0 right-0 w-full px-4 md:px-8 ${headerHeight} flex items-center justify-between gap-8 z-50 transition-all duration-300`}
         style={{
-          backgroundColor: `rgba(67, 12, 8, ${headerOpacity})`, // bg-brand-secondary (#430c08) with variable opacity
+          background: `linear-gradient(90deg, rgba(var(--color-charcoal-gradient-start), ${headerOpacity}) 0%, rgba(var(--color-charcoal-gradient-end), ${headerOpacity}) 100%)`,
         }}>
         {/* Logo */}
         <Link
           href='/#home'
           className='flex items-center gap-2 transition-opacity duration-300'
           style={{
-            opacity: headerOpacity,
             filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',
           }}>
           <UnifiedImage

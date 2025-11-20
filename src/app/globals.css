@@ -19,6 +19,11 @@
   --color-brand-primary: #ffb200;
   --color-brand-secondary: #ff8400;
   --color-brand-charcoal: #282828;
+
+  /* Charcoal gradient color stops (for use with opacity) */
+  --color-charcoal-gradient-start: 97, 97, 97; /* #616161 in RGB */
+  --color-charcoal-gradient-end: 0, 0, 0; /* #000000 in RGB */
+
   --background-image-brand-gradient-charcoal-linear: linear-gradient(
     90deg,
     #616161 0%,
