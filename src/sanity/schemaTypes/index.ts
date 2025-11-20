@@ -17,8 +17,6 @@ import { gridLayoutType } from './blocks/gridLayoutType';
 import { imageType } from './blocks/imageType';
 import { imageGalleryType } from './blocks/imageGalleryType';
 import { youTubeVideoType } from './blocks/youTubeVideoType';
-import { spotifyWidgetType } from './blocks/spotifyWidgetType';
-import { bandcampWidgetType } from './blocks/bandcampWidgetType';
 import { quoteType } from './blocks/quoteType';
 import { twoColumnLayoutType } from './blocks/twoColumnLayoutType';
 import { ctaButtonType } from './blocks/ctaButtonType';
@@ -67,8 +65,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     imageType,
     imageGalleryType,
     youTubeVideoType,
-    spotifyWidgetType,
-    bandcampWidgetType,
     quoteType,
     twoColumnLayoutType,
     ctaButtonType,

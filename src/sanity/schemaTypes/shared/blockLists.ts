@@ -32,8 +32,6 @@ export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'imageBlock' }),
   defineArrayMember({ type: 'imageGallery' }),
   defineArrayMember({ type: 'youTubeVideo' }),
-  defineArrayMember({ type: 'spotifyWidget' }),
-  defineArrayMember({ type: 'bandcampWidget' }),
   defineArrayMember({ type: 'ctaButton' }),
   defineArrayMember({ type: 'ctaCalloutLink' }),
   defineArrayMember({ type: 'blockListWithStats' }),

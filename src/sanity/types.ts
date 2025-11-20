@@ -315,10 +315,6 @@ export type TwoColumnLayout = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -348,10 +344,6 @@ export type TwoColumnLayout = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -374,16 +366,6 @@ export type Quote = {
   text?: string;
   attribution?: string;
   textAlign?: "inherit" | "left" | "center" | "right";
-};
-
-export type BandcampWidget = {
-  _type: "bandcampWidget";
-  embedCode?: string;
-};
-
-export type SpotifyWidget = {
-  _type: "spotifyWidget";
-  embedCode?: string;
 };
 
 export type YouTubeVideo = {
@@ -450,10 +432,6 @@ export type GridLayout = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -505,10 +483,6 @@ export type Card = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -556,10 +530,6 @@ export type SubSubSection = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -602,10 +572,6 @@ export type SubSection = {
   } & ImageGallery | {
     _key: string;
   } & YouTubeVideo | {
-    _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
     _key: string;
   } & CtaButton | {
     _key: string;
@@ -653,10 +619,6 @@ export type PageSection = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -693,10 +655,6 @@ export type PageBuilder = Array<{
 } & ImageGallery | {
   _key: string;
 } & YouTubeVideo | {
-  _key: string;
-} & SpotifyWidget | {
-  _key: string;
-} & BandcampWidget | {
   _key: string;
 } & CtaButton | {
   _key: string;
@@ -823,10 +781,6 @@ export type PrivacyPolicy = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -874,10 +828,6 @@ export type TermsAndConditions = {
     _key: string;
   } & YouTubeVideo | {
     _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
-    _key: string;
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
@@ -924,10 +874,6 @@ export type Page = {
   } & ImageGallery | {
     _key: string;
   } & YouTubeVideo | {
-    _key: string;
-  } & SpotifyWidget | {
-    _key: string;
-  } & BandcampWidget | {
     _key: string;
   } & CtaButton | {
     _key: string;
@@ -1184,7 +1130,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | BandcampWidget | SpotifyWidget | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -1199,12 +1145,6 @@ export type PAGE_QUERYResult = {
   subtitle: string | null;
   slug: Slug | null;
   content: Array<{
-    _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
     _key: string;
     _type: "blockListWithStats";
     items?: Array<{
@@ -1235,12 +1175,6 @@ export type PAGE_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -1472,12 +1406,6 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -1614,12 +1542,6 @@ export type PAGE_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -1649,12 +1571,6 @@ export type PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -1885,12 +1801,6 @@ export type PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -2121,12 +2031,6 @@ export type PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -2207,12 +2111,6 @@ export type PAGE_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -2242,12 +2140,6 @@ export type PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -2478,12 +2370,6 @@ export type PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -2620,12 +2506,6 @@ export type PAGE_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -2655,11 +2535,6 @@ export type PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -2858,11 +2733,6 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -3092,12 +2962,6 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -3204,24 +3068,12 @@ export type PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -3252,11 +3104,6 @@ export type PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -3455,11 +3302,6 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -3596,11 +3438,6 @@ export type PAGE_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -3629,10 +3466,6 @@ export type PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -3822,10 +3655,6 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -4023,11 +3852,6 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -4132,23 +3956,12 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -4178,10 +3991,6 @@ export type PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -4371,10 +4180,6 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -4503,10 +4308,6 @@ export type PAGE_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -4534,10 +4335,6 @@ export type PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -4729,10 +4526,6 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -4917,10 +4710,6 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -5002,18 +4791,9 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -5042,10 +4822,6 @@ export type PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -5237,10 +5013,6 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -5425,10 +5197,6 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -5436,10 +5204,6 @@ export type PAGE_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -5467,10 +5231,6 @@ export type PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -5662,10 +5422,6 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -5850,10 +5606,6 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -5873,10 +5625,6 @@ export type PAGE_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -5904,10 +5652,6 @@ export type PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -6099,10 +5843,6 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -6287,10 +6027,6 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -6298,10 +6034,6 @@ export type PAGE_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -6329,10 +6061,6 @@ export type PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -6524,10 +6252,6 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -6712,10 +6436,6 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -6737,10 +6457,6 @@ export type PAGE_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -6768,10 +6484,6 @@ export type PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -6963,10 +6675,6 @@ export type PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -7151,10 +6859,6 @@ export type PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -7162,10 +6866,6 @@ export type PAGE_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -7193,10 +6893,6 @@ export type PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -7388,10 +7084,6 @@ export type PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -7576,10 +7268,6 @@ export type PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -7633,19 +7321,9 @@ export type PAGE_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -7674,10 +7352,6 @@ export type PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -7869,10 +7543,6 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -8057,10 +7727,6 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -8068,10 +7734,6 @@ export type PAGE_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -8099,10 +7761,6 @@ export type PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -8294,10 +7952,6 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -8482,10 +8136,6 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -8522,10 +8172,6 @@ export type PAGE_QUERYResult = {
     } | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -8714,10 +8360,6 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -8868,12 +8510,6 @@ export type HOME_PAGE_QUERYResult = {
   heroContentPosition: "bottom-center" | "bottom-left" | "bottom-right" | "center-center" | "center-left" | "center-right" | "top-center" | "top-left" | "top-right" | null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -8903,12 +8539,6 @@ export type HOME_PAGE_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -9140,12 +8770,6 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -9282,12 +8906,6 @@ export type HOME_PAGE_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -9317,12 +8935,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -9553,12 +9165,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -9789,12 +9395,6 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -9875,12 +9475,6 @@ export type HOME_PAGE_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -9910,12 +9504,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -10146,12 +9734,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -10288,12 +9870,6 @@ export type HOME_PAGE_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -10323,11 +9899,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -10526,11 +10097,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -10760,12 +10326,6 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -10872,24 +10432,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -10920,11 +10468,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -11123,11 +10666,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -11264,11 +10802,6 @@ export type HOME_PAGE_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -11297,10 +10830,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -11490,10 +11019,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -11691,11 +11216,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -11800,23 +11320,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -11846,10 +11355,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -12039,10 +11544,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -12171,10 +11672,6 @@ export type HOME_PAGE_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -12202,10 +11699,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -12397,10 +11890,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -12585,10 +12074,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -12670,18 +12155,9 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -12710,10 +12186,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -12905,10 +12377,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -13093,10 +12561,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -13104,10 +12568,6 @@ export type HOME_PAGE_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -13135,10 +12595,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -13330,10 +12786,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -13518,10 +12970,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -13541,10 +12989,6 @@ export type HOME_PAGE_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -13572,10 +13016,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -13767,10 +13207,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -13955,10 +13391,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -13966,10 +13398,6 @@ export type HOME_PAGE_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -13997,10 +13425,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -14192,10 +13616,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -14380,10 +13800,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -14405,10 +13821,6 @@ export type HOME_PAGE_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -14436,10 +13848,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -14631,10 +14039,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -14819,10 +14223,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -14830,10 +14230,6 @@ export type HOME_PAGE_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -14861,10 +14257,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -15056,10 +14448,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -15244,10 +14632,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -15301,19 +14685,9 @@ export type HOME_PAGE_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -15342,10 +14716,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -15537,10 +14907,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -15725,10 +15091,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -15736,10 +15098,6 @@ export type HOME_PAGE_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -15767,10 +15125,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -15962,10 +15316,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -16150,10 +15500,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -16183,12 +15529,6 @@ export type HOME_PAGE_QUERYResult = {
   heroContentPosition: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -16218,12 +15558,6 @@ export type HOME_PAGE_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -16455,12 +15789,6 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -16597,12 +15925,6 @@ export type HOME_PAGE_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -16632,12 +15954,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -16868,12 +16184,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -17104,12 +16414,6 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -17190,12 +16494,6 @@ export type HOME_PAGE_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -17225,12 +16523,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -17461,12 +16753,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -17603,12 +16889,6 @@ export type HOME_PAGE_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -17638,11 +16918,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -17841,11 +17116,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -18075,12 +17345,6 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -18187,24 +17451,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -18235,11 +17487,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -18438,11 +17685,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -18579,11 +17821,6 @@ export type HOME_PAGE_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -18612,10 +17849,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -18805,10 +18038,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -19006,11 +18235,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -19115,23 +18339,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -19161,10 +18374,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -19354,10 +18563,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -19486,10 +18691,6 @@ export type HOME_PAGE_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -19517,10 +18718,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -19712,10 +18909,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -19900,10 +19093,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -19985,18 +19174,9 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -20025,10 +19205,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -20220,10 +19396,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -20408,10 +19580,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -20419,10 +19587,6 @@ export type HOME_PAGE_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -20450,10 +19614,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -20645,10 +19805,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -20833,10 +19989,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -20856,10 +20008,6 @@ export type HOME_PAGE_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -20887,10 +20035,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -21082,10 +20226,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -21270,10 +20410,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -21281,10 +20417,6 @@ export type HOME_PAGE_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -21312,10 +20444,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -21507,10 +20635,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -21695,10 +20819,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -21720,10 +20840,6 @@ export type HOME_PAGE_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -21751,10 +20867,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -21946,10 +21058,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -22134,10 +21242,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -22145,10 +21249,6 @@ export type HOME_PAGE_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -22176,10 +21276,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -22371,10 +21467,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -22559,10 +21651,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -22616,19 +21704,9 @@ export type HOME_PAGE_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -22657,10 +21735,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -22852,10 +21926,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -23040,10 +22110,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -23051,10 +22117,6 @@ export type HOME_PAGE_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -23082,10 +22144,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -23277,10 +22335,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -23465,10 +22519,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -23498,12 +22548,6 @@ export type HOME_PAGE_QUERYResult = {
   heroContentPosition: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -23533,12 +22577,6 @@ export type HOME_PAGE_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -23770,12 +22808,6 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -23912,12 +22944,6 @@ export type HOME_PAGE_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -23947,12 +22973,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -24183,12 +23203,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -24419,12 +23433,6 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -24505,12 +23513,6 @@ export type HOME_PAGE_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -24540,12 +23542,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -24776,12 +23772,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -24918,12 +23908,6 @@ export type HOME_PAGE_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -24953,11 +23937,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -25156,11 +24135,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -25390,12 +24364,6 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -25502,24 +24470,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -25550,11 +24506,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -25753,11 +24704,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -25894,11 +24840,6 @@ export type HOME_PAGE_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -25927,10 +24868,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -26120,10 +25057,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -26321,11 +25254,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -26430,23 +25358,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -26476,10 +25393,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -26669,10 +25582,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -26801,10 +25710,6 @@ export type HOME_PAGE_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -26832,10 +25737,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -27027,10 +25928,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -27215,10 +26112,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -27300,18 +26193,9 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -27340,10 +26224,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -27535,10 +26415,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -27723,10 +26599,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -27734,10 +26606,6 @@ export type HOME_PAGE_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -27765,10 +26633,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -27960,10 +26824,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -28148,10 +27008,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -28171,10 +27027,6 @@ export type HOME_PAGE_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -28202,10 +27054,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -28397,10 +27245,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -28585,10 +27429,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -28596,10 +27436,6 @@ export type HOME_PAGE_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -28627,10 +27463,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -28822,10 +27654,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -29010,10 +27838,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -29035,10 +27859,6 @@ export type HOME_PAGE_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -29066,10 +27886,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -29261,10 +28077,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -29449,10 +28261,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -29460,10 +28268,6 @@ export type HOME_PAGE_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -29491,10 +28295,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -29686,10 +28486,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -29874,10 +28670,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -29931,19 +28723,9 @@ export type HOME_PAGE_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -29972,10 +28754,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -30167,10 +28945,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -30355,10 +29129,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -30366,10 +29136,6 @@ export type HOME_PAGE_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -30397,10 +29163,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -30592,10 +29354,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -30780,10 +29538,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -30855,12 +29609,6 @@ export type HOME_PAGE_QUERYResult = {
   heroContentPosition: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -30890,12 +29638,6 @@ export type HOME_PAGE_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -31127,12 +29869,6 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -31269,12 +30005,6 @@ export type HOME_PAGE_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -31304,12 +30034,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -31540,12 +30264,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -31776,12 +30494,6 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -31862,12 +30574,6 @@ export type HOME_PAGE_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -31897,12 +30603,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -32133,12 +30833,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -32275,12 +30969,6 @@ export type HOME_PAGE_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -32310,11 +30998,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -32513,11 +31196,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -32747,12 +31425,6 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -32859,24 +31531,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -32907,11 +31567,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -33110,11 +31765,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -33251,11 +31901,6 @@ export type HOME_PAGE_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -33284,10 +31929,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -33477,10 +32118,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -33678,11 +32315,6 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -33787,23 +32419,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -33833,10 +32454,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -34026,10 +32643,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -34158,10 +32771,6 @@ export type HOME_PAGE_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -34189,10 +32798,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -34384,10 +32989,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -34572,10 +33173,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -34657,18 +33254,9 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -34697,10 +33285,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -34892,10 +33476,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -35080,10 +33660,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -35091,10 +33667,6 @@ export type HOME_PAGE_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -35122,10 +33694,6 @@ export type HOME_PAGE_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -35317,10 +33885,6 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -35505,10 +34069,6 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -35528,10 +34088,6 @@ export type HOME_PAGE_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -35559,10 +34115,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -35754,10 +34306,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -35942,10 +34490,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -35953,10 +34497,6 @@ export type HOME_PAGE_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -35984,10 +34524,6 @@ export type HOME_PAGE_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -36179,10 +34715,6 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -36367,10 +34899,6 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -36392,10 +34920,6 @@ export type HOME_PAGE_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -36423,10 +34947,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -36618,10 +35138,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -36806,10 +35322,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -36817,10 +35329,6 @@ export type HOME_PAGE_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -36848,10 +35356,6 @@ export type HOME_PAGE_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -37043,10 +35547,6 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -37231,10 +35731,6 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -37288,19 +35784,9 @@ export type HOME_PAGE_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -37329,10 +35815,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -37524,10 +36006,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -37712,10 +36190,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -37723,10 +36197,6 @@ export type HOME_PAGE_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -37754,10 +36224,6 @@ export type HOME_PAGE_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -37949,10 +36415,6 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -38137,10 +36599,6 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -38736,12 +37194,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   topText: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -38771,12 +37223,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -39008,12 +37454,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -39150,12 +37590,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -39185,12 +37619,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -39421,12 +37849,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -39657,12 +38079,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -39743,12 +38159,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -39778,12 +38188,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -40014,12 +38418,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -40156,12 +38554,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -40191,11 +38583,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -40394,11 +38781,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -40628,12 +39010,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -40740,24 +39116,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -40788,11 +39152,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -40991,11 +39350,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -41132,11 +39486,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -41165,10 +39514,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -41358,10 +39703,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -41559,11 +39900,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -41668,23 +40004,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -41714,10 +40039,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -41907,10 +40228,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -42039,10 +40356,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -42070,10 +40383,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -42265,10 +40574,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -42453,10 +40758,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -42538,18 +40839,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -42578,10 +40870,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -42773,10 +41061,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -42961,10 +41245,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -42972,10 +41252,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -43003,10 +41279,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -43198,10 +41470,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -43386,10 +41654,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -43409,10 +41673,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -43440,10 +41700,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -43635,10 +41891,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -43823,10 +42075,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -43834,10 +42082,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -43865,10 +42109,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -44060,10 +42300,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -44248,10 +42484,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -44273,10 +42505,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -44304,10 +42532,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -44499,10 +42723,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -44687,10 +42907,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -44698,10 +42914,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -44729,10 +42941,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -44924,10 +43132,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -45112,10 +43316,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -45169,19 +43369,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -45210,10 +43400,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -45405,10 +43591,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -45593,10 +43775,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -45604,10 +43782,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -45635,10 +43809,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -45830,10 +44000,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -46018,10 +44184,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -46046,12 +44208,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   topText: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -46081,12 +44237,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -46318,12 +44468,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -46460,12 +44604,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -46495,12 +44633,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -46731,12 +44863,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -46967,12 +45093,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -47053,12 +45173,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -47088,12 +45202,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -47324,12 +45432,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -47466,12 +45568,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -47501,11 +45597,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -47704,11 +45795,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -47938,12 +46024,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -48050,24 +46130,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -48098,11 +46166,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -48301,11 +46364,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -48442,11 +46500,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -48475,10 +46528,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -48668,10 +46717,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -48869,11 +46914,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -48978,23 +47018,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -49024,10 +47053,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -49217,10 +47242,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -49349,10 +47370,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -49380,10 +47397,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -49575,10 +47588,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -49763,10 +47772,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -49848,18 +47853,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -49888,10 +47884,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -50083,10 +48075,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -50271,10 +48259,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -50282,10 +48266,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -50313,10 +48293,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -50508,10 +48484,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -50696,10 +48668,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -50719,10 +48687,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -50750,10 +48714,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -50945,10 +48905,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -51133,10 +49089,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -51144,10 +49096,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -51175,10 +49123,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -51370,10 +49314,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -51558,10 +49498,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -51583,10 +49519,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -51614,10 +49546,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -51809,10 +49737,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -51997,10 +49921,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -52008,10 +49928,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -52039,10 +49955,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -52234,10 +50146,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -52422,10 +50330,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -52479,19 +50383,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -52520,10 +50414,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -52715,10 +50605,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -52903,10 +50789,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -52914,10 +50796,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -52945,10 +50823,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -53140,10 +51014,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -53328,10 +51198,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -53356,12 +51222,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   topText: string | null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -53391,12 +51251,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -53628,12 +51482,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -53770,12 +51618,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -53805,12 +51647,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -54041,12 +51877,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -54277,12 +52107,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -54363,12 +52187,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -54398,12 +52216,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -54634,12 +52446,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -54776,12 +52582,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -54811,11 +52611,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -55014,11 +52809,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -55248,12 +53038,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -55360,24 +53144,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -55408,11 +53180,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -55611,11 +53378,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -55752,11 +53514,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -55785,10 +53542,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -55978,10 +53731,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -56179,11 +53928,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -56288,23 +54032,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -56334,10 +54067,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -56527,10 +54256,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -56659,10 +54384,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -56690,10 +54411,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -56885,10 +54602,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -57073,10 +54786,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -57158,18 +54867,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -57198,10 +54898,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -57393,10 +55089,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -57581,10 +55273,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -57592,10 +55280,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -57623,10 +55307,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -57818,10 +55498,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -58006,10 +55682,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -58029,10 +55701,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -58060,10 +55728,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -58255,10 +55919,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -58443,10 +56103,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -58454,10 +56110,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -58485,10 +56137,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -58680,10 +56328,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -58868,10 +56512,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -58893,10 +56533,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -58924,10 +56560,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -59119,10 +56751,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -59307,10 +56935,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -59318,10 +56942,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -59349,10 +56969,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -59544,10 +57160,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -59732,10 +57344,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -59789,19 +57397,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -59830,10 +57428,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -60025,10 +57619,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -60213,10 +57803,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -60224,10 +57810,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -60255,10 +57837,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -60450,10 +58028,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -60638,10 +58212,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -60693,12 +58263,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   topText: string | null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -60728,12 +58292,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -60965,12 +58523,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -61107,12 +58659,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -61142,12 +58688,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -61378,12 +58918,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -61614,12 +59148,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -61700,12 +59228,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -61735,12 +59257,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -61971,12 +59487,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -62113,12 +59623,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -62148,11 +59652,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -62351,11 +59850,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -62585,12 +60079,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -62697,24 +60185,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -62745,11 +60221,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -62948,11 +60419,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -63089,11 +60555,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -63122,10 +60583,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -63315,10 +60772,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -63516,11 +60969,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -63625,23 +61073,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -63671,10 +61108,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -63864,10 +61297,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -63996,10 +61425,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -64027,10 +61452,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -64222,10 +61643,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -64410,10 +61827,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -64495,18 +61908,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -64535,10 +61939,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -64730,10 +62130,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -64918,10 +62314,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -64929,10 +62321,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -64960,10 +62348,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -65155,10 +62539,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -65343,10 +62723,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -65366,10 +62742,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -65397,10 +62769,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -65592,10 +62960,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -65780,10 +63144,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -65791,10 +63151,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -65822,10 +63178,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -66017,10 +63369,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -66205,10 +63553,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -66230,10 +63574,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -66261,10 +63601,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -66456,10 +63792,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -66644,10 +63976,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -66655,10 +63983,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -66686,10 +64010,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -66881,10 +64201,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -67069,10 +64385,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -67126,19 +64438,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -67167,10 +64469,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -67362,10 +64660,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -67550,10 +64844,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -67561,10 +64851,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -67592,10 +64878,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -67787,10 +65069,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -67975,10 +65253,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -68042,12 +65316,6 @@ export type PRIVACY_POLICY_QUERYResult = {
   topText: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -68077,12 +65345,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -68314,12 +65576,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -68456,12 +65712,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -68491,12 +65741,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -68727,12 +65971,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -68963,12 +66201,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -69049,12 +66281,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -69084,12 +66310,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -69320,12 +66540,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -69462,12 +66676,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -69497,11 +66705,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -69700,11 +66903,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -69934,12 +67132,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -70046,24 +67238,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -70094,11 +67274,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -70297,11 +67472,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -70438,11 +67608,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -70471,10 +67636,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -70664,10 +67825,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -70865,11 +68022,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -70974,23 +68126,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -71020,10 +68161,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -71213,10 +68350,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -71345,10 +68478,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -71376,10 +68505,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -71571,10 +68696,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -71759,10 +68880,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -71844,18 +68961,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -71884,10 +68992,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -72079,10 +69183,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -72267,10 +69367,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -72278,10 +69374,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -72309,10 +69401,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -72504,10 +69592,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -72692,10 +69776,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -72715,10 +69795,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -72746,10 +69822,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -72941,10 +70013,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -73129,10 +70197,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -73140,10 +70204,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -73171,10 +70231,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -73366,10 +70422,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -73554,10 +70606,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -73579,10 +70627,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -73610,10 +70654,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -73805,10 +70845,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -73993,10 +71029,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -74004,10 +71036,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -74035,10 +71063,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -74230,10 +71254,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -74418,10 +71438,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -74475,19 +71491,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -74516,10 +71522,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -74711,10 +71713,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -74899,10 +71897,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -74910,10 +71904,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -74941,10 +71931,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -75136,10 +72122,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -75324,10 +72306,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -75352,12 +72330,6 @@ export type PRIVACY_POLICY_QUERYResult = {
   topText: null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -75387,12 +72359,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -75624,12 +72590,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -75766,12 +72726,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -75801,12 +72755,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -76037,12 +72985,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -76273,12 +73215,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -76359,12 +73295,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -76394,12 +73324,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -76630,12 +73554,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -76772,12 +73690,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -76807,11 +73719,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -77010,11 +73917,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -77244,12 +74146,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -77356,24 +74252,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -77404,11 +74288,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -77607,11 +74486,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -77748,11 +74622,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -77781,10 +74650,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -77974,10 +74839,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -78175,11 +75036,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -78284,23 +75140,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -78330,10 +75175,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -78523,10 +75364,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -78655,10 +75492,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -78686,10 +75519,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -78881,10 +75710,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -79069,10 +75894,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -79154,18 +75975,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -79194,10 +76006,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -79389,10 +76197,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -79577,10 +76381,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -79588,10 +76388,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -79619,10 +76415,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -79814,10 +76606,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -80002,10 +76790,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -80025,10 +76809,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -80056,10 +76836,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -80251,10 +77027,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -80439,10 +77211,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -80450,10 +77218,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -80481,10 +77245,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -80676,10 +77436,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -80864,10 +77620,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -80889,10 +77641,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -80920,10 +77668,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -81115,10 +77859,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -81303,10 +78043,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -81314,10 +78050,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -81345,10 +78077,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -81540,10 +78268,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -81728,10 +78452,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -81785,19 +78505,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -81826,10 +78536,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -82021,10 +78727,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -82209,10 +78911,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -82220,10 +78918,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -82251,10 +78945,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -82446,10 +79136,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -82634,10 +79320,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -82662,12 +79344,6 @@ export type PRIVACY_POLICY_QUERYResult = {
   topText: string | null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -82697,12 +79373,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -82934,12 +79604,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -83076,12 +79740,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -83111,12 +79769,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -83347,12 +79999,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -83583,12 +80229,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -83669,12 +80309,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -83704,12 +80338,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -83940,12 +80568,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -84082,12 +80704,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -84117,11 +80733,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -84320,11 +80931,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -84554,12 +81160,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -84666,24 +81266,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -84714,11 +81302,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -84917,11 +81500,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -85058,11 +81636,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -85091,10 +81664,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -85284,10 +81853,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -85485,11 +82050,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -85594,23 +82154,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -85640,10 +82189,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -85833,10 +82378,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -85965,10 +82506,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -85996,10 +82533,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -86191,10 +82724,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -86379,10 +82908,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -86464,18 +82989,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -86504,10 +83020,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -86699,10 +83211,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -86887,10 +83395,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -86898,10 +83402,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -86929,10 +83429,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -87124,10 +83620,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -87312,10 +83804,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -87335,10 +83823,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -87366,10 +83850,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -87561,10 +84041,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -87749,10 +84225,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -87760,10 +84232,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -87791,10 +84259,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -87986,10 +84450,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -88174,10 +84634,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -88199,10 +84655,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -88230,10 +84682,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -88425,10 +84873,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -88613,10 +85057,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -88624,10 +85064,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -88655,10 +85091,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -88850,10 +85282,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -89038,10 +85466,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -89095,19 +85519,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -89136,10 +85550,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -89331,10 +85741,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -89519,10 +85925,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -89530,10 +85932,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -89561,10 +85959,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -89756,10 +86150,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -89944,10 +86334,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -89999,12 +86385,6 @@ export type PRIVACY_POLICY_QUERYResult = {
   topText: string | null;
   content: Array<{
     _key: string;
-    _type: "bandcampWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "blockListWithStats";
     items?: Array<{
       leftContent?: string;
@@ -90034,12 +86414,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       crop: SanityImageCrop | null;
     } | null;
     content: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -90271,12 +86645,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -90413,12 +86781,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     columns?: "2" | "3" | "4";
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -90448,12 +86810,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -90684,12 +87040,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -90920,12 +87270,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -91006,12 +87350,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     anchorId: string | null;
     content: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -91041,12 +87379,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -91277,12 +87609,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -91419,12 +87745,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       columns?: "2" | "3" | "4";
       content: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -91454,11 +87774,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -91657,11 +87972,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -91891,12 +88201,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -92003,24 +88307,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
-      image: null;
-      content: null;
-    } | {
-      _key: string;
       _type: "subSection";
       hideSection?: boolean;
       title?: string;
       titleTranslation?: string;
       anchorId: string | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -92051,11 +88343,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -92254,11 +88541,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-          image: null;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
           image: null;
         } | {
           _key: string;
@@ -92395,11 +88677,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         columns?: "2" | "3" | "4";
         content: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -92428,10 +88705,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -92621,10 +88894,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -92822,11 +89091,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -92931,23 +89195,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-        image: null;
-        content: null;
-      } | {
-        _key: string;
         _type: "subSubSection";
         hideSection?: boolean;
         title?: string;
         titleTranslation?: string;
         anchorId: string | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-          image: null;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -92977,10 +89230,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -93170,10 +89419,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -93302,10 +89547,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           columns?: "2" | "3" | "4";
           content: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -93333,10 +89574,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -93528,10 +89765,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -93716,10 +89949,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -93801,18 +90030,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-          image: null;
-        } | {
-          _key: string;
           _type: "twoColumnLayout";
           verticallyCenter?: boolean;
           leftColumn: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -93841,10 +90061,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -94036,10 +90252,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -94224,10 +90436,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -94235,10 +90443,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           }> | null;
           rightColumn: Array<{
             _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "blockListWithStats";
             items?: Array<{
               leftContent?: string;
@@ -94266,10 +90470,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               crop: SanityImageCrop | null;
             } | null;
             content: Array<{
-              _key: string;
-              _type: "bandcampWidget";
-              embedCode?: string;
-            } | {
               _key: string;
               _type: "blockListWithStats";
               items?: Array<{
@@ -94461,10 +90661,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
-              _type: "spotifyWidget";
-              embedCode?: string;
-            } | {
-              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -94649,10 +90845,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
-          } | {
-            _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -94672,10 +90864,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -94703,10 +90891,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -94898,10 +91082,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -95086,10 +91266,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -95097,10 +91273,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         }> | null;
         rightColumn: Array<{
           _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "blockListWithStats";
           items?: Array<{
             leftContent?: string;
@@ -95128,10 +91300,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             crop: SanityImageCrop | null;
           } | null;
           content: Array<{
-            _key: string;
-            _type: "bandcampWidget";
-            embedCode?: string;
-          } | {
             _key: string;
             _type: "blockListWithStats";
             items?: Array<{
@@ -95323,10 +91491,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
-            _type: "spotifyWidget";
-            embedCode?: string;
-          } | {
-            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -95511,10 +91675,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
-        } | {
-          _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -95536,10 +91696,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -95567,10 +91723,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -95762,10 +91914,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -95950,10 +92098,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -95961,10 +92105,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       }> | null;
       rightColumn: Array<{
         _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "blockListWithStats";
         items?: Array<{
           leftContent?: string;
@@ -95992,10 +92132,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           crop: SanityImageCrop | null;
         } | null;
         content: Array<{
-          _key: string;
-          _type: "bandcampWidget";
-          embedCode?: string;
-        } | {
           _key: string;
           _type: "blockListWithStats";
           items?: Array<{
@@ -96187,10 +92323,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
-          _type: "spotifyWidget";
-          embedCode?: string;
-        } | {
-          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -96375,10 +92507,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
-      } | {
-        _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -96432,19 +92560,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     image: null;
   } | {
     _key: string;
-    _type: "spotifyWidget";
-    embedCode?: string;
-    image: null;
-    content: null;
-  } | {
-    _key: string;
     _type: "twoColumnLayout";
     verticallyCenter?: boolean;
     leftColumn: Array<{
-      _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
       _key: string;
       _type: "blockListWithStats";
       items?: Array<{
@@ -96473,10 +92591,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -96668,10 +92782,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -96856,10 +92966,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -96867,10 +92973,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     }> | null;
     rightColumn: Array<{
       _key: string;
-      _type: "bandcampWidget";
-      embedCode?: string;
-    } | {
-      _key: string;
       _type: "blockListWithStats";
       items?: Array<{
         leftContent?: string;
@@ -96898,10 +93000,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         crop: SanityImageCrop | null;
       } | null;
       content: Array<{
-        _key: string;
-        _type: "bandcampWidget";
-        embedCode?: string;
-      } | {
         _key: string;
         _type: "blockListWithStats";
         items?: Array<{
@@ -97093,10 +93191,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
-        _type: "spotifyWidget";
-        embedCode?: string;
-      } | {
-        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -97281,10 +93375,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
-    } | {
-      _key: string;
-      _type: "spotifyWidget";
-      embedCode?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";

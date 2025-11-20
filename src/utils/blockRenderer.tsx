@@ -11,8 +11,6 @@ import type {
   ImageBlock as ImageBlockType,
   ImageGallery as ImageGalleryType,
   YouTubeVideo as YouTubeVideoType,
-  SpotifyWidget as SpotifyWidgetType,
-  BandcampWidget as BandcampWidgetType,
   CompanyLinksBlock as CompanyLinksBlockType,
   BlockListWithStats as BlockListWithStatsType,
   CheckList as CheckListType,
@@ -33,8 +31,6 @@ import CTACalloutLinkComponent from '@/components/_blocks/CTACalloutLink';
 import ImageBlock from '@/components/_blocks/Image';
 import ImageGallery from '@/components/_blocks/ImageGallery';
 import YouTubeVideo from '@/components/_blocks/YouTubeVideo';
-import SpotifyWidget from '@/components/_blocks/SpotifyWidget';
-import BandcampWidget from '@/components/_blocks/BandcampWidget';
 import CompanyLinksBlock from '@/components/_blocks/CompanyLinksBlock';
 import BlockListWithStats from '@/components/_blocks/BlockListWithStats';
 import CheckList from '@/components/_blocks/CheckList';
@@ -74,8 +70,6 @@ type BlockType =
   | WithKey<ImageBlockType>
   | WithKey<ImageGalleryType>
   | WithKey<YouTubeVideoType>
-  | WithKey<SpotifyWidgetType>
-  | WithKey<BandcampWidgetType>
   | WithKey<CompanyLinksBlockType>
   | WithKey<BlockListWithStatsType>
   | WithKey<CheckListType>
@@ -227,34 +221,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       return (
         <BlockWrapper key={youTubeBlock._key}>
           <YouTubeVideo {...youTubeBlock} />
-        </BlockWrapper>
-      );
-    }
-
-    case 'spotifyWidget': {
-      const spotifyBlock = typedBlock as WithKey<SpotifyWidgetType>;
-      return (
-        <BlockWrapper key={spotifyBlock._key}>
-          <SpotifyWidget
-            {...spotifyBlock}
-            documentId={documentId}
-            documentType={documentType}
-            pathPrefix={blockPath}
-          />
-        </BlockWrapper>
-      );
-    }
-
-    case 'bandcampWidget': {
-      const bandcampBlock = typedBlock as WithKey<BandcampWidgetType>;
-      return (
-        <BlockWrapper key={bandcampBlock._key}>
-          <BandcampWidget
-            {...bandcampBlock}
-            documentId={documentId}
-            documentType={documentType}
-            pathPrefix={blockPath}
-          />
         </BlockWrapper>
       );
     }
