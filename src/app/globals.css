@@ -16,14 +16,14 @@
 
 /* Brand Colors and Typography System - Tailwind v4 */
 @theme {
-  --color-brand-primary: #900000;
-  --color-brand-secondary: #430c08;
-  --color-body: #71221d;
-  --color-subtle: #b8956a;
-  --color-brand-black: #0a0000;
-  --color-brand-white: #fffbe8;
-  --color-brand-white-dark: #fcf3d7;
-  --background-image-brand-gradient-brown: linear-gradient(135deg, #430c08 0%, #0a0000 100%);
+  --color-brand-primary: #ffb200;
+  --color-brand-secondary: #ff8400;
+  --color-brand-charcoal: #616161;
+  --background-image-brand-gradient-charcoal-linear: linear-gradient(
+    90deg,
+    #616161 0%,
+    #000000 100%
+  );
   --background-image-brand-gradient-red: linear-gradient(135deg, #900000 0%, #430c08 100%);
   --background-image-brand-gradient-subtle: linear-gradient(135deg, #900000 0%, #5d1611 100%);
   --background-image-brand-gradient-text: linear-gradient(to right, #900000 0%, #430c08 100%);

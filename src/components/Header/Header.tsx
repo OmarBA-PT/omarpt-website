@@ -98,7 +98,7 @@ const Header = ({ headerData }: HeaderProps) => {
     <>
       <SkipLink href='#main-content'>Skip to main content</SkipLink>
       <header
-        className={`fixed top-0 left-0 right-0 w-full px-4 md:px-8 ${headerHeight} flex items-center justify-between gap-8 z-50 transition-all duration-300`}
+        className={`fixed top-0 left-0 right-0 w-full px-4 md:px-8 ${headerHeight} flex items-center justify-between gap-8 z-50 transition-all duration-300 bg-brand-gradient-charcoal-linear`}
         style={{
           backgroundColor: `rgba(67, 12, 8, ${headerOpacity})`, // bg-brand-secondary (#430c08) with variable opacity
         }}>
