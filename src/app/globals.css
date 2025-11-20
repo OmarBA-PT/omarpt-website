@@ -42,6 +42,7 @@
   --font-scale-base: 1rem; /* WARNING: if changing this please change the same in BodyTextPreview.tsx */
 
   /* Custom Breakpoints */
+  --breakpoint-xxs: 350px;
   --breakpoint-xs: 500px;
 }
 

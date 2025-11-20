@@ -118,10 +118,10 @@ const Header = ({ headerData }: HeaderProps) => {
             height={125}
             sizeContext='logo'
             objectFit='contain'
-            className='w-40 md:w-20 h-auto'
+            className='w-14 md:w-20 h-auto'
             priority
           />
-          <div className='flex items-baseline gap-2'>
+          <div className='hidden xxs:flex items-baseline gap-2'>
             <span
               className='text-h3'
               style={{

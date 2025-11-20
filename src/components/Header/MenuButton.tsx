@@ -23,7 +23,7 @@ const MenuButton = ({
     return (
       <button
         onClick={onClick}
-        className={`w-8 h-8 flex items-center justify-center cursor-pointer text-brand-white focus:outline-none hover:text-brand-primary transition-colors ${className}`}
+        className={`w-8 h-8 flex items-center justify-center cursor-pointer text-white focus:outline-none hover:text-brand-primary transition-colors ${className}`}
         aria-label='Close menu'>
         <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
           <path
@@ -41,24 +41,24 @@ const MenuButton = ({
   return (
     <button
       onClick={onClick}
-      className={`flex flex-col justify-center items-center w-8 h-8 cursor-pointer focus:outline-none group ${className}`}
+      className={`flex md:hidden flex-col justify-center items-center w-8 h-8 cursor-pointer focus:outline-none group ${className}`}
       aria-label={`${isMenuOpen ? 'Close' : 'Open'} navigation menu`}
       aria-expanded={isMenuOpen}
       aria-controls={ariaControls}>
       <span
-        className={`block w-6 h-0.5 bg-brand-white group-hover:bg-brand-primary transition-all duration-300 transform origin-center ${
+        className={`block w-6 h-0.5 bg-white group-hover:bg-brand-secondary transition-all duration-300 transform origin-center ${
           isMenuOpen ? 'rotate-45 translate-y-2' : ''
         }`}
         style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8))' }}
       />
       <span
-        className={`block w-6 h-0.5 bg-brand-white group-hover:bg-brand-primary transition-all duration-300 mt-1.5 ${
+        className={`block w-6 h-0.5 bg-white group-hover:bg-brand-secondary transition-all duration-300 mt-1.5 ${
           isMenuOpen ? 'opacity-0' : ''
         }`}
         style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8))' }}
       />
       <span
-        className={`block w-6 h-0.5 bg-brand-white group-hover:bg-brand-primary transition-all duration-300 mt-1.5 transform origin-center ${
+        className={`block w-6 h-0.5 bg-white group-hover:bg-brand-secondary transition-all duration-300 mt-1.5 transform origin-center ${
           isMenuOpen ? '-rotate-45 -translate-y-2' : ''
         }`}
         style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8))' }}
