@@ -105,7 +105,7 @@ const Header = ({ headerData }: HeaderProps) => {
         {/* Logo */}
         <Link
           href='/#home'
-          className='flex items-center gap-2 transition-opacity duration-300'
+          className='flex items-baseline gap-2 transition-opacity duration-300'
           style={{
             opacity: headerOpacity,
             filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',
@@ -121,8 +121,26 @@ const Header = ({ headerData }: HeaderProps) => {
             className='w-40 md:w-20 h-auto'
             priority
           />
-          <span>Omania</span>
-          <span>Training</span>
+          <span
+            className='text-h3'
+            style={{
+              background: 'linear-gradient(135deg, #ffb200 0%, #ff8400 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+            Omania
+          </span>
+          <span
+            className='text-h5'
+            style={{
+              background: 'linear-gradient(135deg, #ffffff 0%, #999999 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+            Training
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
