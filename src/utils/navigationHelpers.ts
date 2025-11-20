@@ -67,5 +67,6 @@ export const getHorizontalNavLinkLabel = (link: HorizontalNavigationLink): strin
 };
 
 export type HorizontalNavData = NonNullable<HeaderResult['horizontalNav']>;
+export type HorizontalNavCTAData = NonNullable<HeaderResult['horizontalNavCtas']>;
 export type VerticalNavData = NonNullable<HeaderResult['verticalNav']>;
 export type VerticalNavCTAData = NonNullable<HeaderResult['verticalNavCtas']>;

@@ -56,7 +56,7 @@ const getVariantStyles = (
   }
 
   // Default to filled variant with brand gradient
-  return `${baseStyles} bg-brand-gradient-subtle text-brand-white focus:ring-brand-primary hover:scale-105 ${disabledStyles}`.trim();
+  return `${baseStyles} bg-brand-gradient-primary text-black uppercase focus:ring-brand-primary hover:scale-105 ${disabledStyles}`.trim();
 };
 
 const CTA = (props: CTAProps) => {

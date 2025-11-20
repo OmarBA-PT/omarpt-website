@@ -146,7 +146,10 @@ const Header = ({ headerData }: HeaderProps) => {
 
         {/* Desktop Navigation */}
         <div className='grow flex justify-end'>
-          <HorizontalNav navLinks={headerData?.horizontalNav || null} />
+          <HorizontalNav
+            navLinks={headerData?.horizontalNav || null}
+            navCtas={headerData?.horizontalNavCtas || null}
+          />
         </div>
 
         {/* Hamburger Menu Button */}

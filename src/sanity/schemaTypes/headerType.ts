@@ -41,6 +41,12 @@ export const headerType = defineType({
         sortable: true,
       },
     }),
+    createCTAListField({
+      name: 'horizontalNavCtas',
+      title: 'Horizontal Navigation CTAs',
+      description: 'Call-to-action buttons displayed on the far right of the horizontal navigation bar. Leave empty if no CTAs are needed.',
+      group: 'horizontal',
+    }),
     defineField({
       name: 'verticalNav',
       title: 'Vertical Navigation',

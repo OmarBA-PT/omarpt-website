@@ -4775,6 +4775,14 @@
         },
         "optional": true
       },
+      "horizontalNavCtas": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "ctaList"
+        },
+        "optional": true
+      },
       "verticalNav": {
         "type": "objectAttribute",
         "value": {
