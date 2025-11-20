@@ -61,7 +61,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
         role='dialog'
         aria-modal='true'
         aria-label='Main navigation menu'
-        className={`fixed top-0 right-0 h-full w-full md:w-90 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col bg-brand-gradient-brown ${
+        className={`fixed top-0 right-0 h-full w-full md:w-90 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col bg-brand-gradient-charcoal-diag ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
         {/* Menu Header */}
@@ -69,9 +69,9 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
           className={`flex items-center justify-center md:justify-between px-4 ${headerHeight} transition-all duration-300 relative z-10`}>
           {/* Logo in Menu - centered on mobile, left-aligned on desktop */}
           <Link href='/' onClick={onClose} className='flex items-center gap-2'>
-            <div className='relative w-[160px] h-[60px]'>
+            <div className='relative w-40 h-[60px]'>
               <UnifiedImage
-                src='/images/logos/logo-white.png'
+                src='/images/logos/logo.png'
                 alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
                 mode='fill'
                 sizeContext='logo'
@@ -107,7 +107,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
             e.currentTarget.style.scrollbarColor = '#430c08 transparent';
           }}>
           {/* Navigation Links - grows to fill available space */}
-          <nav className='px-10 py-10 w-full flex-grow'>
+          <nav className='px-10 py-10 w-full grow'>
             <div className='space-y-8'>
               {navLinks && navLinks.length > 0 ? (
                 <>
@@ -165,7 +165,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
                                     className='text-xl flex items-center justify-between w-full text-brand-white hover:text-brand-primary transition-colors'>
                                     <span>{label}</span>
                                     {isExternal && (
-                                      <FaExternalLinkAlt className='text-body-xs text-current ml-2 flex-shrink-0' />
+                                      <FaExternalLinkAlt className='text-body-xs text-current ml-2 shrink-0' />
                                     )}
                                   </Link>
                                 </div>
@@ -192,7 +192,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
           {/* Navigation CTAs - pinned to bottom on tall screens */}
           {navCtas && navCtas.length > 0 && (
             <div className='w-full px-10 pb-10 mt-auto'>
-              <div className='pt-6 border-t border-subtle/30'>
+              <div className='pt-6 border-t border-brand-primary/50'>
                 <div className='pt-6'>
                   <CTAList
                     ctaList={navCtas}
