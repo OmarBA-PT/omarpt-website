@@ -69,8 +69,8 @@ const RootLayout = ({
 
             /* Essential brand colors for immediate render */
             :root {
-              --color-brand-primary: #900000;
-              --color-brand-secondary: #430c08;
+              --color-brand-primary: #ffb200;
+              --color-brand-secondary: #ff8400;
             }
           `,
           }}
@@ -83,7 +83,7 @@ const RootLayout = ({
           }}
         />
       </head>
-      <body className={`${sairaCondensed.className} text-body-base text-body bg-brand-white`}>
+      <body className={`${sairaCondensed.className} text-body-base text-white bg-brand-charcoal`}>
         {children}
       </body>
     </html>
