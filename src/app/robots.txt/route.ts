@@ -11,6 +11,7 @@ export function GET(): Response {
     'Disallow: /api/',
     'Disallow: /draft/',
     'Disallow: /studio/',
+    'Disallow: /dev-test/',
     '',
     `Sitemap: ${baseUrl}/sitemap.xml`
   ].join('\n')

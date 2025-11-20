@@ -43,7 +43,7 @@ src/app/(frontend)/
 
 The system uses pattern matching with three integration points:
 
-1. **Middleware**: Blocks `/dev-test/*` routes in non-development environments
+1. **Proxy**: Blocks `/dev-test/*` routes in non-development environments
 2. **Sitemap**: Excludes `/dev-test/*` routes from SEO indexing
 3. **Robots.txt**: Disallows crawling of `/dev-test/*` routes
 
@@ -51,12 +51,12 @@ The system uses pattern matching with three integration points:
 
 The system should already be configured. Here's how to verify each component:
 
-### 1. Middleware - Blocks /dev-test/* Routes
+### 1. Proxy - Blocks /dev-test/* Routes
 
-Check that `src/middleware.ts` blocks routes starting with `/dev-test/`:
+Check that `src/proxy.ts` blocks routes starting with `/dev-test/`:
 
 ```typescript
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Block development/test routes (anything under /dev-test/) in non-development environments
@@ -66,11 +66,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // ... rest of middleware logic
+  // ... rest of proxy logic
 }
 ```
 
-**Environment Variable**: The middleware checks `process.env.NEXT_PUBLIC_ENV` for the environment.
+**Environment Variable**: The proxy checks `process.env.NEXT_PUBLIC_ENV` for the environment.
 
 ### 2. Sitemap - Excludes /dev-test/* Routes
 
@@ -224,15 +224,16 @@ Should NOT include any `/dev-test/*` routes ❌
 - Ensure `page.tsx` file exists in the route directory
 - Restart dev server: `rm -rf .next && npm run dev`
 
-### Middleware not blocking routes
+### Proxy not blocking routes
 
-**Problem**: Middleware doesn't seem to run.
+**Problem**: Proxy doesn't seem to run.
 
 **Solution**:
-- Verify Next.js version supports middleware (12.2+)
-- Check for TypeScript errors in middleware.ts
+- Verify Next.js version supports proxy function
+- Check for TypeScript errors in proxy.ts
 - Ensure `NEXT_PUBLIC_ENV` environment variable is set
-- Check middleware matcher config includes your route
+- Check proxy matcher config includes your route
+- Make sure you're using `proxy.ts` not the deprecated `middleware.ts`
 
 ## Best Practices
 
@@ -264,16 +265,18 @@ Additional examples you might add:
 If you're adding this system to a project that doesn't have it:
 
 1. Create `src/app/(frontend)/dev-test/` directory
-2. Update `src/middleware.ts` to block `/dev-test/` routes
+2. Update `src/proxy.ts` (or create it if using older Next.js middleware) to block `/dev-test/` routes
 3. Update `src/app/sitemap.xml/route.ts` to filter dev-test routes
 4. Update `src/app/robots.txt/route.ts` to disallow `/dev-test/`
 5. Move existing test pages into `/dev-test/` directory
 6. Set `NEXT_PUBLIC_ENV=development` in `.env.local`
 7. Test in both development and production builds
 
+**Note**: Next.js has deprecated `middleware.ts` in favor of `proxy.ts`. Use `proxy.ts` for new projects.
+
 ## Related Documentation
 
-- [Next.js Middleware Docs](https://nextjs.org/docs/app/building-your-application/routing/middleware)
+- [Next.js Proxy Function](https://nextjs.org/docs/messages/middleware-to-proxy)
 - [Sitemap Generation](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap)
 - [Robots.txt](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots)
 - [Next.js Route Groups](https://nextjs.org/docs/app/building-your-application/routing/route-groups)
@@ -282,8 +285,8 @@ If you're adding this system to a project that doesn't have it:
 
 If you encounter issues with the dev-test routes system:
 
-1. Check that all three files (middleware, sitemap, robots) are properly configured
+1. Check that all three files (proxy, sitemap, robots) are properly configured
 2. Verify `NEXT_PUBLIC_ENV` environment variable is set correctly
 3. Test with a fresh build: `rm -rf .next && npm run build`
-4. Check Next.js version compatibility (requires 12.2+)
+4. Ensure you're using `proxy.ts` not the deprecated `middleware.ts`
 5. Verify the route is actually inside `src/app/(frontend)/dev-test/`
