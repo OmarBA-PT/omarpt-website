@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import UnifiedImage from '@/components/UI/UnifiedImage';
 import MenuButton from '../MenuButton';
@@ -43,10 +43,9 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
   return (
     <div
       /* NOTE: Breakpoint behavior - Uses 'sm:' breakpoint to determine layout mode */
-      /* Small screens (< sm): z-40 (behind header), full-screen fade */
+      /* Small screens (< sm): z-60 (in front of header), full-screen fade */
       /* Larger screens (>= sm): z-60 (in front of header), slide-in from right */
-      /* If you need to change this breakpoint, update both z-index classes below */
-      className={`fixed inset-0 transition-opacity duration-300 z-40 sm:z-60 ${
+      className={`fixed inset-0 transition-opacity duration-300 z-60 ${
         isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
       {/* Background Overlay - only visible on larger screens for slide-in effect */}
@@ -71,11 +70,17 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
         className={`fixed flex flex-col bg-brand-gradient-charcoal-radial transition-opacity duration-300 inset-0 sm:inset-auto sm:top-0 sm:right-0 sm:bottom-0 sm:w-90 sm:shadow-2xl sm:transition-transform sm:duration-300 sm:ease-in-out ${
           isMenuOpen ? 'sm:translate-x-0' : 'sm:translate-x-full'
         }`}>
-        {/* Menu Header - only visible on larger screens with logo and close button */}
+        {/* Menu Header - now visible on all screen sizes with logo and close button */}
         <div
-          className={`hidden sm:flex items-center justify-between px-4 pt-4 md:pt-0 ${headerHeight} transition-all duration-300 relative`}>
+          className={`flex items-center justify-between px-4 md:px-8 ${headerHeight} transition-all duration-300 relative`}>
           {/* Logo and Business Name */}
-          <Link href='/#home' onClick={onClose} className='flex items-center gap-2'>
+          <Link
+            href='/#home'
+            onClick={onClose}
+            className='flex items-center gap-2 transition-opacity duration-300'
+            style={{
+              filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',
+            }}>
             <UnifiedImage
               src='/images/logos/logo.png'
               alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
@@ -84,16 +89,36 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
               height={125}
               sizeContext='logo'
               objectFit='contain'
-              className='w-18 h-auto'
+              className='w-14 md:w-20 h-auto'
             />
+            {/* Business Name - visible on small screens only */}
+            <div className='flex sm:hidden items-baseline gap-2'>
+              <span
+                className='text-h3'
+                style={{
+                  background: 'var(--background-image-brand-gradient-primary)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>
+                Omania
+              </span>
+              <span
+                className='text-h5'
+                style={{
+                  background: 'var(--background-image-brand-gradient-metal)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>
+                Training
+              </span>
+            </div>
           </Link>
 
           {/* Close Button */}
-          <MenuButton variant='close' onClick={onClose} />
+          <MenuButton variant='close' onClick={onClose} isMenuOpen={isMenuOpen} />
         </div>
-
-        {/* Spacer for header height - only on small screens to keep content below the header */}
-        <div className={`sm:hidden ${headerHeight}`} />
 
         {/* Menu Navigation */}
         <div
