@@ -105,6 +105,7 @@ const Header = ({ headerData }: HeaderProps) => {
         {/* Logo */}
         <Link
           href='/#home'
+          onClick={closeMenu}
           className='flex items-center gap-2 transition-opacity duration-300'
           style={{
             filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',

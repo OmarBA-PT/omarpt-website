@@ -31,7 +31,7 @@ const ScrollIndicator = ({ className = '' }: ScrollIndicatorProps) => {
       `}
       aria-label='Scroll down to content'>
       {/* Stacked chevron arrows */}
-      <div className='relative z-40 flex flex-col -gap-2'>
+      <div className='relative z-30 flex flex-col -gap-2'>
         {/* First chevron */}
         <svg
           width='30'
