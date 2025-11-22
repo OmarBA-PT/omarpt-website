@@ -4783,6 +4783,13 @@
         },
         "optional": true
       },
+      "showVerticalNavOnDesktop": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
+      },
       "verticalNav": {
         "type": "objectAttribute",
         "value": {

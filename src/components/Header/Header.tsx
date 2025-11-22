@@ -154,11 +154,13 @@ const Header = ({ headerData }: HeaderProps) => {
         </div>
 
         {/* Hamburger Menu Button */}
+        {/* NOTE: Desktop visibility breakpoint - The 'lg:' breakpoint in MenuButton determines mobile vs desktop behavior */}
         <MenuButton
           variant='hamburger'
           isMenuOpen={isMenuOpen}
           onClick={toggleMenu}
           ariaControls='mobile-navigation-menu'
+          showOnDesktop={headerData?.showVerticalNavOnDesktop ?? true}
         />
       </header>
 

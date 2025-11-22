@@ -48,6 +48,14 @@ export const headerType = defineType({
       group: 'horizontal',
     }),
     defineField({
+      name: 'showVerticalNavOnDesktop',
+      title: 'Show Vertical Nav on Desktop',
+      type: 'boolean',
+      description: 'Controls whether the hamburger menu icon is visible on desktop screens. If disabled, the hamburger icon will only appear on mobile devices.',
+      group: 'vertical',
+      initialValue: true,
+    }),
+    defineField({
       name: 'verticalNav',
       title: 'Vertical Navigation',
       type: 'array',

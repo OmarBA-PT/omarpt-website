@@ -10,6 +10,7 @@ interface MenuButtonProps {
   onClick: () => void;
   className?: string;
   ariaControls?: string;
+  showOnDesktop?: boolean;
 }
 
 const MenuButton = ({
@@ -18,6 +19,7 @@ const MenuButton = ({
   onClick,
   className = '',
   ariaControls,
+  showOnDesktop = true,
 }: MenuButtonProps) => {
   if (variant === 'close') {
     return (
@@ -38,10 +40,14 @@ const MenuButton = ({
   }
 
   // Hamburger variant
+  // NOTE: Desktop visibility breakpoint - Uses 'lg:' breakpoint to determine mobile vs desktop behavior
+  // If you need to change this breakpoint (e.g., to md: or xl:), update this class below
+  const desktopHiddenClass = showOnDesktop ? '' : 'lg:hidden';
+
   return (
     <button
       onClick={onClick}
-      className={`flex lg:hidden flex-col justify-center items-center w-8 h-8 cursor-pointer focus:outline-none group ${className}`}
+      className={`flex ${desktopHiddenClass} flex-col justify-center items-center w-8 h-8 cursor-pointer focus:outline-none group ${className}`}
       aria-label={`${isMenuOpen ? 'Close' : 'Open'} navigation menu`}
       aria-expanded={isMenuOpen}
       aria-controls={ariaControls}>
