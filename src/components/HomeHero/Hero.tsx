@@ -15,7 +15,6 @@ import { useHeader } from '@/contexts/HeaderContext';
 interface HeroProps {
   heroStyle: NonNullable<HOME_PAGE_QUERYResult>['heroStyle'];
   heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
-  heroLogoDisplay: NonNullable<HOME_PAGE_QUERYResult>['heroLogoDisplay'];
   heroBackgroundImages: NonNullable<HOME_PAGE_QUERYResult>['heroBackgroundImages'];
   heroImageTransitionDuration: NonNullable<HOME_PAGE_QUERYResult>['heroImageTransitionDuration'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
@@ -30,7 +29,6 @@ interface HeroProps {
 const Hero = ({
   heroStyle,
   heroTextColor,
-  heroLogoDisplay,
   heroBackgroundImages,
   heroImageTransitionDuration,
   h1Title,
@@ -129,7 +127,6 @@ const Hero = ({
       <div className='flex-1 flex flex-col relative z-[25] min-h-0'>
         <RegularHeroLayout
           heroTextColor={heroTextColor}
-          heroLogoDisplay={heroLogoDisplay}
           h1Title={h1Title}
           heroTitle={heroTitle}
           heroCallToActionList={heroCallToActionList}

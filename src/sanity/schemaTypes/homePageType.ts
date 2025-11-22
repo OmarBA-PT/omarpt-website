@@ -127,22 +127,6 @@ export const homePageType = defineType({
       initialValue: 'center-center',
     }),
     defineField({
-      name: 'heroLogoDisplay',
-      type: 'string',
-      title: 'Logo Display',
-      description: 'Choose which version of the logo to display above the hero content',
-      group: 'hero',
-      options: {
-        list: [
-          { title: 'No Logo', value: 'none' },
-          { title: 'Logo with Text', value: 'with-text' },
-          { title: 'Logo Only (No Text)', value: 'logo-only' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'with-text',
-    }),
-    defineField({
       name: 'h1Title',
       type: 'string',
       title: 'H1 Title (SEO & Accessibility)',

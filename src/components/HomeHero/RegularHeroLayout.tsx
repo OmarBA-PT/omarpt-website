@@ -3,13 +3,11 @@ import { stegaClean } from 'next-sanity';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import HeroTitle from './HeroTitle';
-import HeroLogo from './HeroLogo';
 import HeroCTA from './HeroCTA';
 import { getTextColorClasses } from './heroUtils';
 
 interface RegularHeroLayoutProps {
   heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
-  heroLogoDisplay: NonNullable<HOME_PAGE_QUERYResult>['heroLogoDisplay'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
   heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
@@ -26,7 +24,6 @@ const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
     heroTextColor,
     h1Title,
     heroTitle,
-    heroLogoDisplay,
     heroCallToActionList,
     documentId,
     documentType,
@@ -85,7 +82,6 @@ const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
     h1Title,
     heroTitle,
     heroTextColor,
-    heroLogoDisplay,
     heroCallToActionList,
     documentId,
     documentType,
@@ -104,11 +100,6 @@ const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
       {/* Content container with responsive alignment */}
       <div
         className={`flex flex-col ${horizontalConfig.content} ${horizontalConfig.text} gap-4 sm:gap-6 max-w-4xl w-full mt-6`}>
-        {/* Logo - can shrink when needed */}
-        <div className='flex-shrink min-h-0'>
-          <HeroLogo {...componentProps} />
-        </div>
-
         {/* Title (now includes subtitle content via Rich Text) - priority content */}
         <div className='flex-shrink-0'>
           <HeroTitle {...componentProps} />

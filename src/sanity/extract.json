@@ -6274,27 +6274,6 @@
         },
         "optional": true
       },
-      "heroLogoDisplay": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "union",
-          "of": [
-            {
-              "type": "string",
-              "value": "none"
-            },
-            {
-              "type": "string",
-              "value": "with-text"
-            },
-            {
-              "type": "string",
-              "value": "logo-only"
-            }
-          ]
-        },
-        "optional": true
-      },
       "h1Title": {
         "type": "objectAttribute",
         "value": {
