@@ -38,7 +38,7 @@ const ScrollIndicator = ({ className = '' }: ScrollIndicatorProps) => {
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
         className='
-          w-6 h-[1.875rem]
+          w-6 h-7.5
           animate-bounce
           transition-all duration-300
           group-hover:translate-y-1

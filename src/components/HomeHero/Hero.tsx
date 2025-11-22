@@ -106,7 +106,7 @@ const Hero = ({
             />
           )}
           <div
-            className={`absolute inset-0 bg-gradient-to-t from-black from-20% to-transparent z-20 ${
+            className={`absolute inset-0 bg-linear-to-t from-black from-20% to-transparent z-20 ${
               shouldUseGradientTransition ? 'transition-opacity duration-1000 ease-in-out' : ''
             } ${firstImageLoaded || images.length === 0 ? 'opacity-90' : 'opacity-0'}`}
           />
@@ -124,7 +124,7 @@ const Hero = ({
       {/* <div className='flex-shrink-0 h-16' /> */}
 
       {/* Main content area - grows to fill available space */}
-      <div className='flex-1 flex flex-col relative z-[25] min-h-0'>
+      <div className='flex-1 flex flex-col relative z-25 min-h-0'>
         <RegularHeroLayout
           heroTextColor={heroTextColor}
           h1Title={h1Title}
