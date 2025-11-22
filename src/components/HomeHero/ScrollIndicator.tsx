@@ -25,60 +25,32 @@ const ScrollIndicator = ({ className = '' }: ScrollIndicatorProps) => {
       className={`
         group flex flex-col items-center justify-center
         transition-all duration-300 ease-in-out
-        text-brand-primary hover:text-brand-white 
+        text-brand-primary hover:text-brand-white
         cursor-pointer
         ${className}
       `}
       aria-label='Scroll down to content'>
-      {/* Stacked chevron arrows */}
-      <div className='relative z-30 flex flex-col -gap-2'>
-        {/* First chevron */}
-        <svg
-          width='30'
-          height='20'
-          viewBox='0 0 30 20'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-          className='
-            w-8 h-4
-            animate-bounce
-            transition-all duration-300
-            group-hover:translate-y-1
-          '>
-          <path
-            d='M2 2 L16 16 L30 2'
-            stroke='currentColor'
-            strokeWidth='8'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            fill='none'
-          />
-        </svg>
-
-        {/* Second chevron */}
-        <svg
-          width='30'
-          height='20'
-          viewBox='0 0 30 20'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-          className='
-            w-8 h-4
-            animate-bounce
-            transition-all duration-300
-            group-hover:translate-y-1
-          '
-          style={{ animationDelay: '0.1s' }}>
-          <path
-            d='M2 2 L16 16 L30 2'
-            stroke='currentColor'
-            strokeWidth='8'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            fill='none'
-          />
-        </svg>
-      </div>
+      {/* Simple downward arrow */}
+      <svg
+        width='24'
+        height='30'
+        viewBox='0 0 24 30'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        className='
+          w-6 h-[1.875rem]
+          animate-bounce
+          transition-all duration-300
+          group-hover:translate-y-1
+        '>
+        <path
+          d='M12 5 L12 23 M12 23 L6 17 M12 23 L18 17'
+          stroke='currentColor'
+          strokeWidth='1.5'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+        />
+      </svg>
     </button>
   );
 };
