@@ -48,6 +48,9 @@ const Header = ({ headerData }: HeaderProps) => {
     if (!enableOpacityFade) return;
 
     const handleScroll = () => {
+      // Don't update opacity when menu is open - prevents scroll lock from resetting opacity to 0
+      if (isMenuOpen) return;
+
       const scrollY = window.scrollY;
       // Fade in background over first xxpx of scroll
       const opacity = Math.min(scrollY / 30, 1);
@@ -64,7 +67,7 @@ const Header = ({ headerData }: HeaderProps) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [enableOpacityFade]);
+  }, [enableOpacityFade, isMenuOpen]);
 
   // Close menu on Escape key press
   useEffect(() => {
