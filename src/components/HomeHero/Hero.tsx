@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import HeroImages from './HeroImages';
+import HeroVideo from './HeroVideo';
 import RegularHeroLayout from './RegularHeroLayout';
+import DefaultHeroLayout from './DefaultHeroLayout';
 import ScrollIndicator from './ScrollIndicator';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { urlFor } from '@/sanity/lib/image';
@@ -15,12 +17,14 @@ import { useHeader } from '@/contexts/HeaderContext';
 interface HeroProps {
   heroStyle: NonNullable<HOME_PAGE_QUERYResult>['heroStyle'];
   heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
-  heroBackgroundImages: NonNullable<HOME_PAGE_QUERYResult>['heroBackgroundImages'];
+  heroImages: NonNullable<HOME_PAGE_QUERYResult>['heroImages'];
+  heroVideo: NonNullable<HOME_PAGE_QUERYResult>['heroVideo'];
   heroImageTransitionDuration: NonNullable<HOME_PAGE_QUERYResult>['heroImageTransitionDuration'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
   heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   hideScrollIndicator: NonNullable<HOME_PAGE_QUERYResult>['hideScrollIndicator'];
+  heroDefaultContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroDefaultContentPosition'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
   documentId: string;
   documentType: string;
@@ -29,12 +33,14 @@ interface HeroProps {
 const Hero = ({
   heroStyle,
   heroTextColor,
-  heroBackgroundImages,
+  heroImages,
+  heroVideo,
   heroImageTransitionDuration,
   h1Title,
   heroTitle,
   heroCallToActionList,
   hideScrollIndicator,
+  heroDefaultContentPosition,
   heroContentPosition,
   documentId,
   documentType,
@@ -60,26 +66,41 @@ const Hero = ({
   };
 
   // Convert Sanity image array to HeroImages component format and filter valid images
-  const validBackgroundImages =
-    heroBackgroundImages?.filter((image) => image && image.asset && image.asset._ref) || [];
+  const validImages = heroImages?.filter((image) => image && image.asset && image.asset._ref) || [];
 
-  const images = validBackgroundImages.map((image, index) => ({
+  const images = validImages.map((image, index) => ({
     imageUrl: urlFor(image).width(1920).height(1080).url(),
-    altText: image.alt || `Hero background image ${index + 1}`,
+    altText: image.alt || `Hero image ${index + 1}`,
   }));
+
+  // Get video URL from Sanity
+  const videoUrl = heroVideo?.asset?._ref
+    ? `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${heroVideo.asset._ref.replace('file-', '').replace('-mp4', '.mp4').replace('-webm', '.webm')}`
+    : null;
 
   // Determine hero style - default to 'default' if not provided, clean any stega characters
   const currentHeroStyle = stegaClean(heroStyle) || 'default';
 
-  // Get background color based on text color for better contrast
+  // Get background color based on text color for better contrast (for background-images and video styles)
   const heroBackgroundColor = stegaClean(heroTextColor) === 'white' ? 'bg-black' : 'bg-white';
+
+  // For Default style, allow height to exceed viewport on mobile
+  const heightClass =
+    currentHeroStyle === 'default' ? 'min-h-screen md:h-screen' : styles['hero-height'];
+
+  // Hide scroll indicator for Default style on mobile
+  const shouldShowScrollIndicator =
+    !stegaClean(hideScrollIndicator) &&
+    !(currentHeroStyle === 'default' && typeof window !== 'undefined' && window.innerWidth < 768);
 
   return (
     <section
       id='home'
       data-hero
-      className={`relative ${styles['hero-height']} flex flex-col ${homeHeroBottomSpacing} ${
-        currentHeroStyle === 'background-images' ? heroBackgroundColor : ''
+      className={`relative ${heightClass} flex flex-col ${homeHeroBottomSpacing} ${
+        currentHeroStyle === 'background-images' || currentHeroStyle === 'video'
+          ? heroBackgroundColor
+          : ''
       }`}>
       {/* Z-index hierarchy: Background (z-10) → Gradient (z-20) → Content (z-[25]) → Header (z-30) → Mobile menu (z-40) */}
 
@@ -113,6 +134,18 @@ const Hero = ({
         </>
       )}
 
+      {/* Video Hero Style */}
+      {currentHeroStyle === 'video' && (
+        <>
+          {videoUrl && <HeroVideo videoUrl={videoUrl} onVideoLoaded={handleFirstImageLoaded} />}
+          <div
+            className={`absolute inset-0 bg-linear-to-t from-black from-20% to-transparent z-20 ${
+              shouldUseGradientTransition ? 'transition-opacity duration-1000 ease-in-out' : ''
+            } ${firstImageLoaded || !videoUrl ? 'opacity-90' : 'opacity-0'}`}
+          />
+        </>
+      )}
+
       {/* Default Hero Style - Charcoal Radial Gradient Background */}
       {currentHeroStyle === 'default' && (
         <div
@@ -121,30 +154,41 @@ const Hero = ({
         />
       )}
 
-      {/* Top padding for spacing from header - matches bottom */}
-      {/* <div className='flex-shrink-0 h-16' /> */}
-
       {/* Main content area - grows to fill available space */}
       <div className='flex-1 flex flex-col relative z-25 min-h-0'>
-        <RegularHeroLayout
-          heroTextColor={heroTextColor}
-          h1Title={h1Title}
-          heroTitle={heroTitle}
-          heroCallToActionList={heroCallToActionList}
-          heroContentPosition={heroContentPosition}
-          documentId={documentId}
-          documentType={documentType}
-        />
+        {currentHeroStyle === 'default' ? (
+          <DefaultHeroLayout
+            heroTextColor={heroTextColor}
+            h1Title={h1Title}
+            heroTitle={heroTitle}
+            heroCallToActionList={heroCallToActionList}
+            heroContentPosition={heroDefaultContentPosition}
+            images={images}
+            imageDuration={(heroImageTransitionDuration || 4) * 1000}
+            documentId={documentId}
+            documentType={documentType}
+          />
+        ) : (
+          <RegularHeroLayout
+            heroTextColor={heroTextColor}
+            h1Title={h1Title}
+            heroTitle={heroTitle}
+            heroCallToActionList={heroCallToActionList}
+            heroContentPosition={heroContentPosition}
+            documentId={documentId}
+            documentType={documentType}
+          />
+        )}
       </div>
 
       {/* Bottom padding with scroll indicator */}
-      <div className='shrink-0 flex flex-col items-center justify-end h-24 relative z-30 mb-4'>
-        {!stegaClean(hideScrollIndicator) && (
+      {shouldShowScrollIndicator && (
+        <div className='shrink-0 flex flex-col items-center justify-end h-24 relative z-30 mb-4'>
           <div className='block'>
             <ScrollIndicator />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 };

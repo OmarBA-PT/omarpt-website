@@ -1,0 +1,130 @@
+import React from 'react';
+import { stegaClean } from 'next-sanity';
+import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
+import { createSanityDataAttribute } from '../../utils/sectionHelpers';
+import HeroTitle from './HeroTitle';
+import HeroCTA from './HeroCTA';
+import { getTextColorClasses } from './heroUtils';
+import HeroImages from './HeroImages';
+
+interface DefaultHeroLayoutProps {
+  heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
+  h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
+  heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
+  heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
+  heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
+  images: Array<{ imageUrl: string; altText: string }>;
+  imageDuration: number;
+  documentId: string;
+  documentType: string;
+  showLogoBackColor?: boolean;
+}
+
+// Layout for Default hero style with images on the side
+const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
+  const {
+    heroContentPosition,
+    heroTextColor,
+    h1Title,
+    heroTitle,
+    heroCallToActionList,
+    images,
+    imageDuration,
+    documentId,
+    documentType,
+    showLogoBackColor,
+  } = props;
+
+  // Extract position components
+  const cleanPosition = stegaClean(
+    heroContentPosition?.trim().replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/g, '') ||
+      'center-left'
+  );
+  const [, horizontal] = cleanPosition.split('-');
+
+  // For Default style, only center-left and center-right are valid
+  const isContentLeft = horizontal === 'left';
+
+  const heroTitleProps = {
+    h1Title,
+    heroTitle,
+    heroTextColor,
+    documentId,
+    documentType,
+    showLogoBackColor,
+    textAlignment: horizontal,
+  };
+
+  const heroCTAProps = {
+    heroCallToActionList,
+    documentId,
+    documentType,
+  };
+
+  return (
+    <>
+      {/* Desktop Layout: Side-by-side */}
+      <div
+        className={`
+          hidden md:flex w-full flex-1 items-center justify-center
+          ${getTextColorClasses(heroTextColor)}
+          px-4 sm:px-8 lg:px-[10%]
+          gap-8 lg:gap-12
+        `}
+        {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
+        {/* Content column */}
+        <div
+          className={`flex flex-col gap-4 sm:gap-6 max-w-2xl ${isContentLeft ? 'order-1' : 'order-2'}`}>
+          {/* Title */}
+          <div className='shrink-0'>
+            <HeroTitle {...heroTitleProps} />
+          </div>
+
+          {/* CTA buttons */}
+          {heroCallToActionList && heroCallToActionList.length > 0 && (
+            <div className='shrink-0'>
+              <HeroCTA {...heroCTAProps} />
+            </div>
+          )}
+        </div>
+
+        {/* Images column */}
+        <div
+          className={`relative w-full max-w-xl aspect-[4/3] overflow-hidden rounded-lg ${isContentLeft ? 'order-2' : 'order-1'}`}>
+          <HeroImages images={images} duration={imageDuration} />
+        </div>
+      </div>
+
+      {/* Mobile Layout: Stacked */}
+      <div
+        className={`
+          flex md:hidden w-full flex-col items-center justify-center
+          ${getTextColorClasses(heroTextColor)}
+          px-4 sm:px-8
+          gap-6
+        `}>
+        {/* Content */}
+        <div className='flex flex-col items-center text-center gap-4 sm:gap-6 max-w-2xl w-full mt-6'>
+          {/* Title */}
+          <div className='shrink-0'>
+            <HeroTitle {...heroTitleProps} textAlignment='center' />
+          </div>
+
+          {/* CTA buttons */}
+          {heroCallToActionList && heroCallToActionList.length > 0 && (
+            <div className='shrink-0'>
+              <HeroCTA {...heroCTAProps} />
+            </div>
+          )}
+        </div>
+
+        {/* Images - full width on mobile */}
+        <div className='relative w-full aspect-[4/3] overflow-hidden rounded-lg'>
+          <HeroImages images={images} duration={imageDuration} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DefaultHeroLayout;

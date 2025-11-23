@@ -277,13 +277,16 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
   _type,
   heroStyle,
   heroTextColor,
-  heroBackgroundImages[]{
+  heroImages[]{
     _key,
     _type,
     asset,
     alt,
     hotspot,
     crop
+  },
+  heroVideo{
+    asset
   },
   heroImageTransitionDuration,
   h1Title,
@@ -301,6 +304,7 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
     _type == "embeddedCtaEmailButton" => {...}
   },
   hideScrollIndicator,
+  heroDefaultContentPosition,
   heroContentPosition,
   ${recursiveContent}
 }`);

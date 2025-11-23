@@ -33,17 +33,18 @@ export const homePageType = defineType({
         list: [
           { title: 'Default', value: 'default' },
           { title: 'Background Images', value: 'background-images' },
+          { title: 'Video', value: 'video' },
         ],
         layout: 'radio',
       },
       initialValue: 'default',
     }),
     defineField({
-      name: 'heroBackgroundImages',
+      name: 'heroImages',
       type: 'array',
-      title: 'Background Images',
+      title: 'Images',
       description:
-        'Add one or more background images that will cycle in the hero section. Images can be reordered by dragging.',
+        'Add one or more images that will cycle in the hero section. Images can be reordered by dragging.',
       options: {
         sortable: true,
       },
@@ -65,12 +66,35 @@ export const homePageType = defineType({
         },
       ],
       group: 'hero',
-      hidden: ({ document }) => document?.heroStyle !== 'background-images',
+      hidden: ({ document }) => document?.heroStyle === 'video',
       validation: (Rule) =>
         Rule.custom((images, context) => {
           const document = context.document;
           if (document?.heroStyle === 'background-images' && (!images || images.length === 0)) {
-            return 'Please add at least one background image when Background Images hero style is selected';
+            return 'Please add at least one image when Background Images hero style is selected';
+          }
+          if (document?.heroStyle === 'default' && (!images || images.length === 0)) {
+            return 'Please add at least one image when Default hero style is selected';
+          }
+          return true;
+        }),
+    }),
+    defineField({
+      name: 'heroVideo',
+      type: 'file',
+      title: 'Video',
+      description:
+        'Upload a video file to display as the hero background. Recommended formats: MP4, WebM. The video will loop continuously and be muted.',
+      group: 'hero',
+      options: {
+        accept: 'video/*',
+      },
+      hidden: ({ document }) => document?.heroStyle !== 'video',
+      validation: (Rule) =>
+        Rule.custom((video, context) => {
+          const document = context.document;
+          if (document?.heroStyle === 'video' && !video) {
+            return 'Please upload a video when Video hero style is selected';
           }
           return true;
         }),
@@ -80,10 +104,10 @@ export const homePageType = defineType({
       type: 'number',
       title: 'Image Transition Duration (seconds)',
       description:
-        'How long each background image displays before transitioning to the next (only applies when multiple images are added). Minimum: 2 seconds, Maximum: 30 seconds.',
+        'How long each image displays before transitioning to the next (only applies when multiple images are added). Minimum: 2 seconds, Maximum: 30 seconds.',
       group: 'hero',
       initialValue: 4,
-      hidden: ({ document }) => document?.heroStyle !== 'background-images',
+      hidden: ({ document }) => document?.heroStyle === 'video',
       validation: (Rule) =>
         Rule.min(2).max(30).required().error('Duration must be between 2 and 30 seconds'),
     }),
@@ -104,11 +128,28 @@ export const homePageType = defineType({
       initialValue: 'black',
     }),
     defineField({
+      name: 'heroDefaultContentPosition',
+      type: 'string',
+      title: 'Content Position',
+      description:
+        'Choose where to position the content on desktop. On mobile, content is always centered above the images.',
+      group: 'hero',
+      options: {
+        list: [
+          { title: 'Center Left', value: 'center-left' },
+          { title: 'Center Right', value: 'center-right' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'center-left',
+      hidden: ({ document }) => document?.heroStyle !== 'default',
+    }),
+    defineField({
       name: 'heroContentPosition',
       type: 'string',
       title: 'Content Position',
       description:
-        'Choose where to position the hero content over the image. Note: On mobile devices, content is always centered horizontally - only the vertical positioning (top/center/bottom) is applied. Full positioning applies on desktop and larger screens.',
+        'Choose where to position the hero content over the background. Note: On mobile devices, content is always centered horizontally - only the vertical positioning (top/center/bottom) is applied. Full positioning applies on desktop and larger screens.',
       group: 'hero',
       options: {
         list: [
@@ -125,6 +166,7 @@ export const homePageType = defineType({
         layout: 'dropdown',
       },
       initialValue: 'center-center',
+      hidden: ({ document }) => document?.heroStyle === 'default',
     }),
     defineField({
       name: 'h1Title',

@@ -6110,12 +6110,16 @@
             {
               "type": "string",
               "value": "background-images"
+            },
+            {
+              "type": "string",
+              "value": "video"
             }
           ]
         },
         "optional": true
       },
-      "heroBackgroundImages": {
+      "heroImages": {
         "type": "objectAttribute",
         "value": {
           "type": "array",
@@ -6205,6 +6209,59 @@
         },
         "optional": true
       },
+      "heroVideo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "asset": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "_ref": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "reference"
+                    }
+                  },
+                  "_weak": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "boolean"
+                    },
+                    "optional": true
+                  }
+                },
+                "dereferencesTo": "sanity.fileAsset"
+              },
+              "optional": true
+            },
+            "media": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "unknown"
+              },
+              "optional": true
+            },
+            "_type": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string",
+                "value": "file"
+              }
+            }
+          }
+        },
+        "optional": true
+      },
       "heroImageTransitionDuration": {
         "type": "objectAttribute",
         "value": {
@@ -6224,6 +6281,23 @@
             {
               "type": "string",
               "value": "white"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "heroDefaultContentPosition": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "center-left"
+            },
+            {
+              "type": "string",
+              "value": "center-right"
             }
           ]
         },
