@@ -48,23 +48,38 @@ const HeroTitle = ({
     }
   };
 
+  // Get container alignment class based on the alignment prop
+  const getContainerAlignmentClass = (alignment: string) => {
+    switch (alignment) {
+      case 'left':
+        return 'mx-auto md:mx-0 md:mr-auto'; // center on mobile, left on desktop
+      case 'right':
+        return 'mx-auto md:mx md:ml-auto'; // center on mobile, right on desktop
+      case 'center':
+      default:
+        return 'mx-auto';
+    }
+  };
+
   return (
     <>
       {/* SEO and Screen Reader H1 - Hidden from visual UI */}
       {h1Title && <h1 className='sr-only'>{stegaClean(h1Title)}</h1>}
 
-      {/* Visual Hero Title - Rich Text with alignment */}
-      <PortableTextWrapper
-        value={heroTitle}
-        components={components}
-        className={`
-          prose prose-slate max-w-none
-          ${getTextColorClasses(heroTextColor)}
-          overflow-hidden
-          ${getTextAlignmentClass(textAlignment)}
-        `}
-        dataAttributes={createSanityDataAttribute(documentId, documentType, 'heroTitle')}
-      />
+      {/* Visual Hero Title - Rich Text with alignment and fixed width on desktop */}
+      <div className={`w-full md:w-[33vw] ${getContainerAlignmentClass(textAlignment)}`}>
+        <PortableTextWrapper
+          value={heroTitle}
+          components={components}
+          className={`
+            prose prose-slate max-w-none
+            ${getTextColorClasses(heroTextColor)}
+            overflow-hidden
+            ${getTextAlignmentClass(textAlignment)}
+          `}
+          dataAttributes={createSanityDataAttribute(documentId, documentType, 'heroTitle')}
+        />
+      </div>
     </>
   );
 };

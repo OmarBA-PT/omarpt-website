@@ -136,8 +136,8 @@ const Hero = ({
         />
       </div>
 
-      {/* Bottom padding with scroll indicator - matches top */}
-      <div className='flex-shrink-0 flex flex-col items-center justify-center h-16 relative z-30'>
+      {/* Bottom padding with scroll indicator */}
+      <div className='shrink-0 flex flex-col items-center justify-end h-24 relative z-30 mb-4'>
         {!stegaClean(hideScrollIndicator) && (
           <div className='block'>
             <ScrollIndicator />

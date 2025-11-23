@@ -94,20 +94,20 @@ const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
       className={`
         w-full flex-1 flex flex-col ${verticalClasses} ${horizontalConfig.items}
         ${getTextColorClasses(heroTextColor)}
-        px-4 sm:px-8 lg:px-12
+        px-4 sm:px-8 lg:px-52
       `}
       {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
       {/* Content container with responsive alignment */}
       <div
         className={`flex flex-col ${horizontalConfig.content} ${horizontalConfig.text} gap-4 sm:gap-6 max-w-4xl w-full mt-6`}>
         {/* Title (now includes subtitle content via Rich Text) - priority content */}
-        <div className='flex-shrink-0'>
+        <div className='shrink-0'>
           <HeroTitle {...componentProps} />
         </div>
 
         {/* CTA buttons - always visible, aligned with content */}
         {heroCallToActionList && heroCallToActionList.length > 0 && (
-          <div className='flex-shrink-0'>
+          <div className='shrink-0'>
             <HeroCTA {...componentProps} />
           </div>
         )}
