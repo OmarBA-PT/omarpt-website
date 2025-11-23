@@ -113,11 +113,12 @@ const Hero = ({
         </>
       )}
 
-      {/* Default Hero Style */}
+      {/* Default Hero Style - Charcoal Radial Gradient Background */}
       {currentHeroStyle === 'default' && (
-        <div className='absolute inset-0 z-10 pointer-events-none bg-brand-black'>
-          {/* <DefaultHeroBackground /> */}
-        </div>
+        <div
+          className='absolute inset-0 z-10'
+          style={{ background: 'var(--background-image-brand-gradient-charcoal-radial)' }}
+        />
       )}
 
       {/* Top padding for spacing from header - matches bottom */}
