@@ -94,7 +94,7 @@ const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
       className={`
         w-full flex-1 flex flex-col ${verticalClasses} ${horizontalConfig.items}
         ${getTextColorClasses(heroTextColor)}
-        px-4 sm:px-8 lg:px-52
+        px-4 sm:px-8 lg:px-[10%]
       `}
       {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
       {/* Content container with responsive alignment */}
