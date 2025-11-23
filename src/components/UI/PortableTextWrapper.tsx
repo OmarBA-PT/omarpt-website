@@ -51,7 +51,9 @@ const PortableTextWrapper = ({
   dataAttributes = {},
 }: PortableTextWrapperProps) => {
   return (
-    <div className={`[&>:not(:empty)+:not(:empty)]:mt-2 [&>:empty]:min-h-[1lh] ${className}`} {...dataAttributes}>
+    <div
+      className={`[&>:not(:empty)+:not(:empty)]:mt-2 *:empty:min-h-lh ${className}`}
+      {...dataAttributes}>
       <PortableText value={value} components={components} />
     </div>
   );
