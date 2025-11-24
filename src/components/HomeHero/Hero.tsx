@@ -161,8 +161,8 @@ const Hero = ({
       )}
 
       {/* Main content area - grows to fill available space */}
-      {/* flex-col needed for default style to properly distribute space between content and scroll indicator */}
-      <div className={`flex-1 relative z-25 ${currentHeroStyle === 'default' ? 'flex flex-col' : ''}`}>
+      {/* flex-col always applied - needed for default style to distribute space, and for regular layout positioning */}
+      <div className='flex-1 flex flex-col relative z-25'>
         {currentHeroStyle === 'default' ? (
           <DefaultHeroLayout
             heroTextColor={heroTextColor}
