@@ -47,7 +47,7 @@ const getVariantStyles = (
 
   if (variant === 'outline-light') {
     // Outline button on light background - dark border and text
-    return `${baseStyles} border-2 border-brand-primary text-brand-primary bg-transparent hover:bg-brand-primary hover:text-brand-white focus:ring-brand-primary ${disabledStyles}`.trim();
+    return `${baseStyles} border-2 border-brand-primary text-brand-primary bg-transparent hover:bg-brand-primary hover:text-black focus:ring-brand-primary ${disabledStyles}`.trim();
   }
 
   if (variant === 'outline-dark') {
