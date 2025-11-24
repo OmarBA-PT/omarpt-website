@@ -13,6 +13,7 @@ interface HeroTitleProps {
   documentId: string;
   documentType: string;
   textAlignment?: string;
+  isDefault?: boolean;
 }
 
 const HeroTitle = ({
@@ -22,6 +23,7 @@ const HeroTitle = ({
   documentId,
   documentType,
   textAlignment = 'center',
+  isDefault = false,
 }: HeroTitleProps) => {
   if (!heroTitle || !Array.isArray(heroTitle)) {
     return (
@@ -67,7 +69,8 @@ const HeroTitle = ({
       {h1Title && <h1 className='sr-only'>{stegaClean(h1Title)}</h1>}
 
       {/* Visual Hero Title - Rich Text with alignment and fixed width on desktop */}
-      <div className={`w-full md:w-[33vw] ${getContainerAlignmentClass(textAlignment)}`}>
+      <div
+        className={`w-full ${isDefault ? '' : 'md:w-[33vw]'} ${getContainerAlignmentClass(textAlignment)}`}>
         <PortableTextWrapper
           value={heroTitle}
           components={components}

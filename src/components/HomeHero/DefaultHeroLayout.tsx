@@ -56,6 +56,7 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
     documentType,
     showLogoBackColor,
     textAlignment: horizontal,
+    isDefault: true,
   };
 
   const heroCTAProps = {
@@ -97,7 +98,7 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
 
         {/* Images column - constrained by max-height to fit viewport */}
         <div
-          className={`relative w-full max-w-xl max-h-[60vh] overflow-hidden ${frameShapeClasses} ${isContentLeft ? 'order-2' : 'order-1'}`}>
+          className={`relative w-full max-h-[60vh] overflow-hidden ${frameShapeClasses} ${isContentLeft ? 'order-2' : 'order-1'}`}>
           <HeroImages images={images} duration={imageDuration} />
         </div>
       </div>

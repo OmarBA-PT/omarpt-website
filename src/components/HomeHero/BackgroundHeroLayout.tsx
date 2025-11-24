@@ -6,7 +6,7 @@ import HeroTitle from './HeroTitle';
 import HeroCTA from './HeroCTA';
 import { getTextColorClasses } from './heroUtils';
 
-interface RegularHeroLayoutProps {
+interface VideoImageBackgroundHeroLayoutProps {
   heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
   heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
@@ -18,7 +18,7 @@ interface RegularHeroLayoutProps {
 }
 
 // Regular flexbox layout: content positioning with flexbox
-const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
+const VideoImageBackgroundHeroLayout = (props: VideoImageBackgroundHeroLayoutProps) => {
   const {
     heroContentPosition,
     heroTextColor,
@@ -116,4 +116,4 @@ const RegularHeroLayout = (props: RegularHeroLayoutProps) => {
   );
 };
 
-export default RegularHeroLayout;
+export default VideoImageBackgroundHeroLayout;

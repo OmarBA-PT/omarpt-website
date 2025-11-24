@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import HeroImages from './HeroImages';
 import HeroVideo from './HeroVideo';
-import RegularHeroLayout from './RegularHeroLayout';
 import DefaultHeroLayout from './DefaultHeroLayout';
+import BackgroundHeroLayout from './BackgroundHeroLayout';
 import ScrollIndicator from './ScrollIndicator';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { urlFor } from '@/sanity/lib/image';
@@ -86,8 +86,7 @@ const Hero = ({
 
   // For Default style, allow height to exceed viewport on mobile only
   // For background-images and video, always constrain to viewport height
-  const heightClass =
-    currentHeroStyle === 'default' ? 'min-h-screen md:h-screen' : 'h-screen';
+  const heightClass = currentHeroStyle === 'default' ? 'min-h-screen md:h-screen' : 'h-screen';
 
   // Hide scroll indicator for Default style on mobile
   const shouldShowScrollIndicator =
@@ -174,7 +173,7 @@ const Hero = ({
             documentType={documentType}
           />
         ) : (
-          <RegularHeroLayout
+          <BackgroundHeroLayout
             heroTextColor={heroTextColor}
             h1Title={h1Title}
             heroTitle={heroTitle}
