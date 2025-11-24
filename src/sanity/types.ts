@@ -940,7 +940,6 @@ export type HomePage = {
   heroImageTransitionDuration?: number;
   heroTextColor?: "black" | "white";
   heroDefaultContentPosition?: "center-left" | "center-right";
-  heroImageFrameShape?: "landscape" | "portrait" | "circle";
   heroContentPosition?: "top-left" | "top-center" | "top-right" | "center-left" | "center-center" | "center-right" | "bottom-left" | "bottom-center" | "bottom-right";
   h1Title?: string;
   heroTitle?: BlockContent;
@@ -8536,7 +8535,7 @@ export type HOME_PAGE_QUERYResult = {
   }> | null;
   hideScrollIndicator: boolean | null;
   heroDefaultContentPosition: "center-left" | "center-right" | null;
-  heroImageFrameShape: "circle" | "landscape" | "portrait" | null;
+  heroImageFrameShape: null;
   heroContentPosition: "bottom-center" | "bottom-left" | "bottom-right" | "center-center" | "center-left" | "center-right" | "top-center" | "top-left" | "top-right" | null;
   content: Array<{
     _key: string;

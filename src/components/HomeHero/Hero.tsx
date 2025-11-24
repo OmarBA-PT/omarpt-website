@@ -24,7 +24,6 @@ interface HeroProps {
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   hideScrollIndicator: NonNullable<HOME_PAGE_QUERYResult>['hideScrollIndicator'];
   heroDefaultContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroDefaultContentPosition'];
-  heroImageFrameShape: NonNullable<HOME_PAGE_QUERYResult>['heroImageFrameShape'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
   documentId: string;
   documentType: string;
@@ -41,7 +40,6 @@ const Hero = ({
   heroCallToActionList,
   hideScrollIndicator,
   heroDefaultContentPosition,
-  heroImageFrameShape,
   heroContentPosition,
   documentId,
   documentType,
@@ -170,7 +168,6 @@ const Hero = ({
             heroTitle={heroTitle}
             heroCallToActionList={heroCallToActionList}
             heroContentPosition={heroDefaultContentPosition}
-            heroImageFrameShape={heroImageFrameShape}
             images={images}
             imageDuration={(heroImageTransitionDuration || 4) * 1000}
             documentId={documentId}

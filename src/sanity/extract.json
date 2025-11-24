@@ -6303,27 +6303,6 @@
         },
         "optional": true
       },
-      "heroImageFrameShape": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "union",
-          "of": [
-            {
-              "type": "string",
-              "value": "landscape"
-            },
-            {
-              "type": "string",
-              "value": "portrait"
-            },
-            {
-              "type": "string",
-              "value": "circle"
-            }
-          ]
-        },
-        "optional": true
-      },
       "heroContentPosition": {
         "type": "objectAttribute",
         "value": {

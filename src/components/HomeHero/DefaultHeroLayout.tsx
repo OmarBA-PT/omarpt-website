@@ -13,7 +13,6 @@ interface DefaultHeroLayoutProps {
   heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
-  heroImageFrameShape: NonNullable<HOME_PAGE_QUERYResult>['heroImageFrameShape'];
   images: Array<{ imageUrl: string; altText: string }>;
   imageDuration: number;
   documentId: string;
@@ -25,7 +24,6 @@ interface DefaultHeroLayoutProps {
 const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
   const {
     heroContentPosition,
-    heroImageFrameShape,
     heroTextColor,
     h1Title,
     heroTitle,
@@ -47,20 +45,8 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
   // For Default style, only center-left and center-right are valid
   const isContentLeft = horizontal === 'left';
 
-  // Get frame shape classes based on selection
-  const cleanFrameShape = stegaClean(heroImageFrameShape) || 'landscape';
-  const getFrameShapeClasses = () => {
-    switch (cleanFrameShape) {
-      case 'circle':
-        return 'rounded-full aspect-square';
-      case 'portrait':
-        return 'rounded-lg aspect-[3/4]';
-      case 'landscape':
-      default:
-        return 'rounded-lg aspect-[4/3]';
-    }
-  };
-  const frameShapeClasses = getFrameShapeClasses();
+  // Hardcoded to landscape rectangle with 4:3 aspect ratio
+  const frameShapeClasses = 'rounded-lg aspect-[4/3]';
 
   const heroTitleProps = {
     h1Title,

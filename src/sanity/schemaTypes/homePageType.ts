@@ -145,23 +145,6 @@ export const homePageType = defineType({
       hidden: ({ document }) => document?.heroStyle !== 'default',
     }),
     defineField({
-      name: 'heroImageFrameShape',
-      type: 'string',
-      title: 'Image Frame Shape',
-      description: 'Choose the shape for the image frame.',
-      group: 'hero',
-      options: {
-        list: [
-          { title: 'Landscape Rectangle', value: 'landscape' },
-          { title: 'Portrait Rectangle', value: 'portrait' },
-          { title: 'Circle', value: 'circle' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'landscape',
-      hidden: ({ document }) => document?.heroStyle !== 'default',
-    }),
-    defineField({
       name: 'heroContentPosition',
       type: 'string',
       title: 'Content Position',
