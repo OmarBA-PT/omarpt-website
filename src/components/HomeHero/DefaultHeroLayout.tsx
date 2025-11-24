@@ -110,7 +110,7 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
           ${getTextColorClasses(heroTextColor)}
           px-4 sm:px-8
           gap-6
-          pt-6
+          py-12
         `}>
         {/* Content */}
         <div className='flex flex-col items-center text-center gap-4 sm:gap-6 max-w-2xl w-full'>
