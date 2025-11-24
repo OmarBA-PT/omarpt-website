@@ -84,10 +84,10 @@ export const homePageType = defineType({
       type: 'file',
       title: 'Video',
       description:
-        'Upload a video file to display as the hero background. Recommended formats: MP4, WebM. The video will loop continuously and be muted.',
+        '⚠️ IMPORTANT: Upload as MP4 (H.264 codec) for best browser compatibility. MOV files may not play in Chrome/Firefox. Avoid large file sizes - compress your video before uploading. The video will loop continuously and be muted.',
       group: 'hero',
       options: {
-        accept: 'video/*',
+        accept: 'video/mp4,video/webm',
       },
       hidden: ({ document }) => document?.heroStyle !== 'video',
       validation: (Rule) =>

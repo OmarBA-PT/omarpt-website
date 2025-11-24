@@ -74,8 +74,20 @@ const Hero = ({
   }));
 
   // Get video URL from Sanity
+  // File reference format: file-{assetId}-{extension}
+  // Example: file-2c140904a9fb2c5a7992ebdaab60ee9701d53e2f-mov
   const videoUrl = heroVideo?.asset?._ref
-    ? `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${heroVideo.asset._ref.replace('file-', '').replace('-mp4', '.mp4').replace('-webm', '.webm')}`
+    ? (() => {
+        const ref = heroVideo.asset._ref;
+        // Remove 'file-' prefix and get the rest
+        const withoutPrefix = ref.replace('file-', '');
+        // Split by last dash to separate asset ID from extension
+        const lastDashIndex = withoutPrefix.lastIndexOf('-');
+        const assetId = withoutPrefix.substring(0, lastDashIndex);
+        const extension = withoutPrefix.substring(lastDashIndex + 1);
+        // Construct URL with proper extension
+        return `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${assetId}.${extension}`;
+      })()
     : null;
 
   // Determine hero style - default to 'default' if not provided, clean any stega characters
@@ -129,11 +141,11 @@ const Hero = ({
               onFirstImageLoaded={handleFirstImageLoaded}
             />
           )}
-          <div
+          {/* <div
             className={`absolute inset-0 bg-linear-to-t from-black from-20% to-transparent z-20 ${
               shouldUseGradientTransition ? 'transition-opacity duration-1000 ease-in-out' : ''
             } ${firstImageLoaded || images.length === 0 ? 'opacity-90' : 'opacity-0'}`}
-          />
+          /> */}
         </>
       )}
 
@@ -141,11 +153,11 @@ const Hero = ({
       {currentHeroStyle === 'video' && (
         <>
           {videoUrl && <HeroVideo videoUrl={videoUrl} onVideoLoaded={handleFirstImageLoaded} />}
-          <div
+          {/* <div
             className={`absolute inset-0 bg-linear-to-t from-black from-20% to-transparent z-20 ${
               shouldUseGradientTransition ? 'transition-opacity duration-1000 ease-in-out' : ''
             } ${firstImageLoaded || !videoUrl ? 'opacity-90' : 'opacity-0'}`}
-          />
+          /> */}
         </>
       )}
 
