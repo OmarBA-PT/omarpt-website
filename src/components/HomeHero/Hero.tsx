@@ -141,11 +141,11 @@ const Hero = ({
               onFirstImageLoaded={handleFirstImageLoaded}
             />
           )}
-          {/* <div
-            className={`absolute inset-0 bg-linear-to-t from-black from-20% to-transparent z-20 ${
+          <div
+            className={`absolute inset-0 bg-black/70 z-20 ${
               shouldUseGradientTransition ? 'transition-opacity duration-1000 ease-in-out' : ''
             } ${firstImageLoaded || images.length === 0 ? 'opacity-90' : 'opacity-0'}`}
-          /> */}
+          />
         </>
       )}
 
@@ -153,11 +153,7 @@ const Hero = ({
       {currentHeroStyle === 'video' && (
         <>
           {videoUrl && <HeroVideo videoUrl={videoUrl} onVideoLoaded={handleFirstImageLoaded} />}
-          {/* <div
-            className={`absolute inset-0 bg-linear-to-t from-black from-20% to-transparent z-20 ${
-              shouldUseGradientTransition ? 'transition-opacity duration-1000 ease-in-out' : ''
-            } ${firstImageLoaded || !videoUrl ? 'opacity-90' : 'opacity-0'}`}
-          /> */}
+          <div className={`absolute inset-0 bg-black/50 z-20`} />
         </>
       )}
 
