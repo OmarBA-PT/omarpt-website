@@ -13,6 +13,7 @@ interface DefaultHeroLayoutProps {
   heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
+  heroImageFrameShape: NonNullable<HOME_PAGE_QUERYResult>['heroImageFrameShape'];
   images: Array<{ imageUrl: string; altText: string }>;
   imageDuration: number;
   documentId: string;
@@ -24,6 +25,7 @@ interface DefaultHeroLayoutProps {
 const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
   const {
     heroContentPosition,
+    heroImageFrameShape,
     heroTextColor,
     h1Title,
     heroTitle,
@@ -44,6 +46,21 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
 
   // For Default style, only center-left and center-right are valid
   const isContentLeft = horizontal === 'left';
+
+  // Get frame shape classes based on selection
+  const cleanFrameShape = stegaClean(heroImageFrameShape) || 'landscape';
+  const getFrameShapeClasses = () => {
+    switch (cleanFrameShape) {
+      case 'circle':
+        return 'rounded-full aspect-square';
+      case 'portrait':
+        return 'rounded-lg aspect-[3/4]';
+      case 'landscape':
+      default:
+        return 'rounded-lg aspect-[4/3]';
+    }
+  };
+  const frameShapeClasses = getFrameShapeClasses();
 
   const heroTitleProps = {
     h1Title,
@@ -70,11 +87,15 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
           ${getTextColorClasses(heroTextColor)}
           px-4 sm:px-8 lg:px-[10%]
           gap-8 lg:gap-12
+          mt-6
+          min-h-0
         `}
         {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
         {/* Content column */}
         <div
-          className={`flex flex-col gap-4 sm:gap-6 max-w-2xl ${isContentLeft ? 'order-1' : 'order-2'}`}>
+          className={`flex flex-col gap-4 sm:gap-6 max-w-2xl ${
+            isContentLeft ? 'order-1 items-start' : 'order-2 items-end'
+          }`}>
           {/* Title */}
           <div className='shrink-0'>
             <HeroTitle {...heroTitleProps} />
@@ -88,9 +109,9 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
           )}
         </div>
 
-        {/* Images column */}
+        {/* Images column - constrained by max-height to fit viewport */}
         <div
-          className={`relative w-full max-w-xl aspect-[4/3] overflow-hidden rounded-lg ${isContentLeft ? 'order-2' : 'order-1'}`}>
+          className={`relative w-full max-w-xl max-h-[60vh] overflow-hidden ${frameShapeClasses} ${isContentLeft ? 'order-2' : 'order-1'}`}>
           <HeroImages images={images} duration={imageDuration} />
         </div>
       </div>
@@ -98,13 +119,14 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
       {/* Mobile Layout: Stacked */}
       <div
         className={`
-          flex md:hidden w-full flex-col items-center justify-center
+          flex md:hidden w-full flex-col items-center
           ${getTextColorClasses(heroTextColor)}
           px-4 sm:px-8
           gap-6
+          pt-6
         `}>
         {/* Content */}
-        <div className='flex flex-col items-center text-center gap-4 sm:gap-6 max-w-2xl w-full mt-6'>
+        <div className='flex flex-col items-center text-center gap-4 sm:gap-6 max-w-2xl w-full'>
           {/* Title */}
           <div className='shrink-0'>
             <HeroTitle {...heroTitleProps} textAlignment='center' />
@@ -118,8 +140,8 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
           )}
         </div>
 
-        {/* Images - full width on mobile */}
-        <div className='relative w-full aspect-[4/3] overflow-hidden rounded-lg'>
+        {/* Images - responsive sizing on mobile */}
+        <div className={`relative w-full max-w-2xl overflow-hidden ${frameShapeClasses}`}>
           <HeroImages images={images} duration={imageDuration} />
         </div>
       </div>

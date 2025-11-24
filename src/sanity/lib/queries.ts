@@ -305,6 +305,7 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
   },
   hideScrollIndicator,
   heroDefaultContentPosition,
+  heroImageFrameShape,
   heroContentPosition,
   ${recursiveContent}
 }`);

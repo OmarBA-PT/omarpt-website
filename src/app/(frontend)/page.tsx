@@ -47,6 +47,7 @@ const Page = async () => {
         heroCallToActionList={page.heroCallToActionList}
         hideScrollIndicator={page.hideScrollIndicator}
         heroDefaultContentPosition={page.heroDefaultContentPosition}
+        heroImageFrameShape={page.heroImageFrameShape}
         heroContentPosition={page.heroContentPosition}
         documentId={page._id}
         documentType={page._type}

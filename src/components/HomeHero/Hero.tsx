@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import styles from './styles.module.css';
 import HeroImages from './HeroImages';
 import HeroVideo from './HeroVideo';
 import RegularHeroLayout from './RegularHeroLayout';
@@ -25,6 +24,7 @@ interface HeroProps {
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   hideScrollIndicator: NonNullable<HOME_PAGE_QUERYResult>['hideScrollIndicator'];
   heroDefaultContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroDefaultContentPosition'];
+  heroImageFrameShape: NonNullable<HOME_PAGE_QUERYResult>['heroImageFrameShape'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
   documentId: string;
   documentType: string;
@@ -41,6 +41,7 @@ const Hero = ({
   heroCallToActionList,
   hideScrollIndicator,
   heroDefaultContentPosition,
+  heroImageFrameShape,
   heroContentPosition,
   documentId,
   documentType,
@@ -84,9 +85,10 @@ const Hero = ({
   // Get background color based on text color for better contrast (for background-images and video styles)
   const heroBackgroundColor = stegaClean(heroTextColor) === 'white' ? 'bg-black' : 'bg-white';
 
-  // For Default style, allow height to exceed viewport on mobile
+  // For Default style, allow height to exceed viewport on mobile only
+  // For background-images and video, always constrain to viewport height
   const heightClass =
-    currentHeroStyle === 'default' ? 'min-h-screen md:h-screen' : styles['hero-height'];
+    currentHeroStyle === 'default' ? 'min-h-screen md:h-screen' : 'h-screen';
 
   // Hide scroll indicator for Default style on mobile
   const shouldShowScrollIndicator =
@@ -148,14 +150,18 @@ const Hero = ({
 
       {/* Default Hero Style - Charcoal Radial Gradient Background */}
       {currentHeroStyle === 'default' && (
-        <div
-          className='absolute inset-0 z-10'
-          style={{ background: 'var(--background-image-brand-gradient-charcoal-radial)' }}
-        />
+        <>
+          <div
+            className='absolute inset-0 z-10'
+            style={{ background: 'var(--background-image-brand-gradient-charcoal-radial)' }}
+          />
+          <div className='shrink-0 h-16 md:h-24 lg:h-32' />
+        </>
       )}
 
       {/* Main content area - grows to fill available space */}
-      <div className='flex-1 flex flex-col relative z-25 min-h-0'>
+      {/* flex-col needed for default style to properly distribute space between content and scroll indicator */}
+      <div className={`flex-1 relative z-25 ${currentHeroStyle === 'default' ? 'flex flex-col' : ''}`}>
         {currentHeroStyle === 'default' ? (
           <DefaultHeroLayout
             heroTextColor={heroTextColor}
@@ -163,6 +169,7 @@ const Hero = ({
             heroTitle={heroTitle}
             heroCallToActionList={heroCallToActionList}
             heroContentPosition={heroDefaultContentPosition}
+            heroImageFrameShape={heroImageFrameShape}
             images={images}
             imageDuration={(heroImageTransitionDuration || 4) * 1000}
             documentId={documentId}
