@@ -69,8 +69,9 @@ const Hero = ({
   // Convert Sanity image array to HeroImages component format and filter valid images
   const validImages = heroImages?.filter((image) => image && image.asset && image.asset._ref) || [];
 
+  // Request 2x size for high-DPI displays (3840x2160 for crisp 4K rendering)
   const images = validImages.map((image, index) => ({
-    imageUrl: urlFor(image).width(1920).height(1080).url(),
+    imageUrl: urlFor(image).width(3840).height(2160).quality(90).url(),
     altText: image.alt || `Hero image ${index + 1}`,
   }));
 
