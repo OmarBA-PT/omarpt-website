@@ -99,9 +99,7 @@ const Hero = ({
   // For Default style, allow height to exceed viewport on mobile only
   // For background-images and video, always constrain to viewport height
   const heightClass =
-    currentHeroStyle === 'default'
-      ? 'min-h-screen md:h-screen md:min-h-[600px]'
-      : 'h-screen min-h-[600px]';
+    currentHeroStyle === 'default' ? 'min-h-screen md:h-screen md:min-h-[600px]' : 'h-screen';
 
   // Hide scroll indicator for Default style on mobile
   const shouldShowScrollIndicator =
