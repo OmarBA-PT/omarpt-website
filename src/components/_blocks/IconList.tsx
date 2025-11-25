@@ -41,9 +41,9 @@ const IconList = ({
           return (
             <div
               key={item._key}
-              className={`flex justify-center ${
-                isHorizontal ? 'flex-row items-center gap-8' : 'flex-col items-center gap-2'
-              } ${isHorizontal ? '' : 'w-full'}`}>
+              className={`flex justify-center flex-col items-center gap-4 ${
+                isHorizontal ? 'md:flex-row md:gap-8' : 'w-full'
+              }`}>
               {/* Icon or Custom Image */}
               <div
                 className={`shrink-0 ${isHorizontal ? '' : 'text-center'}`}
@@ -63,7 +63,7 @@ const IconList = ({
                     height={120}
                     sizeContext='logo'
                     objectFit='contain'
-                    className='w-16 h-16'
+                    className='w-12 h-12 md:w-16 md:h-16'
                   />
                 ) : (
                   <Icon iconKey={item.icon as IconKey} className='text-brand-secondary' size={48} />
