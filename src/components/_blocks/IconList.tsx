@@ -45,11 +45,7 @@ const IconList = ({
                 {...(documentId && documentType
                   ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
                   : {})}>
-                <Icon
-                  iconKey={item.icon as IconKey}
-                  className='bg-brand-gradient-firey'
-                  size={48}
-                />
+                <Icon iconKey={item.icon as IconKey} className='text-brand-secondary' size={48} />
               </div>
 
               {/* Description */}

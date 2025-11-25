@@ -87,6 +87,55 @@ html {
   background: var(--background-image-card-gradient);
 }
 
+/* Gradient Text Utilities - Apply gradients to text/icons using background-clip */
+.text-gradient-primary {
+  display: inline-block;
+  background: var(--background-image-brand-gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-charcoal-linear {
+  display: inline-block;
+  background: var(--background-image-brand-gradient-charcoal-linear);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-charcoal-diag {
+  display: inline-block;
+  background: var(--background-image-brand-gradient-charcoal-diag);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-charcoal-radial {
+  display: inline-block;
+  background: var(--background-image-brand-gradient-charcoal-radial);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-metal {
+  display: inline-block;
+  background: var(--background-image-brand-gradient-metal);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-firey {
+  display: inline-block;
+  background: var(--background-image-brand-gradient-firey);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Custom Typography Utilities with Responsive Behavior 
  * 
  * ⚠️  IMPORTANT: KEEP IN SYNC WITH SANITY PREVIEW COMPONENT ⚠️
