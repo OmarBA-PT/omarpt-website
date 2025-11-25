@@ -3,6 +3,7 @@ import Icon from '@/lib/iconLibrary';
 import type { IconKey } from '@/lib/iconLibrary';
 import type { IconListBlock } from '@/types/blocks';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
+import UnifiedImage from '@/components/UI/UnifiedImage';
 
 interface IconListProps extends Omit<IconListBlock, '_type' | '_key'> {
   className?: string;
@@ -27,25 +28,46 @@ const IconList = ({
 
   return (
     <div className={`flex flex-col items-center w-full ${className}`.trim()}>
-      <div className='space-y-6 w-full'>
+      <div className='space-y-12 my-12 w-full'>
         {items.map((item, index) => {
           const itemPath = fieldPathPrefix
             ? `${fieldPathPrefix}.items[${index}]`
             : `items[${index}]`;
 
+          // Check if using custom image or library icon
+          const isCustomImage = (item as { iconType?: string }).iconType === 'custom';
+          const customImage = (item as { customImage?: { alt?: string } }).customImage;
+
           return (
             <div
               key={item._key}
               className={`flex justify-center ${
-                isHorizontal ? 'flex-row items-center gap-4' : 'flex-col items-center gap-2'
+                isHorizontal ? 'flex-row items-center gap-8' : 'flex-col items-center gap-2'
               } ${isHorizontal ? '' : 'w-full'}`}>
-              {/* Icon */}
+              {/* Icon or Custom Image */}
               <div
                 className={`shrink-0 ${isHorizontal ? '' : 'text-center'}`}
                 {...(documentId && documentType
-                  ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
+                  ? createSanityDataAttribute(
+                      documentId,
+                      documentType,
+                      isCustomImage ? `${itemPath}.customImage` : `${itemPath}.icon`
+                    )
                   : {})}>
-                <Icon iconKey={item.icon as IconKey} className='text-brand-secondary' size={48} />
+                {isCustomImage && customImage ? (
+                  <UnifiedImage
+                    src={customImage}
+                    alt={customImage.alt || item.description || 'Icon'}
+                    mode='sized'
+                    width={120}
+                    height={120}
+                    sizeContext='logo'
+                    objectFit='contain'
+                    className='w-16 h-16'
+                  />
+                ) : (
+                  <Icon iconKey={item.icon as IconKey} className='text-brand-secondary' size={48} />
+                )}
               </div>
 
               {/* Description */}
