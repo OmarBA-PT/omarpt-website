@@ -98,7 +98,6 @@ const PrivacyPolicyPage = async () => {
       {/* Page Hero */}
       <PageHero
         title={privacyData.title || 'Privacy Policy'}
-        titleTeReo={privacyData.titleTeReo || null}
         documentId={privacyData._id}
         documentType={privacyData._type}
       />

@@ -103,7 +103,6 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       {/* Page Hero */}
       <PageHero
         title={page.title || 'Untitled Page'}
-        titleTeReo={page.titleTeReo || null}
         subtTitle={page.subtitle || null}
         documentId={page._id}
         documentType={page._type}

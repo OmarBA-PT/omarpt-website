@@ -29,13 +29,6 @@ export const privacyPolicyType = defineType({
       initialValue: 'Privacy Policy',
     }),
     defineField({
-      name: 'titleTeReo',
-      type: 'string',
-      title: 'Page Title (Te Reo Translation)',
-      description: 'Optional Te Reo Māori translation of the page title',
-      validation: (Rule) => Rule.max(200),
-    }),
-    defineField({
       name: 'topText',
       title: 'Top Text',
       type: 'string',

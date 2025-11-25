@@ -29,12 +29,6 @@ export function createSectionSchema(config: SectionFactoryConfig) {
       validation: (Rule) => Rule.required().error(`${config.title} title is required`),
     }),
     defineField({
-      name: 'titleTranslation',
-      title: 'Title Translation (Te Reo Māori)',
-      type: 'string',
-      description: 'Optional translation of the section title, typically in Te Reo Māori. This will be displayed below the main title in a complementary style. Can also be used for alternative titles or subtitles in any language.',
-    }),
-    defineField({
       name: 'anchorId',
       title: 'Anchor ID',
       type: 'string',

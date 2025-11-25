@@ -5,7 +5,6 @@ import { headerHeight } from '@/utils/spacingConstants';
 
 interface PageHeroProps {
   title?: string | null;
-  titleTeReo?: string | null;
   subtTitle?: string | null;
   documentId?: string;
   documentType?: string;
@@ -13,7 +12,6 @@ interface PageHeroProps {
 
 const PageHero = ({
   title = null,
-  titleTeReo = null,
   subtTitle = null,
   documentId,
   documentType,
@@ -31,7 +29,6 @@ const PageHero = ({
             {title}
           </Heading>
         )}
-        {titleTeReo && <p className='text-h3 text-subtle mt-1'>{titleTeReo}</p>}
         {subtTitle && (
           <p className='text-body-2xl text-brand-white mt-4 max-w-4xl mx-auto'>{subtTitle}</p>
         )}

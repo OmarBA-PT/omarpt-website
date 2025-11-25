@@ -3940,13 +3940,6 @@
           },
           "optional": true
         },
-        "titleTranslation": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
         "anchorId": {
           "type": "objectAttribute",
           "value": {
@@ -4260,13 +4253,6 @@
           "optional": true
         },
         "title": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "titleTranslation": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
@@ -4607,7 +4593,7 @@
           },
           "optional": true
         },
-        "titleTranslation": {
+        "anchorId": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
@@ -4677,13 +4663,6 @@
                 "value": "smokey-8"
               }
             ]
-          },
-          "optional": true
-        },
-        "anchorId": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
           },
           "optional": true
         },
@@ -5643,13 +5622,6 @@
         },
         "optional": true
       },
-      "titleTeReo": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
       "topText": {
         "type": "objectAttribute",
         "value": {
@@ -5999,13 +5971,6 @@
         "optional": true
       },
       "title": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "titleTeReo": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -6365,13 +6330,6 @@
         "value": {
           "type": "inline",
           "name": "slug"
-        },
-        "optional": true
-      },
-      "titleTeReo": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
         },
         "optional": true
       },

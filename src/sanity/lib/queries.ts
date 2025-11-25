@@ -263,7 +263,6 @@ export const PAGE_QUERY = defineQuery(`*[_type == "page" && slug.current == $slu
   _createdAt,
   _updatedAt,
   title,
-  titleTeReo,
   subtitle,
   slug,
   ${recursiveContent},
@@ -415,7 +414,6 @@ export const TERMS_AND_CONDITIONS_QUERY = defineQuery(`*[_id == "termsAndConditi
   _updatedAt,
   hide,
   title,
-  titleTeReo,
   topText,
   ${recursiveContent}
 }`);
@@ -426,7 +424,6 @@ export const PRIVACY_POLICY_QUERY = defineQuery(`*[_id == "privacyPolicy"][0]{
   _updatedAt,
   hide,
   title,
-  titleTeReo,
   topText,
   ${recursiveContent}
 }`);

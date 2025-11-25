@@ -98,7 +98,6 @@ const TermsAndConditionsPage = async () => {
       {/* Page Hero */}
       <PageHero
         title={termsData.title || 'Terms & Conditions'}
-        titleTeReo={termsData.titleTeReo || null}
         documentId={termsData._id}
         documentType={termsData._type}
       />

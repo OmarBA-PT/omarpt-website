@@ -25,7 +25,6 @@ interface PageSectionProps extends SanityLiveEditingProps {
   children: React.ReactNode;
   className?: string;
   title: string; // Now required since titles are mandatory
-  titleTranslation?: string; // Optional Te Reo Māori translation or alternative title
   subtitle?: string;
   topText?: string;
   anchorId?: string; // ID for anchor linking
@@ -33,7 +32,6 @@ interface PageSectionProps extends SanityLiveEditingProps {
   textAlign?: string; // NOTE: This field is currently not set in the CMS, but has been left here for the future in case we want to allow for section level text alignment control in the CMS
   useCompactGap?: boolean; // Whether to use compact spacing instead of default spacing
   topTextPath?: string;
-  titleTranslationPath?: string;
   hideGraphic?: boolean;
   backgroundStyle?: string; // Background style identifier
 }
@@ -42,14 +40,12 @@ const PageSection = ({
   children,
   className = '',
   title,
-  titleTranslation,
   subtitle,
   topText,
   anchorId,
   documentId,
   documentType,
   titlePath,
-  titleTranslationPath,
   subtitlePath,
   topTextPath,
   inheritAlignment,
@@ -60,11 +56,6 @@ const PageSection = ({
 }: PageSectionProps) => {
   // Create data attributes for Sanity live editing
   const titleDataAttribute = createSanityDataAttribute(documentId, documentType, titlePath);
-  const titleTranslationDataAttribute = createSanityDataAttribute(
-    documentId,
-    documentType,
-    titleTranslationPath
-  );
   const subtitleDataAttribute = createSanityDataAttribute(documentId, documentType, subtitlePath);
   const topTextDataAttribute = createSanityDataAttribute(documentId, documentType, topTextPath);
 
@@ -105,16 +96,7 @@ const PageSection = ({
             <div className={`inline-flex items-end gap-4 sm:gap-8 ${sectionTitleBottomSpacing}`}>
               <div className='text-left'>
                 <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
-                  <div>
-                    {stegaClean(title)}
-                    {titleTranslation && (
-                      <p
-                        className='text-[1.5rem] sm:text-[2rem] md:text-[3rem] text-subtle'
-                        {...titleTranslationDataAttribute}>
-                        {stegaClean(titleTranslation)}
-                      </p>
-                    )}
-                  </div>
+                  {stegaClean(title)}
                 </Heading>
               </div>
             </div>

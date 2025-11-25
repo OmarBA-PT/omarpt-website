@@ -205,14 +205,12 @@ const BlockRenderer = ({
               <BlockWrapper key={block._key}>
                 <PageSection
                   title={block.title!} // Required field
-                  titleTranslation={(block as { titleTranslation?: string }).titleTranslation}
                   subtitle={block.subtitle}
                   topText={(block as { topText?: string }).topText}
                   anchorId={block.anchorId}
                   documentId={documentId}
                   documentType={documentType}
                   titlePath={`${blockPath}.title`}
-                  titleTranslationPath={`${blockPath}.titleTranslation`}
                   subtitlePath={`${blockPath}.subtitle`}
                   topTextPath={`${blockPath}.topText`}
                   inheritAlignment={alignment}
