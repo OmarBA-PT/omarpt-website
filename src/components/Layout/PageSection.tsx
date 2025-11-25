@@ -14,11 +14,9 @@ import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
 import {
   sectionTitleBottomSpacing,
   sectionDividerBottomSpacing,
-  sectionBottomPadding,
-  sectionCompactBottomPadding,
   anchorLinkScrollMarginTop,
 } from '@/utils/spacingConstants';
-import UnifiedImage from '../UI/UnifiedImage';
+import SectionContainer from './SectionContainer';
 
 // Context to track if PageSection has a title (affects nested section heading levels)
 const PageSectionContext = createContext<{ hasTitle: boolean }>({ hasTitle: false });
@@ -33,11 +31,11 @@ interface PageSectionProps extends SanityLiveEditingProps {
   anchorId?: string; // ID for anchor linking
   inheritAlignment?: 'left' | 'center' | 'right';
   textAlign?: string; // NOTE: This field is currently not set in the CMS, but has been left here for the future in case we want to allow for section level text alignment control in the CMS
-  shouldApplyBottomPadding?: boolean; // Whether to apply bottom padding (omitted for last section if no orphaned content follows)
   useCompactGap?: boolean; // Whether to use compact spacing instead of default spacing
   topTextPath?: string;
   titleTranslationPath?: string;
   hideGraphic?: boolean;
+  backgroundStyle?: string; // Background style identifier
 }
 
 const PageSection = ({
@@ -56,9 +54,9 @@ const PageSection = ({
   topTextPath,
   inheritAlignment,
   textAlign = 'inherit',
-  shouldApplyBottomPadding = true,
   useCompactGap = false,
   hideGraphic = false,
+  backgroundStyle,
 }: PageSectionProps) => {
   // Create data attributes for Sanity live editing
   const titleDataAttribute = createSanityDataAttribute(documentId, documentType, titlePath);
@@ -89,54 +87,57 @@ const PageSection = ({
 
   const hasTitle = Boolean(title);
 
-  // Determine which bottom padding to use based on compact gap setting and shouldApplyBottomPadding
-  const getBottomPaddingClass = () => {
-    if (!shouldApplyBottomPadding) return '';
-    return useCompactGap ? sectionCompactBottomPadding : sectionBottomPadding;
+  // Apply background style classes based on backgroundStyle prop
+  const getBackgroundClass = () => {
+    if (!backgroundStyle) return '';
+    return `section-background section-background-${backgroundStyle}`;
   };
 
   return (
     <PageSectionContext.Provider value={{ hasTitle }}>
       <section
         id={anchorId ? stegaClean(anchorId) : undefined}
-        className={`${getBottomPaddingClass()} ${className} ${anchorLinkScrollMarginTop}`.trim()}>
-        {/* Title is now always present since it's required */}
-        <div className={getTextAlignClass(effectiveTextAlign)}>
-          <div className={`inline-flex items-end gap-4 sm:gap-8 ${sectionTitleBottomSpacing}`}>
-            <div className='text-left'>
-              <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
-                <div>
-                  {stegaClean(title)}
-                  {titleTranslation && (
-                    <p
-                      className='text-[1.5rem] sm:text-[2rem] md:text-[3rem] text-subtle'
-                      {...titleTranslationDataAttribute}>
-                      {stegaClean(titleTranslation)}
-                    </p>
-                  )}
-                </div>
-              </Heading>
+        className={`${getBackgroundClass()} ${className} ${anchorLinkScrollMarginTop}`.trim()}>
+        {/* SectionContainer provides internal padding while section element has background */}
+        <SectionContainer useCompactPadding={useCompactGap}>
+          {/* Title is now always present since it's required */}
+          <div className={getTextAlignClass(effectiveTextAlign)}>
+            <div className={`inline-flex items-end gap-4 sm:gap-8 ${sectionTitleBottomSpacing}`}>
+              <div className='text-left'>
+                <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
+                  <div>
+                    {stegaClean(title)}
+                    {titleTranslation && (
+                      <p
+                        className='text-[1.5rem] sm:text-[2rem] md:text-[3rem] text-subtle'
+                        {...titleTranslationDataAttribute}>
+                        {stegaClean(titleTranslation)}
+                      </p>
+                    )}
+                  </div>
+                </Heading>
+              </div>
+            </div>
+            {topText && (
+              <p
+                className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line ${sectionTitleBottomSpacing} ${getSubtitleMarginClass(effectiveTextAlign)}`}
+                {...topTextDataAttribute}>
+                {stegaClean(topText)}
+              </p>
+            )}
+            {subtitle && (
+              <p
+                className={`text-body-xl max-w-4xl whitespace-pre-line ${sectionTitleBottomSpacing} ${getSubtitleMarginClass(effectiveTextAlign)}`}
+                {...subtitleDataAttribute}>
+                {subtitle}
+              </p>
+            )}
+            <div className={sectionDividerBottomSpacing}>
+              <Divider size='full' color='dark' />
             </div>
           </div>
-          {topText && (
-            <p
-              className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line ${sectionTitleBottomSpacing} ${getSubtitleMarginClass(effectiveTextAlign)}`}
-              {...topTextDataAttribute}>
-              {stegaClean(topText)}
-            </p>
-          )}
-          {subtitle && (
-            <p
-              className={`text-body-xl max-w-4xl whitespace-pre-line ${sectionTitleBottomSpacing} ${getSubtitleMarginClass(effectiveTextAlign)}`}
-              {...subtitleDataAttribute}>
-              {subtitle}
-            </p>
-          )}
-          <div className={sectionDividerBottomSpacing}>
-            <Divider size='full' color='dark' />
-          </div>
-        </div>
-        {children}
+          {children}
+        </SectionContainer>
       </section>
     </PageSectionContext.Provider>
   );

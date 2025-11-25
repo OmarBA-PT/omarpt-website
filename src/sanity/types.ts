@@ -558,7 +558,7 @@ export type Divider = {
 
 export type ContentWrapper = {
   _type: "contentWrapper";
-  backgroundStyle?: "" | "style1" | "style2" | "style3";
+  backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
   useCompactGap?: boolean;
   content?: Array<{
     _key: string;
@@ -699,7 +699,7 @@ export type PageSection = {
   subtitle?: string;
   topText?: string;
   useCompactGap?: boolean;
-  backgroundStyle?: "" | "style1" | "style2" | "style3";
+  backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
   anchorId?: string;
   content?: Array<{
     _key: string;
@@ -2326,7 +2326,7 @@ export type PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -9589,7 +9589,7 @@ export type HOME_PAGE_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "contentWrapper";
-    backgroundStyle: "" | "style1" | "style2" | "style3" | null;
+    backgroundStyle: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
     useCompactGap: boolean | null;
     content: Array<{
       _key: string;
@@ -11627,7 +11627,7 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -18601,7 +18601,7 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -26559,7 +26559,7 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -34565,7 +34565,7 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -42065,7 +42065,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "contentWrapper";
-    backgroundStyle: "" | "style1" | "style2" | "style3" | null;
+    backgroundStyle: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
     useCompactGap: boolean | null;
     content: Array<{
       _key: string;
@@ -44103,7 +44103,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -51070,7 +51070,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -59021,7 +59021,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -66999,7 +66999,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -73906,7 +73906,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "contentWrapper";
-    backgroundStyle: "" | "style1" | "style2" | "style3" | null;
+    backgroundStyle: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
     useCompactGap: boolean | null;
     content: Array<{
       _key: string;
@@ -75944,7 +75944,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -82911,7 +82911,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -90862,7 +90862,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;
@@ -98840,7 +98840,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "style1" | "style2" | "style3";
+    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
     anchorId: string | null;
     content: Array<{
       _key: string;

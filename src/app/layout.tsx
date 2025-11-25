@@ -83,7 +83,7 @@ const RootLayout = ({
           }}
         />
       </head>
-      <body className={`${sairaCondensed.className} text-body-base text-white bg-brand-charcoal`}>
+      <body className={`${sairaCondensed.className} text-body-base text-white bg-brand-charcoal overflow-x-hidden`}>
         {children}
       </body>
     </html>

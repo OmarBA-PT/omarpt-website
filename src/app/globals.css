@@ -417,3 +417,62 @@ input[type='range']::-moz-range-track {
   cursor: pointer;
   height: 100%;
 }
+
+/* Section Background Styles - Full viewport width backgrounds
+ * Works with the new flush section architecture where sections have no margins
+ * and use SectionContainer for internal padding
+ */
+.section-background {
+  position: relative;
+  /* Sections are now flush - no overflow issues */
+}
+
+.section-background::before {
+  content: '';
+  position: absolute;
+  /* Cover entire section from edge to edge */
+  top: 0;
+  bottom: 0;
+  /* Use negative margins technique to break out to full viewport width */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.section-background-smokey-1::before {
+  background-image: url('/images/backgrounds/smokey-1.jpg');
+}
+
+.section-background-smokey-2::before {
+  background-image: url('/images/backgrounds/smokey-2.jpg');
+}
+
+.section-background-smokey-3::before {
+  background-image: url('/images/backgrounds/smokey-3.jpg');
+}
+
+.section-background-smokey-4::before {
+  background-image: url('/images/backgrounds/smokey-4.jpg');
+}
+
+.section-background-smokey-5::before {
+  background-image: url('/images/backgrounds/smokey-5.jpg');
+}
+
+.section-background-smokey-6::before {
+  background-image: url('/images/backgrounds/smokey-6.jpg');
+}
+
+.section-background-smokey-7::before {
+  background-image: url('/images/backgrounds/smokey-7.jpg');
+}
+
+.section-background-smokey-8::before {
+  background-image: url('/images/backgrounds/smokey-8.jpg');
+}

@@ -21,6 +21,7 @@ export const pageSubtitleBottomSpacing = 'mb-6 md:mb-8';
  * Space above PageSections/ContentWrappers that come after orphaned content blocks
  * Note: With new architecture (PAGE_ROOT_BLOCK_LIST), orphaned blocks should no longer exist at root level.
  * This constant is kept for backward compatibility during migration.
+ * @deprecated - Sections should be flush with no top margins in new architecture
  */
 export const pageSectionTopSpacing = 'mt-24';
 
@@ -40,11 +41,46 @@ export const sectionTitleBottomSpacing = 'mb-6';
 export const sectionDividerBottomSpacing = 'mb-6 md:mb-8';
 
 /**
+ * SECTION CONTAINER PADDING SYSTEM
+ * These padding values create internal spacing within sections while allowing backgrounds to extend edge-to-edge.
+ * Applied via ContentContainer component inside PageSection/ContentWrapper.
+ */
+
+/**
+ * Vertical padding for section containers (top and bottom)
+ * Creates breathing room for content while keeping sections flush with each other
+ */
+export const sectionContainerPaddingY = 'py-12 md:py-16';
+
+/**
+ * Compact vertical padding for sections when useCompactGap is enabled
+ */
+export const sectionContainerPaddingYCompact = 'py-8 md:py-10';
+
+/**
+ * Horizontal padding for section containers (left and right)
+ * Matches the Container component padding to keep content aligned
+ */
+export const sectionContainerPaddingX = 'px-4 sm:px-20';
+
+/**
+ * Combined container padding (all sides) - standard spacing
+ */
+export const sectionContainerPadding = `${sectionContainerPaddingY} ${sectionContainerPaddingX}`;
+
+/**
+ * Combined container padding (all sides) - compact spacing
+ */
+export const sectionContainerPaddingCompact = `${sectionContainerPaddingYCompact} ${sectionContainerPaddingX}`;
+
+/**
+ * @deprecated Use sectionContainerPadding instead
  * Bottom padding for PageSections/ContentWrappers (after the last piece of content in that container)
  */
 export const sectionBottomPadding = 'pb-24 md:pb-36';
 
 /**
+ * @deprecated Use sectionContainerPaddingCompact instead
  * Compact bottom padding for PageSections/ContentWrappers when useCompactGap is enabled
  * Provides smaller spacing between containers for better visual flow
  */

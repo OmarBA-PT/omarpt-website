@@ -4,40 +4,33 @@ import React from 'react';
 import {
   type SanityLiveEditingProps,
 } from '../../utils/sectionHelpers';
-import {
-  sectionBottomPadding,
-  sectionCompactBottomPadding,
-} from '@/utils/spacingConstants';
+import SectionContainer from './SectionContainer';
 
 interface ContentWrapperProps extends SanityLiveEditingProps {
   children: React.ReactNode;
   className?: string;
-  shouldApplyBottomPadding?: boolean; // Whether to apply bottom padding (omitted for last wrapper if no content follows)
   useCompactGap?: boolean; // Whether to use compact spacing instead of default spacing
-  backgroundStyle?: string; // Background style identifier (not yet implemented)
+  backgroundStyle?: string; // Background style identifier
 }
 
 const ContentWrapper = ({
   children,
   className = '',
-  shouldApplyBottomPadding = true,
   useCompactGap = false,
   backgroundStyle,
 }: ContentWrapperProps) => {
-  // Determine which bottom padding to use based on compact gap setting and shouldApplyBottomPadding
-  const getBottomPaddingClass = () => {
-    if (!shouldApplyBottomPadding) return '';
-    return useCompactGap ? sectionCompactBottomPadding : sectionBottomPadding;
+  // Apply background style classes based on backgroundStyle prop
+  const getBackgroundClass = () => {
+    if (!backgroundStyle) return '';
+    return `section-background section-background-${backgroundStyle}`;
   };
 
-  // TODO: Implement background styling based on backgroundStyle prop
-  // For now, backgroundStyle is accepted but not used
-  // When implemented, add conditional className based on backgroundStyle value
-
   return (
-    <div
-      className={`${getBottomPaddingClass()} ${className}`.trim()}>
-      {children}
+    <div className={`${getBackgroundClass()} ${className}`.trim()}>
+      {/* SectionContainer provides internal padding while wrapper element has background */}
+      <SectionContainer useCompactPadding={useCompactGap}>
+        {children}
+      </SectionContainer>
     </div>
   );
 };

@@ -163,9 +163,14 @@ export function createSectionSchema(config: SectionFactoryConfig) {
         options: {
           list: [
             { title: 'None', value: '' },
-            { title: 'Style 1 (Placeholder)', value: 'style1' },
-            { title: 'Style 2 (Placeholder)', value: 'style2' },
-            { title: 'Style 3 (Placeholder)', value: 'style3' },
+            { title: 'Smokey 1', value: 'smokey-1' },
+            { title: 'Smokey 2', value: 'smokey-2' },
+            { title: 'Smokey 3', value: 'smokey-3' },
+            { title: 'Smokey 4', value: 'smokey-4' },
+            { title: 'Smokey 5', value: 'smokey-5' },
+            { title: 'Smokey 6', value: 'smokey-6' },
+            { title: 'Smokey 7', value: 'smokey-7' },
+            { title: 'Smokey 8', value: 'smokey-8' },
           ],
           layout: 'dropdown',
         },

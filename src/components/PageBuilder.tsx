@@ -203,28 +203,8 @@ const BlockRenderer = ({
           );
         };
 
-        // Determine if this PageSection/ContentWrapper should have bottom padding
-        const shouldApplyBottomPadding = (() => {
-          if (block._type !== 'pageSection' && block._type !== 'contentWrapper') return true;
-
-          const isLastVisibleBlock = visibleIndex === visibleBlocks.length - 1;
-          if (!isLastVisibleBlock) return true;
-
-          // This is the last visible PageSection/ContentWrapper, check if there are orphaned content blocks after it
-          // Note: With new architecture, orphaned content should no longer exist at root level
-          const hasOrphanedContentAfter = visibleBlocks
-            .slice(visibleIndex + 1)
-            .some(
-              (afterBlock) =>
-                afterBlock._type !== 'pageSection' &&
-                afterBlock._type !== 'contentWrapper' &&
-                afterBlock._type !== 'subSection' &&
-                afterBlock._type !== 'subSubSection'
-            );
-
-          // Apply padding if there are orphaned content blocks after this section
-          return hasOrphanedContentAfter;
-        })();
+        // Note: Removed shouldApplyBottomPadding logic - sections now use SectionContainer for internal padding
+        // All sections are flush with each other (no margins between them)
 
         // IMPORTANT: All block types should be wrapped in BlockWrapper to enable Sanity Live Editing.
         // BlockWrapper provides the necessary data-sanity attributes for visual editing in Sanity Studio.
@@ -249,13 +229,13 @@ const BlockRenderer = ({
                   topTextPath={`${blockPath}.topText`}
                   inheritAlignment={alignment}
                   textAlign={(block as { textAlign?: string }).textAlign}
-                  shouldApplyBottomPadding={shouldApplyBottomPadding}
                   hideGraphic={
                     documentType === 'blogPost' ||
                     documentType === 'termsAndConditions' ||
                     documentType === 'privacyPolicy'
                   }
-                  useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}>
+                  useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}
+                  backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}>
                   {renderNestedContent(block.content)}
                 </PageSection>
               </BlockWrapper>
@@ -267,7 +247,6 @@ const BlockRenderer = ({
                 <ContentWrapper
                   documentId={documentId}
                   documentType={documentType}
-                  shouldApplyBottomPadding={shouldApplyBottomPadding}
                   useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}
                   backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}>
                   {renderNestedContent(block.content)}
