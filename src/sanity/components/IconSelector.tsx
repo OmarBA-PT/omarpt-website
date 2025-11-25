@@ -21,9 +21,8 @@ const IconSelector = (props: StringInputProps) => {
           border: '1px solid #ccc',
           borderRadius: '4px',
           fontSize: '14px',
-        }}
-      >
-        <option value="">Select an icon...</option>
+        }}>
+        <option value=''>Select an icon...</option>
         {Object.entries(ICON_LIBRARY).map(([key, { name, icon: IconComponent }]) => (
           <option key={key} value={key}>
             {name}
@@ -43,8 +42,7 @@ const IconSelector = (props: StringInputProps) => {
             alignItems: 'center',
             gap: '12px',
             backgroundColor: '#f9f9f9',
-          }}
-        >
+          }}>
           <div style={{ fontSize: '32px', display: 'flex', alignItems: 'center' }}>
             {React.createElement(ICON_LIBRARY[value as IconKey].icon, {
               size: 32,
@@ -52,7 +50,7 @@ const IconSelector = (props: StringInputProps) => {
             })}
           </div>
           <div>
-            <strong>{ICON_LIBRARY[value as IconKey].name}</strong>
+            <strong className='text-black'>{ICON_LIBRARY[value as IconKey].name}</strong>
             <div style={{ fontSize: '12px', color: '#666' }}>Key: {value}</div>
           </div>
         </div>
