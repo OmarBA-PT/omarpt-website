@@ -27,6 +27,7 @@ import { defineArrayMember } from 'sanity';
  */
 export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'richText' }),
+  defineArrayMember({ type: 'statement' }),
   defineArrayMember({ type: 'quote' }),
   defineArrayMember({ type: 'divider' }),
   defineArrayMember({ type: 'imageBlock' }),

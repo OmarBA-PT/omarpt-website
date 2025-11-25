@@ -330,6 +330,8 @@ export type TwoColumnLayout = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -361,6 +363,8 @@ export type TwoColumnLayout = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -388,6 +392,11 @@ export type TwoColumnLayout = {
   } & CompanyLinksBlock | {
     _key: string;
   } & Card>;
+};
+
+export type Statement = {
+  _type: "statement";
+  text?: string;
 };
 
 export type Quote = {
@@ -451,6 +460,8 @@ export type GridLayout = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -504,6 +515,8 @@ export type Card = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -551,6 +564,8 @@ export type ContentWrapper = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -593,6 +608,8 @@ export type SubSubSection = {
   content?: Array<{
     _key: string;
   } & RichText | {
+    _key: string;
+  } & Statement | {
     _key: string;
   } & Quote | {
     _key: string;
@@ -638,6 +655,8 @@ export type SubSection = {
   } & SubSubSection | {
     _key: string;
   } & RichText | {
+    _key: string;
+  } & Statement | {
     _key: string;
   } & Quote | {
     _key: string;
@@ -687,6 +706,8 @@ export type PageSection = {
   } & SubSection | {
     _key: string;
   } & RichText | {
+    _key: string;
+  } & Statement | {
     _key: string;
   } & Quote | {
     _key: string;
@@ -824,6 +845,8 @@ export type PrivacyPolicy = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -873,6 +896,8 @@ export type TermsAndConditions = {
     _key: string;
   } & RichText | {
     _key: string;
+  } & Statement | {
+    _key: string;
   } & Quote | {
     _key: string;
   } & Divider | {
@@ -921,6 +946,8 @@ export type Page = {
   } & PageSection | {
     _key: string;
   } & RichText | {
+    _key: string;
+  } & Statement | {
     _key: string;
   } & Quote | {
     _key: string;
@@ -1199,7 +1226,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -1501,6 +1528,12 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -1924,6 +1957,12 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -2176,6 +2215,12 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -2572,6 +2617,12 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -2961,6 +3012,11 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -3213,6 +3269,12 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -3343,6 +3405,12 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -3604,6 +3672,11 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -3983,6 +4056,10 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -4203,6 +4280,11 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -4331,6 +4413,12 @@ export type PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -4581,6 +4669,10 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -4951,6 +5043,10 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -5161,6 +5257,10 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -5262,6 +5362,11 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -5511,6 +5616,10 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -5719,6 +5828,10 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -5968,6 +6081,10 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -6176,6 +6293,10 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -6437,6 +6558,10 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -6645,6 +6770,10 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -6894,6 +7023,10 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -7102,6 +7235,10 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -7365,6 +7502,10 @@ export type PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -7573,6 +7714,10 @@ export type PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -7822,6 +7967,10 @@ export type PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -8032,6 +8181,10 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -8081,6 +8234,12 @@ export type PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -8329,6 +8488,10 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -8537,6 +8700,10 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -8786,6 +8953,10 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -8994,6 +9165,10 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -9242,6 +9417,10 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -9701,6 +9880,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -10090,6 +10275,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -10342,6 +10532,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -10472,6 +10668,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "twoColumnLayout";
@@ -10720,6 +10922,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -10928,6 +11134,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -11177,6 +11387,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -11385,6 +11599,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -11700,6 +11918,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -12089,6 +12313,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -12341,6 +12570,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -12471,6 +12706,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -12732,6 +12973,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -13111,6 +13357,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -13331,6 +13581,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -13459,6 +13714,12 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -13709,6 +13970,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -14079,6 +14344,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -14289,6 +14558,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -14390,6 +14663,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -14639,6 +14917,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -14847,6 +15129,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -15096,6 +15382,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -15304,6 +15594,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -15565,6 +15859,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -15773,6 +16071,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -16022,6 +16324,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -16230,6 +16536,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -16493,6 +16803,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -16701,6 +17015,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -16950,6 +17268,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -17158,6 +17480,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -17479,6 +17805,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -17900,6 +18232,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -18152,6 +18490,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -18548,6 +18892,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -18937,6 +19287,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -19189,6 +19544,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -19319,6 +19680,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -19580,6 +19947,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -19959,6 +20331,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -20179,6 +20555,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -20307,6 +20688,12 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -20557,6 +20944,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -20927,6 +21318,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -21137,6 +21532,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -21238,6 +21637,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -21487,6 +21891,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -21695,6 +22103,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -21944,6 +22356,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -22152,6 +22568,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -22413,6 +22833,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -22621,6 +23045,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -22870,6 +23298,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -23078,6 +23510,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -23341,6 +23777,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -23549,6 +23989,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -23798,6 +24242,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -24008,6 +24456,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -24057,6 +24509,12 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -24305,6 +24763,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -24513,6 +24975,10 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -24762,6 +25228,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -24970,6 +25440,10 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -25289,6 +25763,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -25710,6 +26190,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -25962,6 +26448,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -26358,6 +26850,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -26747,6 +27245,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -26999,6 +27502,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -27129,6 +27638,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -27390,6 +27905,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -27769,6 +28289,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -27989,6 +28513,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -28117,6 +28646,12 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -28367,6 +28902,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -28737,6 +29276,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -28947,6 +29490,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -29048,6 +29595,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -29297,6 +29849,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -29505,6 +30061,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -29754,6 +30314,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -29962,6 +30526,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -30223,6 +30791,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -30431,6 +31003,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -30680,6 +31256,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -30888,6 +31468,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -31151,6 +31735,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -31359,6 +31947,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -31608,6 +32200,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -31818,6 +32414,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -31867,6 +32467,12 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -32115,6 +32721,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -32323,6 +32933,10 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -32572,6 +33186,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -32780,6 +33398,10 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -33147,6 +33769,12 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -33568,6 +34196,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -33820,6 +34454,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -34216,6 +34856,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -34605,6 +35251,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -34857,6 +35508,12 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -34987,6 +35644,12 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -35248,6 +35911,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -35627,6 +36295,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -35847,6 +36519,11 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -35975,6 +36652,12 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -36225,6 +36908,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -36595,6 +37282,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -36805,6 +37496,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -36906,6 +37601,11 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -37155,6 +37855,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -37363,6 +38067,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -37612,6 +38320,10 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -37820,6 +38532,10 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -38081,6 +38797,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -38289,6 +39009,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -38538,6 +39262,10 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -38746,6 +39474,10 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -39009,6 +39741,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -39217,6 +39953,10 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -39466,6 +40206,10 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -39676,6 +40420,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -39725,6 +40473,12 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -39973,6 +40727,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -40181,6 +40939,10 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -40430,6 +41192,10 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -40638,6 +41404,10 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -41586,6 +42356,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -41975,6 +42751,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -42227,6 +43008,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -42357,6 +43144,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "twoColumnLayout";
@@ -42605,6 +43398,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -42813,6 +43610,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -43062,6 +43863,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -43270,6 +44075,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -43585,6 +44394,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -43974,6 +44789,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -44226,6 +45046,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -44356,6 +45182,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -44617,6 +45449,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -44996,6 +45833,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -45216,6 +46057,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -45344,6 +46190,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -45594,6 +46446,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -45964,6 +46820,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -46174,6 +47034,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -46275,6 +47139,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -46524,6 +47393,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -46732,6 +47605,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -46981,6 +47858,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -47189,6 +48070,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -47450,6 +48335,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -47658,6 +48547,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -47907,6 +48800,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -48115,6 +49012,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -48378,6 +49279,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -48586,6 +49491,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -48835,6 +49744,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -49043,6 +49956,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -49357,6 +50274,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -49778,6 +50701,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -50030,6 +50959,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -50426,6 +51361,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -50815,6 +51756,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -51067,6 +52013,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -51197,6 +52149,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -51458,6 +52416,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -51837,6 +52800,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -52057,6 +53024,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -52185,6 +53157,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -52435,6 +53413,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -52805,6 +53787,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -53015,6 +54001,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -53116,6 +54106,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -53365,6 +54360,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -53573,6 +54572,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -53822,6 +54825,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -54030,6 +55037,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -54291,6 +55302,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -54499,6 +55514,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -54748,6 +55767,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -54956,6 +55979,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -55219,6 +56246,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -55427,6 +56458,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -55676,6 +56711,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -55886,6 +56925,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -55935,6 +56978,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -56183,6 +57232,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -56391,6 +57444,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -56640,6 +57697,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -56848,6 +57909,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -57160,6 +58225,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -57581,6 +58652,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -57833,6 +58910,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -58229,6 +59312,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -58618,6 +59707,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -58870,6 +59964,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -59000,6 +60100,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -59261,6 +60367,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -59640,6 +60751,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -59860,6 +60975,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -59988,6 +61108,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -60238,6 +61364,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -60608,6 +61738,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -60818,6 +61952,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -60919,6 +62057,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -61168,6 +62311,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -61376,6 +62523,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -61625,6 +62776,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -61833,6 +62988,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -62094,6 +63253,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -62302,6 +63465,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -62551,6 +63718,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -62759,6 +63930,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -63022,6 +64197,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -63230,6 +64409,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -63479,6 +64662,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -63689,6 +64876,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -63738,6 +64929,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -63986,6 +65183,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -64194,6 +65395,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -64443,6 +65648,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -64651,6 +65860,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -64990,6 +66203,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -65411,6 +66630,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -65663,6 +66888,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -66059,6 +67290,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -66448,6 +67685,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -66700,6 +67942,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -66830,6 +68078,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -67091,6 +68345,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -67470,6 +68729,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -67690,6 +68953,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -67818,6 +69086,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -68068,6 +69342,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -68438,6 +69716,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -68648,6 +69930,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -68749,6 +70035,11 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -68998,6 +70289,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -69206,6 +70501,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -69455,6 +70754,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -69663,6 +70966,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -69924,6 +71231,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -70132,6 +71443,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -70381,6 +71696,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -70589,6 +71908,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -70852,6 +72175,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -71060,6 +72387,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -71309,6 +72640,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -71519,6 +72854,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -71568,6 +72907,12 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -71816,6 +73161,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -72024,6 +73373,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -72273,6 +73626,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -72481,6 +73838,10 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -72836,6 +74197,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -73225,6 +74592,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -73477,6 +74849,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -73607,6 +74985,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "twoColumnLayout";
@@ -73855,6 +75239,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -74063,6 +75451,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -74312,6 +75704,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -74520,6 +75916,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -74835,6 +76235,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -75224,6 +76630,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -75476,6 +76887,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -75606,6 +77023,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -75867,6 +77290,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -76246,6 +77674,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -76466,6 +77898,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -76594,6 +78031,12 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -76844,6 +78287,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -77214,6 +78661,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -77424,6 +78875,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -77525,6 +78980,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -77774,6 +79234,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -77982,6 +79446,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -78231,6 +79699,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -78439,6 +79911,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -78700,6 +80176,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -78908,6 +80388,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -79157,6 +80641,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -79365,6 +80853,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -79628,6 +81120,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -79836,6 +81332,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -80085,6 +81585,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -80293,6 +81797,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -80607,6 +82115,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -81028,6 +82542,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -81280,6 +82800,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -81676,6 +83202,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -82065,6 +83597,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -82317,6 +83854,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -82447,6 +83990,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -82708,6 +84257,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -83087,6 +84641,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -83307,6 +84865,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -83435,6 +84998,12 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -83685,6 +85254,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -84055,6 +85628,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -84265,6 +85842,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -84366,6 +85947,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -84615,6 +86201,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -84823,6 +86413,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -85072,6 +86666,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -85280,6 +86878,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -85541,6 +87143,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -85749,6 +87355,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -85998,6 +87608,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -86206,6 +87820,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -86469,6 +88087,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -86677,6 +88299,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -86926,6 +88552,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -87136,6 +88766,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -87185,6 +88819,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -87433,6 +89073,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -87641,6 +89285,10 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -87890,6 +89538,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -88098,6 +89750,10 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -88410,6 +90066,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -88831,6 +90493,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -89083,6 +90751,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -89479,6 +91153,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -89868,6 +91548,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -90120,6 +91805,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -90250,6 +91941,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -90511,6 +92208,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -90890,6 +92592,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -91110,6 +92816,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -91238,6 +92949,12 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -91488,6 +93205,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -91858,6 +93579,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -92068,6 +93793,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -92169,6 +93898,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -92418,6 +94152,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -92626,6 +94364,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -92875,6 +94617,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -93083,6 +94829,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -93344,6 +95094,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -93552,6 +95306,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -93801,6 +95559,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -94009,6 +95771,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -94272,6 +96038,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -94480,6 +96250,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -94729,6 +96503,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -94939,6 +96717,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -94988,6 +96770,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -95236,6 +97024,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -95444,6 +97236,10 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -95693,6 +97489,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -95901,6 +97701,10 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -96240,6 +98044,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "youTubeVideo";
       url?: string;
       image: null;
@@ -96661,6 +98471,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -96913,6 +98729,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -97309,6 +99131,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -97698,6 +99526,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -97950,6 +99783,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
         image: null;
@@ -98080,6 +99919,12 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "subSection";
@@ -98341,6 +100186,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -98720,6 +100570,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -98940,6 +100794,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
           image: null;
@@ -99068,6 +100927,12 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "subSubSection";
@@ -99318,6 +101183,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -99688,6 +101557,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -99898,6 +101771,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -99999,6 +101876,11 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
           image: null;
         } | {
           _key: string;
@@ -100248,6 +102130,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -100456,6 +102342,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -100705,6 +102595,10 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "statement";
+              text?: string;
+            } | {
+              _key: string;
               _type: "youTubeVideo";
               url?: string;
             }> | null;
@@ -100913,6 +102807,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "statement";
+            text?: string;
           } | {
             _key: string;
             _type: "youTubeVideo";
@@ -101174,6 +103072,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -101382,6 +103284,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -101631,6 +103537,10 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "statement";
+            text?: string;
+          } | {
+            _key: string;
             _type: "youTubeVideo";
             url?: string;
           }> | null;
@@ -101839,6 +103749,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
         } | {
           _key: string;
           _type: "youTubeVideo";
@@ -102102,6 +104016,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -102310,6 +104228,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
       } | {
         _key: string;
         _type: "youTubeVideo";
@@ -102559,6 +104481,10 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "statement";
+          text?: string;
+        } | {
+          _key: string;
           _type: "youTubeVideo";
           url?: string;
         }> | null;
@@ -102769,6 +104695,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -102818,6 +104748,12 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "statement";
+    text?: string;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "twoColumnLayout";
@@ -103066,6 +105002,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -103274,6 +105214,10 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";
@@ -103523,6 +105467,10 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "statement";
+        text?: string;
+      } | {
+        _key: string;
         _type: "youTubeVideo";
         url?: string;
       }> | null;
@@ -103731,6 +105679,10 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
     } | {
       _key: string;
       _type: "youTubeVideo";

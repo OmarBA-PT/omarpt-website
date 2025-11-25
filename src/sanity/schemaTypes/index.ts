@@ -19,6 +19,7 @@ import { imageType } from './blocks/imageType';
 import { imageGalleryType } from './blocks/imageGalleryType';
 import { youTubeVideoType } from './blocks/youTubeVideoType';
 import { quoteType } from './blocks/quoteType';
+import { statementType } from './blocks/statementType';
 import { twoColumnLayoutType } from './blocks/twoColumnLayoutType';
 import { ctaButtonType } from './blocks/ctaButtonType';
 import { ctaCalloutLinkType } from './blocks/ctaCalloutLinkType';
@@ -69,6 +70,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     imageGalleryType,
     youTubeVideoType,
     quoteType,
+    statementType,
     twoColumnLayoutType,
     ctaButtonType,
     ctaCalloutLinkType,

@@ -4,6 +4,7 @@ import type {
   COMPANY_LINKS_QUERYResult,
   CONTACT_FORM_SETTINGS_QUERYResult,
   RichText as RichTextType,
+  Statement as StatementType,
   Quote as QuoteType,
   TwoColumnLayout as TwoColumnLayoutType,
   CtaButton as CtaButtonType,
@@ -25,6 +26,7 @@ import type { SiteSettingsProps } from '@/types/shared';
 
 // Import all block components
 import RichText from '@/components/_blocks/RichText';
+import Statement from '@/components/_blocks/Statement';
 import Quote from '@/components/_blocks/Quote';
 import TwoColumnLayout from '@/components/_blocks/TwoColumnLayout';
 import CTAButton from '@/components/_blocks/CTAButton';
@@ -65,6 +67,7 @@ type WithKey<T> = T & { _key: string };
 // Union type of all possible block types with _key
 type BlockType =
   | WithKey<RichTextType>
+  | WithKey<StatementType>
   | WithKey<QuoteType>
   | WithKey<TwoColumnLayoutType>
   | WithKey<CtaButtonType>
@@ -142,6 +145,15 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
               documentType === 'privacyPolicy'
             }
           />
+        </BlockWrapper>
+      );
+    }
+
+    case 'statement': {
+      const statementBlock = typedBlock as WithKey<StatementType>;
+      return (
+        <BlockWrapper key={statementBlock._key}>
+          <Statement {...statementBlock} />
         </BlockWrapper>
       );
     }

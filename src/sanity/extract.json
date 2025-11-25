@@ -1957,6 +1957,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "statement"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "quote"
                   }
                 },
@@ -2194,6 +2209,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "statement"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "quote"
                   }
                 },
@@ -2394,6 +2424,29 @@
                 }
               ]
             }
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "statement",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "statement"
+          }
+        },
+        "text": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
           },
           "optional": true
         }
@@ -2812,6 +2865,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "statement"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "quote"
                   }
                 },
@@ -3210,6 +3278,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "statement"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "quote"
                   }
                 },
@@ -3559,6 +3642,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "statement"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "quote"
                   }
                 },
@@ -3856,6 +3954,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "richText"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "statement"
                   }
                 },
                 {
@@ -4182,6 +4295,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "richText"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "statement"
                   }
                 },
                 {
@@ -4554,6 +4682,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "richText"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "statement"
                   }
                 },
                 {
@@ -5523,6 +5666,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "statement"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "quote"
                 }
               },
@@ -5856,6 +6014,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "richText"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "statement"
                 }
               },
               {
@@ -6204,6 +6377,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "richText"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "statement"
                 }
               },
               {
