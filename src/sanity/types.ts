@@ -156,6 +156,17 @@ export type BlockListWithStats = {
   }>;
 };
 
+export type IconList = {
+  _type: "iconList";
+  layout?: "horizontal" | "vertical";
+  items?: Array<{
+    icon?: string;
+    description?: string;
+    _type: "iconListItem";
+    _key: string;
+  }>;
+};
+
 export type CompanyLinksBlock = {
   _type: "companyLinksBlock";
   blockAdded?: string;
@@ -319,6 +330,8 @@ export type TwoColumnLayout = {
     _key: string;
   } & CtaCalloutLink | {
     _key: string;
+  } & IconList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -347,6 +360,8 @@ export type TwoColumnLayout = {
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -436,6 +451,8 @@ export type GridLayout = {
     _key: string;
   } & CtaCalloutLink | {
     _key: string;
+  } & IconList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -487,6 +504,8 @@ export type Card = {
     _key: string;
   } & CtaCalloutLink | {
     _key: string;
+  } & IconList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -532,6 +551,8 @@ export type ContentWrapper = {
     _key: string;
   } & CtaCalloutLink | {
     _key: string;
+  } & IconList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -572,6 +593,8 @@ export type SubSubSection = {
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -615,6 +638,8 @@ export type SubSection = {
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -662,6 +687,8 @@ export type PageSection = {
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -797,6 +824,8 @@ export type PrivacyPolicy = {
     _key: string;
   } & CtaCalloutLink | {
     _key: string;
+  } & IconList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -844,6 +873,8 @@ export type TermsAndConditions = {
     _key: string;
   } & CtaCalloutLink | {
     _key: string;
+  } & IconList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -890,6 +921,8 @@ export type Page = {
   } & CtaButton | {
     _key: string;
   } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -1152,7 +1185,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -1328,6 +1361,18 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
       image: null;
       content: null;
     } | {
@@ -1728,6 +1773,18 @@ export type PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -1955,6 +2012,18 @@ export type PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -2059,6 +2128,18 @@ export type PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -2294,6 +2375,18 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -2686,6 +2779,17 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -2888,6 +2992,18 @@ export type PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -2991,6 +3107,18 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -3252,6 +3380,17 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -3611,6 +3750,16 @@ export type PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -3802,6 +3951,17 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -3880,6 +4040,18 @@ export type PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -4134,6 +4306,16 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -4480,6 +4662,16 @@ export type PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -4666,6 +4858,16 @@ export type PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -4738,6 +4940,17 @@ export type PAGE_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -4967,6 +5180,16 @@ export type PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -5151,6 +5374,16 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -5376,6 +5609,16 @@ export type PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -5560,6 +5803,16 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -5797,6 +6050,16 @@ export type PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -5981,6 +6244,16 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -6206,6 +6479,16 @@ export type PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -6390,6 +6673,16 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -6629,6 +6922,16 @@ export type PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -6813,6 +7116,16 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -7038,6 +7351,16 @@ export type PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -7222,6 +7545,16 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -7497,6 +7830,16 @@ export type PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -7681,6 +8024,16 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -7906,6 +8259,16 @@ export type PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -8090,6 +8453,16 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -8314,6 +8687,16 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -8719,6 +9102,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -9107,6 +9502,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -9309,6 +9715,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -9412,6 +9830,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -9665,6 +10095,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -9849,6 +10289,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -10074,6 +10524,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -10258,6 +10718,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -10519,6 +10989,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -10907,6 +11389,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -11109,6 +11602,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -11212,6 +11717,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -11473,6 +11990,17 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -11832,6 +12360,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -12023,6 +12561,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -12101,6 +12650,18 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -12355,6 +12916,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -12701,6 +13272,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -12887,6 +13468,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -12959,6 +13550,17 @@ export type HOME_PAGE_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -13188,6 +13790,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -13372,6 +13984,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -13597,6 +14219,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -13781,6 +14413,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -14018,6 +14660,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -14202,6 +14854,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -14427,6 +15089,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -14611,6 +15283,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -14850,6 +15532,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -15034,6 +15726,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -15259,6 +15961,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -15443,6 +16155,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -15709,6 +16431,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -16105,6 +16839,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -16332,6 +17078,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -16436,6 +17194,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -16671,6 +17441,18 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -17063,6 +17845,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -17265,6 +18058,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -17368,6 +18173,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -17629,6 +18446,17 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -17988,6 +18816,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -18179,6 +19017,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -18257,6 +19106,18 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -18511,6 +19372,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -18857,6 +19728,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -19043,6 +19924,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -19115,6 +20006,17 @@ export type HOME_PAGE_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -19344,6 +20246,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -19528,6 +20440,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -19753,6 +20675,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -19937,6 +20869,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -20174,6 +21116,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -20358,6 +21310,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -20583,6 +21545,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -20767,6 +21739,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -21006,6 +21988,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -21190,6 +22182,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -21415,6 +22417,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -21599,6 +22611,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -21874,6 +22896,16 @@ export type HOME_PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -22058,6 +23090,16 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -22283,6 +23325,16 @@ export type HOME_PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -22467,6 +23519,16 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -22731,6 +23793,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -23127,6 +24201,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -23354,6 +24440,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -23458,6 +24556,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -23693,6 +24803,18 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -24085,6 +25207,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -24287,6 +25420,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -24390,6 +25535,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -24651,6 +25808,17 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -25010,6 +26178,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -25201,6 +26379,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -25279,6 +26468,18 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -25533,6 +26734,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -25879,6 +27090,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -26065,6 +27286,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -26137,6 +27368,17 @@ export type HOME_PAGE_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -26366,6 +27608,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -26550,6 +27802,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -26775,6 +28037,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -26959,6 +28231,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -27196,6 +28478,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -27380,6 +28672,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -27605,6 +28907,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -27789,6 +29101,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -28028,6 +29350,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -28212,6 +29544,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -28437,6 +29779,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -28621,6 +29973,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -28896,6 +30258,16 @@ export type HOME_PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -29080,6 +30452,16 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -29305,6 +30687,16 @@ export type HOME_PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -29489,6 +30881,16 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -29801,6 +31203,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -30197,6 +31611,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -30424,6 +31850,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -30528,6 +31966,18 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -30763,6 +32213,18 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -31155,6 +32617,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -31357,6 +32830,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -31460,6 +32945,18 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -31721,6 +33218,17 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -32080,6 +33588,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -32271,6 +33789,17 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -32349,6 +33878,18 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -32603,6 +34144,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -32949,6 +34500,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -33135,6 +34696,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -33207,6 +34778,17 @@ export type HOME_PAGE_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -33436,6 +35018,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -33620,6 +35212,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -33845,6 +35447,16 @@ export type HOME_PAGE_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -34029,6 +35641,16 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -34266,6 +35888,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -34450,6 +36082,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -34675,6 +36317,16 @@ export type HOME_PAGE_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -34859,6 +36511,16 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -35098,6 +36760,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -35282,6 +36954,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -35507,6 +37189,16 @@ export type HOME_PAGE_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -35691,6 +37383,16 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -35966,6 +37668,16 @@ export type HOME_PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -36150,6 +37862,16 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -36375,6 +38097,16 @@ export type HOME_PAGE_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -36559,6 +38291,16 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -37453,6 +39195,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -37841,6 +39595,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -38043,6 +39808,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -38146,6 +39923,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -38399,6 +40188,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -38583,6 +40382,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -38808,6 +40617,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -38992,6 +40811,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -39253,6 +41082,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -39641,6 +41482,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -39843,6 +41695,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -39946,6 +41810,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -40207,6 +42083,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -40566,6 +42453,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -40757,6 +42654,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -40835,6 +42743,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -41089,6 +43009,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -41435,6 +43365,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -41621,6 +43561,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -41693,6 +43643,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -41922,6 +43883,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -42106,6 +44077,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -42331,6 +44312,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -42515,6 +44506,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -42752,6 +44753,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -42936,6 +44947,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -43161,6 +45182,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -43345,6 +45376,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -43584,6 +45625,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -43768,6 +45819,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -43993,6 +46054,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -44177,6 +46248,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -44436,6 +46517,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -44832,6 +46925,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -45059,6 +47164,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -45163,6 +47280,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -45398,6 +47527,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -45790,6 +47931,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -45992,6 +48144,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -46095,6 +48259,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -46356,6 +48532,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -46715,6 +48902,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -46906,6 +49103,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -46984,6 +49192,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -47238,6 +49458,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -47584,6 +49814,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -47770,6 +50010,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -47842,6 +50092,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -48071,6 +50332,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -48255,6 +50526,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -48480,6 +50761,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -48664,6 +50955,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -48901,6 +51202,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -49085,6 +51396,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -49310,6 +51631,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -49494,6 +51825,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -49733,6 +52074,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -49917,6 +52268,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -50142,6 +52503,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -50326,6 +52697,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -50601,6 +52982,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -50785,6 +53176,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -51010,6 +53411,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -51194,6 +53605,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -51451,6 +53872,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -51847,6 +54280,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -52074,6 +54519,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -52178,6 +54635,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -52413,6 +54882,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -52805,6 +55286,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -53007,6 +55499,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -53110,6 +55614,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -53371,6 +55887,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -53730,6 +56257,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -53921,6 +56458,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -53999,6 +56547,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -54253,6 +56813,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -54599,6 +57169,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -54785,6 +57365,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -54857,6 +57447,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -55086,6 +57687,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -55270,6 +57881,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -55495,6 +58116,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -55679,6 +58310,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -55916,6 +58557,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -56100,6 +58751,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -56325,6 +58986,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -56509,6 +59180,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -56748,6 +59429,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -56932,6 +59623,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -57157,6 +59858,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -57341,6 +60052,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -57616,6 +60337,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -57800,6 +60531,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -58025,6 +60766,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -58209,6 +60960,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -58493,6 +61254,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -58889,6 +61662,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -59116,6 +61901,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -59220,6 +62017,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -59455,6 +62264,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -59847,6 +62668,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -60049,6 +62881,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -60152,6 +62996,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -60413,6 +63269,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -60772,6 +63639,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -60963,6 +63840,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -61041,6 +63929,18 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -61295,6 +64195,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -61641,6 +64551,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -61827,6 +64747,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -61899,6 +64829,17 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -62128,6 +65069,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -62312,6 +65263,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -62537,6 +65498,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -62721,6 +65692,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -62958,6 +65939,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -63142,6 +66133,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -63367,6 +66368,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -63551,6 +66562,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -63790,6 +66811,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -63974,6 +67005,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -64199,6 +67240,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -64383,6 +67434,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -64658,6 +67719,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -64842,6 +67913,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -65067,6 +68148,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -65251,6 +68342,16 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -65552,6 +68653,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -65940,6 +69053,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -66142,6 +69266,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -66245,6 +69381,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -66498,6 +69646,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -66682,6 +69840,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -66907,6 +70075,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -67091,6 +70269,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -67352,6 +70540,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -67740,6 +70940,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -67942,6 +71153,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -68045,6 +71268,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -68306,6 +71541,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -68665,6 +71911,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -68856,6 +72112,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -68934,6 +72201,18 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -69188,6 +72467,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -69534,6 +72823,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -69720,6 +73019,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -69792,6 +73101,17 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -70021,6 +73341,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -70205,6 +73535,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -70430,6 +73770,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -70614,6 +73964,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -70851,6 +74211,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -71035,6 +74405,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -71260,6 +74640,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -71444,6 +74834,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -71683,6 +75083,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -71867,6 +75277,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -72092,6 +75512,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -72276,6 +75706,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -72535,6 +75975,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -72931,6 +76383,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -73158,6 +76622,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -73262,6 +76738,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -73497,6 +76985,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -73889,6 +77389,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -74091,6 +77602,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -74194,6 +77717,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -74455,6 +77990,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -74814,6 +78360,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -75005,6 +78561,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -75083,6 +78650,18 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -75337,6 +78916,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -75683,6 +79272,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -75869,6 +79468,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -75941,6 +79550,17 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -76170,6 +79790,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -76354,6 +79984,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -76579,6 +80219,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -76763,6 +80413,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -77000,6 +80660,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -77184,6 +80854,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -77409,6 +81089,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -77593,6 +81283,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -77832,6 +81532,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -78016,6 +81726,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -78241,6 +81961,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -78425,6 +82155,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -78700,6 +82440,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -78884,6 +82634,16 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -79109,6 +82869,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -79293,6 +83063,16 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -79550,6 +83330,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -79946,6 +83738,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -80173,6 +83977,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -80277,6 +84093,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -80512,6 +84340,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -80904,6 +84744,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -81106,6 +84957,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -81209,6 +85072,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -81470,6 +85345,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -81829,6 +85715,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -82020,6 +85916,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -82098,6 +86005,18 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -82352,6 +86271,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -82698,6 +86627,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -82884,6 +86823,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -82956,6 +86905,17 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -83185,6 +87145,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -83369,6 +87339,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -83594,6 +87574,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -83778,6 +87768,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -84015,6 +88015,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -84199,6 +88209,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -84424,6 +88444,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -84608,6 +88638,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -84847,6 +88887,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -85031,6 +89081,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -85256,6 +89316,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -85440,6 +89510,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -85715,6 +89795,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -85899,6 +89989,16 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -86124,6 +90224,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -86308,6 +90418,16 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -86592,6 +90712,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -86988,6 +91120,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -87215,6 +91359,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "imageBlock";
       image: {
         asset: {
@@ -87319,6 +91475,18 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "iconList";
+    layout?: "horizontal" | "vertical";
+    items?: Array<{
+      icon?: string;
+      description?: string;
+      _type: "iconListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
   } | {
     _key: string;
     _type: "imageBlock";
@@ -87554,6 +91722,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
         image: null;
         content: null;
       } | {
@@ -87946,6 +92126,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -88148,6 +92339,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -88251,6 +92454,18 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -88512,6 +92727,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -88871,6 +93097,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -89062,6 +93298,17 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -89140,6 +93387,18 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -89394,6 +93653,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -89740,6 +94009,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -89926,6 +94205,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -89998,6 +94287,17 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "youTubeVideo";
             url?: string;
           }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
           image: null;
         } | {
           _key: string;
@@ -90227,6 +94527,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -90411,6 +94721,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -90636,6 +94956,16 @@ export type PRIVACY_POLICY_QUERYResult = {
               style?: string;
             } | {
               _key: string;
+              _type: "iconList";
+              layout?: "horizontal" | "vertical";
+              items?: Array<{
+                icon?: string;
+                description?: string;
+                _type: "iconListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "imageBlock";
               image: {
                 asset: {
@@ -90820,6 +95150,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "divider";
             style?: string;
+          } | {
+            _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "imageBlock";
@@ -91057,6 +95397,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -91241,6 +95591,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -91466,6 +95826,16 @@ export type PRIVACY_POLICY_QUERYResult = {
             style?: string;
           } | {
             _key: string;
+            _type: "iconList";
+            layout?: "horizontal" | "vertical";
+            items?: Array<{
+              icon?: string;
+              description?: string;
+              _type: "iconListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "imageBlock";
             image: {
               asset: {
@@ -91650,6 +96020,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "imageBlock";
@@ -91889,6 +96269,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -92073,6 +96463,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -92298,6 +96698,16 @@ export type PRIVACY_POLICY_QUERYResult = {
           style?: string;
         } | {
           _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "imageBlock";
           image: {
             asset: {
@@ -92482,6 +96892,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "divider";
         style?: string;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "imageBlock";
@@ -92757,6 +97177,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -92941,6 +97371,16 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
@@ -93166,6 +97606,16 @@ export type PRIVACY_POLICY_QUERYResult = {
         style?: string;
       } | {
         _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "imageBlock";
         image: {
           asset: {
@@ -93350,6 +97800,16 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "divider";
       style?: string;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "imageBlock";
