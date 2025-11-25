@@ -1,24 +1,19 @@
 import React from 'react';
-import {
-  TbChartLine,
-  TbChartBar,
-  TbClock,
-  TbBarbell,
-  TbUserBolt,
-  TbSettings,
-  TbFlame,
-} from 'react-icons/tb';
+import { TbTargetArrow, TbClock, TbBarbell, TbSettings } from 'react-icons/tb';
+import { FaChartLine } from 'react-icons/fa';
+import { GiStrong } from 'react-icons/gi';
+import { SiFireship } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
 // Icon mapping with display names
 export const ICON_LIBRARY = {
   progressGraph: {
     name: 'Progress Graph',
-    icon: TbChartLine,
+    icon: FaChartLine,
   },
   darkBoard: {
-    name: 'Dark Board',
-    icon: TbChartBar,
+    name: 'Target',
+    icon: TbTargetArrow,
   },
   clock: {
     name: 'Clock',
@@ -30,7 +25,7 @@ export const ICON_LIBRARY = {
   },
   strongMan: {
     name: 'Strong Man',
-    icon: TbUserBolt,
+    icon: GiStrong,
   },
   gear: {
     name: 'Gear',
@@ -38,7 +33,7 @@ export const ICON_LIBRARY = {
   },
   flame: {
     name: 'Flame',
-    icon: TbFlame,
+    icon: SiFireship,
   },
 } as const;
 
