@@ -112,6 +112,11 @@ const contentProjection = `
     ...,
     anchorId
   },
+  _type == "contentWrapper" => {
+    ...,
+    backgroundStyle,
+    useCompactGap
+  },
   _type == "ctaButton" => {${fullLinkProjection}},
   _type == "ctaCalloutLink" => {${fullLinkProjection}},
   _type == "ctaCard" => {${fullLinkProjection}},

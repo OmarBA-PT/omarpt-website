@@ -111,7 +111,7 @@ const TermsAndConditionsPage = async () => {
         {termsData.topText && <p className='font-bold mb-8'>{termsData.topText}</p>}
         {termsData.content && (
           <PageBuilder
-            content={termsData.content}
+            content={termsData.content as any}
             documentId={termsData._id}
             documentType={termsData._type}
             siteSettings={siteSettings || undefined}

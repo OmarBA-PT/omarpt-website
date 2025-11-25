@@ -148,6 +148,32 @@ export function createSectionSchema(config: SectionFactoryConfig) {
     );
   }
 
+  // Add backgroundStyle field for PageSection only - insert after useCompactGap
+  if (config.name === 'pageSection') {
+    const insertPosition = config.hasSubtitle ? 6 : 5;
+    fields.splice(
+      insertPosition,
+      0,
+      defineField({
+        name: 'backgroundStyle',
+        title: 'Background Style',
+        type: 'string',
+        description:
+          'Optional background styling for this section. If left blank, no background will be applied. If selected, will apply that background style.',
+        options: {
+          list: [
+            { title: 'None', value: '' },
+            { title: 'Style 1 (Placeholder)', value: 'style1' },
+            { title: 'Style 2 (Placeholder)', value: 'style2' },
+            { title: 'Style 3 (Placeholder)', value: 'style3' },
+          ],
+          layout: 'dropdown',
+        },
+        initialValue: '',
+      })
+    );
+  }
+
   // Build content array with allowed child sections and standard blocks
   const contentOf = createSectionBlockList(config.allowedChildSections);
 

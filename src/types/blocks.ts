@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, CompanyLinksBlock, BlockListWithStats, CheckList, ItemList, ContactForm } from '@/sanity/types';
+import type { Divider, RichText, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, BlockListWithStats, CheckList, ItemList, ContactForm } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -21,6 +21,7 @@ export interface SectionBlock extends BaseBlock {
 export type PageSectionBlock = Omit<PageSection, 'title'> & { _key: string; title: string };
 export type SubSectionBlock = Omit<SubSection, 'title'> & { _key: string; title: string };
 export type SubSubSectionBlock = Omit<SubSubSection, 'title'> & { _key: string; title: string };
+export type ContentWrapperBlock = ContentWrapper & { _key: string };
 export type DividerBlock = Divider & { _key: string };
 export type RichTextBlock = RichText & { _key: string };
 export type QuoteBlock = Quote & { _key: string };
@@ -44,6 +45,7 @@ export type NestedBlock =
   | PageSectionBlock
   | SubSectionBlock
   | SubSubSectionBlock
+  | ContentWrapperBlock
   | SectionBlock
   | DividerBlock
   | RichTextBlock
@@ -63,11 +65,11 @@ export type NestedBlock =
   | ContactFormBlock;
 
 // Union of blocks that can contain nested content
-export type BlockWithContent = PageSectionBlock | SubSectionBlock | SubSubSectionBlock | SectionBlock | CardBlock;
+export type BlockWithContent = PageSectionBlock | SubSectionBlock | SubSubSectionBlock | ContentWrapperBlock | SectionBlock | CardBlock;
 
 // Type guard functions
 export const isBlockWithContent = (block: NestedBlock): block is BlockWithContent => {
-  return block._type === 'pageSection' || block._type === 'subSection' || block._type === 'subSubSection' || block._type === 'section' || block._type === 'card';
+  return block._type === 'pageSection' || block._type === 'subSection' || block._type === 'subSubSection' || block._type === 'contentWrapper' || block._type === 'section' || block._type === 'card';
 };
 
 export const isPageSectionBlock = (block: NestedBlock): block is PageSectionBlock => {
@@ -80,6 +82,10 @@ export const isSubSectionBlock = (block: NestedBlock): block is SubSectionBlock 
 
 export const isSubSubSectionBlock = (block: NestedBlock): block is SubSubSectionBlock => {
   return block._type === 'subSubSection';
+};
+
+export const isContentWrapperBlock = (block: NestedBlock): block is ContentWrapperBlock => {
+  return block._type === 'contentWrapper';
 };
 
 export const isSectionBlock = (block: NestedBlock): block is SectionBlock => {

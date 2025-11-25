@@ -19,6 +19,7 @@ import {
 import PageSection from './Layout/PageSection';
 import SubSection from './Layout/SubSection';
 import SubSubSection from './Layout/SubSubSection';
+import ContentWrapper from './Layout/ContentWrapper';
 import Card from './_blocks/Card';
 import GridLayout from './_blocks/GridLayout';
 import { renderBlock } from '@/utils/blockRenderer';
@@ -77,6 +78,7 @@ const BlockRenderer = ({
       const sectionBlock = block as { hideSection?: boolean };
       return !sectionBlock.hideSection;
     }
+    // ContentWrapper is always visible (no hide option)
     return true;
   });
 
@@ -123,12 +125,15 @@ const BlockRenderer = ({
 
           let marginClass = '';
 
-          if (block._type === 'pageSection') {
-            // SPACE_B: PageSection that comes after orphaned content blocks
+          if (block._type === 'pageSection' || block._type === 'contentWrapper') {
+            // SPACE_B: PageSection/ContentWrapper that comes after orphaned content blocks
+            // Note: With new architecture, orphaned content should no longer exist at root level
+            // This logic is kept for backward compatibility during migration
             const previousBlock = hasSiblingBefore ? visibleBlocks[visibleIndex - 1] : null;
             const hasOrphanedContentBefore =
               previousBlock &&
               previousBlock._type !== 'pageSection' &&
+              previousBlock._type !== 'contentWrapper' &&
               previousBlock._type !== 'subSection' &&
               previousBlock._type !== 'subSubSection';
 
@@ -198,19 +203,21 @@ const BlockRenderer = ({
           );
         };
 
-        // Determine if this PageSection should have bottom padding
+        // Determine if this PageSection/ContentWrapper should have bottom padding
         const shouldApplyBottomPadding = (() => {
-          if (block._type !== 'pageSection') return true;
+          if (block._type !== 'pageSection' && block._type !== 'contentWrapper') return true;
 
           const isLastVisibleBlock = visibleIndex === visibleBlocks.length - 1;
           if (!isLastVisibleBlock) return true;
 
-          // This is the last visible PageSection, check if there are orphaned content blocks after it
+          // This is the last visible PageSection/ContentWrapper, check if there are orphaned content blocks after it
+          // Note: With new architecture, orphaned content should no longer exist at root level
           const hasOrphanedContentAfter = visibleBlocks
             .slice(visibleIndex + 1)
             .some(
               (afterBlock) =>
                 afterBlock._type !== 'pageSection' &&
+                afterBlock._type !== 'contentWrapper' &&
                 afterBlock._type !== 'subSection' &&
                 afterBlock._type !== 'subSubSection'
             );
@@ -251,6 +258,20 @@ const BlockRenderer = ({
                   useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}>
                   {renderNestedContent(block.content)}
                 </PageSection>
+              </BlockWrapper>
+            );
+
+          case 'contentWrapper':
+            return (
+              <BlockWrapper key={block._key}>
+                <ContentWrapper
+                  documentId={documentId}
+                  documentType={documentType}
+                  shouldApplyBottomPadding={shouldApplyBottomPadding}
+                  useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}
+                  backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}>
+                  {renderNestedContent(block.content)}
+                </ContentWrapper>
               </BlockWrapper>
             );
 

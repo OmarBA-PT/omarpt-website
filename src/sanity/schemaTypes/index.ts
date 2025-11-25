@@ -10,6 +10,7 @@ import { pageBuilderType } from './pageBuilderType';
 import { pageSectionType } from './pageSectionType';
 import { subSectionType } from './subSectionType';
 import { subSubSectionType } from './subSubSectionType';
+import { contentWrapperType } from './contentWrapperType';
 import { dividerType } from './blocks/dividerType';
 import { richTextType } from './blocks/richTextType';
 import { cardType } from './blocks/cardType';
@@ -58,6 +59,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pageSectionType,
     subSectionType,
     subSubSectionType,
+    contentWrapperType,
     dividerType,
     richTextType,
     cardType,

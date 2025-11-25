@@ -74,7 +74,28 @@ export const STANDARD_BLOCK_LIST = [
 ];
 
 /**
- * PAGE_CONTENT_BLOCK_LIST - For main page content areas
+ * PAGE_ROOT_BLOCK_LIST - For page builder root level only
+ *
+ * This is a restricted block list that ONLY allows PageSection and ContentWrapper
+ * at the root page level. Individual content blocks cannot be added directly to pages.
+ *
+ * Includes:
+ * - pageSection (full sections with headings)
+ * - contentWrapper (wrapper for blocks without section headings)
+ *
+ * Does NOT include:
+ * - Individual content blocks (must be wrapped in PageSection or ContentWrapper)
+ * - Layout blocks (must be wrapped in PageSection or ContentWrapper)
+ */
+export const PAGE_ROOT_BLOCK_LIST = [
+  defineArrayMember({ type: 'pageSection' }),
+  defineArrayMember({ type: 'contentWrapper' }),
+];
+
+/**
+ * PAGE_CONTENT_BLOCK_LIST - For main page content areas (DEPRECATED)
+ *
+ * @deprecated Use PAGE_ROOT_BLOCK_LIST instead. This will be removed in a future version.
  *
  * This includes the standard block list PLUS top-level PageSections.
  * Use this for the main content field of pages.

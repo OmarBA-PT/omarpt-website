@@ -18,7 +18,9 @@ export const homeHeroBottomSpacing = 'mb-14 md:mb-24';
 export const pageSubtitleBottomSpacing = 'mb-6 md:mb-8';
 
 /**
- * Space above PageSections that come after orphaned content blocks
+ * Space above PageSections/ContentWrappers that come after orphaned content blocks
+ * Note: With new architecture (PAGE_ROOT_BLOCK_LIST), orphaned blocks should no longer exist at root level.
+ * This constant is kept for backward compatibility during migration.
  */
 export const pageSectionTopSpacing = 'mt-24';
 
@@ -38,13 +40,13 @@ export const sectionTitleBottomSpacing = 'mb-6';
 export const sectionDividerBottomSpacing = 'mb-6 md:mb-8';
 
 /**
- * Bottom padding for PageSections (after the last piece of content in that section)
+ * Bottom padding for PageSections/ContentWrappers (after the last piece of content in that container)
  */
 export const sectionBottomPadding = 'pb-24 md:pb-36';
 
 /**
- * Compact bottom padding for PageSections when useCompactGap is enabled
- * Provides smaller spacing between sections for better visual flow
+ * Compact bottom padding for PageSections/ContentWrappers when useCompactGap is enabled
+ * Provides smaller spacing between containers for better visual flow
  */
 export const sectionCompactBottomPadding = 'pb-12 md:pb-16';
 

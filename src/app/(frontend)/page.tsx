@@ -56,7 +56,7 @@ const Page = async () => {
       {page.content && (
         <Container>
           <PageBuilder
-            content={page.content}
+            content={page.content as any}
             documentId={page._id}
             documentType={page._type}
             siteSettings={siteSettings || undefined}

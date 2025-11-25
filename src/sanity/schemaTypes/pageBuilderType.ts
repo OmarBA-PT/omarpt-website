@@ -1,11 +1,11 @@
 import { defineType } from 'sanity';
-import { PAGE_CONTENT_BLOCK_LIST } from './shared/blockLists';
+import { PAGE_ROOT_BLOCK_LIST } from './shared/blockLists';
 
 export const pageBuilderType = defineType({
   name: 'pageBuilder',
   title: 'Page Builder',
   type: 'array',
-  of: PAGE_CONTENT_BLOCK_LIST,
+  of: PAGE_ROOT_BLOCK_LIST,
   options: {
     insertMenu: {
       views: [
@@ -19,5 +19,5 @@ export const pageBuilderType = defineType({
   },
   // Clear description for editors
   description:
-    'Build your page by adding page sections and content blocks. Page sections provide structure and can contain nested sub-sections and content.',
+    'Build your page by adding Page Sections (with headings) or Content Wrappers (for grouping blocks without headings). All individual content blocks must be placed inside one of these containers.',
 });

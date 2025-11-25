@@ -111,7 +111,7 @@ const PrivacyPolicyPage = async () => {
         {privacyData.topText && <p className='font-bold mb-8'>{privacyData.topText}</p>}
         {privacyData.content && (
           <PageBuilder
-            content={privacyData.content}
+            content={privacyData.content as any}
             documentId={privacyData._id}
             documentType={privacyData._type}
             siteSettings={siteSettings || undefined}
