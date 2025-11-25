@@ -2,7 +2,6 @@ import React from 'react';
 import PageBuilder from '@/components/PageBuilder';
 import Hero from '@/components/HomeHero/Hero';
 import { getHomePage, getSiteSettings, getCompanyLinks, getContactFormSettings } from '@/actions';
-import Container from '@/components/Layout/Container';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl } from '@/lib/metadata';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -54,17 +53,15 @@ const Page = async () => {
 
       {/* Additional Page Builder Content */}
       {page.content && (
-        <Container>
-          <PageBuilder
-            content={page.content as any}
-            documentId={page._id}
-            documentType={page._type}
-            siteSettings={siteSettings || undefined}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
-            alignment='center'
-          />
-        </Container>
+        <PageBuilder
+          content={page.content as any}
+          documentId={page._id}
+          documentType={page._type}
+          siteSettings={siteSettings || undefined}
+          companyLinks={companyLinks}
+          contactFormSettings={contactFormSettings}
+          alignment='center'
+        />
       )}
     </>
   );

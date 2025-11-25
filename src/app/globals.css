@@ -419,26 +419,17 @@ input[type='range']::-moz-range-track {
 }
 
 /* Section Background Styles - Full viewport width backgrounds
- * Works with the new flush section architecture where sections have no margins
- * and use SectionContainer for internal padding
+ * Sections extend to viewport edges naturally without Container wrapper
+ * SectionContainer inside provides content padding
  */
 .section-background {
   position: relative;
-  /* Sections are now flush - no overflow issues */
 }
 
 .section-background::before {
   content: '';
   position: absolute;
-  /* Cover entire section from edge to edge */
-  top: 0;
-  bottom: 0;
-  /* Use negative margins technique to break out to full viewport width */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  width: 100vw;
+  inset: 0; /* Cover entire section */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

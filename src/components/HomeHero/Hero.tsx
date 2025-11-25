@@ -10,7 +10,6 @@ import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { urlFor } from '@/sanity/lib/image';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import { stegaClean } from 'next-sanity';
-import { homeHeroBottomSpacing } from '@/utils/spacingConstants';
 import { useHeader } from '@/contexts/HeaderContext';
 
 interface HeroProps {
@@ -113,7 +112,7 @@ const Hero = ({
     <section
       id='home'
       data-hero
-      className={`relative ${heightClass} flex flex-col ${homeHeroBottomSpacing} ${
+      className={`relative ${heightClass} flex flex-col ${
         currentHeroStyle === 'background-images' || currentHeroStyle === 'video'
           ? heroBackgroundColor
           : ''

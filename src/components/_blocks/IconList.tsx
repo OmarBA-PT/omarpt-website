@@ -28,7 +28,7 @@ const IconList = ({
 
   return (
     <div className={`flex flex-col items-center w-full ${className}`.trim()}>
-      <div className='space-y-12 my-12 w-full'>
+      <div className='space-y-12 mt-10 mb-12 w-full'>
         {items.map((item, index) => {
           const itemPath = fieldPathPrefix
             ? `${fieldPathPrefix}.items[${index}]`
@@ -71,12 +71,12 @@ const IconList = ({
               </div>
 
               {/* Description */}
-              <div className={`${isHorizontal ? '' : 'flex-1 text-center'}`}>
+              <div className={`${isHorizontal ? '' : 'flex-1'}`}>
                 <p
                   {...(documentId && documentType
                     ? createSanityDataAttribute(documentId, documentType, `${itemPath}.description`)
                     : {})}
-                  className='text-body-3xl font-bold'>
+                  className='text-body-3xl font-bold text-center'>
                   {item.description}
                 </p>
               </div>

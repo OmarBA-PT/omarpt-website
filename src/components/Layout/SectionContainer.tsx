@@ -25,12 +25,12 @@ interface SectionContainerProps {
 const SectionContainer = ({
   children,
   useCompactPadding = false,
-  className = ''
+  className = '',
 }: SectionContainerProps) => {
   const paddingClass = useCompactPadding ? sectionContainerPaddingCompact : sectionContainerPadding;
 
   return (
-    <div className={`container max-w-[90rem] mx-auto ${paddingClass} ${className}`.trim()}>
+    <div className={`container max-w-360 mx-auto ${paddingClass} ${className}`.trim()}>
       {children}
     </div>
   );

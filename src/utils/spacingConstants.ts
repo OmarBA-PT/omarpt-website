@@ -8,22 +8,9 @@
 export const breadcrumbBottomSpacing = 'mb-8 md:mb-14';
 
 /**
- * Space under home hero section before the next content
- */
-export const homeHeroBottomSpacing = 'mb-14 md:mb-24';
-
-/**
  * Space under page subtitles (non-blog pages)
  */
 export const pageSubtitleBottomSpacing = 'mb-6 md:mb-8';
-
-/**
- * Space above PageSections/ContentWrappers that come after orphaned content blocks
- * Note: With new architecture (PAGE_ROOT_BLOCK_LIST), orphaned blocks should no longer exist at root level.
- * This constant is kept for backward compatibility during migration.
- * @deprecated - Sections should be flush with no top margins in new architecture
- */
-export const pageSectionTopSpacing = 'mt-24';
 
 /**
  * Space under blog header sections (title, subtitle, author, date, horizontal line group)
@@ -50,7 +37,7 @@ export const sectionDividerBottomSpacing = 'mb-6 md:mb-8';
  * Vertical padding for section containers (top and bottom)
  * Creates breathing room for content while keeping sections flush with each other
  */
-export const sectionContainerPaddingY = 'py-12 md:py-16';
+export const sectionContainerPaddingY = 'py-12 md:py-32';
 
 /**
  * Compact vertical padding for sections when useCompactGap is enabled
@@ -61,7 +48,7 @@ export const sectionContainerPaddingYCompact = 'py-8 md:py-10';
  * Horizontal padding for section containers (left and right)
  * Matches the Container component padding to keep content aligned
  */
-export const sectionContainerPaddingX = 'px-4 sm:px-20';
+export const sectionContainerPaddingX = 'px-6 sm:px-20';
 
 /**
  * Combined container padding (all sides) - standard spacing
@@ -72,19 +59,6 @@ export const sectionContainerPadding = `${sectionContainerPaddingY} ${sectionCon
  * Combined container padding (all sides) - compact spacing
  */
 export const sectionContainerPaddingCompact = `${sectionContainerPaddingYCompact} ${sectionContainerPaddingX}`;
-
-/**
- * @deprecated Use sectionContainerPadding instead
- * Bottom padding for PageSections/ContentWrappers (after the last piece of content in that container)
- */
-export const sectionBottomPadding = 'pb-24 md:pb-36';
-
-/**
- * @deprecated Use sectionContainerPaddingCompact instead
- * Compact bottom padding for PageSections/ContentWrappers when useCompactGap is enabled
- * Provides smaller spacing between containers for better visual flow
- */
-export const sectionCompactBottomPadding = 'pb-12 md:pb-16';
 
 /**
  * Space after most content blocks (with exceptions defined in implementation)

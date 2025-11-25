@@ -12,7 +12,6 @@ import { client } from '@/sanity/lib/client';
 import { createDataAttribute } from 'next-sanity';
 import { useOptimistic } from 'react';
 import {
-  pageSectionTopSpacing,
   contentBlockBottomSpacing,
   subSectionTopSpacing,
 } from '@/utils/spacingConstants';
@@ -126,20 +125,9 @@ const BlockRenderer = ({
           let marginClass = '';
 
           if (block._type === 'pageSection' || block._type === 'contentWrapper') {
-            // SPACE_B: PageSection/ContentWrapper that comes after orphaned content blocks
-            // Note: With new architecture, orphaned content should no longer exist at root level
-            // This logic is kept for backward compatibility during migration
-            const previousBlock = hasSiblingBefore ? visibleBlocks[visibleIndex - 1] : null;
-            const hasOrphanedContentBefore =
-              previousBlock &&
-              previousBlock._type !== 'pageSection' &&
-              previousBlock._type !== 'contentWrapper' &&
-              previousBlock._type !== 'subSection' &&
-              previousBlock._type !== 'subSubSection';
-
-            if (hasOrphanedContentBefore) {
-              marginClass = pageSectionTopSpacing;
-            }
+            // SPACE_B: Sections are now flush with no top margins in new architecture
+            // Internal spacing comes from SectionContainer padding
+            // All content blocks must live inside sections/wrappers (no orphaned content)
           } else if (block._type === 'subSection' || block._type === 'subSubSection') {
             // SPACE_H: SubSection/SubSubSection with sibling before it (top spacing)
             if (hasSiblingBefore) {
