@@ -62,7 +62,7 @@ const RichText = ({
   if (cleanIsCallout) {
     return (
       <div
-        className={`bg-brand-white-dark rounded-tr-lg rounded-br-lg px-6 py-4 ${fullWidth ? 'max-w-full' : maxCardWidth} border-l-4 border-brand-primary shadow-sm ${getTextAlignClass(effectiveTextAlign)} ${getContainerAlignClass(effectiveTextAlign)}`}>
+        className={`${fullWidth ? 'max-w-full' : maxCardWidth} pb-2 border-b border-brand-secondary/50 text-brand-secondary ${getTextAlignClass(effectiveTextAlign)} ${getContainerAlignClass(effectiveTextAlign)}`}>
         {proseContent}
       </div>
     );
