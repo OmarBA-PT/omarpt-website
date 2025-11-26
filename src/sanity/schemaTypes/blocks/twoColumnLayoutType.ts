@@ -14,6 +14,24 @@ export const twoColumnLayoutType = defineType({
   description: 'Create a two-column layout with independently managed content in each column. On desktop, content displays side-by-side; on mobile, left column content appears before right column content in a vertical stack.',
   fields: [
     defineField({
+      name: 'columnSplit',
+      title: 'Column Split Proportion',
+      type: 'string',
+      description: 'Choose the width proportion between left and right columns. For example, "60/40" means the left column takes 60% and the right column takes 40% of the available width.',
+      options: {
+        list: [
+          { title: '50/50 (Equal)', value: '50/50' },
+          { title: '60/40 (Left Wider)', value: '60/40' },
+          { title: '40/60 (Right Wider)', value: '40/60' },
+          { title: '70/30 (Left Much Wider)', value: '70/30' },
+          { title: '30/70 (Right Much Wider)', value: '30/70' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: '50/50',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'verticallyCenter',
       title: 'Vertically Center Content',
       type: 'boolean',
@@ -44,13 +62,15 @@ export const twoColumnLayoutType = defineType({
       leftColumn: 'leftColumn',
       rightColumn: 'rightColumn',
       verticallyCenter: 'verticallyCenter',
+      columnSplit: 'columnSplit',
     },
-    prepare({ leftColumn, rightColumn, verticallyCenter }) {
+    prepare({ leftColumn, rightColumn, verticallyCenter, columnSplit }) {
       const leftCount = leftColumn?.length || 0;
       const rightCount = rightColumn?.length || 0;
       const centerText = verticallyCenter ? ' • Centered' : '';
+      const splitText = columnSplit ? ` • ${columnSplit}` : '';
       const title = '2 Column Layout';
-      const subtitle = `Left: ${leftCount} item${leftCount !== 1 ? 's' : ''} • Right: ${rightCount} item${rightCount !== 1 ? 's' : ''}${centerText}`;
+      const subtitle = `Left: ${leftCount} item${leftCount !== 1 ? 's' : ''} • Right: ${rightCount} item${rightCount !== 1 ? 's' : ''}${splitText}${centerText}`;
 
       return {
         title,

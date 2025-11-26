@@ -325,6 +325,7 @@ export type CtaButton = {
 
 export type TwoColumnLayout = {
   _type: "twoColumnLayout";
+  columnSplit?: "50/50" | "60/40" | "40/60" | "70/30" | "30/70";
   verticallyCenter?: boolean;
   leftColumn?: Array<{
     _key: string;
@@ -5361,6 +5362,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -6303,6 +6305,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -7247,6 +7250,7 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -8233,6 +8237,7 @@ export type PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -10648,6 +10653,7 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -14640,6 +14646,7 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -15582,6 +15589,7 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -16526,6 +16534,7 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -21611,6 +21620,7 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -22553,6 +22563,7 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -23497,6 +23508,7 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -24483,6 +24495,7 @@ export type HOME_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -29566,6 +29579,7 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -30508,6 +30522,7 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -31452,6 +31467,7 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -32438,6 +32454,7 @@ export type HOME_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -37569,6 +37586,7 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -38511,6 +38529,7 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -39455,6 +39474,7 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -40441,6 +40461,7 @@ export type HOME_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -43107,6 +43128,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -47099,6 +47121,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -48041,6 +48064,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -48985,6 +49009,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -54062,6 +54087,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -55004,6 +55030,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -55948,6 +55975,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -56934,6 +56962,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -62009,6 +62038,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -62951,6 +62981,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -63895,6 +63926,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -64881,6 +64913,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -69980,6 +70013,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -70922,6 +70956,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -71866,6 +71901,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -72852,6 +72888,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -74925,6 +74962,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -78917,6 +78955,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -79859,6 +79898,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -80803,6 +80843,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -85880,6 +85921,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -86822,6 +86864,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -87766,6 +87809,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -88752,6 +88796,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -93827,6 +93872,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -94769,6 +94815,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -95713,6 +95760,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -96699,6 +96747,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;
@@ -101798,6 +101847,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "twoColumnLayout";
+          columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
           verticallyCenter?: boolean;
           leftColumn: Array<{
             _key: string;
@@ -102740,6 +102790,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "twoColumnLayout";
+        columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
         verticallyCenter?: boolean;
         leftColumn: Array<{
           _key: string;
@@ -103684,6 +103735,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "twoColumnLayout";
+      columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
       verticallyCenter?: boolean;
       leftColumn: Array<{
         _key: string;
@@ -104670,6 +104722,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "twoColumnLayout";
+    columnSplit?: "30/70" | "40/60" | "50/50" | "60/40" | "70/30";
     verticallyCenter?: boolean;
     leftColumn: Array<{
       _key: string;

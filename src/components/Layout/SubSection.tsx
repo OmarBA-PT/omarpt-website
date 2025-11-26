@@ -8,7 +8,7 @@ import {
   type TextAlignment,
 } from '../../utils/sectionHelpers';
 import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
-import { anchorLinkScrollMarginTop, subSectionTitleBottomSpacing } from '@/utils/spacingConstants';
+import { anchorLinkScrollMarginTop } from '@/utils/spacingConstants';
 import { parseColoredText } from '@/utils/textHelpers';
 
 interface SubSectionProps extends SanityLiveEditingProps {
@@ -47,7 +47,6 @@ const SubSection = ({
         <Heading
           level='h3' // Fixed h3 level for SubSections
           showMargin={false}
-          className={subSectionTitleBottomSpacing}
           {...titleDataAttribute}>
           {parseColoredText(stegaClean(title))}
         </Heading>

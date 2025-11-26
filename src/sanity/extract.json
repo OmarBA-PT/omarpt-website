@@ -1916,6 +1916,35 @@
             "value": "twoColumnLayout"
           }
         },
+        "columnSplit": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "50/50"
+              },
+              {
+                "type": "string",
+                "value": "60/40"
+              },
+              {
+                "type": "string",
+                "value": "40/60"
+              },
+              {
+                "type": "string",
+                "value": "70/30"
+              },
+              {
+                "type": "string",
+                "value": "30/70"
+              }
+            ]
+          },
+          "optional": true
+        },
         "verticallyCenter": {
           "type": "objectAttribute",
           "value": {

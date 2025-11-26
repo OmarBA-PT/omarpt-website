@@ -163,7 +163,7 @@ html {
 }
 
 @utility text-h2 {
-  font-size: calc(var(--font-scale-base) * 2.5);
+  font-size: calc(var(--font-scale-base) * 2.75);
   line-height: 1.1;
   letter-spacing: calc(var(--font-scale-base) * -0.025);
   font-weight: 700;

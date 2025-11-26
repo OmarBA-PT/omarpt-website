@@ -21,6 +21,7 @@ interface TwoColumnLayoutProps extends Omit<SanityLiveEditingProps, 'titlePath' 
   leftColumn?: NestedBlock[];
   rightColumn?: NestedBlock[];
   verticallyCenter?: boolean;
+  columnSplit?: '50/50' | '60/40' | '40/60' | '70/30' | '30/70';
   className?: string;
   pathPrefix?: string;
   siteSettings?: SiteSettingsProps;
@@ -33,6 +34,7 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
   leftColumn = [],
   rightColumn = [],
   verticallyCenter = false,
+  columnSplit = '50/50',
   className = '',
   documentId,
   documentType,
@@ -47,8 +49,28 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
     return null;
   }
 
-  // Clean the value to remove Sanity's stega encoding
+  // Clean the values to remove Sanity's stega encoding
   const cleanVerticallyCenter = stegaClean(verticallyCenter);
+  const cleanColumnSplit = stegaClean(columnSplit) || '50/50';
+
+  // Map column split ratios to Tailwind grid column classes
+  const getGridColumnClasses = (split: string): { leftCol: string; rightCol: string } => {
+    switch (split) {
+      case '60/40':
+        return { leftCol: 'lg:col-span-3', rightCol: 'lg:col-span-2' };
+      case '40/60':
+        return { leftCol: 'lg:col-span-2', rightCol: 'lg:col-span-3' };
+      case '70/30':
+        return { leftCol: 'lg:col-span-7', rightCol: 'lg:col-span-3' };
+      case '30/70':
+        return { leftCol: 'lg:col-span-3', rightCol: 'lg:col-span-7' };
+      case '50/50':
+      default:
+        return { leftCol: 'lg:col-span-1', rightCol: 'lg:col-span-1' };
+    }
+  };
+
+  const gridClasses = getGridColumnClasses(cleanColumnSplit);
 
   // Render a single block within a column using shared renderBlock utility
   const renderColumnBlock = (block: NestedBlock, columnPath: string, isLastInColumn: boolean) => {
@@ -88,17 +110,20 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
   // Determine column alignment classes
   const columnAlignmentClass = cleanVerticallyCenter ? 'flex flex-col justify-center' : '';
 
+  // Determine the total number of grid columns needed based on the split
+  const totalGridCols = cleanColumnSplit === '50/50' ? 'lg:grid-cols-2' : 'lg:grid-cols-10';
+
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 ${className}`.trim()}>
+    <div className={`grid grid-cols-1 ${totalGridCols} gap-8 lg:gap-12 ${className}`.trim()}>
       {/* Left Column */}
-      <div className={columnAlignmentClass} {...leftColumnDataAttribute}>
+      <div className={`${gridClasses.leftCol} ${columnAlignmentClass}`.trim()} {...leftColumnDataAttribute}>
         {leftColumn.map((block, index) =>
           renderColumnBlock(block, `${pathPrefix}.leftColumn`, index === leftColumn.length - 1)
         )}
       </div>
 
       {/* Right Column */}
-      <div className={columnAlignmentClass} {...rightColumnDataAttribute}>
+      <div className={`${gridClasses.rightCol} ${columnAlignmentClass}`.trim()} {...rightColumnDataAttribute}>
         {rightColumn.map((block, index) =>
           renderColumnBlock(block, `${pathPrefix}.rightColumn`, index === rightColumn.length - 1)
         )}

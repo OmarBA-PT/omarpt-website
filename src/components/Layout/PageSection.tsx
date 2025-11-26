@@ -2,20 +2,10 @@
 
 import React, { createContext, useContext } from 'react';
 import Heading from '../Typography/Heading';
-import Divider from '../UI/Divider';
 import { stegaClean } from 'next-sanity';
-import {
-  createSanityDataAttribute,
-  type SanityLiveEditingProps,
-  getTextAlignClass,
-  type TextAlignment,
-} from '../../utils/sectionHelpers';
+import { createSanityDataAttribute, type SanityLiveEditingProps } from '../../utils/sectionHelpers';
 import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
-import {
-  sectionTitleBottomSpacing,
-  sectionDividerBottomSpacing,
-  anchorLinkScrollMarginTop,
-} from '@/utils/spacingConstants';
+import { anchorLinkScrollMarginTop } from '@/utils/spacingConstants';
 import SectionContainer from './SectionContainer';
 import { parseColoredText } from '@/utils/textHelpers';
 
@@ -63,19 +53,6 @@ const PageSection = ({
   // Resolve alignment using shared utility (same as other components)
   const cleanTextAlign = stegaClean(textAlign) || 'inherit';
   const resolved = resolveAlignment(cleanTextAlign, inheritAlignment);
-  const effectiveTextAlign = (resolved || 'center') as TextAlignment;
-
-  // Get margin class for subtitle based on alignment
-  const getSubtitleMarginClass = (align: TextAlignment) => {
-    switch (align) {
-      case 'left':
-        return 'mr-auto';
-      case 'right':
-        return 'ml-auto';
-      default: // center
-        return 'mx-auto';
-    }
-  };
 
   const hasTitle = Boolean(title);
 
@@ -93,8 +70,15 @@ const PageSection = ({
         {/* SectionContainer provides internal padding while section element has background */}
         <SectionContainer useCompactPadding={useCompactGap}>
           {/* Title is now always present since it's required */}
-          <div className={getTextAlignClass(effectiveTextAlign)}>
-            <div className={`inline-flex items-end gap-4 sm:gap-8 ${sectionTitleBottomSpacing}`}>
+          <div
+            className='
+              relative pb-4 md:pb-8 text-center
+              md:pl-4 md:text-left
+              after:content-[""] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-1/2 after:h-[0.5] after:bg-linear-to-r after:from-brand-primary after:to-brand-secondary
+              md:after:hidden
+              md:before:content-[""] md:before:absolute md:before:left-0 md:before:top-0 md:before:bottom-0 md:before:w-[0.5] md:before:bg-linear-to-b md:before:from-brand-primary md:before:to-brand-secondary
+            '>
+            <div className={`inline-flex items-end gap-4 sm:gap-8`}>
               <div className='text-left'>
                 <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
                   {parseColoredText(stegaClean(title))}
@@ -103,21 +87,18 @@ const PageSection = ({
             </div>
             {topText && (
               <p
-                className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line ${sectionTitleBottomSpacing} ${getSubtitleMarginClass(effectiveTextAlign)}`}
+                className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line`}
                 {...topTextDataAttribute}>
                 {stegaClean(topText)}
               </p>
             )}
             {subtitle && (
               <p
-                className={`text-body-xl max-w-4xl whitespace-pre-line ${sectionTitleBottomSpacing} ${getSubtitleMarginClass(effectiveTextAlign)}`}
+                className={`text-body-xl max-w-4xl whitespace-pre-line mt-2`}
                 {...subtitleDataAttribute}>
                 {subtitle}
               </p>
             )}
-            <div className={sectionDividerBottomSpacing}>
-              <Divider size='full' color='dark' />
-            </div>
           </div>
           {children}
         </SectionContainer>

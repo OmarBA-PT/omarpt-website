@@ -13,21 +13,6 @@ export const breadcrumbBottomSpacing = 'mb-8 md:mb-14';
 export const pageSubtitleBottomSpacing = 'mb-6 md:mb-8';
 
 /**
- * Space under blog header sections (title, subtitle, author, date, horizontal line group)
- */
-export const blogHeaderBottomSpacing = 'mb-10 md:mb-14';
-
-/**
- * Space after PageSection titles and subtitles
- */
-export const sectionTitleBottomSpacing = 'mb-6';
-
-/**
- * Space after PageSection dividers
- */
-export const sectionDividerBottomSpacing = 'mb-6 md:mb-8';
-
-/**
  * SECTION CONTAINER PADDING SYSTEM
  * These padding values create internal spacing within sections while allowing backgrounds to extend edge-to-edge.
  * Applied via ContentContainer component inside PageSection/ContentWrapper.
