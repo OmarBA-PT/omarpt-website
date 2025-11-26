@@ -9,6 +9,7 @@ import {
 } from '../../utils/sectionHelpers';
 import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
 import { anchorLinkScrollMarginTop, subSectionTitleBottomSpacing } from '@/utils/spacingConstants';
+import { parseColoredText } from '@/utils/textHelpers';
 
 interface SubSubSectionProps extends SanityLiveEditingProps {
   children: React.ReactNode;
@@ -48,7 +49,7 @@ const SubSubSection = ({
           showMargin={false}
           className={subSectionTitleBottomSpacing}
           {...titleDataAttribute}>
-          {stegaClean(title)}
+          {parseColoredText(stegaClean(title))}
         </Heading>
       </div>
       {children}

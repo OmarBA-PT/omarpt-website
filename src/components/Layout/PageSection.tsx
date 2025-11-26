@@ -17,6 +17,7 @@ import {
   anchorLinkScrollMarginTop,
 } from '@/utils/spacingConstants';
 import SectionContainer from './SectionContainer';
+import { parseColoredText } from '@/utils/textHelpers';
 
 // Context to track if PageSection has a title (affects nested section heading levels)
 const PageSectionContext = createContext<{ hasTitle: boolean }>({ hasTitle: false });
@@ -96,7 +97,7 @@ const PageSection = ({
             <div className={`inline-flex items-end gap-4 sm:gap-8 ${sectionTitleBottomSpacing}`}>
               <div className='text-left'>
                 <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
-                  {stegaClean(title)}
+                  {parseColoredText(stegaClean(title))}
                 </Heading>
               </div>
             </div>

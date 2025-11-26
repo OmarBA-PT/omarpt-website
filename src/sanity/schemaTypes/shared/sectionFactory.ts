@@ -25,7 +25,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
       name: 'title',
       title: 'Section Title',
       type: 'string',
-      description: `Title for this ${config.title.toLowerCase()} (will render as ${config.name === 'pageSection' ? 'h2' : config.name === 'subSection' ? 'h3' : config.name === 'subSubSection' ? 'h4' : 'heading'})`,
+      description: `Title for this ${config.title.toLowerCase()} (will render as ${config.name === 'pageSection' ? 'h2' : config.name === 'subSection' ? 'h3' : config.name === 'subSubSection' ? 'h4' : 'heading'}). Use {curly braces} around text to make it white. Example: "Welcome to {Omania} Training" - the rest will be orange.`,
       validation: (Rule) => Rule.required().error(`${config.title} title is required`),
     }),
     defineField({
