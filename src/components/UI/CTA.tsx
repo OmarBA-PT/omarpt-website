@@ -43,7 +43,7 @@ const getVariantStyles = (
   const heightStyles = shortOnMobile ? 'py-1 md:py-3' : 'py-3 min-h-[56px]';
 
   // Note that the min-h-[56px] is so that regular buttons become the same height as the CTA Email Button, which needs more internal space because of the icon.
-  const baseStyles = `inline-flex items-center justify-center px-6 ${heightStyles} font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer`;
+  const baseStyles = `inline-flex uppercase items-center justify-center px-6 ${heightStyles} font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer`;
 
   if (variant === 'outline-light') {
     // Outline button on light background - dark border and text
@@ -56,7 +56,7 @@ const getVariantStyles = (
   }
 
   // Default to filled variant with brand gradient
-  return `${baseStyles} bg-brand-gradient-primary text-black uppercase focus:ring-brand-primary hover:scale-105 ${disabledStyles}`.trim();
+  return `${baseStyles} bg-brand-gradient-primary text-black focus:ring-brand-primary hover:scale-105 ${disabledStyles}`.trim();
 };
 
 const CTA = (props: CTAProps) => {
