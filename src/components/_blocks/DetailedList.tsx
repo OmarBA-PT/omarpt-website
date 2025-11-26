@@ -25,7 +25,7 @@ const DetailedList = ({
 
   return (
     <div className={`flex flex-col items-center w-full ${className}`.trim()}>
-      <div className='space-y-8 mt-10 mb-12 w-full'>
+      <div className='space-y-10 w-full'>
         {items.map((item, index) => {
           const itemPath = fieldPathPrefix
             ? `${fieldPathPrefix}.items[${index}]`
@@ -40,7 +40,7 @@ const DetailedList = ({
             <div key={item._key} className='w-full'>
               {/* Title */}
               <p
-                className='text-h3 bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-4'
+                className='text-h4 font-bold bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-4'
                 {...(documentId && documentType
                   ? createSanityDataAttribute(documentId, documentType, `${itemPath}.title`)
                   : {})}>
@@ -67,7 +67,7 @@ const DetailedList = ({
                         mode='sized'
                         width={80}
                         height={80}
-                        sizeContext='icon'
+                        sizeContext='logo'
                         objectFit='contain'
                         className='w-12 h-12 md:w-16 md:h-16'
                       />
@@ -82,7 +82,7 @@ const DetailedList = ({
                 )}
 
                 {/* Description */}
-                <div className='flex-1'>
+                <div className='flex-1 text-body-lg'>
                   <p
                     {...(documentId && documentType
                       ? createSanityDataAttribute(
@@ -99,7 +99,7 @@ const DetailedList = ({
 
               {/* Gradient Underline Border */}
               <div
-                className='mt-4 h-[0.5px] bg-linear-to-r from-brand-primary to-brand-secondary'
+                className='mt-6 h-[0.5px] bg-linear-to-r from-brand-primary to-brand-secondary'
                 style={{ opacity: 0.2 }}
               />
             </div>

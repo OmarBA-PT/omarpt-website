@@ -10,7 +10,7 @@ export const breadcrumbBottomSpacing = 'mb-8 md:mb-14';
 /**
  * Space under page titles
  */
-export const pageTitleBottomSpacing = 'mb-6 md:mb-8';
+export const pageTitleBottomSpacing = 'mb-12 md:mb-18';
 
 /**
  * SECTION CONTAINER PADDING SYSTEM

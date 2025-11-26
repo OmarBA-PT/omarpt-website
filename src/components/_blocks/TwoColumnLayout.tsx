@@ -91,9 +91,7 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
     if (!blockElement) return null;
 
     return (
-      <div
-        key={block._key}
-        className={marginClass}>
+      <div key={block._key} className={marginClass}>
         {blockElement}
       </div>
     );
@@ -114,16 +112,20 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
   const totalGridCols = cleanColumnSplit === '50/50' ? 'lg:grid-cols-2' : 'lg:grid-cols-10';
 
   return (
-    <div className={`grid grid-cols-1 ${totalGridCols} gap-8 lg:gap-12 ${className}`.trim()}>
+    <div className={`grid grid-cols-1 ${totalGridCols} gap-8 md:gap-18 ${className}`.trim()}>
       {/* Left Column */}
-      <div className={`${gridClasses.leftCol} ${columnAlignmentClass}`.trim()} {...leftColumnDataAttribute}>
+      <div
+        className={`${gridClasses.leftCol} ${columnAlignmentClass}`.trim()}
+        {...leftColumnDataAttribute}>
         {leftColumn.map((block, index) =>
           renderColumnBlock(block, `${pathPrefix}.leftColumn`, index === leftColumn.length - 1)
         )}
       </div>
 
       {/* Right Column */}
-      <div className={`${gridClasses.rightCol} ${columnAlignmentClass}`.trim()} {...rightColumnDataAttribute}>
+      <div
+        className={`${gridClasses.rightCol} ${columnAlignmentClass}`.trim()}
+        {...rightColumnDataAttribute}>
         {rightColumn.map((block, index) =>
           renderColumnBlock(block, `${pathPrefix}.rightColumn`, index === rightColumn.length - 1)
         )}
