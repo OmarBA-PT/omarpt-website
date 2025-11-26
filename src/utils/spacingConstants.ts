@@ -48,7 +48,7 @@ export const sectionContainerPaddingCompact = `${sectionContainerPaddingYCompact
 /**
  * Space after most content blocks (with exceptions defined in implementation)
  */
-export const contentBlockBottomSpacing = 'mb-6 md:mb-8';
+export const contentBlockBottomSpacing = 'mb-10 md:mb-16';
 
 /**
  * Space above SubSection/SubSubSection when they have a sibling before them
