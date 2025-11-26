@@ -5,6 +5,7 @@
 import { defineType, defineField } from 'sanity';
 import { BlockElementIcon } from '@sanity/icons';
 import { STANDARD_BLOCK_LIST } from './shared/blockLists';
+import { createBackgroundFields } from './shared/backgroundStyles';
 
 export const contentWrapperType = defineType({
   name: 'contentWrapper',
@@ -14,28 +15,7 @@ export const contentWrapperType = defineType({
   description:
     'A container for grouping content blocks with optional background styling. Use this when you want to group blocks together without adding a section heading.',
   fields: [
-    defineField({
-      name: 'backgroundStyle',
-      title: 'Background Style',
-      type: 'string',
-      description:
-        'Optional background styling for this content area. If left blank, no background will be applied. If selected, will apply that background style.',
-      options: {
-        list: [
-          { title: 'None', value: '' },
-          { title: 'Smokey 1', value: 'smokey-1' },
-          { title: 'Smokey 2', value: 'smokey-2' },
-          { title: 'Smokey 3', value: 'smokey-3' },
-          { title: 'Smokey 4', value: 'smokey-4' },
-          { title: 'Smokey 5', value: 'smokey-5' },
-          { title: 'Smokey 6', value: 'smokey-6' },
-          { title: 'Smokey 7', value: 'smokey-7' },
-          { title: 'Smokey 8', value: 'smokey-8' },
-        ],
-        layout: 'dropdown',
-      },
-      initialValue: '',
-    }),
+    ...createBackgroundFields('content area'),
     defineField({
       name: 'useCompactGap',
       title: 'Use Compact Gap After Wrapper',

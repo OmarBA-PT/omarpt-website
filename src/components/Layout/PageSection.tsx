@@ -8,6 +8,8 @@ import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
 import { anchorLinkScrollMarginTop, pageTitleBottomSpacing } from '@/utils/spacingConstants';
 import SectionContainer from './SectionContainer';
 import { parseColoredText } from '@/utils/textHelpers';
+import { urlFor } from '@/sanity/lib/image';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 // Context to track if PageSection has a title (affects nested section heading levels)
 const PageSectionContext = createContext<{ hasTitle: boolean }>({ hasTitle: false });
@@ -25,6 +27,7 @@ interface PageSectionProps extends SanityLiveEditingProps {
   topTextPath?: string;
   hideGraphic?: boolean;
   backgroundStyle?: string; // Background style identifier
+  backgroundImage?: SanityImageSource; // Background image for 'image' style
 }
 
 const PageSection = ({
@@ -43,6 +46,7 @@ const PageSection = ({
   textAlign = 'inherit',
   useCompactGap = false,
   backgroundStyle,
+  backgroundImage,
 }: PageSectionProps) => {
   // Create data attributes for Sanity live editing
   const titleDataAttribute = createSanityDataAttribute(documentId, documentType, titlePath);
@@ -58,14 +62,41 @@ const PageSection = ({
   // Apply background style classes based on backgroundStyle prop
   const getBackgroundClass = () => {
     if (!backgroundStyle) return '';
+    if (backgroundStyle === 'radial-gradient') return '';
+    if (backgroundStyle === 'image') return '';
     return `section-background section-background-${backgroundStyle}`;
+  };
+
+  // Get background image URL if style is 'image' and backgroundImage is provided
+  const backgroundImageUrl = backgroundStyle === 'image' && backgroundImage
+    ? urlFor(backgroundImage).width(3840).height(2160).quality(90).url()
+    : null;
+
+  // Build inline styles for radial gradient or image backgrounds
+  const getBackgroundStyles = (): React.CSSProperties => {
+    if (backgroundStyle === 'radial-gradient') {
+      return {
+        background: 'var(--background-image-brand-gradient-charcoal-radial)',
+      };
+    }
+    if (backgroundStyle === 'image' && backgroundImageUrl) {
+      return {
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      };
+    }
+    return {};
   };
 
   return (
     <PageSectionContext.Provider value={{ hasTitle }}>
       <section
         id={anchorId ? stegaClean(anchorId) : undefined}
-        className={`${getBackgroundClass()} ${className} ${anchorLinkScrollMarginTop}`.trim()}>
+        className={`${getBackgroundClass()} ${className} ${anchorLinkScrollMarginTop}`.trim()}
+        style={getBackgroundStyles()}
+      >
         {/* SectionContainer provides internal padding while section element has background */}
         <SectionContainer useCompactPadding={useCompactGap}>
           {/* Title is now always present since it's required */}

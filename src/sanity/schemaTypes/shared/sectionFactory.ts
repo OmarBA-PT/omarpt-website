@@ -1,6 +1,7 @@
 import { defineType, defineField, type FieldDefinition } from 'sanity';
 import { AnchorIdInput } from '../../components/AnchorIdInput';
 import { createSectionBlockList } from './blockLists';
+import { createBackgroundFields } from './backgroundStyles';
 
 interface SectionFactoryConfig {
   name: string;
@@ -142,35 +143,11 @@ export function createSectionSchema(config: SectionFactoryConfig) {
     );
   }
 
-  // Add backgroundStyle field for PageSection only - insert after useCompactGap
+  // Add background fields (style + image) for PageSection only - insert after useCompactGap
   if (config.name === 'pageSection') {
     const insertPosition = config.hasSubtitle ? 6 : 5;
-    fields.splice(
-      insertPosition,
-      0,
-      defineField({
-        name: 'backgroundStyle',
-        title: 'Background Style',
-        type: 'string',
-        description:
-          'Optional background styling for this section. If left blank, no background will be applied. If selected, will apply that background style.',
-        options: {
-          list: [
-            { title: 'None', value: '' },
-            { title: 'Smokey 1', value: 'smokey-1' },
-            { title: 'Smokey 2', value: 'smokey-2' },
-            { title: 'Smokey 3', value: 'smokey-3' },
-            { title: 'Smokey 4', value: 'smokey-4' },
-            { title: 'Smokey 5', value: 'smokey-5' },
-            { title: 'Smokey 6', value: 'smokey-6' },
-            { title: 'Smokey 7', value: 'smokey-7' },
-            { title: 'Smokey 8', value: 'smokey-8' },
-          ],
-          layout: 'dropdown',
-        },
-        initialValue: '',
-      })
-    );
+    const backgroundFields = createBackgroundFields('section');
+    fields.splice(insertPosition, 0, ...backgroundFields);
   }
 
   // Build content array with allowed child sections and standard blocks

@@ -592,7 +592,19 @@ export type Divider = {
 
 export type ContentWrapper = {
   _type: "contentWrapper";
-  backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+  backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | "radial-gradient" | "image";
+  backgroundImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   useCompactGap?: boolean;
   content?: Array<{
     _key: string;
@@ -737,7 +749,19 @@ export type PageSection = {
   subtitle?: string;
   topText?: string;
   useCompactGap?: boolean;
-  backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+  backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | "radial-gradient" | "image";
+  backgroundImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   content?: Array<{
     _key: string;
   } & SubSection | {
@@ -2471,7 +2495,19 @@ export type PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -10424,7 +10460,19 @@ export type HOME_PAGE_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "contentWrapper";
-    backgroundStyle: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
+    backgroundStyle: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     useCompactGap: boolean | null;
     content: Array<{
       _key: string;
@@ -12662,7 +12710,19 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -20328,7 +20388,19 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -29075,7 +29147,19 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -37870,7 +37954,19 @@ export type HOME_PAGE_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -46050,7 +46146,19 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "contentWrapper";
-    backgroundStyle: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
+    backgroundStyle: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     useCompactGap: boolean | null;
     content: Array<{
       _key: string;
@@ -48288,7 +48396,19 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -55946,7 +56066,19 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -64685,7 +64817,19 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -73448,7 +73592,19 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -81035,7 +81191,19 @@ export type PRIVACY_POLICY_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "contentWrapper";
-    backgroundStyle: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
+    backgroundStyle: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8" | null;
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     useCompactGap: boolean | null;
     content: Array<{
       _key: string;
@@ -83273,7 +83441,19 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -90931,7 +91111,19 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -99670,7 +99862,19 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";
@@ -108433,7 +108637,19 @@ export type PRIVACY_POLICY_QUERYResult = {
     subtitle?: string;
     topText: string | null;
     useCompactGap?: boolean;
-    backgroundStyle?: "" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundStyle?: "" | "image" | "radial-gradient" | "smokey-1" | "smokey-2" | "smokey-3" | "smokey-4" | "smokey-5" | "smokey-6" | "smokey-7" | "smokey-8";
+    backgroundImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     content: Array<{
       _key: string;
       _type: "blockListWithStats";

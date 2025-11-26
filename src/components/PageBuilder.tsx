@@ -8,6 +8,7 @@ import type {
 } from '@/sanity/types';
 import type { NestedBlock } from '@/types/blocks';
 import type { SiteSettingsProps } from '@/types/shared';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { client } from '@/sanity/lib/client';
 import { createDataAttribute } from 'next-sanity';
 import { useOptimistic } from 'react';
@@ -221,7 +222,8 @@ const BlockRenderer = ({
                     documentType === 'privacyPolicy'
                   }
                   useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}
-                  backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}>
+                  backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}
+                  backgroundImage={(block as { backgroundImage?: SanityImageSource }).backgroundImage}>
                   {renderNestedContent(block.content)}
                 </PageSection>
               </BlockWrapper>
@@ -234,7 +236,8 @@ const BlockRenderer = ({
                   documentId={documentId}
                   documentType={documentType}
                   useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}
-                  backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}>
+                  backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}
+                  backgroundImage={(block as { backgroundImage?: SanityImageSource }).backgroundImage}>
                   {renderNestedContent(block.content)}
                 </ContentWrapper>
               </BlockWrapper>
