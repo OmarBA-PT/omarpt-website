@@ -57,9 +57,9 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
   const getGridColumnClasses = (split: string): { leftCol: string; rightCol: string } => {
     switch (split) {
       case '60/40':
-        return { leftCol: 'lg:col-span-3', rightCol: 'lg:col-span-2' };
+        return { leftCol: 'lg:col-span-6', rightCol: 'lg:col-span-4' };
       case '40/60':
-        return { leftCol: 'lg:col-span-2', rightCol: 'lg:col-span-3' };
+        return { leftCol: 'lg:col-span-4', rightCol: 'lg:col-span-6' };
       case '70/30':
         return { leftCol: 'lg:col-span-7', rightCol: 'lg:col-span-3' };
       case '30/70':

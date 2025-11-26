@@ -5,7 +5,7 @@ import Heading from '../Typography/Heading';
 import { stegaClean } from 'next-sanity';
 import { createSanityDataAttribute, type SanityLiveEditingProps } from '../../utils/sectionHelpers';
 import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
-import { anchorLinkScrollMarginTop } from '@/utils/spacingConstants';
+import { anchorLinkScrollMarginTop, pageTitleBottomSpacing } from '@/utils/spacingConstants';
 import SectionContainer from './SectionContainer';
 import { parseColoredText } from '@/utils/textHelpers';
 
@@ -42,7 +42,6 @@ const PageSection = ({
   inheritAlignment,
   textAlign = 'inherit',
   useCompactGap = false,
-  hideGraphic = false,
   backgroundStyle,
 }: PageSectionProps) => {
   // Create data attributes for Sanity live editing
@@ -71,13 +70,11 @@ const PageSection = ({
         <SectionContainer useCompactPadding={useCompactGap}>
           {/* Title is now always present since it's required */}
           <div
-            className='
-              relative pb-4 md:pb-8 text-center
+            className={`relative pb-4 md:pb-8 text-center
               md:pl-4 md:text-left
               after:content-[""] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-1/2 after:h-[0.5] after:bg-linear-to-r after:from-brand-primary after:to-brand-secondary
               md:after:hidden
-              md:before:content-[""] md:before:absolute md:before:left-0 md:before:top-0 md:before:bottom-0 md:before:w-[0.5] md:before:bg-linear-to-b md:before:from-brand-primary md:before:to-brand-secondary
-            '>
+              md:before:content-[""] md:before:absolute md:before:left-0 md:before:top-0 md:before:bottom-0 md:before:w-[0.5] md:before:bg-linear-to-b md:before:from-brand-primary md:before:to-brand-secondary ${pageTitleBottomSpacing}`}>
             <div className={`inline-flex items-end gap-4 sm:gap-8`}>
               <div className='text-left'>
                 <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
