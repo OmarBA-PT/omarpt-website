@@ -280,7 +280,6 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
   _id,
   _type,
   heroStyle,
-  heroTextColor,
   heroImages[]{
     _key,
     _type,
@@ -294,13 +293,8 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
   },
   heroImageTransitionDuration,
   h1Title,
-  heroTitle[]{
-    ...,
-    children[]{
-      ...,
-      marks[]
-    }
-  },
+  mainTitle,
+  subTitle,
   heroCallToActionList[]{
     _type,
     _key,

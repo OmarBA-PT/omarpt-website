@@ -4,13 +4,12 @@ import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import HeroTitle from './HeroTitle';
 import HeroCTA from './HeroCTA';
-import { getTextColorClasses } from './heroUtils';
 import HeroImages from './HeroImages';
 
 interface DefaultHeroLayoutProps {
-  heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
-  heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
+  mainTitle: NonNullable<HOME_PAGE_QUERYResult>['mainTitle'];
+  subTitle: NonNullable<HOME_PAGE_QUERYResult>['subTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
   images: Array<{ imageUrl: string; altText: string }>;
@@ -24,9 +23,9 @@ interface DefaultHeroLayoutProps {
 const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
   const {
     heroContentPosition,
-    heroTextColor,
     h1Title,
-    heroTitle,
+    mainTitle,
+    subTitle,
     heroCallToActionList,
     images,
     imageDuration,
@@ -50,8 +49,8 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
 
   const heroTitleProps = {
     h1Title,
-    heroTitle,
-    heroTextColor,
+    mainTitle,
+    subTitle,
     documentId,
     documentType,
     showLogoBackColor,
@@ -71,7 +70,6 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
       <div
         className={`
           hidden md:flex w-full flex-1 items-center justify-center
-          ${getTextColorClasses(heroTextColor)}
           px-4 sm:px-8 lg:px-[10%]
           gap-8 lg:gap-12
           mt-6
@@ -107,7 +105,6 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
       <div
         className={`
           flex md:hidden w-full flex-col items-center
-          ${getTextColorClasses(heroTextColor)}
           px-4 sm:px-8
           gap-6
           py-12

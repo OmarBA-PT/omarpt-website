@@ -112,22 +112,6 @@ export const homePageType = defineType({
         Rule.min(2).max(30).required().error('Duration must be between 2 and 30 seconds'),
     }),
     defineField({
-      name: 'heroTextColor',
-      type: 'string',
-      title: 'Text Color',
-      description:
-        '⚠️ IMPORTANT: When using Background Images style, carefully consider the chosen text color against ALL selected background images to ensure text remains readable across all images in the carousel.',
-      group: 'hero',
-      options: {
-        list: [
-          { title: 'Black', value: 'black' },
-          { title: 'White', value: 'white' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'black',
-    }),
-    defineField({
       name: 'heroDefaultContentPosition',
       type: 'string',
       title: 'Content Position',
@@ -173,17 +157,27 @@ export const homePageType = defineType({
       type: 'string',
       title: 'H1 Title (SEO & Accessibility)',
       description:
-        '⚠️ IMPORTANT: This heading is for SEO and screen readers to understand the page content. It will be hidden from the visual UI. The Hero Title below is what users will see.',
+        '⚠️ IMPORTANT: This heading is for SEO and screen readers to understand the page content. It will be hidden from the visual UI. The Main Title and Sub Title below are what users will see.',
       group: 'hero',
       validation: (Rule) => Rule.required().error('H1 Title is required for SEO and accessibility'),
     }),
     defineField({
-      name: 'heroTitle',
-      type: 'blockContent',
-      title: 'Hero Title (Visual Display)',
+      name: 'mainTitle',
+      type: 'text',
+      title: 'Main Title',
       description:
-        'Main visual heading for the hero section. Use this field for both title and subtitle content - style them using rich text formatting and line breaks as needed.',
+        'Main visual heading for the hero section. Supports line breaks (press Enter for new line). Use {curly braces} around text to make it white. Example: "Welcome to {Omania} Training" - the rest will be orange.',
       group: 'hero',
+      rows: 3,
+    }),
+    defineField({
+      name: 'subTitle',
+      type: 'text',
+      title: 'Sub Title',
+      description:
+        'Optional subtitle for the hero section. Supports line breaks (press Enter for new line). Use {curly braces} around text to make it orange. Example: "Professional {Development} Services" - the rest will be white.',
+      group: 'hero',
+      rows: 2,
     }),
     createCTAListField({
       name: 'heroCallToActionList',

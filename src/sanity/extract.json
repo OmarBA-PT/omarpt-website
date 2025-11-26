@@ -6890,23 +6890,6 @@
         },
         "optional": true
       },
-      "heroTextColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "union",
-          "of": [
-            {
-              "type": "string",
-              "value": "black"
-            },
-            {
-              "type": "string",
-              "value": "white"
-            }
-          ]
-        },
-        "optional": true
-      },
       "heroDefaultContentPosition": {
         "type": "objectAttribute",
         "value": {
@@ -6976,11 +6959,17 @@
         },
         "optional": true
       },
-      "heroTitle": {
+      "mainTitle": {
         "type": "objectAttribute",
         "value": {
-          "type": "inline",
-          "name": "blockContent"
+          "type": "string"
+        },
+        "optional": true
+      },
+      "subTitle": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
         },
         "optional": true
       },

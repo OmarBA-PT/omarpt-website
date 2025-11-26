@@ -4,12 +4,11 @@ import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import HeroTitle from './HeroTitle';
 import HeroCTA from './HeroCTA';
-import { getTextColorClasses } from './heroUtils';
 
 interface VideoImageBackgroundHeroLayoutProps {
-  heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
-  heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
+  mainTitle: NonNullable<HOME_PAGE_QUERYResult>['mainTitle'];
+  subTitle: NonNullable<HOME_PAGE_QUERYResult>['subTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
   documentId: string;
@@ -21,9 +20,9 @@ interface VideoImageBackgroundHeroLayoutProps {
 const VideoImageBackgroundHeroLayout = (props: VideoImageBackgroundHeroLayoutProps) => {
   const {
     heroContentPosition,
-    heroTextColor,
     h1Title,
-    heroTitle,
+    mainTitle,
+    subTitle,
     heroCallToActionList,
     documentId,
     documentType,
@@ -80,8 +79,8 @@ const VideoImageBackgroundHeroLayout = (props: VideoImageBackgroundHeroLayoutPro
 
   const componentProps = {
     h1Title,
-    heroTitle,
-    heroTextColor,
+    mainTitle,
+    subTitle,
     heroCallToActionList,
     documentId,
     documentType,
@@ -93,14 +92,13 @@ const VideoImageBackgroundHeroLayout = (props: VideoImageBackgroundHeroLayoutPro
     <div
       className={`
         w-full flex-1 flex flex-col ${verticalClasses} ${horizontalConfig.items}
-        ${getTextColorClasses(heroTextColor)}
         px-4 sm:px-8 lg:px-[10%]
       `}
       {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
       {/* Content container with responsive alignment */}
       <div
         className={`flex flex-col ${horizontalConfig.content} ${horizontalConfig.text} gap-4 sm:gap-6 max-w-4xl w-full mt-6`}>
-        {/* Title (now includes subtitle content via Rich Text) - priority content */}
+        {/* Title - priority content */}
         <div className='shrink-0'>
           <HeroTitle {...componentProps} />
         </div>

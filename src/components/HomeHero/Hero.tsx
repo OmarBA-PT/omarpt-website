@@ -14,12 +14,12 @@ import { useHeader } from '@/contexts/HeaderContext';
 
 interface HeroProps {
   heroStyle: NonNullable<HOME_PAGE_QUERYResult>['heroStyle'];
-  heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
   heroImages: NonNullable<HOME_PAGE_QUERYResult>['heroImages'];
   heroVideo: NonNullable<HOME_PAGE_QUERYResult>['heroVideo'];
   heroImageTransitionDuration: NonNullable<HOME_PAGE_QUERYResult>['heroImageTransitionDuration'];
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
-  heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
+  mainTitle: NonNullable<HOME_PAGE_QUERYResult>['mainTitle'];
+  subTitle: NonNullable<HOME_PAGE_QUERYResult>['subTitle'];
   heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
   hideScrollIndicator: NonNullable<HOME_PAGE_QUERYResult>['hideScrollIndicator'];
   heroDefaultContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroDefaultContentPosition'];
@@ -30,12 +30,12 @@ interface HeroProps {
 
 const Hero = ({
   heroStyle,
-  heroTextColor,
   heroImages,
   heroVideo,
   heroImageTransitionDuration,
   h1Title,
-  heroTitle,
+  mainTitle,
+  subTitle,
   heroCallToActionList,
   hideScrollIndicator,
   heroDefaultContentPosition,
@@ -92,9 +92,6 @@ const Hero = ({
   // Determine hero style - default to 'default' if not provided, clean any stega characters
   const currentHeroStyle = stegaClean(heroStyle) || 'default';
 
-  // Get background color based on text color for better contrast (for background-images and video styles)
-  const heroBackgroundColor = stegaClean(heroTextColor) === 'white' ? 'bg-black' : 'bg-white';
-
   // For Default style, allow height to exceed viewport on mobile only
   // For background-images and video, always constrain to viewport height
   // Use svh (small viewport height) to account for mobile browser toolbars
@@ -113,21 +110,13 @@ const Hero = ({
       id='home'
       data-hero
       className={`relative ${heightClass} flex flex-col ${
-        currentHeroStyle === 'background-images' || currentHeroStyle === 'video'
-          ? heroBackgroundColor
-          : ''
+        currentHeroStyle === 'background-images' || currentHeroStyle === 'video' ? 'bg-black' : ''
       }`}>
       {/* Z-index hierarchy: Background (z-10) → Gradient (z-20) → Content (z-[25]) → Header (z-30) → Mobile menu (z-40) */}
 
       {/* Hero Style Click-to-Edit Wrapper */}
       <div
         {...createSanityDataAttribute(documentId, documentType, 'heroStyle')}
-        className='absolute inset-0 pointer-events-none z-0'
-      />
-
-      {/* Text Color Click-to-Edit Wrapper */}
-      <div
-        {...createSanityDataAttribute(documentId, documentType, 'heroTextColor')}
         className='absolute inset-0 pointer-events-none z-0'
       />
 
@@ -173,9 +162,9 @@ const Hero = ({
       <div className='flex-1 flex flex-col relative z-25'>
         {currentHeroStyle === 'default' ? (
           <DefaultHeroLayout
-            heroTextColor={heroTextColor}
             h1Title={h1Title}
-            heroTitle={heroTitle}
+            mainTitle={mainTitle}
+            subTitle={subTitle}
             heroCallToActionList={heroCallToActionList}
             heroContentPosition={heroDefaultContentPosition}
             images={images}
@@ -185,9 +174,9 @@ const Hero = ({
           />
         ) : (
           <BackgroundHeroLayout
-            heroTextColor={heroTextColor}
             h1Title={h1Title}
-            heroTitle={heroTitle}
+            mainTitle={mainTitle}
+            subTitle={subTitle}
             heroCallToActionList={heroCallToActionList}
             heroContentPosition={heroContentPosition}
             documentId={documentId}

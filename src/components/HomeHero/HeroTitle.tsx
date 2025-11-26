@@ -2,14 +2,12 @@ import React from 'react';
 import { stegaClean } from 'next-sanity';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
-import { getTextColorClasses } from './heroUtils';
-import { createHeroRichTextComponents } from './heroRichTextComponents';
-import PortableTextWrapper from '@/components/UI/PortableTextWrapper';
+import { parseColoredText } from '@/utils/textHelpers';
 
 interface HeroTitleProps {
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
-  heroTitle: NonNullable<HOME_PAGE_QUERYResult>['heroTitle'];
-  heroTextColor: NonNullable<HOME_PAGE_QUERYResult>['heroTextColor'];
+  mainTitle: NonNullable<HOME_PAGE_QUERYResult>['mainTitle'];
+  subTitle: NonNullable<HOME_PAGE_QUERYResult>['subTitle'];
   documentId: string;
   documentType: string;
   textAlignment?: string;
@@ -18,25 +16,13 @@ interface HeroTitleProps {
 
 const HeroTitle = ({
   h1Title,
-  heroTitle,
-  heroTextColor,
+  mainTitle,
+  subTitle,
   documentId,
   documentType,
   textAlignment = 'center',
   isDefault = false,
 }: HeroTitleProps) => {
-  if (!heroTitle || !Array.isArray(heroTitle)) {
-    return (
-      <>
-        {/* SEO and Screen Reader H1 - Hidden from visual UI */}
-        {h1Title && <h1 className='sr-only'>{stegaClean(h1Title)}</h1>}
-      </>
-    );
-  }
-
-  // Use Hero-specific Rich Text components with dynamic alignment
-  const components = createHeroRichTextComponents(textAlignment);
-
   // Get responsive text alignment class based on the alignment prop
   const getTextAlignmentClass = (alignment: string) => {
     switch (alignment) {
@@ -56,7 +42,7 @@ const HeroTitle = ({
       case 'left':
         return 'mx-auto md:mx-0 md:mr-auto'; // center on mobile, left on desktop
       case 'right':
-        return 'mx-auto md:mx md:ml-auto'; // center on mobile, right on desktop
+        return 'mx-auto md:mx-0 md:ml-auto'; // center on mobile, right on desktop
       case 'center':
       default:
         return 'mx-auto';
@@ -68,20 +54,26 @@ const HeroTitle = ({
       {/* SEO and Screen Reader H1 - Hidden from visual UI */}
       {h1Title && <h1 className='sr-only'>{stegaClean(h1Title)}</h1>}
 
-      {/* Visual Hero Title - Rich Text with alignment and fixed width on desktop */}
+      {/* Visual Hero Title Container */}
       <div
-        className={`w-full ${isDefault ? '' : 'md:w-[33vw]'} ${getContainerAlignmentClass(textAlignment)}`}>
-        <PortableTextWrapper
-          value={heroTitle}
-          components={components}
-          className={`
-            prose prose-slate max-w-none
-            ${getTextColorClasses(heroTextColor)}
-            overflow-hidden
-            ${getTextAlignmentClass(textAlignment)}
-          `}
-          dataAttributes={createSanityDataAttribute(documentId, documentType, 'heroTitle')}
-        />
+        className={`w-full ${isDefault ? '' : 'md:w-[33vw]'} ${getContainerAlignmentClass(textAlignment)} ${getTextAlignmentClass(textAlignment)}`}>
+        {/* Main Title */}
+        {mainTitle && (
+          <p
+            className='text-h2 mb-4'
+            {...createSanityDataAttribute(documentId, documentType, 'mainTitle')}>
+            {parseColoredText(stegaClean(mainTitle), 'orange-white')}
+          </p>
+        )}
+
+        {/* Sub Title */}
+        {subTitle && (
+          <p
+            className='text-body-2xl'
+            {...createSanityDataAttribute(documentId, documentType, 'subTitle')}>
+            {parseColoredText(stegaClean(subTitle), 'white-orange')}
+          </p>
+        )}
       </div>
     </>
   );
