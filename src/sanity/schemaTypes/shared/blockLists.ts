@@ -36,6 +36,7 @@ export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'ctaButton' }),
   defineArrayMember({ type: 'ctaCalloutLink' }),
   defineArrayMember({ type: 'iconList' }),
+  defineArrayMember({ type: 'detailedList' }),
   defineArrayMember({ type: 'blockListWithStats' }),
   defineArrayMember({ type: 'checkList' }),
   defineArrayMember({ type: 'itemList' }),

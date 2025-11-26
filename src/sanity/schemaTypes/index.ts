@@ -27,6 +27,7 @@ import { embeddedCtaButtonType } from './blocks/embeddedCtaButtonType';
 import { homeHeroCtaButtonType } from './blocks/homeHeroCtaButtonType';
 import { companyLinksBlockType } from './blocks/companyLinksBlockType';
 import { iconListType } from './blocks/iconListType';
+import { detailedListType } from './blocks/detailedListType';
 import { blockListWithStatsType } from './blocks/blockListWithStatsType';
 import { checkListType } from './blocks/checkListType';
 import { itemListType } from './blocks/itemListType';
@@ -78,6 +79,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homeHeroCtaButtonType,
     companyLinksBlockType,
     iconListType,
+    detailedListType,
     blockListWithStatsType,
     checkListType,
     itemListType,

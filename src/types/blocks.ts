@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, BlockListWithStats, CheckList, ItemList, ContactForm } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ContactForm } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -37,6 +37,7 @@ export type CTACalloutLinkBlock = CtaCalloutLink & { _key: string };
 export type EmbeddedCTAButtonBlock = EmbeddedCtaButton & { _key: string };
 export type CompanyLinksBlockType = CompanyLinksBlock & { _key: string };
 export type IconListBlock = IconList & { _key: string };
+export type DetailedListBlock = DetailedList & { _key: string };
 export type BlockListWithStatsBlock = BlockListWithStats & { _key: string };
 export type CheckListBlock = CheckList & { _key: string };
 export type ItemListBlock = ItemList & { _key: string };
@@ -63,6 +64,7 @@ export type NestedBlock =
   | CTACalloutLinkBlock
   | CompanyLinksBlockType
   | IconListBlock
+  | DetailedListBlock
   | BlockListWithStatsBlock
   | CheckListBlock
   | ItemListBlock
@@ -150,6 +152,10 @@ export const isCompanyLinksBlock = (block: NestedBlock): block is CompanyLinksBl
 
 export const isIconListBlock = (block: NestedBlock): block is IconListBlock => {
   return block._type === 'iconList';
+};
+
+export const isDetailedListBlock = (block: NestedBlock): block is DetailedListBlock => {
+  return block._type === 'detailedList';
 };
 
 export const isItemListBlock = (block: NestedBlock): block is ItemListBlock => {

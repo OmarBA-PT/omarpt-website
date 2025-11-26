@@ -156,6 +156,31 @@ export type BlockListWithStats = {
   }>;
 };
 
+export type DetailedList = {
+  _type: "detailedList";
+  items?: Array<{
+    title?: string;
+    iconType?: "library" | "custom";
+    icon?: string;
+    customImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    description?: string;
+    _type: "detailedListItem";
+    _key: string;
+  }>;
+};
+
 export type IconList = {
   _type: "iconList";
   layout?: "horizontal" | "vertical";
@@ -349,6 +374,8 @@ export type TwoColumnLayout = {
     _key: string;
   } & IconList | {
     _key: string;
+  } & DetailedList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -381,6 +408,8 @@ export type TwoColumnLayout = {
   } & CtaCalloutLink | {
     _key: string;
   } & IconList | {
+    _key: string;
+  } & DetailedList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -479,6 +508,8 @@ export type GridLayout = {
     _key: string;
   } & IconList | {
     _key: string;
+  } & DetailedList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -534,6 +565,8 @@ export type Card = {
     _key: string;
   } & IconList | {
     _key: string;
+  } & DetailedList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -583,6 +616,8 @@ export type ContentWrapper = {
     _key: string;
   } & IconList | {
     _key: string;
+  } & DetailedList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -626,6 +661,8 @@ export type SubSubSection = {
   } & CtaCalloutLink | {
     _key: string;
   } & IconList | {
+    _key: string;
+  } & DetailedList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -672,6 +709,8 @@ export type SubSection = {
   } & CtaCalloutLink | {
     _key: string;
   } & IconList | {
+    _key: string;
+  } & DetailedList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -722,6 +761,8 @@ export type PageSection = {
   } & CtaCalloutLink | {
     _key: string;
   } & IconList | {
+    _key: string;
+  } & DetailedList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -860,6 +901,8 @@ export type PrivacyPolicy = {
     _key: string;
   } & IconList | {
     _key: string;
+  } & DetailedList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -910,6 +953,8 @@ export type TermsAndConditions = {
     _key: string;
   } & IconList | {
     _key: string;
+  } & DetailedList | {
+    _key: string;
   } & BlockListWithStats | {
     _key: string;
   } & CheckList | {
@@ -959,6 +1004,8 @@ export type Page = {
   } & CtaCalloutLink | {
     _key: string;
   } & IconList | {
+    _key: string;
+  } & DetailedList | {
     _key: string;
   } & BlockListWithStats | {
     _key: string;
@@ -1221,7 +1268,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -1391,6 +1438,32 @@ export type PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -1654,6 +1727,32 @@ export type PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -1819,6 +1918,32 @@ export type PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -2078,6 +2203,32 @@ export type PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -2481,6 +2632,32 @@ export type PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -2740,6 +2917,32 @@ export type PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -2900,6 +3103,31 @@ export type PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -3130,6 +3358,32 @@ export type PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -3564,6 +3818,31 @@ export type PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -3795,6 +4074,32 @@ export type PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -3949,6 +4254,30 @@ export type PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -4167,6 +4496,31 @@ export type PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -4565,6 +4919,30 @@ export type PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -4783,6 +5161,31 @@ export type PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -4935,6 +5338,30 @@ export type PAGE_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -5149,6 +5576,30 @@ export type PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -5511,6 +5962,30 @@ export type PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -5723,6 +6198,30 @@ export type PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -5976,6 +6475,30 @@ export type PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -6188,6 +6711,30 @@ export type PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -6454,6 +7001,30 @@ export type PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -6666,6 +7237,30 @@ export type PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -6919,6 +7514,30 @@ export type PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -7131,6 +7750,30 @@ export type PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -7399,6 +8042,30 @@ export type PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -7611,6 +8278,30 @@ export type PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -7864,6 +8555,30 @@ export type PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -8076,6 +8791,30 @@ export type PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -8386,6 +9125,30 @@ export type PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -8598,6 +9361,30 @@ export type PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -8851,6 +9638,30 @@ export type PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -9063,6 +9874,30 @@ export type PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -9315,6 +10150,30 @@ export type PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -9727,6 +10586,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -9986,6 +10871,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -10146,6 +11057,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -10376,6 +11312,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -10802,6 +11764,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -11014,6 +12000,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -11267,6 +12277,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -11479,6 +12513,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -11765,6 +12823,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -12024,6 +13108,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -12184,6 +13294,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -12414,6 +13549,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -12848,6 +14009,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -13079,6 +14265,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -13233,6 +14445,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -13451,6 +14687,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -13849,6 +15110,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -14067,6 +15352,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -14219,6 +15529,30 @@ export type HOME_PAGE_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -14433,6 +15767,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -14795,6 +16153,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -15007,6 +16389,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -15260,6 +16666,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -15472,6 +16902,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -15738,6 +17192,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -15950,6 +17428,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -16203,6 +17705,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -16415,6 +17941,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -16683,6 +18233,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -16895,6 +18469,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -17148,6 +18746,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -17360,6 +18982,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -17652,6 +19298,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -17912,6 +19584,32 @@ export type HOME_PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -18077,6 +19775,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -18336,6 +20060,32 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -18739,6 +20489,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -18998,6 +20774,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -19158,6 +20960,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -19388,6 +21215,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -19822,6 +21675,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -20053,6 +21931,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -20207,6 +22111,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -20425,6 +22353,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -20823,6 +22776,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -21041,6 +23018,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -21193,6 +23195,30 @@ export type HOME_PAGE_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -21407,6 +23433,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -21769,6 +23819,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -21981,6 +24055,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -22234,6 +24332,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -22446,6 +24568,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -22712,6 +24858,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -22924,6 +25094,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -23177,6 +25371,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -23389,6 +25607,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -23657,6 +25899,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -23869,6 +26135,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -24122,6 +26412,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -24334,6 +26648,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -24644,6 +26982,30 @@ export type HOME_PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -24856,6 +27218,30 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -25109,6 +27495,30 @@ export type HOME_PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -25321,6 +27731,30 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -25611,6 +28045,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -25871,6 +28331,32 @@ export type HOME_PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -26036,6 +28522,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -26295,6 +28807,32 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -26698,6 +29236,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -26957,6 +29521,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -27117,6 +29707,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -27347,6 +29962,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -27781,6 +30422,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -28012,6 +30678,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -28166,6 +30858,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -28384,6 +31100,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -28782,6 +31523,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -29000,6 +31765,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -29152,6 +31942,30 @@ export type HOME_PAGE_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -29366,6 +32180,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -29728,6 +32566,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -29940,6 +32802,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -30193,6 +33079,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -30405,6 +33315,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -30671,6 +33605,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -30883,6 +33841,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -31136,6 +34118,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -31348,6 +34354,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -31616,6 +34646,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -31828,6 +34882,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -32081,6 +35159,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -32293,6 +35395,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -32603,6 +35729,30 @@ export type HOME_PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -32815,6 +35965,30 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -33068,6 +36242,30 @@ export type HOME_PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -33280,6 +36478,30 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -33618,6 +36840,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -33878,6 +37126,32 @@ export type HOME_PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -34043,6 +37317,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -34302,6 +37602,32 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -34705,6 +38031,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -34964,6 +38316,32 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -35124,6 +38502,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -35354,6 +38757,32 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -35788,6 +39217,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -36019,6 +39473,32 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -36173,6 +39653,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -36391,6 +39895,31 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -36789,6 +40318,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -37007,6 +40560,31 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -37159,6 +40737,30 @@ export type HOME_PAGE_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -37373,6 +40975,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -37735,6 +41361,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -37947,6 +41597,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -38200,6 +41874,30 @@ export type HOME_PAGE_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -38412,6 +42110,30 @@ export type HOME_PAGE_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -38678,6 +42400,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -38890,6 +42636,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -39143,6 +42913,30 @@ export type HOME_PAGE_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -39355,6 +43149,30 @@ export type HOME_PAGE_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -39623,6 +43441,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -39835,6 +43677,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -40088,6 +43954,30 @@ export type HOME_PAGE_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -40300,6 +44190,30 @@ export type HOME_PAGE_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -40610,6 +44524,30 @@ export type HOME_PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -40822,6 +44760,30 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -41075,6 +45037,30 @@ export type HOME_PAGE_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -41287,6 +45273,30 @@ export type HOME_PAGE_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -42202,6 +46212,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -42461,6 +46497,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -42621,6 +46683,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -42851,6 +46938,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -43277,6 +47390,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -43489,6 +47626,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -43742,6 +47903,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -43954,6 +48139,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -44240,6 +48449,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -44499,6 +48734,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -44659,6 +48920,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -44889,6 +49175,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -45323,6 +49635,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -45554,6 +49891,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -45708,6 +50071,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -45926,6 +50313,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -46324,6 +50736,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -46542,6 +50978,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -46694,6 +51155,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -46908,6 +51393,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -47270,6 +51779,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -47482,6 +52015,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -47735,6 +52292,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -47947,6 +52528,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -48213,6 +52818,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -48425,6 +53054,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -48678,6 +53331,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -48890,6 +53567,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -49158,6 +53859,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -49370,6 +54095,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -49623,6 +54372,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -49835,6 +54608,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -50119,6 +54916,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -50379,6 +55202,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -50544,6 +55393,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -50803,6 +55678,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -51206,6 +56107,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -51465,6 +56392,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -51625,6 +56578,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -51855,6 +56833,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -52289,6 +57293,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -52520,6 +57549,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -52674,6 +57729,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -52892,6 +57971,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -53290,6 +58394,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -53508,6 +58636,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -53660,6 +58813,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -53874,6 +59051,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -54236,6 +59437,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -54448,6 +59673,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -54701,6 +59950,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -54913,6 +60186,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -55179,6 +60476,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -55391,6 +60712,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -55644,6 +60989,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -55856,6 +61225,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -56124,6 +61517,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -56336,6 +61753,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -56589,6 +62030,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -56801,6 +62266,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -57111,6 +62600,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -57323,6 +62836,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -57576,6 +63113,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -57788,6 +63349,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -58070,6 +63655,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -58330,6 +63941,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -58495,6 +64132,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -58754,6 +64417,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -59157,6 +64846,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -59416,6 +65131,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -59576,6 +65317,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -59806,6 +65572,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -60240,6 +66032,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -60471,6 +66288,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -60625,6 +66468,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -60843,6 +66710,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -61241,6 +67133,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -61459,6 +67375,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -61611,6 +67552,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -61825,6 +67790,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -62187,6 +68176,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -62399,6 +68412,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -62652,6 +68689,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -62864,6 +68925,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -63130,6 +69215,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -63342,6 +69451,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -63595,6 +69728,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -63807,6 +69964,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -64075,6 +70256,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -64287,6 +70492,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -64540,6 +70769,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -64752,6 +71005,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -65062,6 +71339,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -65274,6 +71575,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -65527,6 +71852,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -65739,6 +72088,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -66045,6 +72418,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -66305,6 +72704,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -66470,6 +72895,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -66729,6 +73180,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -67132,6 +73609,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -67391,6 +73894,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -67551,6 +74080,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -67781,6 +74335,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -68215,6 +74795,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -68446,6 +75051,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -68600,6 +75231,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -68818,6 +75473,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -69216,6 +75896,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -69434,6 +76138,31 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -69586,6 +76315,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -69800,6 +76553,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -70162,6 +76939,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -70374,6 +77175,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -70627,6 +77452,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -70839,6 +77688,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -71105,6 +77978,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -71317,6 +78214,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -71570,6 +78491,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -71782,6 +78727,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -72050,6 +79019,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -72262,6 +79255,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -72515,6 +79532,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -72727,6 +79768,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -73037,6 +80102,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -73249,6 +80338,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -73502,6 +80615,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -73714,6 +80851,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -74036,6 +81197,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -74295,6 +81482,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -74455,6 +81668,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -74685,6 +81923,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -75111,6 +82375,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -75323,6 +82611,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -75576,6 +82888,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -75788,6 +83124,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -76074,6 +83434,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -76333,6 +83719,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -76493,6 +83905,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -76723,6 +84160,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -77157,6 +84620,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -77388,6 +84876,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -77542,6 +85056,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -77760,6 +85298,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -78158,6 +85721,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -78376,6 +85963,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -78528,6 +86140,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -78742,6 +86378,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -79104,6 +86764,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -79316,6 +87000,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -79569,6 +87277,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -79781,6 +87513,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -80047,6 +87803,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -80259,6 +88039,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -80512,6 +88316,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -80724,6 +88552,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -80992,6 +88844,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -81204,6 +89080,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -81457,6 +89357,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -81669,6 +89593,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -81953,6 +89901,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -82213,6 +90187,32 @@ export type PRIVACY_POLICY_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -82378,6 +90378,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -82637,6 +90663,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -83040,6 +91092,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -83299,6 +91377,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -83459,6 +91563,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -83689,6 +91818,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -84123,6 +92278,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -84354,6 +92534,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -84508,6 +92714,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -84726,6 +92956,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -85124,6 +93379,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -85342,6 +93621,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -85494,6 +93798,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -85708,6 +94036,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -86070,6 +94422,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -86282,6 +94658,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -86535,6 +94935,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -86747,6 +95171,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -87013,6 +95461,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -87225,6 +95697,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -87478,6 +95974,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -87690,6 +96210,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -87958,6 +96502,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -88170,6 +96738,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -88423,6 +97015,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -88635,6 +97251,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -88945,6 +97585,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -89157,6 +97821,30 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -89410,6 +98098,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -89622,6 +98334,30 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -89904,6 +98640,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -90164,6 +98926,32 @@ export type PRIVACY_POLICY_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -90329,6 +99117,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -90588,6 +99402,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -90991,6 +99831,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -91250,6 +100116,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -91410,6 +100302,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -91640,6 +100557,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -92074,6 +101017,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -92305,6 +101273,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -92459,6 +101453,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -92677,6 +101695,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -93075,6 +102118,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -93293,6 +102360,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -93445,6 +102537,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -93659,6 +102775,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -94021,6 +103161,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -94233,6 +103397,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -94486,6 +103674,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -94698,6 +103910,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -94964,6 +104200,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -95176,6 +104436,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -95429,6 +104713,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -95641,6 +104949,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -95909,6 +105241,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -96121,6 +105477,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -96374,6 +105754,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -96586,6 +105990,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -96896,6 +106324,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -97108,6 +106560,30 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -97361,6 +106837,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -97573,6 +107073,30 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -97879,6 +107403,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -98139,6 +107689,32 @@ export type PRIVACY_POLICY_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "detailedList";
+    items?: Array<{
+      title?: string;
+      iconType?: "custom" | "library";
+      icon?: string;
+      customImage?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      description?: string;
+      _type: "detailedListItem";
+      _key: string;
+    }>;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "divider";
     style?: string;
     image: null;
@@ -98304,6 +107880,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -98563,6 +108165,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
       content: null;
     } | {
       _key: string;
@@ -98966,6 +108594,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -99225,6 +108879,32 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "divider";
       style?: string;
       image: null;
@@ -99385,6 +109065,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -99615,6 +109320,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
         content: null;
       } | {
         _key: string;
@@ -100049,6 +109780,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -100280,6 +110036,32 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
         image: null;
@@ -100434,6 +110216,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -100652,6 +110458,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
         } | {
           _key: string;
           _type: "divider";
@@ -101050,6 +110881,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -101268,6 +111123,31 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
           image: null;
@@ -101420,6 +111300,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               pageSectionId?: string;
               openInNewTab?: boolean;
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+            } | {
+              _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
             } | {
               _key: string;
               _type: "divider";
@@ -101634,6 +111538,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -101996,6 +111924,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -102208,6 +112160,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -102461,6 +112437,30 @@ export type PRIVACY_POLICY_QUERYResult = {
               computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
             } | {
               _key: string;
+              _type: "detailedList";
+              items?: Array<{
+                title?: string;
+                iconType?: "custom" | "library";
+                icon?: string;
+                customImage?: {
+                  asset?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                  };
+                  media?: unknown;
+                  hotspot?: SanityImageHotspot;
+                  crop?: SanityImageCrop;
+                  alt?: string;
+                  _type: "image";
+                };
+                description?: string;
+                _type: "detailedListItem";
+                _key: string;
+              }>;
+            } | {
+              _key: string;
               _type: "divider";
               style?: string;
             } | {
@@ -102673,6 +112673,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             pageSectionId?: string;
             openInNewTab?: boolean;
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+          } | {
+            _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
           } | {
             _key: string;
             _type: "divider";
@@ -102939,6 +112963,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -103151,6 +113199,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -103404,6 +113476,30 @@ export type PRIVACY_POLICY_QUERYResult = {
             computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
           } | {
             _key: string;
+            _type: "detailedList";
+            items?: Array<{
+              title?: string;
+              iconType?: "custom" | "library";
+              icon?: string;
+              customImage?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              description?: string;
+              _type: "detailedListItem";
+              _key: string;
+            }>;
+          } | {
+            _key: string;
             _type: "divider";
             style?: string;
           } | {
@@ -103616,6 +113712,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           pageSectionId?: string;
           openInNewTab?: boolean;
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
         } | {
           _key: string;
           _type: "divider";
@@ -103884,6 +114004,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -104096,6 +114240,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -104349,6 +114517,30 @@ export type PRIVACY_POLICY_QUERYResult = {
           computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
         } | {
           _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            iconType?: "custom" | "library";
+            icon?: string;
+            customImage?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+        } | {
+          _key: string;
           _type: "divider";
           style?: string;
         } | {
@@ -104561,6 +114753,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         pageSectionId?: string;
         openInNewTab?: boolean;
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
       } | {
         _key: string;
         _type: "divider";
@@ -104871,6 +115087,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -105083,6 +115323,30 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";
@@ -105336,6 +115600,30 @@ export type PRIVACY_POLICY_QUERYResult = {
         computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
       } | {
         _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          iconType?: "custom" | "library";
+          icon?: string;
+          customImage?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+      } | {
+        _key: string;
         _type: "divider";
         style?: string;
       } | {
@@ -105548,6 +115836,30 @@ export type PRIVACY_POLICY_QUERYResult = {
       pageSectionId?: string;
       openInNewTab?: boolean;
       computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        iconType?: "custom" | "library";
+        icon?: string;
+        customImage?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "divider";

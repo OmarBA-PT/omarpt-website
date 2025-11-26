@@ -14,6 +14,7 @@ import type {
   YouTubeVideo as YouTubeVideoType,
   CompanyLinksBlock as CompanyLinksBlockType,
   IconList as IconListType,
+  DetailedList as DetailedListType,
   BlockListWithStats as BlockListWithStatsType,
   CheckList as CheckListType,
   ItemList as ItemListType,
@@ -36,6 +37,7 @@ import ImageGallery from '@/components/_blocks/ImageGallery';
 import YouTubeVideo from '@/components/_blocks/YouTubeVideo';
 import CompanyLinksBlock from '@/components/_blocks/CompanyLinksBlock';
 import IconList from '@/components/_blocks/IconList';
+import DetailedList from '@/components/_blocks/DetailedList';
 import BlockListWithStats from '@/components/_blocks/BlockListWithStats';
 import CheckList from '@/components/_blocks/CheckList';
 import ItemList from '@/components/_blocks/ItemList';
@@ -77,6 +79,7 @@ type BlockType =
   | WithKey<YouTubeVideoType>
   | WithKey<CompanyLinksBlockType>
   | WithKey<IconListType>
+  | WithKey<DetailedListType>
   | WithKey<BlockListWithStatsType>
   | WithKey<CheckListType>
   | WithKey<ItemListType>
@@ -258,6 +261,20 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
         <BlockWrapper key={iconListBlock._key}>
           <IconList
             {...iconListBlock}
+            documentId={documentId}
+            documentType={documentType}
+            fieldPathPrefix={blockPath}
+          />
+        </BlockWrapper>
+      );
+    }
+
+    case 'detailedList': {
+      const detailedListBlock = typedBlock as WithKey<DetailedListType>;
+      return (
+        <BlockWrapper key={detailedListBlock._key}>
+          <DetailedList
+            {...detailedListBlock}
             documentId={documentId}
             documentType={documentType}
             fieldPathPrefix={blockPath}
