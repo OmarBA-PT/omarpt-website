@@ -18,6 +18,7 @@ import type {
   BlockListWithStats as BlockListWithStatsType,
   CheckList as CheckListType,
   ItemList as ItemListType,
+  ServiceCard as ServiceCardType,
   ContactForm as ContactFormType,
   Divider as DividerType,
   Card as CardType,
@@ -41,6 +42,7 @@ import DetailedList from '@/components/_blocks/DetailedList';
 import BlockListWithStats from '@/components/_blocks/BlockListWithStats';
 import CheckList from '@/components/_blocks/CheckList';
 import ItemList from '@/components/_blocks/ItemList';
+import ServiceCard from '@/components/_blocks/ServiceCard';
 import ContactFormComponent from '@/components/_blocks/ContactForm';
 import Divider from '@/components/UI/Divider';
 import Card from '@/components/_blocks/Card';
@@ -83,6 +85,7 @@ type BlockType =
   | WithKey<BlockListWithStatsType>
   | WithKey<CheckListType>
   | WithKey<ItemListType>
+  | WithKey<ServiceCardType>
   | WithKey<ContactFormType>
   | WithKey<DividerType>
   | WithKey<CardType>
@@ -316,6 +319,20 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       return (
         <BlockWrapper key={itemListBlock._key}>
           <ItemList {...itemListBlock} inheritAlignment={alignment} />
+        </BlockWrapper>
+      );
+    }
+
+    case 'serviceCard': {
+      const serviceCardBlock = typedBlock as WithKey<ServiceCardType>;
+      return (
+        <BlockWrapper key={serviceCardBlock._key}>
+          <ServiceCard
+            {...serviceCardBlock}
+            documentId={documentId}
+            documentType={documentType}
+            fieldPathPrefix={blockPath}
+          />
         </BlockWrapper>
       );
     }

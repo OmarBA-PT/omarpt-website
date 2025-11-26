@@ -114,6 +114,35 @@ export type ContactForm = {
   placeholder?: string;
 };
 
+export type ServiceCard = {
+  _type: "serviceCard";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  list?: {
+    title?: string;
+    items?: Array<{
+      text?: string;
+      _type: "listItem";
+      _key: string;
+    }>;
+  };
+  pricingInfo?: string;
+};
+
 export type ItemList = {
   _type: "itemList";
   alignment?: "inherit" | "left" | "center" | "right";
@@ -382,6 +411,8 @@ export type TwoColumnLayout = {
     _key: string;
   } & ItemList | {
     _key: string;
+  } & ServiceCard | {
+    _key: string;
   } & ContactForm | {
     _key: string;
   } & CompanyLinksBlock | {
@@ -416,6 +447,8 @@ export type TwoColumnLayout = {
   } & CheckList | {
     _key: string;
   } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
     _key: string;
   } & ContactForm | {
     _key: string;
@@ -516,6 +549,8 @@ export type GridLayout = {
     _key: string;
   } & ItemList | {
     _key: string;
+  } & ServiceCard | {
+    _key: string;
   } & ContactForm | {
     _key: string;
   } & CompanyLinksBlock | {
@@ -572,6 +607,8 @@ export type Card = {
   } & CheckList | {
     _key: string;
   } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
     _key: string;
   } & ContactForm | {
     _key: string;
@@ -636,6 +673,8 @@ export type ContentWrapper = {
     _key: string;
   } & ItemList | {
     _key: string;
+  } & ServiceCard | {
+    _key: string;
   } & ContactForm | {
     _key: string;
   } & CompanyLinksBlock | {
@@ -681,6 +720,8 @@ export type SubSubSection = {
   } & CheckList | {
     _key: string;
   } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
     _key: string;
   } & ContactForm | {
     _key: string;
@@ -729,6 +770,8 @@ export type SubSection = {
   } & CheckList | {
     _key: string;
   } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
     _key: string;
   } & ContactForm | {
     _key: string;
@@ -793,6 +836,8 @@ export type PageSection = {
   } & CheckList | {
     _key: string;
   } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
     _key: string;
   } & ContactForm | {
     _key: string;
@@ -933,6 +978,8 @@ export type PrivacyPolicy = {
     _key: string;
   } & ItemList | {
     _key: string;
+  } & ServiceCard | {
+    _key: string;
   } & ContactForm | {
     _key: string;
   } & CompanyLinksBlock | {
@@ -985,6 +1032,8 @@ export type TermsAndConditions = {
     _key: string;
   } & ItemList | {
     _key: string;
+  } & ServiceCard | {
+    _key: string;
   } & ContactForm | {
     _key: string;
   } & CompanyLinksBlock | {
@@ -1036,6 +1085,8 @@ export type Page = {
   } & CheckList | {
     _key: string;
   } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
     _key: string;
   } & ContactForm | {
     _key: string;
@@ -1292,7 +1343,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -1619,6 +1670,33 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -2100,6 +2178,33 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -2384,6 +2489,33 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -2821,6 +2953,33 @@ export type PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -3269,6 +3428,32 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -3552,6 +3737,33 @@ export type PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -3688,6 +3900,33 @@ export type PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -3980,6 +4219,32 @@ export type PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -4413,6 +4678,34 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -4662,6 +4955,32 @@ export type PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -4795,6 +5114,33 @@ export type PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -5074,6 +5420,34 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -5497,6 +5871,34 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -5735,6 +6137,34 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -5841,6 +6271,32 @@ export type PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -6119,6 +6575,34 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -6355,6 +6839,34 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -6632,6 +7144,34 @@ export type PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -6868,6 +7408,34 @@ export type PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -7158,6 +7726,34 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -7394,6 +7990,34 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -7671,6 +8295,34 @@ export type PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -7907,6 +8559,34 @@ export type PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -8199,6 +8879,34 @@ export type PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -8435,6 +9143,34 @@ export type PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -8712,6 +9448,34 @@ export type PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -8950,6 +9714,34 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -9003,6 +9795,33 @@ export type PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -9282,6 +10101,34 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -9518,6 +10365,34 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -9795,6 +10670,34 @@ export type PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -10031,6 +10934,34 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -10307,6 +11238,34 @@ export type PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -10789,6 +11748,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -11235,6 +12221,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -11518,6 +12530,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -11654,6 +12693,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -11933,6 +12999,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -12169,6 +13263,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -12446,6 +13568,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -12682,6 +13832,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -13038,6 +14216,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -13484,6 +14689,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -13767,6 +14998,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -13903,6 +15161,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -14195,6 +15480,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -14628,6 +15939,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -14877,6 +16216,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -15010,6 +16375,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -15289,6 +16681,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -15712,6 +17132,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -15950,6 +17398,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -16056,6 +17532,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -16334,6 +17836,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -16570,6 +18100,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -16847,6 +18405,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -17083,6 +18669,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -17373,6 +18987,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -17609,6 +19251,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -17886,6 +19556,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -18122,6 +19820,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -18414,6 +20140,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -18650,6 +20404,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -18927,6 +20709,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -19163,6 +20973,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -19514,6 +21352,33 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -19993,6 +21858,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -20277,6 +22169,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -20714,6 +22633,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -21162,6 +23108,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -21445,6 +23417,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -21581,6 +23580,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -21873,6 +23899,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -22306,6 +24358,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -22555,6 +24635,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -22688,6 +24794,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -22967,6 +25100,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -23390,6 +25551,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -23628,6 +25817,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -23734,6 +25951,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -24012,6 +26255,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -24248,6 +26519,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -24525,6 +26824,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -24761,6 +27088,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -25051,6 +27406,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -25287,6 +27670,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -25564,6 +27975,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -25800,6 +28239,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -26092,6 +28559,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -26328,6 +28823,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -26605,6 +29128,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -26843,6 +29394,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -26896,6 +29475,33 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -27175,6 +29781,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -27411,6 +30045,34 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -27688,6 +30350,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -27924,6 +30614,34 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -28273,6 +30991,33 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -28752,6 +31497,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -29036,6 +31808,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -29473,6 +32272,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -29921,6 +32747,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -30204,6 +33056,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -30340,6 +33219,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -30632,6 +33538,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -31065,6 +33997,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -31314,6 +34274,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -31447,6 +34433,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -31726,6 +34739,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -32149,6 +35190,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -32387,6 +35456,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -32493,6 +35590,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -32771,6 +35894,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -33007,6 +36158,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -33284,6 +36463,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -33520,6 +36727,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -33810,6 +37045,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -34046,6 +37309,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -34323,6 +37614,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -34559,6 +37878,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -34851,6 +38198,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -35087,6 +38462,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -35364,6 +38767,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -35602,6 +39033,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -35655,6 +39114,33 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -35934,6 +39420,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -36170,6 +39684,34 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -36447,6 +39989,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -36683,6 +40253,34 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -37080,6 +40678,33 @@ export type HOME_PAGE_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -37559,6 +41184,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -37843,6 +41495,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -38280,6 +41959,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -38728,6 +42434,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -39011,6 +42743,33 @@ export type HOME_PAGE_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -39147,6 +42906,33 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -39439,6 +43225,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -39872,6 +43684,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -40121,6 +43961,32 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -40254,6 +44120,33 @@ export type HOME_PAGE_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -40533,6 +44426,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -40956,6 +44877,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -41194,6 +45143,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -41300,6 +45277,32 @@ export type HOME_PAGE_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -41578,6 +45581,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -41814,6 +45845,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -42091,6 +46150,34 @@ export type HOME_PAGE_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -42327,6 +46414,34 @@ export type HOME_PAGE_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -42617,6 +46732,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -42853,6 +46996,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -43130,6 +47301,34 @@ export type HOME_PAGE_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -43366,6 +47565,34 @@ export type HOME_PAGE_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -43658,6 +47885,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -43894,6 +48149,34 @@ export type HOME_PAGE_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -44171,6 +48454,34 @@ export type HOME_PAGE_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -44409,6 +48720,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -44462,6 +48801,33 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -44741,6 +49107,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -44977,6 +49371,34 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -45254,6 +49676,34 @@ export type HOME_PAGE_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -45490,6 +49940,34 @@ export type HOME_PAGE_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -46475,6 +50953,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -46921,6 +51426,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -47204,6 +51735,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -47340,6 +51898,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -47619,6 +52204,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -47855,6 +52468,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -48132,6 +52773,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -48368,6 +53037,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -48724,6 +53421,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -49170,6 +53894,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -49453,6 +54203,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -49589,6 +54366,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -49881,6 +54685,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -50314,6 +55144,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -50563,6 +55421,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -50696,6 +55580,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -50975,6 +55886,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -51398,6 +56337,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -51636,6 +56603,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -51742,6 +56737,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -52020,6 +57041,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -52256,6 +57305,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -52533,6 +57610,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -52769,6 +57874,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -53059,6 +58192,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -53295,6 +58456,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -53572,6 +58761,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -53808,6 +59025,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -54100,6 +59345,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -54336,6 +59609,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -54613,6 +59914,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -54849,6 +60178,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -55192,6 +60549,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -55671,6 +61055,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -55955,6 +61366,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -56392,6 +61830,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -56840,6 +62305,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -57123,6 +62614,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -57259,6 +62777,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -57551,6 +63096,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -57984,6 +63555,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -58233,6 +63832,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -58366,6 +63991,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -58645,6 +64297,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -59068,6 +64748,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -59306,6 +65014,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -59412,6 +65148,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -59690,6 +65452,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -59926,6 +65716,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -60203,6 +66021,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -60439,6 +66285,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -60729,6 +66603,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -60965,6 +66867,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -61242,6 +67172,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -61478,6 +67436,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -61770,6 +67756,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -62006,6 +68020,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -62283,6 +68325,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -62521,6 +68591,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -62574,6 +68672,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -62853,6 +68978,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -63089,6 +69242,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -63366,6 +69547,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -63602,6 +69811,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -63943,6 +70180,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -64422,6 +70686,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -64706,6 +70997,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -65143,6 +71461,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -65591,6 +71936,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -65874,6 +72245,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -66010,6 +72408,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -66302,6 +72727,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -66735,6 +73186,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -66984,6 +73463,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -67117,6 +73622,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -67396,6 +73928,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -67819,6 +74379,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -68057,6 +74645,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -68163,6 +74779,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -68441,6 +75083,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -68677,6 +75347,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -68954,6 +75652,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -69190,6 +75916,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -69480,6 +76234,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -69716,6 +76498,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -69993,6 +76803,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -70229,6 +77067,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -70521,6 +77387,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -70757,6 +77651,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -71034,6 +77956,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -71272,6 +78222,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -71325,6 +78303,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -71604,6 +78609,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -71840,6 +78873,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -72117,6 +79178,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -72353,6 +79442,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -72718,6 +79835,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -73197,6 +80341,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -73481,6 +80652,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -73918,6 +81116,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -74366,6 +81591,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -74649,6 +81900,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -74785,6 +82063,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -75077,6 +82382,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -75510,6 +82841,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -75759,6 +83118,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -75892,6 +83277,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -76171,6 +83583,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -76594,6 +84034,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -76832,6 +84300,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -76938,6 +84434,32 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -77216,6 +84738,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -77452,6 +85002,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -77729,6 +85307,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -77965,6 +85571,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -78255,6 +85889,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -78491,6 +86153,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -78768,6 +86458,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -79004,6 +86722,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -79296,6 +87042,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -79532,6 +87306,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -79809,6 +87611,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -80047,6 +87877,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -80100,6 +87958,33 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -80379,6 +88264,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -80615,6 +88528,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -80892,6 +88833,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -81128,6 +89097,34 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -81520,6 +89517,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -81966,6 +89990,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -82249,6 +90299,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -82385,6 +90462,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -82664,6 +90768,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -82900,6 +91032,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -83177,6 +91337,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -83413,6 +91601,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -83769,6 +91985,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -84215,6 +92458,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -84498,6 +92767,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -84634,6 +92930,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -84926,6 +93249,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -85359,6 +93708,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -85608,6 +93985,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -85741,6 +94144,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -86020,6 +94450,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -86443,6 +94901,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -86681,6 +95167,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -86787,6 +95301,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -87065,6 +95605,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -87301,6 +95869,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -87578,6 +96174,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -87814,6 +96438,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -88104,6 +96756,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -88340,6 +97020,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -88617,6 +97325,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -88853,6 +97589,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -89145,6 +97909,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -89381,6 +98173,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -89658,6 +98478,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -89894,6 +98742,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -90237,6 +99113,33 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -90716,6 +99619,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -91000,6 +99930,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -91437,6 +100394,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -91885,6 +100869,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -92168,6 +101178,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -92304,6 +101341,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -92596,6 +101660,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -93029,6 +102119,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -93278,6 +102396,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -93411,6 +102555,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -93690,6 +102861,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -94113,6 +103312,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -94351,6 +103578,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -94457,6 +103712,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -94735,6 +104016,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -94971,6 +104280,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -95248,6 +104585,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -95484,6 +104849,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -95774,6 +105167,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -96010,6 +105431,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -96287,6 +105736,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -96523,6 +106000,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -96815,6 +106320,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -97051,6 +106584,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -97328,6 +106889,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -97566,6 +107155,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -97619,6 +107236,33 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -97898,6 +107542,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -98134,6 +107806,34 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -98411,6 +108111,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -98647,6 +108375,34 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -98988,6 +108744,33 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -99467,6 +109250,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -99751,6 +109561,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -100188,6 +110025,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -100636,6 +110500,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -100919,6 +110809,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -101055,6 +110972,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -101347,6 +111291,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -101780,6 +111750,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -102029,6 +112027,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -102162,6 +112186,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -102441,6 +112492,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -102864,6 +112943,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -103102,6 +113209,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -103208,6 +113343,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -103486,6 +113647,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -103722,6 +113911,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -103999,6 +114216,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -104235,6 +114480,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -104525,6 +114798,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -104761,6 +115062,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -105038,6 +115367,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -105274,6 +115631,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -105566,6 +115951,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -105802,6 +116215,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -106079,6 +116520,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -106317,6 +116786,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -106370,6 +116867,33 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -106649,6 +117173,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -106885,6 +117437,34 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -107162,6 +117742,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -107398,6 +118006,34 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -107763,6 +118399,33 @@ export type PRIVACY_POLICY_QUERYResult = {
       image: null;
     } | {
       _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
       _type: "statement";
       text?: string;
       image: null;
@@ -108242,6 +118905,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -108526,6 +119216,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -108963,6 +119680,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -109411,6 +120155,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -109694,6 +120464,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         image: null;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
         image: null;
@@ -109830,6 +120627,33 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       }> | null;
       image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
     } | {
       _key: string;
       _type: "statement";
@@ -110122,6 +120946,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -110555,6 +121405,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -110804,6 +121682,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
           image: null;
@@ -110937,6 +121841,33 @@ export type PRIVACY_POLICY_QUERYResult = {
           image: null;
         }> | null;
         image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
       } | {
         _key: string;
         _type: "statement";
@@ -111216,6 +122147,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -111639,6 +122598,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -111877,6 +122864,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -111983,6 +122998,32 @@ export type PRIVACY_POLICY_QUERYResult = {
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -112261,6 +123302,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -112497,6 +123566,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -112774,6 +123871,34 @@ export type PRIVACY_POLICY_QUERYResult = {
               content?: BlockContent;
             } | {
               _key: string;
+              _type: "serviceCard";
+              image?: {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                media?: unknown;
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                alt?: string;
+                _type: "image";
+              };
+              title?: string;
+              subtitle?: string;
+              description?: string;
+              list?: {
+                title?: string;
+                items?: Array<{
+                  text?: string;
+                  _type: "listItem";
+                  _key: string;
+                }>;
+              };
+              pricingInfo?: string;
+            } | {
+              _key: string;
               _type: "statement";
               text?: string;
             } | {
@@ -113010,6 +124135,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             isCallout?: boolean;
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
+          } | {
+            _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
           } | {
             _key: string;
             _type: "statement";
@@ -113300,6 +124453,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -113536,6 +124717,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -113813,6 +125022,34 @@ export type PRIVACY_POLICY_QUERYResult = {
             content?: BlockContent;
           } | {
             _key: string;
+            _type: "serviceCard";
+            image?: {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            };
+            title?: string;
+            subtitle?: string;
+            description?: string;
+            list?: {
+              title?: string;
+              items?: Array<{
+                text?: string;
+                _type: "listItem";
+                _key: string;
+              }>;
+            };
+            pricingInfo?: string;
+          } | {
+            _key: string;
             _type: "statement";
             text?: string;
           } | {
@@ -114049,6 +125286,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           isCallout?: boolean;
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
         } | {
           _key: string;
           _type: "statement";
@@ -114341,6 +125606,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -114577,6 +125870,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         isCallout?: boolean;
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
       } | {
         _key: string;
         _type: "statement";
@@ -114854,6 +126175,34 @@ export type PRIVACY_POLICY_QUERYResult = {
           content?: BlockContent;
         } | {
           _key: string;
+          _type: "serviceCard";
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
           _type: "statement";
           text?: string;
         } | {
@@ -115092,6 +126441,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -115145,6 +126522,33 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     }> | null;
     image: null;
+  } | {
+    _key: string;
+    _type: "serviceCard";
+    image: {
+      asset: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      } | null;
+      alt: string | null;
+      hotspot: SanityImageHotspot | null;
+      crop: SanityImageCrop | null;
+    } | null;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    list?: {
+      title?: string;
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+    };
+    pricingInfo?: string;
+    content: null;
   } | {
     _key: string;
     _type: "statement";
@@ -115424,6 +126828,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -115660,6 +127092,34 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";
@@ -115937,6 +127397,34 @@ export type PRIVACY_POLICY_QUERYResult = {
         content?: BlockContent;
       } | {
         _key: string;
+        _type: "serviceCard";
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+      } | {
+        _key: string;
         _type: "statement";
         text?: string;
       } | {
@@ -116173,6 +127661,34 @@ export type PRIVACY_POLICY_QUERYResult = {
       isCallout?: boolean;
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
     } | {
       _key: string;
       _type: "statement";

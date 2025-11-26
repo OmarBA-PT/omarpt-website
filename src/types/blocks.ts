@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ContactForm } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -41,6 +41,7 @@ export type DetailedListBlock = DetailedList & { _key: string };
 export type BlockListWithStatsBlock = BlockListWithStats & { _key: string };
 export type CheckListBlock = CheckList & { _key: string };
 export type ItemListBlock = ItemList & { _key: string };
+export type ServiceCardBlock = ServiceCard & { _key: string };
 export type ContactFormBlock = ContactForm & { _key: string };
 
 // Union of all possible block types (current and future)
@@ -68,6 +69,7 @@ export type NestedBlock =
   | BlockListWithStatsBlock
   | CheckListBlock
   | ItemListBlock
+  | ServiceCardBlock
   | ContactFormBlock;
 
 // Union of blocks that can contain nested content
