@@ -40,7 +40,7 @@ const DetailedList = ({
             <div key={item._key} className='w-full'>
               {/* Title */}
               <p
-                className='text-h3 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-4'
+                className='text-h3 bg-linear-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-4'
                 {...(documentId && documentType
                   ? createSanityDataAttribute(documentId, documentType, `${itemPath}.title`)
                   : {})}>
@@ -72,7 +72,11 @@ const DetailedList = ({
                         className='w-12 h-12 md:w-16 md:h-16'
                       />
                     ) : (
-                      <Icon iconKey={item.icon as IconKey} className='text-brand-secondary' size={48} />
+                      <Icon
+                        iconKey={item.icon as IconKey}
+                        className='text-brand-secondary'
+                        size={48}
+                      />
                     )}
                   </div>
                 )}
@@ -81,7 +85,11 @@ const DetailedList = ({
                 <div className='flex-1'>
                   <p
                     {...(documentId && documentType
-                      ? createSanityDataAttribute(documentId, documentType, `${itemPath}.description`)
+                      ? createSanityDataAttribute(
+                          documentId,
+                          documentType,
+                          `${itemPath}.description`
+                        )
                       : {})}
                     className='whitespace-pre-line'>
                     {item.description}
@@ -91,7 +99,7 @@ const DetailedList = ({
 
               {/* Gradient Underline Border */}
               <div
-                className='mt-4 h-[0.5px] bg-gradient-to-r from-brand-primary to-brand-secondary'
+                className='mt-4 h-[0.5px] bg-linear-to-r from-brand-primary to-brand-secondary'
                 style={{ opacity: 0.2 }}
               />
             </div>
