@@ -4,7 +4,7 @@ type ColorScheme = 'orange-white' | 'white-orange';
 
 /**
  * Parses a string with color markers {text} and returns JSX elements.
- * Handles gradient text properly by using inline-block for gradient segments.
+ * Handles gradient text properly and preserves spacing and line breaks.
  *
  * @param text - The string to parse (e.g., "Welcome to {Omania} Training")
  * @param colorScheme - The color scheme to use:
@@ -15,10 +15,12 @@ type ColorScheme = 'orange-white' | 'white-orange';
  * @example
  * // Orange gradient default, white tagged
  * parseColoredText("Welcome to {Omania} Training", 'orange-white')
+ * // Renders: "Welcome to " (orange) + "Omania" (white) + " Training" (orange)
  *
  * @example
  * // White default, orange gradient tagged
  * parseColoredText("Professional {Development} Services", 'white-orange')
+ * // Renders: "Professional " (white) + "Development" (orange) + " Services" (white)
  */
 export const parseColoredText = (
   text: string,
@@ -34,7 +36,8 @@ export const parseColoredText = (
   const taggedColor = colorScheme === 'orange-white' ? 'text-white' : 'text-gradient-primary';
 
   return parts.map((part, i) => {
-    if (!part) return null; // Skip empty strings
+    // Skip empty strings but keep them in the array to maintain proper spacing
+    if (!part) return null;
 
     // Check if this part is wrapped in curly braces
     const isTagged = part.startsWith('{') && part.endsWith('}');
@@ -45,11 +48,31 @@ export const parseColoredText = (
     // Split by newlines to preserve them
     const lines = content.split('\n');
 
+    // Helper function to preserve whitespace by replacing spaces with non-breaking spaces
+    // only at the start/end of strings to prevent whitespace collapse
+    const preserveWhitespace = (str: string) => {
+      if (!str) return str;
+
+      // Replace leading spaces with non-breaking spaces
+      const leadingSpaces = str.match(/^\s+/);
+      const trailingSpaces = str.match(/\s+$/);
+      let result = str;
+
+      if (leadingSpaces) {
+        result = leadingSpaces[0].replace(/ /g, '\u00A0') + result.slice(leadingSpaces[0].length);
+      }
+      if (trailingSpaces) {
+        result = result.slice(0, -trailingSpaces[0].length) + trailingSpaces[0].replace(/ /g, '\u00A0');
+      }
+
+      return result;
+    };
+
     // If no newlines, return a simple span
     if (lines.length === 1) {
       return (
         <span key={i} className={colorClass}>
-          {content}
+          {preserveWhitespace(content)}
         </span>
       );
     }
@@ -60,11 +83,9 @@ export const parseColoredText = (
       <React.Fragment key={i}>
         {lines.map((line, lineIndex) => (
           <React.Fragment key={`${i}-${lineIndex}`}>
-            {line && (
-              <span className={colorClass}>
-                {line}
-              </span>
-            )}
+            <span className={colorClass}>
+              {preserveWhitespace(line) || '\u00A0'}
+            </span>
             {lineIndex < lines.length - 1 && <br />}
           </React.Fragment>
         ))}
