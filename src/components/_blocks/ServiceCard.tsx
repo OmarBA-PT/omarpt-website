@@ -39,24 +39,22 @@ const ServiceCard = ({
 
   return (
     <div
-      className={`w-full ${maxCardWidth} mx-auto ${className}`.trim()}
+      className={`w-full mx-auto ${className}`.trim()}
       {...(documentId && documentType
         ? createSanityDataAttribute(documentId, documentType, fieldPathPrefix)
-        : {})}
-    >
-      <div className='flex flex-col md:flex-row gap-6 rounded-2xl bg-brand-white/[0.08] backdrop-blur-[20px] p-6 md:p-8'>
+        : {})}>
+      <div className='flex flex-col md:flex-row gap-6 rounded-2xl bg-brand-white/8 backdrop-blur-[20px] p-6 md:p-8'>
         {/* Image Container - Desktop order changes based on index */}
         {image && (
           <div
-            className={`relative w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-xl flex-shrink-0 ${
+            className={`relative w-full md:w-1/3 aspect-4/3 overflow-hidden rounded-xl shrink-0 ${
               isImageOnLeft ? 'md:order-1' : 'md:order-2'
-            }`}
-          >
+            }`}>
             <UnifiedImage
               src={image}
               alt={image.alt || title || 'Service image'}
               mode='fill'
-              sizeContext='card'
+              sizeContext='full'
               objectFit='cover'
               documentId={documentId}
               documentType={documentType}
@@ -67,19 +65,13 @@ const ServiceCard = ({
 
         {/* Content Container */}
         <div
-          className={`flex flex-col gap-4 ${
-            image
-              ? `md:w-1/2 ${isImageOnLeft ? 'md:order-2' : 'md:order-1'}`
-              : 'w-full'
-          }`}
-        >
+          className={`flex flex-col text-center md:text-left gap-4 ${isImageOnLeft ? 'md:order-2' : 'md:order-1'}`}>
           {/* Title */}
           <p
-            className='text-h4 brand-gradient-primary font-bold'
+            className='text-h4 text-gradient-primary font-bold'
             {...(documentId && documentType
               ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.title`)
-              : {})}
-          >
+              : {})}>
             {title}
           </p>
 
@@ -89,8 +81,7 @@ const ServiceCard = ({
               className='text-body-xl text-brand-white/90'
               {...(documentId && documentType
                 ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.subtitle`)
-                : {})}
-            >
+                : {})}>
               {subtitle}
             </p>
           )}
@@ -99,9 +90,12 @@ const ServiceCard = ({
           <p
             className='text-brand-white/80'
             {...(documentId && documentType
-              ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.description`)
-              : {})}
-          >
+              ? createSanityDataAttribute(
+                  documentId,
+                  documentType,
+                  `${fieldPathPrefix}.description`
+                )
+              : {})}>
             {formattedDescription}
           </p>
 
@@ -110,11 +104,14 @@ const ServiceCard = ({
             <div className='space-y-2'>
               {/* List Title */}
               <p
-                className='font-semibold text-brand-white'
+                className='font-semibold text-body-lg'
                 {...(documentId && documentType
-                  ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.list.title`)
-                  : {})}
-              >
+                  ? createSanityDataAttribute(
+                      documentId,
+                      documentType,
+                      `${fieldPathPrefix}.list.title`
+                    )
+                  : {})}>
                 {list.title}
               </p>
 
@@ -125,22 +122,19 @@ const ServiceCard = ({
                     key={item._key || idx}
                     className='flex items-start gap-3'
                     {...(documentId && documentType
-                      ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.list.items[${idx}]`)
-                      : {})}
-                  >
+                      ? createSanityDataAttribute(
+                          documentId,
+                          documentType,
+                          `${fieldPathPrefix}.list.items[${idx}]`
+                        )
+                      : {})}>
                     {/* Dumbbell Icon Bullet */}
-                    <div className='flex-shrink-0 mt-1'>
-                      <Icon
-                        iconKey='dumbell'
-                        className='text-brand-primary'
-                        size={16}
-                      />
+                    <div className='shrink-0 mt-1'>
+                      <Icon iconKey='dumbell' className='text-brand-primary' size={16} />
                     </div>
 
                     {/* List Item Text */}
-                    <span className='text-brand-white/80'>
-                      {item.text}
-                    </span>
+                    <span className='text-brand-white/80'>{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -152,9 +146,12 @@ const ServiceCard = ({
             <p
               className='text-body-2xl text-brand-secondary font-bold mt-2'
               {...(documentId && documentType
-                ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.pricingInfo`)
-                : {})}
-            >
+                ? createSanityDataAttribute(
+                    documentId,
+                    documentType,
+                    `${fieldPathPrefix}.pricingInfo`
+                  )
+                : {})}>
               {pricingInfo}
             </p>
           )}
