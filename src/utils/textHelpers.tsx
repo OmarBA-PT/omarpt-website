@@ -41,7 +41,8 @@ export const parseColoredText = (
 
     // Check if this part is wrapped in curly braces
     const isTagged = part.startsWith('{') && part.endsWith('}');
-    const content = isTagged ? part.slice(1, -1) : part;
+    // For tagged content, trim to remove unwanted spaces before/after the braces
+    const content = isTagged ? part.slice(1, -1).trim() : part;
     const colorClass = isTagged ? taggedColor : defaultColor;
 
     // For gradient text, we need to handle line breaks differently
@@ -81,14 +82,27 @@ export const parseColoredText = (
     // and add <br> elements between them
     return (
       <React.Fragment key={i}>
-        {lines.map((line, lineIndex) => (
-          <React.Fragment key={`${i}-${lineIndex}`}>
-            <span className={colorClass}>
-              {preserveWhitespace(line) || '\u00A0'}
-            </span>
-            {lineIndex < lines.length - 1 && <br />}
-          </React.Fragment>
-        ))}
+        {lines.map((line, lineIndex) => {
+          // Skip completely empty lines at the start/end of a part to avoid unwanted spaces
+          // Only render non-breaking space for truly blank lines in the middle of content
+          const isFirstLine = lineIndex === 0;
+          const isLastLine = lineIndex === lines.length - 1;
+          const isEmpty = !line || line.trim() === '';
+
+          // Skip rendering empty first/last lines from split artifacts
+          if (isEmpty && (isFirstLine || isLastLine)) {
+            return lineIndex < lines.length - 1 ? <br key={`${i}-${lineIndex}`} /> : null;
+          }
+
+          return (
+            <React.Fragment key={`${i}-${lineIndex}`}>
+              <span className={colorClass}>
+                {preserveWhitespace(line) || '\u00A0'}
+              </span>
+              {lineIndex < lines.length - 1 && <br />}
+            </React.Fragment>
+          );
+        })}
       </React.Fragment>
     );
   });
