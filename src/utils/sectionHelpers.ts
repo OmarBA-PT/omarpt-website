@@ -52,3 +52,60 @@ export const getTextAlignClass = (align: TextAlignment): string => {
   }
 };
 
+/**
+ * Converts text alignment values to responsive Tailwind CSS classes
+ * Mobile-first approach: base class is mobile, desktop is with md: prefix
+ */
+export const getResponsiveTextAlignClass = (
+  mobileAlign: TextAlignment,
+  desktopAlign: TextAlignment
+): string => {
+  const mobileClass = getTextAlignClass(mobileAlign);
+  const desktopClass = getTextAlignClass(desktopAlign);
+
+  // If they're the same, just return the mobile class
+  if (mobileAlign === desktopAlign) {
+    return mobileClass;
+  }
+
+  // Otherwise, return mobile class with desktop override
+  return `${mobileClass} md:${desktopClass}`;
+};
+
+/**
+ * Gets container positioning classes based on alignment
+ */
+export const getContainerAlignClass = (align: TextAlignment): string => {
+  switch (align) {
+    case 'left':
+      return 'mr-auto'; // Push container to the left
+    case 'right':
+      return 'ml-auto'; // Push container to the right
+    case 'center':
+      return 'mx-auto'; // Center the container
+    default:
+      return 'mx-auto'; // Default to center
+  }
+};
+
+/**
+ * Gets responsive container positioning classes
+ */
+export const getResponsiveContainerAlignClass = (
+  mobileAlign: TextAlignment,
+  desktopAlign: TextAlignment
+): string => {
+  const mobileClass = getContainerAlignClass(mobileAlign);
+  const desktopClass = getContainerAlignClass(desktopAlign);
+
+  // If they're the same, just return the mobile class
+  if (mobileAlign === desktopAlign) {
+    return mobileClass;
+  }
+
+  // Otherwise, return mobile class with desktop override
+  // Convert mr-auto to md:mr-auto, ml-auto to md:ml-auto, mx-auto to md:mx-auto
+  const desktopResponsive = desktopClass.replace(/^/, 'md:');
+  return `${mobileClass} ${desktopResponsive}`;
+};
+

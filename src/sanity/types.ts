@@ -590,6 +590,9 @@ export type Card = {
 export type RichText = {
   _type: "richText";
   isCallout?: boolean;
+  alignmentMode?: "inherit" | "override";
+  desktopAlignment?: "left" | "center" | "right";
+  mobileAlignment?: "left" | "center" | "right";
   textAlign?: "inherit" | "left" | "center" | "right";
   content?: BlockContent;
 };
@@ -1590,6 +1593,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -2055,6 +2061,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -2339,6 +2348,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -2762,6 +2774,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -3213,6 +3228,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -3474,6 +3492,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -3624,6 +3645,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -3936,6 +3960,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -4352,6 +4379,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -4600,6 +4630,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -4727,6 +4760,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -5026,6 +5062,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -5433,6 +5472,9 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -5671,6 +5713,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -5792,6 +5837,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -6067,6 +6115,9 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -6305,6 +6356,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -6580,6 +6634,9 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -6818,6 +6875,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -7106,6 +7166,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -7344,6 +7407,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -7619,6 +7685,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -7857,6 +7926,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -8147,6 +8219,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -8385,6 +8460,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -8660,6 +8738,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -8898,6 +8979,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -8959,6 +9043,9 @@ export type PAGE_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -9257,6 +9344,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -9495,6 +9585,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -9770,6 +9863,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -10008,6 +10104,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -10284,6 +10383,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -10743,6 +10845,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -11194,6 +11299,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -11455,6 +11563,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -11605,6 +11716,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -11903,6 +12017,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -12141,6 +12258,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -12416,6 +12536,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -12654,6 +12777,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -12987,6 +13113,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -13438,6 +13567,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -13699,6 +13831,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -13849,6 +13984,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -14161,6 +14299,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -14577,6 +14718,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -14825,6 +14969,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -14952,6 +15099,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -15251,6 +15401,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -15658,6 +15811,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -15896,6 +16052,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -16017,6 +16176,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -16292,6 +16454,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -16530,6 +16695,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -16805,6 +16973,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -17043,6 +17214,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -17331,6 +17505,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -17569,6 +17746,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -17844,6 +18024,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -18082,6 +18265,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -18372,6 +18558,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -18610,6 +18799,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -18885,6 +19077,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -19123,6 +19318,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -19450,6 +19648,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -19915,6 +20116,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -20199,6 +20403,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -20622,6 +20829,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -21073,6 +21283,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -21334,6 +21547,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -21484,6 +21700,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -21796,6 +22015,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -22212,6 +22434,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -22460,6 +22685,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -22587,6 +22815,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -22886,6 +23117,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -23293,6 +23527,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -23531,6 +23768,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -23652,6 +23892,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -23927,6 +24170,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -24165,6 +24411,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -24440,6 +24689,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -24678,6 +24930,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -24966,6 +25221,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -25204,6 +25462,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -25479,6 +25740,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -25717,6 +25981,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -26007,6 +26274,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -26245,6 +26515,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -26520,6 +26793,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -26758,6 +27034,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -26819,6 +27098,9 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -27117,6 +27399,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -27355,6 +27640,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -27630,6 +27918,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -27868,6 +28159,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -28193,6 +28487,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -28658,6 +28955,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -28942,6 +29242,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -29365,6 +29668,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -29816,6 +30122,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -30077,6 +30386,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -30227,6 +30539,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -30539,6 +30854,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -30955,6 +31273,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -31203,6 +31524,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -31330,6 +31654,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -31629,6 +31956,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -32036,6 +32366,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -32274,6 +32607,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -32395,6 +32731,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -32670,6 +33009,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -32908,6 +33250,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -33183,6 +33528,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -33421,6 +33769,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -33709,6 +34060,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -33947,6 +34301,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -34222,6 +34579,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -34460,6 +34820,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -34750,6 +35113,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -34988,6 +35354,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -35263,6 +35632,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -35501,6 +35873,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -35562,6 +35937,9 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -35860,6 +36238,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -36098,6 +36479,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -36373,6 +36757,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -36611,6 +36998,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -36984,6 +37374,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -37449,6 +37842,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -37733,6 +38129,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -38156,6 +38555,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -38607,6 +39009,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -38868,6 +39273,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -39018,6 +39426,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -39330,6 +39741,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -39746,6 +40160,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -39994,6 +40411,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -40121,6 +40541,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -40420,6 +40843,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -40827,6 +41253,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -41065,6 +41494,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -41186,6 +41618,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -41461,6 +41896,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -41699,6 +42137,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -41974,6 +42415,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -42212,6 +42656,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -42500,6 +42947,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -42738,6 +43188,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -43013,6 +43466,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -43251,6 +43707,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -43541,6 +44000,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -43779,6 +44241,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -44054,6 +44519,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -44292,6 +44760,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -44353,6 +44824,9 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -44651,6 +45125,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -44889,6 +45366,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -45164,6 +45644,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -45402,6 +45885,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -46364,6 +46850,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -46815,6 +47304,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -47076,6 +47568,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -47226,6 +47721,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -47524,6 +48022,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -47762,6 +48263,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -48037,6 +48541,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -48275,6 +48782,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -48608,6 +49118,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -49059,6 +49572,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -49320,6 +49836,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -49470,6 +49989,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -49782,6 +50304,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -50198,6 +50723,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -50446,6 +50974,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -50573,6 +51104,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -50872,6 +51406,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -51279,6 +51816,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -51517,6 +52057,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -51638,6 +52181,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -51913,6 +52459,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -52151,6 +52700,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -52426,6 +52978,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -52664,6 +53219,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -52952,6 +53510,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -53190,6 +53751,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -53465,6 +54029,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -53703,6 +54270,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -53993,6 +54563,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -54231,6 +54804,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -54506,6 +55082,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -54744,6 +55323,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -55063,6 +55645,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -55528,6 +56113,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -55812,6 +56400,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -56235,6 +56826,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -56686,6 +57280,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -56947,6 +57544,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -57097,6 +57697,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -57409,6 +58012,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -57825,6 +58431,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -58073,6 +58682,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -58200,6 +58812,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -58499,6 +59114,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -58906,6 +59524,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -59144,6 +59765,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -59265,6 +59889,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -59540,6 +60167,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -59778,6 +60408,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -60053,6 +60686,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -60291,6 +60927,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -60579,6 +61218,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -60817,6 +61459,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -61092,6 +61737,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -61330,6 +61978,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -61620,6 +62271,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -61858,6 +62512,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -62133,6 +62790,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -62371,6 +63031,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -62432,6 +63095,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -62730,6 +63396,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -62968,6 +63637,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -63243,6 +63915,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -63481,6 +64156,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -63798,6 +64476,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -64263,6 +64944,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -64547,6 +65231,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -64970,6 +65657,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -65421,6 +66111,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -65682,6 +66375,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -65832,6 +66528,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -66144,6 +66843,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -66560,6 +67262,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -66808,6 +67513,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -66935,6 +67643,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -67234,6 +67945,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -67641,6 +68355,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -67879,6 +68596,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -68000,6 +68720,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -68275,6 +68998,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -68513,6 +69239,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -68788,6 +69517,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -69026,6 +69758,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -69314,6 +70049,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -69552,6 +70290,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -69827,6 +70568,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -70065,6 +70809,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -70355,6 +71102,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -70593,6 +71343,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -70868,6 +71621,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -71106,6 +71862,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -71167,6 +71926,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -71465,6 +72227,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -71703,6 +72468,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -71978,6 +72746,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -72216,6 +72987,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -72557,6 +73331,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -73022,6 +73799,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -73306,6 +74086,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -73729,6 +74512,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -74180,6 +74966,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -74441,6 +75230,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -74591,6 +75383,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -74903,6 +75698,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -75319,6 +76117,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -75567,6 +76368,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -75694,6 +76498,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -75993,6 +76800,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -76400,6 +77210,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -76638,6 +77451,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -76759,6 +77575,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -77034,6 +77853,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -77272,6 +78094,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -77547,6 +78372,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -77785,6 +78613,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -78073,6 +78904,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -78311,6 +79145,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -78586,6 +79423,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -78824,6 +79664,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -79114,6 +79957,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -79352,6 +80198,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -79627,6 +80476,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -79865,6 +80717,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -79926,6 +80781,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -80224,6 +81082,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -80462,6 +81323,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -80737,6 +81601,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -80975,6 +81842,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -81344,6 +82214,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -81795,6 +82668,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -82056,6 +82932,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -82206,6 +83085,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -82504,6 +83386,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -82742,6 +83627,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -83017,6 +83905,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -83255,6 +84146,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -83588,6 +84482,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -84039,6 +84936,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -84300,6 +85200,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -84450,6 +85353,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -84762,6 +85668,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -85178,6 +86087,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -85426,6 +86338,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -85553,6 +86468,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -85852,6 +86770,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -86259,6 +87180,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -86497,6 +87421,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -86618,6 +87545,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -86893,6 +87823,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -87131,6 +88064,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -87406,6 +88342,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -87644,6 +88583,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -87932,6 +88874,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -88170,6 +89115,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -88445,6 +89393,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -88683,6 +89634,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -88973,6 +89927,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -89211,6 +90168,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -89486,6 +90446,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -89724,6 +90687,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -90043,6 +91009,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -90508,6 +91477,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -90792,6 +91764,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -91215,6 +92190,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -91666,6 +92644,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -91927,6 +92908,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -92077,6 +93061,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -92389,6 +93376,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -92805,6 +93795,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -93053,6 +94046,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -93180,6 +94176,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -93479,6 +94478,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -93886,6 +94888,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -94124,6 +95129,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -94245,6 +95253,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -94520,6 +95531,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -94758,6 +95772,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -95033,6 +96050,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -95271,6 +96291,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -95559,6 +96582,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -95797,6 +96823,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -96072,6 +97101,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -96310,6 +97342,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -96600,6 +97635,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -96838,6 +97876,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -97113,6 +98154,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -97351,6 +98395,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -97412,6 +98459,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -97710,6 +98760,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -97948,6 +99001,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -98223,6 +99279,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -98461,6 +99520,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -98778,6 +99840,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -99243,6 +100308,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -99527,6 +100595,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -99950,6 +101021,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -100401,6 +101475,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -100662,6 +101739,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -100812,6 +101892,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -101124,6 +102207,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -101540,6 +102626,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -101788,6 +102877,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -101915,6 +103007,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -102214,6 +103309,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -102621,6 +103719,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -102859,6 +103960,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -102980,6 +104084,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -103255,6 +104362,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -103493,6 +104603,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -103768,6 +104881,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -104006,6 +105122,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -104294,6 +105413,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -104532,6 +105654,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -104807,6 +105932,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -105045,6 +106173,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -105335,6 +106466,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -105573,6 +106707,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -105848,6 +106985,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -106086,6 +107226,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -106147,6 +107290,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -106445,6 +107591,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -106683,6 +107832,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -106958,6 +108110,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -107196,6 +108351,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -107537,6 +108695,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -108002,6 +109163,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -108286,6 +109450,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -108709,6 +109876,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -109160,6 +110330,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -109421,6 +110594,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -109571,6 +110747,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content: Array<{
         children?: Array<{
@@ -109883,6 +111062,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -110299,6 +111481,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -110547,6 +111732,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -110674,6 +111862,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content: Array<{
           children?: Array<{
@@ -110973,6 +112164,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -111380,6 +112574,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -111618,6 +112815,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -111739,6 +112939,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
           image: null;
@@ -112014,6 +113217,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -112252,6 +113458,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -112527,6 +113736,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "richText";
               isCallout?: boolean;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               textAlign?: "center" | "inherit" | "left" | "right";
               content?: BlockContent;
             } | {
@@ -112765,6 +113977,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -113053,6 +114268,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -113291,6 +114509,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -113566,6 +114787,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "richText";
             isCallout?: boolean;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             textAlign?: "center" | "inherit" | "left" | "right";
             content?: BlockContent;
           } | {
@@ -113804,6 +115028,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -114094,6 +115321,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -114332,6 +115562,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -114607,6 +115840,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "richText";
           isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           textAlign?: "center" | "inherit" | "left" | "right";
           content?: BlockContent;
         } | {
@@ -114845,6 +116081,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -114906,6 +116145,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "richText";
     isCallout?: boolean;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     textAlign?: "center" | "inherit" | "left" | "right";
     content: Array<{
       children?: Array<{
@@ -115204,6 +116446,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -115442,6 +116687,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
@@ -115717,6 +116965,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "richText";
         isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         textAlign?: "center" | "inherit" | "left" | "right";
         content?: BlockContent;
       } | {
@@ -115955,6 +117206,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "richText";
       isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       textAlign?: "center" | "inherit" | "left" | "right";
       content?: BlockContent;
     } | {
