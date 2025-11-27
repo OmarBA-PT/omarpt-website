@@ -3,7 +3,6 @@ import UnifiedImage from '@/components/UI/UnifiedImage';
 import Icon from '@/lib/iconLibrary';
 import type { ServiceCardBlock } from '@/types/blocks';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
-import { maxCardWidth } from '@/utils/spacingConstants';
 
 interface ServiceCardProps extends Omit<ServiceCardBlock, '_type' | '_key'> {
   className?: string;
@@ -93,7 +92,7 @@ const ServiceCard = ({
           <div
             className={`
               overflow-hidden transition-all duration-500 ease-in-out
-              md:max-h-none! md:opacity-100!
+              lg:max-h-none! md:opacity-100!
               ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 md:opacity-100'}
             `}>
             {/* Description */}
@@ -168,24 +167,28 @@ const ServiceCard = ({
           )}
 
           {/* More Info Toggle (Mobile Only) */}
-          <button
+          <div
             onClick={() => setIsExpanded(!isExpanded)}
-            className='md:hidden flex items-center justify-center gap-2 text-body-base font-semibold text-gradient-primary mt-2'
+            className='lg:hidden flex justify-center md:justify-start items-center gap-2 hover:font-semibold mt-2 cursor-pointer'
             aria-expanded={isExpanded}
             aria-label={isExpanded ? 'Show less information' : 'Show more information'}>
-            <span>{isExpanded ? 'Less Info' : 'More Info'}</span>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 20 20'
-              fill='currentColor'
-              className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
-              <path
-                fillRule='evenodd'
-                d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'
-                clipRule='evenodd'
-              />
-            </svg>
-          </button>
+            <span className='inline-block text-gradient-primary'>
+              {isExpanded ? 'Less Info' : 'More Info'}
+            </span>
+            <span className='text-brand-primary inline-flex items-center'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 20 20'
+                fill='currentColor'
+                className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                <path
+                  fillRule='evenodd'
+                  d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'
+                  clipRule='evenodd'
+                />
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
     </div>
