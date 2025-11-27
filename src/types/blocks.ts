@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -27,6 +27,7 @@ export type RichTextBlock = RichText & { _key: string };
 export type StatementBlock = Statement & { _key: string };
 export type QuoteBlock = Quote & { _key: string };
 export type TwoColumnLayoutBlock = TwoColumnLayout & { _key: string };
+export type ExpandingContentBlock = ExpandingContent & { _key: string };
 export type CardBlock = Card & { _key: string };
 export type GridLayoutBlock = GridLayout & { _key: string };
 export type ImageBlock = SanityImageBlock & { _key: string };
@@ -56,6 +57,7 @@ export type NestedBlock =
   | StatementBlock
   | QuoteBlock
   | TwoColumnLayoutBlock
+  | ExpandingContentBlock
   | CardBlock
   | GridLayoutBlock
   | ImageBlock
@@ -118,6 +120,10 @@ export const isQuoteBlock = (block: NestedBlock): block is QuoteBlock => {
 
 export const isTwoColumnLayoutBlock = (block: NestedBlock): block is TwoColumnLayoutBlock => {
   return block._type === 'twoColumnLayout';
+};
+
+export const isExpandingContentBlock = (block: NestedBlock): block is ExpandingContentBlock => {
+  return block._type === 'expandingContent';
 };
 
 export const isCardBlock = (block: NestedBlock): block is CardBlock => {

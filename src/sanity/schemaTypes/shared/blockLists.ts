@@ -43,6 +43,7 @@ export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'serviceCard' }),
   defineArrayMember({ type: 'contactForm' }),
   defineArrayMember({ type: 'companyLinksBlock' }),
+  defineArrayMember({ type: 'expandingContent' }),
 ];
 
 /**

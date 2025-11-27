@@ -336,6 +336,83 @@ export type CtaButton = {
   openInNewTab?: boolean;
 };
 
+export type ExpandingContent = {
+  _type: "expandingContent";
+  showOnDesktop?: boolean;
+  headerContent?: Array<{
+    _key: string;
+  } & RichText | {
+    _key: string;
+  } & Statement | {
+    _key: string;
+  } & Quote | {
+    _key: string;
+  } & Divider | {
+    _key: string;
+  } & ImageBlock | {
+    _key: string;
+  } & ImageGallery | {
+    _key: string;
+  } & YouTubeVideo | {
+    _key: string;
+  } & CtaButton | {
+    _key: string;
+  } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
+    _key: string;
+  } & DetailedList | {
+    _key: string;
+  } & BlockListWithStats | {
+    _key: string;
+  } & CheckList | {
+    _key: string;
+  } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
+    _key: string;
+  } & ContactForm | {
+    _key: string;
+  } & CompanyLinksBlock>;
+  expandingContent?: Array<{
+    _key: string;
+  } & RichText | {
+    _key: string;
+  } & Statement | {
+    _key: string;
+  } & Quote | {
+    _key: string;
+  } & Divider | {
+    _key: string;
+  } & ImageBlock | {
+    _key: string;
+  } & ImageGallery | {
+    _key: string;
+  } & YouTubeVideo | {
+    _key: string;
+  } & CtaButton | {
+    _key: string;
+  } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
+    _key: string;
+  } & DetailedList | {
+    _key: string;
+  } & BlockListWithStats | {
+    _key: string;
+  } & CheckList | {
+    _key: string;
+  } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
+    _key: string;
+  } & ContactForm | {
+    _key: string;
+  } & CompanyLinksBlock>;
+  expandLabel?: string;
+  collapseLabel?: string;
+};
+
 export type TwoColumnLayout = {
   _type: "twoColumnLayout";
   columnSplit?: "50/50" | "60/40" | "40/60" | "70/30" | "30/70";
@@ -643,6 +720,8 @@ export type ContentWrapper = {
     _key: string;
   } & TwoColumnLayout | {
     _key: string;
+  } & ExpandingContent | {
+    _key: string;
   } & GridLayout | {
     _key: string;
   } & Card>;
@@ -690,6 +769,8 @@ export type SubSubSection = {
   } & CompanyLinksBlock | {
     _key: string;
   } & TwoColumnLayout | {
+    _key: string;
+  } & ExpandingContent | {
     _key: string;
   } & GridLayout | {
     _key: string;
@@ -740,6 +821,8 @@ export type SubSection = {
   } & CompanyLinksBlock | {
     _key: string;
   } & TwoColumnLayout | {
+    _key: string;
+  } & ExpandingContent | {
     _key: string;
   } & GridLayout | {
     _key: string;
@@ -806,6 +889,8 @@ export type PageSection = {
   } & CompanyLinksBlock | {
     _key: string;
   } & TwoColumnLayout | {
+    _key: string;
+  } & ExpandingContent | {
     _key: string;
   } & GridLayout | {
     _key: string;
@@ -948,6 +1033,8 @@ export type PrivacyPolicy = {
     _key: string;
   } & TwoColumnLayout | {
     _key: string;
+  } & ExpandingContent | {
+    _key: string;
   } & GridLayout | {
     _key: string;
   } & Card>;
@@ -1002,6 +1089,8 @@ export type TermsAndConditions = {
     _key: string;
   } & TwoColumnLayout | {
     _key: string;
+  } & ExpandingContent | {
+    _key: string;
   } & GridLayout | {
     _key: string;
   } & Card>;
@@ -1055,6 +1144,8 @@ export type Page = {
   } & CompanyLinksBlock | {
     _key: string;
   } & TwoColumnLayout | {
+    _key: string;
+  } & ExpandingContent | {
     _key: string;
   } & GridLayout | {
     _key: string;
@@ -1305,7 +1396,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | ExpandingContent | TwoColumnLayout | Statement | Quote | YouTubeVideo | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -1767,6 +1858,84 @@ export type PAGE_QUERYResult = {
     _key: string;
     _type: "divider";
     style?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -2899,6 +3068,84 @@ export type PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -4010,6 +4257,84 @@ export type PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -5049,6 +5374,83 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -10593,6 +10995,84 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -12757,6 +13237,84 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -13868,6 +14426,84 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -14907,6 +15543,83 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -18981,6 +19694,84 @@ export type HOME_PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -20109,6 +20900,84 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -21220,6 +22089,84 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -22259,6 +23206,83 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -27404,6 +28428,84 @@ export type HOME_PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -28532,6 +29634,84 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -29643,6 +30823,84 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -30682,6 +31940,83 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -35875,6 +37210,84 @@ export type HOME_PAGE_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -37003,6 +38416,84 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -38114,6 +39605,84 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -39153,6 +40722,83 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -44934,6 +46580,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -47098,6 +48822,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -48209,6 +50011,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -49248,6 +51128,83 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -53314,6 +55271,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -54442,6 +56477,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -55553,6 +57666,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -56592,6 +58783,83 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -61729,6 +63997,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -62857,6 +65203,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -63968,6 +66392,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -65007,6 +67509,83 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -70168,6 +72747,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -71296,6 +73953,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -72407,6 +75142,84 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -73446,6 +76259,83 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -78634,6 +81524,84 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -80798,6 +83766,84 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -81909,6 +84955,84 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -82948,6 +86072,83 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -87014,6 +90215,84 @@ export type PRIVACY_POLICY_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -88142,6 +91421,84 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -89253,6 +92610,84 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -90292,6 +93727,83 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -95429,6 +98941,84 @@ export type PRIVACY_POLICY_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -96557,6 +100147,84 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -97668,6 +101336,84 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -98707,6 +102453,83 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -103868,6 +107691,84 @@ export type PRIVACY_POLICY_QUERYResult = {
     content: null;
   } | {
     _key: string;
+    _type: "expandingContent";
+    showOnDesktop?: boolean;
+    headerContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandingContent?: Array<{
+      _key: string;
+    } & BlockListWithStats | {
+      _key: string;
+    } & CheckList | {
+      _key: string;
+    } & CompanyLinksBlock | {
+      _key: string;
+    } & ContactForm | {
+      _key: string;
+    } & CtaButton | {
+      _key: string;
+    } & CtaCalloutLink | {
+      _key: string;
+    } & DetailedList | {
+      _key: string;
+    } & Divider | {
+      _key: string;
+    } & IconList | {
+      _key: string;
+    } & ImageBlock | {
+      _key: string;
+    } & ImageGallery | {
+      _key: string;
+    } & ItemList | {
+      _key: string;
+    } & Quote | {
+      _key: string;
+    } & RichText | {
+      _key: string;
+    } & ServiceCard | {
+      _key: string;
+    } & Statement | {
+      _key: string;
+    } & YouTubeVideo>;
+    expandLabel?: string;
+    collapseLabel?: string;
+    image: null;
+    content: null;
+  } | {
+    _key: string;
     _type: "gridLayout";
     columns?: "2" | "3" | "4";
     content: Array<{
@@ -104996,6 +108897,84 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      headerContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      expandLabel?: string;
+      collapseLabel?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
       _type: "gridLayout";
       columns?: "2" | "3" | "4";
       content: Array<{
@@ -106107,6 +110086,84 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        headerContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        expandLabel?: string;
+        collapseLabel?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
         _type: "gridLayout";
         columns?: "2" | "3" | "4";
         content: Array<{
@@ -107146,6 +111203,83 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "divider";
           style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          headerContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          expandLabel?: string;
+          collapseLabel?: string;
           image: null;
         } | {
           _key: string;

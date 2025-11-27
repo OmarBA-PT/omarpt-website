@@ -7,6 +7,7 @@ import type {
   Statement as StatementType,
   Quote as QuoteType,
   TwoColumnLayout as TwoColumnLayoutType,
+  ExpandingContent as ExpandingContentType,
   CtaButton as CtaButtonType,
   CtaCalloutLink as CtaCalloutLinkType,
   ImageBlock as ImageBlockType,
@@ -31,6 +32,7 @@ import RichText from '@/components/_blocks/RichText';
 import Statement from '@/components/_blocks/Statement';
 import Quote from '@/components/_blocks/Quote';
 import TwoColumnLayout from '@/components/_blocks/TwoColumnLayout';
+import ExpandingContent from '@/components/_blocks/ExpandingContent';
 import CTAButton from '@/components/_blocks/CTAButton';
 import CTACalloutLinkComponent from '@/components/_blocks/CTACalloutLink';
 import ImageBlock from '@/components/_blocks/Image';
@@ -74,6 +76,7 @@ type BlockType =
   | WithKey<StatementType>
   | WithKey<QuoteType>
   | WithKey<TwoColumnLayoutType>
+  | WithKey<ExpandingContentType>
   | WithKey<CtaButtonType>
   | WithKey<CtaCalloutLinkType>
   | WithKey<ImageBlockType>
@@ -179,6 +182,24 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
         <BlockWrapper key={twoColBlock._key}>
           <TwoColumnLayout
             {...twoColBlock}
+            documentId={documentId}
+            documentType={documentType}
+            pathPrefix={blockPath}
+            siteSettings={siteSettings}
+            companyLinks={companyLinks}
+            contactFormSettings={contactFormSettings}
+            alignment={alignment}
+          />
+        </BlockWrapper>
+      );
+    }
+
+    case 'expandingContent': {
+      const expandingContentBlock = typedBlock as WithKey<ExpandingContentType>;
+      return (
+        <BlockWrapper key={expandingContentBlock._key}>
+          <ExpandingContent
+            {...expandingContentBlock}
             documentId={documentId}
             documentType={documentType}
             pathPrefix={blockPath}

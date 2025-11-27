@@ -21,6 +21,7 @@ import { youTubeVideoType } from './blocks/youTubeVideoType';
 import { quoteType } from './blocks/quoteType';
 import { statementType } from './blocks/statementType';
 import { twoColumnLayoutType } from './blocks/twoColumnLayoutType';
+import { expandingContentType } from './blocks/expandingContentType';
 import { ctaButtonType } from './blocks/ctaButtonType';
 import { ctaCalloutLinkType } from './blocks/ctaCalloutLinkType';
 import { embeddedCtaButtonType } from './blocks/embeddedCtaButtonType';
@@ -74,6 +75,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     quoteType,
     statementType,
     twoColumnLayoutType,
+    expandingContentType,
     ctaButtonType,
     ctaCalloutLinkType,
     embeddedCtaButtonType,
