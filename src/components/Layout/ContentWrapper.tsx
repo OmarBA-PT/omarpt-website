@@ -23,32 +23,37 @@ const ContentWrapper = ({
   backgroundStyle,
   backgroundImage,
 }: ContentWrapperProps) => {
-  // Apply background style classes based on backgroundStyle prop
-  const getBackgroundClass = () => {
-    if (!backgroundStyle) return '';
-    if (backgroundStyle === 'radial-gradient') return '';
-    if (backgroundStyle === 'image') return '';
-    return `section-background section-background-${backgroundStyle}`;
+  // Get background image URL for smokey presets or custom images
+  const getBackgroundImageUrl = () => {
+    // Custom image uploaded by user
+    if (backgroundStyle === 'image' && backgroundImage) {
+      return urlFor(backgroundImage).width(3840).height(2160).quality(90).url();
+    }
+
+    // Smokey preset backgrounds (smokey-1 through smokey-8)
+    if (backgroundStyle?.startsWith('smokey-')) {
+      return `/images/backgrounds/${backgroundStyle}.jpg`;
+    }
+
+    return null;
   };
 
-  // Get background image URL if style is 'image' and backgroundImage is provided
-  const backgroundImageUrl = backgroundStyle === 'image' && backgroundImage
-    ? urlFor(backgroundImage).width(3840).height(2160).quality(90).url()
-    : null;
+  const backgroundImageUrl = getBackgroundImageUrl();
 
-  // Build inline styles for radial gradient or image backgrounds
+  // Apply base class for image backgrounds
+  const getBackgroundClass = () => {
+    if (backgroundImageUrl) {
+      return 'background-image-wrapper';
+    }
+    return '';
+  };
+
+  // Build inline styles for backgrounds
   const getBackgroundStyles = (): React.CSSProperties => {
+    // Radial gradient (no image)
     if (backgroundStyle === 'radial-gradient') {
       return {
         background: 'var(--background-image-brand-gradient-charcoal-radial)',
-      };
-    }
-    if (backgroundStyle === 'image' && backgroundImageUrl) {
-      return {
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
       };
     }
     return {};
@@ -59,6 +64,16 @@ const ContentWrapper = ({
       className={`${getBackgroundClass()} ${className}`.trim()}
       style={getBackgroundStyles()}
     >
+      {/* Background image layer with gradient fade */}
+      {backgroundImageUrl && (
+        <div
+          className="background-image-layer"
+          style={{
+            backgroundImage: `linear-gradient(to bottom, transparent 0%, transparent 75%, var(--color-brand-charcoal) 100%), url(${backgroundImageUrl})`,
+          }}
+        />
+      )}
+
       {/* SectionContainer provides internal padding while wrapper element has background */}
       <SectionContainer useCompactPadding={useCompactGap}>
         {children}

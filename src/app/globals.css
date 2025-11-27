@@ -418,10 +418,13 @@ input[type='range']::-moz-range-track {
   height: 100%;
 }
 
-/* Section Background Styles - Full viewport width backgrounds
- * Sections extend to viewport edges naturally without Container wrapper
- * SectionContainer inside provides content padding
- */
+/* ===================================================================
+ * DEPRECATED: Old Section Background System
+ * These classes have been replaced by the unified background image system below.
+ * Keeping commented for reference. Safe to delete after confirming migration.
+ * =================================================================== */
+
+/*
 .section-background {
   position: relative;
 }
@@ -429,7 +432,7 @@ input[type='range']::-moz-range-track {
 .section-background::before {
   content: '';
   position: absolute;
-  inset: 0; /* Cover entire section */
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -466,4 +469,40 @@ input[type='range']::-moz-range-track {
 
 .section-background-smokey-8::before {
   background-image: url('/images/backgrounds/smokey-8.jpg');
+}
+*/
+
+/* ===================================================================
+ * Unified Background Image System
+ * Used by ContentWrapper and PageSection for all background images
+ * (both smokey presets and custom uploaded images)
+ * =================================================================== */
+
+.background-image-wrapper {
+  position: relative;
+  overflow: hidden; /* Ensure background doesn't overflow container */
+}
+
+.background-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-repeat: no-repeat, no-repeat;
+
+  /* Mobile: Image fits section height (cover behavior) */
+  /* First value is for gradient (100% coverage), second is for image */
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center top; /* Gradient at origin, image aligned to top */
+}
+
+/* Desktop: Image fills viewport width, anchored to top */
+@media (min-width: 768px) {
+  .background-image-layer {
+    /* First value is for gradient (100% coverage), second is for image */
+    background-size: 100% 100%, 100vw auto; /* Gradient covers all, image fills viewport width */
+    background-position: 0 0, center top; /* Gradient at origin, image anchored to top */
+  }
 }
