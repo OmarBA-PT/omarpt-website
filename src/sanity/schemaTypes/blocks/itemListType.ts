@@ -8,20 +8,10 @@ export const itemListType = defineType({
   icon: UlistIcon,
   fields: [
     defineField({
-      name: 'alignment',
-      title: 'Alignment',
+      name: 'title',
+      title: 'List Title',
       type: 'string',
-      options: {
-        list: [
-          { title: 'Inherit', value: 'inherit' },
-          { title: 'Left', value: 'left' },
-          { title: 'Center', value: 'center' },
-          { title: 'Right', value: 'right' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'inherit',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().min(1).max(100),
     }),
     defineField({
       name: 'items',
@@ -35,32 +25,13 @@ export const itemListType = defineType({
           fields: [
             defineField({
               name: 'text',
-              title: 'Text',
+              title: 'Item Text',
               type: 'string',
-              validation: (Rule) => Rule.required().min(1).max(100),
-            }),
-            defineField({
-              name: 'icon',
-              title: 'Icon (Optional)',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-              fields: [
-                {
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alternative Text',
-                  description: 'Helps explain what the image is for SEO and screen readers. Highly recommended to provide something that describes the image; if not provided, the system will try to come up with something.',
-                },
-              ],
+              validation: (Rule) => Rule.required().min(1).max(200),
             }),
           ],
           preview: {
-            select: {
-              title: 'text',
-              media: 'icon',
-            },
+            select: { title: 'text' },
           },
         },
       ],
@@ -69,22 +40,14 @@ export const itemListType = defineType({
   ],
   preview: {
     select: {
+      title: 'title',
       items: 'items',
-      alignment: 'alignment',
     },
-    prepare({ items, alignment }) {
+    prepare({ title, items }) {
       const itemCount = items?.length || 0;
-      const alignmentText =
-        alignment === 'inherit'
-          ? 'inherit alignment'
-          : alignment === 'center'
-            ? 'centered'
-            : alignment === 'right'
-              ? 'right-aligned'
-              : 'left-aligned';
       return {
-        title: `Item List (${itemCount} items)`,
-        subtitle: `${alignmentText}`,
+        title: title || 'Item List',
+        subtitle: `${itemCount} item${itemCount !== 1 ? 's' : ''}`,
       };
     },
   },

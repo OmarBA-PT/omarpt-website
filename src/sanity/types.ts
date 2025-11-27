@@ -145,22 +145,9 @@ export type ServiceCard = {
 
 export type ItemList = {
   _type: "itemList";
-  alignment?: "inherit" | "left" | "center" | "right";
+  title?: string;
   items?: Array<{
     text?: string;
-    icon?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    };
     _type: "listItem";
     _key: string;
   }>;
@@ -1560,22 +1547,9 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -2028,22 +2002,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -2315,22 +2276,9 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -2469,22 +2417,9 @@ export type PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -2741,22 +2676,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -3197,22 +3119,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -3459,22 +3368,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -3612,22 +3508,9 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -3929,22 +3812,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -4350,22 +4220,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -4599,22 +4456,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -4727,22 +4571,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -5033,22 +4864,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -5443,22 +5261,9 @@ export type PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -5684,22 +5489,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -5806,22 +5598,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -6086,22 +5865,9 @@ export type PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -6327,22 +6093,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -6605,22 +6358,9 @@ export type PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -6846,22 +6586,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -7137,22 +6864,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -7378,22 +7092,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -7656,22 +7357,9 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -7897,22 +7585,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -8190,22 +7865,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -8431,22 +8093,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -8709,22 +8358,9 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -8950,22 +8586,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -9315,22 +8938,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -9556,22 +9166,9 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -9834,22 +9431,9 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -10075,22 +9659,9 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -10354,22 +9925,9 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -10812,22 +10370,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -11268,22 +10813,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -11530,22 +11062,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -11683,22 +11202,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -11988,22 +11494,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -12229,22 +11722,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -12507,22 +11987,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -12748,22 +12215,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -13080,22 +12534,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -13536,22 +12977,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -13798,22 +13226,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -13951,22 +13366,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -14268,22 +13670,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -14689,22 +14078,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -14938,22 +14314,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -15066,22 +14429,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -15372,22 +14722,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -15782,22 +15119,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -16023,22 +15347,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -16145,22 +15456,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -16425,22 +15723,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -16666,22 +15951,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -16944,22 +16216,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -17185,22 +16444,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -17476,22 +16722,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -17717,22 +16950,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -17995,22 +17215,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -18236,22 +17443,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -18529,22 +17723,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -18770,22 +17951,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -19048,22 +18216,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -19289,22 +18444,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -19615,22 +18757,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -20083,22 +19212,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -20370,22 +19486,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -20524,22 +19627,9 @@ export type HOME_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -20796,22 +19886,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -21252,22 +20329,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -21514,22 +20578,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -21667,22 +20718,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -21984,22 +21022,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -22405,22 +21430,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -22654,22 +21666,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -22782,22 +21781,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -23088,22 +22074,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -23498,22 +22471,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -23739,22 +22699,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -23861,22 +22808,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -24141,22 +23075,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -24382,22 +23303,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -24660,22 +23568,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -24901,22 +23796,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -25192,22 +24074,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -25433,22 +24302,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -25711,22 +24567,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -25952,22 +24795,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -26245,22 +25075,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -26486,22 +25303,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -26764,22 +25568,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -27005,22 +25796,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -27370,22 +26148,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -27611,22 +26376,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -27889,22 +26641,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -28130,22 +26869,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -28454,22 +27180,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -28922,22 +27635,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -29209,22 +27909,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -29363,22 +28050,9 @@ export type HOME_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -29635,22 +28309,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -30091,22 +28752,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -30353,22 +29001,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -30506,22 +29141,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -30823,22 +29445,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -31244,22 +29853,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -31493,22 +30089,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -31621,22 +30204,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -31927,22 +30497,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -32337,22 +30894,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -32578,22 +31122,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -32700,22 +31231,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -32980,22 +31498,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -33221,22 +31726,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -33499,22 +31991,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -33740,22 +32219,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -34031,22 +32497,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -34272,22 +32725,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -34550,22 +32990,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -34791,22 +33218,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -35084,22 +33498,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -35325,22 +33726,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -35603,22 +33991,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -35844,22 +34219,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -36209,22 +34571,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -36450,22 +34799,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -36728,22 +35064,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -36969,22 +35292,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -37341,22 +35651,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -37809,22 +36106,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -38096,22 +36380,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -38250,22 +36521,9 @@ export type HOME_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -38522,22 +36780,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -38978,22 +37223,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -39240,22 +37472,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -39393,22 +37612,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -39710,22 +37916,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -40131,22 +38324,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -40380,22 +38560,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -40508,22 +38675,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -40814,22 +38968,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -41224,22 +39365,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -41465,22 +39593,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -41587,22 +39702,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -41867,22 +39969,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -42108,22 +40197,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -42386,22 +40462,9 @@ export type HOME_PAGE_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -42627,22 +40690,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -42918,22 +40968,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -43159,22 +41196,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -43437,22 +41461,9 @@ export type HOME_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -43678,22 +41689,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -43971,22 +41969,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -44212,22 +42197,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -44490,22 +42462,9 @@ export type HOME_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -44731,22 +42690,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -45096,22 +43042,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -45337,22 +43270,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -45615,22 +43535,9 @@ export type HOME_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -45856,22 +43763,9 @@ export type HOME_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -46817,22 +44711,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -47273,22 +45154,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -47535,22 +45403,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -47688,22 +45543,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -47993,22 +45835,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -48234,22 +46063,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -48512,22 +46328,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -48753,22 +46556,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -49085,22 +46875,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -49541,22 +47318,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -49803,22 +47567,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -49956,22 +47707,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -50273,22 +48011,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -50694,22 +48419,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -50943,22 +48655,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -51071,22 +48770,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -51377,22 +49063,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -51787,22 +49460,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -52028,22 +49688,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -52150,22 +49797,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -52430,22 +50064,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -52671,22 +50292,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -52949,22 +50557,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -53190,22 +50785,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -53481,22 +51063,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -53722,22 +51291,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -54000,22 +51556,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -54241,22 +51784,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -54534,22 +52064,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -54775,22 +52292,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -55053,22 +52557,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -55294,22 +52785,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -55612,22 +53090,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -56080,22 +53545,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -56367,22 +53819,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -56521,22 +53960,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -56793,22 +54219,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -57249,22 +54662,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -57511,22 +54911,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -57664,22 +55051,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -57981,22 +55355,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -58402,22 +55763,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -58651,22 +55999,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -58779,22 +56114,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -59085,22 +56407,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -59495,22 +56804,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -59736,22 +57032,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -59858,22 +57141,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -60138,22 +57408,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -60379,22 +57636,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -60657,22 +57901,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -60898,22 +58129,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -61189,22 +58407,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -61430,22 +58635,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -61708,22 +58900,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -61949,22 +59128,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -62242,22 +59408,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -62483,22 +59636,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -62761,22 +59901,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -63002,22 +60129,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -63367,22 +60481,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -63608,22 +60709,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -63886,22 +60974,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -64127,22 +61202,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -64443,22 +61505,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -64911,22 +61960,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -65198,22 +62234,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -65352,22 +62375,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -65624,22 +62634,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -66080,22 +63077,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -66342,22 +63326,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -66495,22 +63466,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -66812,22 +63770,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -67233,22 +64178,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -67482,22 +64414,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -67610,22 +64529,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -67916,22 +64822,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -68326,22 +65219,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -68567,22 +65447,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -68689,22 +65556,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -68969,22 +65823,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -69210,22 +66051,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -69488,22 +66316,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -69729,22 +66544,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -70020,22 +66822,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -70261,22 +67050,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -70539,22 +67315,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -70780,22 +67543,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -71073,22 +67823,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -71314,22 +68051,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -71592,22 +68316,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -71833,22 +68544,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -72198,22 +68896,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -72439,22 +69124,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -72717,22 +69389,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -72958,22 +69617,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -73298,22 +69944,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -73766,22 +70399,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -74053,22 +70673,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -74207,22 +70814,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -74479,22 +71073,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -74935,22 +71516,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -75197,22 +71765,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -75350,22 +71905,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -75667,22 +72209,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -76088,22 +72617,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -76337,22 +72853,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -76465,22 +72968,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -76771,22 +73261,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -77181,22 +73658,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -77422,22 +73886,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -77544,22 +73995,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -77824,22 +74262,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -78065,22 +74490,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -78343,22 +74755,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -78584,22 +74983,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -78875,22 +75261,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -79116,22 +75489,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -79394,22 +75754,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -79635,22 +75982,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -79928,22 +76262,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -80169,22 +76490,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -80447,22 +76755,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -80688,22 +76983,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -81053,22 +77335,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -81294,22 +77563,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -81572,22 +77828,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -81813,22 +78056,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -82181,22 +78411,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -82637,22 +78854,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -82899,22 +79103,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -83052,22 +79243,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -83357,22 +79535,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -83598,22 +79763,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -83876,22 +80028,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -84117,22 +80256,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -84449,22 +80575,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -84905,22 +81018,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -85167,22 +81267,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -85320,22 +81407,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -85637,22 +81711,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -86058,22 +82119,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -86307,22 +82355,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -86435,22 +82470,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -86741,22 +82763,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -87151,22 +83160,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -87392,22 +83388,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -87514,22 +83497,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -87794,22 +83764,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -88035,22 +83992,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -88313,22 +84257,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -88554,22 +84485,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -88845,22 +84763,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -89086,22 +84991,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -89364,22 +85256,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -89605,22 +85484,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -89898,22 +85764,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -90139,22 +85992,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -90417,22 +86257,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -90658,22 +86485,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -90976,22 +86790,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -91444,22 +87245,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -91731,22 +87519,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -91885,22 +87660,9 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -92157,22 +87919,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -92613,22 +88362,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -92875,22 +88611,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -93028,22 +88751,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -93345,22 +89055,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -93766,22 +89463,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -94015,22 +89699,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -94143,22 +89814,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -94449,22 +90107,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -94859,22 +90504,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -95100,22 +90732,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -95222,22 +90841,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -95502,22 +91108,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -95743,22 +91336,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -96021,22 +91601,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -96262,22 +91829,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -96553,22 +92107,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -96794,22 +92335,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -97072,22 +92600,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -97313,22 +92828,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -97606,22 +93108,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -97847,22 +93336,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -98125,22 +93601,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -98366,22 +93829,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -98731,22 +94181,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -98972,22 +94409,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -99250,22 +94674,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -99491,22 +94902,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -99807,22 +95205,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -100275,22 +95660,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -100562,22 +95934,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -100716,22 +96075,9 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -100988,22 +96334,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -101444,22 +96777,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -101706,22 +97026,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -101859,22 +97166,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -102176,22 +97470,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -102597,22 +97878,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -102846,22 +98114,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -102974,22 +98229,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -103280,22 +98522,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -103690,22 +98919,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -103931,22 +99147,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -104053,22 +99256,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -104333,22 +99523,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -104574,22 +99751,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -104852,22 +100016,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -105093,22 +100244,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -105384,22 +100522,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -105625,22 +100750,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -105903,22 +101015,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -106144,22 +101243,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -106437,22 +101523,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -106678,22 +101751,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -106956,22 +102016,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -107197,22 +102244,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -107562,22 +102596,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -107803,22 +102824,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -108081,22 +103089,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -108322,22 +103317,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -108662,22 +103644,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -109130,22 +104099,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -109417,22 +104373,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -109571,22 +104514,9 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "itemList";
-    alignment?: "center" | "inherit" | "left" | "right";
+    title?: string;
     items?: Array<{
       text?: string;
-      icon?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       _type: "listItem";
       _key: string;
     }>;
@@ -109843,22 +104773,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -110299,22 +105216,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -110561,22 +105465,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -110714,22 +105605,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -111031,22 +105909,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -111452,22 +106317,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -111701,22 +106553,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -111829,22 +106668,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -112135,22 +106961,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -112545,22 +107358,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -112786,22 +107586,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -112908,22 +107695,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -113188,22 +107962,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -113429,22 +108190,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -113707,22 +108455,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             } | {
               _key: string;
               _type: "itemList";
-              alignment?: "center" | "inherit" | "left" | "right";
+              title?: string;
               items?: Array<{
                 text?: string;
-                icon?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 _type: "listItem";
                 _key: string;
               }>;
@@ -113948,22 +108683,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -114239,22 +108961,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -114480,22 +109189,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -114758,22 +109454,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "itemList";
-            alignment?: "center" | "inherit" | "left" | "right";
+            title?: string;
             items?: Array<{
               text?: string;
-              icon?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               _type: "listItem";
               _key: string;
             }>;
@@ -114999,22 +109682,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -115292,22 +109962,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -115533,22 +110190,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -115811,22 +110455,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "itemList";
-          alignment?: "center" | "inherit" | "left" | "right";
+          title?: string;
           items?: Array<{
             text?: string;
-            icon?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             _type: "listItem";
             _key: string;
           }>;
@@ -116052,22 +110683,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -116417,22 +111035,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -116658,22 +111263,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;
@@ -116936,22 +111528,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "itemList";
-        alignment?: "center" | "inherit" | "left" | "right";
+        title?: string;
         items?: Array<{
           text?: string;
-          icon?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           _type: "listItem";
           _key: string;
         }>;
@@ -117177,22 +111756,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "itemList";
-      alignment?: "center" | "inherit" | "left" | "right";
+      title?: string;
       items?: Array<{
         text?: string;
-        icon?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         _type: "listItem";
         _key: string;
       }>;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UnifiedImage from '@/components/UI/UnifiedImage';
-import Icon from '@/lib/iconLibrary';
+import ItemList from './ItemList';
 import type { ServiceCardBlock } from '@/types/blocks';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
 
@@ -110,44 +110,7 @@ const ServiceCard = ({
 
             {/* List */}
             {list && list.items && list.items.length > 0 && (
-              <div className='space-y-2'>
-                {/* List Title */}
-                <p
-                  className='font-semibold text-body-lg'
-                  {...(documentId && documentType
-                    ? createSanityDataAttribute(
-                        documentId,
-                        documentType,
-                        `${fieldPathPrefix}.list.title`
-                      )
-                    : {})}>
-                  {list.title}
-                </p>
-
-                {/* List Items */}
-                <ul className='space-y-2'>
-                  {list.items.map((item, idx) => (
-                    <li
-                      key={item._key || idx}
-                      className='flex justify-center items-center md:justify-start md:items-start gap-3'
-                      {...(documentId && documentType
-                        ? createSanityDataAttribute(
-                            documentId,
-                            documentType,
-                            `${fieldPathPrefix}.list.items[${idx}]`
-                          )
-                        : {})}>
-                      {/* Dumbbell Icon Bullet */}
-                      <div className='shrink-0 mt-1'>
-                        <Icon iconKey='dumbell' width={2} colorClassName='text-gradient-primary' />
-                      </div>
-
-                      {/* List Item Text */}
-                      <span className='text-brand-white/80'>{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ItemList title={list.title} items={list.items} />
             )}
           </div>
 
