@@ -43,7 +43,7 @@ const ServiceCard = ({
       {...(documentId && documentType
         ? createSanityDataAttribute(documentId, documentType, fieldPathPrefix)
         : {})}>
-      <div className='flex flex-col md:flex-row gap-6 rounded-2xl bg-brand-white/8 backdrop-blur-[20px] p-6 md:p-8'>
+      <div className='flex flex-col md:flex-row md:items-start gap-6 rounded-2xl bg-brand-white/8 backdrop-blur-[20px] p-6 md:p-8'>
         {/* Image Container - Desktop order changes based on index */}
         {image && (
           <div
@@ -68,7 +68,7 @@ const ServiceCard = ({
           className={`flex flex-col text-center md:text-left gap-4 ${isImageOnLeft ? 'md:order-2' : 'md:order-1'}`}>
           {/* Title */}
           <p
-            className='text-h4 text-gradient-primary font-bold'
+            className='text-h3 text-gradient-primary font-bold'
             {...(documentId && documentType
               ? createSanityDataAttribute(documentId, documentType, `${fieldPathPrefix}.title`)
               : {})}>
