@@ -130,7 +130,7 @@ const ServiceCard = ({
                       : {})}>
                     {/* Dumbbell Icon Bullet */}
                     <div className='shrink-0 mt-1'>
-                      <Icon iconKey='dumbell' className='w-4' colorClassName='text-brand-primary' />
+                      <Icon iconKey='dumbell' width={1} colorClassName='text-brand-primary' />
                     </div>
 
                     {/* List Item Text */}

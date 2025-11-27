@@ -32,13 +32,22 @@ export type IconKey = keyof typeof ICON_LIBRARY;
 // Type for icon component props
 export interface IconComponentProps {
   iconKey: IconKey;
-  className?: string;
+  /**
+   * Width of the icon in rem units (e.g., 3 = 3rem)
+   * Height will auto-calculate based on the icon's aspect ratio
+   */
+  width: number;
   /**
    * Controls the icon color - use Tailwind text-* or gradient classes:
    * - Solid colors: text-brand-primary, text-brand-secondary, text-brand-charcoal, text-brand-white
    * - Gradients: text-gradient-primary, text-gradient-charcoal-linear, text-gradient-metal, text-gradient-firey
    */
   colorClassName?: string;
+  /**
+   * Optional additional className for the container (e.g., for margin, display properties)
+   * Do NOT use this for width/height - use the width prop instead
+   */
+  className?: string;
 }
 
 // Get all icon options for Sanity
@@ -53,24 +62,25 @@ export const getIconOptions = () => {
  * Icon component for rendering custom SVG icons
  *
  * Features:
- * - Size control via Tailwind width classes (w-4, w-6, w-8, w-16, etc.)
+ * - Size control via width prop (in rem units)
+ * - Automatic aspect ratio maintenance
  * - Color control via Tailwind text/gradient classes
  * - Falls back to red star if icon SVG not implemented yet
  *
  * @example
- * // Basic usage with size
- * <Icon iconKey="dumbell" className="w-16" />
+ * // Basic usage - 3rem wide
+ * <Icon iconKey="dumbell" width={3} />
  *
  * @example
- * // With solid brand color
- * <Icon iconKey="dumbell" className="w-16" colorClassName="text-brand-primary" />
+ * // With solid brand color - 4rem wide
+ * <Icon iconKey="dumbell" width={4} colorClassName="text-brand-primary" />
  *
  * @example
- * // With gradient
- * <Icon iconKey="dumbell" className="w-16" colorClassName="text-gradient-primary" />
+ * // With gradient - 6rem wide
+ * <Icon iconKey="dumbell" width={6} colorClassName="text-gradient-primary" />
  */
-const Icon = ({ iconKey, className = '', colorClassName = 'text-brand-primary' }: IconComponentProps) => {
-  return <CustomIcon iconKey={iconKey as CustomIconKey} className={className} colorClassName={colorClassName} />;
+const Icon = ({ iconKey, width, colorClassName = 'text-brand-primary', className = '' }: IconComponentProps) => {
+  return <CustomIcon iconKey={iconKey as CustomIconKey} width={width} colorClassName={colorClassName} className={className} />;
 };
 
 export default Icon;

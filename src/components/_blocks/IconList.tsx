@@ -37,7 +37,7 @@ const IconList = ({
             <div
               key={item._key}
               className={`flex justify-center flex-col items-center gap-4 ${
-                isHorizontal ? 'md:flex-row md:gap-8' : 'w-full'
+                isHorizontal ? 'md:flex-row md:gap-6' : 'w-full'
               }`}>
               {/* Icon */}
               <div
@@ -45,7 +45,11 @@ const IconList = ({
                 {...(documentId && documentType
                   ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
                   : {})}>
-                <Icon iconKey={item.icon as IconKey} className='w-12 md:w-16' colorClassName='text-brand-secondary' />
+                <Icon
+                  iconKey={item.icon as IconKey}
+                  width={3}
+                  colorClassName='text-brand-secondary'
+                />
               </div>
 
               {/* Description */}

@@ -1,11 +1,20 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-// SVG icon definitions
+// SVG icon definitions - returns a function that accepts className
 // Each icon should be defined with currentColor for fill to enable Tailwind color control
+// The SVG needs both width and height set to "100%" to scale properly within a sized container
 const SVG_ICONS = {
-  dumbell: (
-    <svg viewBox="0 0 23 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+  dumbell: (className: string) => (
+    <svg
+      viewBox="0 0 23 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width="100%"
+      height="100%"
+      preserveAspectRatio="xMidYMid meet"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -21,49 +30,72 @@ export type CustomIconKey = keyof typeof SVG_ICONS;
 
 export interface CustomIconProps {
   iconKey: CustomIconKey;
-  className?: string;
+  /**
+   * Width of the icon in rem units (e.g., 3 = 3rem)
+   * Height will auto-calculate based on the icon's aspect ratio
+   */
+  width: number;
   /**
    * Controls the icon color - use Tailwind text-* or gradient classes:
    * - Solid colors: text-brand-primary, text-brand-secondary, text-brand-charcoal, text-brand-white
    * - Gradients: text-gradient-primary, text-gradient-charcoal-linear, text-gradient-metal, text-gradient-firey
    */
   colorClassName?: string;
+  /**
+   * Optional additional className for the container (e.g., for margin, display properties)
+   * Do NOT use this for width/height - use the width prop instead
+   */
+  className?: string;
 }
 
 /**
  * CustomIcon component for rendering custom SVG icons
  *
  * Features:
- * - Size control via Tailwind width classes (w-4, w-6, w-8, w-16, etc.)
+ * - Size control via width prop (in rem units)
+ * - Automatic aspect ratio maintenance
  * - Color control via Tailwind text/gradient classes
  * - Falls back to red star if icon not found
  *
  * @example
- * // Basic usage with size
- * <CustomIcon iconKey="dumbell" className="w-16" />
+ * // Basic usage - 3rem wide
+ * <CustomIcon iconKey="dumbell" width={3} />
  *
  * @example
- * // With solid brand color
- * <CustomIcon iconKey="dumbell" className="w-16" colorClassName="text-brand-primary" />
+ * // With solid brand color - 4rem wide
+ * <CustomIcon iconKey="dumbell" width={4} colorClassName="text-brand-primary" />
  *
  * @example
- * // With gradient
- * <CustomIcon iconKey="dumbell" className="w-16" colorClassName="text-gradient-primary" />
+ * // With gradient - 6rem wide
+ * <CustomIcon iconKey="dumbell" width={6} colorClassName="text-gradient-primary" />
  */
-const CustomIcon = ({ iconKey, className = '', colorClassName = 'text-brand-primary' }: CustomIconProps) => {
-  const svgContent = SVG_ICONS[iconKey];
+const CustomIcon = ({ iconKey, width, colorClassName = 'text-brand-primary', className = '' }: CustomIconProps) => {
+  const svgFunction = SVG_ICONS[iconKey];
 
   // If icon not found, render red star as fallback
-  if (!svgContent) {
+  if (!svgFunction) {
     console.warn(`CustomIcon: Icon "${iconKey}" not found. Rendering fallback icon.`);
-    return <FaStar className={`text-red-500 ${className}`} />;
+    return <FaStar className={`text-red-500`} style={{ width: `${width}rem`, height: 'auto' }} />;
   }
 
-  // Combine className for size and colorClassName for color
-  // The SVG uses currentColor for fill, so text-* and gradient classes work
-  const combinedClassName = `${colorClassName} ${className}`.trim();
+  // Dumbell aspect ratio is 23:15
+  // Calculate height based on width to maintain aspect ratio
+  const aspectRatio = 23 / 15;
+  const heightRem = width / aspectRatio;
 
-  return <div className={combinedClassName}>{svgContent}</div>;
+  // Container div with exact rem dimensions and aspect ratio
+  // SVG fills the container with 100% width/height
+  return (
+    <div
+      className={`inline-block ${className}`.trim()}
+      style={{
+        width: `${width}rem`,
+        height: `${heightRem}rem`,
+      }}
+    >
+      {svgFunction(colorClassName)}
+    </div>
+  );
 };
 
 export default CustomIcon;

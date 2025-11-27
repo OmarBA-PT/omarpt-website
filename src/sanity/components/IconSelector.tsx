@@ -44,8 +44,8 @@ const IconSelector = (props: StringInputProps) => {
             gap: '12px',
             backgroundColor: '#f9f9f9',
           }}>
-          <div style={{ fontSize: '32px', display: 'flex', alignItems: 'center' }}>
-            <Icon iconKey={value as IconKey} className='w-8' colorClassName='text-black' />
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon iconKey={value as IconKey} width={2} colorClassName='text-black' />
           </div>
           <div>
             <strong className='text-black'>{ICON_LIBRARY[value as IconKey].name}</strong>
