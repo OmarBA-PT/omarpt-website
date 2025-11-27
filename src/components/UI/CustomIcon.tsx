@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { ICON_DEFINITIONS, type CustomIconKey } from './iconDefinitions';
+import { ICON_DEFINITIONS, type CustomIconKey } from './iconDefinitions/index';
 
 export type { CustomIconKey };
 

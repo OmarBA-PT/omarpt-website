@@ -10,14 +10,14 @@ export const ICON_LIBRARY = {
   progressGraph: {
     name: 'Progress Graph',
   },
-  darkBoard: {
+  target: {
     name: 'Target',
   },
   clock: {
     name: 'Clock',
   },
-  strongMan: {
-    name: 'Strong Man',
+  questionMan: {
+    name: 'Question Man',
   },
   gear: {
     name: 'Gear',
@@ -79,8 +79,20 @@ export const getIconOptions = () => {
  * // With gradient - 6rem wide
  * <Icon iconKey="dumbell" width={6} colorClassName="gradient-primary" />
  */
-const Icon = ({ iconKey, width, colorClassName = 'text-brand-primary', className = '' }: IconComponentProps) => {
-  return <CustomIcon iconKey={iconKey as CustomIconKey} width={width} colorClassName={colorClassName} className={className} />;
+const Icon = ({
+  iconKey,
+  width,
+  colorClassName = 'text-brand-primary',
+  className = '',
+}: IconComponentProps) => {
+  return (
+    <CustomIcon
+      iconKey={iconKey as CustomIconKey}
+      width={width}
+      colorClassName={colorClassName}
+      className={className}
+    />
+  );
 };
 
 export default Icon;
