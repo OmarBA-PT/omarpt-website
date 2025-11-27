@@ -120,7 +120,7 @@ const ServiceCard = ({
                 {list.items.map((item, idx) => (
                   <li
                     key={item._key || idx}
-                    className='flex items-start gap-3'
+                    className='flex justify-center items-center md:justify-start md:items-start gap-3'
                     {...(documentId && documentType
                       ? createSanityDataAttribute(
                           documentId,
@@ -130,7 +130,7 @@ const ServiceCard = ({
                       : {})}>
                     {/* Dumbbell Icon Bullet */}
                     <div className='shrink-0 mt-1'>
-                      <Icon iconKey='dumbell' width={1} colorClassName='text-brand-primary' />
+                      <Icon iconKey='dumbell' width={2} colorClassName='text-gradient-primary' />
                     </div>
 
                     {/* List Item Text */}
