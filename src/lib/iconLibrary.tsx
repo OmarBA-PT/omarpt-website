@@ -38,9 +38,9 @@ export interface IconComponentProps {
    */
   width: number;
   /**
-   * Controls the icon color - use Tailwind text-* or gradient classes:
-   * - Solid colors: text-brand-primary, text-brand-secondary, text-brand-charcoal, text-brand-white
-   * - Gradients: text-gradient-primary, text-gradient-charcoal-linear, text-gradient-metal, text-gradient-firey
+   * Controls the icon color - supports:
+   * - Solid colors: 'text-brand-primary', 'text-brand-secondary', 'text-brand-charcoal', 'text-brand-white'
+   * - Gradients: 'gradient-primary', 'gradient-charcoal-linear', 'gradient-charcoal-diag', 'gradient-charcoal-radial', 'gradient-metal', 'gradient-firey'
    */
   colorClassName?: string;
   /**
@@ -64,20 +64,20 @@ export const getIconOptions = () => {
  * Features:
  * - Size control via width prop (in rem units)
  * - Automatic aspect ratio maintenance
- * - Color control via Tailwind text/gradient classes
+ * - Color control via solid colors or gradients
  * - Falls back to red star if icon SVG not implemented yet
  *
  * @example
- * // Basic usage - 3rem wide
+ * // Basic usage - 3rem wide with default color
  * <Icon iconKey="dumbell" width={3} />
  *
  * @example
  * // With solid brand color - 4rem wide
- * <Icon iconKey="dumbell" width={4} colorClassName="text-brand-primary" />
+ * <Icon iconKey="dumbell" width={4} colorClassName="text-brand-secondary" />
  *
  * @example
  * // With gradient - 6rem wide
- * <Icon iconKey="dumbell" width={6} colorClassName="text-gradient-primary" />
+ * <Icon iconKey="dumbell" width={6} colorClassName="gradient-primary" />
  */
 const Icon = ({ iconKey, width, colorClassName = 'text-brand-primary', className = '' }: IconComponentProps) => {
   return <CustomIcon iconKey={iconKey as CustomIconKey} width={width} colorClassName={colorClassName} className={className} />;

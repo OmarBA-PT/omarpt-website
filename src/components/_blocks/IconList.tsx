@@ -41,14 +41,14 @@ const IconList = ({
               }`}>
               {/* Icon */}
               <div
-                className={`shrink-0 ${isHorizontal ? '' : 'text-center'}`}
+                className={`flex justify-center items-center`}
                 {...(documentId && documentType
                   ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
                   : {})}>
                 <Icon
                   iconKey={item.icon as IconKey}
                   width={3}
-                  colorClassName='text-brand-secondary'
+                  colorClassName='text-gradient-firey'
                 />
               </div>
 

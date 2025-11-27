@@ -36,9 +36,10 @@ export interface CustomIconProps {
    */
   width: number;
   /**
-   * Controls the icon color - use Tailwind text-* or gradient classes:
-   * - Solid colors: text-brand-primary, text-brand-secondary, text-brand-charcoal, text-brand-white
-   * - Gradients: text-gradient-primary, text-gradient-charcoal-linear, text-gradient-metal, text-gradient-firey
+   * Controls the icon color - supports:
+   * - Solid colors: 'text-brand-primary', 'text-brand-secondary', 'text-brand-charcoal', 'text-brand-white'
+   * - Gradients: 'gradient-primary', 'gradient-charcoal-linear', 'gradient-charcoal-diag', 'gradient-charcoal-radial', 'gradient-metal', 'gradient-firey'
+   * - Legacy text-gradient classes also supported: 'text-gradient-primary', etc.
    */
   colorClassName?: string;
   /**
@@ -83,8 +84,59 @@ const CustomIcon = ({ iconKey, width, colorClassName = 'text-brand-primary', cla
   const aspectRatio = 23 / 15;
   const heightRem = width / aspectRatio;
 
-  // Container div with exact rem dimensions and aspect ratio
-  // SVG fills the container with 100% width/height
+  // SVG path for mask (dumbell shape)
+  const svgPath = `<svg viewBox="0 0 23 15" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.562 0.3035C4.8175 0.15 5.211 0 5.75 0C6.289 0 6.6825 0.15 6.938 0.3035C7.3325 0.5395 7.4505 0.9435 7.4565 1.2315C7.468 1.8055 7.5 3.6985 7.5 7.25C7.5 10.8015 7.468 12.6945 7.4565 13.2685C7.4505 13.556 7.3325 13.9605 6.938 14.1965C6.6825 14.35 6.289 14.5 5.75 14.5C5.211 14.5 4.8175 14.35 4.562 14.1965C4.1675 13.9605 4.0495 13.5565 4.0435 13.2685C4.032 12.695 4 10.8015 4 7.25C4 3.6985 4.032 1.8055 4.0435 1.2315C4.0495 0.944 4.1675 0.5395 4.562 0.3035ZM17.938 0.3035C17.6825 0.15 17.289 0 16.75 0C16.211 0 15.8175 0.15 15.562 0.3035C15.168 0.5395 15.0495 0.9435 15.0435 1.2315C15.032 1.805 15 3.6985 15 7.25C15 10.8015 15.032 12.6945 15.0435 13.2685C15.0495 13.556 15.1675 13.9605 15.562 14.1965C15.8175 14.35 16.211 14.5 16.75 14.5C17.289 14.5 17.6825 14.35 17.938 14.1965C18.332 13.9605 18.4505 13.5565 18.4565 13.2685C18.468 12.6945 18.5 10.8015 18.5 7.25C18.5 3.6985 18.468 1.8055 18.4565 1.2315C18.4505 0.944 18.332 0.5395 17.938 0.3035ZM1.5 2.5C1.17 2.5 0.9055 2.56 0.703 2.6385C0.195 2.8355 0.038 3.3165 0.0305 3.6385C0.0205 4.087 0 5.237 0 7.25C0 9.263 0.02 10.413 0.03 10.8615C0.0375 11.1835 0.195 11.665 0.703 11.8615C0.9055 11.94 1.17 12 1.5 12C1.83 12 2.0945 11.94 2.297 11.8615C2.805 11.665 2.962 11.1835 2.9695 10.8615C2.9795 10.413 3 9.263 3 7.25C3 5.237 2.98 4.087 2.97 3.6385C2.9625 3.3165 2.805 2.835 2.297 2.6385C2.04218 2.54347 1.77194 2.49651 1.5 2.5ZM21.797 2.6385C21.5422 2.54347 21.2719 2.49651 21 2.5C20.67 2.5 20.4055 2.56 20.203 2.6385C19.6955 2.8355 19.538 3.3165 19.5305 3.6385C19.5205 4.087 19.5 5.237 19.5 7.25C19.5 9.263 19.52 10.413 19.53 10.8615C19.5375 11.1835 19.695 11.665 20.203 11.8615C20.4055 11.94 20.6705 12 21 12C21.33 12 21.5945 11.94 21.797 11.8615C22.3045 11.665 22.462 11.1835 22.4695 10.8615C22.4795 10.413 22.5 9.263 22.5 7.25C22.5 5.237 22.48 4.087 22.47 3.6385C22.4625 3.3165 22.305 2.835 21.797 2.6385ZM8.5 8.6785V5.8215C8.5 5.3475 8.888 5.0985 9.3015 5.063C9.38683 5.055 9.51433 5.04633 9.684 5.037C10.024 5.018 10.5375 5 11.25 5C11.9625 5 12.4765 5.018 12.816 5.037C12.9857 5.04633 13.1132 5.055 13.1985 5.063C13.612 5.098 14 5.3475 14 5.8215V8.6785C14 9.153 13.612 9.4015 13.1985 9.437C13.1132 9.445 12.9857 9.45367 12.816 9.463C12.476 9.482 11.9625 9.5 11.25 9.5C10.5375 9.5 10.0235 9.482 9.684 9.463C9.51433 9.45367 9.38683 9.445 9.3015 9.437C8.888 9.402 8.5 9.1525 8.5 8.6785Z"/></svg>`;
+
+  // Map gradient names to CSS custom properties
+  const gradientMap: Record<string, string> = {
+    'gradient-primary': 'var(--background-image-brand-gradient-primary)',
+    'gradient-charcoal-linear': 'var(--background-image-brand-gradient-charcoal-linear)',
+    'gradient-charcoal-diag': 'var(--background-image-brand-gradient-charcoal-diag)',
+    'gradient-charcoal-radial': 'var(--background-image-brand-gradient-charcoal-radial)',
+    'gradient-metal': 'var(--background-image-brand-gradient-metal)',
+    'gradient-firey': 'var(--background-image-brand-gradient-firey)',
+  };
+
+  // Check if using a gradient (either new format 'gradient-X' or legacy 'text-gradient-X')
+  const isGradient = colorClassName.startsWith('gradient-') || colorClassName.startsWith('text-gradient-');
+
+  // For gradients, apply gradient to wrapper and use mask for the SVG shape
+  if (isGradient) {
+    // Get the gradient value - support both new and legacy formats
+    let gradientValue: string | undefined;
+
+    if (colorClassName.startsWith('gradient-')) {
+      // New format: use the gradient map
+      gradientValue = gradientMap[colorClassName];
+    } else if (colorClassName.startsWith('text-gradient-')) {
+      // Legacy format: apply the text-gradient class (uses background-clip: text from globals.css)
+      // Convert to simple gradient format
+      const gradientName = colorClassName.replace('text-gradient-', 'gradient-');
+      gradientValue = gradientMap[gradientName];
+    }
+
+    return (
+      <div
+        className={`inline-block ${className}`.trim()}
+        style={{
+          width: `${width}rem`,
+          height: `${heightRem}rem`,
+        }}
+      >
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            background: gradientValue,
+            WebkitMask: `url("data:image/svg+xml,${encodeURIComponent(svgPath)}") center / contain no-repeat`,
+            mask: `url("data:image/svg+xml,${encodeURIComponent(svgPath)}") center / contain no-repeat`,
+          }}
+        />
+      </div>
+    );
+  }
+
+  // For solid colors, use the normal SVG with currentColor
   return (
     <div
       className={`inline-block ${className}`.trim()}
