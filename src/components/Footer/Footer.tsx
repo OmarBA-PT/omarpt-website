@@ -101,7 +101,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
 
   return (
     <footer
-      className={`bg-brand-gradient-brown text-brand-white py-10 px-6 md:px-16 w-full transition-opacity duration-500 ease-in-out ${
+      className={`bg-brand-gradient-charcoal-linear text-brand-white py-10 px-6 md:px-16 w-full transition-opacity duration-500 ease-in-out ${
         isPageReady ? 'opacity-100' : 'opacity-0'
       }`}
       aria-label='Site Footer'>
@@ -111,17 +111,45 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
           {/* LOGO & MESSAGE */}
           <div className='flex flex-col items-center lg:items-start text-center lg:text-left mx-auto lg:mx-0 lg:max-w-1/3'>
             {/* Logo */}
-            <Link href='/#home'>
+            <Link
+              href='/#home'
+              className='flex items-center gap-2 transition-opacity duration-300'
+              style={{
+                filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8))',
+              }}>
               <UnifiedImage
-                src='/images/logos/logo-white.png'
+                src='/images/logos/logo.png'
                 alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
                 mode='sized'
-                width={400}
-                height={190}
+                width={200}
+                height={125}
                 sizeContext='logo'
                 objectFit='contain'
-                className='w-[200px] md:w-[300px] h-auto'
+                className='w-14 md:w-20 h-auto'
+                priority
               />
+              <div className='hidden xxs:flex items-baseline gap-2'>
+                <span
+                  className='text-h3'
+                  style={{
+                    background: 'var(--background-image-brand-gradient-primary)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}>
+                  Omania
+                </span>
+                <span
+                  className='text-h5'
+                  style={{
+                    background: 'var(--background-image-brand-gradient-metal)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}>
+                  Training
+                </span>
+              </div>
             </Link>
 
             {/* Messages */}
@@ -140,10 +168,10 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
           </div>
 
           {/* LINKS */}
-          <div className='flex flex-col md:flex-row md:justify-between lg:justify-start gap-x-8 gap-y-16 text-center md:text-left'>
+          <div className='flex flex-col md:flex-row md:justify-between lg:justify-start gap-x-16 gap-y-16 text-center md:text-left'>
             {/* Contact Details */}
-            <div>
-              <p className='text-h6 mb-6'>Contact Details</p>
+            <div className='md:order-last'>
+              <p className='text-h6 mb-6'>Contact</p>
               <div className='flex flex-col items-center md:items-start gap-4'>
                 {contactDetails.map((detail, index) => (
                   <a
@@ -152,7 +180,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
                     className='flex items-center gap-4 hover:text-brand-primary transition-colors duration-200'
                     target={detail.link.startsWith('http') ? '_blank' : undefined}
                     rel={detail.link.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                    <span className='text-subtle'>{detail.icon}</span> {detail.value}
+                    <span className='text-brand-secondary'>{detail.icon}</span> {detail.value}
                   </a>
                 ))}
               </div>
@@ -230,7 +258,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
                         <div className='rounded-full flex items-center justify-center gap-x-4 transition-transform duration-200'>
                           <SocialIcon
                             platform={link.platform}
-                            className='text-body-xl text-subtle'
+                            className='text-body-xl text-brand-secondary'
                           />
                           <p>{link.label}</p>
                         </div>
