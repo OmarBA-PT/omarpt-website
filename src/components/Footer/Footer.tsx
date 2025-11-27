@@ -171,7 +171,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
           <div className='flex flex-col md:flex-row md:justify-between lg:justify-start gap-x-16 gap-y-16 text-center md:text-left'>
             {/* Contact Details */}
             <div className='md:order-last'>
-              <p className='text-h6 mb-6'>Contact</p>
+              <p className='text-h6 mb-6 text-gradient-primary'>Contact</p>
               <div className='flex flex-col items-center md:items-start gap-4'>
                 {contactDetails.map((detail, index) => (
                   <a
@@ -190,7 +190,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
               {/*  Quick Links */}
               {quickLinks.length > 0 && (
                 <div>
-                  <p className='text-h6 mb-6'>Quick Links</p>
+                  <p className='text-h6 mb-6 text-gradient-primary'>Quick Links</p>
                   <div
                     className='flex flex-col items-center md:items-start gap-4'
                     {...createSanityDataAttribute('footer', 'footer', 'quickLinks')}>
@@ -237,7 +237,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
               {/* Company Links */}
               {transformedLinks.length > 0 && (
                 <div className=''>
-                  <p className='text-h6 mb-6'>Connect</p>
+                  <p className='text-h6 mb-6 text-gradient-primary'>Connect</p>
                   <div
                     className='flex flex-col items-center md:items-start gap-4'
                     {...createSanityDataAttribute('companyLinks', 'companyLinks', 'companyLinks')}>
@@ -274,7 +274,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
         {/* BOTTOM ROW */}
         <div className='mt-12'>
           {/* Separator Line */}
-          <div className='w-full h-px bg-gray-600 mb-6'></div>
+          <div className='w-full h-px bg-brand-gradient-primary opacity-30 mb-6'></div>
 
           <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
             {/* Copyright */}
