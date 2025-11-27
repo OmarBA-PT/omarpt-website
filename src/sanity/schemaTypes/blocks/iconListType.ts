@@ -4,7 +4,7 @@
 
 import { defineField, defineType } from 'sanity';
 import { MenuIcon } from '@sanity/icons';
-import { createIconFields } from '../shared/iconFieldConfig';
+import { createIconField } from '../shared/iconFieldConfig';
 
 export const iconListType = defineType({
   name: 'iconList',
@@ -37,9 +37,9 @@ export const iconListType = defineType({
           name: 'iconListItem',
           title: 'Icon List Item',
           fields: [
-            ...createIconFields({
+            createIconField({
               required: true,
-              description: 'Choose to use an icon from the library or upload a custom image',
+              description: 'Select an icon from the library',
             }),
             defineField({
               name: 'description',
@@ -52,22 +52,16 @@ export const iconListType = defineType({
           ],
           preview: {
             select: {
-              iconType: 'iconType',
               icon: 'icon',
-              customImage: 'customImage',
               description: 'description',
             },
-            prepare({ iconType, icon, customImage, description }) {
+            prepare({ icon, description }) {
               const title = description || 'Untitled Item';
-              const isCustom = iconType === 'custom';
-              const subtitle = isCustom
-                ? (customImage ? 'Custom Image' : 'No custom image uploaded')
-                : (icon ? `Icon: ${icon}` : 'No icon selected');
+              const subtitle = icon ? `Icon: ${icon}` : 'No icon selected';
 
               return {
                 title,
                 subtitle,
-                media: isCustom ? customImage : undefined,
               };
             },
           },

@@ -3,7 +3,6 @@ import Icon from '@/lib/iconLibrary';
 import type { IconKey } from '@/lib/iconLibrary';
 import type { DetailedList as DetailedListType } from '@/sanity/types';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
-import UnifiedImage from '@/components/UI/UnifiedImage';
 
 interface DetailedListProps extends Omit<DetailedListType, '_type' | '_key'> {
   className?: string;
@@ -31,10 +30,7 @@ const DetailedList = ({
             ? `${fieldPathPrefix}.items[${index}]`
             : `items[${index}]`;
 
-          // Check if using custom image or library icon
-          const isCustomImage = (item as { iconType?: string }).iconType === 'custom';
-          const customImage = (item as { customImage?: { alt?: string } }).customImage;
-          const hasIcon = isCustomImage ? !!customImage : !!item.icon;
+          const hasIcon = !!item.icon;
 
           return (
             <div key={item._key} className='w-full'>
@@ -49,35 +45,14 @@ const DetailedList = ({
 
               {/* Icon and Description Container */}
               <div className={`flex ${hasIcon ? 'gap-4' : ''} items-start`}>
-                {/* Icon or Custom Image (if provided) */}
+                {/* Icon (if provided) */}
                 {hasIcon && (
                   <div
                     className='shrink-0'
                     {...(documentId && documentType
-                      ? createSanityDataAttribute(
-                          documentId,
-                          documentType,
-                          isCustomImage ? `${itemPath}.customImage` : `${itemPath}.icon`
-                        )
+                      ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
                       : {})}>
-                    {isCustomImage && customImage ? (
-                      <UnifiedImage
-                        src={customImage}
-                        alt={customImage.alt || item.title || 'Icon'}
-                        mode='sized'
-                        width={80}
-                        height={80}
-                        sizeContext='logo'
-                        objectFit='contain'
-                        className='w-12 h-12 md:w-16 md:h-16'
-                      />
-                    ) : (
-                      <Icon
-                        iconKey={item.icon as IconKey}
-                        className='text-brand-secondary'
-                        size={48}
-                      />
-                    )}
+                    <Icon iconKey={item.icon as IconKey} className='w-12 md:w-16' colorClassName='text-brand-secondary' />
                   </div>
                 )}
 

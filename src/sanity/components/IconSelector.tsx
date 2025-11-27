@@ -1,6 +1,7 @@
 import React from 'react';
 import { StringInputProps, set, unset } from 'sanity';
 import { ICON_LIBRARY, IconKey } from '@/lib/iconLibrary';
+import Icon from '@/lib/iconLibrary';
 
 const IconSelector = (props: StringInputProps) => {
   const { onChange, value } = props;
@@ -23,7 +24,7 @@ const IconSelector = (props: StringInputProps) => {
           fontSize: '14px',
         }}>
         <option value=''>Select an icon...</option>
-        {Object.entries(ICON_LIBRARY).map(([key, { name, icon: IconComponent }]) => (
+        {Object.entries(ICON_LIBRARY).map(([key, { name }]) => (
           <option key={key} value={key}>
             {name}
           </option>
@@ -44,10 +45,7 @@ const IconSelector = (props: StringInputProps) => {
             backgroundColor: '#f9f9f9',
           }}>
           <div style={{ fontSize: '32px', display: 'flex', alignItems: 'center' }}>
-            {React.createElement(ICON_LIBRARY[value as IconKey].icon, {
-              size: 32,
-              color: '#000',
-            })}
+            <Icon iconKey={value as IconKey} className='w-8' colorClassName='text-black' />
           </div>
           <div>
             <strong className='text-black'>{ICON_LIBRARY[value as IconKey].name}</strong>

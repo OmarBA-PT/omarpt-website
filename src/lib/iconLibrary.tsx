@@ -1,39 +1,29 @@
 import React from 'react';
-import { TbTargetArrow, TbClock, TbBarbell, TbSettings } from 'react-icons/tb';
-import { FaChartLine } from 'react-icons/fa';
-import { GiStrong } from 'react-icons/gi';
-import { SiFireship } from 'react-icons/si';
-import { IconType } from 'react-icons';
+import CustomIcon, { CustomIconKey } from '@/components/UI/CustomIcon';
 
 // Icon mapping with display names
+// This is the single source of truth for all icons in the application
 export const ICON_LIBRARY = {
+  dumbell: {
+    name: 'Dumbell',
+  },
   progressGraph: {
     name: 'Progress Graph',
-    icon: FaChartLine,
   },
   darkBoard: {
     name: 'Target',
-    icon: TbTargetArrow,
   },
   clock: {
     name: 'Clock',
-    icon: TbClock,
-  },
-  dumbell: {
-    name: 'Dumbell',
-    icon: TbBarbell,
   },
   strongMan: {
     name: 'Strong Man',
-    icon: GiStrong,
   },
   gear: {
     name: 'Gear',
-    icon: TbSettings,
   },
   flame: {
     name: 'Flame',
-    icon: SiFireship,
   },
 } as const;
 
@@ -43,13 +33,13 @@ export type IconKey = keyof typeof ICON_LIBRARY;
 export interface IconComponentProps {
   iconKey: IconKey;
   className?: string;
-  size?: number;
+  /**
+   * Controls the icon color - use Tailwind text-* or gradient classes:
+   * - Solid colors: text-brand-primary, text-brand-secondary, text-brand-charcoal, text-brand-white
+   * - Gradients: text-gradient-primary, text-gradient-charcoal-linear, text-gradient-metal, text-gradient-firey
+   */
+  colorClassName?: string;
 }
-
-// Get icon component by key
-export const getIcon = (iconKey: IconKey): IconType => {
-  return ICON_LIBRARY[iconKey].icon;
-};
 
 // Get all icon options for Sanity
 export const getIconOptions = () => {
@@ -59,10 +49,28 @@ export const getIconOptions = () => {
   }));
 };
 
-// React component for rendering icons
-const Icon = ({ iconKey, className = 'text-black', size = 24 }: IconComponentProps) => {
-  const IconComponent = getIcon(iconKey);
-  return <IconComponent className={className} size={size} />;
+/**
+ * Icon component for rendering custom SVG icons
+ *
+ * Features:
+ * - Size control via Tailwind width classes (w-4, w-6, w-8, w-16, etc.)
+ * - Color control via Tailwind text/gradient classes
+ * - Falls back to red star if icon SVG not implemented yet
+ *
+ * @example
+ * // Basic usage with size
+ * <Icon iconKey="dumbell" className="w-16" />
+ *
+ * @example
+ * // With solid brand color
+ * <Icon iconKey="dumbell" className="w-16" colorClassName="text-brand-primary" />
+ *
+ * @example
+ * // With gradient
+ * <Icon iconKey="dumbell" className="w-16" colorClassName="text-gradient-primary" />
+ */
+const Icon = ({ iconKey, className = '', colorClassName = 'text-brand-primary' }: IconComponentProps) => {
+  return <CustomIcon iconKey={iconKey as CustomIconKey} className={className} colorClassName={colorClassName} />;
 };
 
 export default Icon;

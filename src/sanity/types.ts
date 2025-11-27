@@ -189,21 +189,7 @@ export type DetailedList = {
   _type: "detailedList";
   items?: Array<{
     title?: string;
-    iconType?: "library" | "custom";
     icon?: string;
-    customImage?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    };
     description?: string;
     _type: "detailedListItem";
     _key: string;
@@ -214,21 +200,7 @@ export type IconList = {
   _type: "iconList";
   layout?: "horizontal" | "vertical";
   items?: Array<{
-    iconType?: "library" | "custom";
     icon?: string;
-    customImage?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    };
     description?: string;
     _type: "iconListItem";
     _key: string;
@@ -1519,21 +1491,7 @@ export type PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -1551,21 +1509,7 @@ export type PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -1832,21 +1776,7 @@ export type PAGE_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -2026,21 +1956,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -2058,21 +1974,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -2338,21 +2240,7 @@ export type PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -2370,21 +2258,7 @@ export type PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -2535,21 +2409,7 @@ export type PAGE_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -2803,21 +2663,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -2835,21 +2681,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -3115,21 +2947,7 @@ export type PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -3303,21 +3121,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -3333,21 +3137,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -3585,21 +3375,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -3617,21 +3393,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -3781,21 +3543,7 @@ export type PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -4096,21 +3844,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -4126,21 +3860,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -4378,21 +4098,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -4560,21 +4266,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -4588,21 +4280,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -4830,21 +4508,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -4860,21 +4524,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -4996,21 +4646,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -5304,21 +4940,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -5332,21 +4954,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -5574,21 +5182,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -5753,21 +5347,7 @@ export type PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -5781,21 +5361,7 @@ export type PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -6019,21 +5585,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -6047,21 +5599,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -6178,21 +5716,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -6457,21 +5981,7 @@ export type PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -6485,21 +5995,7 @@ export type PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -6723,21 +6219,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -6751,21 +6233,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -7026,21 +6494,7 @@ export type PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -7054,21 +6508,7 @@ export type PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -7292,21 +6732,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -7320,21 +6746,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -7608,21 +7020,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -7636,21 +7034,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -7874,21 +7258,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -7902,21 +7272,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -8177,21 +7533,7 @@ export type PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -8205,21 +7547,7 @@ export type PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -8443,21 +7771,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -8471,21 +7785,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -8761,21 +8061,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -8789,21 +8075,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -9027,21 +8299,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -9055,21 +8313,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -9330,21 +8574,7 @@ export type PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -9358,21 +8588,7 @@ export type PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -9596,21 +8812,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -9624,21 +8826,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -9983,21 +9171,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -10011,21 +9185,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -10249,21 +9409,7 @@ export type PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -10277,21 +9423,7 @@ export type PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -10552,21 +9684,7 @@ export type PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -10580,21 +9698,7 @@ export type PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -10818,21 +9922,7 @@ export type PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -10846,21 +9936,7 @@ export type PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -11122,21 +10198,7 @@ export type PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -11150,21 +10212,7 @@ export type PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -11596,21 +10644,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -11628,21 +10662,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -11908,21 +10928,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -12096,21 +11102,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -12126,21 +11118,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -12378,21 +11356,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -12410,21 +11374,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -12574,21 +11524,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -12881,21 +11817,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -12909,21 +11831,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -13147,21 +12055,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -13175,21 +12069,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -13450,21 +12330,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -13478,21 +12344,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -13716,21 +12568,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -13744,21 +12582,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -14064,21 +12888,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -14096,21 +12906,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -14376,21 +13172,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -14564,21 +13346,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -14594,21 +13362,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -14846,21 +13600,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -14878,21 +13618,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -15042,21 +13768,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -15357,21 +14069,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -15387,21 +14085,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -15639,21 +14323,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -15821,21 +14491,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -15849,21 +14505,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -16091,21 +14733,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -16121,21 +14749,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -16257,21 +14871,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -16565,21 +15165,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -16593,21 +15179,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -16835,21 +15407,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -17014,21 +15572,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -17042,21 +15586,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -17280,21 +15810,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -17308,21 +15824,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -17439,21 +15941,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -17718,21 +16206,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -17746,21 +16220,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -17984,21 +16444,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -18012,21 +16458,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -18287,21 +16719,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -18315,21 +16733,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -18553,21 +16957,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -18581,21 +16971,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -18869,21 +17245,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -18897,21 +17259,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -19135,21 +17483,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -19163,21 +17497,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -19438,21 +17758,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -19466,21 +17772,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -19704,21 +17996,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -19732,21 +18010,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -20022,21 +18286,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -20050,21 +18300,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -20288,21 +18524,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -20316,21 +18538,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -20591,21 +18799,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -20619,21 +18813,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -20857,21 +19037,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -20885,21 +19051,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -21199,21 +19351,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -21231,21 +19369,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -21512,21 +19636,7 @@ export type HOME_PAGE_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -21706,21 +19816,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -21738,21 +19834,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -22018,21 +20100,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -22050,21 +20118,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -22215,21 +20269,7 @@ export type HOME_PAGE_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -22483,21 +20523,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -22515,21 +20541,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -22795,21 +20807,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -22983,21 +20981,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -23013,21 +20997,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -23265,21 +21235,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -23297,21 +21253,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -23461,21 +21403,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -23776,21 +21704,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -23806,21 +21720,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -24058,21 +21958,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -24240,21 +22126,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -24268,21 +22140,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -24510,21 +22368,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -24540,21 +22384,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -24676,21 +22506,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -24984,21 +22800,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -25012,21 +22814,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -25254,21 +23042,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -25433,21 +23207,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -25461,21 +23221,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -25699,21 +23445,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -25727,21 +23459,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -25858,21 +23576,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -26137,21 +23841,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -26165,21 +23855,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -26403,21 +24079,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -26431,21 +24093,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -26706,21 +24354,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -26734,21 +24368,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -26972,21 +24592,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -27000,21 +24606,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -27288,21 +24880,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -27316,21 +24894,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -27554,21 +25118,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -27582,21 +25132,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -27857,21 +25393,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -27885,21 +25407,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -28123,21 +25631,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -28151,21 +25645,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -28441,21 +25921,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -28469,21 +25935,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -28707,21 +26159,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -28735,21 +26173,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -29010,21 +26434,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -29038,21 +26448,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -29276,21 +26672,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -29304,21 +26686,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -29663,21 +27031,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -29691,21 +27045,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -29929,21 +27269,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -29957,21 +27283,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -30232,21 +27544,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -30260,21 +27558,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -30498,21 +27782,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -30526,21 +27796,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -30838,21 +28094,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -30870,21 +28112,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -31151,21 +28379,7 @@ export type HOME_PAGE_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -31345,21 +28559,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -31377,21 +28577,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -31657,21 +28843,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -31689,21 +28861,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -31854,21 +29012,7 @@ export type HOME_PAGE_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -32122,21 +29266,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -32154,21 +29284,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -32434,21 +29550,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -32622,21 +29724,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -32652,21 +29740,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -32904,21 +29978,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -32936,21 +29996,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -33100,21 +30146,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -33415,21 +30447,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -33445,21 +30463,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -33697,21 +30701,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -33879,21 +30869,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -33907,21 +30883,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -34149,21 +31111,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -34179,21 +31127,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -34315,21 +31249,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -34623,21 +31543,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -34651,21 +31557,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -34893,21 +31785,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -35072,21 +31950,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -35100,21 +31964,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -35338,21 +32188,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -35366,21 +32202,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -35497,21 +32319,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -35776,21 +32584,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -35804,21 +32598,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -36042,21 +32822,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -36070,21 +32836,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -36345,21 +33097,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -36373,21 +33111,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -36611,21 +33335,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -36639,21 +33349,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -36927,21 +33623,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -36955,21 +33637,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -37193,21 +33861,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -37221,21 +33875,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -37496,21 +34136,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -37524,21 +34150,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -37762,21 +34374,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -37790,21 +34388,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -38080,21 +34664,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -38108,21 +34678,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -38346,21 +34902,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -38374,21 +34916,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -38649,21 +35177,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -38677,21 +35191,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -38915,21 +35415,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -38943,21 +35429,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -39302,21 +35774,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -39330,21 +35788,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -39568,21 +36012,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -39596,21 +36026,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -39871,21 +36287,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -39899,21 +36301,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -40137,21 +36525,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -40165,21 +36539,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -40525,21 +36885,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -40557,21 +36903,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -40838,21 +37170,7 @@ export type HOME_PAGE_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -41032,21 +37350,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -41064,21 +37368,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -41344,21 +37634,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -41376,21 +37652,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -41541,21 +37803,7 @@ export type HOME_PAGE_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -41809,21 +38057,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -41841,21 +38075,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -42121,21 +38341,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -42309,21 +38515,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -42339,21 +38531,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -42591,21 +38769,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -42623,21 +38787,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -42787,21 +38937,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -43102,21 +39238,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -43132,21 +39254,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -43384,21 +39492,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -43566,21 +39660,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -43594,21 +39674,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -43836,21 +39902,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -43866,21 +39918,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -44002,21 +40040,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -44310,21 +40334,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -44338,21 +40348,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -44580,21 +40576,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -44759,21 +40741,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -44787,21 +40755,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -45025,21 +40979,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -45053,21 +40993,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -45184,21 +41110,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -45463,21 +41375,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -45491,21 +41389,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -45729,21 +41613,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -45757,21 +41627,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -46032,21 +41888,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -46060,21 +41902,7 @@ export type HOME_PAGE_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -46298,21 +42126,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -46326,21 +42140,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -46614,21 +42414,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -46642,21 +42428,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -46880,21 +42652,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -46908,21 +42666,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -47183,21 +42927,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -47211,21 +42941,7 @@ export type HOME_PAGE_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -47449,21 +43165,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -47477,21 +43179,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -47767,21 +43455,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -47795,21 +43469,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -48033,21 +43693,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -48061,21 +43707,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -48336,21 +43968,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -48364,21 +43982,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -48602,21 +44206,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -48630,21 +44220,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -48989,21 +44565,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -49017,21 +44579,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -49255,21 +44803,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -49283,21 +44817,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -49558,21 +45078,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -49586,21 +45092,7 @@ export type HOME_PAGE_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -49824,21 +45316,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -49852,21 +45330,7 @@ export type HOME_PAGE_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -50801,21 +46265,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -50833,21 +46283,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -51113,21 +46549,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -51301,21 +46723,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -51331,21 +46739,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -51583,21 +46977,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -51615,21 +46995,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -51779,21 +47145,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -52086,21 +47438,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -52114,21 +47452,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -52352,21 +47676,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -52380,21 +47690,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -52655,21 +47951,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -52683,21 +47965,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -52921,21 +48189,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -52949,21 +48203,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -53269,21 +48509,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -53301,21 +48527,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -53581,21 +48793,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -53769,21 +48967,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -53799,21 +48983,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -54051,21 +49221,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -54083,21 +49239,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -54247,21 +49389,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -54562,21 +49690,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -54592,21 +49706,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -54844,21 +49944,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -55026,21 +50112,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -55054,21 +50126,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -55296,21 +50354,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -55326,21 +50370,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -55462,21 +50492,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -55770,21 +50786,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -55798,21 +50800,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -56040,21 +51028,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -56219,21 +51193,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -56247,21 +51207,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -56485,21 +51431,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -56513,21 +51445,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -56644,21 +51562,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -56923,21 +51827,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -56951,21 +51841,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -57189,21 +52065,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -57217,21 +52079,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -57492,21 +52340,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -57520,21 +52354,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -57758,21 +52578,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -57786,21 +52592,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -58074,21 +52866,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -58102,21 +52880,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -58340,21 +53104,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -58368,21 +53118,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -58643,21 +53379,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -58671,21 +53393,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -58909,21 +53617,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -58937,21 +53631,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -59227,21 +53907,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -59255,21 +53921,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -59493,21 +54145,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -59521,21 +54159,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -59796,21 +54420,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -59824,21 +54434,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -60062,21 +54658,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -60090,21 +54672,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -60396,21 +54964,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -60428,21 +54982,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -60709,21 +55249,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -60903,21 +55429,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -60935,21 +55447,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -61215,21 +55713,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -61247,21 +55731,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -61412,21 +55882,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -61680,21 +56136,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -61712,21 +56154,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -61992,21 +56420,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -62180,21 +56594,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -62210,21 +56610,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -62462,21 +56848,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -62494,21 +56866,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -62658,21 +57016,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -62973,21 +57317,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -63003,21 +57333,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -63255,21 +57571,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -63437,21 +57739,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -63465,21 +57753,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -63707,21 +57981,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -63737,21 +57997,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -63873,21 +58119,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -64181,21 +58413,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -64209,21 +58427,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -64451,21 +58655,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -64630,21 +58820,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -64658,21 +58834,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -64896,21 +59058,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -64924,21 +59072,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -65055,21 +59189,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -65334,21 +59454,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -65362,21 +59468,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -65600,21 +59692,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -65628,21 +59706,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -65903,21 +59967,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -65931,21 +59981,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -66169,21 +60205,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -66197,21 +60219,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -66485,21 +60493,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -66513,21 +60507,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -66751,21 +60731,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -66779,21 +60745,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -67054,21 +61006,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -67082,21 +61020,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -67320,21 +61244,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -67348,21 +61258,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -67638,21 +61534,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -67666,21 +61548,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -67904,21 +61772,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -67932,21 +61786,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -68207,21 +62047,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -68235,21 +62061,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -68473,21 +62285,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -68501,21 +62299,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -68860,21 +62644,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -68888,21 +62658,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -69126,21 +62882,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -69154,21 +62896,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -69429,21 +63157,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -69457,21 +63171,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -69695,21 +63395,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -69723,21 +63409,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -70027,21 +63699,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -70059,21 +63717,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -70340,21 +63984,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -70534,21 +64164,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -70566,21 +64182,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -70846,21 +64448,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -70878,21 +64466,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -71043,21 +64617,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -71311,21 +64871,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -71343,21 +64889,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -71623,21 +65155,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -71811,21 +65329,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -71841,21 +65345,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -72093,21 +65583,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -72125,21 +65601,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -72289,21 +65751,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -72604,21 +66052,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -72634,21 +66068,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -72886,21 +66306,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -73068,21 +66474,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -73096,21 +66488,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -73338,21 +66716,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -73368,21 +66732,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -73504,21 +66854,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -73812,21 +67148,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -73840,21 +67162,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -74082,21 +67390,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -74261,21 +67555,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -74289,21 +67569,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -74527,21 +67793,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -74555,21 +67807,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -74686,21 +67924,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -74965,21 +68189,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -74993,21 +68203,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -75231,21 +68427,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -75259,21 +68441,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -75534,21 +68702,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -75562,21 +68716,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -75800,21 +68940,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -75828,21 +68954,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -76116,21 +69228,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -76144,21 +69242,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -76382,21 +69466,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -76410,21 +69480,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -76685,21 +69741,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -76713,21 +69755,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -76951,21 +69979,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -76979,21 +69993,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -77269,21 +70269,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -77297,21 +70283,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -77535,21 +70507,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -77563,21 +70521,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -77838,21 +70782,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -77866,21 +70796,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -78104,21 +71020,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -78132,21 +71034,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -78491,21 +71379,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -78519,21 +71393,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -78757,21 +71617,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -78785,21 +71631,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -79060,21 +71892,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -79088,21 +71906,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -79326,21 +72130,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -79354,21 +72144,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -79682,21 +72458,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -79714,21 +72476,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -79995,21 +72743,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -80189,21 +72923,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -80221,21 +72941,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -80501,21 +73207,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -80533,21 +73225,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -80698,21 +73376,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -80966,21 +73630,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -80998,21 +73648,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -81278,21 +73914,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -81466,21 +74088,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -81496,21 +74104,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -81748,21 +74342,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -81780,21 +74360,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -81944,21 +74510,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -82259,21 +74811,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -82289,21 +74827,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -82541,21 +75065,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -82723,21 +75233,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -82751,21 +75247,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -82993,21 +75475,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -83023,21 +75491,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -83159,21 +75613,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -83467,21 +75907,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -83495,21 +75921,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -83737,21 +76149,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -83916,21 +76314,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -83944,21 +76328,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -84182,21 +76552,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -84210,21 +76566,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -84341,21 +76683,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -84620,21 +76948,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -84648,21 +76962,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -84886,21 +77186,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -84914,21 +77200,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -85189,21 +77461,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -85217,21 +77475,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -85455,21 +77699,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -85483,21 +77713,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -85771,21 +77987,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -85799,21 +78001,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -86037,21 +78225,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -86065,21 +78239,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -86340,21 +78500,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -86368,21 +78514,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -86606,21 +78738,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -86634,21 +78752,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -86924,21 +79028,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -86952,21 +79042,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -87190,21 +79266,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -87218,21 +79280,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -87493,21 +79541,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -87521,21 +79555,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -87759,21 +79779,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -87787,21 +79793,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -88146,21 +80138,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -88174,21 +80152,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -88412,21 +80376,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -88440,21 +80390,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -88715,21 +80651,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -88743,21 +80665,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -88981,21 +80889,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -89009,21 +80903,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -89365,21 +81245,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -89397,21 +81263,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -89677,21 +81529,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -89865,21 +81703,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -89895,21 +81719,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -90147,21 +81957,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -90179,21 +81975,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -90343,21 +82125,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -90650,21 +82418,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -90678,21 +82432,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -90916,21 +82656,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -90944,21 +82670,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -91219,21 +82931,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -91247,21 +82945,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -91485,21 +83169,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -91513,21 +83183,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -91833,21 +83489,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -91865,21 +83507,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -92145,21 +83773,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -92333,21 +83947,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -92363,21 +83963,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -92615,21 +84201,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -92647,21 +84219,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -92811,21 +84369,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -93126,21 +84670,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -93156,21 +84686,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -93408,21 +84924,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -93590,21 +85092,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -93618,21 +85106,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -93860,21 +85334,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -93890,21 +85350,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -94026,21 +85472,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -94334,21 +85766,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -94362,21 +85780,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -94604,21 +86008,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -94783,21 +86173,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -94811,21 +86187,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -95049,21 +86411,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -95077,21 +86425,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -95208,21 +86542,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -95487,21 +86807,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -95515,21 +86821,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -95753,21 +87045,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -95781,21 +87059,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -96056,21 +87320,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -96084,21 +87334,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -96322,21 +87558,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -96350,21 +87572,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -96638,21 +87846,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -96666,21 +87860,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -96904,21 +88084,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -96932,21 +88098,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -97207,21 +88359,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -97235,21 +88373,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -97473,21 +88597,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -97501,21 +88611,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -97791,21 +88887,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -97819,21 +88901,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -98057,21 +89125,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -98085,21 +89139,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -98360,21 +89400,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -98388,21 +89414,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -98626,21 +89638,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -98654,21 +89652,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -98960,21 +89944,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -98992,21 +89962,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -99273,21 +90229,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -99467,21 +90409,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -99499,21 +90427,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -99779,21 +90693,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -99811,21 +90711,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -99976,21 +90862,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -100244,21 +91116,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -100276,21 +91134,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -100556,21 +91400,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -100744,21 +91574,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -100774,21 +91590,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -101026,21 +91828,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -101058,21 +91846,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -101222,21 +91996,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -101537,21 +92297,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -101567,21 +92313,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -101819,21 +92551,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -102001,21 +92719,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -102029,21 +92733,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -102271,21 +92961,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -102301,21 +92977,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -102437,21 +93099,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -102745,21 +93393,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -102773,21 +93407,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -103015,21 +93635,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -103194,21 +93800,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -103222,21 +93814,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -103460,21 +94038,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -103488,21 +94052,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -103619,21 +94169,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -103898,21 +94434,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -103926,21 +94448,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -104164,21 +94672,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -104192,21 +94686,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -104467,21 +94947,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -104495,21 +94961,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -104733,21 +95185,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -104761,21 +95199,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -105049,21 +95473,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -105077,21 +95487,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -105315,21 +95711,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -105343,21 +95725,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -105618,21 +95986,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -105646,21 +96000,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -105884,21 +96224,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -105912,21 +96238,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -106202,21 +96514,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -106230,21 +96528,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -106468,21 +96752,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -106496,21 +96766,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -106771,21 +97027,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -106799,21 +97041,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -107037,21 +97265,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -107065,21 +97279,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -107424,21 +97624,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -107452,21 +97638,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -107690,21 +97862,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -107718,21 +97876,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -107993,21 +98137,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -108021,21 +98151,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -108259,21 +98375,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -108287,21 +98389,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -108591,21 +98679,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -108623,21 +98697,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -108904,21 +98964,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -109098,21 +99144,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -109130,21 +99162,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -109410,21 +99428,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -109442,21 +99446,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -109607,21 +99597,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -109875,21 +99851,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -109907,21 +99869,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -110187,21 +100135,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -110375,21 +100309,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -110405,21 +100325,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -110657,21 +100563,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -110689,21 +100581,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -110853,21 +100731,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -111168,21 +101032,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -111198,21 +101048,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -111450,21 +101286,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -111632,21 +101454,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -111660,21 +101468,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -111902,21 +101696,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -111932,21 +101712,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -112068,21 +101834,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -112376,21 +102128,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -112404,21 +102142,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -112646,21 +102370,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -112825,21 +102535,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -112853,21 +102549,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -113091,21 +102773,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -113119,21 +102787,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -113250,21 +102904,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -113529,21 +103169,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -113557,21 +103183,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -113795,21 +103407,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -113823,21 +103421,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -114098,21 +103682,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -114126,21 +103696,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -114364,21 +103920,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -114392,21 +103934,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -114680,21 +104208,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -114708,21 +104222,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -114946,21 +104446,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -114974,21 +104460,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -115249,21 +104721,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -115277,21 +104735,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -115515,21 +104959,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -115543,21 +104973,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -115833,21 +105249,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -115861,21 +105263,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -116099,21 +105487,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -116127,21 +105501,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -116402,21 +105762,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -116430,21 +105776,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -116668,21 +106000,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -116696,21 +106014,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -117055,21 +106359,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -117083,21 +106373,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -117321,21 +106597,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -117349,21 +106611,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -117624,21 +106872,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -117652,21 +106886,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -117890,21 +107110,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -117918,21 +107124,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -118246,21 +107438,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -118278,21 +107456,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -118559,21 +107723,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "detailedList";
     items?: Array<{
       title?: string;
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "detailedListItem";
       _key: string;
@@ -118753,21 +107903,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -118785,21 +107921,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -119065,21 +108187,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -119097,21 +108205,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -119262,21 +108356,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "iconList";
     layout?: "horizontal" | "vertical";
     items?: Array<{
-      iconType?: "custom" | "library";
       icon?: string;
-      customImage?: {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      };
       description?: string;
       _type: "iconListItem";
       _key: string;
@@ -119530,21 +108610,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -119562,21 +108628,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -119842,21 +108894,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -120030,21 +109068,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -120060,21 +109084,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -120312,21 +109322,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -120344,21 +109340,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -120508,21 +109490,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -120823,21 +109791,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -120853,21 +109807,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -121105,21 +110045,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -121287,21 +110213,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -121315,21 +110227,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -121557,21 +110455,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -121587,21 +110471,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -121723,21 +110593,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -122031,21 +110887,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -122059,21 +110901,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -122301,21 +111129,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -122480,21 +111294,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -122508,21 +111308,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -122746,21 +111532,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -122774,21 +111546,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -122905,21 +111663,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -123184,21 +111928,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -123212,21 +111942,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -123450,21 +112166,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -123478,21 +112180,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -123753,21 +112441,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "detailedList";
               items?: Array<{
                 title?: string;
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "detailedListItem";
                 _key: string;
@@ -123781,21 +112455,7 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "iconList";
               layout?: "horizontal" | "vertical";
               items?: Array<{
-                iconType?: "custom" | "library";
                 icon?: string;
-                customImage?: {
-                  asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                  };
-                  media?: unknown;
-                  hotspot?: SanityImageHotspot;
-                  crop?: SanityImageCrop;
-                  alt?: string;
-                  _type: "image";
-                };
                 description?: string;
                 _type: "iconListItem";
                 _key: string;
@@ -124019,21 +112679,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -124047,21 +112693,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -124335,21 +112967,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -124363,21 +112981,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -124601,21 +113205,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -124629,21 +113219,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -124904,21 +113480,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "detailedList";
             items?: Array<{
               title?: string;
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "detailedListItem";
               _key: string;
@@ -124932,21 +113494,7 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "iconList";
             layout?: "horizontal" | "vertical";
             items?: Array<{
-              iconType?: "custom" | "library";
               icon?: string;
-              customImage?: {
-                asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                alt?: string;
-                _type: "image";
-              };
               description?: string;
               _type: "iconListItem";
               _key: string;
@@ -125170,21 +113718,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -125198,21 +113732,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -125488,21 +114008,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -125516,21 +114022,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -125754,21 +114246,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -125782,21 +114260,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -126057,21 +114521,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "detailedList";
           items?: Array<{
             title?: string;
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "detailedListItem";
             _key: string;
@@ -126085,21 +114535,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "iconList";
           layout?: "horizontal" | "vertical";
           items?: Array<{
-            iconType?: "custom" | "library";
             icon?: string;
-            customImage?: {
-              asset?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              alt?: string;
-              _type: "image";
-            };
             description?: string;
             _type: "iconListItem";
             _key: string;
@@ -126323,21 +114759,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -126351,21 +114773,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -126710,21 +115118,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -126738,21 +115132,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -126976,21 +115356,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -127004,21 +115370,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;
@@ -127279,21 +115631,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "detailedList";
         items?: Array<{
           title?: string;
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "detailedListItem";
           _key: string;
@@ -127307,21 +115645,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "iconList";
         layout?: "horizontal" | "vertical";
         items?: Array<{
-          iconType?: "custom" | "library";
           icon?: string;
-          customImage?: {
-            asset?: {
-              _ref: string;
-              _type: "reference";
-              _weak?: boolean;
-              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-            };
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
           description?: string;
           _type: "iconListItem";
           _key: string;
@@ -127545,21 +115869,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "detailedList";
       items?: Array<{
         title?: string;
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "detailedListItem";
         _key: string;
@@ -127573,21 +115883,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "iconList";
       layout?: "horizontal" | "vertical";
       items?: Array<{
-        iconType?: "custom" | "library";
         icon?: string;
-        customImage?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          alt?: string;
-          _type: "image";
-        };
         description?: string;
         _type: "iconListItem";
         _key: string;

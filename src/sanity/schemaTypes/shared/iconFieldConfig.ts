@@ -1,83 +1,31 @@
 // AI Helper: This is a reusable icon field configuration for Sanity schemas.
-// Use this to add icon selection functionality (library or custom image) to any schema.
+// Use this to add icon selection functionality (library icons only) to any schema.
 
 import { defineField } from 'sanity';
 import IconSelector from '@/sanity/components/IconSelector';
 
 /**
- * Creates a reusable icon field configuration that allows choosing between:
- * - Icon Library: Select from predefined icons
- * - Custom Image: Upload a custom icon/image
+ * Creates a reusable icon field configuration that allows selecting from the icon library.
  *
  * @param options - Configuration options
  * @param options.required - Whether the icon is required (default: false)
  * @param options.description - Custom description for the icon field
- * @returns Array of field definitions for iconType, icon, and customImage
+ * @returns Field definition for icon selection
  */
-export function createIconFields(options: {
+export function createIconField(options: {
   required?: boolean;
   description?: string;
 } = {}) {
-  const { required = false, description = 'Choose to use an icon from the library or upload a custom image' } = options;
+  const { required = false, description = 'Select an icon from the library' } = options;
 
-  return [
-    defineField({
-      name: 'iconType',
-      title: 'Icon Type',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Icon Library', value: 'library' },
-          { title: 'Custom Image', value: 'custom' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'library',
-      validation: (Rule) => required ? Rule.required() : Rule,
-      description,
-    }),
-    defineField({
-      name: 'icon',
-      title: 'Icon',
-      type: 'string',
-      components: {
-        input: IconSelector,
-      },
-      hidden: ({ parent }) => parent?.iconType !== 'library',
-      validation: (Rule) => Rule.custom((value, context) => {
-        const parent = context.parent as { iconType?: string };
-        if (required && parent?.iconType === 'library' && !value) {
-          return 'Icon is required when using Icon Library';
-        }
-        return true;
-      }),
-      description: 'Select an icon from the library',
-    }),
-    defineField({
-      name: 'customImage',
-      title: 'Custom Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-          description: 'Important for accessibility and SEO. Describe what the icon represents.',
-          validation: (Rule) => Rule.required().max(100),
-        },
-      ],
-      hidden: ({ parent }) => parent?.iconType !== 'custom',
-      validation: (Rule) => Rule.custom((value, context) => {
-        const parent = context.parent as { iconType?: string };
-        if (required && parent?.iconType === 'custom' && !value) {
-          return 'Custom image is required when using Custom Image type';
-        }
-        return true;
-      }),
-      description: 'Upload your own custom icon/image (SVG recommended for best quality)',
-    }),
-  ];
+  return defineField({
+    name: 'icon',
+    title: 'Icon',
+    type: 'string',
+    components: {
+      input: IconSelector,
+    },
+    validation: (Rule) => required ? Rule.required() : Rule,
+    description,
+  });
 }

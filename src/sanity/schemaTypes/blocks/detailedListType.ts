@@ -4,7 +4,7 @@
 
 import { defineField, defineType } from 'sanity';
 import { MenuIcon } from '@sanity/icons';
-import { createIconFields } from '../shared/iconFieldConfig';
+import { createIconField } from '../shared/iconFieldConfig';
 
 export const detailedListType = defineType({
   name: 'detailedList',
@@ -29,9 +29,9 @@ export const detailedListType = defineType({
               validation: (Rule) => Rule.required().min(1).max(200),
               description: 'Title for this item (will be displayed with gradient color)',
             }),
-            ...createIconFields({
+            createIconField({
               required: false,
-              description: 'Optional icon - choose from library or upload custom image',
+              description: 'Optional icon - select from library',
             }),
             defineField({
               name: 'description',
@@ -45,26 +45,17 @@ export const detailedListType = defineType({
           preview: {
             select: {
               title: 'title',
-              iconType: 'iconType',
               icon: 'icon',
-              customImage: 'customImage',
               description: 'description',
             },
-            prepare({ title, iconType, icon, customImage, description }) {
+            prepare({ title, icon, description }) {
               const displayTitle = title || 'Untitled Item';
-              const isCustom = iconType === 'custom';
-              const hasIcon = isCustom ? !!customImage : !!icon;
-              const iconInfo = hasIcon
-                ? isCustom
-                  ? 'Custom Image'
-                  : `Icon: ${icon}`
-                : 'No icon';
+              const iconInfo = icon ? `Icon: ${icon}` : 'No icon';
               const subtitle = `${iconInfo} - ${description?.substring(0, 50) || 'No description'}...`;
 
               return {
                 title: displayTitle,
                 subtitle,
-                media: isCustom ? customImage : undefined,
               };
             },
           },

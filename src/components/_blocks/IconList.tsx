@@ -3,7 +3,6 @@ import Icon from '@/lib/iconLibrary';
 import type { IconKey } from '@/lib/iconLibrary';
 import type { IconListBlock } from '@/types/blocks';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
-import UnifiedImage from '@/components/UI/UnifiedImage';
 
 interface IconListProps extends Omit<IconListBlock, '_type' | '_key'> {
   className?: string;
@@ -34,40 +33,19 @@ const IconList = ({
             ? `${fieldPathPrefix}.items[${index}]`
             : `items[${index}]`;
 
-          // Check if using custom image or library icon
-          const isCustomImage = (item as { iconType?: string }).iconType === 'custom';
-          const customImage = (item as { customImage?: { alt?: string } }).customImage;
-
           return (
             <div
               key={item._key}
               className={`flex justify-center flex-col items-center gap-4 ${
                 isHorizontal ? 'md:flex-row md:gap-8' : 'w-full'
               }`}>
-              {/* Icon or Custom Image */}
+              {/* Icon */}
               <div
                 className={`shrink-0 ${isHorizontal ? '' : 'text-center'}`}
                 {...(documentId && documentType
-                  ? createSanityDataAttribute(
-                      documentId,
-                      documentType,
-                      isCustomImage ? `${itemPath}.customImage` : `${itemPath}.icon`
-                    )
+                  ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
                   : {})}>
-                {isCustomImage && customImage ? (
-                  <UnifiedImage
-                    src={customImage}
-                    alt={customImage.alt || item.description || 'Icon'}
-                    mode='sized'
-                    width={120}
-                    height={120}
-                    sizeContext='logo'
-                    objectFit='contain'
-                    className='w-12 h-12 md:w-16 md:h-16'
-                  />
-                ) : (
-                  <Icon iconKey={item.icon as IconKey} className='text-brand-secondary' size={48} />
-                )}
+                <Icon iconKey={item.icon as IconKey} className='w-12 md:w-16' colorClassName='text-brand-secondary' />
               </div>
 
               {/* Description */}
