@@ -52,7 +52,11 @@ const DetailedList = ({
                     {...(documentId && documentType
                       ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
                       : {})}>
-                    <Icon iconKey={item.icon as IconKey} width={3} colorClassName='text-brand-secondary' />
+                    <Icon
+                      iconKey={item.icon as IconKey}
+                      width={3}
+                      colorClassName='text-gradient-firey'
+                    />
                   </div>
                 )}
 
