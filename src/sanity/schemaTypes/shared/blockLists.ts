@@ -50,12 +50,13 @@ export const CONTENT_ONLY_BLOCKS = [
 /**
  * LAYOUT_CHILD_BLOCKS - Blocks allowed inside layout components (grid/twoColumn)
  *
- * Allows cards but NOT nested layout blocks to prevent deep nesting.
+ * Allows cards and responsiveWrapper but NOT nested layout blocks to prevent deep nesting.
  * This ensures CTAs inside cards inside layouts get their references properly.
  */
 export const LAYOUT_CHILD_BLOCKS = [
   ...CONTENT_ONLY_BLOCKS,
   defineArrayMember({ type: 'card' }),
+  defineArrayMember({ type: 'responsiveWrapper' }),
 ];
 
 /**
@@ -77,6 +78,7 @@ export const STANDARD_BLOCK_LIST = [
   defineArrayMember({ type: 'twoColumnLayout' }),
   defineArrayMember({ type: 'gridLayout' }),
   defineArrayMember({ type: 'card' }),
+  defineArrayMember({ type: 'responsiveWrapper' }),
 ];
 
 /**

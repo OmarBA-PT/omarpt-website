@@ -24,6 +24,7 @@ import type {
   ContactForm as ContactFormType,
   Divider as DividerType,
   Card as CardType,
+  ResponsiveWrapper as ResponsiveWrapperType,
   GridLayout as GridLayoutType,
 } from '@/sanity/types';
 import type { SiteSettingsProps } from '@/types/shared';
@@ -50,6 +51,7 @@ import ServiceCard from '@/components/_blocks/ServiceCard';
 import ContactFormComponent from '@/components/_blocks/ContactForm';
 import Divider from '@/components/UI/Divider';
 import Card from '@/components/_blocks/Card';
+import ResponsiveWrapper from '@/components/_blocks/ResponsiveWrapper';
 import GridLayout from '@/components/_blocks/GridLayout';
 
 interface RenderBlockConfig {
@@ -95,6 +97,7 @@ type BlockType =
   | WithKey<ContactFormType>
   | WithKey<DividerType>
   | WithKey<CardType>
+  | WithKey<ResponsiveWrapperType>
   | WithKey<GridLayoutType>;
 
 /**
@@ -390,6 +393,24 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             fieldPathPrefix={blockPath}
             siteSettings={siteSettings}
             companyLinks={companyLinks}
+            alignment={alignment}
+          />
+        </BlockWrapper>
+      );
+    }
+
+    case 'responsiveWrapper': {
+      const responsiveWrapperBlock = typedBlock as WithKey<ResponsiveWrapperType>;
+      return (
+        <BlockWrapper key={responsiveWrapperBlock._key}>
+          <ResponsiveWrapper
+            {...responsiveWrapperBlock}
+            documentId={documentId}
+            documentType={documentType}
+            fieldPathPrefix={blockPath}
+            siteSettings={siteSettings}
+            companyLinks={companyLinks}
+            contactFormSettings={contactFormSettings}
             alignment={alignment}
           />
         </BlockWrapper>

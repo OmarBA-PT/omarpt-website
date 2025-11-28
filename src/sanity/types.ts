@@ -585,6 +585,50 @@ export type GridLayout = {
   } & Card>;
 };
 
+export type ResponsiveWrapper = {
+  _type: "responsiveWrapper";
+  displayMode?: "mobileOnly" | "desktopOnly";
+  content?: Array<{
+    _key: string;
+  } & RichText | {
+    _key: string;
+  } & Statement | {
+    _key: string;
+  } & Quote | {
+    _key: string;
+  } & Divider | {
+    _key: string;
+  } & ImageBlock | {
+    _key: string;
+  } & ImageGallery | {
+    _key: string;
+  } & GoogleMap | {
+    _key: string;
+  } & YouTubeVideo | {
+    _key: string;
+  } & CtaButton | {
+    _key: string;
+  } & CtaCalloutLink | {
+    _key: string;
+  } & IconList | {
+    _key: string;
+  } & DetailedList | {
+    _key: string;
+  } & BlockListWithStats | {
+    _key: string;
+  } & CheckList | {
+    _key: string;
+  } & ItemList | {
+    _key: string;
+  } & ServiceCard | {
+    _key: string;
+  } & ContactForm | {
+    _key: string;
+  } & CompanyLinksBlock | {
+    _key: string;
+  } & ExpandingContent>;
+};
+
 export type Card = {
   _type: "card";
   visualStyle?: "light" | "dark";
@@ -721,7 +765,9 @@ export type ContentWrapper = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
 };
 
 export type SubSubSection = {
@@ -773,7 +819,9 @@ export type SubSubSection = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
 };
 
 export type SubSection = {
@@ -827,7 +875,9 @@ export type SubSection = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
 };
 
 export type PageSection = {
@@ -898,7 +948,9 @@ export type PageSection = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
   rightColumn?: Array<{
     _key: string;
   } & SubSection | {
@@ -945,7 +997,9 @@ export type PageSection = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
 };
 
 export type PageBuilder = Array<{
@@ -1090,7 +1144,9 @@ export type PrivacyPolicy = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
 };
 
 export type TermsAndConditions = {
@@ -1148,7 +1204,9 @@ export type TermsAndConditions = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
 };
 
 export type Page = {
@@ -1206,7 +1264,9 @@ export type Page = {
     _key: string;
   } & GridLayout | {
     _key: string;
-  } & Card>;
+  } & Card | {
+    _key: string;
+  } & ResponsiveWrapper>;
   hasClosingCard?: boolean;
   closingCard?: Card;
 };
@@ -1453,7 +1513,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | ExpandingContent | TwoColumnLayout | Statement | Quote | YouTubeVideo | GoogleMap | ImageGallery | ImageBlock | GridLayout | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | ContactForm | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | CtaCalloutLink | CtaButton | ExpandingContent | TwoColumnLayout | Statement | Quote | YouTubeVideo | GoogleMap | ImageGallery | ImageBlock | GridLayout | ResponsiveWrapper | Card | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | PrivacyPolicy | TermsAndConditions | Page | Slug | HomePage | SanityImageCrop | SanityImageHotspot | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -4137,6 +4197,354 @@ export type PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -5424,6 +5832,316 @@ export type PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -6664,6 +7382,50 @@ export type PAGE_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -10390,6 +11152,8 @@ export type PAGE_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -10410,6 +11174,355 @@ export type PAGE_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -13468,6 +14581,354 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -16079,6 +17540,354 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -17366,6 +19175,316 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -18606,6 +20725,50 @@ export type HOME_PAGE_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -22331,6 +24494,8 @@ export type HOME_PAGE_QUERYResult = {
     } & ItemList | {
       _key: string;
     } & Quote | {
+      _key: string;
+    } & ResponsiveWrapper | {
       _key: string;
     } & RichText | {
       _key: string;
@@ -25031,6 +27196,354 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -26318,6 +28831,316 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -27558,6 +30381,50 @@ export type HOME_PAGE_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -31284,6 +34151,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -31304,6 +34173,355 @@ export type HOME_PAGE_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -35270,6 +38488,354 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -36557,6 +40123,316 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -37797,6 +41673,50 @@ export type HOME_PAGE_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -41523,6 +45443,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -41543,6 +45465,355 @@ export type HOME_PAGE_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -45557,6 +49828,354 @@ export type HOME_PAGE_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -46844,6 +51463,316 @@ export type HOME_PAGE_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -48084,6 +53013,50 @@ export type HOME_PAGE_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -51810,6 +56783,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -51830,6 +56805,355 @@ export type HOME_PAGE_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -55071,6 +60395,354 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -57682,6 +63354,354 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -58969,6 +64989,316 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -60209,6 +66539,50 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -63934,6 +70308,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } & ItemList | {
       _key: string;
     } & Quote | {
+      _key: string;
+    } & ResponsiveWrapper | {
       _key: string;
     } & RichText | {
       _key: string;
@@ -66626,6 +73002,354 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -67913,6 +74637,316 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -69153,6 +76187,50 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -72879,6 +79957,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -72899,6 +79979,355 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -76857,6 +84286,354 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -78144,6 +85921,316 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -79384,6 +87471,50 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -83110,6 +91241,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -83130,6 +91263,355 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -87112,6 +95594,354 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -88399,6 +97229,316 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -89639,6 +98779,50 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -93365,6 +102549,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -93385,6 +102571,355 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -96033,6 +105568,354 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -98644,6 +108527,354 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -99931,6 +110162,316 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -101171,6 +111712,50 @@ export type PRIVACY_POLICY_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -104896,6 +115481,8 @@ export type PRIVACY_POLICY_QUERYResult = {
     } & ItemList | {
       _key: string;
     } & Quote | {
+      _key: string;
+    } & ResponsiveWrapper | {
       _key: string;
     } & RichText | {
       _key: string;
@@ -107588,6 +118175,354 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -108875,6 +119810,316 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -110115,6 +121360,50 @@ export type PRIVACY_POLICY_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -113841,6 +125130,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -113861,6 +125152,355 @@ export type PRIVACY_POLICY_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -117819,6 +129459,354 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -119106,6 +131094,316 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -120346,6 +132644,50 @@ export type PRIVACY_POLICY_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -124072,6 +136414,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -124092,6 +136436,355 @@ export type PRIVACY_POLICY_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
@@ -128074,6 +140767,354 @@ export type PRIVACY_POLICY_QUERYResult = {
       content: null;
     } | {
       _key: string;
+      _type: "responsiveWrapper";
+      displayMode?: "desktopOnly" | "mobileOnly";
+      content: Array<{
+        _key: string;
+        _type: "blockListWithStats";
+        items?: Array<{
+          leftContent?: string;
+          rightContent?: string;
+          _type: "blockListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "checkList";
+        items?: Array<{
+          text?: string;
+          _type: "checkListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "companyLinksBlock";
+        blockAdded?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "contactForm";
+        placeholder?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaButton";
+        text?: string;
+        variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        image: null;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "ctaCalloutLink";
+        heading?: string;
+        text?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: "image";
+        };
+        linkType?: "external" | "internal";
+        internalLink: {
+          _id: string;
+          _type: "homePage";
+          title: null;
+          slug: null;
+          pageType: "homePage";
+          href: "/";
+        } | {
+          _id: string;
+          _type: "page";
+          title: string | null;
+          slug: Slug | null;
+          pageType: "page";
+          href: string | null;
+        } | {
+          _id: string;
+          _type: "privacyPolicy";
+          title: string | null;
+          slug: null;
+          pageType: "privacyPolicy";
+          href: "/privacy-policy";
+        } | {
+          _id: string;
+          _type: "termsAndConditions";
+          title: string | null;
+          slug: null;
+          pageType: "termsAndConditions";
+          href: "/terms-and-conditions";
+        } | null;
+        externalUrl?: string;
+        pageSectionId?: string;
+        openInNewTab?: boolean;
+        computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        content: null;
+      } | {
+        _key: string;
+        _type: "detailedList";
+        items?: Array<{
+          title?: string;
+          icon?: string;
+          description?: string;
+          _type: "detailedListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "divider";
+        style?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "expandingContent";
+        showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
+        expandingContent?: Array<{
+          _key: string;
+        } & BlockListWithStats | {
+          _key: string;
+        } & CheckList | {
+          _key: string;
+        } & CompanyLinksBlock | {
+          _key: string;
+        } & ContactForm | {
+          _key: string;
+        } & CtaButton | {
+          _key: string;
+        } & CtaCalloutLink | {
+          _key: string;
+        } & DetailedList | {
+          _key: string;
+        } & Divider | {
+          _key: string;
+        } & ExpandingContent | {
+          _key: string;
+        } & GoogleMap | {
+          _key: string;
+        } & IconList | {
+          _key: string;
+        } & ImageBlock | {
+          _key: string;
+        } & ImageGallery | {
+          _key: string;
+        } & ItemList | {
+          _key: string;
+        } & Quote | {
+          _key: string;
+        } & RichText | {
+          _key: string;
+        } & ServiceCard | {
+          _key: string;
+        } & Statement | {
+          _key: string;
+        } & YouTubeVideo>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "googleMap";
+        embedCode?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "iconList";
+        layout?: "horizontal" | "vertical";
+        items?: Array<{
+          icon?: string;
+          description?: string;
+          _type: "iconListItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageBlock";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        size?: "full" | "small";
+        caption?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "imageGallery";
+        columns?: "2" | "3" | "4";
+        showCaptionsBelowImages?: boolean;
+        images: Array<{
+          _key: string;
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+        }> | null;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "itemList";
+        title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "quote";
+        text?: string;
+        attribution?: string;
+        textAlign?: "center" | "inherit" | "left" | "right";
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "richText";
+        isCallout?: boolean;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
+        textAlign?: "center" | "inherit" | "left" | "right";
+        content: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            _key: string;
+          } & Color | {
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
+        _type: "serviceCard";
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+        title?: string;
+        subtitle?: string;
+        description?: string;
+        list?: {
+          title?: string;
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+        };
+        pricingInfo?: string;
+        content: null;
+      } | {
+        _key: string;
+        _type: "statement";
+        text?: string;
+        image: null;
+        content: null;
+      } | {
+        _key: string;
+        _type: "youTubeVideo";
+        url?: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
       _type: "richText";
       isCallout?: boolean;
       alignmentMode?: "inherit" | "override";
@@ -129361,6 +142402,316 @@ export type PRIVACY_POLICY_QUERYResult = {
         content: null;
       } | {
         _key: string;
+        _type: "responsiveWrapper";
+        displayMode?: "desktopOnly" | "mobileOnly";
+        content: Array<{
+          _key: string;
+          _type: "blockListWithStats";
+          items?: Array<{
+            leftContent?: string;
+            rightContent?: string;
+            _type: "blockListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "checkList";
+          items?: Array<{
+            text?: string;
+            _type: "checkListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "companyLinksBlock";
+          blockAdded?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "contactForm";
+          placeholder?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "ctaButton";
+          text?: string;
+          variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          image: null;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "ctaCalloutLink";
+          heading?: string;
+          text?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          };
+          linkType?: "external" | "internal";
+          internalLink: {
+            _id: string;
+            _type: "homePage";
+            title: null;
+            slug: null;
+            pageType: "homePage";
+            href: "/";
+          } | {
+            _id: string;
+            _type: "page";
+            title: string | null;
+            slug: Slug | null;
+            pageType: "page";
+            href: string | null;
+          } | {
+            _id: string;
+            _type: "privacyPolicy";
+            title: string | null;
+            slug: null;
+            pageType: "privacyPolicy";
+            href: "/privacy-policy";
+          } | {
+            _id: string;
+            _type: "termsAndConditions";
+            title: string | null;
+            slug: null;
+            pageType: "termsAndConditions";
+            href: "/terms-and-conditions";
+          } | null;
+          externalUrl?: string;
+          pageSectionId?: string;
+          openInNewTab?: boolean;
+          computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+        } | {
+          _key: string;
+          _type: "detailedList";
+          items?: Array<{
+            title?: string;
+            icon?: string;
+            description?: string;
+            _type: "detailedListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "divider";
+          style?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "expandingContent";
+          showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
+          expandingContent?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "googleMap";
+          embedCode?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "iconList";
+          layout?: "horizontal" | "vertical";
+          items?: Array<{
+            icon?: string;
+            description?: string;
+            _type: "iconListItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "imageBlock";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          size?: "full" | "small";
+          caption?: string;
+        } | {
+          _key: string;
+          _type: "imageGallery";
+          columns?: "2" | "3" | "4";
+          showCaptionsBelowImages?: boolean;
+          images: Array<{
+            _key: string;
+            image: {
+              asset: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              } | null;
+              alt: string | null;
+              hotspot: SanityImageHotspot | null;
+              crop: SanityImageCrop | null;
+            } | null;
+          }> | null;
+          image: null;
+        } | {
+          _key: string;
+          _type: "itemList";
+          title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          items?: Array<{
+            text?: string;
+            _type: "listItem";
+            _key: string;
+          }>;
+          image: null;
+        } | {
+          _key: string;
+          _type: "quote";
+          text?: string;
+          attribution?: string;
+          textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "richText";
+          isCallout?: boolean;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
+          textAlign?: "center" | "inherit" | "left" | "right";
+          content?: BlockContent;
+          image: null;
+        } | {
+          _key: string;
+          _type: "serviceCard";
+          image: {
+            asset: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            } | null;
+            alt: string | null;
+            hotspot: SanityImageHotspot | null;
+            crop: SanityImageCrop | null;
+          } | null;
+          title?: string;
+          subtitle?: string;
+          description?: string;
+          list?: {
+            title?: string;
+            items?: Array<{
+              text?: string;
+              _type: "listItem";
+              _key: string;
+            }>;
+          };
+          pricingInfo?: string;
+        } | {
+          _key: string;
+          _type: "statement";
+          text?: string;
+          image: null;
+        } | {
+          _key: string;
+          _type: "youTubeVideo";
+          url?: string;
+          image: null;
+        }> | null;
+        image: null;
+      } | {
+        _key: string;
         _type: "richText";
         isCallout?: boolean;
         alignmentMode?: "inherit" | "override";
@@ -130601,6 +143952,50 @@ export type PRIVACY_POLICY_QUERYResult = {
           text?: string;
           attribution?: string;
           textAlign?: "center" | "inherit" | "left" | "right";
+          image: null;
+        } | {
+          _key: string;
+          _type: "responsiveWrapper";
+          displayMode?: "desktopOnly" | "mobileOnly";
+          content?: Array<{
+            _key: string;
+          } & BlockListWithStats | {
+            _key: string;
+          } & CheckList | {
+            _key: string;
+          } & CompanyLinksBlock | {
+            _key: string;
+          } & ContactForm | {
+            _key: string;
+          } & CtaButton | {
+            _key: string;
+          } & CtaCalloutLink | {
+            _key: string;
+          } & DetailedList | {
+            _key: string;
+          } & Divider | {
+            _key: string;
+          } & ExpandingContent | {
+            _key: string;
+          } & GoogleMap | {
+            _key: string;
+          } & IconList | {
+            _key: string;
+          } & ImageBlock | {
+            _key: string;
+          } & ImageGallery | {
+            _key: string;
+          } & ItemList | {
+            _key: string;
+          } & Quote | {
+            _key: string;
+          } & RichText | {
+            _key: string;
+          } & ServiceCard | {
+            _key: string;
+          } & Statement | {
+            _key: string;
+          } & YouTubeVideo>;
           image: null;
         } | {
           _key: string;
@@ -134327,6 +147722,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
     } & Quote | {
       _key: string;
+    } & ResponsiveWrapper | {
+      _key: string;
     } & RichText | {
       _key: string;
     } & ServiceCard | {
@@ -134347,6 +147744,355 @@ export type PRIVACY_POLICY_QUERYResult = {
     textAlign?: "center" | "inherit" | "left" | "right";
     image: null;
     content: null;
+  } | {
+    _key: string;
+    _type: "responsiveWrapper";
+    displayMode?: "desktopOnly" | "mobileOnly";
+    content: Array<{
+      _key: string;
+      _type: "blockListWithStats";
+      items?: Array<{
+        leftContent?: string;
+        rightContent?: string;
+        _type: "blockListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "checkList";
+      items?: Array<{
+        text?: string;
+        _type: "checkListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "companyLinksBlock";
+      blockAdded?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "contactForm";
+      placeholder?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaButton";
+      text?: string;
+      variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      image: null;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "ctaCalloutLink";
+      heading?: string;
+      text?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      linkType?: "external" | "internal";
+      internalLink: {
+        _id: string;
+        _type: "homePage";
+        title: null;
+        slug: null;
+        pageType: "homePage";
+        href: "/";
+      } | {
+        _id: string;
+        _type: "page";
+        title: string | null;
+        slug: Slug | null;
+        pageType: "page";
+        href: string | null;
+      } | {
+        _id: string;
+        _type: "privacyPolicy";
+        title: string | null;
+        slug: null;
+        pageType: "privacyPolicy";
+        href: "/privacy-policy";
+      } | {
+        _id: string;
+        _type: "termsAndConditions";
+        title: string | null;
+        slug: null;
+        pageType: "termsAndConditions";
+        href: "/terms-and-conditions";
+      } | null;
+      externalUrl?: string;
+      pageSectionId?: string;
+      openInNewTab?: boolean;
+      computedHref: string | "/" | null | "/privacy-policy" | "/terms-and-conditions";
+      content: null;
+    } | {
+      _key: string;
+      _type: "detailedList";
+      items?: Array<{
+        title?: string;
+        icon?: string;
+        description?: string;
+        _type: "detailedListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "divider";
+      style?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "expandingContent";
+      showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
+      expandingContent?: Array<{
+        _key: string;
+      } & BlockListWithStats | {
+        _key: string;
+      } & CheckList | {
+        _key: string;
+      } & CompanyLinksBlock | {
+        _key: string;
+      } & ContactForm | {
+        _key: string;
+      } & CtaButton | {
+        _key: string;
+      } & CtaCalloutLink | {
+        _key: string;
+      } & DetailedList | {
+        _key: string;
+      } & Divider | {
+        _key: string;
+      } & ExpandingContent | {
+        _key: string;
+      } & GoogleMap | {
+        _key: string;
+      } & IconList | {
+        _key: string;
+      } & ImageBlock | {
+        _key: string;
+      } & ImageGallery | {
+        _key: string;
+      } & ItemList | {
+        _key: string;
+      } & Quote | {
+        _key: string;
+      } & RichText | {
+        _key: string;
+      } & ServiceCard | {
+        _key: string;
+      } & Statement | {
+        _key: string;
+      } & YouTubeVideo>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "googleMap";
+      embedCode?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "iconList";
+      layout?: "horizontal" | "vertical";
+      items?: Array<{
+        icon?: string;
+        description?: string;
+        _type: "iconListItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      size?: "full" | "small";
+      caption?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "imageGallery";
+      columns?: "2" | "3" | "4";
+      showCaptionsBelowImages?: boolean;
+      images: Array<{
+        _key: string;
+        image: {
+          asset: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          } | null;
+          alt: string | null;
+          hotspot: SanityImageHotspot | null;
+          crop: SanityImageCrop | null;
+        } | null;
+      }> | null;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "itemList";
+      title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      items?: Array<{
+        text?: string;
+        _type: "listItem";
+        _key: string;
+      }>;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "quote";
+      text?: string;
+      attribution?: string;
+      textAlign?: "center" | "inherit" | "left" | "right";
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "richText";
+      isCallout?: boolean;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
+      textAlign?: "center" | "inherit" | "left" | "right";
+      content: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "body-2xl" | "body-3xl" | "body-lg" | "body-sm" | "body-xl" | "body-xs" | "normal" | "standout";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          _key: string;
+        } & Color | {
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+        image: null;
+        content: null;
+      }> | null;
+      image: null;
+    } | {
+      _key: string;
+      _type: "serviceCard";
+      image: {
+        asset: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        } | null;
+        alt: string | null;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+      } | null;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      list?: {
+        title?: string;
+        items?: Array<{
+          text?: string;
+          _type: "listItem";
+          _key: string;
+        }>;
+      };
+      pricingInfo?: string;
+      content: null;
+    } | {
+      _key: string;
+      _type: "statement";
+      text?: string;
+      image: null;
+      content: null;
+    } | {
+      _key: string;
+      _type: "youTubeVideo";
+      url?: string;
+      image: null;
+      content: null;
+    }> | null;
+    image: null;
   } | {
     _key: string;
     _type: "richText";
