@@ -68,11 +68,11 @@ const ItemList = ({
           <li key={item._key || idx} className={`flex items-center gap-3 ${flexJustifyClasses}`}>
             {/* Dumbbell Icon Bullet */}
             <div className='shrink-0 mt-1'>
-              <Icon iconKey='dumbell' width={2} colorClassName='text-gradient-primary' />
+              <Icon iconKey='dumbell' width={1.5} colorClassName='text-gradient-primary' />
             </div>
 
             {/* List Item Text */}
-            <span className='text-brand-white/80'>{item.text}</span>
+            <span className='text-brand-white/80 text-body-lg'>{item.text}</span>
           </li>
         ))}
       </ul>
