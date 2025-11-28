@@ -11,30 +11,16 @@ export const expandingContentType = defineType({
   title: 'Expanding Content',
   type: 'object',
   icon: ExpandIcon,
-  description: 'Content that can expand/collapse on mobile with customizable labels. On desktop, can be shown expanded by default or with the same expand/collapse behavior.',
+  description:
+    'Content that can expand/collapse on mobile with customizable labels. On desktop, can be shown expanded by default or with the same expand/collapse behavior.',
   fields: [
     defineField({
       name: 'showOnDesktop',
       title: 'Show Expand/Collapse on Desktop',
       type: 'boolean',
-      description: 'When enabled, the expand/collapse functionality will also appear on desktop. When disabled, content is always fully expanded on desktop.',
+      description:
+        'When enabled, the expand/collapse functionality will also appear on desktop. When disabled, content is always fully expanded on desktop.',
       initialValue: false,
-    }),
-    defineField({
-      name: 'headerContent',
-      title: 'Header Content',
-      type: 'array',
-      description: 'Content that is always visible above the expandable section.',
-      of: CONTENT_ONLY_BLOCKS,
-    }),
-    defineField({
-      name: 'expandingContent',
-      title: 'Expanding Content',
-      type: 'array',
-      description: 'Content that will be hidden/shown based on expand/collapse state.',
-      of: CONTENT_ONLY_BLOCKS,
-      validation: (Rule) =>
-        Rule.required().min(1).error('Expanding content must contain at least one item'),
     }),
     defineField({
       name: 'expandLabel',
@@ -52,20 +38,28 @@ export const expandingContentType = defineType({
       initialValue: 'Read Less',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'expandingContent',
+      title: 'Expanding Content',
+      type: 'array',
+      description: 'Content that will be hidden/shown based on expand/collapse state.',
+      of: CONTENT_ONLY_BLOCKS,
+      validation: (Rule) =>
+        Rule.required().min(1).error('Expanding content must contain at least one item'),
+    }),
   ],
   preview: {
     select: {
-      headerContent: 'headerContent',
       expandingContent: 'expandingContent',
       showOnDesktop: 'showOnDesktop',
-      expandLabel: 'expandLabel',
     },
-    prepare({ headerContent, expandingContent, showOnDesktop, expandLabel }) {
-      const headerCount = headerContent?.length || 0;
+    prepare({ expandingContent, showOnDesktop }) {
       const expandingCount = expandingContent?.length || 0;
-      const desktopText = showOnDesktop ? ' • Desktop expand/collapse' : ' • Auto-expand on desktop';
+      const desktopText = showOnDesktop
+        ? ' • Desktop expand/collapse'
+        : ' • Auto-expand on desktop';
       const title = 'Expanding Content';
-      const subtitle = `Header: ${headerCount} • Expanding: ${expandingCount}${desktopText}`;
+      const subtitle = `${expandingCount} item${expandingCount !== 1 ? 's' : ''}${desktopText}`;
 
       return {
         title,

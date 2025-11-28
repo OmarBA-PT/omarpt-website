@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { renderBlock } from '@/utils/blockRenderer';
 import type { ExpandingContent as ExpandingContentType } from '@/sanity/types';
 import type { SiteSettingsProps } from '@/types/shared';
-import type {
-  COMPANY_LINKS_QUERYResult,
-  CONTACT_FORM_SETTINGS_QUERYResult,
-} from '@/sanity/types';
+import type { COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
 
 interface ExpandingContentProps extends Omit<ExpandingContentType, '_type' | '_key'> {
   className?: string;
@@ -20,7 +17,6 @@ interface ExpandingContentProps extends Omit<ExpandingContentType, '_type' | '_k
 
 const ExpandingContent = ({
   showOnDesktop = false,
-  headerContent,
   expandingContent,
   expandLabel = 'Read More',
   collapseLabel = 'Read Less',
@@ -53,33 +49,10 @@ const ExpandingContent = ({
 
   return (
     <div className={`w-full mx-auto ${className}`.trim()}>
-      {/* Header Content - Always visible */}
-      {headerContent && headerContent.length > 0 && (
-        <div className='mb-4'>
-          {headerContent.map((block, index) =>
-            renderBlock(block, {
-              documentId,
-              documentType,
-              blockPath: pathPrefix ? `${pathPrefix}.headerContent[${index}]` : `headerContent[${index}]`,
-              siteSettings,
-              companyLinks,
-              contactFormSettings,
-              alignment,
-              config: documentId && documentType
-                ? {
-                    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-                    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-                  }
-                : undefined,
-            })
-          )}
-        </div>
-      )}
-
       {/* Expandable Content Container */}
       <div
         className={`
-          overflow-hidden transition-all duration-500 ease-in-out
+          overflow-hidden ${isExpanded ? 'mb-4' : ''} transition-all duration-500 ease-in-out
           ${expandableClass}
         `}>
         {expandingContent && expandingContent.length > 0 && (
@@ -95,12 +68,13 @@ const ExpandingContent = ({
                 companyLinks,
                 contactFormSettings,
                 alignment,
-                config: documentId && documentType
-                  ? {
-                      projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-                      dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-                    }
-                  : undefined,
+                config:
+                  documentId && documentType
+                    ? {
+                        projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+                        dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+                      }
+                    : undefined,
               })
             )}
           </div>
@@ -110,7 +84,7 @@ const ExpandingContent = ({
       {/* Expand/Collapse Toggle */}
       <div
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`${toggleClass} justify-center md:justify-start items-center gap-2 hover:font-semibold mt-4 cursor-pointer`}
+        className={`${toggleClass} justify-center md:justify-start items-center gap-2 hover:font-semibold cursor-pointer`}
         aria-expanded={isExpanded}
         aria-label={isExpanded ? `Show less: ${collapseLabel}` : `Show more: ${expandLabel}`}>
         <span className='inline-block text-gradient-primary'>
