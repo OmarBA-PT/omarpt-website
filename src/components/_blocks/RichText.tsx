@@ -50,11 +50,22 @@ const RichText = ({
   const textAlignClasses = getResponsiveTextAlignClass(mobile, desktop);
   const containerAlignClasses = getResponsiveContainerAlignClass(mobile, desktop);
 
+  // Determine if we should apply max-width constraint
+  // Only apply max-width for center alignment or when fullWidth is true
+  const shouldConstrainWidth = !fullWidth && (desktop === 'center' || mobile === 'center');
+  const widthClass = fullWidth ? 'max-w-full' : shouldConstrainWidth ? maxCardWidth : 'max-w-full';
+
+  // Override prose's default mx-auto for left/right alignments
+  // The prose class applies mx-auto by default, which needs to be overridden for left/right alignment
+  // For left: remove left margin (ml-0) to push content to the left edge
+  // For right: remove right margin (mr-0) to push content to the right edge
+  const marginOverride = desktop === 'left' ? '!ml-0' : desktop === 'right' ? '!mr-0' : '';
+
   const proseContent = (
     <PortableTextWrapper
       value={content}
       components={alignedComponents}
-      className={`prose prose-slate ${fullWidth ? 'max-w-full' : maxCardWidth} ${textAlignClasses} ${containerAlignClasses}`}
+      className={`prose prose-slate ${widthClass} ${textAlignClasses} ${containerAlignClasses} ${marginOverride}`}
     />
   );
 
@@ -62,7 +73,7 @@ const RichText = ({
   if (cleanIsCallout) {
     return (
       <div
-        className={`${fullWidth ? 'max-w-full' : maxCardWidth} pb-2 relative text-brand-secondary ${textAlignClasses} ${containerAlignClasses} after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-px after:bg-brand-secondary/50`}>
+        className={`${widthClass} pb-2 relative text-brand-secondary ${textAlignClasses} ${containerAlignClasses} after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-px after:bg-brand-secondary/50`}>
         {proseContent}
       </div>
     );
