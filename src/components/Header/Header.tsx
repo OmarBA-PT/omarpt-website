@@ -148,6 +148,9 @@ const Header = ({ headerData }: HeaderProps) => {
           </div>
         </Link>
 
+        {/* TEMPORARY_DEV - Button to open modal of options  */}
+        <button className='cursor-pointer hover:font-bold'>OPTS</button>
+
         {/* Desktop Navigation */}
         <div className='grow flex justify-end'>
           <HorizontalNav
