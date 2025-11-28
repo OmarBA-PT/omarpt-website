@@ -19,13 +19,13 @@ export const SITE_CONFIG = {
 
   // Contact information - single source of truth for all company contact details
   ORGANIZATION_EMAIL: {
-    value: 'vitesh.bava@gmail.com',
-    link: 'mailto:vitesh.bava@gmail.com',
+    value: 'omar@omaniatraining.com',
+    link: 'mailto:omar@omaniatraining.com',
   },
   ORGANIZATION_PHONE: { value: '+64 12 345 678', link: 'tel:+6412345678' },
   ORGANIZATION_ADDRESS: {
-    value: 'Auckland, New Zealand',
-    link: 'https://maps.app.goo.gl/XsK8iEYiBCjBAAZb8',
+    value: '44 Pollen Street, Grey Lynn, Auckland 1021, New Zealand',
+    link: 'https://maps.app.goo.gl/LQrGoawnfvgoi25m9',
   },
 
   // Business Location Details - Used for LocalBusiness structured data (SEO)
