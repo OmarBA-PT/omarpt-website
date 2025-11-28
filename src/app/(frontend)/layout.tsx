@@ -18,6 +18,7 @@ import {
 import { PageLoadProvider } from '@/contexts/PageLoadContext';
 import { HeaderProvider } from '@/contexts/HeaderContext';
 import { ColorProvider } from '@/contexts/ColorContext'; // TEMPORARY_DEV: Color switching for testing
+import { HeroStyleProvider } from '@/contexts/HeroStyleContext'; // TEMPORARY_DEV: Hero style switching for testing
 import { generateMetadata as generateDefaultMetadata } from '@/lib/metadata';
 import {
   generateOrganizationSchema,
@@ -75,10 +76,11 @@ const FrontendLayout = async ({
 
   return (
     <ColorProvider>
-      <PageLoadProvider>
-        <HeaderProvider>
-          <NavigationScroll />
-          <PageReadyTrigger />
+      <HeroStyleProvider>
+        <PageLoadProvider>
+          <HeaderProvider>
+            <NavigationScroll />
+            <PageReadyTrigger />
 
         {/* Structured Data */}
         {organizationSchema && (
@@ -120,6 +122,7 @@ const FrontendLayout = async ({
         </div>
         </HeaderProvider>
       </PageLoadProvider>
+      </HeroStyleProvider>
     </ColorProvider>
   );
 };

@@ -11,6 +11,7 @@ import { urlFor } from '@/sanity/lib/image';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import { stegaClean } from 'next-sanity';
 import { useHeader } from '@/contexts/HeaderContext';
+import { useHeroStyle } from '@/contexts/HeroStyleContext';
 
 interface HeroProps {
   heroStyle: NonNullable<HOME_PAGE_QUERYResult>['heroStyle'];
@@ -44,6 +45,7 @@ const Hero = ({
   documentType,
 }: HeroProps) => {
   const { setEnableOpacityFade } = useHeader();
+  const { currentStyle: overrideStyle, isOverrideActive } = useHeroStyle();
   const [firstImageLoaded, setFirstImageLoaded] = useState(false);
   const [shouldUseGradientTransition, setShouldUseGradientTransition] = useState(true);
 
@@ -89,8 +91,9 @@ const Hero = ({
       })()
     : null;
 
-  // Determine hero style - default to 'default' if not provided, clean any stega characters
-  const currentHeroStyle = stegaClean(heroStyle) || 'default';
+  // Determine hero style - use override if active, otherwise use CMS value
+  // Default to 'default' if not provided, clean any stega characters
+  const currentHeroStyle = isOverrideActive ? overrideStyle : (stegaClean(heroStyle) || 'default');
 
   // For Default style, allow height to exceed viewport on mobile only
   // For background-images and video, always constrain to viewport height

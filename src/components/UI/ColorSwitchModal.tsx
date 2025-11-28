@@ -1,10 +1,11 @@
-// TEMPORARY_DEV: Modal for switching color schemes during testing
+// TEMPORARY_DEV: Modal for switching color schemes and hero styles during testing
 // This entire file can be removed once final colors are decided
 
 'use client';
 
 import React from 'react';
 import { useColor, COLOR_SCHEMES, ColorSchemeKey } from '@/contexts/ColorContext';
+import { useHeroStyle, HERO_STYLES, HeroStyleKey } from '@/contexts/HeroStyleContext';
 
 interface ColorSwitchModalProps {
   isOpen: boolean;
@@ -13,11 +14,17 @@ interface ColorSwitchModalProps {
 
 const ColorSwitchModal = ({ isOpen, onClose }: ColorSwitchModalProps) => {
   const { currentScheme, setColorScheme } = useColor();
+  const { currentStyle, setHeroStyle } = useHeroStyle();
 
   if (!isOpen) return null;
 
   const handleColorSelect = (scheme: ColorSchemeKey) => {
     setColorScheme(scheme);
+    onClose();
+  };
+
+  const handleHeroStyleSelect = (style: HeroStyleKey) => {
+    setHeroStyle(style);
     onClose();
   };
 
@@ -27,11 +34,11 @@ const ColorSwitchModal = ({ isOpen, onClose }: ColorSwitchModalProps) => {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-lg p-6 max-w-md w-full"
+        className="bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-h3 font-bold text-black">Color Options</h2>
+          <h2 className="text-h3 font-bold text-black">Options</h2>
           <button
             onClick={onClose}
             className="text-black hover:text-gray-600 text-body-2xl"
@@ -42,10 +49,41 @@ const ColorSwitchModal = ({ isOpen, onClose }: ColorSwitchModalProps) => {
         </div>
 
         <p className="text-body-sm text-gray-600 mb-6">
-          Select a color scheme to preview. This is temporary for testing purposes.
+          Select options to preview. This is temporary for testing purposes.
         </p>
 
-        <div className="space-y-3">
+        {/* Hero Style Section */}
+        <div className="mb-8">
+          <h3 className="text-h5 font-semibold text-black mb-3">Hero Style</h3>
+          <div className="space-y-2">
+            {(Object.keys(HERO_STYLES) as HeroStyleKey[]).map((key) => {
+              const style = HERO_STYLES[key];
+              const isSelected = currentStyle === key;
+
+              return (
+                <button
+                  key={key}
+                  onClick={() => handleHeroStyleSelect(key)}
+                  className={`
+                    w-full p-3 rounded-lg border-2 text-left
+                    ${
+                      isSelected
+                        ? 'border-brand-primary bg-brand-primary/10'
+                        : 'border-gray-300 hover:border-gray-400'
+                    }
+                  `}
+                >
+                  <div className="font-semibold text-body-base text-black">{style.name}</div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Color Scheme Section */}
+        <div>
+          <h3 className="text-h5 font-semibold text-black mb-3">Color Scheme</h3>
+          <div className="space-y-3">
           {(Object.keys(COLOR_SCHEMES) as ColorSchemeKey[]).map((key) => {
             const scheme = COLOR_SCHEMES[key];
             const isSelected = currentScheme === key;
@@ -86,11 +124,12 @@ const ColorSwitchModal = ({ isOpen, onClose }: ColorSwitchModalProps) => {
               </button>
             );
           })}
+          </div>
         </div>
 
         <div className="mt-6 pt-4 border-t border-gray-200">
           <p className="text-body-xs text-gray-500 italic">
-            Note: Selected color preference is saved in your browser
+            Note: Selected preferences are saved in your browser
           </p>
         </div>
       </div>
