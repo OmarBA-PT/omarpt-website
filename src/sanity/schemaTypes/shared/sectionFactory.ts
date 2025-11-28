@@ -150,17 +150,58 @@ export function createSectionSchema(config: SectionFactoryConfig) {
     fields.splice(insertPosition, 0, ...backgroundFields);
   }
 
+  // Add two-column layout toggle for PageSection only - insert after background fields
+  if (config.name === 'pageSection') {
+    const insertPosition = config.hasSubtitle ? 8 : 7;
+    fields.splice(
+      insertPosition,
+      0,
+      defineField({
+        name: 'twoColumnLayout',
+        title: 'Enable Two-Column Layout',
+        type: 'boolean',
+        description:
+          'When enabled, the section heading and subtitle will appear in the left column, and you can add content to both the left column (below the heading) and a separate right column. On mobile, left column content appears first, followed by right column content.',
+        initialValue: false,
+      })
+    );
+  }
+
   // Build content array with allowed child sections and standard blocks
   const contentOf = createSectionBlockList(config.allowedChildSections);
+
+  // For PageSection, make the content field title conditional based on twoColumnLayout
+  const contentFieldTitle = config.name === 'pageSection'
+    ? 'Left Column Content'
+    : 'Content';
+
+  const contentFieldDescription = config.name === 'pageSection'
+    ? 'Content for the left column (below the heading/subtitle). When two-column layout is disabled, this is the main content area.'
+    : undefined;
 
   fields.push(
     defineField({
       name: 'content',
-      title: 'Content',
+      title: contentFieldTitle,
       type: 'array',
       of: contentOf,
+      description: contentFieldDescription,
     })
   );
+
+  // Add right column field for PageSection only (when twoColumnLayout is enabled)
+  if (config.name === 'pageSection') {
+    fields.push(
+      defineField({
+        name: 'rightColumn',
+        title: 'Right Column Content',
+        type: 'array',
+        of: contentOf,
+        description: 'Content for the right column (appears after left column on mobile).',
+        hidden: ({ parent }) => !parent?.twoColumnLayout,
+      })
+    );
+  }
 
   return defineType({
     name: config.name,

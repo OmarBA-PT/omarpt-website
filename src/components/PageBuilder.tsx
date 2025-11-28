@@ -223,7 +223,13 @@ const BlockRenderer = ({
                   }
                   useCompactGap={(block as { useCompactGap?: boolean }).useCompactGap}
                   backgroundStyle={(block as { backgroundStyle?: string }).backgroundStyle}
-                  backgroundImage={(block as { backgroundImage?: SanityImageSource }).backgroundImage}>
+                  backgroundImage={(block as { backgroundImage?: SanityImageSource }).backgroundImage}
+                  twoColumnLayout={(block as { twoColumnLayout?: boolean }).twoColumnLayout}
+                  rightColumn={
+                    (block as { twoColumnLayout?: boolean; rightColumn?: unknown[] }).twoColumnLayout
+                      ? renderNestedContent((block as { rightColumn?: unknown[] }).rightColumn)
+                      : undefined
+                  }>
                   {renderNestedContent(block.content)}
                 </PageSection>
               </BlockWrapper>

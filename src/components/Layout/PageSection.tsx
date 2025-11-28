@@ -28,6 +28,8 @@ interface PageSectionProps extends SanityLiveEditingProps {
   hideGraphic?: boolean;
   backgroundStyle?: string; // Background style identifier
   backgroundImage?: SanityImageSource; // Background image for 'image' style
+  twoColumnLayout?: boolean; // Whether to enable two-column layout
+  rightColumn?: React.ReactNode; // Content for the right column when two-column layout is enabled
 }
 
 const PageSection = ({
@@ -47,6 +49,8 @@ const PageSection = ({
   useCompactGap = false,
   backgroundStyle,
   backgroundImage,
+  twoColumnLayout = false,
+  rightColumn,
 }: PageSectionProps) => {
   // Create data attributes for Sanity live editing
   const titleDataAttribute = createSanityDataAttribute(documentId, documentType, titlePath);
@@ -114,36 +118,82 @@ const PageSection = ({
 
         {/* SectionContainer provides internal padding while section element has background */}
         <SectionContainer useCompactPadding={useCompactGap}>
-          {/* Title is now always present since it's required */}
-          <div
-            className={`relative pb-4 md:pb-8 text-center
-              md:pl-4 md:text-left
-              after:content-[""] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-1/2 after:h-[0.5] after:bg-linear-to-r after:from-brand-primary after:to-brand-secondary
-              md:after:hidden
-              md:before:content-[""] md:before:absolute md:before:left-0 md:before:top-0 md:before:bottom-0 md:before:w-[0.5] md:before:bg-linear-to-b md:before:from-brand-primary md:before:to-brand-secondary ${pageTitleBottomSpacing}`}>
-            <div className={`inline-flex items-end gap-4 sm:gap-8`}>
-              <div className='text-left'>
-                <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
-                  {parseColoredText(stegaClean(title))}
-                </Heading>
+          {twoColumnLayout ? (
+            /* Two-Column Layout Mode */
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-18'>
+              {/* Left Column */}
+              <div>
+                {/* Title, topText, and subtitle in left column */}
+                <div
+                  className={`relative pb-4 md:pb-8 text-center
+                    md:pl-4 md:text-left
+                    after:content-[""] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-1/2 after:h-[0.5] after:bg-linear-to-r after:from-brand-primary after:to-brand-secondary
+                    md:after:hidden
+                    md:before:content-[""] md:before:absolute md:before:left-0 md:before:top-0 md:before:bottom-0 md:before:w-[0.5] md:before:bg-linear-to-b md:before:from-brand-primary md:before:to-brand-secondary ${pageTitleBottomSpacing}`}>
+                  <div className={`inline-flex items-end gap-4 sm:gap-8`}>
+                    <div className='text-left'>
+                      <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
+                        {parseColoredText(stegaClean(title))}
+                      </Heading>
+                    </div>
+                  </div>
+                  {topText && (
+                    <p
+                      className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line`}
+                      {...topTextDataAttribute}>
+                      {stegaClean(topText)}
+                    </p>
+                  )}
+                  {subtitle && (
+                    <p
+                      className={`text-body-xl max-w-4xl whitespace-pre-line mt-2`}
+                      {...subtitleDataAttribute}>
+                      {subtitle}
+                    </p>
+                  )}
+                </div>
+                {/* Left column content (children) */}
+                {children}
               </div>
+
+              {/* Right Column */}
+              <div>{rightColumn}</div>
             </div>
-            {topText && (
-              <p
-                className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line`}
-                {...topTextDataAttribute}>
-                {stegaClean(topText)}
-              </p>
-            )}
-            {subtitle && (
-              <p
-                className={`text-body-xl max-w-4xl whitespace-pre-line mt-2`}
-                {...subtitleDataAttribute}>
-                {subtitle}
-              </p>
-            )}
-          </div>
-          {children}
+          ) : (
+            /* Standard Single-Column Layout */
+            <>
+              {/* Title is now always present since it's required */}
+              <div
+                className={`relative pb-4 md:pb-8 text-center
+                  md:pl-4 md:text-left
+                  after:content-[""] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-1/2 after:h-[0.5] after:bg-linear-to-r after:from-brand-primary after:to-brand-secondary
+                  md:after:hidden
+                  md:before:content-[""] md:before:absolute md:before:left-0 md:before:top-0 md:before:bottom-0 md:before:w-[0.5] md:before:bg-linear-to-b md:before:from-brand-primary md:before:to-brand-secondary ${pageTitleBottomSpacing}`}>
+                <div className={`inline-flex items-end gap-4 sm:gap-8`}>
+                  <div className='text-left'>
+                    <Heading level='h2' showMargin={false} className='mb-0' {...titleDataAttribute}>
+                      {parseColoredText(stegaClean(title))}
+                    </Heading>
+                  </div>
+                </div>
+                {topText && (
+                  <p
+                    className={`text-body-sm text-brand-secondary font-bold max-w-4xl whitespace-pre-line`}
+                    {...topTextDataAttribute}>
+                    {stegaClean(topText)}
+                  </p>
+                )}
+                {subtitle && (
+                  <p
+                    className={`text-body-xl max-w-4xl whitespace-pre-line mt-2`}
+                    {...subtitleDataAttribute}>
+                    {subtitle}
+                  </p>
+                )}
+              </div>
+              {children}
+            </>
+          )}
         </SectionContainer>
       </section>
     </PageSectionContext.Provider>
