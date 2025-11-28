@@ -10,22 +10,19 @@ interface PageHeroProps {
   documentType?: string;
 }
 
-const PageHero = ({
-  title = null,
-  subtTitle = null,
-  documentId,
-  documentType,
-}: PageHeroProps) => {
+const PageHero = ({ title = null, subtTitle = null, documentId, documentType }: PageHeroProps) => {
   return (
     <div {...createSanityDataAttribute(documentId, documentType, 'heroImage')}>
-      <section data-hero className='bg-brand-secondary text-center overflow-hidden px-5 pb-12'>
+      <section
+        data-hero
+        className='bg-brand-gradient-charcoal-linear text-center overflow-hidden px-5 pb-12'>
         {/* Header spacer */}
         <div className={`${headerHeight}`}></div>
         {title && (
           <Heading
             showMargin={!subtTitle}
             level='h1'
-            className='text-h1 font-bold text-brand-white mt-6'>
+            className='text-h1 font-bold text-gradient-primary mt-6'>
             {title}
           </Heading>
         )}
