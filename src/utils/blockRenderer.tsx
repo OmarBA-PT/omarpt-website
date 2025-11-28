@@ -12,6 +12,7 @@ import type {
   CtaCalloutLink as CtaCalloutLinkType,
   ImageBlock as ImageBlockType,
   ImageGallery as ImageGalleryType,
+  GoogleMap as GoogleMapType,
   YouTubeVideo as YouTubeVideoType,
   CompanyLinksBlock as CompanyLinksBlockType,
   IconList as IconListType,
@@ -37,6 +38,7 @@ import CTAButton from '@/components/_blocks/CTAButton';
 import CTACalloutLinkComponent from '@/components/_blocks/CTACalloutLink';
 import ImageBlock from '@/components/_blocks/Image';
 import ImageGallery from '@/components/_blocks/ImageGallery';
+import GoogleMap from '@/components/_blocks/GoogleMap';
 import YouTubeVideo from '@/components/_blocks/YouTubeVideo';
 import CompanyLinksBlock from '@/components/_blocks/CompanyLinksBlock';
 import IconList from '@/components/_blocks/IconList';
@@ -81,6 +83,7 @@ type BlockType =
   | WithKey<CtaCalloutLinkType>
   | WithKey<ImageBlockType>
   | WithKey<ImageGalleryType>
+  | WithKey<GoogleMapType>
   | WithKey<YouTubeVideoType>
   | WithKey<CompanyLinksBlockType>
   | WithKey<IconListType>
@@ -254,6 +257,15 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentType={documentType}
             pathPrefix={blockPath}
           />
+        </BlockWrapper>
+      );
+    }
+
+    case 'googleMap': {
+      const googleMapBlock = typedBlock as WithKey<GoogleMapType>;
+      return (
+        <BlockWrapper key={googleMapBlock._key}>
+          <GoogleMap {...googleMapBlock} />
         </BlockWrapper>
       );
     }

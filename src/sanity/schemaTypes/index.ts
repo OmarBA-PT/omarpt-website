@@ -17,6 +17,7 @@ import { cardType } from './blocks/cardType';
 import { gridLayoutType } from './blocks/gridLayoutType';
 import { imageType } from './blocks/imageType';
 import { imageGalleryType } from './blocks/imageGalleryType';
+import { googleMapType } from './blocks/googleMapType';
 import { youTubeVideoType } from './blocks/youTubeVideoType';
 import { quoteType } from './blocks/quoteType';
 import { statementType } from './blocks/statementType';
@@ -71,6 +72,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     gridLayoutType,
     imageType,
     imageGalleryType,
+    googleMapType,
     youTubeVideoType,
     quoteType,
     statementType,

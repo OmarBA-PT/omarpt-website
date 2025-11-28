@@ -2192,6 +2192,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "googleMap"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "youTubeVideo"
                   }
                 },
@@ -2526,6 +2541,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "googleMap"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "youTubeVideo"
                   }
                 },
@@ -2809,6 +2839,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "imageGallery"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "googleMap"
                   }
                 },
                 {
@@ -3109,6 +3154,50 @@
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "googleMap",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "googleMap"
+          }
+        },
+        "embedCode": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "300"
+              },
+              {
+                "type": "string",
+                "value": "450"
+              },
+              {
+                "type": "string",
+                "value": "600"
+              }
+            ]
           },
           "optional": true
         }
@@ -3510,6 +3599,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "imageGallery"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "googleMap"
                   }
                 },
                 {
@@ -3968,6 +4072,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "imageGallery"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "googleMap"
                   }
                 },
                 {
@@ -4547,6 +4666,21 @@
                   },
                   "rest": {
                     "type": "inline",
+                    "name": "googleMap"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
                     "name": "youTubeVideo"
                   }
                 },
@@ -4897,6 +5031,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "imageGallery"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "googleMap"
                   }
                 },
                 {
@@ -5276,6 +5425,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "imageGallery"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "googleMap"
                   }
                 },
                 {
@@ -5798,6 +5962,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "imageGallery"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "googleMap"
                   }
                 },
                 {
@@ -6820,6 +6999,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "googleMap"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "youTubeVideo"
                 }
               },
@@ -7206,6 +7400,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "imageGallery"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "googleMap"
                 }
               },
               {
@@ -7607,6 +7816,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "imageGallery"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "googleMap"
                 }
               },
               {

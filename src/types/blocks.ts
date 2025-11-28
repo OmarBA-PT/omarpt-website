@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, Card, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -32,6 +32,7 @@ export type CardBlock = Card & { _key: string };
 export type GridLayoutBlock = GridLayout & { _key: string };
 export type ImageBlock = SanityImageBlock & { _key: string };
 export type ImageGalleryBlock = ImageGallery & { _key: string };
+export type GoogleMapBlock = GoogleMap & { _key: string };
 export type YouTubeVideoBlock = YouTubeVideo & { _key: string };
 export type CTAButtonBlock = CtaButton & { _key: string };
 export type CTACalloutLinkBlock = CtaCalloutLink & { _key: string };
@@ -62,6 +63,7 @@ export type NestedBlock =
   | GridLayoutBlock
   | ImageBlock
   | ImageGalleryBlock
+  | GoogleMapBlock
   | YouTubeVideoBlock
   | CTAButtonBlock
   | CTACalloutLinkBlock
@@ -140,6 +142,10 @@ export const isImageBlock = (block: NestedBlock): block is ImageBlock => {
 
 export const isImageGalleryBlock = (block: NestedBlock): block is ImageGalleryBlock => {
   return block._type === 'imageGallery';
+};
+
+export const isGoogleMapBlock = (block: NestedBlock): block is GoogleMapBlock => {
+  return block._type === 'googleMap';
 };
 
 export const isYouTubeVideoBlock = (block: NestedBlock): block is YouTubeVideoBlock => {

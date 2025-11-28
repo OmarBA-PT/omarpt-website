@@ -32,6 +32,7 @@ export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'divider' }),
   defineArrayMember({ type: 'imageBlock' }),
   defineArrayMember({ type: 'imageGallery' }),
+  defineArrayMember({ type: 'googleMap' }),
   defineArrayMember({ type: 'youTubeVideo' }),
   defineArrayMember({ type: 'ctaButton' }),
   defineArrayMember({ type: 'ctaCalloutLink' }),
