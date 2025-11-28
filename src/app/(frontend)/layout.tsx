@@ -17,6 +17,7 @@ import {
 } from '@/actions';
 import { PageLoadProvider } from '@/contexts/PageLoadContext';
 import { HeaderProvider } from '@/contexts/HeaderContext';
+import { ColorProvider } from '@/contexts/ColorContext'; // TEMPORARY_DEV: Color switching for testing
 import { generateMetadata as generateDefaultMetadata } from '@/lib/metadata';
 import {
   generateOrganizationSchema,
@@ -73,10 +74,11 @@ const FrontendLayout = async ({
   }
 
   return (
-    <PageLoadProvider>
-      <HeaderProvider>
-        <NavigationScroll />
-        <PageReadyTrigger />
+    <ColorProvider>
+      <PageLoadProvider>
+        <HeaderProvider>
+          <NavigationScroll />
+          <PageReadyTrigger />
 
         {/* Structured Data */}
         {organizationSchema && (
@@ -116,8 +118,9 @@ const FrontendLayout = async ({
             </>
           )}
         </div>
-      </HeaderProvider>
-    </PageLoadProvider>
+        </HeaderProvider>
+      </PageLoadProvider>
+    </ColorProvider>
   );
 };
 

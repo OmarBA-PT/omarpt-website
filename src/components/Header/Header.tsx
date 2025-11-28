@@ -11,6 +11,7 @@ import SkipLink from '@/components/UI/SkipLink';
 import { useHeader } from '@/contexts/HeaderContext';
 import { headerHeight } from '@/utils/spacingConstants';
 import { SITE_CONFIG } from '@/lib/constants';
+import ColorSwitchModal from '@/components/UI/ColorSwitchModal'; // TEMPORARY_DEV
 
 interface HeaderProps {
   headerData: HEADER_QUERYResult | null;
@@ -21,6 +22,7 @@ const Header = ({ headerData }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Always start transparent - useEffect will set correct value
   const [headerOpacity, setHeaderOpacity] = useState(0);
+  const [isColorModalOpen, setIsColorModalOpen] = useState(false); // TEMPORARY_DEV
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -149,7 +151,12 @@ const Header = ({ headerData }: HeaderProps) => {
         </Link>
 
         {/* TEMPORARY_DEV - Button to open modal of options  */}
-        <button className='cursor-pointer hover:font-bold'>OPTS</button>
+        <button
+          onClick={() => setIsColorModalOpen(true)}
+          className='cursor-pointer hover:font-bold text-body-sm'
+          aria-label='Open options menu'>
+          OPTS
+        </button>
 
         {/* Desktop Navigation */}
         <div className='grow flex justify-end'>
@@ -177,6 +184,9 @@ const Header = ({ headerData }: HeaderProps) => {
         navLinks={headerData?.verticalNav || null}
         navCtas={headerData?.verticalNavCtas || null}
       />
+
+      {/* TEMPORARY_DEV - Color Switch Modal */}
+      <ColorSwitchModal isOpen={isColorModalOpen} onClose={() => setIsColorModalOpen(false)} />
     </>
   );
 };
