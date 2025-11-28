@@ -311,7 +311,9 @@ export type CtaButton = {
   _type: "ctaButton";
   text?: string;
   variant?: "filled" | "outline-light" | "outline-dark" | "text-link";
-  alignment?: "inherit" | "left" | "center" | "right";
+  alignmentMode?: "inherit" | "override";
+  desktopAlignment?: "left" | "center" | "right";
+  mobileAlignment?: "left" | "center" | "right";
   linkType?: "internal" | "external";
   internalLink?: {
     _ref: string;
@@ -1455,7 +1457,9 @@ export type PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -1778,7 +1782,9 @@ export type PAGE_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -2003,7 +2009,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -2325,7 +2333,9 @@ export type PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -2776,7 +2786,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -3098,7 +3110,9 @@ export type PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -3319,7 +3333,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -3608,7 +3624,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -4110,7 +4128,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -4399,7 +4419,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -4615,7 +4637,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -4892,7 +4916,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -5355,7 +5381,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -5632,7 +5660,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -5842,7 +5872,9 @@ export type PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -6116,7 +6148,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -6541,7 +6575,9 @@ export type PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -6815,7 +6851,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -7126,7 +7164,9 @@ export type PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -7400,7 +7440,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -7724,7 +7766,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -7998,7 +8042,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -8309,7 +8355,9 @@ export type PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -8583,7 +8631,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -8909,7 +8959,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -9183,7 +9235,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -9494,7 +9548,9 @@ export type PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -9768,7 +9824,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -10166,7 +10224,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -10440,7 +10500,9 @@ export type PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -10751,7 +10813,9 @@ export type PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -11025,7 +11089,9 @@ export type PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -11337,7 +11403,9 @@ export type PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -11816,7 +11884,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -12138,7 +12208,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -12359,7 +12431,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -12648,7 +12722,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -13143,7 +13219,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -13417,7 +13495,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -13728,7 +13808,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -14002,7 +14084,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -14355,7 +14439,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -14677,7 +14763,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -14898,7 +14986,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -15187,7 +15277,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -15689,7 +15781,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -15978,7 +16072,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -16194,7 +16290,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -16471,7 +16569,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -16934,7 +17034,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -17211,7 +17313,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -17421,7 +17525,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -17695,7 +17801,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -18120,7 +18228,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -18394,7 +18504,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -18705,7 +18817,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -18979,7 +19093,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -19303,7 +19419,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -19577,7 +19695,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -19888,7 +20008,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -20162,7 +20284,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -20488,7 +20612,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -20762,7 +20888,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -21073,7 +21201,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -21347,7 +21477,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -21694,7 +21826,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -22017,7 +22151,9 @@ export type HOME_PAGE_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -22242,7 +22378,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -22564,7 +22702,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -23015,7 +23155,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -23337,7 +23479,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -23558,7 +23702,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -23847,7 +23993,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -24349,7 +24497,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -24638,7 +24788,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -24854,7 +25006,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -25131,7 +25285,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -25594,7 +25750,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -25871,7 +26029,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -26081,7 +26241,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -26355,7 +26517,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -26780,7 +26944,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -27054,7 +27220,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -27365,7 +27533,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -27639,7 +27809,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -27963,7 +28135,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -28237,7 +28411,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -28548,7 +28724,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -28822,7 +29000,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -29148,7 +29328,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -29422,7 +29604,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -29733,7 +29917,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -30007,7 +30193,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -30405,7 +30593,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -30679,7 +30869,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -30990,7 +31182,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -31264,7 +31458,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -31609,7 +31805,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -31932,7 +32130,9 @@ export type HOME_PAGE_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -32157,7 +32357,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -32479,7 +32681,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -32930,7 +33134,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -33252,7 +33458,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -33473,7 +33681,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -33762,7 +33972,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -34264,7 +34476,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -34553,7 +34767,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -34769,7 +34985,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -35046,7 +35264,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -35509,7 +35729,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -35786,7 +36008,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -35996,7 +36220,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -36270,7 +36496,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -36695,7 +36923,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -36969,7 +37199,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -37280,7 +37512,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -37554,7 +37788,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -37878,7 +38114,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -38152,7 +38390,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -38463,7 +38703,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -38737,7 +38979,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -39063,7 +39307,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -39337,7 +39583,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -39648,7 +39896,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -39922,7 +40172,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -40320,7 +40572,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -40594,7 +40848,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -40905,7 +41161,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -41179,7 +41437,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -41572,7 +41832,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -41895,7 +42157,9 @@ export type HOME_PAGE_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -42120,7 +42384,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -42442,7 +42708,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -42893,7 +43161,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -43215,7 +43485,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -43436,7 +43708,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -43725,7 +43999,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -44227,7 +44503,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -44516,7 +44794,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -44732,7 +45012,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -45009,7 +45291,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -45472,7 +45756,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -45749,7 +46035,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -45959,7 +46247,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -46233,7 +46523,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -46658,7 +46950,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -46932,7 +47226,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -47243,7 +47539,9 @@ export type HOME_PAGE_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -47517,7 +47815,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -47841,7 +48141,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -48115,7 +48417,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -48426,7 +48730,9 @@ export type HOME_PAGE_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -48700,7 +49006,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -49026,7 +49334,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -49300,7 +49610,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -49611,7 +49923,9 @@ export type HOME_PAGE_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -49885,7 +50199,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -50283,7 +50599,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -50557,7 +50875,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -50868,7 +51188,9 @@ export type HOME_PAGE_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -51142,7 +51464,9 @@ export type HOME_PAGE_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -52124,7 +52448,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -52446,7 +52772,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -52667,7 +52995,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -52956,7 +53286,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -53451,7 +53783,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -53725,7 +54059,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -54036,7 +54372,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -54310,7 +54648,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -54663,7 +55003,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -54985,7 +55327,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -55206,7 +55550,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -55495,7 +55841,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -55997,7 +56345,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -56286,7 +56636,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -56502,7 +56854,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -56779,7 +57133,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -57242,7 +57598,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -57519,7 +57877,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -57729,7 +58089,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -58003,7 +58365,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -58428,7 +58792,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -58702,7 +59068,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -59013,7 +59381,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -59287,7 +59657,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -59611,7 +59983,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -59885,7 +60259,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -60196,7 +60572,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -60470,7 +60848,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -60796,7 +61176,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -61070,7 +61452,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -61381,7 +61765,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -61655,7 +62041,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -61994,7 +62382,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -62317,7 +62707,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -62542,7 +62934,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -62864,7 +63258,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -63315,7 +63711,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -63637,7 +64035,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -63858,7 +64258,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -64147,7 +64549,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -64649,7 +65053,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -64938,7 +65344,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -65154,7 +65562,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -65431,7 +65841,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -65894,7 +66306,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -66171,7 +66585,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -66381,7 +66797,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -66655,7 +67073,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -67080,7 +67500,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -67354,7 +67776,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -67665,7 +68089,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -67939,7 +68365,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -68263,7 +68691,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -68537,7 +68967,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -68848,7 +69280,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -69122,7 +69556,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -69448,7 +69884,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -69722,7 +70160,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -70033,7 +70473,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -70307,7 +70749,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -70705,7 +71149,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -70979,7 +71425,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -71290,7 +71738,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -71564,7 +72014,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -71901,7 +72353,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -72224,7 +72678,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -72449,7 +72905,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -72771,7 +73229,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -73222,7 +73682,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -73544,7 +74006,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -73765,7 +74229,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -74054,7 +74520,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -74556,7 +75024,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -74845,7 +75315,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -75061,7 +75533,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -75338,7 +75812,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -75801,7 +76277,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -76078,7 +76556,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -76288,7 +76768,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -76562,7 +77044,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -76987,7 +77471,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -77261,7 +77747,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -77572,7 +78060,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -77846,7 +78336,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -78170,7 +78662,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -78444,7 +78938,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -78755,7 +79251,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -79029,7 +79527,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -79355,7 +79855,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -79629,7 +80131,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -79940,7 +80444,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -80214,7 +80720,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -80612,7 +81120,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -80886,7 +81396,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -81197,7 +81709,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -81471,7 +81985,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -81832,7 +82348,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -82155,7 +82673,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -82380,7 +82900,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -82702,7 +83224,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -83153,7 +83677,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -83475,7 +84001,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -83696,7 +84224,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -83985,7 +84515,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -84487,7 +85019,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -84776,7 +85310,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -84992,7 +85528,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -85269,7 +85807,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -85732,7 +86272,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -86009,7 +86551,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -86219,7 +86763,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -86493,7 +87039,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -86918,7 +87466,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -87192,7 +87742,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -87503,7 +88055,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -87777,7 +88331,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -88101,7 +88657,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -88375,7 +88933,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -88686,7 +89246,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -88960,7 +89522,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -89286,7 +89850,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -89560,7 +90126,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -89871,7 +90439,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -90145,7 +90715,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -90543,7 +91115,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -90817,7 +91391,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -91128,7 +91704,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -91402,7 +91980,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -91791,7 +92371,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -92113,7 +92695,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -92334,7 +92918,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -92623,7 +93209,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -93118,7 +93706,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -93392,7 +93982,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -93703,7 +94295,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -93977,7 +94571,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -94330,7 +94926,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -94652,7 +95250,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -94873,7 +95473,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -95162,7 +95764,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -95664,7 +96268,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -95953,7 +96559,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -96169,7 +96777,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -96446,7 +97056,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -96909,7 +97521,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -97186,7 +97800,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -97396,7 +98012,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -97670,7 +98288,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -98095,7 +98715,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -98369,7 +98991,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -98680,7 +99304,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -98954,7 +99580,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -99278,7 +99906,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -99552,7 +100182,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -99863,7 +100495,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -100137,7 +100771,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -100463,7 +101099,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -100737,7 +101375,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -101048,7 +101688,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -101322,7 +101964,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -101661,7 +102305,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -101984,7 +102630,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -102209,7 +102857,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -102531,7 +103181,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -102982,7 +103634,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -103304,7 +103958,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -103525,7 +104181,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -103814,7 +104472,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -104316,7 +104976,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -104605,7 +105267,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -104821,7 +105485,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -105098,7 +105764,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -105561,7 +106229,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -105838,7 +106508,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -106048,7 +106720,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -106322,7 +106996,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -106747,7 +107423,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -107021,7 +107699,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -107332,7 +108012,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -107606,7 +108288,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -107930,7 +108614,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -108204,7 +108890,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -108515,7 +109203,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -108789,7 +109479,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -109115,7 +109807,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -109389,7 +110083,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -109700,7 +110396,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -109974,7 +110672,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -110372,7 +111072,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -110646,7 +111348,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -110957,7 +111661,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -111231,7 +111937,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -111568,7 +112276,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -111891,7 +112601,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -112116,7 +112828,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -112438,7 +113152,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -112889,7 +113605,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -113211,7 +113929,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -113432,7 +114152,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -113721,7 +114443,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -114223,7 +114947,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -114512,7 +115238,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -114728,7 +115456,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -115005,7 +115735,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -115468,7 +116200,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -115745,7 +116479,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -115955,7 +116691,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -116229,7 +116967,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -116654,7 +117394,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -116928,7 +117670,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -117239,7 +117983,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -117513,7 +118259,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -117837,7 +118585,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -118111,7 +118861,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -118422,7 +119174,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -118696,7 +119450,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -119022,7 +119778,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -119296,7 +120054,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -119607,7 +120367,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -119881,7 +120643,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -120279,7 +121043,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -120553,7 +121319,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -120864,7 +121632,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -121138,7 +121908,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -121499,7 +122271,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -121822,7 +122596,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _type: "ctaButton";
     text?: string;
     variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-    alignment?: "center" | "inherit" | "left" | "right";
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     linkType?: "external" | "internal";
     internalLink: {
       _id: string;
@@ -122047,7 +122823,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -122369,7 +123147,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -122820,7 +123600,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -123142,7 +123924,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -123363,7 +124147,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -123652,7 +124438,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -124154,7 +124942,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -124443,7 +125233,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -124659,7 +125451,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -124936,7 +125730,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -125399,7 +126195,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -125676,7 +126474,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -125886,7 +126686,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -126160,7 +126962,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -126585,7 +127389,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -126859,7 +127665,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -127170,7 +127978,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _type: "ctaButton";
               text?: string;
               variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-              alignment?: "center" | "inherit" | "left" | "right";
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               linkType?: "external" | "internal";
               internalLink: {
                 _id: string;
@@ -127444,7 +128254,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -127768,7 +128580,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -128042,7 +128856,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -128353,7 +129169,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _type: "ctaButton";
             text?: string;
             variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-            alignment?: "center" | "inherit" | "left" | "right";
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             linkType?: "external" | "internal";
             internalLink: {
               _id: string;
@@ -128627,7 +129445,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -128953,7 +129773,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -129227,7 +130049,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -129538,7 +130362,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _type: "ctaButton";
           text?: string;
           variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-          alignment?: "center" | "inherit" | "left" | "right";
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           linkType?: "external" | "internal";
           internalLink: {
             _id: string;
@@ -129812,7 +130638,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -130210,7 +131038,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -130484,7 +131314,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;
@@ -130795,7 +131627,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _type: "ctaButton";
         text?: string;
         variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-        alignment?: "center" | "inherit" | "left" | "right";
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         linkType?: "external" | "internal";
         internalLink: {
           _id: string;
@@ -131069,7 +131903,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _type: "ctaButton";
       text?: string;
       variant?: "filled" | "outline-dark" | "outline-light" | "text-link";
-      alignment?: "center" | "inherit" | "left" | "right";
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       linkType?: "external" | "internal";
       internalLink: {
         _id: string;

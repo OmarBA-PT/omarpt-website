@@ -30,6 +30,42 @@ export const getAlignmentClasses = (
 };
 
 /**
+ * Generates responsive alignment classes for CTA buttons
+ * Returns Tailwind classes for responsive justify alignment
+ */
+export const getResponsiveAlignmentClasses = (
+  alignmentMode: string | undefined,
+  desktopAlignment: string | undefined,
+  mobileAlignment: string | undefined,
+  inheritAlignment: 'left' | 'center' | 'right' | undefined
+): string => {
+  const cleanMode = stegaClean(alignmentMode);
+  const cleanDesktop = stegaClean(desktopAlignment);
+  const cleanMobile = stegaClean(mobileAlignment);
+
+  // If mode is inherit or not set, use inheritAlignment for both
+  if (cleanMode === 'inherit' || !cleanMode) {
+    const finalAlignment = inheritAlignment || 'center';
+    return deriveAlignmentClasses(finalAlignment);
+  }
+
+  // If mode is override, use responsive classes
+  const desktop = (cleanDesktop as 'left' | 'center' | 'right') || 'center';
+  const mobile = (cleanMobile as 'left' | 'center' | 'right') || 'center';
+
+  // If both alignments are the same, return simple class
+  if (desktop === mobile) {
+    return deriveAlignmentClasses(desktop);
+  }
+
+  // Generate responsive classes
+  const mobileClass = deriveAlignmentClasses(mobile);
+  const desktopClass = deriveAlignmentClasses(desktop).replace('justify-', 'md:justify-');
+
+  return `${mobileClass} ${desktopClass}`;
+};
+
+/**
  * Resolves responsive alignment based on mode
  * Returns both desktop and mobile alignments
  */

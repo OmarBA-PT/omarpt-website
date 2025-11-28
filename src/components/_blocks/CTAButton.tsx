@@ -4,7 +4,7 @@ import type { CTAButtonBlock } from '@/types/blocks';
 import type { CTABlockProps } from '@/types/shared';
 import CTA from '../UI/CTA';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { getAlignmentClasses } from './shared/alignmentUtils';
+import { getResponsiveAlignmentClasses } from './shared/alignmentUtils';
 
 type CTAButtonProps = CTABlockProps<CTAButtonBlock>;
 
@@ -12,7 +12,9 @@ const CTAButton = (props: CTAButtonProps & { onClick?: () => void }) => {
   const {
     text,
     variant = 'filled',
-    alignment = 'inherit',
+    alignmentMode,
+    desktopAlignment,
+    mobileAlignment,
     inheritAlignment,
     linkType,
     internalLink,
@@ -60,7 +62,12 @@ const CTAButton = (props: CTAButtonProps & { onClick?: () => void }) => {
   // Determine if this should open in a new tab
   const shouldOpenInNewTab = linkType === 'external' || (linkType === 'internal' && openInNewTab);
 
-  const alignmentClasses = getAlignmentClasses(alignment, inheritAlignment);
+  const alignmentClasses = getResponsiveAlignmentClasses(
+    alignmentMode,
+    desktopAlignment,
+    mobileAlignment,
+    inheritAlignment
+  );
 
   // Determine width class - if className contains 'w-full', use that, otherwise use responsive default
   const widthClass = className.includes('w-full') ? 'w-full' : 'w-auto';

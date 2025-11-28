@@ -1,6 +1,7 @@
 import { defineField } from 'sanity';
 import { LinkIcon } from '@sanity/icons';
 import { createLinkFieldSet } from '../shared/linkSystem';
+import { alignmentFields } from '../shared/alignmentFields';
 
 interface CTAButtonOptions {
   includeAlignment?: boolean;
@@ -58,26 +59,21 @@ export const createCTAButtonFields = (options: CTAButtonOptions = {}) => {
     );
   }
 
-  // Add alignment field if requested
+  // Add alignment fields if requested
   if (includeAlignment) {
-    fields.push(
-      defineField({
-        name: 'alignment',
-        title: 'Button Alignment',
-        type: 'string',
-        group: groups.length > 0 ? 'styling' : undefined,
-        options: {
-          list: [
-            { title: 'Inherit (Default)', value: 'inherit' },
-            { title: 'Left', value: 'left' },
-            { title: 'Center', value: 'center' },
-            { title: 'Right', value: 'right' },
-          ],
-        },
-        initialValue: 'inherit',
-        description: 'How the button should be aligned within its container',
-      })
-    );
+    // Add the alignment fields with group assignment
+    const fieldsWithGroups = alignmentFields.map(field => {
+      // Only add group if groups are defined
+      if (groups.length > 0) {
+        return defineField({
+          ...field,
+          group: 'styling',
+        });
+      }
+      return field;
+    });
+
+    fields.push(...fieldsWithGroups);
   }
 
   // Add link fields using the unified link system
