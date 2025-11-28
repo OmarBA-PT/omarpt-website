@@ -18,9 +18,8 @@ const extractEmbedUrl = (embedCode: string): string | null => {
   return match ? match[1] : null;
 };
 
-const GoogleMap: React.FC<GoogleMapProps> = ({ embedCode, height = '450', className = '' }) => {
+const GoogleMap: React.FC<GoogleMapProps> = ({ embedCode, className = '' }) => {
   const cleanEmbedCode = stegaClean(embedCode);
-  const cleanHeight = stegaClean(height) || '450';
 
   if (!cleanEmbedCode) {
     return null;
@@ -37,11 +36,10 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ embedCode, height = '450', classN
   }
 
   return (
-    <div className={`${className} relative ${maxCardWidth} mx-auto`}>
+    <div className={`${className} relative ${maxCardWidth} mx-auto w-full aspect-4/3 overflow-hidden`}>
       <iframe
-        className='rounded-2xl lg:rounded-[1.25rem] w-full border-0'
+        className='absolute inset-0 w-full h-full rounded-2xl lg:rounded-[1.25rem] border-0'
         src={embedUrl}
-        height={cleanHeight}
         title='Google Map'
         loading='lazy'
         referrerPolicy='no-referrer-when-downgrade'

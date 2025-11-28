@@ -3179,27 +3179,6 @@
             "type": "string"
           },
           "optional": true
-        },
-        "height": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "union",
-            "of": [
-              {
-                "type": "string",
-                "value": "300"
-              },
-              {
-                "type": "string",
-                "value": "450"
-              },
-              {
-                "type": "string",
-                "value": "600"
-              }
-            ]
-          },
-          "optional": true
         }
       }
     }

@@ -11,7 +11,7 @@ export const googleMapType = defineType({
       name: 'embedCode',
       title: 'Google Maps Embed Code',
       type: 'text',
-      description: 'Go to Google Maps → Search for location → Click "Share" → Select "Embed a map" → Copy the entire iframe HTML code and paste it here',
+      description: 'Go to Google Maps → Search for location → Click "Share" → Select "Embed a map" → Copy the entire iframe HTML code and paste it here. The map will automatically maintain a 4:3 aspect ratio.',
       validation: (Rule) =>
         Rule.required()
           .custom((embedCode) => {
@@ -33,32 +33,15 @@ export const googleMapType = defineType({
             return true;
           }),
     }),
-    defineField({
-      name: 'height',
-      title: 'Map Height',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Small (300px)', value: '300' },
-          { title: 'Medium (450px)', value: '450' },
-          { title: 'Large (600px)', value: '600' },
-        ],
-      },
-      initialValue: '450',
-      description: 'Height of the map in pixels',
-    }),
   ],
   preview: {
     select: {
       embedCode: 'embedCode',
-      height: 'height',
     },
-    prepare({ embedCode, height }) {
-      const heightText = height === '300' ? 'Small' : height === '450' ? 'Medium' : 'Large';
-
+    prepare({ embedCode }) {
       return {
         title: 'Google Map',
-        subtitle: embedCode ? `${heightText} (${height}px)` : 'No location set',
+        subtitle: embedCode ? '4:3 aspect ratio' : 'No location set',
         media: EarthGlobeIcon,
       };
     },
