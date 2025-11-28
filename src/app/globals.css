@@ -40,7 +40,11 @@
     #616161 0%,
     #000000 100%
   );
-  --background-image-brand-gradient-primary: linear-gradient(135deg, #ffb200 0%, #ff8400 100%);
+  --background-image-brand-gradient-primary: linear-gradient(
+    135deg,
+    var(--color-brand-primary) 0%,
+    var(--color-brand-secondary) 100%
+  );
   --background-image-brand-gradient-metal: linear-gradient(135deg, #ffffff 0%, #999999 100%);
   --background-image-brand-gradient-firey: linear-gradient(135deg, #f2ff00 0%, #ff6200 100%);
 
@@ -494,15 +498,23 @@ input[type='range']::-moz-range-track {
 
   /* Mobile: Image fits section height (cover behavior) */
   /* First value is for gradient (100% coverage), second is for image */
-  background-size: 100% 100%, cover;
-  background-position: 0 0, center top; /* Gradient at origin, image aligned to top */
+  background-size:
+    100% 100%,
+    cover;
+  background-position:
+    0 0,
+    center top; /* Gradient at origin, image aligned to top */
 }
 
 /* Desktop: Image fills viewport width, anchored to top */
 @media (min-width: 768px) {
   .background-image-layer {
     /* First value is for gradient (100% coverage), second is for image */
-    background-size: 100% 100%, 100vw auto; /* Gradient covers all, image fills viewport width */
-    background-position: 0 0, center top; /* Gradient at origin, image anchored to top */
+    background-size:
+      100% 100%,
+      100vw auto; /* Gradient covers all, image fills viewport width */
+    background-position:
+      0 0,
+      center top; /* Gradient at origin, image anchored to top */
   }
 }
