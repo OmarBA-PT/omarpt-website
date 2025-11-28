@@ -15,12 +15,17 @@ export const COLOR_SCHEMES = {
   option2: {
     name: 'B',
     primary: '#ff8400',
-    secondary: '#ce4500',
+    secondary: '#d06b00',
   },
   option3: {
     name: 'C',
     primary: '#ffb200',
     secondary: '#ac5900',
+  },
+  option4: {
+    name: 'D',
+    primary: '#ff6600',
+    secondary: '#ff9d00',
   },
 } as const;
 

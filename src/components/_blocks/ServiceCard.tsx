@@ -118,7 +118,7 @@ const ServiceCard = ({
           {/* Pricing Info */}
           {pricingInfo && (
             <p
-              className='text-body-2xl text-brand-secondary font-bold mt-2'
+              className='text-body-2xl text-gradient-primary font-bold mt-2'
               {...(documentId && documentType
                 ? createSanityDataAttribute(
                     documentId,

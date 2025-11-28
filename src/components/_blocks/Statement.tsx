@@ -20,7 +20,7 @@ const Statement = ({ text, className = '' }: StatementProps) => {
   return (
     <div className={`${maxCardWidth} flex flex-col items-center mx-auto ${className}`.trim()}>
       {/* Statement text */}
-      <p className='text-body-2xl text-brand-secondary text-center mb-4'>{cleanText}</p>
+      <p className='text-body-2xl text-gradient-primary text-center mb-4'>{cleanText}</p>
 
       {/* Underline with gradient */}
       <div
