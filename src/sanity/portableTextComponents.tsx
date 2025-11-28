@@ -3,38 +3,38 @@ import Image from 'next/image';
 import { PortableTextComponents } from 'next-sanity';
 import { urlFor } from '@/sanity/lib/image';
 
-// Get text alignment from context (passed down from RichText component)
 const getAlignmentClasses = (alignment: string = 'left') => {
-  switch (alignment) {
-    case 'right':
-      return {
-        bulletClass:
-          'list-disc space-y-2 [&>li::marker]:text-brand-secondary text-right [&>li]:list-inside',
-        numberClass:
-          'list-decimal space-y-2 [&>li::marker]:text-brand-secondary text-right [&>li]:list-inside',
-        listItemClass: 'leading-relaxed',
-        standoutClass:
-          'border-r-4 border-brand-primary bg-gray-50 pr-4 py-3 my-4 rounded-l-lg italic text-body-xl text-right',
-      };
-    case 'center':
-      return {
-        bulletClass:
-          'list-disc list-inside space-y-2 [&>li::marker]:text-brand-secondary text-center',
-        numberClass:
-          'list-decimal list-inside space-y-2 [&>li::marker]:text-brand-secondary text-center',
-        listItemClass: 'leading-relaxed text-center',
-        standoutClass:
-          'border-l-4 border-brand-primary bg-gray-50 pl-4 py-3 my-4 rounded-r-lg italic text-body-xl text-center',
-      };
-    default: // 'left' or 'inherit'
-      return {
-        bulletClass: 'list-disc pl-6 space-y-2 [&>li::marker]:text-brand-secondary',
-        numberClass: 'list-decimal pl-6 space-y-2 [&>li::marker]:text-brand-secondary',
-        listItemClass: 'leading-relaxed',
-        standoutClass:
-          'border-l-4 border-brand-primary bg-gray-50 pl-4 py-3 my-4 rounded-r-lg italic text-body-xl',
-      };
-  }
+  const baseClasses = {
+    bulletClass: 'list-disc space-y-2 [&>li::marker]:text-brand-secondary',
+    numberClass: 'list-decimal space-y-2 [&>li::marker]:text-brand-secondary',
+    listItemClass: 'leading-relaxed',
+    standoutClass: 'text-gradient-primary text-body-4xl',
+  };
+
+  const alignmentModifiers = {
+    right: {
+      bulletClass: `${baseClasses.bulletClass} text-right [&>li]:list-inside`,
+      numberClass: `${baseClasses.numberClass} text-right [&>li]:list-inside`,
+      listItemClass: `${baseClasses.listItemClass} text-right`,
+      standoutClass: `${baseClasses.standoutClass} text-right`,
+    },
+    center: {
+      bulletClass: `${baseClasses.bulletClass} list-inside text-center`,
+      numberClass: `${baseClasses.numberClass} list-inside text-center`,
+      listItemClass: `${baseClasses.listItemClass} text-center`,
+      standoutClass: `${baseClasses.standoutClass} text-center`,
+    },
+    left: {
+      bulletClass: `${baseClasses.bulletClass} pl-6`,
+      numberClass: `${baseClasses.numberClass} pl-6`,
+      listItemClass: baseClasses.listItemClass,
+      standoutClass: `${baseClasses.standoutClass} text-left`,
+    },
+  };
+
+  return (
+    alignmentModifiers[alignment as keyof typeof alignmentModifiers] || alignmentModifiers.left
+  );
 };
 
 // Create components factory that accepts alignment context
@@ -242,7 +242,8 @@ export const createComponents = (alignment: string = 'left'): PortableTextCompon
     },
 
     listItem: ({ children }) => (
-      <li className={`${alignmentClasses.listItemClass} [&>span]:inline [&>span]:leading-[inherit]`}>
+      <li
+        className={`${alignmentClasses.listItemClass} [&>span]:inline [&>span]:leading-[inherit]`}>
         {children}
       </li>
     ),
