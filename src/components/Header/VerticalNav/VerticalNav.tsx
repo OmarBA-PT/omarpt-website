@@ -138,7 +138,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
             e.currentTarget.style.scrollbarColor = '#430c08 transparent';
           }}>
           {/* Navigation Links - grows to fill available space */}
-          <nav className='px-10 py-10 w-full grow'>
+          <nav className='px-10 py-12 w-full grow'>
             <div className='space-y-8'>
               {navLinks && navLinks.length > 0 ? (
                 <>
@@ -171,7 +171,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
                           )}
 
                           {/* Section Links */}
-                          <div className='space-y-4 flex flex-col items-center sm:items-start'>
+                          <div className='space-y-6 flex flex-col items-center sm:items-start'>
                             {section.links?.map((link, linkIndex) => {
                               if (!isNavigationLink(link)) return null;
 
