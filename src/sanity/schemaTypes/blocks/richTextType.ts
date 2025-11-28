@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { DocumentTextIcon } from '@sanity/icons';
+import { alignmentFields } from '../shared/alignmentFields';
 
 export const richTextType = defineType({
   name: 'richText',
@@ -15,52 +16,7 @@ export const richTextType = defineType({
         'Apply emphasized styling with background and border to make this text more prominent',
       initialValue: false,
     }),
-    defineField({
-      name: 'alignmentMode',
-      title: 'Alignment Mode',
-      type: 'string',
-      description: 'Choose how to handle text alignment for this block',
-      options: {
-        list: [
-          { title: 'Inherit', value: 'inherit' },
-          { title: 'Override', value: 'override' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'inherit',
-    }),
-    defineField({
-      name: 'desktopAlignment',
-      title: 'Desktop Alignment',
-      type: 'string',
-      description: 'Text alignment on desktop screens',
-      options: {
-        list: [
-          { title: 'Left', value: 'left' },
-          { title: 'Center', value: 'center' },
-          { title: 'Right', value: 'right' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'center',
-      hidden: ({ parent }) => parent?.alignmentMode !== 'override',
-    }),
-    defineField({
-      name: 'mobileAlignment',
-      title: 'Mobile Alignment',
-      type: 'string',
-      description: 'Text alignment on mobile screens',
-      options: {
-        list: [
-          { title: 'Left', value: 'left' },
-          { title: 'Center', value: 'center' },
-          { title: 'Right', value: 'right' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'center',
-      hidden: ({ parent }) => parent?.alignmentMode !== 'override',
-    }),
+    ...alignmentFields,
     // Keep the old textAlign field for backwards compatibility
     defineField({
       name: 'textAlign',

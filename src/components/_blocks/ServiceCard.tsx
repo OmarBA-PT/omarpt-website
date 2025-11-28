@@ -110,7 +110,7 @@ const ServiceCard = ({
 
             {/* List */}
             {list && list.items && list.items.length > 0 && (
-              <ItemList title={list.title} items={list.items} />
+              <ItemList title={list.title} items={list.items} inheritAlignment='left' />
             )}
           </div>
 

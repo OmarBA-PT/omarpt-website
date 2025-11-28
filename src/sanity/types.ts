@@ -146,6 +146,9 @@ export type ServiceCard = {
 export type ItemList = {
   _type: "itemList";
   title?: string;
+  alignmentMode?: "inherit" | "override";
+  desktopAlignment?: "left" | "center" | "right";
+  mobileAlignment?: "left" | "center" | "right";
   items?: Array<{
     text?: string;
     _type: "listItem";
@@ -339,6 +342,8 @@ export type CtaButton = {
 export type ExpandingContent = {
   _type: "expandingContent";
   showOnDesktop?: boolean;
+  expandLabel?: string;
+  collapseLabel?: string;
   expandingContent?: Array<{
     _key: string;
   } & RichText | {
@@ -376,8 +381,6 @@ export type ExpandingContent = {
   } & CompanyLinksBlock | {
     _key: string;
   } & ExpandingContent>;
-  expandLabel?: string;
-  collapseLabel?: string;
 };
 
 export type TwoColumnLayout = {
@@ -1564,6 +1567,8 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -1601,8 +1606,6 @@ export type PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -1659,6 +1662,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -1884,6 +1890,8 @@ export type PAGE_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -1921,8 +1929,6 @@ export type PAGE_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -2109,6 +2115,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -2146,8 +2154,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -2204,6 +2210,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -2428,6 +2437,8 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -2465,8 +2476,6 @@ export type PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -2523,6 +2532,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -2664,6 +2676,9 @@ export type PAGE_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -2873,6 +2888,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -2910,8 +2927,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -2968,6 +2983,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -3192,6 +3210,8 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -3229,8 +3249,6 @@ export type PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -3409,6 +3427,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -3446,8 +3466,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -3500,6 +3518,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -3699,6 +3720,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -3736,8 +3759,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -3794,6 +3815,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -3934,6 +3958,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -4191,6 +4218,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -4228,8 +4257,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -4282,6 +4309,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -4481,6 +4511,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -4518,8 +4550,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -4690,6 +4720,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -4727,8 +4759,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -4778,6 +4808,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -4967,6 +5000,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -5004,8 +5039,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -5058,6 +5091,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -5173,6 +5209,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -5421,6 +5460,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -5458,8 +5499,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -5509,6 +5548,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -5698,6 +5740,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -5735,8 +5779,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -5905,6 +5947,8 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -5942,8 +5986,6 @@ export type PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -5993,6 +6035,9 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -6176,6 +6221,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -6213,8 +6260,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -6264,6 +6309,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -6373,6 +6421,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -6595,6 +6646,8 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -6632,8 +6685,6 @@ export type PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -6683,6 +6734,9 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -6866,6 +6920,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -6903,8 +6959,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -6954,6 +7008,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -7174,6 +7231,8 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -7211,8 +7270,6 @@ export type PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -7262,6 +7319,9 @@ export type PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -7445,6 +7505,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -7482,8 +7544,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -7533,6 +7593,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -7766,6 +7829,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -7803,8 +7868,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -7854,6 +7917,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -8037,6 +8103,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -8074,8 +8142,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -8125,6 +8191,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -8345,6 +8414,8 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -8382,8 +8453,6 @@ export type PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -8433,6 +8502,9 @@ export type PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -8616,6 +8688,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -8653,8 +8727,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -8704,6 +8776,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -8939,6 +9014,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -8976,8 +9053,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -9027,6 +9102,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -9210,6 +9288,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -9247,8 +9327,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -9298,6 +9376,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -9518,6 +9599,8 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -9555,8 +9638,6 @@ export type PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -9606,6 +9687,9 @@ export type PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -9789,6 +9873,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -9826,8 +9912,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -9877,6 +9961,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -10184,6 +10271,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -10221,8 +10310,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -10272,6 +10359,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -10455,6 +10545,8 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -10492,8 +10584,6 @@ export type PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -10543,6 +10633,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -10763,6 +10856,8 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -10800,8 +10895,6 @@ export type PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -10851,6 +10944,9 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -11034,6 +11130,8 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -11071,8 +11169,6 @@ export type PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -11122,6 +11218,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -11343,6 +11442,8 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -11380,8 +11481,6 @@ export type PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -11431,6 +11530,9 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -11826,6 +11928,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -11863,8 +11967,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -11921,6 +12023,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -12145,6 +12250,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -12182,8 +12289,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -12362,6 +12467,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -12399,8 +12506,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -12453,6 +12558,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -12652,6 +12760,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -12689,8 +12799,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -12747,6 +12855,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -12887,6 +12998,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -13134,6 +13248,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -13171,8 +13287,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -13222,6 +13336,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -13405,6 +13522,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -13442,8 +13561,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -13493,6 +13610,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -13713,6 +13833,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -13750,8 +13872,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -13801,6 +13921,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -13984,6 +14107,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -14021,8 +14146,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -14072,6 +14195,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -14341,6 +14467,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -14378,8 +14506,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -14436,6 +14562,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -14660,6 +14789,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -14697,8 +14828,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -14877,6 +15006,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -14914,8 +15045,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -14968,6 +15097,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -15167,6 +15299,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -15204,8 +15338,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -15262,6 +15394,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -15402,6 +15537,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -15659,6 +15797,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -15696,8 +15836,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -15750,6 +15888,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -15949,6 +16090,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -15986,8 +16129,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -16158,6 +16299,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -16195,8 +16338,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -16246,6 +16387,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -16435,6 +16579,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -16472,8 +16618,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -16526,6 +16670,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -16641,6 +16788,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -16889,6 +17039,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -16926,8 +17078,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -16977,6 +17127,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -17166,6 +17319,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -17203,8 +17358,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -17373,6 +17526,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -17410,8 +17565,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -17461,6 +17614,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -17644,6 +17800,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -17681,8 +17839,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -17732,6 +17888,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -17841,6 +18000,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -18063,6 +18225,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -18100,8 +18264,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -18151,6 +18313,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -18334,6 +18499,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -18371,8 +18538,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -18422,6 +18587,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -18642,6 +18810,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -18679,8 +18849,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -18730,6 +18898,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -18913,6 +19084,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -18950,8 +19123,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -19001,6 +19172,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -19234,6 +19408,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -19271,8 +19447,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -19322,6 +19496,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -19505,6 +19682,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -19542,8 +19721,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -19593,6 +19770,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -19813,6 +19993,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -19850,8 +20032,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -19901,6 +20081,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -20084,6 +20267,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -20121,8 +20306,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -20172,6 +20355,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -20407,6 +20593,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -20444,8 +20632,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -20495,6 +20681,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -20678,6 +20867,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -20715,8 +20906,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -20766,6 +20955,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -20986,6 +21178,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -21023,8 +21217,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -21074,6 +21266,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -21257,6 +21452,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -21294,8 +21491,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -21345,6 +21540,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -21608,6 +21806,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -21645,8 +21845,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -21703,6 +21901,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -21928,6 +22129,8 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -21965,8 +22168,6 @@ export type HOME_PAGE_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -22153,6 +22354,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -22190,8 +22393,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -22248,6 +22449,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -22472,6 +22676,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -22509,8 +22715,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -22567,6 +22771,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -22708,6 +22915,9 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -22917,6 +23127,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -22954,8 +23166,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -23012,6 +23222,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -23236,6 +23449,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -23273,8 +23488,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -23453,6 +23666,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -23490,8 +23705,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -23544,6 +23757,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -23743,6 +23959,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -23780,8 +23998,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -23838,6 +24054,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -23978,6 +24197,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -24235,6 +24457,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -24272,8 +24496,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -24326,6 +24548,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -24525,6 +24750,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -24562,8 +24789,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -24734,6 +24959,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -24771,8 +24998,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -24822,6 +25047,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -25011,6 +25239,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -25048,8 +25278,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -25102,6 +25330,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -25217,6 +25448,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -25465,6 +25699,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -25502,8 +25738,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -25553,6 +25787,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -25742,6 +25979,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -25779,8 +26018,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -25949,6 +26186,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -25986,8 +26225,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -26037,6 +26274,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -26220,6 +26460,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -26257,8 +26499,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -26308,6 +26548,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -26417,6 +26660,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -26639,6 +26885,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -26676,8 +26924,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -26727,6 +26973,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -26910,6 +27159,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -26947,8 +27198,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -26998,6 +27247,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -27218,6 +27470,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -27255,8 +27509,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -27306,6 +27558,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -27489,6 +27744,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -27526,8 +27783,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -27577,6 +27832,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -27810,6 +28068,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -27847,8 +28107,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -27898,6 +28156,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -28081,6 +28342,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -28118,8 +28381,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -28169,6 +28430,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -28389,6 +28653,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -28426,8 +28692,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -28477,6 +28741,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -28660,6 +28927,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -28697,8 +28966,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -28748,6 +29015,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -28983,6 +29253,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -29020,8 +29292,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -29071,6 +29341,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -29254,6 +29527,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -29291,8 +29566,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -29342,6 +29615,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -29562,6 +29838,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -29599,8 +29877,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -29650,6 +29926,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -29833,6 +30112,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -29870,8 +30151,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -29921,6 +30200,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -30228,6 +30510,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -30265,8 +30549,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -30316,6 +30598,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -30499,6 +30784,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -30536,8 +30823,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -30587,6 +30872,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -30807,6 +31095,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -30844,8 +31134,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -30895,6 +31183,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -31078,6 +31369,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -31115,8 +31408,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -31166,6 +31457,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -31427,6 +31721,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -31464,8 +31760,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -31522,6 +31816,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -31747,6 +32044,8 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -31784,8 +32083,6 @@ export type HOME_PAGE_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -31972,6 +32269,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -32009,8 +32308,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -32067,6 +32364,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -32291,6 +32591,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -32328,8 +32630,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -32386,6 +32686,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -32527,6 +32830,9 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -32736,6 +33042,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -32773,8 +33081,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -32831,6 +33137,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -33055,6 +33364,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -33092,8 +33403,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -33272,6 +33581,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -33309,8 +33620,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -33363,6 +33672,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -33562,6 +33874,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -33599,8 +33913,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -33657,6 +33969,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -33797,6 +34112,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -34054,6 +34372,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -34091,8 +34411,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -34145,6 +34463,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -34344,6 +34665,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -34381,8 +34704,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -34553,6 +34874,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -34590,8 +34913,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -34641,6 +34962,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -34830,6 +35154,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -34867,8 +35193,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -34921,6 +35245,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -35036,6 +35363,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -35284,6 +35614,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -35321,8 +35653,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -35372,6 +35702,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -35561,6 +35894,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -35598,8 +35933,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -35768,6 +36101,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -35805,8 +36140,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -35856,6 +36189,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -36039,6 +36375,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -36076,8 +36414,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -36127,6 +36463,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -36236,6 +36575,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -36458,6 +36800,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -36495,8 +36839,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -36546,6 +36888,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -36729,6 +37074,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -36766,8 +37113,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -36817,6 +37162,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -37037,6 +37385,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -37074,8 +37424,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -37125,6 +37473,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -37308,6 +37659,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -37345,8 +37698,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -37396,6 +37747,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -37629,6 +37983,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -37666,8 +38022,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -37717,6 +38071,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -37900,6 +38257,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -37937,8 +38296,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -37988,6 +38345,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -38208,6 +38568,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -38245,8 +38607,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -38296,6 +38656,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -38479,6 +38842,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -38516,8 +38881,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -38567,6 +38930,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -38802,6 +39168,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -38839,8 +39207,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -38890,6 +39256,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -39073,6 +39442,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -39110,8 +39481,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -39161,6 +39530,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -39381,6 +39753,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -39418,8 +39792,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -39469,6 +39841,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -39652,6 +40027,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -39689,8 +40066,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -39740,6 +40115,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -40047,6 +40425,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -40084,8 +40464,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -40135,6 +40513,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -40318,6 +40699,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -40355,8 +40738,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -40406,6 +40787,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -40626,6 +41010,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -40663,8 +41049,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -40714,6 +41098,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -40897,6 +41284,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -40934,8 +41323,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -40985,6 +41372,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -41294,6 +41684,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -41331,8 +41723,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -41389,6 +41779,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -41614,6 +42007,8 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -41651,8 +42046,6 @@ export type HOME_PAGE_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -41839,6 +42232,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -41876,8 +42271,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -41934,6 +42327,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -42158,6 +42554,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -42195,8 +42593,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -42253,6 +42649,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -42394,6 +42793,9 @@ export type HOME_PAGE_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -42603,6 +43005,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -42640,8 +43044,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -42698,6 +43100,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -42922,6 +43327,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -42959,8 +43366,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -43139,6 +43544,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -43176,8 +43583,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -43230,6 +43635,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -43429,6 +43837,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -43466,8 +43876,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -43524,6 +43932,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -43664,6 +44075,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -43921,6 +44335,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -43958,8 +44374,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -44012,6 +44426,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -44211,6 +44628,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -44248,8 +44667,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -44420,6 +44837,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -44457,8 +44876,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -44508,6 +44925,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -44697,6 +45117,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -44734,8 +45156,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -44788,6 +45208,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -44903,6 +45326,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -45151,6 +45577,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -45188,8 +45616,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -45239,6 +45665,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -45428,6 +45857,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -45465,8 +45896,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -45635,6 +46064,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -45672,8 +46103,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -45723,6 +46152,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -45906,6 +46338,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -45943,8 +46377,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -45994,6 +46426,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -46103,6 +46538,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -46325,6 +46763,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -46362,8 +46802,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -46413,6 +46851,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -46596,6 +47037,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -46633,8 +47076,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -46684,6 +47125,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -46904,6 +47348,8 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -46941,8 +47387,6 @@ export type HOME_PAGE_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -46992,6 +47436,9 @@ export type HOME_PAGE_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -47175,6 +47622,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -47212,8 +47661,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -47263,6 +47710,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -47496,6 +47946,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -47533,8 +47985,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -47584,6 +48034,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -47767,6 +48220,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -47804,8 +48259,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -47855,6 +48308,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -48075,6 +48531,8 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -48112,8 +48570,6 @@ export type HOME_PAGE_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -48163,6 +48619,9 @@ export type HOME_PAGE_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -48346,6 +48805,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -48383,8 +48844,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -48434,6 +48893,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -48669,6 +49131,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -48706,8 +49170,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -48757,6 +49219,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -48940,6 +49405,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -48977,8 +49444,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -49028,6 +49493,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -49248,6 +49716,8 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -49285,8 +49755,6 @@ export type HOME_PAGE_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -49336,6 +49804,9 @@ export type HOME_PAGE_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -49519,6 +49990,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -49556,8 +50029,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -49607,6 +50078,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -49914,6 +50388,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -49951,8 +50427,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -50002,6 +50476,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -50185,6 +50662,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -50222,8 +50701,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -50273,6 +50750,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -50493,6 +50973,8 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -50530,8 +51012,6 @@ export type HOME_PAGE_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -50581,6 +51061,9 @@ export type HOME_PAGE_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -50764,6 +51247,8 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -50801,8 +51286,6 @@ export type HOME_PAGE_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -50852,6 +51335,9 @@ export type HOME_PAGE_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -51750,6 +52236,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -51787,8 +52275,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -51845,6 +52331,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -52069,6 +52558,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -52106,8 +52597,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -52286,6 +52775,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -52323,8 +52814,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -52377,6 +52866,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -52576,6 +53068,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -52613,8 +53107,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -52671,6 +53163,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -52811,6 +53306,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -53058,6 +53556,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -53095,8 +53595,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -53146,6 +53644,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -53329,6 +53830,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -53366,8 +53869,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -53417,6 +53918,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -53637,6 +54141,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -53674,8 +54180,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -53725,6 +54229,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -53908,6 +54415,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -53945,8 +54454,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -53996,6 +54503,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -54265,6 +54775,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -54302,8 +54814,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -54360,6 +54870,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -54584,6 +55097,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -54621,8 +55136,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -54801,6 +55314,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -54838,8 +55353,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -54892,6 +55405,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -55091,6 +55607,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -55128,8 +55646,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -55186,6 +55702,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -55326,6 +55845,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -55583,6 +56105,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -55620,8 +56144,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -55674,6 +56196,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -55873,6 +56398,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -55910,8 +56437,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -56082,6 +56607,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -56119,8 +56646,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -56170,6 +56695,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -56359,6 +56887,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -56396,8 +56926,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -56450,6 +56978,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -56565,6 +57096,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -56813,6 +57347,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -56850,8 +57386,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -56901,6 +57435,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -57090,6 +57627,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -57127,8 +57666,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -57297,6 +57834,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -57334,8 +57873,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -57385,6 +57922,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -57568,6 +58108,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -57605,8 +58147,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -57656,6 +58196,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -57765,6 +58308,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -57987,6 +58533,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -58024,8 +58572,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -58075,6 +58621,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -58258,6 +58807,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -58295,8 +58846,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -58346,6 +58895,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -58566,6 +59118,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -58603,8 +59157,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -58654,6 +59206,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -58837,6 +59392,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -58874,8 +59431,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -58925,6 +59480,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -59158,6 +59716,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -59195,8 +59755,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -59246,6 +59804,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -59429,6 +59990,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -59466,8 +60029,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -59517,6 +60078,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -59737,6 +60301,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -59774,8 +60340,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -59825,6 +60389,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -60008,6 +60575,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -60045,8 +60614,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -60096,6 +60663,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -60331,6 +60901,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -60368,8 +60940,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -60419,6 +60989,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -60602,6 +61175,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -60639,8 +61214,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -60690,6 +61263,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -60910,6 +61486,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -60947,8 +61525,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -60998,6 +61574,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -61181,6 +61760,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -61218,8 +61799,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -61269,6 +61848,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -61524,6 +62106,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -61561,8 +62145,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -61619,6 +62201,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -61844,6 +62429,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -61881,8 +62468,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -62069,6 +62654,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -62106,8 +62693,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -62164,6 +62749,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -62388,6 +62976,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -62425,8 +63015,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -62483,6 +63071,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -62624,6 +63215,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -62833,6 +63427,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -62870,8 +63466,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -62928,6 +63522,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -63152,6 +63749,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -63189,8 +63788,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -63369,6 +63966,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -63406,8 +64005,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -63460,6 +64057,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -63659,6 +64259,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -63696,8 +64298,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -63754,6 +64354,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -63894,6 +64497,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -64151,6 +64757,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -64188,8 +64796,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -64242,6 +64848,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -64441,6 +65050,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -64478,8 +65089,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -64650,6 +65259,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -64687,8 +65298,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -64738,6 +65347,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -64927,6 +65539,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -64964,8 +65578,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -65018,6 +65630,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -65133,6 +65748,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -65381,6 +65999,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -65418,8 +66038,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -65469,6 +66087,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -65658,6 +66279,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -65695,8 +66318,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -65865,6 +66486,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -65902,8 +66525,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -65953,6 +66574,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -66136,6 +66760,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -66173,8 +66799,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -66224,6 +66848,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -66333,6 +66960,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -66555,6 +67185,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -66592,8 +67224,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -66643,6 +67273,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -66826,6 +67459,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -66863,8 +67498,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -66914,6 +67547,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -67134,6 +67770,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -67171,8 +67809,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -67222,6 +67858,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -67405,6 +68044,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -67442,8 +68083,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -67493,6 +68132,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -67726,6 +68368,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -67763,8 +68407,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -67814,6 +68456,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -67997,6 +68642,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -68034,8 +68681,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -68085,6 +68730,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -68305,6 +68953,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -68342,8 +68992,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -68393,6 +69041,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -68576,6 +69227,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -68613,8 +69266,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -68664,6 +69315,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -68899,6 +69553,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -68936,8 +69592,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -68987,6 +69641,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -69170,6 +69827,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -69207,8 +69866,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -69258,6 +69915,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -69478,6 +70138,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -69515,8 +70177,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -69566,6 +70226,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -69749,6 +70412,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -69786,8 +70451,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -69837,6 +70500,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -70144,6 +70810,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -70181,8 +70849,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -70232,6 +70898,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -70415,6 +71084,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -70452,8 +71123,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -70503,6 +71172,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -70723,6 +71395,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -70760,8 +71434,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -70811,6 +71483,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -70994,6 +71669,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -71031,8 +71708,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -71082,6 +71757,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -71335,6 +72013,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -71372,8 +72052,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -71430,6 +72108,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -71655,6 +72336,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -71692,8 +72375,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -71880,6 +72561,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -71917,8 +72600,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -71975,6 +72656,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -72199,6 +72883,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -72236,8 +72922,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -72294,6 +72978,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -72435,6 +73122,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -72644,6 +73334,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -72681,8 +73373,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -72739,6 +73429,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -72963,6 +73656,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -73000,8 +73695,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -73180,6 +73873,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -73217,8 +73912,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -73271,6 +73964,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -73470,6 +74166,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -73507,8 +74205,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -73565,6 +74261,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -73705,6 +74404,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -73962,6 +74664,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -73999,8 +74703,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -74053,6 +74755,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -74252,6 +74957,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -74289,8 +74996,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -74461,6 +75166,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -74498,8 +75205,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -74549,6 +75254,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -74738,6 +75446,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -74775,8 +75485,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -74829,6 +75537,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -74944,6 +75655,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -75192,6 +75906,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -75229,8 +75945,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -75280,6 +75994,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -75469,6 +76186,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -75506,8 +76225,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -75676,6 +76393,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -75713,8 +76432,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -75764,6 +76481,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -75947,6 +76667,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -75984,8 +76706,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -76035,6 +76755,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -76144,6 +76867,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -76366,6 +77092,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -76403,8 +77131,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -76454,6 +77180,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -76637,6 +77366,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -76674,8 +77405,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -76725,6 +77454,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -76945,6 +77677,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -76982,8 +77716,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -77033,6 +77765,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -77216,6 +77951,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -77253,8 +77990,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -77304,6 +78039,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -77537,6 +78275,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -77574,8 +78314,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -77625,6 +78363,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -77808,6 +78549,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -77845,8 +78588,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -77896,6 +78637,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -78116,6 +78860,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -78153,8 +78899,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -78204,6 +78948,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -78387,6 +79134,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -78424,8 +79173,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -78475,6 +79222,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -78710,6 +79460,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -78747,8 +79499,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -78798,6 +79548,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -78981,6 +79734,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -79018,8 +79773,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -79069,6 +79822,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -79289,6 +80045,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -79326,8 +80084,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -79377,6 +80133,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -79560,6 +80319,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -79597,8 +80358,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -79648,6 +80407,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -79955,6 +80717,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -79992,8 +80756,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -80043,6 +80805,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -80226,6 +80991,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -80263,8 +81030,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -80314,6 +81079,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -80534,6 +81302,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -80571,8 +81341,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -80622,6 +81390,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -80805,6 +81576,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -80842,8 +81615,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -80893,6 +81664,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -81170,6 +81944,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -81207,8 +81983,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -81265,6 +82039,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -81490,6 +82267,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -81527,8 +82306,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -81715,6 +82492,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -81752,8 +82531,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -81810,6 +82587,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -82034,6 +82814,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -82071,8 +82853,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -82129,6 +82909,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -82270,6 +83053,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -82479,6 +83265,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -82516,8 +83304,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -82574,6 +83360,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -82798,6 +83587,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -82835,8 +83626,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -83015,6 +83804,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -83052,8 +83843,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -83106,6 +83895,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -83305,6 +84097,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -83342,8 +84136,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -83400,6 +84192,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -83540,6 +84335,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -83797,6 +84595,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -83834,8 +84634,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -83888,6 +84686,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -84087,6 +84888,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -84124,8 +84927,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -84296,6 +85097,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -84333,8 +85136,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -84384,6 +85185,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -84573,6 +85377,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -84610,8 +85416,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -84664,6 +85468,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -84779,6 +85586,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -85027,6 +85837,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -85064,8 +85876,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -85115,6 +85925,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -85304,6 +86117,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -85341,8 +86156,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -85511,6 +86324,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -85548,8 +86363,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -85599,6 +86412,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -85782,6 +86598,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -85819,8 +86637,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -85870,6 +86686,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -85979,6 +86798,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -86201,6 +87023,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -86238,8 +87062,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -86289,6 +87111,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -86472,6 +87297,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -86509,8 +87336,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -86560,6 +87385,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -86780,6 +87608,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -86817,8 +87647,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -86868,6 +87696,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -87051,6 +87882,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -87088,8 +87921,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -87139,6 +87970,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -87372,6 +88206,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -87409,8 +88245,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -87460,6 +88294,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -87643,6 +88480,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -87680,8 +88519,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -87731,6 +88568,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -87951,6 +88791,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -87988,8 +88830,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -88039,6 +88879,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -88222,6 +89065,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -88259,8 +89104,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -88310,6 +89153,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -88545,6 +89391,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -88582,8 +89430,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -88633,6 +89479,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -88816,6 +89665,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -88853,8 +89704,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -88904,6 +89753,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -89124,6 +89976,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -89161,8 +90015,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -89212,6 +90064,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -89395,6 +90250,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -89432,8 +90289,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -89483,6 +90338,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -89790,6 +90648,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -89827,8 +90687,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -89878,6 +90736,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -90061,6 +90922,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -90098,8 +90961,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -90149,6 +91010,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -90369,6 +91233,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -90406,8 +91272,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -90457,6 +91321,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -90640,6 +91507,8 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -90677,8 +91546,6 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -90728,6 +91595,9 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -91033,6 +91903,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -91070,8 +91942,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -91128,6 +91998,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -91352,6 +92225,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -91389,8 +92264,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -91569,6 +92442,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -91606,8 +92481,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -91660,6 +92533,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -91859,6 +92735,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -91896,8 +92774,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -91954,6 +92830,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -92094,6 +92973,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -92341,6 +93223,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -92378,8 +93262,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -92429,6 +93311,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -92612,6 +93497,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -92649,8 +93536,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -92700,6 +93585,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -92920,6 +93808,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -92957,8 +93847,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -93008,6 +93896,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -93191,6 +94082,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -93228,8 +94121,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -93279,6 +94170,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -93548,6 +94442,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -93585,8 +94481,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -93643,6 +94537,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -93867,6 +94764,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -93904,8 +94803,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -94084,6 +94981,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -94121,8 +95020,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -94175,6 +95072,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -94374,6 +95274,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -94411,8 +95313,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -94469,6 +95369,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -94609,6 +95512,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -94866,6 +95772,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -94903,8 +95811,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -94957,6 +95863,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -95156,6 +96065,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -95193,8 +96104,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -95365,6 +96274,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -95402,8 +96313,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -95453,6 +96362,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -95642,6 +96554,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -95679,8 +96593,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -95733,6 +96645,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -95848,6 +96763,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -96096,6 +97014,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -96133,8 +97053,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -96184,6 +97102,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -96373,6 +97294,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -96410,8 +97333,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -96580,6 +97501,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -96617,8 +97540,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -96668,6 +97589,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -96851,6 +97775,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -96888,8 +97814,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -96939,6 +97863,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -97048,6 +97975,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -97270,6 +98200,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -97307,8 +98239,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -97358,6 +98288,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -97541,6 +98474,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -97578,8 +98513,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -97629,6 +98562,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -97849,6 +98785,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -97886,8 +98824,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -97937,6 +98873,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -98120,6 +99059,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -98157,8 +99098,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -98208,6 +99147,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -98441,6 +99383,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -98478,8 +99422,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -98529,6 +99471,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -98712,6 +99657,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -98749,8 +99696,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -98800,6 +99745,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -99020,6 +99968,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -99057,8 +100007,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -99108,6 +100056,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -99291,6 +100242,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -99328,8 +100281,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -99379,6 +100330,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -99614,6 +100568,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -99651,8 +100607,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -99702,6 +100656,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -99885,6 +100842,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -99922,8 +100881,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -99973,6 +100930,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -100193,6 +101153,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -100230,8 +101192,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -100281,6 +101241,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -100464,6 +101427,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -100501,8 +101466,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -100552,6 +101515,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -100807,6 +101773,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -100844,8 +101812,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -100902,6 +101868,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -101127,6 +102096,8 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -101164,8 +102135,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -101352,6 +102321,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -101389,8 +102360,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -101447,6 +102416,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -101671,6 +102643,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -101708,8 +102682,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -101766,6 +102738,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -101907,6 +102882,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -102116,6 +103094,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -102153,8 +103133,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -102211,6 +103189,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -102435,6 +103416,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -102472,8 +103455,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -102652,6 +103633,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -102689,8 +103672,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -102743,6 +103724,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -102942,6 +103926,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -102979,8 +103965,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -103037,6 +104021,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -103177,6 +104164,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -103434,6 +104424,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -103471,8 +104463,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -103525,6 +104515,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -103724,6 +104717,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -103761,8 +104756,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -103933,6 +104926,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -103970,8 +104965,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -104021,6 +105014,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -104210,6 +105206,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -104247,8 +105245,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -104301,6 +105297,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -104416,6 +105415,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -104664,6 +105666,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -104701,8 +105705,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -104752,6 +105754,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -104941,6 +105946,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -104978,8 +105985,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -105148,6 +106153,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -105185,8 +106192,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -105236,6 +106241,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -105419,6 +106427,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -105456,8 +106466,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -105507,6 +106515,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -105616,6 +106627,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -105838,6 +106852,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -105875,8 +106891,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -105926,6 +106940,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -106109,6 +107126,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -106146,8 +107165,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -106197,6 +107214,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -106417,6 +107437,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -106454,8 +107476,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -106505,6 +107525,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -106688,6 +107711,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -106725,8 +107750,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -106776,6 +107799,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -107009,6 +108035,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -107046,8 +108074,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -107097,6 +108123,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -107280,6 +108309,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -107317,8 +108348,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -107368,6 +108397,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -107588,6 +108620,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -107625,8 +108659,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -107676,6 +108708,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -107859,6 +108894,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -107896,8 +108933,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -107947,6 +108982,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -108182,6 +109220,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -108219,8 +109259,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -108270,6 +109308,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -108453,6 +109494,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -108490,8 +109533,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -108541,6 +109582,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -108761,6 +109805,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -108798,8 +109844,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -108849,6 +109893,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -109032,6 +110079,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -109069,8 +110118,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -109120,6 +110167,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -109427,6 +110477,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -109464,8 +110516,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -109515,6 +110565,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -109698,6 +110751,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -109735,8 +110790,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -109786,6 +110839,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -110006,6 +111062,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -110043,8 +111101,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -110094,6 +111150,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -110277,6 +111336,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -110314,8 +111375,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -110365,6 +111424,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -110618,6 +111680,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -110655,8 +111719,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -110713,6 +111775,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -110938,6 +112003,8 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -110975,8 +112042,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -111163,6 +112228,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -111200,8 +112267,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -111258,6 +112323,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -111482,6 +112550,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -111519,8 +112589,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -111577,6 +112645,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -111718,6 +112789,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -111927,6 +113001,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -111964,8 +113040,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -112022,6 +113096,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -112246,6 +113323,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -112283,8 +113362,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -112463,6 +113540,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -112500,8 +113579,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -112554,6 +113631,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -112753,6 +113833,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -112790,8 +113872,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -112848,6 +113928,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -112988,6 +114071,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -113245,6 +114331,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -113282,8 +114370,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -113336,6 +114422,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -113535,6 +114624,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -113572,8 +114663,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -113744,6 +114833,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -113781,8 +114872,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -113832,6 +114921,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -114021,6 +115113,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -114058,8 +115152,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -114112,6 +115204,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -114227,6 +115322,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -114475,6 +115573,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -114512,8 +115612,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -114563,6 +115661,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -114752,6 +115853,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -114789,8 +115892,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -114959,6 +116060,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -114996,8 +116099,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -115047,6 +116148,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -115230,6 +116334,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -115267,8 +116373,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -115318,6 +116422,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -115427,6 +116534,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -115649,6 +116759,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -115686,8 +116798,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -115737,6 +116847,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -115920,6 +117033,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -115957,8 +117072,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -116008,6 +117121,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -116228,6 +117344,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -116265,8 +117383,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -116316,6 +117432,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -116499,6 +117618,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -116536,8 +117657,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -116587,6 +117706,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -116820,6 +117942,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -116857,8 +117981,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -116908,6 +118030,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -117091,6 +118216,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -117128,8 +118255,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -117179,6 +118304,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -117399,6 +118527,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -117436,8 +118566,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -117487,6 +118615,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -117670,6 +118801,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -117707,8 +118840,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -117758,6 +118889,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -117993,6 +119127,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -118030,8 +119166,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -118081,6 +119215,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -118264,6 +119401,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -118301,8 +119440,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -118352,6 +119489,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -118572,6 +119712,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -118609,8 +119751,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -118660,6 +119800,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -118843,6 +119986,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -118880,8 +120025,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -118931,6 +120074,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -119238,6 +120384,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -119275,8 +120423,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -119326,6 +120472,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -119509,6 +120658,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -119546,8 +120697,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -119597,6 +120746,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -119817,6 +120969,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -119854,8 +121008,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -119905,6 +121057,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -120088,6 +121243,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -120125,8 +121282,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -120176,6 +121331,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -120453,6 +121611,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -120490,8 +121650,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -120548,6 +121706,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -120773,6 +121934,8 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "expandingContent";
     showOnDesktop?: boolean;
+    expandLabel?: string;
+    collapseLabel?: string;
     expandingContent?: Array<{
       _key: string;
     } & BlockListWithStats | {
@@ -120810,8 +121973,6 @@ export type PRIVACY_POLICY_QUERYResult = {
     } & Statement | {
       _key: string;
     } & YouTubeVideo>;
-    expandLabel?: string;
-    collapseLabel?: string;
     image: null;
     content: null;
   } | {
@@ -120998,6 +122159,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -121035,8 +122198,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -121093,6 +122254,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -121317,6 +122481,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -121354,8 +122520,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -121412,6 +122576,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -121553,6 +122720,9 @@ export type PRIVACY_POLICY_QUERYResult = {
     _key: string;
     _type: "itemList";
     title?: string;
+    alignmentMode?: "inherit" | "override";
+    desktopAlignment?: "center" | "left" | "right";
+    mobileAlignment?: "center" | "left" | "right";
     items?: Array<{
       text?: string;
       _type: "listItem";
@@ -121762,6 +122932,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -121799,8 +122971,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -121857,6 +123027,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -122081,6 +123254,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -122118,8 +123293,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
       image: null;
       content: null;
     } | {
@@ -122298,6 +123471,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -122335,8 +123510,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -122389,6 +123562,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -122588,6 +123764,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -122625,8 +123803,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -122683,6 +123859,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -122823,6 +124002,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -123080,6 +124262,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -123117,8 +124301,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -123171,6 +124353,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -123370,6 +124555,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -123407,8 +124594,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
         image: null;
         content: null;
       } | {
@@ -123579,6 +124764,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -123616,8 +124803,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -123667,6 +124852,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -123856,6 +125044,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -123893,8 +125083,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -123947,6 +125135,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -124062,6 +125253,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -124310,6 +125504,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -124347,8 +125543,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -124398,6 +125592,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -124587,6 +125784,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -124624,8 +125823,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
           image: null;
         } | {
           _key: string;
@@ -124794,6 +125991,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -124831,8 +126030,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -124882,6 +126079,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -125065,6 +126265,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -125102,8 +126304,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -125153,6 +126353,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -125262,6 +126465,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -125484,6 +126690,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -125521,8 +126729,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -125572,6 +126778,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -125755,6 +126964,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -125792,8 +127003,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -125843,6 +127052,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -126063,6 +127275,8 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "expandingContent";
               showOnDesktop?: boolean;
+              expandLabel?: string;
+              collapseLabel?: string;
               expandingContent?: Array<{
                 _key: string;
               } & BlockListWithStats | {
@@ -126100,8 +127314,6 @@ export type PRIVACY_POLICY_QUERYResult = {
               } & Statement | {
                 _key: string;
               } & YouTubeVideo>;
-              expandLabel?: string;
-              collapseLabel?: string;
             } | {
               _key: string;
               _type: "iconList";
@@ -126151,6 +127363,9 @@ export type PRIVACY_POLICY_QUERYResult = {
               _key: string;
               _type: "itemList";
               title?: string;
+              alignmentMode?: "inherit" | "override";
+              desktopAlignment?: "center" | "left" | "right";
+              mobileAlignment?: "center" | "left" | "right";
               items?: Array<{
                 text?: string;
                 _type: "listItem";
@@ -126334,6 +127549,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -126371,8 +127588,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -126422,6 +127637,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -126655,6 +127873,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -126692,8 +127912,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -126743,6 +127961,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -126926,6 +128147,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -126963,8 +128186,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -127014,6 +128235,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -127234,6 +128458,8 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "expandingContent";
             showOnDesktop?: boolean;
+            expandLabel?: string;
+            collapseLabel?: string;
             expandingContent?: Array<{
               _key: string;
             } & BlockListWithStats | {
@@ -127271,8 +128497,6 @@ export type PRIVACY_POLICY_QUERYResult = {
             } & Statement | {
               _key: string;
             } & YouTubeVideo>;
-            expandLabel?: string;
-            collapseLabel?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -127322,6 +128546,9 @@ export type PRIVACY_POLICY_QUERYResult = {
             _key: string;
             _type: "itemList";
             title?: string;
+            alignmentMode?: "inherit" | "override";
+            desktopAlignment?: "center" | "left" | "right";
+            mobileAlignment?: "center" | "left" | "right";
             items?: Array<{
               text?: string;
               _type: "listItem";
@@ -127505,6 +128732,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -127542,8 +128771,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -127593,6 +128820,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -127828,6 +129058,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -127865,8 +129097,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -127916,6 +129146,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -128099,6 +129332,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -128136,8 +129371,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -128187,6 +129420,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -128407,6 +129643,8 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "expandingContent";
           showOnDesktop?: boolean;
+          expandLabel?: string;
+          collapseLabel?: string;
           expandingContent?: Array<{
             _key: string;
           } & BlockListWithStats | {
@@ -128444,8 +129682,6 @@ export type PRIVACY_POLICY_QUERYResult = {
           } & Statement | {
             _key: string;
           } & YouTubeVideo>;
-          expandLabel?: string;
-          collapseLabel?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -128495,6 +129731,9 @@ export type PRIVACY_POLICY_QUERYResult = {
           _key: string;
           _type: "itemList";
           title?: string;
+          alignmentMode?: "inherit" | "override";
+          desktopAlignment?: "center" | "left" | "right";
+          mobileAlignment?: "center" | "left" | "right";
           items?: Array<{
             text?: string;
             _type: "listItem";
@@ -128678,6 +129917,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -128715,8 +129956,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -128766,6 +130005,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -129073,6 +130315,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -129110,8 +130354,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -129161,6 +130403,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -129344,6 +130589,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -129381,8 +130628,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -129432,6 +130677,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";
@@ -129652,6 +130900,8 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "expandingContent";
         showOnDesktop?: boolean;
+        expandLabel?: string;
+        collapseLabel?: string;
         expandingContent?: Array<{
           _key: string;
         } & BlockListWithStats | {
@@ -129689,8 +130939,6 @@ export type PRIVACY_POLICY_QUERYResult = {
         } & Statement | {
           _key: string;
         } & YouTubeVideo>;
-        expandLabel?: string;
-        collapseLabel?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -129740,6 +130988,9 @@ export type PRIVACY_POLICY_QUERYResult = {
         _key: string;
         _type: "itemList";
         title?: string;
+        alignmentMode?: "inherit" | "override";
+        desktopAlignment?: "center" | "left" | "right";
+        mobileAlignment?: "center" | "left" | "right";
         items?: Array<{
           text?: string;
           _type: "listItem";
@@ -129923,6 +131174,8 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "expandingContent";
       showOnDesktop?: boolean;
+      expandLabel?: string;
+      collapseLabel?: string;
       expandingContent?: Array<{
         _key: string;
       } & BlockListWithStats | {
@@ -129960,8 +131213,6 @@ export type PRIVACY_POLICY_QUERYResult = {
       } & Statement | {
         _key: string;
       } & YouTubeVideo>;
-      expandLabel?: string;
-      collapseLabel?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -130011,6 +131262,9 @@ export type PRIVACY_POLICY_QUERYResult = {
       _key: string;
       _type: "itemList";
       title?: string;
+      alignmentMode?: "inherit" | "override";
+      desktopAlignment?: "center" | "left" | "right";
+      mobileAlignment?: "center" | "left" | "right";
       items?: Array<{
         text?: string;
         _type: "listItem";

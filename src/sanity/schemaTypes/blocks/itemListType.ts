@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { UlistIcon } from '@sanity/icons';
+import { alignmentFields } from '../shared/alignmentFields';
 
 export const itemListType = defineType({
   name: 'itemList',
@@ -13,6 +14,7 @@ export const itemListType = defineType({
       type: 'string',
       validation: (Rule) => Rule.required().min(1).max(100),
     }),
+    ...alignmentFields,
     defineField({
       name: 'items',
       title: 'List Items',

@@ -339,7 +339,7 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       const itemListBlock = typedBlock as WithKey<ItemListType>;
       return (
         <BlockWrapper key={itemListBlock._key}>
-          <ItemList {...itemListBlock} />
+          <ItemList {...itemListBlock} inheritAlignment={alignment} />
         </BlockWrapper>
       );
     }
