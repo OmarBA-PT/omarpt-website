@@ -42,12 +42,6 @@ const ExpandingContent = ({
     : // Hide expand/collapse on desktop (lg+), show content expanded
       `${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'} lg:max-h-none! lg:opacity-100!`;
 
-  const toggleClass = showOnDesktop
-    ? // Show toggle on all screen sizes
-      'flex'
-    : // Hide toggle on desktop (lg+)
-      'lg:hidden flex';
-
   return (
     <div className={`w-full mx-auto ${className}`.trim()}>
       {/* Expandable Content Container */}
@@ -88,6 +82,7 @@ const ExpandingContent = ({
         setIsExpanded={setIsExpanded}
         expandLabel={expandLabel}
         collapseLabel={collapseLabel}
+        showOnDesktop={showOnDesktop}
       />
     </div>
   );
