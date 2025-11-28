@@ -48,32 +48,69 @@ const LoadingOverlay: React.FC<LoadingOverlayProps> = ({ isLoading = false }) =>
         {/* Black overlay with reduced opacity */}
         <div className='absolute inset-0 bg-black/70' />
 
-        {/* Soundwave loader in center */}
+        {/* Spinner loader in center */}
         <div className='absolute inset-0 flex items-center justify-center'>
-          <div className='flex items-center gap-2 h-40'>
-            {/* 7 bars with alternating colors and staggered animations */}
-            {[...Array(7)].map((_, i) => (
+          <div className='relative w-20 h-20 sm:w-40 sm:h-40'>
+            {/* Outer ring - brand primary */}
+            <div
+              className='absolute inset-0 rounded-full border-4 sm:border-8 border-transparent'
+              style={{
+                borderTopColor: 'var(--color-brand-primary)',
+                borderRightColor: 'var(--color-brand-primary)',
+                animation: 'spin 1.5s linear infinite',
+              }}
+            />
+            {/* Inner ring - brand secondary */}
+            <div
+              className='absolute inset-4 rounded-full border-4 sm:border-8 border-transparent'
+              style={{
+                borderBottomColor: 'var(--color-brand-secondary)',
+                borderLeftColor: 'var(--color-brand-secondary)',
+                animation: 'spin-reverse 1s linear infinite',
+              }}
+            />
+            {/* Center dot - gradient */}
+            <div className='absolute inset-0 flex items-center justify-center'>
               <div
-                key={i}
-                className='w-2 rounded-full'
+                className='w-3 h-3 rounded-full'
                 style={{
-                  backgroundColor: i % 2 === 0 ? '#900000' : '#430c08', // Alternate brand-primary and brand-secondary
-                  animation: `soundwave 1.2s ease-in-out infinite`,
-                  animationDelay: `${i * 0.1}s`,
+                  background:
+                    'linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%)',
+                  animation: 'pulse 1.5s ease-in-out infinite',
                 }}
               />
-            ))}
+            </div>
           </div>
         </div>
 
-        {/* CSS Animation for soundwave */}
+        {/* CSS Animations */}
         <style jsx>{`
-          @keyframes soundwave {
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+
+          @keyframes spin-reverse {
+            from {
+              transform: rotate(360deg);
+            }
+            to {
+              transform: rotate(0deg);
+            }
+          }
+
+          @keyframes pulse {
             0%, 100% {
-              height: 20%;
+              transform: scale(1);
+              opacity: 1;
             }
             50% {
-              height: 100%;
+              transform: scale(1.2);
+              opacity: 0.7;
             }
           }
         `}</style>
