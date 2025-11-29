@@ -39,11 +39,11 @@ const FAQBlock = ({
           return (
             <div
               key={item._key}
-              className='border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-200'>
+              className='border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-500'>
               {/* Question Header - Clickable */}
               <button
                 onClick={() => toggleItem(index)}
-                className='w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-200'
+                className='w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-500'
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}>
                 <span
@@ -53,27 +53,25 @@ const FAQBlock = ({
                   className='text-body-lg font-semibold text-gray-900 pr-4'>
                   {item.question}
                 </span>
-                <div className='flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-brand-primary-500 text-white transition-transform duration-300'>
-                  {isOpen ? (
-                    <FaMinus className='w-4 h-4' />
-                  ) : (
-                    <FaPlus className='w-4 h-4' />
-                  )}
+                <div className='shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-brand-primary-500 text-white transition-all duration-500 ease-out'>
+                  {isOpen ? <FaMinus className='w-4 h-4' /> : <FaPlus className='w-4 h-4' />}
                 </div>
               </button>
 
               {/* Answer Content - Expandable */}
               <div
                 id={`faq-answer-${index}`}
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                className={`grid transition-all duration-500 ease-out ${
+                  isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                 }`}>
-                <div
-                  {...(documentId && documentType
-                    ? createSanityDataAttribute(documentId, documentType, `${itemPath}.answer`)
-                    : {})}
-                  className='px-6 pb-6 text-body-base text-gray-700 leading-relaxed whitespace-pre-wrap'>
-                  {item.answer}
+                <div className='overflow-hidden'>
+                  <div
+                    {...(documentId && documentType
+                      ? createSanityDataAttribute(documentId, documentType, `${itemPath}.answer`)
+                      : {})}
+                    className='px-6 pb-6 text-body-base text-gray-700 leading-relaxed whitespace-pre-wrap'>
+                    {item.answer}
+                  </div>
                 </div>
               </div>
             </div>
