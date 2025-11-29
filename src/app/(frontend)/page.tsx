@@ -1,7 +1,7 @@
 import React from 'react';
 import PageBuilder from '@/components/PageBuilder';
 import Hero from '@/components/HomeHero/Hero';
-import { getHomePage, getSiteSettings, getCompanyLinks, getContactFormSettings } from '@/actions';
+import { getHomePage, getSiteSettings, getPageBuilderData } from '@/actions';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl } from '@/lib/metadata';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -21,11 +21,10 @@ export async function generateMetadata() {
 }
 
 const Page = async () => {
-  const [page, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
+  const [page, siteSettings, pageBuilderData] = await Promise.all([
     getHomePage(),
     getSiteSettings(),
-    getCompanyLinks(),
-    getContactFormSettings(),
+    getPageBuilderData(),
   ]);
 
   if (!page) {
@@ -57,9 +56,7 @@ const Page = async () => {
           content={page.content as any}
           documentId={page._id}
           documentType={page._type}
-          siteSettings={siteSettings || undefined}
-          companyLinks={companyLinks}
-          contactFormSettings={contactFormSettings}
+          pageBuilderData={pageBuilderData}
           alignment='center'
         />
       )}

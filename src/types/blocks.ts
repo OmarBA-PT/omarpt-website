@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, Card, ResponsiveWrapper, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, ResponsiveWrapper, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -28,7 +28,6 @@ export type StatementBlock = Statement & { _key: string };
 export type QuoteBlock = Quote & { _key: string };
 export type TwoColumnLayoutBlock = TwoColumnLayout & { _key: string };
 export type ExpandingContentBlock = ExpandingContent & { _key: string };
-export type CardBlock = Card & { _key: string };
 export type ResponsiveWrapperBlock = ResponsiveWrapper & { _key: string };
 export type GridLayoutBlock = GridLayout & { _key: string };
 export type ImageBlock = SanityImageBlock & { _key: string };
@@ -60,7 +59,6 @@ export type NestedBlock =
   | QuoteBlock
   | TwoColumnLayoutBlock
   | ExpandingContentBlock
-  | CardBlock
   | ResponsiveWrapperBlock
   | GridLayoutBlock
   | ImageBlock
@@ -79,11 +77,11 @@ export type NestedBlock =
   | ContactFormBlock;
 
 // Union of blocks that can contain nested content
-export type BlockWithContent = PageSectionBlock | SubSectionBlock | SubSubSectionBlock | ContentWrapperBlock | SectionBlock | CardBlock;
+export type BlockWithContent = PageSectionBlock | SubSectionBlock | SubSubSectionBlock | ContentWrapperBlock | SectionBlock;
 
 // Type guard functions
 export const isBlockWithContent = (block: NestedBlock): block is BlockWithContent => {
-  return block._type === 'pageSection' || block._type === 'subSection' || block._type === 'subSubSection' || block._type === 'contentWrapper' || block._type === 'section' || block._type === 'card';
+  return block._type === 'pageSection' || block._type === 'subSection' || block._type === 'subSubSection' || block._type === 'contentWrapper' || block._type === 'section';
 };
 
 export const isPageSectionBlock = (block: NestedBlock): block is PageSectionBlock => {
@@ -128,10 +126,6 @@ export const isTwoColumnLayoutBlock = (block: NestedBlock): block is TwoColumnLa
 
 export const isExpandingContentBlock = (block: NestedBlock): block is ExpandingContentBlock => {
   return block._type === 'expandingContent';
-};
-
-export const isCardBlock = (block: NestedBlock): block is CardBlock => {
-  return block._type === 'card';
 };
 
 export const isResponsiveWrapperBlock = (block: NestedBlock): block is ResponsiveWrapperBlock => {

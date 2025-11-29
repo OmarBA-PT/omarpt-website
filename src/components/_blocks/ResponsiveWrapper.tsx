@@ -3,8 +3,7 @@
 import React from 'react';
 import { stegaClean } from 'next-sanity';
 import type { ResponsiveWrapper as ResponsiveWrapperType } from '@/sanity/types';
-import type { SiteSettingsProps } from '@/types/shared';
-import type { COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
+import type { PageBuilderData } from '@/actions';
 import { renderBlock } from '@/utils/blockRenderer';
 import { client } from '@/sanity/lib/client';
 
@@ -14,9 +13,7 @@ interface ResponsiveWrapperProps extends Omit<ResponsiveWrapperType, '_type'> {
   documentId?: string;
   documentType?: string;
   fieldPathPrefix?: string;
-  siteSettings?: SiteSettingsProps;
-  companyLinks?: COMPANY_LINKS_QUERYResult;
-  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  pageBuilderData: PageBuilderData;
   alignment?: 'left' | 'center' | 'right';
 }
 
@@ -35,9 +32,7 @@ const ResponsiveWrapper = (props: ResponsiveWrapperProps) => {
     documentId,
     documentType,
     fieldPathPrefix,
-    siteSettings,
-    companyLinks,
-    contactFormSettings,
+    pageBuilderData,
     alignment = 'center',
   } = props;
 
@@ -65,9 +60,7 @@ const ResponsiveWrapper = (props: ResponsiveWrapperProps) => {
           documentId,
           documentType,
           blockPath,
-          siteSettings,
-          companyLinks,
-          contactFormSettings,
+          pageBuilderData,
           alignment,
           config: createDataAttributeConfig,
         });

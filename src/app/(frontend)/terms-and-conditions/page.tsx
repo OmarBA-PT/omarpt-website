@@ -5,8 +5,7 @@ import PageHero from '@/components/Page/PageHero';
 import {
   getTermsAndConditions,
   getSiteSettings,
-  getCompanyLinks,
-  getContactFormSettings,
+  getPageBuilderData,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
 import {
@@ -45,11 +44,10 @@ export async function generateMetadata() {
 }
 
 const TermsAndConditionsPage = async () => {
-  const [termsData, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
+  const [termsData, siteSettings, pageBuilderData] = await Promise.all([
     getTermsAndConditions(),
     getSiteSettings(),
-    getCompanyLinks(),
-    getContactFormSettings(),
+    getPageBuilderData(),
   ]);
 
   // If the page is hidden or doesn't exist, show 404
@@ -113,9 +111,7 @@ const TermsAndConditionsPage = async () => {
             content={termsData.content as any}
             documentId={termsData._id}
             documentType={termsData._type}
-            siteSettings={siteSettings || undefined}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
             alignment='left'
           />
         )}

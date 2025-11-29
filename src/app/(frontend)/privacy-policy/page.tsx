@@ -5,8 +5,7 @@ import PageHero from '@/components/Page/PageHero';
 import {
   getPrivacyPolicy,
   getSiteSettings,
-  getCompanyLinks,
-  getContactFormSettings,
+  getPageBuilderData,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
 import {
@@ -45,11 +44,10 @@ export async function generateMetadata() {
 }
 
 const PrivacyPolicyPage = async () => {
-  const [privacyData, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
+  const [privacyData, siteSettings, pageBuilderData] = await Promise.all([
     getPrivacyPolicy(),
     getSiteSettings(),
-    getCompanyLinks(),
-    getContactFormSettings(),
+    getPageBuilderData(),
   ]);
 
   // If the page is hidden or doesn't exist, show 404
@@ -113,9 +111,7 @@ const PrivacyPolicyPage = async () => {
             content={privacyData.content as any}
             documentId={privacyData._id}
             documentType={privacyData._type}
-            siteSettings={siteSettings || undefined}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
             alignment='left'
           />
         )}

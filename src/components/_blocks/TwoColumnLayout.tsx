@@ -3,8 +3,7 @@
 import React from 'react';
 import { stegaClean } from 'next-sanity';
 import type { NestedBlock } from '@/types/blocks';
-import type { SiteSettingsProps } from '@/types/shared';
-import type { COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
+import type { PageBuilderData } from '@/actions';
 import { createSanityDataAttribute, type SanityLiveEditingProps } from '../../utils/sectionHelpers';
 import { contentBlockBottomSpacing } from '@/utils/spacingConstants';
 import { renderBlock } from '@/utils/blockRenderer';
@@ -24,9 +23,7 @@ interface TwoColumnLayoutProps extends Omit<SanityLiveEditingProps, 'titlePath' 
   columnSplit?: '50/50' | '60/40' | '40/60' | '70/30' | '30/70';
   className?: string;
   pathPrefix?: string;
-  siteSettings?: SiteSettingsProps;
-  companyLinks?: COMPANY_LINKS_QUERYResult;
-  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  pageBuilderData: PageBuilderData;
   alignment?: 'left' | 'center' | 'right';
 }
 
@@ -39,9 +36,7 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
   documentId,
   documentType,
   pathPrefix,
-  siteSettings,
-  companyLinks,
-  contactFormSettings,
+  pageBuilderData,
   alignment = 'center',
 }) => {
   // Don't render if both columns are empty
@@ -81,9 +76,7 @@ const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
       documentId,
       documentType,
       blockPath,
-      siteSettings,
-      companyLinks,
-      contactFormSettings,
+      pageBuilderData,
       alignment,
       config: createDataAttributeConfig,
     });

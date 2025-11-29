@@ -2,10 +2,8 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import PageBuilder from '@/components/PageBuilder';
 import PageHero from '@/components/Page/PageHero';
-import { getPageBySlug, getSiteSettings, getCompanyLinks, getContactFormSettings } from '@/actions';
+import { getPageBySlug, getSiteSettings, getPageBuilderData } from '@/actions';
 import Container from '@/components/Layout/Container';
-import Card from '@/components/_blocks/Card';
-import { closingCardSpacing } from '@/utils/spacingConstants';
 import {
   generateMetadata as generatePageMetadata,
   generateCanonicalUrl,
@@ -18,7 +16,6 @@ import {
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { urlFor } from '@/sanity/lib/image';
-import { normalizeClosingCardForCard } from '@/utils/closingCardHelpers';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -50,11 +47,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const [page, siteSettings, companyLinks, contactFormSettings] = await Promise.all([
+  const [page, siteSettings, pageBuilderData] = await Promise.all([
     getPageBySlug(slug),
     getSiteSettings(),
-    getCompanyLinks(),
-    getContactFormSettings(),
+    getPageBuilderData(),
   ]);
 
   if (!page) {
@@ -118,24 +114,8 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             content={page.content}
             documentId={page._id}
             documentType={page._type}
-            siteSettings={siteSettings || undefined}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
           />
-        )}
-
-        {/* Closing Card */}
-        {page.hasClosingCard && page.closingCard && (
-          <div className={closingCardSpacing}>
-            <Card
-              {...normalizeClosingCardForCard(page.closingCard)}
-              documentId={page._id}
-              documentType={page._type}
-              fieldPathPrefix='closingCard'
-              siteSettings={siteSettings || undefined}
-              companyLinks={companyLinks}
-            />
-          </div>
         )}
       </Container>
     </>

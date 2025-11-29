@@ -1,8 +1,6 @@
 import React from 'react';
 import { createDataAttribute } from 'next-sanity';
 import type {
-  COMPANY_LINKS_QUERYResult,
-  CONTACT_FORM_SETTINGS_QUERYResult,
   RichText as RichTextType,
   Statement as StatementType,
   Quote as QuoteType,
@@ -23,11 +21,10 @@ import type {
   ServiceCard as ServiceCardType,
   ContactForm as ContactFormType,
   Divider as DividerType,
-  Card as CardType,
   ResponsiveWrapper as ResponsiveWrapperType,
   GridLayout as GridLayoutType,
 } from '@/sanity/types';
-import type { SiteSettingsProps } from '@/types/shared';
+import type { PageBuilderData } from '@/actions';
 
 // Import all block components
 import RichText from '@/components/_blocks/RichText';
@@ -50,7 +47,6 @@ import ItemList from '@/components/_blocks/ItemList';
 import ServiceCard from '@/components/_blocks/ServiceCard';
 import ContactFormComponent from '@/components/_blocks/ContactForm';
 import Divider from '@/components/UI/Divider';
-import Card from '@/components/_blocks/Card';
 import ResponsiveWrapper from '@/components/_blocks/ResponsiveWrapper';
 import GridLayout from '@/components/_blocks/GridLayout';
 
@@ -64,9 +60,7 @@ interface RenderBlockOptions {
   documentId?: string;
   documentType?: string;
   blockPath: string;
-  siteSettings?: SiteSettingsProps;
-  companyLinks?: COMPANY_LINKS_QUERYResult;
-  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  pageBuilderData: PageBuilderData;
   alignment?: 'left' | 'center' | 'right';
   config?: RenderBlockConfig;
 }
@@ -96,7 +90,6 @@ type BlockType =
   | WithKey<ServiceCardType>
   | WithKey<ContactFormType>
   | WithKey<DividerType>
-  | WithKey<CardType>
   | WithKey<ResponsiveWrapperType>
   | WithKey<GridLayoutType>;
 
@@ -109,12 +102,13 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
     documentId,
     documentType,
     blockPath,
-    siteSettings,
-    companyLinks,
-    contactFormSettings,
+    pageBuilderData,
     alignment = 'center',
     config,
   } = options;
+
+  // Destructure for easier access
+  const { siteSettings, companyLinks, contactFormSettings } = pageBuilderData;
 
   // Type narrow to BlockType
   const typedBlock = block as BlockType;
@@ -191,9 +185,7 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentId={documentId}
             documentType={documentType}
             pathPrefix={blockPath}
-            siteSettings={siteSettings}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
             alignment={alignment}
           />
         </BlockWrapper>
@@ -209,9 +201,7 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentId={documentId}
             documentType={documentType}
             pathPrefix={blockPath}
-            siteSettings={siteSettings}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
             alignment={alignment}
           />
         </BlockWrapper>
@@ -382,23 +372,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       );
     }
 
-    case 'card': {
-      const cardBlock = typedBlock as WithKey<CardType>;
-      return (
-        <BlockWrapper key={cardBlock._key}>
-          <Card
-            {...cardBlock}
-            documentId={documentId}
-            documentType={documentType}
-            fieldPathPrefix={blockPath}
-            siteSettings={siteSettings}
-            companyLinks={companyLinks}
-            alignment={alignment}
-          />
-        </BlockWrapper>
-      );
-    }
-
     case 'responsiveWrapper': {
       const responsiveWrapperBlock = typedBlock as WithKey<ResponsiveWrapperType>;
       return (
@@ -408,9 +381,7 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentId={documentId}
             documentType={documentType}
             fieldPathPrefix={blockPath}
-            siteSettings={siteSettings}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
             alignment={alignment}
           />
         </BlockWrapper>
@@ -426,9 +397,7 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentId={documentId}
             documentType={documentType}
             fieldPathPrefix={blockPath}
-            siteSettings={siteSettings}
-            companyLinks={companyLinks}
-            contactFormSettings={contactFormSettings}
+            pageBuilderData={pageBuilderData}
             alignment={alignment}
           />
         </BlockWrapper>

@@ -21,10 +21,6 @@ export const pageType = defineType({
       title: 'Page Content',
     },
     {
-      name: 'closingCard',
-      title: 'Closing Card',
-    },
-    {
       name: 'settings',
       title: 'Page Settings',
     },
@@ -77,22 +73,6 @@ export const pageType = defineType({
         modal: { type: 'dialog' },
       },
       group: 'content',
-    }),
-    defineField({
-      name: 'hasClosingCard',
-      title: 'Show Closing Card',
-      type: 'boolean',
-      group: 'closingCard',
-      description: 'Display a closing card at the bottom of the page',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'closingCard',
-      title: 'Closing Card',
-      type: 'card',
-      group: 'closingCard',
-      description: 'Card displayed at the bottom of the page with optional call-to-action',
-      hidden: ({ parent }) => !parent?.hasClosingCard,
     }),
   ],
   preview: {

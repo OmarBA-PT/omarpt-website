@@ -2,17 +2,13 @@ import React from 'react';
 import { stegaClean } from 'next-sanity';
 import type { GridLayoutBlock, NestedBlock } from '@/types/blocks';
 import { renderBlock } from '@/utils/blockRenderer';
-import type { SiteSettingsProps } from '@/types/shared';
-import type { COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
-import Card from './Card';
+import type { PageBuilderData } from '@/actions';
 
 interface GridLayoutProps extends GridLayoutBlock {
   documentId?: string;
   documentType?: string;
   fieldPathPrefix?: string;
-  siteSettings?: SiteSettingsProps;
-  companyLinks?: COMPANY_LINKS_QUERYResult;
-  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  pageBuilderData: PageBuilderData;
   alignment?: 'left' | 'center' | 'right';
 }
 
@@ -22,9 +18,7 @@ const GridLayout = ({
   documentId,
   documentType,
   fieldPathPrefix,
-  siteSettings,
-  companyLinks,
-  contactFormSettings,
+  pageBuilderData,
   alignment = 'center',
 }: GridLayoutProps) => {
   if (!content || !Array.isArray(content) || content.length === 0) {
@@ -55,32 +49,12 @@ const GridLayout = ({
       ? `${fieldPathPrefix}.content[_key=="${item._key}"]`
       : `content[_key=="${item._key}"]`;
 
-    // Special handling for cards - they accept className and isGridChild props
-    if (item._type === 'card') {
-      return (
-        <Card
-          key={key}
-          {...item}
-          documentId={documentId}
-          documentType={documentType}
-          fieldPathPrefix={blockPath}
-          siteSettings={siteSettings}
-          companyLinks={companyLinks}
-          alignment={alignment}
-          className={itemClasses}
-          isGridChild
-        />
-      );
-    }
-
-    // For all other block types, render using shared blockRenderer and wrap in grid sizing div
+    // Render all block types using shared blockRenderer and wrap in grid sizing div
     const renderedBlock = renderBlock(item, {
       documentId,
       documentType,
       blockPath,
-      siteSettings,
-      companyLinks,
-      contactFormSettings,
+      pageBuilderData,
       alignment,
       config: documentId && documentType
         ? {

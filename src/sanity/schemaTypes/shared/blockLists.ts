@@ -11,9 +11,8 @@ import { defineArrayMember } from 'sanity';
  *
  * NESTING RESTRICTIONS:
  * To prevent GROQ query depth issues and infinite recursion, we enforce strict nesting rules:
- * - Top-level content: Can contain twoColumnLayout, gridLayout, and card
- * - Layout blocks (grid/twoColumn): Can contain cards but NOT nested layouts
- * - Cards: Can contain content blocks and CTAs but NOT layouts or nested cards
+ * - Top-level content: Can contain twoColumnLayout and gridLayout
+ * - Layout blocks (grid/twoColumn): Can contain content blocks but NOT nested layouts
  *
  * This ensures all internal link references are properly dereferenced in GROQ queries
  * without hitting recursion limits.
@@ -50,12 +49,10 @@ export const CONTENT_ONLY_BLOCKS = [
 /**
  * LAYOUT_CHILD_BLOCKS - Blocks allowed inside layout components (grid/twoColumn)
  *
- * Allows cards and responsiveWrapper but NOT nested layout blocks to prevent deep nesting.
- * This ensures CTAs inside cards inside layouts get their references properly.
+ * Allows responsiveWrapper but NOT nested layout blocks to prevent deep nesting.
  */
 export const LAYOUT_CHILD_BLOCKS = [
   ...CONTENT_ONLY_BLOCKS,
-  defineArrayMember({ type: 'card' }),
   defineArrayMember({ type: 'responsiveWrapper' }),
 ];
 
@@ -67,7 +64,7 @@ export const LAYOUT_CHILD_BLOCKS = [
  *
  * Includes:
  * - Content blocks: richText, quote, divider, imageBlock, imageGallery, videos, widgets, CTAs, lists, forms
- * - Layout blocks: twoColumnLayout, gridLayout, card
+ * - Layout blocks: twoColumnLayout, gridLayout
  *
  * Does NOT include: Section blocks (pageSection, subSection, subSubSection)
  * - Sections have special nesting rules and are added separately where needed
@@ -77,7 +74,6 @@ export const STANDARD_BLOCK_LIST = [
   // Layout Blocks - only allowed at top level
   defineArrayMember({ type: 'twoColumnLayout' }),
   defineArrayMember({ type: 'gridLayout' }),
-  defineArrayMember({ type: 'card' }),
   defineArrayMember({ type: 'responsiveWrapper' }),
 ];
 

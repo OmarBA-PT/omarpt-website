@@ -13,7 +13,6 @@ import { subSubSectionType } from './subSubSectionType';
 import { contentWrapperType } from './contentWrapperType';
 import { dividerType } from './blocks/dividerType';
 import { richTextType } from './blocks/richTextType';
-import { cardType } from './blocks/cardType';
 import { responsiveWrapperType } from './blocks/responsiveWrapperType';
 import { gridLayoutType } from './blocks/gridLayoutType';
 import { imageType } from './blocks/imageType';
@@ -69,7 +68,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contentWrapperType,
     dividerType,
     richTextType,
-    cardType,
     responsiveWrapperType,
     gridLayoutType,
     imageType,

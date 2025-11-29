@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { renderBlock } from '@/utils/blockRenderer';
 import type { ExpandingContent as ExpandingContentType } from '@/sanity/types';
-import type { SiteSettingsProps } from '@/types/shared';
-import type { COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
+import type { PageBuilderData } from '@/actions';
 import MoreInfoToggle from '../UI/MoreInfoToggle';
 
 interface ExpandingContentProps extends Omit<ExpandingContentType, '_type' | '_key'> {
@@ -10,9 +9,7 @@ interface ExpandingContentProps extends Omit<ExpandingContentType, '_type' | '_k
   documentId?: string;
   documentType?: string;
   pathPrefix?: string;
-  siteSettings?: SiteSettingsProps;
-  companyLinks?: COMPANY_LINKS_QUERYResult;
-  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  pageBuilderData: PageBuilderData;
   alignment?: 'left' | 'center' | 'right';
 }
 
@@ -25,9 +22,7 @@ const ExpandingContent = ({
   documentId,
   documentType,
   pathPrefix = '',
-  siteSettings,
-  companyLinks,
-  contactFormSettings,
+  pageBuilderData,
   alignment = 'center',
 }: ExpandingContentProps) => {
   // State for expansion
@@ -59,9 +54,7 @@ const ExpandingContent = ({
                 blockPath: pathPrefix
                   ? `${pathPrefix}.expandingContent[${index}]`
                   : `expandingContent[${index}]`,
-                siteSettings,
-                companyLinks,
-                contactFormSettings,
+                pageBuilderData,
                 alignment,
                 config:
                   documentId && documentType

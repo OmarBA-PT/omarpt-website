@@ -3,12 +3,10 @@
 import React from 'react';
 import type {
   PAGE_QUERYResult,
-  COMPANY_LINKS_QUERYResult,
-  CONTACT_FORM_SETTINGS_QUERYResult,
 } from '@/sanity/types';
 import type { NestedBlock } from '@/types/blocks';
-import type { SiteSettingsProps } from '@/types/shared';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import type { PageBuilderData } from '@/actions';
 import { client } from '@/sanity/lib/client';
 import { createDataAttribute } from 'next-sanity';
 import { useOptimistic } from 'react';
@@ -20,7 +18,6 @@ import PageSection from './Layout/PageSection';
 import SubSection from './Layout/SubSection';
 import SubSubSection from './Layout/SubSubSection';
 import ContentWrapper from './Layout/ContentWrapper';
-import Card from './_blocks/Card';
 import GridLayout from './_blocks/GridLayout';
 import { renderBlock } from '@/utils/blockRenderer';
 
@@ -28,9 +25,7 @@ import { renderBlock } from '@/utils/blockRenderer';
 interface SharedPageBuilderProps {
   documentId: string;
   documentType: string;
-  siteSettings?: SiteSettingsProps;
-  companyLinks?: COMPANY_LINKS_QUERYResult;
-  contactFormSettings?: CONTACT_FORM_SETTINGS_QUERYResult | null;
+  pageBuilderData: PageBuilderData;
   alignment?: 'left' | 'center' | 'right';
 }
 
@@ -59,11 +54,11 @@ const BlockRenderer = ({
   documentType,
   pathPrefix,
   nestingLevel = 1,
-  siteSettings,
-  companyLinks,
-  contactFormSettings,
+  pageBuilderData,
   alignment = 'center',
 }: BlockRendererProps) => {
+  // Destructure for easier access
+  const { siteSettings, companyLinks, contactFormSettings } = pageBuilderData;
   if (!Array.isArray(blocks)) {
     return null;
   }
@@ -184,9 +179,7 @@ const BlockRenderer = ({
               documentType={documentType}
               pathPrefix={`${blockPath}.content`}
               nestingLevel={nestingLevel + 1}
-              siteSettings={siteSettings}
-              companyLinks={companyLinks}
-              contactFormSettings={contactFormSettings}
+              pageBuilderData={pageBuilderData}
               alignment={alignment}
             />
           );
@@ -281,21 +274,6 @@ const BlockRenderer = ({
               </BlockWrapper>
             );
 
-          case 'card':
-            return (
-              <BlockWrapper key={block._key}>
-                <Card
-                  {...block}
-                  documentId={documentId}
-                  documentType={documentType}
-                  fieldPathPrefix={blockPath}
-                  siteSettings={siteSettings}
-                  companyLinks={companyLinks}
-                  alignment={alignment}
-                />
-              </BlockWrapper>
-            );
-
           case 'gridLayout':
             return (
               <BlockWrapper key={block._key}>
@@ -304,6 +282,8 @@ const BlockRenderer = ({
                   documentId={documentId}
                   documentType={documentType}
                   fieldPathPrefix={blockPath}
+                  pageBuilderData={pageBuilderData}
+                  alignment={alignment}
                 />
               </BlockWrapper>
             );
@@ -316,9 +296,7 @@ const BlockRenderer = ({
                   documentId,
                   documentType,
                   blockPath,
-                  siteSettings,
-                  companyLinks,
-                  contactFormSettings,
+                  pageBuilderData,
                   alignment,
                   config: createDataAttributeConfig,
                 })}
@@ -335,9 +313,7 @@ const PageBuilder = ({
   documentId,
   documentType,
   pathPrefix = 'content',
-  siteSettings,
-  companyLinks,
-  contactFormSettings,
+  pageBuilderData,
   alignment = 'center',
 }: PageBuilderProps) => {
   const [sections] = useOptimistic<NonNullable<PAGE_QUERYResult>['content']>(content);
@@ -360,9 +336,7 @@ const PageBuilder = ({
         documentId={documentId}
         documentType={documentType}
         pathPrefix={pathPrefix}
-        siteSettings={siteSettings}
-        companyLinks={companyLinks}
-        contactFormSettings={contactFormSettings}
+        pageBuilderData={pageBuilderData}
         alignment={alignment}
       />
     </div>

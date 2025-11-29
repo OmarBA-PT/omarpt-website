@@ -55,3 +55,26 @@ export async function getLegalPagesVisibility(): Promise<LEGAL_PAGES_VISIBILITY_
 
   return data;
 }
+
+// Unified PageBuilder data fetcher
+// This fetches all global data needed by PageBuilder components in a single call
+// When adding new global data (e.g., FAQ settings), add it here and to the return type
+export interface PageBuilderData {
+  siteSettings: SITE_SETTINGS_QUERYResult | null;
+  companyLinks: COMPANY_LINKS_QUERYResult | null;
+  contactFormSettings: CONTACT_FORM_SETTINGS_QUERYResult | null;
+}
+
+export async function getPageBuilderData(): Promise<PageBuilderData> {
+  const [siteSettings, companyLinks, contactFormSettings] = await Promise.all([
+    getSiteSettings(),
+    getCompanyLinks(),
+    getContactFormSettings(),
+  ]);
+
+  return {
+    siteSettings,
+    companyLinks,
+    contactFormSettings,
+  };
+}
