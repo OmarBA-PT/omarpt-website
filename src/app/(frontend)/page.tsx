@@ -1,12 +1,13 @@
-import React from 'react';
 import PageBuilder from '@/components/PageBuilder';
 import Hero from '@/components/HomeHero/Hero';
-import { getHomePage, getSiteSettings, getPageBuilderData } from '@/actions';
+import { getHomePage, getPageBuilderData } from '@/actions';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl } from '@/lib/metadata';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata() {
-  const siteSettings = await getSiteSettings();
+  const pageBuilderData = await getPageBuilderData();
+  const siteSettings = pageBuilderData.siteSettings;
+
   if (!siteSettings) {
     return {
       title: SITE_CONFIG.ORGANIZATION_NAME,
@@ -21,9 +22,8 @@ export async function generateMetadata() {
 }
 
 const Page = async () => {
-  const [page, siteSettings, pageBuilderData] = await Promise.all([
+  const [page, pageBuilderData] = await Promise.all([
     getHomePage(),
-    getSiteSettings(),
     getPageBuilderData(),
   ]);
 

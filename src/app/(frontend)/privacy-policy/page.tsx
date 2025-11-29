@@ -4,7 +4,6 @@ import PageBuilder from '@/components/PageBuilder';
 import PageHero from '@/components/Page/PageHero';
 import {
   getPrivacyPolicy,
-  getSiteSettings,
   getPageBuilderData,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
@@ -23,7 +22,9 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata() {
-  const [siteSettings, privacyData] = await Promise.all([getSiteSettings(), getPrivacyPolicy()]);
+  const [pageBuilderData, privacyData] = await Promise.all([getPageBuilderData(), getPrivacyPolicy()]);
+
+  const siteSettings = pageBuilderData.siteSettings;
 
   if (!siteSettings) {
     return {
@@ -44,11 +45,12 @@ export async function generateMetadata() {
 }
 
 const PrivacyPolicyPage = async () => {
-  const [privacyData, siteSettings, pageBuilderData] = await Promise.all([
+  const [privacyData, pageBuilderData] = await Promise.all([
     getPrivacyPolicy(),
-    getSiteSettings(),
     getPageBuilderData(),
   ]);
+
+  const siteSettings = pageBuilderData.siteSettings;
 
   // If the page is hidden or doesn't exist, show 404
   if (!privacyData || privacyData.hide) {

@@ -4,7 +4,6 @@ import PageBuilder from '@/components/PageBuilder';
 import PageHero from '@/components/Page/PageHero';
 import {
   getTermsAndConditions,
-  getSiteSettings,
   getPageBuilderData,
 } from '@/actions';
 import Container from '@/components/Layout/Container';
@@ -23,7 +22,9 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata() {
-  const [siteSettings, termsData] = await Promise.all([getSiteSettings(), getTermsAndConditions()]);
+  const [pageBuilderData, termsData] = await Promise.all([getPageBuilderData(), getTermsAndConditions()]);
+
+  const siteSettings = pageBuilderData.siteSettings;
 
   if (!siteSettings) {
     return {
@@ -44,11 +45,12 @@ export async function generateMetadata() {
 }
 
 const TermsAndConditionsPage = async () => {
-  const [termsData, siteSettings, pageBuilderData] = await Promise.all([
+  const [termsData, pageBuilderData] = await Promise.all([
     getTermsAndConditions(),
-    getSiteSettings(),
     getPageBuilderData(),
   ]);
+
+  const siteSettings = pageBuilderData.siteSettings;
 
   // If the page is hidden or doesn't exist, show 404
   if (!termsData || termsData.hide) {

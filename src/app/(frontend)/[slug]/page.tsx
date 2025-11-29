@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import PageBuilder from '@/components/PageBuilder';
 import PageHero from '@/components/Page/PageHero';
-import { getPageBySlug, getSiteSettings, getPageBuilderData } from '@/actions';
+import { getPageBySlug, getPageBuilderData } from '@/actions';
 import Container from '@/components/Layout/Container';
 import {
   generateMetadata as generatePageMetadata,
@@ -21,7 +21,9 @@ import { SITE_CONFIG } from '@/lib/constants';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [siteSettings, page] = await Promise.all([getSiteSettings(), getPageBySlug(slug)]);
+  const [pageBuilderData, page] = await Promise.all([getPageBuilderData(), getPageBySlug(slug)]);
+
+  const siteSettings = pageBuilderData.siteSettings;
 
   if (!siteSettings) {
     return {
@@ -47,11 +49,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const [page, siteSettings, pageBuilderData] = await Promise.all([
+  const [page, pageBuilderData] = await Promise.all([
     getPageBySlug(slug),
-    getSiteSettings(),
     getPageBuilderData(),
   ]);
+
+  const siteSettings = pageBuilderData.siteSettings;
 
   if (!page) {
     notFound();
