@@ -23,6 +23,18 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
+      // === FAQ PAGE ===
+      S.listItem()
+        .id('faqPage')
+        .schemaType('faqPage')
+        .title('FAQ Page')
+        .icon(DocumentTextIcon)
+        .child(
+          S.editor().id('faqPage').schemaType('faqPage').documentId('faqPage').title('FAQ Page')
+        ),
+
+      S.divider(),
+
       // === PAGES ===
       S.listItem()
         .id('pages')

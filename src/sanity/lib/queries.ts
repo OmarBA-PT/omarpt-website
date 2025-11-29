@@ -9,6 +9,7 @@ const internalLinkProjection = `{
   "pageType": _type,
   "href": select(
     _type == "homePage" => "/",
+    _type == "faqPage" => "/faq",
     _type == "termsAndConditions" => "/terms-and-conditions",
     _type == "privacyPolicy" => "/privacy-policy",
     "/" + slug.current
@@ -419,6 +420,15 @@ export const PRIVACY_POLICY_QUERY = defineQuery(`*[_id == "privacyPolicy"][0]{
   hide,
   title,
   topText,
+  ${recursiveContent}
+}`);
+
+export const FAQ_PAGE_QUERY = defineQuery(`*[_id == "faqPage"][0]{
+  _id,
+  _type,
+  _updatedAt,
+  title,
+  subtitle,
   ${recursiveContent}
 }`);
 

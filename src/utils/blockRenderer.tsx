@@ -23,6 +23,7 @@ import type {
   Divider as DividerType,
   ResponsiveWrapper as ResponsiveWrapperType,
   GridLayout as GridLayoutType,
+  FaqBlock as FaqBlockType,
 } from '@/sanity/types';
 import type { PageBuilderData } from '@/actions';
 
@@ -49,6 +50,7 @@ import ContactFormComponent from '@/components/_blocks/ContactForm';
 import Divider from '@/components/UI/Divider';
 import ResponsiveWrapper from '@/components/_blocks/ResponsiveWrapper';
 import GridLayout from '@/components/_blocks/GridLayout';
+import FAQBlock from '@/components/_blocks/FAQBlock';
 
 interface RenderBlockConfig {
   projectId?: string;
@@ -91,7 +93,8 @@ type BlockType =
   | WithKey<ContactFormType>
   | WithKey<DividerType>
   | WithKey<ResponsiveWrapperType>
-  | WithKey<GridLayoutType>;
+  | WithKey<GridLayoutType>
+  | WithKey<FaqBlockType>;
 
 /**
  * Shared block rendering logic used by both PageBuilder and Card components.
@@ -399,6 +402,20 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             fieldPathPrefix={blockPath}
             pageBuilderData={pageBuilderData}
             alignment={alignment}
+          />
+        </BlockWrapper>
+      );
+    }
+
+    case 'faqBlock': {
+      const faqBlock = typedBlock as WithKey<FaqBlockType>;
+      return (
+        <BlockWrapper key={faqBlock._key}>
+          <FAQBlock
+            {...faqBlock}
+            documentId={documentId}
+            documentType={documentType}
+            fieldPathPrefix={blockPath}
           />
         </BlockWrapper>
       );

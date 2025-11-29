@@ -12,6 +12,7 @@ import { SectionDropdown } from '../../components/SectionDropdown';
 export const LINKABLE_PAGE_TYPES = [
   { type: 'page' },
   { type: 'homePage' },
+  { type: 'faqPage' },
   { type: 'termsAndConditions' },
   { type: 'privacyPolicy' },
   // Add new page types here as the website grows

@@ -46,6 +46,8 @@ import { navSectionType } from './navigation/navSectionType';
 import { termsAndConditionsType } from './termsAndConditionsType';
 import { privacyPolicyType } from './privacyPolicyType';
 import { contactFormSettingsType } from './contactFormSettingsType';
+import { faqPageType } from './faqPageType';
+import { faqBlockType } from './blocks/faqBlockType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -55,6 +57,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactFormSettingsType,
     homePageType,
     pageType,
+    faqPageType,
     termsAndConditionsType,
     privacyPolicyType,
     blockContentType,
@@ -90,6 +93,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     itemListType,
     serviceCardType,
     contactFormType,
+    faqBlockType,
     // Shared Components
     companyLinksArrayType,
     ctaListType,

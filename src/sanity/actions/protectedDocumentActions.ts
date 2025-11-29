@@ -9,6 +9,7 @@ const PROTECTED_DOCUMENT_TYPES = [
   'header',
   'footer',
   'homePage',
+  'faqPage',
   'companyLinks',
   'contactFormSettings',
   'termsAndConditions',

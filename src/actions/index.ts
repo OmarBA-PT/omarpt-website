@@ -8,6 +8,9 @@ export type { PageBuilderData } from './siteData';
 // Legal actions
 export { getTermsAndConditions, getPrivacyPolicy } from './legal';
 
+// FAQ actions
+export { getFaqPage } from './faq';
+
 // Types
 export type {
   HOME_PAGE_QUERYResult,
