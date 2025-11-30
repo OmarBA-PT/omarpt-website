@@ -29,9 +29,7 @@ const HorizontalNav = ({ navLinks, navCtas }: HorizontalNavProps) => {
 
   return (
     <nav className=''>
-      {/* RESPONSIVE VISIBILITY: lg:flex breakpoint must align with VerticalNav hideOnDesktop logic */}
-      {/* ⚠️ IMPORTANT: If this 'lg:flex' changes, update VerticalNav.tsx hideOnDesktop 'lg:hidden' accordingly */}
-      <div className='hidden lg:flex items-center gap-6'>
+      <div className='hidden xl:flex items-center gap-6'>
         {/* Navigation Links */}
         {visibleLinks.length > 0 && (
           <ul className='flex items-center gap-12'>

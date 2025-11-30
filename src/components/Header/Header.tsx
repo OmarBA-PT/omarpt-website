@@ -167,7 +167,6 @@ const Header = ({ headerData }: HeaderProps) => {
         </div>
 
         {/* Hamburger Menu Button */}
-        {/* NOTE: Desktop visibility breakpoint - The 'lg:' breakpoint in MenuButton determines mobile vs desktop behavior */}
         <MenuButton
           variant='hamburger'
           isMenuOpen={isMenuOpen}

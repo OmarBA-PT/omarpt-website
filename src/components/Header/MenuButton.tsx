@@ -47,9 +47,7 @@ const MenuButton = ({
   }
 
   // Hamburger variant
-  // NOTE: Desktop visibility breakpoint - Uses 'lg:' breakpoint to determine mobile vs desktop behavior
-  // If you need to change this breakpoint (e.g., to md: or xl:), update this class below
-  const desktopHiddenClass = showOnDesktop ? '' : 'lg:hidden';
+  const desktopHiddenClass = showOnDesktop ? '' : 'xl:hidden';
 
   return (
     <button
