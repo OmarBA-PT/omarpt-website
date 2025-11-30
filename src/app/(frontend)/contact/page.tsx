@@ -10,7 +10,9 @@ import { generateArticleSchema, generateStructuredDataScript } from '@/lib/struc
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
-import { MdEmail, MdPhone, MdSend } from 'react-icons/md';
+import { MdEmail, MdPhone } from 'react-icons/md';
+import ContactForm from '@/components/_blocks/ContactForm';
+import { getContactFormSettings } from '@/actions';
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -22,8 +24,11 @@ export async function generateMetadata() {
   });
 }
 
-const ContactPage = () => {
+const ContactPage = async () => {
   const baseUrl = getBaseUrl();
+
+  // Fetch contact form settings from Sanity
+  const contactFormSettings = await getContactFormSettings();
 
   // Generate breadcrumb data
   const breadcrumbItems = [
@@ -103,16 +108,10 @@ const ContactPage = () => {
           </div>
         </div>
 
-        {/* Contact Form Placeholder */}
+        {/* Contact Form */}
         <div className='max-w-2xl mx-auto mb-16'>
           <h2 className='text-h4 font-semibold mb-6'>Send us a message</h2>
-          <div className='bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center'>
-            <MdSend className='w-12 h-12 text-gray-400 mx-auto mb-4' />
-            <p className='text-body-lg text-gray-500'>Contact Form Coming Soon</p>
-            <p className='text-body-sm text-gray-400 mt-2'>
-              This is where the contact form will be implemented
-            </p>
-          </div>
+          <ContactForm settings={contactFormSettings} />
         </div>
 
         {/* Ready to Apply CTA */}

@@ -46,15 +46,15 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
             <!-- Main Container -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
 
-              <!-- Header with Logo and Brand Secondary Color -->
+              <!-- Header with Logo and Brand Gradient -->
               <tr>
-                <td style="background: linear-gradient(135deg, #430c08 0%, #0a0000 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
                   <img
                     src="${logoUrl}"
                     alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
                     width="250"
                     height="auto"
-                    style="display: block; margin: 0 auto; font-family: 'Chau Philomene One', serif; color: #cfae6b; font-size: 24px; letter-spacing: 0.25rem;"
+                    style="display: block; margin: 0 auto; font-family: 'Chau Philomene One', serif; color: #282828; font-size: 24px; letter-spacing: 0.25rem;"
                   />
                 </td>
               </tr>
@@ -70,41 +70,41 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                   </p>
 
                   <!-- Message Details Box -->
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #fffbe8; border-left: 4px solid #900000; border-radius: 4px; margin-bottom: 30px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9f9f9; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
                     <tr>
                       <td style="padding: 20px;">
-                        <h2 style="margin: 0 0 15px 0; color: #900000; font-size: 18px; font-weight: 600;">
+                        <h2 style="margin: 0 0 15px 0; color: #ffb200; font-size: 18px; font-weight: 600;">
                           Your Message Details
                         </h2>
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
-                            <td style="padding: 8px 0; color: #71221d; font-size: 14px;">
-                              <strong style="color: #430c08;">Name:</strong> ${name}
+                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
+                              <strong style="color: #282828;">Name:</strong> ${name}
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #71221d; font-size: 14px;">
-                              <strong style="color: #430c08;">Email:</strong> ${email}
+                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
+                              <strong style="color: #282828;">Email:</strong> ${email}
                             </td>
                           </tr>
                           ${
                             phone
                               ? `
                           <tr>
-                            <td style="padding: 8px 0; color: #71221d; font-size: 14px;">
-                              <strong style="color: #430c08;">Phone:</strong> ${phone}
+                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
+                              <strong style="color: #282828;">Phone:</strong> ${phone}
                             </td>
                           </tr>
                           `
                               : ''
                           }
                           <tr>
-                            <td style="padding: 8px 0; color: #71221d; font-size: 14px;">
-                              <strong style="color: #430c08;">Message:</strong>
+                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
+                              <strong style="color: #282828;">Message:</strong>
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0 0 0; color: #71221d; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
+                            <td style="padding: 8px 0 0 0; color: #555; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
                           </tr>
                         </table>
                       </td>
@@ -117,9 +117,9 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                 </td>
               </tr>
 
-              <!-- Signature Section --> 
+              <!-- Signature Section -->
               <tr>
-                <td style="background: linear-gradient(135deg, #430c08 0%, #0a0000 100%); padding: 30px; border-radius: 0 0 8px 8px;">
+                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 30px; border-radius: 0 0 8px 8px;">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
@@ -129,34 +129,34 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                           alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
                           width="200"
                           height="auto"
-                          style="display: block; margin: 0 auto 8px auto; font-family: 'Chau Philomene One', serif; color: #cfae6b; font-size: 16px; letter-spacing: 0.25rem;"
+                          style="display: block; margin: 0 auto 8px auto; font-family: 'Chau Philomene One', serif; color: #282828; font-size: 16px; letter-spacing: 0.25rem;"
                         />
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #b8956a; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_EMAIL.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #b8956a; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_PHONE.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #b8956a; font-size: 14px;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #b8956a; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: #282828; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_ADDRESS.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #b8956a; font-size: 14px;">
-                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #b8956a; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: #282828; font-size: 14px;">
+                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #282828; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.PRODUCTION_DOMAIN}
                               </a>
                             </td>
@@ -164,10 +164,10 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                         </table>
 
                         <!-- Divider -->
-                        <div style="border-top: 1px solid #430c08; margin: 20px 0;"></div>
+                        <div style="border-top: 1px solid rgba(40, 40, 40, 0.3); margin: 20px 0;"></div>
 
                         <!-- Footer Text -->
-                        <p style="margin: 0; color: #b8956a; font-size: 12px; text-align: center; line-height: 1.5;">
+                        <p style="margin: 0; color: #282828; font-size: 12px; text-align: center; line-height: 1.5;">
                           This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
                         </p>
                       </td>
