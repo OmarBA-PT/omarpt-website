@@ -78,60 +78,57 @@ const ApplyPage = () => {
             reach your fitness goals.
           </p>
           <p className='text-body-base'>
-            Please complete the application form below as thoroughly as possible. The more
-            information you provide, the better we can understand your needs and create a
-            personalized coaching plan that&apos;s right for you.
+            Choose how you&apos;d like to proceed below. You can complete the online application
+            form, download PDF forms to complete by hand, or submit a simple enquiry if you&apos;re
+            not ready to apply yet.
           </p>
         </div>
 
-        {/* Application Form Placeholder */}
-        <div className='max-w-3xl mx-auto mb-16'>
-          <h2 className='text-h4 font-semibold mb-6'>Coaching Application Form</h2>
-          <div className='bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center'>
-            <MdQuestionAnswer className='w-12 h-12 text-gray-400 mx-auto mb-4' />
-            <p className='text-body-lg text-gray-500'>Multi-Step Application Form Coming Soon</p>
-            <p className='text-body-sm text-gray-400 mt-2'>
-              This is where the application form will be implemented
+        {/* Application Options */}
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16'>
+          {/* Online Form Option */}
+          <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 border-2 border-brand-primary'>
+            <MdQuestionAnswer className='w-10 h-10 text-brand-primary mx-auto mb-4' />
+            <h3 className='text-h5 font-semibold text-gradient-primary mb-4'>
+              Complete Online
+            </h3>
+            <p className='text-body-base text-brand-white mb-6'>
+              Fill out the application form below on this page. Quick and easy!
             </p>
           </div>
-        </div>
 
-        {/* Alternative Options */}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16'>
           {/* PDF Download Option */}
           <div className='bg-gray-50 rounded-lg p-8 border-2 border-gray-200'>
             <MdDownload className='w-10 h-10 text-brand-primary mx-auto mb-4' />
-            <h3 className='text-h5 font-semibold mb-4'>Prefer to Print and Post?</h3>
+            <h3 className='text-h5 font-semibold mb-4'>Download PDFs</h3>
             <p className='text-body-base mb-6'>
-              Download the application forms, complete them by hand, and email scanned copies back
-              to us.
+              Print, complete by hand, scan and email back to us.
             </p>
             <button
               disabled
-              className='inline-block bg-gray-300 text-gray-500 font-semibold px-6 py-3 rounded-lg text-body-base cursor-not-allowed'>
-              Download PDF Forms
+              className='inline-block bg-gray-300 text-gray-500 font-semibold px-6 py-3 rounded-lg text-body-sm cursor-not-allowed'>
+              Download Forms
             </button>
-            <p className='text-body-sm text-gray-500 mt-3'>PDF forms coming soon</p>
+            <p className='text-body-xs text-gray-500 mt-2'>Coming soon</p>
           </div>
 
           {/* Simple Enquiry Option */}
           <div className='bg-gray-50 rounded-lg p-8 border-2 border-gray-200'>
             <MdQuestionAnswer className='w-10 h-10 text-brand-primary mx-auto mb-4' />
-            <h3 className='text-h5 font-semibold mb-4'>Just Have a Question?</h3>
+            <h3 className='text-h5 font-semibold mb-4'>Just Enquiring?</h3>
             <p className='text-body-base mb-6'>
-              If you&apos;re not ready to apply yet and just want to ask a simple question, use our
-              contact form instead.
+              Not ready to apply? Ask a question via our contact form.
             </p>
             <Link
               href='/contact'
-              className='inline-block bg-brand-primary hover:bg-brand-secondary font-semibold px-6 py-3 rounded-lg transition-colors text-body-base'>
+              className='inline-block bg-brand-primary hover:bg-brand-secondary font-semibold px-6 py-3 rounded-lg transition-colors text-body-sm'>
               Contact Us
             </Link>
           </div>
         </div>
 
         {/* Privacy Notice */}
-        <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 max-w-3xl mx-auto'>
+        <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 max-w-3xl mx-auto mb-16'>
           <div className='flex items-start gap-4 text-left'>
             <MdLock className='w-6 h-6 text-brand-primary shrink-0 mt-1' />
             <div>
@@ -152,6 +149,25 @@ const ApplyPage = () => {
                 Read our full Privacy Policy
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Application Form Section */}
+        <div className='max-w-3xl mx-auto mb-16'>
+          <h2 className='text-h4 font-semibold mb-4'>Online Application Form</h2>
+          <p className='text-body-base mb-6'>
+            Please complete the form below as thoroughly as possible. The more information you
+            provide, the better we can understand your needs and create a personalized coaching
+            plan that&apos;s right for you.
+          </p>
+
+          {/* Application Form Placeholder */}
+          <div className='bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center'>
+            <MdQuestionAnswer className='w-12 h-12 text-gray-400 mx-auto mb-4' />
+            <p className='text-body-lg text-gray-500'>Multi-Step Application Form Coming Soon</p>
+            <p className='text-body-sm text-gray-400 mt-2'>
+              This is where the application form will be implemented
+            </p>
           </div>
         </div>
       </Container>
