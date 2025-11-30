@@ -11,6 +11,7 @@ import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStru
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdDownload, MdQuestionAnswer, MdLock } from 'react-icons/md';
+import ApplicationForm from '@/components/ApplicationForm/ApplicationForm';
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -153,22 +154,18 @@ const ApplyPage = () => {
         </div>
 
         {/* Application Form Section */}
-        <div className='max-w-3xl mx-auto mb-16'>
-          <h2 className='text-h4 font-semibold mb-4'>Online Application Form</h2>
-          <p className='text-body-base mb-6'>
-            Please complete the form below as thoroughly as possible. The more information you
-            provide, the better we can understand your needs and create a personalized coaching
-            plan that&apos;s right for you.
-          </p>
-
-          {/* Application Form Placeholder */}
-          <div className='bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-12 text-center'>
-            <MdQuestionAnswer className='w-12 h-12 text-gray-400 mx-auto mb-4' />
-            <p className='text-body-lg text-gray-500'>Multi-Step Application Form Coming Soon</p>
-            <p className='text-body-sm text-gray-400 mt-2'>
-              This is where the application form will be implemented
+        <div className='mb-16'>
+          <div className='max-w-3xl mx-auto mb-8'>
+            <h2 className='text-h4 font-semibold mb-4'>Online Application Form</h2>
+            <p className='text-body-base mb-6'>
+              Please complete the form below as thoroughly as possible. The more information you
+              provide, the better we can understand your needs and create a personalized coaching
+              plan that&apos;s right for you.
             </p>
           </div>
+
+          {/* Application Form */}
+          <ApplicationForm />
         </div>
       </Container>
     </>
