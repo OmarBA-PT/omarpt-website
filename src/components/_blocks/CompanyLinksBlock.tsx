@@ -81,7 +81,7 @@ const CompanyLinksBlock: React.FC<CompanyLinksBlockProps> = ({ companyLinks }) =
               href={link.url}
               target='_blank'
               rel='noopener noreferrer'
-              className='group flex flex-col items-center gap-3 shadow-sm border border-gray-200 px-1 py-4 rounded-2xl bg-white transition-all duration-200 hover:scale-105 flex-shrink-0 w-[95px]'
+              className='group flex flex-col items-center gap-3 shadow-sm border border-gray-200 px-1 py-4 rounded-2xl bg-white transition-all duration-200 hover:scale-105 shrink-0 w-[95px]'
               data-sanity={dataAttribute}>
               {/* Icon Circle */}
               <div className='w-16 h-16 rounded-full bg-brand-gradient flex items-center justify-center'>
@@ -92,7 +92,7 @@ const CompanyLinksBlock: React.FC<CompanyLinksBlockProps> = ({ companyLinks }) =
               </div>
 
               {/* Label */}
-              <span className='text-body-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-200 text-center leading-tight break-words hyphens-auto'>
+              <span className='text-body-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-200 text-center leading-tight wrap-break-word hyphens-auto'>
                 {link.label}
               </span>
             </Link>

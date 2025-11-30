@@ -39,21 +39,21 @@ const FAQBlock = ({
           return (
             <div
               key={item._key}
-              className='border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-500'>
+              className='rounded-lg overflow-hidden bg-black shadow-sm hover:shadow-md transition-shadow duration-500'>
               {/* Question Header - Clickable */}
               <button
                 onClick={() => toggleItem(index)}
-                className='w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-500'
+                className='group w-full flex items-center justify-between p-6 text-left transition-colors duration-500 cursor-pointer'
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}>
                 <span
                   {...(documentId && documentType
                     ? createSanityDataAttribute(documentId, documentType, `${itemPath}.question`)
                     : {})}
-                  className='text-body-lg font-semibold text-gray-900 pr-4'>
+                  className='text-body-lg text-brand-white pr-4'>
                   {item.question}
                 </span>
-                <div className='shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-brand-primary-500 text-white transition-all duration-500 ease-out'>
+                <div className='shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-brand-secondary transition-all duration-500 ease-out'>
                   {isOpen ? <FaMinus className='w-4 h-4' /> : <FaPlus className='w-4 h-4' />}
                 </div>
               </button>
@@ -61,7 +61,7 @@ const FAQBlock = ({
               {/* Answer Content - Expandable */}
               <div
                 id={`faq-answer-${index}`}
-                className={`grid transition-all duration-500 ease-out ${
+                className={`grid transition-all duration-500 ease-out bg-brand-white/20 ${
                   isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                 }`}>
                 <div className='overflow-hidden'>
@@ -69,7 +69,7 @@ const FAQBlock = ({
                     {...(documentId && documentType
                       ? createSanityDataAttribute(documentId, documentType, `${itemPath}.answer`)
                       : {})}
-                    className='px-6 pb-6 text-body-base text-gray-700 leading-relaxed whitespace-pre-wrap'>
+                    className='px-6 py-6 text-left text-body-base leading-relaxed whitespace-pre-wrap'>
                     {item.answer}
                   </div>
                 </div>
