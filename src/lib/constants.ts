@@ -24,7 +24,7 @@ export const SITE_CONFIG = {
   },
   ORGANIZATION_PHONE: { value: '+64 12 345 678', link: 'tel:+6412345678' },
   ORGANIZATION_ADDRESS: {
-    value: '44 Pollen Street, Grey Lynn, Auckland 1021, New Zealand',
+    value: 'Auckland, New Zealand',
     link: 'https://maps.app.goo.gl/LQrGoawnfvgoi25m9',
   },
 
