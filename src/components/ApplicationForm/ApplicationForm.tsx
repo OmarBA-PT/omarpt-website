@@ -245,12 +245,12 @@ const ApplicationForm = () => {
             <MdError className='w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0' />
             <div>
               <h3 className='text-body-base font-semibold text-red-800 mb-1'>
-                Please complete all required fields
+                Fields Require Attention
               </h3>
               <p className='text-body-sm text-red-700'>
                 {getCurrentSectionErrorCount()} required{' '}
-                {getCurrentSectionErrorCount() === 1 ? 'field is' : 'fields are'} missing. Please
-                check the highlighted fields below.
+                {getCurrentSectionErrorCount() === 1 ? 'field requires' : 'fields require'} your
+                attention. Please check the highlighted fields below.
               </p>
             </div>
           </div>
