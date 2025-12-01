@@ -146,12 +146,22 @@ const ApplicationForm = () => {
   };
 
   // Custom validation function for required fields
-  const getValidationRules = (required: boolean) => {
+  const getValidationRules = (required: boolean, questionId: string) => {
     if (!required) return {};
 
-    return {
+    const rules: any = {
       required: 'This field is required',
     };
+
+    // Add email validation for email field
+    if (questionId === 'email') {
+      rules.pattern = {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'Please enter a valid email address',
+      };
+    }
+
+    return rules;
   };
 
   return (
@@ -248,9 +258,10 @@ const ApplicationForm = () => {
                 Fields Require Attention
               </h3>
               <p className='text-body-sm text-red-700'>
-                {getCurrentSectionErrorCount()} required{' '}
+                {getCurrentSectionErrorCount()}{' '}
                 {getCurrentSectionErrorCount() === 1 ? 'field requires' : 'fields require'} your
-                attention. Please check the highlighted fields below.
+                attention. Please check the highlighted{' '}
+                {getCurrentSectionErrorCount() === 1 ? 'field' : 'fields'} below.
               </p>
             </div>
           </div>
