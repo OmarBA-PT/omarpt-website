@@ -1,88 +1,97 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
 import FormField from './FormField';
+import { MdError } from 'react-icons/md';
+
+// Create a type for all form fields dynamically
+type ApplicationFormData = Record<string, any>;
 
 const ApplicationForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<Record<string, any>>({});
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formTopRef = useRef<HTMLDivElement>(null);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+    trigger,
+  } = useForm<ApplicationFormData>({
+    mode: 'onTouched',
+    defaultValues: {},
+  });
+
+  const formData = watch(); // Watch all form values
 
   const currentSection = applicationFormData[currentStep];
   const totalSteps = applicationFormData.length;
   const progress = ((currentStep + 1) / totalSteps) * 100;
 
-  const handleFieldChange = (questionId: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
-      [questionId]: value
-    }));
-    // Clear error when user starts typing
-    if (errors[questionId]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[questionId];
-        return newErrors;
-      });
-    }
-  };
-
-  const handleSubQuestionChange = (subQuestionId: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
-      [subQuestionId]: value
-    }));
-  };
-
-  const validateCurrentSection = (): boolean => {
-    const newErrors: Record<string, string> = {};
-
+  // Get all question IDs for the current section (including sub-questions)
+  const getCurrentSectionQuestionIds = () => {
+    const ids: string[] = [];
     currentSection.questions.forEach(question => {
-      // Only validate if question should be displayed
-      if (!shouldDisplayQuestion(question, formData)) return;
-
-      if (question.required) {
-        const value = formData[question.id];
-
-        if (!value || (Array.isArray(value) && value.length === 0)) {
-          newErrors[question.id] = 'This field is required';
-        }
+      if (shouldDisplayQuestion(question, formData)) {
+        ids.push(question.id);
+        // Add sub-question IDs
+        question.subQuestions?.forEach(subQ => {
+          ids.push(subQ.id);
+        });
       }
     });
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return ids;
   };
 
-  const handleNext = () => {
-    if (validateCurrentSection()) {
+  // Check if current section has any errors
+  const currentSectionHasErrors = () => {
+    const questionIds = getCurrentSectionQuestionIds();
+    return questionIds.some(id => errors[id]);
+  };
+
+  // Get error count for current section
+  const getCurrentSectionErrorCount = () => {
+    const questionIds = getCurrentSectionQuestionIds();
+    return questionIds.filter(id => errors[id]).length;
+  };
+
+  // Scroll to top of form
+  const scrollToTop = () => {
+    formTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleNext = async () => {
+    // Validate all fields in current section
+    const questionIds = getCurrentSectionQuestionIds();
+    const isValid = await trigger(questionIds);
+
+    if (isValid) {
       if (currentStep < totalSteps - 1) {
         setCurrentStep(prev => prev + 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollToTop();
       }
+    } else {
+      // Scroll to top to show error banner
+      scrollToTop();
     }
   };
 
   const handlePrevious = () => {
     if (currentStep > 0) {
       setCurrentStep(prev => prev - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToTop();
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!validateCurrentSection()) {
-      return;
-    }
-
+  const onSubmit: SubmitHandler<ApplicationFormData> = async (data) => {
     setIsSubmitting(true);
 
     // TODO: Implement form submission logic
-    console.log('Form submitted:', formData);
+    console.log('Form submitted:', data);
 
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -91,8 +100,17 @@ const ApplicationForm = () => {
     setIsSubmitting(false);
   };
 
+  // Custom validation function for required fields
+  const getValidationRules = (required: boolean) => {
+    if (!required) return {};
+
+    return {
+      required: 'This field is required',
+    };
+  };
+
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto" ref={formTopRef}>
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
@@ -156,8 +174,25 @@ const ApplicationForm = () => {
         )}
       </div>
 
+      {/* Error Summary Banner */}
+      {currentSectionHasErrors() && (
+        <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+          <div className="flex items-start">
+            <MdError className="w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0" />
+            <div>
+              <h3 className="text-body-base font-semibold text-red-800 mb-1">
+                Please complete all required fields
+              </h3>
+              <p className="text-body-sm text-red-700">
+                {getCurrentSectionErrorCount()} required {getCurrentSectionErrorCount() === 1 ? 'field is' : 'fields are'} missing. Please check the highlighted fields below.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Form */}
-      <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-xl shadow-lg p-8">
         <div className="space-y-6">
           {currentSection.questions.map(question => {
             // Check if question should be displayed based on conditional logic
@@ -169,11 +204,11 @@ const ApplicationForm = () => {
               <FormField
                 key={question.id}
                 question={question}
-                value={formData[question.id]}
-                onChange={value => handleFieldChange(question.id, value)}
-                error={errors[question.id]}
-                subQuestionValues={formData}
-                onSubQuestionChange={handleSubQuestionChange}
+                register={register}
+                errors={errors}
+                watch={watch}
+                setValue={setValue}
+                getValidationRules={getValidationRules}
               />
             );
           })}

@@ -1,74 +1,77 @@
 import React from 'react';
+import { UseFormRegister, FieldErrors, UseFormWatch, UseFormSetValue } from 'react-hook-form';
 import { FormQuestion } from '@/data/applicationFormData';
 
 interface FormFieldProps {
   question: FormQuestion;
-  value: any;
-  onChange: (value: any) => void;
-  error?: string;
-  subQuestionValues?: Record<string, any>;
-  onSubQuestionChange?: (questionId: string, value: any) => void;
+  register: UseFormRegister<any>;
+  errors: FieldErrors<any>;
+  watch: UseFormWatch<any>;
+  setValue: UseFormSetValue<any>;
+  getValidationRules: (required: boolean) => object;
 }
 
 const FormField = ({
   question,
-  value,
-  onChange,
-  error,
-  subQuestionValues = {},
-  onSubQuestionChange,
+  register,
+  errors,
+  watch,
+  setValue,
+  getValidationRules,
 }: FormFieldProps) => {
+  const value = watch(question.id);
+
   const renderField = () => {
     switch (question.type) {
       case 'text':
         return (
-          <input
-            type='text'
-            id={question.id}
-            value={value || ''}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder={question.placeholder}
-            className={`w-full px-4 py-3 rounded-lg border text-black ${
-              error
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
-            } focus:outline-none focus:ring-2 transition-colors text-body-base`}
-            required={question.required}
-          />
+          <>
+            <input
+              type='text'
+              id={question.id}
+              {...register(question.id, getValidationRules(question.required || false))}
+              placeholder={question.placeholder}
+              className={`w-full px-4 py-3 rounded-lg border text-black ${
+                errors[question.id]
+                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                  : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+              } focus:outline-none focus:ring-2 transition-colors text-body-base`}
+            />
+          </>
         );
 
       case 'textarea':
         return (
-          <textarea
-            id={question.id}
-            value={value || ''}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder={question.placeholder}
-            rows={4}
-            className={`w-full px-4 py-3 rounded-lg border ${
-              error
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
-            } focus:outline-none focus:ring-2 transition-colors text-body-base resize-y min-h-[100px]`}
-            required={question.required}
-          />
+          <>
+            <textarea
+              id={question.id}
+              {...register(question.id, getValidationRules(question.required || false))}
+              placeholder={question.placeholder}
+              rows={4}
+              className={`w-full px-4 py-3 rounded-lg border ${
+                errors[question.id]
+                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                  : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+              } focus:outline-none focus:ring-2 transition-colors text-body-base resize-y min-h-[100px]`}
+            />
+          </>
         );
 
       case 'number':
         return (
-          <input
-            type='number'
-            id={question.id}
-            value={value || ''}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder={question.placeholder}
-            className={`w-full px-4 py-3 rounded-lg border ${
-              error
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
-            } focus:outline-none focus:ring-2 transition-colors text-body-base`}
-            required={question.required}
-          />
+          <>
+            <input
+              type='number'
+              id={question.id}
+              {...register(question.id, getValidationRules(question.required || false))}
+              placeholder={question.placeholder}
+              className={`w-full px-4 py-3 rounded-lg border ${
+                errors[question.id]
+                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                  : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+              } focus:outline-none focus:ring-2 transition-colors text-body-base`}
+            />
+          </>
         );
 
       case 'radio':
@@ -80,12 +83,9 @@ const FormField = ({
                 className='flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group'>
                 <input
                   type='radio'
-                  name={question.id}
                   value={option.value}
-                  checked={value === option.value}
-                  onChange={(e) => onChange(e.target.value)}
+                  {...register(question.id, getValidationRules(question.required || false))}
                   className='mt-1 w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer'
-                  required={question.required}
                 />
                 <span className='text-body-base text-gray-700 group-hover:text-gray-900 flex-1'>
                   {option.label}
@@ -111,7 +111,7 @@ const FormField = ({
                     const newValues = e.target.checked
                       ? [...selectedValues, option.value]
                       : selectedValues.filter((v: string) => v !== option.value);
-                    onChange(newValues);
+                    setValue(question.id, newValues);
                   }}
                   className='mt-1 w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer rounded'
                 />
@@ -129,24 +129,18 @@ const FormField = ({
             <label className='flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group flex-1'>
               <input
                 type='radio'
-                name={question.id}
                 value='yes'
-                checked={value === 'yes'}
-                onChange={(e) => onChange(e.target.value)}
+                {...register(question.id, getValidationRules(question.required || false))}
                 className='w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer'
-                required={question.required}
               />
               <span className='text-body-base text-gray-700 group-hover:text-gray-900'>Yes</span>
             </label>
             <label className='flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group flex-1'>
               <input
                 type='radio'
-                name={question.id}
                 value='no'
-                checked={value === 'no'}
-                onChange={(e) => onChange(e.target.value)}
+                {...register(question.id, getValidationRules(question.required || false))}
                 className='w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer'
-                required={question.required}
               />
               <span className='text-body-base text-gray-700 group-hover:text-gray-900'>No</span>
             </label>
@@ -159,19 +153,15 @@ const FormField = ({
   };
 
   const renderSubQuestion = (subQuestion: FormQuestion) => {
-    const subValue = subQuestionValues[subQuestion.id];
-
     switch (subQuestion.type) {
       case 'textarea':
         return (
           <textarea
             id={subQuestion.id}
-            value={subValue || ''}
-            onChange={(e) => onSubQuestionChange?.(subQuestion.id, e.target.value)}
+            {...register(subQuestion.id, getValidationRules(subQuestion.required || false))}
             placeholder={subQuestion.placeholder}
             rows={3}
             className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-brand-primary focus:outline-none focus:ring-2 transition-colors text-body-base resize-y min-h-20'
-            required={subQuestion.required}
           />
         );
       case 'text':
@@ -179,11 +169,9 @@ const FormField = ({
           <input
             type='text'
             id={subQuestion.id}
-            value={subValue || ''}
-            onChange={(e) => onSubQuestionChange?.(subQuestion.id, e.target.value)}
+            {...register(subQuestion.id, getValidationRules(subQuestion.required || false))}
             placeholder={subQuestion.placeholder}
             className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-brand-primary focus:outline-none focus:ring-2 transition-colors text-body-base'
-            required={subQuestion.required}
           />
         );
       default:
@@ -203,7 +191,11 @@ const FormField = ({
       {question.helperText && (
         <p className='mt-2 text-body-sm text-gray-600'>{question.helperText}</p>
       )}
-      {error && <p className='mt-2 text-body-sm text-red-600'>{error}</p>}
+      {errors[question.id] && (
+        <p className='mt-2 text-body-sm text-red-600'>
+          {errors[question.id]?.message as string}
+        </p>
+      )}
 
       {/* Render sub-questions if they exist */}
       {question.subQuestions && question.subQuestions.length > 0 && (
@@ -219,6 +211,11 @@ const FormField = ({
               {renderSubQuestion(subQuestion)}
               {subQuestion.helperText && (
                 <p className='mt-2 text-body-xs text-gray-600'>{subQuestion.helperText}</p>
+              )}
+              {errors[subQuestion.id] && (
+                <p className='mt-2 text-body-xs text-red-600'>
+                  {errors[subQuestion.id]?.message as string}
+                </p>
               )}
             </div>
           ))}
