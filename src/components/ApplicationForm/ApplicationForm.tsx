@@ -12,6 +12,8 @@ type ApplicationFormData = Record<string, any>;
 const ApplicationForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const formTopRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -89,15 +91,56 @@ const ApplicationForm = () => {
 
   const onSubmit: SubmitHandler<ApplicationFormData> = async (data) => {
     setIsSubmitting(true);
+    setStatus('idle');
+    setErrorMessage('');
 
-    // TODO: Implement form submission logic
-    console.log('Form submitted:', data);
+    try {
+      const response = await fetch('/api/application-submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData: data,
+          honeypot: '', // Empty honeypot field for bot detection
+        }),
+      });
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+      const result = await response.json();
 
-    alert('Thank you for your application! We will be in touch soon.');
-    setIsSubmitting(false);
+      if (!response.ok) {
+        // Handle different error types
+        setStatus('error');
+        if (result.rateLimited) {
+          setErrorMessage('You have submitted too many applications recently. Please try again later.');
+        } else if (result.configError) {
+          setErrorMessage(
+            'The application form is currently unavailable. Please contact us directly via phone or email.'
+          );
+        } else {
+          setErrorMessage(
+            result.error ||
+              'We encountered an issue submitting your application. Please try contacting us directly.'
+          );
+        }
+        setIsSubmitting(false);
+        scrollToTop();
+        return;
+      }
+
+      // Success! Show success message
+      setStatus('success');
+      setIsSubmitting(false);
+      scrollToTop();
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('error');
+      setErrorMessage(
+        'We encountered an issue submitting your application. Please check your internet connection and try again, or contact us directly via phone or email.'
+      );
+      setIsSubmitting(false);
+      scrollToTop();
+    }
   };
 
   // Custom validation function for required fields
@@ -174,8 +217,42 @@ const ApplicationForm = () => {
         )}
       </div>
 
-      {/* Error Summary Banner */}
-      {currentSectionHasErrors() && (
+      {/* Success Message */}
+      {status === 'success' && (
+        <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+          <div className="text-center">
+            <h3 className="text-h4 font-bold text-green-800 mb-2">
+              Thank you for your application!
+            </h3>
+            <p className="text-body-base text-green-700 mb-2">
+              We have received your submission and will get back to you as soon as possible.
+            </p>
+            <p className="text-body-sm text-green-600">
+              You should also receive a confirmation email shortly.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {status === 'error' && (
+        <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+          <div className="flex items-start">
+            <MdError className="w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0" />
+            <div>
+              <h3 className="text-body-base font-semibold text-red-800 mb-1">
+                Submission Error
+              </h3>
+              <p className="text-body-sm text-red-700">
+                {errorMessage}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Validation Error Summary Banner */}
+      {status !== 'success' && currentSectionHasErrors() && (
         <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
           <div className="flex items-start">
             <MdError className="w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0" />
@@ -192,7 +269,8 @@ const ApplicationForm = () => {
       )}
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-xl shadow-lg p-8">
+      {status !== 'success' && (
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-xl shadow-lg p-8">
         <div className="space-y-6">
           {currentSection.questions.map(question => {
             // Check if question should be displayed based on conditional logic
@@ -252,6 +330,7 @@ const ApplicationForm = () => {
           )}
         </div>
       </form>
+      )}
 
       {/* Mobile Step Indicator */}
       <div className="md:hidden mt-4 text-center">
