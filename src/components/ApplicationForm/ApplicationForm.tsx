@@ -37,11 +37,11 @@ const ApplicationForm = () => {
   // Get all question IDs for the current section (including sub-questions)
   const getCurrentSectionQuestionIds = () => {
     const ids: string[] = [];
-    currentSection.questions.forEach(question => {
+    currentSection.questions.forEach((question) => {
       if (shouldDisplayQuestion(question, formData)) {
         ids.push(question.id);
         // Add sub-question IDs
-        question.subQuestions?.forEach(subQ => {
+        question.subQuestions?.forEach((subQ) => {
           ids.push(subQ.id);
         });
       }
@@ -52,13 +52,13 @@ const ApplicationForm = () => {
   // Check if current section has any errors
   const currentSectionHasErrors = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.some(id => errors[id]);
+    return questionIds.some((id) => errors[id]);
   };
 
   // Get error count for current section
   const getCurrentSectionErrorCount = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.filter(id => errors[id]).length;
+    return questionIds.filter((id) => errors[id]).length;
   };
 
   // Scroll to top of form
@@ -73,7 +73,7 @@ const ApplicationForm = () => {
 
     if (isValid) {
       if (currentStep < totalSteps - 1) {
-        setCurrentStep(prev => prev + 1);
+        setCurrentStep((prev) => prev + 1);
         scrollToTop();
       }
     } else {
@@ -84,7 +84,7 @@ const ApplicationForm = () => {
 
   const handlePrevious = () => {
     if (currentStep > 0) {
-      setCurrentStep(prev => prev - 1);
+      setCurrentStep((prev) => prev - 1);
       scrollToTop();
     }
   };
@@ -112,7 +112,9 @@ const ApplicationForm = () => {
         // Handle different error types
         setStatus('error');
         if (result.rateLimited) {
-          setErrorMessage('You have submitted too many applications recently. Please try again later.');
+          setErrorMessage(
+            'You have submitted too many applications recently. Please try again later.'
+          );
         } else if (result.configError) {
           setErrorMessage(
             'The application form is currently unavailable. Please contact us directly via phone or email.'
@@ -153,52 +155,45 @@ const ApplicationForm = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto" ref={formTopRef}>
+    <div className='w-full max-w-4xl mx-auto' ref={formTopRef}>
       {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-body-sm font-medium text-gray-700">
+      <div className='mb-8'>
+        <div className='flex justify-between items-center mb-2'>
+          <span className='text-body-sm font-medium text-gray-700'>
             Step {currentStep + 1} of {totalSteps}
           </span>
-          <span className="text-body-sm font-medium text-brand-primary">
+          <span className='text-body-sm font-medium text-brand-primary'>
             {Math.round(progress)}% Complete
           </span>
         </div>
-        <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className='w-full h-2 bg-gray-200 rounded-full overflow-hidden'>
           <div
-            className="h-full bg-brand-primary transition-all duration-500 ease-out"
+            className='h-full bg-brand-primary transition-all duration-500 ease-out'
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
       {/* Step Indicators */}
-      <div className="mb-8 hidden md:flex justify-between">
+      <div className='mb-8 hidden md:flex justify-between'>
         {applicationFormData.map((section, index) => (
           <div
             key={section.id}
-            className={`flex flex-col items-center flex-1 ${
-              index !== 0 ? 'ml-4' : ''
-            }`}
-          >
+            className={`flex flex-col items-center flex-1 ${index !== 0 ? 'ml-4' : ''}`}>
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-colors ${
                 index < currentStep
                   ? 'bg-brand-primary text-white'
                   : index === currentStep
-                  ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
-                  : 'bg-gray-200 text-gray-500'
-              }`}
-            >
+                    ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
+                    : 'bg-gray-200 text-gray-500'
+              }`}>
               {index < currentStep ? '✓' : index + 1}
             </div>
             <span
               className={`text-body-xs text-center ${
-                index === currentStep
-                  ? 'text-brand-primary font-medium'
-                  : 'text-gray-500'
-              }`}
-            >
+                index === currentStep ? 'text-brand-primary font-medium' : 'text-gray-500'
+              }`}>
               {section.title}
             </span>
           </div>
@@ -206,28 +201,24 @@ const ApplicationForm = () => {
       </div>
 
       {/* Section Header */}
-      <div className="mb-8 text-center">
-        <h2 className="text-h3 font-bold text-gray-900 mb-2">
-          {currentSection.title}
-        </h2>
+      <div className='mb-8 text-center'>
+        <h2 className='text-h3 font-bold text-gray-900 mb-2'>{currentSection.title}</h2>
         {currentSection.description && (
-          <p className="text-body-base text-gray-600">
-            {currentSection.description}
-          </p>
+          <p className='text-body-base text-gray-600'>{currentSection.description}</p>
         )}
       </div>
 
       {/* Success Message */}
       {status === 'success' && (
-        <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
-          <div className="text-center">
-            <h3 className="text-h4 font-bold text-green-800 mb-2">
+        <div className='mb-6 bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg'>
+          <div className='text-center'>
+            <h3 className='text-h4 font-bold text-green-800 mb-2'>
               Thank you for your application!
             </h3>
-            <p className="text-body-base text-green-700 mb-2">
+            <p className='text-body-base text-green-700 mb-2'>
               We have received your submission and will get back to you as soon as possible.
             </p>
-            <p className="text-body-sm text-green-600">
+            <p className='text-body-sm text-green-600'>
               You should also receive a confirmation email shortly.
             </p>
           </div>
@@ -236,16 +227,12 @@ const ApplicationForm = () => {
 
       {/* Error Message */}
       {status === 'error' && (
-        <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
-          <div className="flex items-start">
-            <MdError className="w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0" />
+        <div className='mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg'>
+          <div className='flex items-start'>
+            <MdError className='w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0' />
             <div>
-              <h3 className="text-body-base font-semibold text-red-800 mb-1">
-                Submission Error
-              </h3>
-              <p className="text-body-sm text-red-700">
-                {errorMessage}
-              </p>
+              <h3 className='text-body-base font-semibold text-red-800 mb-1'>Submission Error</h3>
+              <p className='text-body-sm text-red-700'>{errorMessage}</p>
             </div>
           </div>
         </div>
@@ -253,15 +240,17 @@ const ApplicationForm = () => {
 
       {/* Validation Error Summary Banner */}
       {status !== 'success' && currentSectionHasErrors() && (
-        <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
-          <div className="flex items-start">
-            <MdError className="w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0" />
+        <div className='mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg'>
+          <div className='flex items-start'>
+            <MdError className='w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0' />
             <div>
-              <h3 className="text-body-base font-semibold text-red-800 mb-1">
+              <h3 className='text-body-base font-semibold text-red-800 mb-1'>
                 Please complete all required fields
               </h3>
-              <p className="text-body-sm text-red-700">
-                {getCurrentSectionErrorCount()} required {getCurrentSectionErrorCount() === 1 ? 'field is' : 'fields are'} missing. Please check the highlighted fields below.
+              <p className='text-body-sm text-red-700'>
+                {getCurrentSectionErrorCount()} required{' '}
+                {getCurrentSectionErrorCount() === 1 ? 'field is' : 'fields are'} missing. Please
+                check the highlighted fields below.
               </p>
             </div>
           </div>
@@ -270,78 +259,72 @@ const ApplicationForm = () => {
 
       {/* Form */}
       {status !== 'success' && (
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-xl shadow-lg p-8">
-        <div className="space-y-6">
-          {currentSection.questions.map(question => {
-            // Check if question should be displayed based on conditional logic
-            if (!shouldDisplayQuestion(question, formData)) {
-              return null;
-            }
+        <form onSubmit={handleSubmit(onSubmit)} className='bg-white rounded-xl shadow-lg p-8'>
+          <div className='space-y-6'>
+            {currentSection.questions.map((question) => {
+              // Check if question should be displayed based on conditional logic
+              if (!shouldDisplayQuestion(question, formData)) {
+                return null;
+              }
 
-            return (
-              <FormField
-                key={question.id}
-                question={question}
-                register={register}
-                errors={errors}
-                watch={watch}
-                setValue={setValue}
-                getValidationRules={getValidationRules}
-              />
-            );
-          })}
-        </div>
+              return (
+                <FormField
+                  key={question.id}
+                  question={question}
+                  register={register}
+                  errors={errors}
+                  watch={watch}
+                  setValue={setValue}
+                  getValidationRules={getValidationRules}
+                />
+              );
+            })}
+          </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
-          <button
-            type="button"
-            onClick={handlePrevious}
-            disabled={currentStep === 0}
-            className={`px-6 py-3 rounded-lg font-medium transition-all ${
-              currentStep === 0
-                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Previous
-          </button>
-
-          {currentStep < totalSteps - 1 ? (
+          {/* Navigation Buttons */}
+          <div className='flex justify-between mt-8 pt-6 border-t border-gray-200'>
             <button
-              type="button"
-              onClick={handleNext}
-              className="px-6 py-3 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary/90 transition-colors"
-            >
-              Next Step
+              type='button'
+              onClick={handlePrevious}
+              disabled={currentStep === 0}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                currentStep === 0
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}>
+              Previous
             </button>
-          ) : (
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`px-8 py-3 rounded-lg font-medium transition-all ${
-                isSubmitting
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-lg'
-              }`}
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit Application'}
-            </button>
-          )}
-        </div>
-      </form>
+
+            {currentStep < totalSteps - 1 ? (
+              <button
+                type='button'
+                onClick={handleNext}
+                className='px-6 py-3 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary/90 transition-colors'>
+                Next Step
+              </button>
+            ) : (
+              <button
+                type='submit'
+                disabled={isSubmitting}
+                className={`px-8 py-3 rounded-lg font-medium transition-all ${
+                  isSubmitting
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-lg'
+                }`}>
+                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+              </button>
+            )}
+          </div>
+        </form>
       )}
 
       {/* Mobile Step Indicator */}
-      <div className="md:hidden mt-4 text-center">
-        <p className="text-body-sm text-gray-600">
+      <div className='md:hidden mt-4 text-center'>
+        <p className='text-body-sm text-gray-600'>
           {applicationFormData.map((section, index) => (
             <span
               key={section.id}
-              className={
-                index === currentStep ? 'text-brand-primary font-medium' : ''
-              }
-            >
+              className={index === currentStep ? 'text-brand-primary font-medium' : ''}>
               {index > 0 && ' → '}
               {section.title}
             </span>
