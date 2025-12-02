@@ -13,6 +13,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings } from '@/actions';
+import CardLight from '@/components/CardLight/CardLight';
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -86,26 +87,22 @@ const ContactPage = async () => {
         {/* Contact Methods */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16'>
           {/* Email */}
-          <div className='bg-gray-50 rounded-lg p-6 border-2 border-gray-200'>
-            <MdEmail className='w-8 h-8 text-brand-primary mx-auto mb-3' />
-            <h3 className='text-h6 font-semibold mb-2'>Email Us</h3>
+          <CardLight title='Email Us' icon={MdEmail}>
             <a
               href='mailto:info@omaniatraining.com'
               className='text-body-base text-brand-primary hover:text-brand-secondary transition-colors'>
               info@omaniatraining.com
             </a>
-          </div>
+          </CardLight>
 
           {/* Phone */}
-          <div className='bg-gray-50 rounded-lg p-6 border-2 border-gray-200'>
-            <MdPhone className='w-8 h-8 text-brand-primary mx-auto mb-3' />
-            <h3 className='text-h6 font-semibold mb-2'>Call Us</h3>
+          <CardLight title='Call Us' icon={MdPhone}>
             <a
-              href='tel:+447123456789'
+              href='tel:+447555123456'
               className='text-body-base text-brand-primary hover:text-brand-secondary transition-colors'>
-              +44 7123 456789
+              +44 7555 123456
             </a>
-          </div>
+          </CardLight>
         </div>
 
         {/* Contact Form */}
