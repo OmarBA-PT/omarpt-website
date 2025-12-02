@@ -52,7 +52,7 @@ const QuestionGroup = ({
           className={`p-6 flex items-center justify-between ${
             !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-white/60' : ''
           } transition-colors`}
-          onClick={() => !isSingleGroup && onHeaderClick(groupIndex)}>
+          onClick={() => !isSingleGroup && isVisited && onHeaderClick(groupIndex)}>
           <div className='flex items-center gap-3 flex-1'>
             {groupTitle && (
               <h3
