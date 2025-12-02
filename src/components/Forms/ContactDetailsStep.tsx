@@ -18,23 +18,47 @@ const ContactDetailsStep = ({
 }: ContactDetailsStepProps) => {
   return (
     <>
-      {contactDetailsStepData.fields.map((field) => (
-        <TextInput
-          key={field.id}
-          id={field.id}
-          label={field.label}
-          type={field.type}
-          placeholder={field.placeholder}
-          required={field.required}
-          error={
-            (touchedFields as any)[field.id] || attemptedValidation
-              ? (errors as any)[field.id]
-              : undefined
-          }
-          register={register}
-          validation={field.validation}
-        />
-      ))}
+      {contactDetailsStepData.questions.map((question) => {
+        // Determine input type and validation based on the question
+        let inputType: 'text' | 'email' | 'tel' = 'text';
+        let validation: any = {};
+
+        if (question.required) {
+          validation.required = 'This field is required';
+        }
+
+        // Special handling for email field
+        if (question.id === 'email') {
+          inputType = 'email';
+          validation.pattern = {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: 'Please enter a valid email address',
+          };
+        }
+
+        // Special handling for phone field
+        if (question.id === 'phone') {
+          inputType = 'tel';
+        }
+
+        return (
+          <TextInput
+            key={question.id}
+            id={question.id}
+            label={question.question}
+            type={inputType}
+            placeholder={question.placeholder}
+            required={question.required}
+            error={
+              (touchedFields as any)[question.id] || attemptedValidation
+                ? (errors as any)[question.id]
+                : undefined
+            }
+            register={register}
+            validation={validation}
+          />
+        );
+      })}
     </>
   );
 };

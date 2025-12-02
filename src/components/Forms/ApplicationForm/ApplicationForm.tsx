@@ -55,10 +55,10 @@ const ApplicationForm = () => {
   const getCurrentSectionQuestionIds = () => {
     const ids: string[] = [];
 
-    // Contact Details step - read field IDs from contactDetailsStepData
+    // Contact Details step - read question IDs from contactDetailsStepData
     if (isContactDetailsStep) {
-      contactDetailsStepData.fields.forEach((field) => {
-        ids.push(field.id);
+      contactDetailsStepData.questions.forEach((question) => {
+        ids.push(question.id);
       });
       return ids;
     }

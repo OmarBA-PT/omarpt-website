@@ -1,64 +1,34 @@
 // AI Helper: This file contains the Contact Details step structure for the application form.
-// This data structure defines the fields for the first step of the application process.
+// This data structure is designed to be easily replaceable with Sanity CMS integration later.
+// The structure mirrors what would be fetched from Sanity with minimal changes needed.
 
-export interface ContactField {
-  id: string;
-  label: string;
-  type: 'text' | 'email' | 'tel';
-  placeholder: string;
-  required: boolean;
-  validation: {
-    required?: string;
-    pattern?: {
-      value: RegExp;
-      message: string;
-    };
-  };
-}
+import { FormSection } from '@/data/applicationFormData';
 
-export interface ContactDetailsStepData {
-  title: string;
-  description: string;
-  fields: ContactField[];
-}
-
-export const contactDetailsStepData: ContactDetailsStepData = {
+export const contactDetailsStepData: FormSection = {
+  id: 'contact-details',
   title: 'Contact Details',
   description: "Let's start with some basic information about you",
-  fields: [
+  questions: [
     {
       id: 'fullName',
-      label: 'Your Name',
+      question: 'Your Name',
       type: 'text',
       placeholder: 'Enter your full name',
       required: true,
-      validation: {
-        required: 'This field is required',
-      },
     },
     {
       id: 'email',
-      label: 'Email Address',
-      type: 'email',
+      question: 'Email Address',
+      type: 'text',
       placeholder: 'your.email@example.com',
       required: true,
-      validation: {
-        required: 'This field is required',
-        pattern: {
-          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-          message: 'Please enter a valid email address',
-        },
-      },
     },
     {
       id: 'phone',
-      label: 'Phone Number',
-      type: 'tel',
+      question: 'Phone Number',
+      type: 'text',
       placeholder: '+44 7XXX XXXXXX',
       required: true,
-      validation: {
-        required: 'This field is required',
-      },
     },
   ],
 };
