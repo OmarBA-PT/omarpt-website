@@ -5,11 +5,20 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
 import { contactDetailsStepData } from './contactDetailsStepData';
 import FormField from './FormField';
-import ContactDetailsStep from '@/components/Forms/ContactDetailsStep';
-import { MdError } from 'react-icons/md';
+import { MdError, MdExpandMore, MdCheckCircle } from 'react-icons/md';
 
 // Create a type for all form fields dynamically
 type ApplicationFormData = Record<string, any>;
+
+// Track which question groups are expanded and visited
+interface GroupState {
+  [sectionIndex: number]: {
+    [groupIndex: number]: {
+      isExpanded: boolean;
+      isVisited: boolean;
+    };
+  };
+}
 
 const ApplicationForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -19,6 +28,8 @@ const ApplicationForm = () => {
   const [attemptedValidation, setAttemptedValidation] = useState(false);
   const [isActuallySubmitting, setIsActuallySubmitting] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
+  const groupRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const [groupState, setGroupState] = useState<GroupState>({});
 
   const {
     register,
@@ -35,12 +46,6 @@ const ApplicationForm = () => {
 
   const formData = watch(); // Watch all form values
 
-  // Reset attemptedValidation and clear errors when step changes
-  useEffect(() => {
-    setAttemptedValidation(false);
-    clearErrors();
-  }, [currentStep, clearErrors]);
-
   // Total steps = 1 (Contact Details) + number of sections from data
   const totalSteps = 1 + applicationFormData.length;
   const progress = ((currentStep + 1) / totalSteps) * 100;
@@ -50,6 +55,41 @@ const ApplicationForm = () => {
 
   // Get current section from applicationFormData (adjust index for Contact Details step)
   const currentSection = !isContactDetailsStep ? applicationFormData[currentStep - 1] : null;
+
+  // Initialize group state when step changes
+  useEffect(() => {
+    const initializeGroupState = () => {
+      const questionGroups = isContactDetailsStep
+        ? contactDetailsStepData.questionGroups
+        : currentSection?.questionGroups || [];
+
+      const newState: GroupState[number] = {};
+      const isSingleGroup = questionGroups.length === 1;
+
+      questionGroups.forEach((_, groupIndex) => {
+        if (isSingleGroup) {
+          // Single group: expanded and non-collapsible
+          newState[groupIndex] = { isExpanded: true, isVisited: true };
+        } else if (groupIndex === 0) {
+          // Multiple groups: first one expanded and visited
+          newState[groupIndex] = { isExpanded: true, isVisited: true };
+        } else {
+          // Rest collapsed and unvisited
+          newState[groupIndex] = { isExpanded: false, isVisited: false };
+        }
+      });
+
+      setGroupState((prev) => ({ ...prev, [currentStep]: newState }));
+    };
+
+    initializeGroupState();
+  }, [currentStep, isContactDetailsStep, currentSection]);
+
+  // Reset attemptedValidation and clear errors when step changes
+  useEffect(() => {
+    setAttemptedValidation(false);
+    clearErrors();
+  }, [currentStep, clearErrors]);
 
   // Get all question IDs for the current section (including sub-questions)
   const getCurrentSectionQuestionIds = () => {
@@ -98,6 +138,140 @@ const ApplicationForm = () => {
   // Scroll to top of form
   const scrollToTop = () => {
     formTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // Get question IDs for a specific group
+  const getGroupQuestionIds = (groupIndex: number) => {
+    const ids: string[] = [];
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const group = questionGroups[groupIndex];
+    if (!group) return ids;
+
+    group.questions.forEach((question) => {
+      if (isContactDetailsStep || shouldDisplayQuestion(question, formData)) {
+        ids.push(question.id);
+        // Add sub-question IDs
+        question.subQuestions?.forEach((subQ) => {
+          ids.push(subQ.id);
+        });
+      }
+    });
+
+    return ids;
+  };
+
+  // Check if all required fields in a group are filled
+  const isGroupComplete = (groupIndex: number): boolean => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const group = questionGroups[groupIndex];
+    if (!group) return true;
+
+    // Check all questions in the group
+    for (const question of group.questions) {
+      // Skip questions that shouldn't be displayed
+      if (!isContactDetailsStep && !shouldDisplayQuestion(question, formData)) {
+        continue;
+      }
+
+      // Check if required field is filled
+      if (question.required) {
+        const value = formData[question.id];
+        if (!value || (typeof value === 'string' && value.trim() === '')) {
+          return false;
+        }
+      }
+
+      // Check sub-questions
+      if (question.subQuestions) {
+        for (const subQ of question.subQuestions) {
+          if (subQ.required) {
+            const subValue = formData[subQ.id];
+            if (!subValue || (typeof subValue === 'string' && subValue.trim() === '')) {
+              return false;
+            }
+          }
+        }
+      }
+    }
+
+    return true;
+  };
+
+  // Handle clicking on a group header
+  const handleGroupHeaderClick = (groupIndex: number) => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const isSingleGroup = questionGroups.length === 1;
+    if (isSingleGroup) return; // Don't allow toggling for single groups
+
+    const currentGroupState = groupState[currentStep]?.[groupIndex];
+    if (!currentGroupState) return;
+
+    // Only allow expanding visited groups or the next unvisited group
+    if (!currentGroupState.isExpanded && !currentGroupState.isVisited) {
+      // Check if this is the next sequential unvisited group
+      const isNextGroup = Object.entries(groupState[currentStep] || {}).every(
+        ([idx, state]) => {
+          const index = parseInt(idx);
+          return index >= groupIndex || state.isVisited;
+        }
+      );
+      if (!isNextGroup) return; // Don't allow skipping groups
+    }
+
+    // Toggle the expanded state
+    setGroupState((prev) => ({
+      ...prev,
+      [currentStep]: {
+        ...prev[currentStep],
+        [groupIndex]: {
+          ...currentGroupState,
+          isExpanded: !currentGroupState.isExpanded,
+        },
+      },
+    }));
+  };
+
+  // Handle clicking the "Next Question" button
+  const handleNextQuestion = (groupIndex: number) => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    if (groupIndex >= questionGroups.length - 1) return; // Last group, no next
+
+    // Collapse current group
+    setGroupState((prev) => ({
+      ...prev,
+      [currentStep]: {
+        ...prev[currentStep],
+        [groupIndex]: {
+          ...prev[currentStep][groupIndex],
+          isExpanded: false,
+        },
+      },
+    }));
+
+    // Expand and mark next group as visited
+    const nextGroupIndex = groupIndex + 1;
+    setGroupState((prev) => ({
+      ...prev,
+      [currentStep]: {
+        ...prev[currentStep],
+        [nextGroupIndex]: {
+          isExpanded: true,
+          isVisited: true,
+        },
+      },
+    }));
   };
 
   const handleNext = async () => {
@@ -340,49 +514,236 @@ const ApplicationForm = () => {
           onSubmit={handleSubmit(onSubmit, onError)}
           className='bg-black/20 rounded-xl shadow-lg p-8 text-left'>
           <div className='space-y-6'>
-            {/* Contact Details Step - Using ContactDetailsStep Component */}
-            {isContactDetailsStep && (
-              <ContactDetailsStep
-                register={register}
-                errors={errors}
-                touchedFields={touchedFields}
-                attemptedValidation={attemptedValidation}
-              />
-            )}
+            {/* Contact Details Step - With Collapsible Groups */}
+            {isContactDetailsStep &&
+              contactDetailsStepData.questionGroups.map((group, groupIndex) => {
+                const questionGroups = contactDetailsStepData.questionGroups;
+                const isSingleGroup = questionGroups.length === 1;
+                const isLastGroup = groupIndex === questionGroups.length - 1;
+                const currentGroupState = groupState[currentStep]?.[groupIndex];
+                const isExpanded = currentGroupState?.isExpanded ?? false;
+                const isVisited = currentGroupState?.isVisited ?? false;
+                const groupComplete = isGroupComplete(groupIndex);
+                const groupKey = `${currentStep}-${groupIndex}`;
+
+                return (
+                  <div key={group.id}>
+                    <div
+                      ref={(el) => {
+                        groupRefs.current[groupKey] = el;
+                      }}
+                      className={`rounded-lg border transition-all ${
+                        isVisited
+                          ? 'bg-white/40 border-gray-200'
+                          : 'bg-gray-50/40 border-gray-300 border-dashed'
+                      }`}>
+                      {/* Group Header */}
+                      <div
+                        className={`p-6 flex items-center justify-between ${
+                          !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-white/60' : ''
+                        } transition-colors`}
+                        onClick={() => !isSingleGroup && handleGroupHeaderClick(groupIndex)}>
+                        <div className='flex items-center gap-3 flex-1'>
+                          {group.title && (
+                            <h3
+                              className={`text-body-lg font-semibold ${
+                                isVisited ? 'text-brand-secondary' : 'text-gray-500'
+                              }`}>
+                              {group.title}
+                            </h3>
+                          )}
+                          {isVisited && groupComplete && !isExpanded && (
+                            <MdCheckCircle className='w-5 h-5 text-green-500' />
+                          )}
+                        </div>
+                        {!isSingleGroup && (
+                          <MdExpandMore
+                            className={`w-6 h-6 transition-transform ${
+                              isExpanded ? 'rotate-180' : ''
+                            } ${isVisited ? 'text-brand-secondary' : 'text-gray-400'}`}
+                          />
+                        )}
+                      </div>
+
+                      {/* Group Content */}
+                      {isExpanded && (
+                        <div className='px-6 pb-6 space-y-4 border-t border-gray-200 pt-6'>
+                          {group.questions.map((question) => {
+                            // Determine input type and validation based on the question
+                            let inputType: 'text' | 'email' | 'tel' = 'text';
+                            let validation: any = {};
+
+                            if (question.required) {
+                              validation.required = 'This field is required';
+                            }
+
+                            // Special handling for email field
+                            if (question.id === 'email') {
+                              inputType = 'email';
+                              validation.pattern = {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: 'Please enter a valid email address',
+                              };
+                            }
+
+                            // Special handling for phone field
+                            if (question.id === 'phone') {
+                              inputType = 'tel';
+                            }
+
+                            return (
+                              <div key={question.id}>
+                                <label
+                                  htmlFor={question.id}
+                                  className='block text-body-sm font-medium text-gray-700 mb-2'>
+                                  {question.question}
+                                  {question.required && (
+                                    <span className='text-red-500 ml-1'>*</span>
+                                  )}
+                                </label>
+                                <input
+                                  id={question.id}
+                                  type={inputType}
+                                  placeholder={question.placeholder}
+                                  {...register(question.id, validation)}
+                                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
+                                    (touchedFields as any)[question.id] || attemptedValidation
+                                      ? (errors as any)[question.id]
+                                        ? 'border-red-500 focus:ring-red-500/20'
+                                        : 'border-green-500 focus:ring-green-500/20'
+                                      : 'border-gray-300 focus:ring-brand-primary/20'
+                                  }`}
+                                />
+                                {((touchedFields as any)[question.id] || attemptedValidation) &&
+                                  (errors as any)[question.id] && (
+                                    <p className='mt-2 text-body-sm text-red-600'>
+                                      {(errors as any)[question.id]?.message}
+                                    </p>
+                                  )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Next Question Button */}
+                    {!isLastGroup && isExpanded && (
+                      <div className='flex justify-center my-6'>
+                        <button
+                          type='button'
+                          onClick={() => handleNextQuestion(groupIndex)}
+                          disabled={!groupComplete}
+                          className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                            groupComplete
+                              ? 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-md'
+                              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          }`}>
+                          Next Question
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
 
             {/* Dynamic Form Fields from applicationFormData */}
             {!isContactDetailsStep &&
-              currentSection?.questionGroups.map((group) => (
-                <div key={group.id} className='p-6 bg-white/40 rounded-lg border border-gray-200'>
-                  {group.title && (
-                    <h3 className='text-body-lg font-semibold text-brand-secondary mb-4'>
-                      {group.title}
-                    </h3>
-                  )}
-                  <div className='space-y-4'>
-                    {group.questions.map((question) => {
-                      // Check if question should be displayed based on conditional logic
-                      if (!shouldDisplayQuestion(question, formData)) {
-                        return null;
-                      }
+              currentSection?.questionGroups.map((group, groupIndex) => {
+                const questionGroups = currentSection.questionGroups;
+                const isSingleGroup = questionGroups.length === 1;
+                const isLastGroup = groupIndex === questionGroups.length - 1;
+                const currentGroupState = groupState[currentStep]?.[groupIndex];
+                const isExpanded = currentGroupState?.isExpanded ?? false;
+                const isVisited = currentGroupState?.isVisited ?? false;
+                const groupComplete = isGroupComplete(groupIndex);
+                const groupKey = `${currentStep}-${groupIndex}`;
 
-                      return (
-                        <FormField
-                          key={question.id}
-                          question={question}
-                          register={register}
-                          errors={errors}
-                          touchedFields={touchedFields}
-                          attemptedValidation={attemptedValidation}
-                          watch={watch}
-                          setValue={setValue}
-                          getValidationRules={getValidationRules}
-                        />
-                      );
-                    })}
+                return (
+                  <div key={group.id}>
+                    <div
+                      ref={(el) => {
+                        groupRefs.current[groupKey] = el;
+                      }}
+                      className={`rounded-lg border transition-all ${
+                        isVisited
+                          ? 'bg-white/40 border-gray-200'
+                          : 'bg-gray-50/40 border-gray-300 border-dashed'
+                      }`}>
+                      {/* Group Header */}
+                      <div
+                        className={`p-6 flex items-center justify-between ${
+                          !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-white/60' : ''
+                        } transition-colors`}
+                        onClick={() => !isSingleGroup && handleGroupHeaderClick(groupIndex)}>
+                        <div className='flex items-center gap-3 flex-1'>
+                          {group.title && (
+                            <h3
+                              className={`text-body-lg font-semibold ${
+                                isVisited ? 'text-brand-secondary' : 'text-gray-500'
+                              }`}>
+                              {group.title}
+                            </h3>
+                          )}
+                          {isVisited && groupComplete && !isExpanded && (
+                            <MdCheckCircle className='w-5 h-5 text-green-500' />
+                          )}
+                        </div>
+                        {!isSingleGroup && (
+                          <MdExpandMore
+                            className={`w-6 h-6 transition-transform ${
+                              isExpanded ? 'rotate-180' : ''
+                            } ${isVisited ? 'text-brand-secondary' : 'text-gray-400'}`}
+                          />
+                        )}
+                      </div>
+
+                      {/* Group Content */}
+                      {isExpanded && (
+                        <div className='px-6 pb-6 space-y-4 border-t border-gray-200 pt-6'>
+                          {group.questions.map((question) => {
+                            // Check if question should be displayed based on conditional logic
+                            if (!shouldDisplayQuestion(question, formData)) {
+                              return null;
+                            }
+
+                            return (
+                              <FormField
+                                key={question.id}
+                                question={question}
+                                register={register}
+                                errors={errors}
+                                touchedFields={touchedFields}
+                                attemptedValidation={attemptedValidation}
+                                watch={watch}
+                                setValue={setValue}
+                                getValidationRules={getValidationRules}
+                              />
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Next Question Button */}
+                    {!isLastGroup && isExpanded && (
+                      <div className='flex justify-center my-6'>
+                        <button
+                          type='button'
+                          onClick={() => handleNextQuestion(groupIndex)}
+                          disabled={!groupComplete}
+                          className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                            groupComplete
+                              ? 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-md'
+                              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          }`}>
+                          Next Question
+                        </button>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
 
           {/* Navigation Buttons */}
