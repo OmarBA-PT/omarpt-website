@@ -58,6 +58,7 @@ const ApplicationForm = () => {
 
   // Track previous step to detect backwards navigation
   const prevStepRef = useRef(currentStep);
+  const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(new Set([0]));
 
   // Initialize group state when step changes
   useEffect(() => {
@@ -69,14 +70,18 @@ const ApplicationForm = () => {
       // Check if we're moving backwards or if this step hasn't been initialized
       const isMovingBackwards = currentStep < prevStepRef.current;
       const stepNotInitialized = !groupState[currentStep];
+      const isReturningToPreviouslyVisitedStep = stepsVisitedForward.has(currentStep) && isMovingBackwards;
 
       const newState: GroupState[number] = {};
       const isSingleGroup = questionGroups.length === 1;
 
       questionGroups.forEach((_, groupIndex) => {
         if (isSingleGroup) {
-          // Single group: expanded and non-collapsible
+          // Single group: ALWAYS expanded and non-collapsible (forward or backward navigation)
           newState[groupIndex] = { isExpanded: true, isVisited: true };
+        } else if (isReturningToPreviouslyVisitedStep) {
+          // When returning to a previously visited step, collapse ALL groups but mark them as visited
+          newState[groupIndex] = { isExpanded: false, isVisited: true };
         } else if (groupIndex === 0) {
           // Multiple groups: first one expanded and visited
           newState[groupIndex] = { isExpanded: true, isVisited: true };
@@ -91,12 +96,17 @@ const ApplicationForm = () => {
         setGroupState((prev) => ({ ...prev, [currentStep]: newState }));
       }
 
+      // Track forward navigation
+      if (currentStep > prevStepRef.current) {
+        setStepsVisitedForward((prev) => new Set(prev).add(currentStep));
+      }
+
       // Update previous step reference
       prevStepRef.current = currentStep;
     };
 
     initializeGroupState();
-  }, [currentStep, isContactDetailsStep, currentSection, groupState]);
+  }, [currentStep, isContactDetailsStep, currentSection, groupState, stepsVisitedForward]);
 
   // Reset attemptedValidation and clear errors when step changes
   useEffect(() => {
@@ -228,27 +238,46 @@ const ApplicationForm = () => {
     const currentGroupState = groupState[currentStep]?.[groupIndex];
     if (!currentGroupState) return;
 
-    // Only allow expanding visited groups or the next unvisited group
-    if (!currentGroupState.isExpanded && !currentGroupState.isVisited) {
-      // Check if this is the next sequential unvisited group
-      const isNextGroup = Object.entries(groupState[currentStep] || {}).every(([idx, state]) => {
-        const index = parseInt(idx);
-        return index >= groupIndex || state.isVisited;
-      });
-      if (!isNextGroup) return; // Don't allow skipping groups
-    }
+    // Check if we're on a previously visited step (all groups are visited)
+    const isOnPreviouslyVisitedStep = stepsVisitedForward.has(currentStep);
 
-    // Toggle the expanded state
-    setGroupState((prev) => ({
-      ...prev,
-      [currentStep]: {
-        ...prev[currentStep],
-        [groupIndex]: {
-          ...currentGroupState,
-          isExpanded: !currentGroupState.isExpanded,
+    if (isOnPreviouslyVisitedStep) {
+      // On previously visited steps, allow clicking any group to toggle
+      setGroupState((prev) => ({
+        ...prev,
+        [currentStep]: {
+          ...prev[currentStep],
+          [groupIndex]: {
+            ...currentGroupState,
+            isExpanded: !currentGroupState.isExpanded,
+          },
         },
-      },
-    }));
+      }));
+    } else {
+      // On new steps, only allow expanding visited groups or the next unvisited group
+      if (!currentGroupState.isExpanded && !currentGroupState.isVisited) {
+        // Check if this is the next sequential unvisited group
+        const isNextGroup = Object.entries(groupState[currentStep] || {}).every(
+          ([idx, state]) => {
+            const index = parseInt(idx);
+            return index >= groupIndex || state.isVisited;
+          }
+        );
+        if (!isNextGroup) return; // Don't allow skipping groups
+      }
+
+      // Toggle the expanded state
+      setGroupState((prev) => ({
+        ...prev,
+        [currentStep]: {
+          ...prev[currentStep],
+          [groupIndex]: {
+            ...currentGroupState,
+            isExpanded: !currentGroupState.isExpanded,
+          },
+        },
+      }));
+    }
   };
 
   // Check if the last group in the current section has been visited and completed
@@ -328,7 +357,10 @@ const ApplicationForm = () => {
   const handlePrevious = () => {
     if (currentStep > 0) {
       setCurrentStep((prev) => prev - 1);
-      scrollToTop();
+      // Delay scroll to allow state update to complete
+      setTimeout(() => {
+        scrollToTop();
+      }, 50);
     }
   };
 
