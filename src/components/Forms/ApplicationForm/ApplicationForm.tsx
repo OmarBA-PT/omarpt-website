@@ -290,6 +290,23 @@ const ApplicationForm = () => {
         },
       },
     }));
+
+    // Scroll to the next group after allowing animations to complete
+    setTimeout(() => {
+      const nextGroupKey = `${currentStep}-${nextGroupIndex}`;
+      const nextGroupElement = groupRefs.current[nextGroupKey];
+      if (nextGroupElement) {
+        // Get the element's position relative to the viewport
+        const elementTop = nextGroupElement.getBoundingClientRect().top;
+        const offsetPosition = elementTop + window.scrollY - 20; // 20px offset from top
+
+        // Smooth scroll to the calculated position
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }, 150);
   };
 
   const handleNext = async () => {
