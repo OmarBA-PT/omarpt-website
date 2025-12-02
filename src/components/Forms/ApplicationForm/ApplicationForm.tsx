@@ -15,6 +15,7 @@ const ApplicationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [attemptedValidation, setAttemptedValidation] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -66,19 +67,19 @@ const ApplicationForm = () => {
     return ids;
   };
 
-  // Check if current section has any errors (only for touched fields)
+  // Check if current section has any errors (only for touched fields or after validation attempt)
   const currentSectionHasErrors = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.some((id) => errors[id] && touchedFields[id]);
+    return questionIds.some((id) => errors[id] && (touchedFields[id] || attemptedValidation));
   };
 
   console.log('Current Section:', currentSection?.id);
   console.log(errors);
 
-  // Get error count for current section (only for touched fields)
+  // Get error count for current section (only for touched fields or after validation attempt)
   const getCurrentSectionErrorCount = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.filter((id) => errors[id] && touchedFields[id]).length;
+    return questionIds.filter((id) => errors[id] && (touchedFields[id] || attemptedValidation)).length;
   };
 
   // Scroll to top of form
@@ -92,11 +93,15 @@ const ApplicationForm = () => {
     const isValid = await trigger(questionIds);
 
     if (isValid) {
+      // Reset validation attempt flag when moving to next step
+      setAttemptedValidation(false);
       if (currentStep < totalSteps - 1) {
         setCurrentStep((prev) => prev + 1);
         scrollToTop();
       }
     } else {
+      // Mark that validation was attempted so errors show even for untouched fields
+      setAttemptedValidation(true);
       // Scroll to top to show error banner
       scrollToTop();
     }
@@ -104,6 +109,8 @@ const ApplicationForm = () => {
 
   const handlePrevious = () => {
     if (currentStep > 0) {
+      // Reset validation attempt flag when going back
+      setAttemptedValidation(false);
       setCurrentStep((prev) => prev - 1);
       scrollToTop();
     }
@@ -313,7 +320,14 @@ const ApplicationForm = () => {
         <form onSubmit={handleSubmit(onSubmit)} className='bg-black/20 rounded-xl shadow-lg p-8'>
           <div className='space-y-6'>
             {/* Contact Details Step - Using ContactDetailsStep Component */}
-            {isContactDetailsStep && <ContactDetailsStep register={register} errors={errors} />}
+            {isContactDetailsStep && (
+              <ContactDetailsStep
+                register={register}
+                errors={errors}
+                touchedFields={touchedFields}
+                attemptedValidation={attemptedValidation}
+              />
+            )}
 
             {/* Dynamic Form Fields from applicationFormData */}
             {!isContactDetailsStep &&
@@ -330,6 +344,7 @@ const ApplicationForm = () => {
                     register={register}
                     errors={errors}
                     touchedFields={touchedFields}
+                    attemptedValidation={attemptedValidation}
                     watch={watch}
                     setValue={setValue}
                     getValidationRules={getValidationRules}

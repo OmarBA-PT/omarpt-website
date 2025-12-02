@@ -1,13 +1,20 @@
 import React from 'react';
-import { UseFormRegister, FieldErrors } from 'react-hook-form';
+import { UseFormRegister, FieldErrors, FieldNamesMarkedBoolean } from 'react-hook-form';
 import TextInput from './TextInput';
 
 interface ContactDetailsStepProps {
   register: UseFormRegister<any>;
   errors: FieldErrors<any>;
+  touchedFields: FieldNamesMarkedBoolean<any>;
+  attemptedValidation: boolean;
 }
 
-const ContactDetailsStep = ({ register, errors }: ContactDetailsStepProps) => {
+const ContactDetailsStep = ({
+  register,
+  errors,
+  touchedFields,
+  attemptedValidation,
+}: ContactDetailsStepProps) => {
   return (
     <>
       <TextInput
@@ -16,7 +23,7 @@ const ContactDetailsStep = ({ register, errors }: ContactDetailsStepProps) => {
         type='text'
         placeholder='Enter your full name'
         required
-        error={errors.fullName}
+        error={touchedFields.fullName || attemptedValidation ? errors.fullName : undefined}
         register={register}
         validation={{
           required: 'This field is required',
@@ -29,7 +36,7 @@ const ContactDetailsStep = ({ register, errors }: ContactDetailsStepProps) => {
         type='email'
         placeholder='your.email@example.com'
         required
-        error={errors.email}
+        error={touchedFields.email || attemptedValidation ? errors.email : undefined}
         register={register}
         validation={{
           required: 'This field is required',
@@ -46,7 +53,7 @@ const ContactDetailsStep = ({ register, errors }: ContactDetailsStepProps) => {
         type='tel'
         placeholder='+44 7XXX XXXXXX'
         required
-        error={errors.phone}
+        error={touchedFields.phone || attemptedValidation ? errors.phone : undefined}
         register={register}
         validation={{
           required: 'This field is required',

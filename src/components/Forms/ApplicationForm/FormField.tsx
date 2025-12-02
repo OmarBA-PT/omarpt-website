@@ -19,6 +19,7 @@ interface FormFieldProps {
   register: UseFormRegister<any>;
   errors: FieldErrors<any>;
   touchedFields: FieldNamesMarkedBoolean<any>;
+  attemptedValidation: boolean;
   watch: UseFormWatch<any>;
   setValue: UseFormSetValue<any>;
   getValidationRules: (required: boolean) => object;
@@ -29,6 +30,7 @@ const FormField = ({
   register,
   errors,
   touchedFields,
+  attemptedValidation,
   watch,
   setValue,
   getValidationRules,
@@ -37,8 +39,8 @@ const FormField = ({
 
   const renderField = () => {
     const validation = getValidationRules(question.required || false);
-    // Only show error if field has been touched
-    const shouldShowError = touchedFields[question.id];
+    // Only show error if field has been touched or validation was attempted
+    const shouldShowError = touchedFields[question.id] || attemptedValidation;
 
     switch (question.type) {
       case 'text':
@@ -119,8 +121,8 @@ const FormField = ({
 
   const renderSubQuestion = (subQuestion: FormQuestion) => {
     const validation = getValidationRules(subQuestion.required || false);
-    // Only show error if field has been touched
-    const shouldShowError = touchedFields[subQuestion.id];
+    // Only show error if field has been touched or validation was attempted
+    const shouldShowError = touchedFields[subQuestion.id] || attemptedValidation;
 
     switch (subQuestion.type) {
       case 'textarea':
