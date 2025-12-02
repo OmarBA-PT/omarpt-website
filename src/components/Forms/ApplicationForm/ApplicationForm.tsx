@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
+import { contactDetailsStepData } from './contactDetailsStepData';
 import FormField from './FormField';
 import ContactDetailsStep from '@/components/Forms/ContactDetailsStep';
 import { MdError } from 'react-icons/md';
@@ -54,9 +55,11 @@ const ApplicationForm = () => {
   const getCurrentSectionQuestionIds = () => {
     const ids: string[] = [];
 
-    // Contact Details step - hard-coded fields
+    // Contact Details step - read field IDs from contactDetailsStepData
     if (isContactDetailsStep) {
-      ids.push('fullName', 'email', 'phone');
+      contactDetailsStepData.fields.forEach((field) => {
+        ids.push(field.id);
+      });
       return ids;
     }
 
@@ -232,7 +235,7 @@ const ApplicationForm = () => {
             className={`text-body-xs text-center ${
               0 === currentStep ? 'text-brand-primary font-medium' : 'text-gray-500'
             }`}>
-            Contact Details
+            {contactDetailsStepData.title}
           </span>
         </div>
 
@@ -265,12 +268,10 @@ const ApplicationForm = () => {
       {/* Section Header */}
       <div className='mb-8 text-center'>
         <h2 className='text-h3 font-bold text-gray-900 mb-2'>
-          {isContactDetailsStep ? 'Contact Details' : currentSection?.title}
+          {isContactDetailsStep ? contactDetailsStepData.title : currentSection?.title}
         </h2>
         {isContactDetailsStep ? (
-          <p className='text-body-base text-gray-600'>
-            Let&apos;s start with some basic information about you
-          </p>
+          <p className='text-body-base text-gray-600'>{contactDetailsStepData.description}</p>
         ) : (
           currentSection?.description && (
             <p className='text-body-base text-gray-600'>{currentSection.description}</p>
@@ -409,7 +410,7 @@ const ApplicationForm = () => {
       <div className='md:hidden mt-4 text-center'>
         <p className='text-body-sm text-gray-600'>
           <span className={0 === currentStep ? 'text-brand-primary font-medium' : ''}>
-            Contact Details
+            {contactDetailsStepData.title}
           </span>
           {applicationFormData.map((section, index) => {
             const stepIndex = index + 1;
