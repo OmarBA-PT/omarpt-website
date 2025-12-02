@@ -58,7 +58,8 @@ const ApplicationForm = () => {
 
   // Track previous step to detect backwards navigation
   const prevStepRef = useRef(currentStep);
-  const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(new Set([0]));
+  const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(new Set());
+  const [stepsCompletedForward, setStepsCompletedForward] = useState<Set<number>>(new Set());
 
   // Initialize group state when step changes
   useEffect(() => {
@@ -106,13 +107,48 @@ const ApplicationForm = () => {
     };
 
     initializeGroupState();
-  }, [currentStep, isContactDetailsStep, currentSection, groupState, stepsVisitedForward]);
+  }, [currentStep, isContactDetailsStep, currentSection, stepsVisitedForward]);
 
   // Reset attemptedValidation and clear errors when step changes
   useEffect(() => {
     setAttemptedValidation(false);
     clearErrors();
   }, [currentStep, clearErrors]);
+
+  // Auto-progress for radio button only groups
+  useEffect(() => {
+    // Don't run if group state hasn't been initialized for this step yet
+    if (!groupState[currentStep]) return;
+
+    // Don't auto-progress on steps we've already completed going forward
+    if (stepsCompletedForward.has(currentStep)) return;
+
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    // Check each group to see if it should auto-progress
+    questionGroups.forEach((_, groupIndex) => {
+      const currentGroupState = groupState[currentStep]?.[groupIndex];
+
+      // Only check groups that are expanded and not the last group
+      if (!currentGroupState?.isExpanded) return;
+      if (groupIndex >= questionGroups.length - 1) return;
+
+      // Check if next group is already visited (already auto-progressed or manually clicked)
+      const nextGroupState = groupState[currentStep]?.[groupIndex + 1];
+      if (nextGroupState?.isVisited) return;
+
+      // Check if this group has only radio button required fields
+      if (!groupHasOnlyRadioButtonRequiredFields(groupIndex)) return;
+
+      // Check if the group is complete
+      if (isGroupComplete(groupIndex)) {
+        handleNextQuestion(groupIndex);
+      }
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData, groupState]);
 
   // Get all question IDs for the current section (including sub-questions)
   const getCurrentSectionQuestionIds = () => {
@@ -224,6 +260,47 @@ const ApplicationForm = () => {
     }
 
     return true;
+  };
+
+  // Check if a group has only radio button or yes/no required fields
+  const groupHasOnlyRadioButtonRequiredFields = (groupIndex: number): boolean => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const group = questionGroups[groupIndex];
+    if (!group) return false;
+
+    let hasRequiredFields = false;
+
+    for (const question of group.questions) {
+      // Skip questions that shouldn't be displayed
+      if (!isContactDetailsStep && !shouldDisplayQuestion(question, formData)) {
+        continue;
+      }
+
+      // If there's a required field that's not a radio button or yesno, return false
+      if (question.required) {
+        hasRequiredFields = true;
+        if (question.type !== 'radio' && question.type !== 'yesno') {
+          return false;
+        }
+      }
+
+      // Check sub-questions
+      if (question.subQuestions) {
+        for (const subQ of question.subQuestions) {
+          if (subQ.required) {
+            hasRequiredFields = true;
+            if (subQ.type !== 'radio' && subQ.type !== 'yesno') {
+              return false;
+            }
+          }
+        }
+      }
+    }
+
+    return hasRequiredFields; // Only return true if there are required fields and they're all radio/yesNo buttons
   };
 
   // Handle clicking on a group header
@@ -340,6 +417,8 @@ const ApplicationForm = () => {
 
     if (isValid) {
       if (currentStep < totalSteps - 1) {
+        // Mark this step as completed forward before moving to next step
+        setStepsCompletedForward((prev) => new Set(prev).add(currentStep));
         setCurrentStep((prev) => prev + 1);
         // Delay scroll to allow state update to complete
         setTimeout(() => {
