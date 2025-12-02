@@ -1,5 +1,11 @@
 import React from 'react';
-import { UseFormRegister, FieldErrors, UseFormWatch, UseFormSetValue } from 'react-hook-form';
+import {
+  UseFormRegister,
+  FieldErrors,
+  UseFormWatch,
+  UseFormSetValue,
+  FieldNamesMarkedBoolean,
+} from 'react-hook-form';
 import { FormQuestion } from '@/data/applicationFormData';
 import TextInput from '@/components/Forms/TextInput';
 import TextArea from '@/components/Forms/TextArea';
@@ -12,6 +18,7 @@ interface FormFieldProps {
   question: FormQuestion;
   register: UseFormRegister<any>;
   errors: FieldErrors<any>;
+  touchedFields: FieldNamesMarkedBoolean<any>;
   watch: UseFormWatch<any>;
   setValue: UseFormSetValue<any>;
   getValidationRules: (required: boolean) => object;
@@ -21,6 +28,7 @@ const FormField = ({
   question,
   register,
   errors,
+  touchedFields,
   watch,
   setValue,
   getValidationRules,
@@ -29,6 +37,8 @@ const FormField = ({
 
   const renderField = () => {
     const validation = getValidationRules(question.required || false);
+    // Only show error if field has been touched
+    const shouldShowError = touchedFields[question.id];
 
     switch (question.type) {
       case 'text':
@@ -39,7 +49,7 @@ const FormField = ({
             type='text'
             placeholder={question.placeholder}
             required={question.required}
-            error={errors[question.id]}
+            error={shouldShowError ? errors[question.id] : undefined}
             helperText={question.helperText}
             register={register}
             validation={validation}
@@ -53,7 +63,7 @@ const FormField = ({
             label={question.question}
             placeholder={question.placeholder}
             required={question.required}
-            error={errors[question.id]}
+            error={shouldShowError ? errors[question.id] : undefined}
             helperText={question.helperText}
             register={register}
             validation={validation}
@@ -68,7 +78,7 @@ const FormField = ({
             label={question.question}
             options={question.options || []}
             required={question.required}
-            error={errors[question.id]}
+            error={shouldShowError ? errors[question.id] : undefined}
             helperText={question.helperText}
             register={register}
             validation={validation}
@@ -82,7 +92,7 @@ const FormField = ({
             label={question.question}
             options={question.options || []}
             required={question.required}
-            error={errors[question.id]}
+            error={shouldShowError ? errors[question.id] : undefined}
             helperText={question.helperText}
             value={value}
             setValue={setValue}
@@ -95,7 +105,7 @@ const FormField = ({
             id={question.id}
             label={question.question}
             required={question.required}
-            error={errors[question.id]}
+            error={shouldShowError ? errors[question.id] : undefined}
             helperText={question.helperText}
             register={register}
             validation={validation}
@@ -109,6 +119,8 @@ const FormField = ({
 
   const renderSubQuestion = (subQuestion: FormQuestion) => {
     const validation = getValidationRules(subQuestion.required || false);
+    // Only show error if field has been touched
+    const shouldShowError = touchedFields[subQuestion.id];
 
     switch (subQuestion.type) {
       case 'textarea':
@@ -118,7 +130,7 @@ const FormField = ({
             label={subQuestion.question}
             placeholder={subQuestion.placeholder}
             required={subQuestion.required}
-            error={errors[subQuestion.id]}
+            error={shouldShowError ? errors[subQuestion.id] : undefined}
             helperText={subQuestion.helperText}
             register={register}
             validation={validation}
@@ -133,7 +145,7 @@ const FormField = ({
             type='text'
             placeholder={subQuestion.placeholder}
             required={subQuestion.required}
-            error={errors[subQuestion.id]}
+            error={shouldShowError ? errors[subQuestion.id] : undefined}
             helperText={subQuestion.helperText}
             register={register}
             validation={validation}
@@ -151,7 +163,7 @@ const FormField = ({
       {/* Render sub-questions if they exist */}
       {question.subQuestions && question.subQuestions.length > 0 && (
         <div className={formStyles.field.subQuestionWrapper}>
-          {question.subQuestions.map((subQuestion) => (
+          {question.subQuestions.map((subQuestion: FormQuestion) => (
             <div key={subQuestion.id}>{renderSubQuestion(subQuestion)}</div>
           ))}
         </div>

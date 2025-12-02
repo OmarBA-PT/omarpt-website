@@ -22,7 +22,7 @@ const ApplicationForm = () => {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors },
+    formState: { errors, touchedFields },
     trigger,
   } = useForm<ApplicationFormData>({
     mode: 'onTouched',
@@ -66,16 +66,19 @@ const ApplicationForm = () => {
     return ids;
   };
 
-  // Check if current section has any errors
+  // Check if current section has any errors (only for touched fields)
   const currentSectionHasErrors = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.some((id) => errors[id]);
+    return questionIds.some((id) => errors[id] && touchedFields[id]);
   };
 
-  // Get error count for current section
+  console.log('Current Section:', currentSection?.id);
+  console.log(errors);
+
+  // Get error count for current section (only for touched fields)
   const getCurrentSectionErrorCount = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.filter((id) => errors[id]).length;
+    return questionIds.filter((id) => errors[id] && touchedFields[id]).length;
   };
 
   // Scroll to top of form
@@ -326,6 +329,7 @@ const ApplicationForm = () => {
                     question={question}
                     register={register}
                     errors={errors}
+                    touchedFields={touchedFields}
                     watch={watch}
                     setValue={setValue}
                     getValidationRules={getValidationRules}
