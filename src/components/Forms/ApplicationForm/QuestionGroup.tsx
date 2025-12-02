@@ -11,6 +11,7 @@ interface QuestionGroupProps {
   groupComplete: boolean;
   groupKey: string;
   groupTitle?: string;
+  hasOnlyRadioButtons: boolean;
   children: React.ReactNode;
   onHeaderClick: (groupIndex: number) => void;
   onNextQuestion: (groupIndex: number) => void;
@@ -26,6 +27,7 @@ const QuestionGroup = ({
   groupComplete,
   groupKey,
   groupTitle,
+  hasOnlyRadioButtons,
   children,
   onHeaderClick,
   onNextQuestion,
@@ -82,8 +84,8 @@ const QuestionGroup = ({
         </div>
       </div>
 
-      {/* Next Question Button */}
-      {!isLastGroup && isExpanded && !nextGroupVisited && (
+      {/* Next Question Button - Hidden for radio-only groups since they auto-progress */}
+      {!isLastGroup && isExpanded && !nextGroupVisited && !hasOnlyRadioButtons && (
         <div className='flex justify-center my-6'>
           <button
             type='button'

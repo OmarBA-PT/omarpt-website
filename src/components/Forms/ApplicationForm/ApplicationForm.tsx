@@ -350,6 +350,7 @@ const ApplicationForm = () => {
               const isLastGroup = groupIndex === questionGroups.length - 1;
               const groupComplete = isGroupComplete(groupIndex);
               const groupKey = `${currentStep}-${groupIndex}`;
+              const hasOnlyRadioButtons = groupHasOnlyRadioButtonRequiredFields(groupIndex);
 
               return (
                 <QuestionGroup
@@ -362,6 +363,7 @@ const ApplicationForm = () => {
                   groupComplete={groupComplete}
                   groupKey={groupKey}
                   groupTitle={group.title}
+                  hasOnlyRadioButtons={hasOnlyRadioButtons}
                   onHeaderClick={handleGroupHeaderClick}
                   onNextQuestion={handleNextQuestion}
                   setGroupRef={setGroupRef}>
