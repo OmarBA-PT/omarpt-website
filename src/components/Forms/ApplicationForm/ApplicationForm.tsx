@@ -566,65 +566,64 @@ const ApplicationForm = () => {
                       </div>
 
                       {/* Group Content */}
-                      {isExpanded && (
-                        <div className='px-6 pb-6 space-y-4 border-t border-gray-200 pt-6'>
-                          {group.questions.map((question) => {
-                            // Determine input type and validation based on the question
-                            let inputType: 'text' | 'email' | 'tel' = 'text';
-                            let validation: any = {};
+                      <div
+                        className={`px-6 pb-6 space-y-4 border-t border-gray-200 pt-6 ${
+                          isExpanded ? '' : 'hidden'
+                        }`}>
+                        {group.questions.map((question) => {
+                          // Determine input type and validation based on the question
+                          let inputType: 'text' | 'email' | 'tel' = 'text';
+                          let validation: any = {};
 
-                            if (question.required) {
-                              validation.required = 'This field is required';
-                            }
+                          if (question.required) {
+                            validation.required = 'This field is required';
+                          }
 
-                            // Special handling for email field
-                            if (question.id === 'email') {
-                              inputType = 'email';
-                              validation.pattern = {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: 'Please enter a valid email address',
-                              };
-                            }
+                          // Special handling for email field
+                          if (question.id === 'email') {
+                            inputType = 'email';
+                            validation.pattern = {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              message: 'Please enter a valid email address',
+                            };
+                          }
 
-                            // Special handling for phone field
-                            if (question.id === 'phone') {
-                              inputType = 'tel';
-                            }
+                          // Special handling for phone field
+                          if (question.id === 'phone') {
+                            inputType = 'tel';
+                          }
 
-                            return (
-                              <div key={question.id}>
-                                <label
-                                  htmlFor={question.id}
-                                  className='block text-body-sm font-medium text-gray-700 mb-2'>
-                                  {question.question}
-                                  {question.required && (
-                                    <span className='text-red-500 ml-1'>*</span>
-                                  )}
-                                </label>
-                                <input
-                                  id={question.id}
-                                  type={inputType}
-                                  placeholder={question.placeholder}
-                                  {...register(question.id, validation)}
-                                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
-                                    (touchedFields as any)[question.id] || attemptedValidation
-                                      ? (errors as any)[question.id]
-                                        ? 'border-red-500 focus:ring-red-500/20'
-                                        : 'border-green-500 focus:ring-green-500/20'
-                                      : 'border-gray-300 focus:ring-brand-primary/20'
-                                  }`}
-                                />
-                                {((touchedFields as any)[question.id] || attemptedValidation) &&
-                                  (errors as any)[question.id] && (
-                                    <p className='mt-2 text-body-sm text-red-600'>
-                                      {(errors as any)[question.id]?.message}
-                                    </p>
-                                  )}
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
+                          return (
+                            <div key={question.id}>
+                              <label
+                                htmlFor={question.id}
+                                className='block text-body-sm font-medium text-gray-700 mb-2'>
+                                {question.question}
+                                {question.required && <span className='text-red-500 ml-1'>*</span>}
+                              </label>
+                              <input
+                                id={question.id}
+                                type={inputType}
+                                placeholder={question.placeholder}
+                                {...register(question.id, validation)}
+                                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
+                                  (touchedFields as any)[question.id] || attemptedValidation
+                                    ? (errors as any)[question.id]
+                                      ? 'border-red-500 focus:ring-red-500/20'
+                                      : 'border-green-500 focus:ring-green-500/20'
+                                    : 'border-gray-300 focus:ring-brand-primary/20'
+                                }`}
+                              />
+                              {((touchedFields as any)[question.id] || attemptedValidation) &&
+                                (errors as any)[question.id] && (
+                                  <p className='mt-2 text-body-sm text-red-600'>
+                                    {(errors as any)[question.id]?.message}
+                                  </p>
+                                )}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
 
                     {/* Next Question Button */}
@@ -699,30 +698,31 @@ const ApplicationForm = () => {
                       </div>
 
                       {/* Group Content */}
-                      {isExpanded && (
-                        <div className='px-6 pb-6 space-y-4 border-t border-gray-200 pt-6'>
-                          {group.questions.map((question) => {
-                            // Check if question should be displayed based on conditional logic
-                            if (!shouldDisplayQuestion(question, formData)) {
-                              return null;
-                            }
+                      <div
+                        className={`px-6 pb-6 space-y-4 border-t border-gray-200 pt-6 ${
+                          isExpanded ? '' : 'hidden'
+                        }`}>
+                        {group.questions.map((question) => {
+                          // Check if question should be displayed based on conditional logic
+                          if (!shouldDisplayQuestion(question, formData)) {
+                            return null;
+                          }
 
-                            return (
-                              <FormField
-                                key={question.id}
-                                question={question}
-                                register={register}
-                                errors={errors}
-                                touchedFields={touchedFields}
-                                attemptedValidation={attemptedValidation}
-                                watch={watch}
-                                setValue={setValue}
-                                getValidationRules={getValidationRules}
-                              />
-                            );
-                          })}
-                        </div>
-                      )}
+                          return (
+                            <FormField
+                              key={question.id}
+                              question={question}
+                              register={register}
+                              errors={errors}
+                              touchedFields={touchedFields}
+                              attemptedValidation={attemptedValidation}
+                              watch={watch}
+                              setValue={setValue}
+                              getValidationRules={getValidationRules}
+                            />
+                          );
+                        })}
+                      </div>
                     </div>
 
                     {/* Next Question Button */}
