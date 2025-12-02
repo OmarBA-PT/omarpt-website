@@ -19,7 +19,6 @@ import type {
   CheckList as CheckListType,
   ItemList as ItemListType,
   ServiceCard as ServiceCardType,
-  ContactForm as ContactFormType,
   Divider as DividerType,
   ResponsiveWrapper as ResponsiveWrapperType,
   GridLayout as GridLayoutType,
@@ -46,7 +45,6 @@ import BlockListWithStats from '@/components/_blocks/BlockListWithStats';
 import CheckList from '@/components/_blocks/CheckList';
 import ItemList from '@/components/_blocks/ItemList';
 import ServiceCard from '@/components/_blocks/ServiceCard';
-import ContactFormComponent from '@/components/Forms/ContactForm';
 import Divider from '@/components/UI/Divider';
 import ResponsiveWrapper from '@/components/_blocks/ResponsiveWrapper';
 import GridLayout from '@/components/_blocks/GridLayout';
@@ -90,7 +88,6 @@ type BlockType =
   | WithKey<CheckListType>
   | WithKey<ItemListType>
   | WithKey<ServiceCardType>
-  | WithKey<ContactFormType>
   | WithKey<DividerType>
   | WithKey<ResponsiveWrapperType>
   | WithKey<GridLayoutType>
@@ -362,15 +359,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             documentType={documentType}
             fieldPathPrefix={blockPath}
           />
-        </BlockWrapper>
-      );
-    }
-
-    case 'contactForm': {
-      const contactFormBlock = typedBlock as WithKey<ContactFormType>;
-      return (
-        <BlockWrapper key={contactFormBlock._key}>
-          <ContactFormComponent settings={contactFormSettings} />
         </BlockWrapper>
       );
     }

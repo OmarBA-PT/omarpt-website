@@ -11,7 +11,7 @@ import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStru
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdDownload, MdQuestionAnswer, MdLock } from 'react-icons/md';
-import ApplicationForm from '@/components/ApplicationForm/ApplicationForm';
+import ApplicationForm from '@/components/Forms/ApplicationForm/ApplicationForm';
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -90,9 +90,7 @@ const ApplyPage = () => {
           {/* Online Form Option */}
           <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 border-2 border-brand-primary'>
             <MdQuestionAnswer className='w-10 h-10 text-brand-primary mx-auto mb-4' />
-            <h3 className='text-h5 font-semibold text-gradient-primary mb-4'>
-              Complete Online
-            </h3>
+            <h3 className='text-h5 font-semibold text-gradient-primary mb-4'>Complete Online</h3>
             <p className='text-body-base text-brand-white mb-6'>
               Fill out the application form below on this page. Quick and easy!
             </p>

@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import CTA from '../UI/CTA';
+import CTA from '@/components/UI/CTA';
 import type { CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
-import TextInput from './TextInput';
-import TextArea from './TextArea';
+import TextInput from '@/components/Forms/TextInput';
+import TextArea from '@/components/Forms/TextArea';
 
 interface ContactFormProps {
   className?: string;

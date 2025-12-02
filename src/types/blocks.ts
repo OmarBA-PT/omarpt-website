@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, ResponsiveWrapper, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, ContactForm, FaqBlock } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, ResponsiveWrapper, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, FaqBlock } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -44,7 +44,6 @@ export type BlockListWithStatsBlock = BlockListWithStats & { _key: string };
 export type CheckListBlock = CheckList & { _key: string };
 export type ItemListBlock = ItemList & { _key: string };
 export type ServiceCardBlock = ServiceCard & { _key: string };
-export type ContactFormBlock = ContactForm & { _key: string };
 export type FAQBlockType = FaqBlock & { _key: string };
 
 // Union of all possible block types (current and future)
@@ -75,7 +74,6 @@ export type NestedBlock =
   | CheckListBlock
   | ItemListBlock
   | ServiceCardBlock
-  | ContactFormBlock
   | FAQBlockType;
 
 // Union of blocks that can contain nested content
@@ -176,10 +174,6 @@ export const isDetailedListBlock = (block: NestedBlock): block is DetailedListBl
 
 export const isItemListBlock = (block: NestedBlock): block is ItemListBlock => {
   return block._type === 'itemList';
-};
-
-export const isContactFormBlock = (block: NestedBlock): block is ContactFormBlock => {
-  return block._type === 'contactForm';
 };
 
 export const isFAQBlock = (block: NestedBlock): block is FAQBlockType => {

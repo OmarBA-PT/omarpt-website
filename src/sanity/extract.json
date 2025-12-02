@@ -679,29 +679,6 @@
     }
   },
   {
-    "name": "contactForm",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "contactForm"
-          }
-        },
-        "placeholder": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "serviceCard",
     "type": "type",
     "value": {
@@ -2558,21 +2535,6 @@
                   },
                   "rest": {
                     "type": "inline",
-                    "name": "contactForm"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
                     "name": "companyLinksBlock"
                   }
                 },
@@ -2922,21 +2884,6 @@
                   },
                   "rest": {
                     "type": "inline",
-                    "name": "contactForm"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
                     "name": "companyLinksBlock"
                   }
                 },
@@ -3235,21 +3182,6 @@
                   "rest": {
                     "type": "inline",
                     "name": "serviceCard"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "contactForm"
                   }
                 },
                 {
@@ -4003,21 +3935,6 @@
                   },
                   "rest": {
                     "type": "inline",
-                    "name": "contactForm"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
                     "name": "companyLinksBlock"
                   }
                 },
@@ -4349,21 +4266,6 @@
                   "rest": {
                     "type": "inline",
                     "name": "serviceCard"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "contactForm"
                   }
                 },
                 {
@@ -4958,21 +4860,6 @@
                   },
                   "rest": {
                     "type": "inline",
-                    "name": "contactForm"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
                     "name": "companyLinksBlock"
                   }
                 },
@@ -5338,21 +5225,6 @@
                   "rest": {
                     "type": "inline",
                     "name": "serviceCard"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "contactForm"
                   }
                 },
                 {
@@ -5747,21 +5619,6 @@
                   "rest": {
                     "type": "inline",
                     "name": "serviceCard"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "contactForm"
                   }
                 },
                 {
@@ -6320,21 +6177,6 @@
                   },
                   "rest": {
                     "type": "inline",
-                    "name": "contactForm"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
                     "name": "companyLinksBlock"
                   }
                 },
@@ -6678,21 +6520,6 @@
                   "rest": {
                     "type": "inline",
                     "name": "serviceCard"
-                  }
-                },
-                {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "contactForm"
                   }
                 },
                 {
@@ -7756,21 +7583,6 @@
                 },
                 "rest": {
                   "type": "inline",
-                  "name": "contactForm"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
                   "name": "companyLinksBlock"
                 }
               },
@@ -8172,21 +7984,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "serviceCard"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "contactForm"
                 }
               },
               {
@@ -8609,21 +8406,6 @@
                 },
                 "rest": {
                   "type": "inline",
-                  "name": "contactForm"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
                   "name": "companyLinksBlock"
                 }
               },
@@ -9026,21 +8808,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "serviceCard"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "contactForm"
                 }
               },
               {
