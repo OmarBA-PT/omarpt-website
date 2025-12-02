@@ -149,7 +149,8 @@ export function generateApplicationConfirmationEmail(
                       <tr>
                         <td style="background-color: #f9f9f9; padding: 20px; border-radius: 0 0 4px 4px;">
                           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                            ${section.questions
+                            ${section.questionGroups
+                              .flatMap((group) => group.questions)
                               .map((question, qIndex) => {
                                 const answer = formatAnswer(formData[question.id], question.type);
                                 let subQuestionsHtml = '';
@@ -157,7 +158,7 @@ export function generateApplicationConfirmationEmail(
                                 // Handle sub-questions
                                 if (question.subQuestions && question.subQuestions.length > 0) {
                                   subQuestionsHtml = question.subQuestions
-                                    .map(subQ => {
+                                    .map((subQ) => {
                                       const subAnswer = formatAnswer(formData[subQ.id], subQ.type);
                                       return `
                                         <tr>

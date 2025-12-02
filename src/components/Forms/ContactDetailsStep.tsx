@@ -17,49 +17,60 @@ const ContactDetailsStep = ({
   attemptedValidation,
 }: ContactDetailsStepProps) => {
   return (
-    <>
-      {contactDetailsStepData.questions.map((question) => {
-        // Determine input type and validation based on the question
-        let inputType: 'text' | 'email' | 'tel' = 'text';
-        let validation: any = {};
+    <div className="space-y-6">
+      {contactDetailsStepData.questionGroups.map((group) => (
+        <div key={group.id} className="p-6 bg-white/40 rounded-lg border border-gray-200">
+          {group.title && (
+            <h3 className="text-body-lg font-semibold text-brand-secondary mb-4">
+              {group.title}
+            </h3>
+          )}
+          <div className="space-y-4">
+            {group.questions.map((question) => {
+              // Determine input type and validation based on the question
+              let inputType: 'text' | 'email' | 'tel' = 'text';
+              let validation: any = {};
 
-        if (question.required) {
-          validation.required = 'This field is required';
-        }
+              if (question.required) {
+                validation.required = 'This field is required';
+              }
 
-        // Special handling for email field
-        if (question.id === 'email') {
-          inputType = 'email';
-          validation.pattern = {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: 'Please enter a valid email address',
-          };
-        }
+              // Special handling for email field
+              if (question.id === 'email') {
+                inputType = 'email';
+                validation.pattern = {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'Please enter a valid email address',
+                };
+              }
 
-        // Special handling for phone field
-        if (question.id === 'phone') {
-          inputType = 'tel';
-        }
+              // Special handling for phone field
+              if (question.id === 'phone') {
+                inputType = 'tel';
+              }
 
-        return (
-          <TextInput
-            key={question.id}
-            id={question.id}
-            label={question.question}
-            type={inputType}
-            placeholder={question.placeholder}
-            required={question.required}
-            error={
-              (touchedFields as any)[question.id] || attemptedValidation
-                ? (errors as any)[question.id]
-                : undefined
-            }
-            register={register}
-            validation={validation}
-          />
-        );
-      })}
-    </>
+              return (
+                <TextInput
+                  key={question.id}
+                  id={question.id}
+                  label={question.question}
+                  type={inputType}
+                  placeholder={question.placeholder}
+                  required={question.required}
+                  error={
+                    (touchedFields as any)[question.id] || attemptedValidation
+                      ? (errors as any)[question.id]
+                      : undefined
+                  }
+                  register={register}
+                  validation={validation}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 

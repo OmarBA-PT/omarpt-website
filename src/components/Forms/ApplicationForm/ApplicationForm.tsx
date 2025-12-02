@@ -57,22 +57,26 @@ const ApplicationForm = () => {
 
     // Contact Details step - read question IDs from contactDetailsStepData
     if (isContactDetailsStep) {
-      contactDetailsStepData.questions.forEach((question) => {
-        ids.push(question.id);
+      contactDetailsStepData.questionGroups.forEach((group) => {
+        group.questions.forEach((question) => {
+          ids.push(question.id);
+        });
       });
       return ids;
     }
 
     // Dynamic sections from applicationFormData
     if (currentSection) {
-      currentSection.questions.forEach((question) => {
-        if (shouldDisplayQuestion(question, formData)) {
-          ids.push(question.id);
-          // Add sub-question IDs
-          question.subQuestions?.forEach((subQ) => {
-            ids.push(subQ.id);
-          });
-        }
+      currentSection.questionGroups.forEach((group) => {
+        group.questions.forEach((question) => {
+          if (shouldDisplayQuestion(question, formData)) {
+            ids.push(question.id);
+            // Add sub-question IDs
+            question.subQuestions?.forEach((subQ) => {
+              ids.push(subQ.id);
+            });
+          }
+        });
       });
     }
     return ids;
@@ -345,26 +349,37 @@ const ApplicationForm = () => {
 
             {/* Dynamic Form Fields from applicationFormData */}
             {!isContactDetailsStep &&
-              currentSection?.questions.map((question) => {
-                // Check if question should be displayed based on conditional logic
-                if (!shouldDisplayQuestion(question, formData)) {
-                  return null;
-                }
+              currentSection?.questionGroups.map((group) => (
+                <div key={group.id} className='p-6 bg-white/40 rounded-lg border border-gray-200'>
+                  {group.title && (
+                    <h3 className='text-body-lg font-semibold text-brand-secondary mb-4'>
+                      {group.title}
+                    </h3>
+                  )}
+                  <div className='space-y-4'>
+                    {group.questions.map((question) => {
+                      // Check if question should be displayed based on conditional logic
+                      if (!shouldDisplayQuestion(question, formData)) {
+                        return null;
+                      }
 
-                return (
-                  <FormField
-                    key={question.id}
-                    question={question}
-                    register={register}
-                    errors={errors}
-                    touchedFields={touchedFields}
-                    attemptedValidation={attemptedValidation}
-                    watch={watch}
-                    setValue={setValue}
-                    getValidationRules={getValidationRules}
-                  />
-                );
-              })}
+                      return (
+                        <FormField
+                          key={question.id}
+                          question={question}
+                          register={register}
+                          errors={errors}
+                          touchedFields={touchedFields}
+                          attemptedValidation={attemptedValidation}
+                          watch={watch}
+                          setValue={setValue}
+                          getValidationRules={getValidationRules}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
           </div>
 
           {/* Navigation Buttons */}
