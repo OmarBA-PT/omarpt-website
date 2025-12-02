@@ -91,7 +91,8 @@ const ApplicationForm = () => {
   // Get error count for current section (only for touched fields or after validation attempt)
   const getCurrentSectionErrorCount = () => {
     const questionIds = getCurrentSectionQuestionIds();
-    return questionIds.filter((id) => errors[id] && (touchedFields[id] || attemptedValidation)).length;
+    return questionIds.filter((id) => errors[id] && (touchedFields[id] || attemptedValidation))
+      .length;
   };
 
   // Scroll to top of form
@@ -335,7 +336,9 @@ const ApplicationForm = () => {
 
       {/* Form */}
       {status !== 'success' && (
-        <form onSubmit={handleSubmit(onSubmit, onError)} className='bg-black/20 rounded-xl shadow-lg p-8'>
+        <form
+          onSubmit={handleSubmit(onSubmit, onError)}
+          className='bg-black/20 rounded-xl shadow-lg p-8 text-left'>
           <div className='space-y-6'>
             {/* Contact Details Step - Using ContactDetailsStep Component */}
             {isContactDetailsStep && (
