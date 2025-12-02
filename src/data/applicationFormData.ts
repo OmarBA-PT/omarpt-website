@@ -45,6 +45,7 @@ export const applicationFormData: FormSection[] = [
     questionGroups: [
       {
         id: 'activityLevel-group',
+        title: 'Physical Activity Level',
         questions: [
           {
             id: 'activityLevel',
@@ -68,6 +69,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'cardioAbility-group',
+        title: 'Cardiovascular Fitness',
         questions: [
           {
             id: 'cardioAbility',
@@ -85,6 +87,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'experienceLevel-group',
+        title: 'Exercise Experience',
         questions: [
           {
             id: 'experienceLevel',
@@ -108,6 +111,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'gymEquipment-group',
+        title: 'Equipment Familiarity',
         questions: [
           {
             id: 'gymEquipment',
@@ -131,6 +135,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'preferredTime-group',
+        title: 'Preferred Exercise Time',
         questions: [
           {
             id: 'preferredTime',
@@ -147,6 +152,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'daysPerWeek-group',
+        title: 'Weekly Commitment',
         questions: [
           {
             id: 'daysPerWeek',
@@ -163,6 +169,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'enjoyedActivities-group',
+        title: 'Activities You Enjoy',
         questions: [
           {
             id: 'enjoyedActivities',
@@ -175,6 +182,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'desiredBodyShape-group',
+        title: 'Body Shape Goals',
         questions: [
           {
             id: 'desiredBodyShape',
@@ -188,6 +196,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'needFatLoss-group',
+        title: 'Fat Loss Goals',
         questions: [
           {
             id: 'needFatLoss',
@@ -201,6 +210,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'sleepHours-group',
+        title: 'Sleep Habits',
         questions: [
           {
             id: 'sleepHours',
@@ -217,6 +227,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'waterIntake-group',
+        title: 'Water Intake',
         questions: [
           {
             id: 'waterIntake',
@@ -233,6 +244,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'mealsPerDay-group',
+        title: 'Nutrition Habits',
         questions: [
           {
             id: 'mealsPerDay',
@@ -249,6 +261,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'currentInjuries-group',
+        title: 'Current Injuries',
         questions: [
           {
             id: 'currentInjuries',
@@ -261,6 +274,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'additionalTrainingInfo-group',
+        title: 'Additional Training Information',
         questions: [
           {
             id: 'additionalTrainingInfo',
@@ -282,6 +296,7 @@ export const applicationFormData: FormSection[] = [
     questionGroups: [
       {
         id: 'fitnessGoals3to6Months-group',
+        title: '3-6 Month Fitness Goals',
         questions: [
           {
             id: 'fitnessGoals3to6Months',
@@ -311,6 +326,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'wellnessGoals-group',
+        title: 'Wellness Goals',
         questions: [
           {
             id: 'wellnessGoals',
@@ -334,6 +350,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'oneYearChange-group',
+        title: '1 Year Vision',
         questions: [
           {
             id: 'oneYearChange',
@@ -355,6 +372,7 @@ export const applicationFormData: FormSection[] = [
     questionGroups: [
       {
         id: 'physicianSupervision-group',
+        title: 'Physician Supervision',
         questions: [
           {
             id: 'physicianSupervision',
@@ -376,6 +394,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'medicationForPressure-group',
+        title: 'Medication',
         questions: [
           {
             id: 'medicationForPressure',
@@ -387,6 +406,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'shouldSeePhysician-group',
+        title: 'Current Health Concerns',
         questions: [
           {
             id: 'shouldSeePhysician',
@@ -399,6 +419,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'clearedToExercise-group',
+        title: 'Exercise Clearance',
         questions: [
           {
             id: 'clearedToExercise',
@@ -411,6 +432,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'activityRestrictions-group',
+        title: 'Activity Restrictions',
         questions: [
           {
             id: 'activityRestrictions',
@@ -431,6 +453,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'difficultMovements-group',
+        title: 'Movement Difficulties',
         questions: [
           {
             id: 'difficultMovements',
@@ -462,6 +485,7 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'additionalHealthComments-group',
+        title: 'Additional Comments',
         questions: [
           {
             id: 'additionalHealthComments',
