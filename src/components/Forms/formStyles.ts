@@ -8,25 +8,28 @@
 // Base shared styles that are reused across components
 const sharedStyles = {
   // Common base styles for all input-like elements
-  baseInput: 'w-full px-4 py-3 border rounded-lg transition-colors text-body-base',
+  baseInput: 'w-full px-4 py-3 border rounded-lg transition-colors text-body-base text-black',
 
   // State-based border and background styles
-  normalState: 'border-gray-300 bg-white focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary',
+  normalState:
+    'border-gray-300 bg-white focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary',
   errorState: 'border-red-500 bg-red-50 focus:ring-2 focus:ring-red-500/20 focus:border-red-500',
   disabledState: 'bg-gray-100 cursor-not-allowed opacity-60',
 
   // Interactive option container (radio/checkbox)
-  optionContainer: 'flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group',
-  optionLabel: 'text-body-base text-gray-700 group-hover:text-gray-900 flex-1',
+  optionContainer:
+    'flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group',
+  optionLabel: 'text-body-base group-hover:text-gray-900 flex-1',
 
   // Input controls
-  radioCheckboxBase: 'mt-1 w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer',
+  radioCheckboxBase:
+    'mt-1 w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer',
 } as const;
 
 export const formStyles = {
   // Label styles
   label: {
-    base: 'block text-body-base font-medium text-gray-700 mb-2',
+    base: 'block text-body-base font-medium mb-2',
     required: 'text-red-500',
     optional: 'text-gray-400 text-body-sm',
   },

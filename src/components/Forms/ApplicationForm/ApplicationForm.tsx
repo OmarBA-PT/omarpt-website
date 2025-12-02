@@ -307,7 +307,7 @@ const ApplicationForm = () => {
 
       {/* Form */}
       {status !== 'success' && (
-        <form onSubmit={handleSubmit(onSubmit)} className='bg-white rounded-xl shadow-lg p-8'>
+        <form onSubmit={handleSubmit(onSubmit)} className='bg-black/20 rounded-xl shadow-lg p-8'>
           <div className='space-y-6'>
             {/* Contact Details Step - Using ContactDetailsStep Component */}
             {isContactDetailsStep && <ContactDetailsStep register={register} errors={errors} />}
