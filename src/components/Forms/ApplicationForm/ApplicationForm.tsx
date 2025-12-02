@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
 import FormField from './FormField';
@@ -16,6 +16,7 @@ const ApplicationForm = () => {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [attemptedValidation, setAttemptedValidation] = useState(false);
+  const [isActuallySubmitting, setIsActuallySubmitting] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -25,12 +26,19 @@ const ApplicationForm = () => {
     setValue,
     formState: { errors, touchedFields },
     trigger,
+    clearErrors,
   } = useForm<ApplicationFormData>({
     mode: 'onTouched',
     defaultValues: {},
   });
 
   const formData = watch(); // Watch all form values
+
+  // Reset attemptedValidation and clear errors when step changes
+  useEffect(() => {
+    setAttemptedValidation(false);
+    clearErrors();
+  }, [currentStep, clearErrors]);
 
   // Total steps = 1 (Contact Details) + number of sections from data
   const totalSteps = 1 + applicationFormData.length;
@@ -73,9 +81,6 @@ const ApplicationForm = () => {
     return questionIds.some((id) => errors[id] && (touchedFields[id] || attemptedValidation));
   };
 
-  console.log('Current Section:', currentSection?.id);
-  console.log(errors);
-
   // Get error count for current section (only for touched fields or after validation attempt)
   const getCurrentSectionErrorCount = () => {
     const questionIds = getCurrentSectionQuestionIds();
@@ -93,8 +98,6 @@ const ApplicationForm = () => {
     const isValid = await trigger(questionIds);
 
     if (isValid) {
-      // Reset validation attempt flag when moving to next step
-      setAttemptedValidation(false);
       if (currentStep < totalSteps - 1) {
         setCurrentStep((prev) => prev + 1);
         scrollToTop();
@@ -109,11 +112,21 @@ const ApplicationForm = () => {
 
   const handlePrevious = () => {
     if (currentStep > 0) {
-      // Reset validation attempt flag when going back
-      setAttemptedValidation(false);
       setCurrentStep((prev) => prev - 1);
       scrollToTop();
     }
+  };
+
+  // Handle form validation errors
+  const onError = () => {
+    // Only set attemptedValidation if this is an actual form submission (not just RHF validating on step change)
+    if (isActuallySubmitting) {
+      setAttemptedValidation(true);
+      scrollToTop();
+    }
+
+    // Reset the flag
+    setIsActuallySubmitting(false);
   };
 
   const onSubmit: SubmitHandler<ApplicationFormData> = async (data) => {
@@ -317,7 +330,7 @@ const ApplicationForm = () => {
 
       {/* Form */}
       {status !== 'success' && (
-        <form onSubmit={handleSubmit(onSubmit)} className='bg-black/20 rounded-xl shadow-lg p-8'>
+        <form onSubmit={handleSubmit(onSubmit, onError)} className='bg-black/20 rounded-xl shadow-lg p-8'>
           <div className='space-y-6'>
             {/* Contact Details Step - Using ContactDetailsStep Component */}
             {isContactDetailsStep && (
@@ -379,6 +392,7 @@ const ApplicationForm = () => {
               <button
                 type='submit'
                 disabled={isSubmitting}
+                onClick={() => setIsActuallySubmitting(true)}
                 className={`px-8 py-3 rounded-lg font-medium transition-all ${
                   isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed'
