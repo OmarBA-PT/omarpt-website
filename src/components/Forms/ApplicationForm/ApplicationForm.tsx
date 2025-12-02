@@ -152,12 +152,10 @@ const ApplicationForm = () => {
       // On new steps, only allow expanding visited groups or the next unvisited group
       if (!currentGroupState.isExpanded && !currentGroupState.isVisited) {
         // Check if this is the next sequential unvisited group
-        const isNextGroup = Object.entries(groupState[currentStep] || {}).every(
-          ([idx, state]) => {
-            const index = parseInt(idx);
-            return index >= groupIndex || state.isVisited;
-          }
-        );
+        const isNextGroup = Object.entries(groupState[currentStep] || {}).every(([idx, state]) => {
+          const index = parseInt(idx);
+          return index >= groupIndex || state.isVisited;
+        });
         if (!isNextGroup) return;
       }
 
@@ -375,15 +373,19 @@ const ApplicationForm = () => {
             sections={applicationFormData}
             onStepClick={handleStepIndicatorClick}
           />
+
+          <SectionHeader
+            title={
+              isContactDetailsStep ? contactDetailsStepData.title : currentSection?.title || ''
+            }
+            description={
+              isContactDetailsStep
+                ? contactDetailsStepData.description
+                : currentSection?.description
+            }
+          />
         </>
       )}
-
-      <SectionHeader
-        title={isContactDetailsStep ? contactDetailsStepData.title : currentSection?.title || ''}
-        description={
-          isContactDetailsStep ? contactDetailsStepData.description : currentSection?.description
-        }
-      />
 
       <StatusMessages
         status={status}
@@ -420,40 +422,38 @@ const ApplicationForm = () => {
                   onHeaderClick={handleGroupHeaderClick}
                   onNextQuestion={handleNextQuestion}
                   setGroupRef={setGroupRef}>
-                  {isContactDetailsStep ? (
-                    // Contact Details Questions
-                    group.questions.map((question) => (
-                      <ContactDetailsQuestion
-                        key={question.id}
-                        question={question}
-                        register={register}
-                        errors={errors}
-                        touchedFields={touchedFields}
-                        attemptedValidation={attemptedValidation}
-                      />
-                    ))
-                  ) : (
-                    // Dynamic Form Fields
-                    group.questions.map((question) => {
-                      if (!shouldDisplayQuestion(question, formData)) {
-                        return null;
-                      }
-
-                      return (
-                        <FormField
+                  {isContactDetailsStep
+                    ? // Contact Details Questions
+                      group.questions.map((question) => (
+                        <ContactDetailsQuestion
                           key={question.id}
                           question={question}
                           register={register}
                           errors={errors}
                           touchedFields={touchedFields}
                           attemptedValidation={attemptedValidation}
-                          watch={watch}
-                          setValue={setValue}
-                          getValidationRules={getValidationRules}
                         />
-                      );
-                    })
-                  )}
+                      ))
+                    : // Dynamic Form Fields
+                      group.questions.map((question) => {
+                        if (!shouldDisplayQuestion(question, formData)) {
+                          return null;
+                        }
+
+                        return (
+                          <FormField
+                            key={question.id}
+                            question={question}
+                            register={register}
+                            errors={errors}
+                            touchedFields={touchedFields}
+                            attemptedValidation={attemptedValidation}
+                            watch={watch}
+                            setValue={setValue}
+                            getValidationRules={getValidationRules}
+                          />
+                        );
+                      })}
                 </QuestionGroup>
               );
             })}
