@@ -328,14 +328,18 @@ const ApplicationForm = () => {
 
   return (
     <div className='w-full max-w-4xl mx-auto' ref={formTopRef}>
-      <ProgressBar currentStep={currentStep} totalSteps={totalSteps} progress={progress} />
+      {status !== 'success' && (
+        <>
+          <ProgressBar currentStep={currentStep} totalSteps={totalSteps} progress={progress} />
 
-      <StepIndicators
-        currentStep={currentStep}
-        contactDetailsTitle={contactDetailsStepData.title}
-        sections={applicationFormData}
-        onStepClick={handleStepIndicatorClick}
-      />
+          <StepIndicators
+            currentStep={currentStep}
+            contactDetailsTitle={contactDetailsStepData.title}
+            sections={applicationFormData}
+            onStepClick={handleStepIndicatorClick}
+          />
+        </>
+      )}
 
       <SectionHeader
         title={isContactDetailsStep ? contactDetailsStepData.title : currentSection?.title || ''}
