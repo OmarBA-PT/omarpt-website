@@ -11,7 +11,7 @@ import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStru
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone } from 'react-icons/md';
-import ContactForm from '@/components/_blocks/ContactForm';
+import ContactForm from '@/components/Forms/ContactForm';
 import { getContactFormSettings } from '@/actions';
 
 export async function generateMetadata() {

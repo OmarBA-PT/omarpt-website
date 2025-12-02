@@ -46,7 +46,7 @@ import BlockListWithStats from '@/components/_blocks/BlockListWithStats';
 import CheckList from '@/components/_blocks/CheckList';
 import ItemList from '@/components/_blocks/ItemList';
 import ServiceCard from '@/components/_blocks/ServiceCard';
-import ContactFormComponent from '@/components/_blocks/ContactForm';
+import ContactFormComponent from '@/components/Forms/ContactForm';
 import Divider from '@/components/UI/Divider';
 import ResponsiveWrapper from '@/components/_blocks/ResponsiveWrapper';
 import GridLayout from '@/components/_blocks/GridLayout';

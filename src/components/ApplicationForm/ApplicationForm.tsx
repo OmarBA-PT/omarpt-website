@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
 import FormField from './FormField';
+import ContactDetailsStep from '@/components/Forms/ContactDetailsStep';
 import { MdError } from 'react-icons/md';
 
 // Create a type for all form fields dynamically
@@ -308,95 +309,8 @@ const ApplicationForm = () => {
       {status !== 'success' && (
         <form onSubmit={handleSubmit(onSubmit)} className='bg-white rounded-xl shadow-lg p-8'>
           <div className='space-y-6'>
-            {/* Contact Details Step - Hard-coded Fields */}
-            {isContactDetailsStep && (
-              <>
-                {/* Full Name */}
-                <div>
-                  <label
-                    htmlFor='fullName'
-                    className='block text-body-base font-medium text-gray-700 mb-2'>
-                    Your Name <span className='text-red-500'>*</span>
-                  </label>
-                  <input
-                    id='fullName'
-                    type='text'
-                    placeholder='Enter your full name'
-                    {...register('fullName', {
-                      required: 'This field is required',
-                    })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-colors ${
-                      errors.fullName
-                        ? 'border-red-500 bg-red-50'
-                        : 'border-gray-300 bg-white'
-                    }`}
-                  />
-                  {errors.fullName && (
-                    <p className='mt-2 text-body-sm text-red-600'>
-                      {errors.fullName.message as string}
-                    </p>
-                  )}
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor='email'
-                    className='block text-body-base font-medium text-gray-700 mb-2'>
-                    Email Address <span className='text-red-500'>*</span>
-                  </label>
-                  <input
-                    id='email'
-                    type='email'
-                    placeholder='your.email@example.com'
-                    {...register('email', {
-                      required: 'This field is required',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Please enter a valid email address',
-                      },
-                    })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-colors ${
-                      errors.email
-                        ? 'border-red-500 bg-red-50'
-                        : 'border-gray-300 bg-white'
-                    }`}
-                  />
-                  {errors.email && (
-                    <p className='mt-2 text-body-sm text-red-600'>
-                      {errors.email.message as string}
-                    </p>
-                  )}
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label
-                    htmlFor='phone'
-                    className='block text-body-base font-medium text-gray-700 mb-2'>
-                    Phone Number <span className='text-red-500'>*</span>
-                  </label>
-                  <input
-                    id='phone'
-                    type='tel'
-                    placeholder='+44 7XXX XXXXXX'
-                    {...register('phone', {
-                      required: 'This field is required',
-                    })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-colors ${
-                      errors.phone
-                        ? 'border-red-500 bg-red-50'
-                        : 'border-gray-300 bg-white'
-                    }`}
-                  />
-                  {errors.phone && (
-                    <p className='mt-2 text-body-sm text-red-600'>
-                      {errors.phone.message as string}
-                    </p>
-                  )}
-                </div>
-              </>
-            )}
+            {/* Contact Details Step - Using ContactDetailsStep Component */}
+            {isContactDetailsStep && <ContactDetailsStep register={register} errors={errors} />}
 
             {/* Dynamic Form Fields from applicationFormData */}
             {!isContactDetailsStep &&

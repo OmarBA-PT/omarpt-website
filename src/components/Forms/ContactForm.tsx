@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import CTA from '../UI/CTA';
 import type { CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
+import TextInput from './TextInput';
+import TextArea from './TextArea';
 
 interface ContactFormProps {
   className?: string;
@@ -25,7 +27,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
     reset,
     formState: { errors },
   } = useForm<ContactFormData>({
-    mode: 'onTouched', // Validate when user leaves field
+    mode: 'onTouched',
     defaultValues: {
       name: '',
       email: '',
@@ -64,7 +66,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
       if (response.ok) {
         setStatus('success');
-        reset(); // Reset form using react-hook-form
+        reset();
       } else {
         setStatus('error');
         setErrorMessage(
@@ -80,20 +82,6 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
       console.error('Contact form submission error:', error);
     }
   };
-
-  const getInputStyles = (fieldName: keyof ContactFormData) => {
-    const hasError = errors[fieldName];
-    const baseStyles =
-      'w-full px-4 py-3 rounded-lg border-2 bg-brand-white transition-all duration-200 text-body-base';
-    const normalStyles =
-      'border-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-opacity-20';
-    const errorStyles =
-      'border-red-500 focus:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-20';
-
-    return `${baseStyles} ${hasError ? errorStyles : normalStyles}`;
-  };
-
-  const labelStyles = 'block text-body-base font-medium mb-2';
 
   const fieldDisabled = status === 'loading' || status === 'success';
 
@@ -121,101 +109,70 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
           />
         </div>
 
-        {/* Name field */}
-        <div>
-          <label htmlFor='name' className={labelStyles}>
-            Name <span className='text-red-500'>*</span>
-          </label>
-          <input
-            type='text'
-            id='name'
-            {...register('name', {
-              required: 'Please enter your name',
-              minLength: {
-                value: 2,
-                message: 'Name must be at least 2 characters',
-              },
-            })}
-            disabled={fieldDisabled}
-            className={getInputStyles('name')}
-            placeholder='Your name'
-            aria-invalid={errors.name ? 'true' : 'false'}
-          />
-          {errors.name && (
-            <p className='mt-1 text-body-sm text-red-600 transition-opacity duration-200'>
-              {errors.name.message}
-            </p>
-          )}
-        </div>
+        <TextInput
+          id='name'
+          label='Name'
+          type='text'
+          placeholder='Your name'
+          required
+          disabled={fieldDisabled}
+          error={errors.name}
+          register={register}
+          validation={{
+            required: 'Please enter your name',
+            minLength: {
+              value: 2,
+              message: 'Name must be at least 2 characters',
+            },
+          }}
+        />
 
-        {/* Email field */}
-        <div>
-          <label htmlFor='email' className={labelStyles}>
-            Email <span className='text-red-500'>*</span>
-          </label>
-          <input
-            type='email'
-            id='email'
-            {...register('email', {
-              required: 'Please enter your email address',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Please enter a valid email address',
-              },
-            })}
-            disabled={fieldDisabled}
-            className={getInputStyles('email')}
-            placeholder='your.email@example.com'
-            aria-invalid={errors.email ? 'true' : 'false'}
-          />
-          {errors.email && (
-            <p className='mt-1 text-body-sm text-red-600 transition-opacity duration-200'>
-              {errors.email.message}
-            </p>
-          )}
-        </div>
+        <TextInput
+          id='email'
+          label='Email'
+          type='email'
+          placeholder='your.email@example.com'
+          required
+          disabled={fieldDisabled}
+          error={errors.email}
+          register={register}
+          validation={{
+            required: 'Please enter your email address',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Please enter a valid email address',
+            },
+          }}
+        />
 
-        {/* Phone field (optional) */}
-        <div>
-          <label htmlFor='phone' className={labelStyles}>
-            Phone <span className='text-gray-400 text-body-sm'>(optional)</span>
-          </label>
-          <input
-            type='tel'
-            id='phone'
-            {...register('phone')}
-            disabled={fieldDisabled}
-            className={getInputStyles('phone')}
-            placeholder='+64 21 123 4567'
-          />
-        </div>
+        <TextInput
+          id='phone'
+          label='Phone'
+          type='tel'
+          placeholder='+64 21 123 4567'
+          disabled={fieldDisabled}
+          error={errors.phone}
+          register={register}
+          showOptionalLabel
+        />
 
-        {/* Message field */}
-        <div>
-          <label htmlFor='message' className={labelStyles}>
-            Message <span className='text-red-500'>*</span>
-          </label>
-          <textarea
-            id='message'
-            {...register('message', {
-              required: 'Please enter a message',
-              minLength: {
-                value: 10,
-                message: 'Message must be at least 10 characters',
-              },
-            })}
-            disabled={fieldDisabled}
-            rows={6}
-            className={getInputStyles('message')}
-            placeholder={messagePlaceholder}
-            aria-invalid={errors.message ? 'true' : 'false'}
-          />
-          {errors.message && (
-            <p className='mt-1 text-body-sm text-red-600 transition-opacity duration-200'>
-              {errors.message.message}
-            </p>
-          )}
-        </div>
+        <TextArea
+          id='message'
+          label='Message'
+          placeholder={messagePlaceholder}
+          required
+          disabled={fieldDisabled}
+          error={errors.message}
+          register={register}
+          validation={{
+            required: 'Please enter a message',
+            minLength: {
+              value: 10,
+              message: 'Message must be at least 10 characters',
+            },
+          }}
+          rows={6}
+        />
 
         {/* Error message display */}
         {status === 'error' && (
