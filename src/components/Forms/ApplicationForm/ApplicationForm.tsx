@@ -22,7 +22,7 @@ const ApplicationForm = () => {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [attemptedValidation, setAttemptedValidation] = useState(false);
-  const [isActuallySubmitting, setIsActuallySubmitting] = useState(false);
+  const [userClickedSubmit, setUserClickedSubmit] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
   const groupRefs = useRef<GroupRefs>({});
   const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(new Set());
@@ -85,6 +85,7 @@ const ApplicationForm = () => {
   // Reset attemptedValidation and clear errors when step changes
   useEffect(() => {
     setAttemptedValidation(false);
+    setUserClickedSubmit(false);
     clearErrors();
   }, [currentStep, clearErrors]);
 
@@ -261,14 +262,24 @@ const ApplicationForm = () => {
 
   // Handle form validation errors
   const onError = () => {
-    if (isActuallySubmitting) {
-      setAttemptedValidation(true);
-      scrollToTop();
-    }
-    setIsActuallySubmitting(false);
+    setAttemptedValidation(true);
+    scrollToTop();
+    setUserClickedSubmit(false);
   };
 
   const onSubmit: SubmitHandler<ApplicationFormData> = async (data) => {
+    // Prevent accidental submissions - only allow submission on the last step
+    if (currentStep < totalSteps - 1) {
+      console.warn('Form submission attempted before reaching last step');
+      return;
+    }
+
+    // Only proceed if user explicitly clicked submit
+    if (!userClickedSubmit) {
+      console.warn('Form submission prevented - user did not click submit button');
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus('idle');
     setErrorMessage('');
@@ -326,6 +337,32 @@ const ApplicationForm = () => {
     groupRefs.current[key] = el;
   };
 
+  // Prevent Enter key from submitting the form unless on the last step
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === 'Enter') {
+      const target = e.target as HTMLElement;
+
+      // Don't interfere with textarea Enter key
+      if (target.tagName === 'TEXTAREA') {
+        return;
+      }
+
+      // Prevent Enter on non-last steps
+      if (currentStep < totalSteps - 1) {
+        e.preventDefault();
+        return;
+      }
+
+      // On last step, set the submit flag so Enter key can submit
+      setUserClickedSubmit(true);
+    }
+  };
+
+  // Handle explicit submit button click
+  const handleSubmitClick = () => {
+    setUserClickedSubmit(true);
+  };
+
   return (
     <div className='w-full max-w-4xl mx-auto' ref={formTopRef}>
       {status !== 'success' && (
@@ -358,6 +395,7 @@ const ApplicationForm = () => {
       {status !== 'success' && (
         <form
           onSubmit={handleSubmit(onSubmit, onError)}
+          onKeyDown={handleKeyDown}
           className='bg-black/20 rounded-xl shadow-lg p-8 text-left'>
           <div className='space-y-6'>
             {questionGroups.map((group, groupIndex) => {
@@ -428,6 +466,7 @@ const ApplicationForm = () => {
             isLastGroupComplete={isLastGroupVisitedAndComplete()}
             onPrevious={handlePrevious}
             onNext={handleNext}
+            onSubmitClick={handleSubmitClick}
           />
         </form>
       )}

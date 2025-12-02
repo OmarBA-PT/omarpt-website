@@ -7,6 +7,7 @@ interface FormNavigationProps {
   isLastGroupComplete: boolean;
   onPrevious: () => void;
   onNext: () => void;
+  onSubmitClick?: () => void;
 }
 
 const FormNavigation = ({
@@ -16,6 +17,7 @@ const FormNavigation = ({
   isLastGroupComplete,
   onPrevious,
   onNext,
+  onSubmitClick,
 }: FormNavigationProps) => {
   const isFirstStep = currentStep === 0;
   const isLastStep = currentStep >= totalSteps - 1;
@@ -34,6 +36,7 @@ const FormNavigation = ({
       {isLastStep ? (
         <button
           type='submit'
+          onClick={onSubmitClick}
           disabled={isSubmitting || !isLastGroupComplete}
           className={`px-8 py-3 rounded-lg font-medium transition-all ${
             isSubmitting || !isLastGroupComplete
