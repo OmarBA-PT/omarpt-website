@@ -56,12 +56,19 @@ const ApplicationForm = () => {
   // Get current section from applicationFormData (adjust index for Contact Details step)
   const currentSection = !isContactDetailsStep ? applicationFormData[currentStep - 1] : null;
 
+  // Track previous step to detect backwards navigation
+  const prevStepRef = useRef(currentStep);
+
   // Initialize group state when step changes
   useEffect(() => {
     const initializeGroupState = () => {
       const questionGroups = isContactDetailsStep
         ? contactDetailsStepData.questionGroups
         : currentSection?.questionGroups || [];
+
+      // Check if we're moving backwards or if this step hasn't been initialized
+      const isMovingBackwards = currentStep < prevStepRef.current;
+      const stepNotInitialized = !groupState[currentStep];
 
       const newState: GroupState[number] = {};
       const isSingleGroup = questionGroups.length === 1;
@@ -79,11 +86,17 @@ const ApplicationForm = () => {
         }
       });
 
-      setGroupState((prev) => ({ ...prev, [currentStep]: newState }));
+      // Only reset state if moving backwards or step not initialized
+      if (isMovingBackwards || stepNotInitialized) {
+        setGroupState((prev) => ({ ...prev, [currentStep]: newState }));
+      }
+
+      // Update previous step reference
+      prevStepRef.current = currentStep;
     };
 
     initializeGroupState();
-  }, [currentStep, isContactDetailsStep, currentSection]);
+  }, [currentStep, isContactDetailsStep, currentSection, groupState]);
 
   // Reset attemptedValidation and clear errors when step changes
   useEffect(() => {
@@ -218,12 +231,10 @@ const ApplicationForm = () => {
     // Only allow expanding visited groups or the next unvisited group
     if (!currentGroupState.isExpanded && !currentGroupState.isVisited) {
       // Check if this is the next sequential unvisited group
-      const isNextGroup = Object.entries(groupState[currentStep] || {}).every(
-        ([idx, state]) => {
-          const index = parseInt(idx);
-          return index >= groupIndex || state.isVisited;
-        }
-      );
+      const isNextGroup = Object.entries(groupState[currentStep] || {}).every(([idx, state]) => {
+        const index = parseInt(idx);
+        return index >= groupIndex || state.isVisited;
+      });
       if (!isNextGroup) return; // Don't allow skipping groups
     }
 
@@ -266,20 +277,9 @@ const ApplicationForm = () => {
 
     if (groupIndex >= questionGroups.length - 1) return; // Last group, no next
 
-    // Collapse current group
-    setGroupState((prev) => ({
-      ...prev,
-      [currentStep]: {
-        ...prev[currentStep],
-        [groupIndex]: {
-          ...prev[currentStep][groupIndex],
-          isExpanded: false,
-        },
-      },
-    }));
-
-    // Expand and mark next group as visited
     const nextGroupIndex = groupIndex + 1;
+
+    // Expand and mark next group as visited (keep current group expanded)
     setGroupState((prev) => ({
       ...prev,
       [currentStep]: {
@@ -291,22 +291,17 @@ const ApplicationForm = () => {
       },
     }));
 
-    // Scroll to the next group after allowing animations to complete
+    // Scroll to the next group after a short delay
     setTimeout(() => {
       const nextGroupKey = `${currentStep}-${nextGroupIndex}`;
       const nextGroupElement = groupRefs.current[nextGroupKey];
       if (nextGroupElement) {
-        // Get the element's position relative to the viewport
-        const elementTop = nextGroupElement.getBoundingClientRect().top;
-        const offsetPosition = elementTop + window.scrollY - 20; // 20px offset from top
-
-        // Smooth scroll to the calculated position
-        window.scrollTo({
-          top: offsetPosition,
+        nextGroupElement.scrollIntoView({
           behavior: 'smooth',
+          block: 'start',
         });
       }
-    }, 150);
+    }, 100);
   };
 
   const handleNext = async () => {
@@ -317,7 +312,10 @@ const ApplicationForm = () => {
     if (isValid) {
       if (currentStep < totalSteps - 1) {
         setCurrentStep((prev) => prev + 1);
-        scrollToTop();
+        // Delay scroll to allow state update to complete
+        setTimeout(() => {
+          scrollToTop();
+        }, 50);
       }
     } else {
       // Mark that validation was attempted so errors show even for untouched fields
@@ -661,8 +659,8 @@ const ApplicationForm = () => {
                       </div>
                     </div>
 
-                    {/* Next Question Button */}
-                    {!isLastGroup && isExpanded && (
+                    {/* Next Question Button - Only show if next group hasn't been visited */}
+                    {!isLastGroup && isExpanded && !groupState[currentStep]?.[groupIndex + 1]?.isVisited && (
                       <div className='flex justify-center my-6'>
                         <button
                           type='button'
@@ -760,8 +758,8 @@ const ApplicationForm = () => {
                       </div>
                     </div>
 
-                    {/* Next Question Button */}
-                    {!isLastGroup && isExpanded && (
+                    {/* Next Question Button - Only show if next group hasn't been visited */}
+                    {!isLastGroup && isExpanded && !groupState[currentStep]?.[groupIndex + 1]?.isVisited && (
                       <div className='flex justify-center my-6'>
                         <button
                           type='button'
