@@ -39,34 +39,6 @@ export interface FormSection {
 
 export const applicationFormData: FormSection[] = [
   {
-    id: 'personal-info',
-    title: 'Personal Information',
-    description: 'Let\'s start with some basic information about you',
-    questions: [
-      {
-        id: 'fullName',
-        question: 'Your Name',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter your full name'
-      },
-      {
-        id: 'email',
-        question: 'Email Address',
-        type: 'text',
-        required: true,
-        placeholder: 'your.email@example.com'
-      },
-      {
-        id: 'phone',
-        question: 'Phone Number',
-        type: 'text',
-        required: true,
-        placeholder: '+44 7XXX XXXXXX'
-      }
-    ]
-  },
-  {
     id: 'fitness-background',
     title: 'Fitness Questionnaire',
     description: 'Help us understand your current fitness level and experience',

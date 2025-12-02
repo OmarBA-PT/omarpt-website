@@ -30,22 +30,38 @@ const ApplicationForm = () => {
 
   const formData = watch(); // Watch all form values
 
-  const currentSection = applicationFormData[currentStep];
-  const totalSteps = applicationFormData.length;
+  // Total steps = 1 (Contact Details) + number of sections from data
+  const totalSteps = 1 + applicationFormData.length;
   const progress = ((currentStep + 1) / totalSteps) * 100;
+
+  // Check if we're on the Contact Details step (first step)
+  const isContactDetailsStep = currentStep === 0;
+
+  // Get current section from applicationFormData (adjust index for Contact Details step)
+  const currentSection = !isContactDetailsStep ? applicationFormData[currentStep - 1] : null;
 
   // Get all question IDs for the current section (including sub-questions)
   const getCurrentSectionQuestionIds = () => {
     const ids: string[] = [];
-    currentSection.questions.forEach((question) => {
-      if (shouldDisplayQuestion(question, formData)) {
-        ids.push(question.id);
-        // Add sub-question IDs
-        question.subQuestions?.forEach((subQ) => {
-          ids.push(subQ.id);
-        });
-      }
-    });
+
+    // Contact Details step - hard-coded fields
+    if (isContactDetailsStep) {
+      ids.push('fullName', 'email', 'phone');
+      return ids;
+    }
+
+    // Dynamic sections from applicationFormData
+    if (currentSection) {
+      currentSection.questions.forEach((question) => {
+        if (shouldDisplayQuestion(question, formData)) {
+          ids.push(question.id);
+          // Add sub-question IDs
+          question.subQuestions?.forEach((subQ) => {
+            ids.push(subQ.id);
+          });
+        }
+      });
+    }
     return ids;
   };
 
@@ -146,22 +162,12 @@ const ApplicationForm = () => {
   };
 
   // Custom validation function for required fields
-  const getValidationRules = (required: boolean, questionId: string) => {
+  const getValidationRules = (required: boolean) => {
     if (!required) return {};
 
-    const rules: any = {
+    return {
       required: 'This field is required',
     };
-
-    // Add email validation for email field
-    if (questionId === 'email') {
-      rules.pattern = {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: 'Please enter a valid email address',
-      };
-    }
-
-    return rules;
   };
 
   return (
@@ -186,35 +192,65 @@ const ApplicationForm = () => {
 
       {/* Step Indicators */}
       <div className='mb-8 hidden md:flex justify-between'>
-        {applicationFormData.map((section, index) => (
+        {/* Contact Details Step */}
+        <div className='flex flex-col items-center flex-1'>
           <div
-            key={section.id}
-            className={`flex flex-col items-center flex-1 ${index !== 0 ? 'ml-4' : ''}`}>
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-colors ${
-                index < currentStep
-                  ? 'bg-brand-primary text-white'
-                  : index === currentStep
-                    ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
-                    : 'bg-gray-200 text-gray-500'
-              }`}>
-              {index < currentStep ? '✓' : index + 1}
-            </div>
-            <span
-              className={`text-body-xs text-center ${
-                index === currentStep ? 'text-brand-primary font-medium' : 'text-gray-500'
-              }`}>
-              {section.title}
-            </span>
+            className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-colors ${
+              0 < currentStep
+                ? 'bg-brand-primary text-white'
+                : 0 === currentStep
+                  ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
+                  : 'bg-gray-200 text-gray-500'
+            }`}>
+            {0 < currentStep ? '✓' : 1}
           </div>
-        ))}
+          <span
+            className={`text-body-xs text-center ${
+              0 === currentStep ? 'text-brand-primary font-medium' : 'text-gray-500'
+            }`}>
+            Contact Details
+          </span>
+        </div>
+
+        {/* Dynamic Steps from applicationFormData */}
+        {applicationFormData.map((section, index) => {
+          const stepIndex = index + 1; // +1 because Contact Details is step 0
+          return (
+            <div key={section.id} className='flex flex-col items-center flex-1 ml-4'>
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-colors ${
+                  stepIndex < currentStep
+                    ? 'bg-brand-primary text-white'
+                    : stepIndex === currentStep
+                      ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
+                      : 'bg-gray-200 text-gray-500'
+                }`}>
+                {stepIndex < currentStep ? '✓' : stepIndex + 1}
+              </div>
+              <span
+                className={`text-body-xs text-center ${
+                  stepIndex === currentStep ? 'text-brand-primary font-medium' : 'text-gray-500'
+                }`}>
+                {section.title}
+              </span>
+            </div>
+          );
+        })}
       </div>
 
       {/* Section Header */}
       <div className='mb-8 text-center'>
-        <h2 className='text-h3 font-bold text-gray-900 mb-2'>{currentSection.title}</h2>
-        {currentSection.description && (
-          <p className='text-body-base text-gray-600'>{currentSection.description}</p>
+        <h2 className='text-h3 font-bold text-gray-900 mb-2'>
+          {isContactDetailsStep ? 'Contact Details' : currentSection?.title}
+        </h2>
+        {isContactDetailsStep ? (
+          <p className='text-body-base text-gray-600'>
+            Let&apos;s start with some basic information about you
+          </p>
+        ) : (
+          currentSection?.description && (
+            <p className='text-body-base text-gray-600'>{currentSection.description}</p>
+          )
         )}
       </div>
 
@@ -272,24 +308,116 @@ const ApplicationForm = () => {
       {status !== 'success' && (
         <form onSubmit={handleSubmit(onSubmit)} className='bg-white rounded-xl shadow-lg p-8'>
           <div className='space-y-6'>
-            {currentSection.questions.map((question) => {
-              // Check if question should be displayed based on conditional logic
-              if (!shouldDisplayQuestion(question, formData)) {
-                return null;
-              }
+            {/* Contact Details Step - Hard-coded Fields */}
+            {isContactDetailsStep && (
+              <>
+                {/* Full Name */}
+                <div>
+                  <label
+                    htmlFor='fullName'
+                    className='block text-body-base font-medium text-gray-700 mb-2'>
+                    Your Name <span className='text-red-500'>*</span>
+                  </label>
+                  <input
+                    id='fullName'
+                    type='text'
+                    placeholder='Enter your full name'
+                    {...register('fullName', {
+                      required: 'This field is required',
+                    })}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-colors ${
+                      errors.fullName
+                        ? 'border-red-500 bg-red-50'
+                        : 'border-gray-300 bg-white'
+                    }`}
+                  />
+                  {errors.fullName && (
+                    <p className='mt-2 text-body-sm text-red-600'>
+                      {errors.fullName.message as string}
+                    </p>
+                  )}
+                </div>
 
-              return (
-                <FormField
-                  key={question.id}
-                  question={question}
-                  register={register}
-                  errors={errors}
-                  watch={watch}
-                  setValue={setValue}
-                  getValidationRules={getValidationRules}
-                />
-              );
-            })}
+                {/* Email */}
+                <div>
+                  <label
+                    htmlFor='email'
+                    className='block text-body-base font-medium text-gray-700 mb-2'>
+                    Email Address <span className='text-red-500'>*</span>
+                  </label>
+                  <input
+                    id='email'
+                    type='email'
+                    placeholder='your.email@example.com'
+                    {...register('email', {
+                      required: 'This field is required',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Please enter a valid email address',
+                      },
+                    })}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-colors ${
+                      errors.email
+                        ? 'border-red-500 bg-red-50'
+                        : 'border-gray-300 bg-white'
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className='mt-2 text-body-sm text-red-600'>
+                      {errors.email.message as string}
+                    </p>
+                  )}
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label
+                    htmlFor='phone'
+                    className='block text-body-base font-medium text-gray-700 mb-2'>
+                    Phone Number <span className='text-red-500'>*</span>
+                  </label>
+                  <input
+                    id='phone'
+                    type='tel'
+                    placeholder='+44 7XXX XXXXXX'
+                    {...register('phone', {
+                      required: 'This field is required',
+                    })}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-colors ${
+                      errors.phone
+                        ? 'border-red-500 bg-red-50'
+                        : 'border-gray-300 bg-white'
+                    }`}
+                  />
+                  {errors.phone && (
+                    <p className='mt-2 text-body-sm text-red-600'>
+                      {errors.phone.message as string}
+                    </p>
+                  )}
+                </div>
+              </>
+            )}
+
+            {/* Dynamic Form Fields from applicationFormData */}
+            {!isContactDetailsStep &&
+              currentSection?.questions.map((question) => {
+                // Check if question should be displayed based on conditional logic
+                if (!shouldDisplayQuestion(question, formData)) {
+                  return null;
+                }
+
+                return (
+                  <FormField
+                    key={question.id}
+                    question={question}
+                    register={register}
+                    errors={errors}
+                    watch={watch}
+                    setValue={setValue}
+                    getValidationRules={getValidationRules}
+                  />
+                );
+              })}
           </div>
 
           {/* Navigation Buttons */}
@@ -306,6 +434,7 @@ const ApplicationForm = () => {
               Previous
             </button>
 
+            {/* Show Submit if on last step OR if Contact Details is the only step */}
             {currentStep < totalSteps - 1 ? (
               <button
                 type='button'
@@ -332,14 +461,20 @@ const ApplicationForm = () => {
       {/* Mobile Step Indicator */}
       <div className='md:hidden mt-4 text-center'>
         <p className='text-body-sm text-gray-600'>
-          {applicationFormData.map((section, index) => (
-            <span
-              key={section.id}
-              className={index === currentStep ? 'text-brand-primary font-medium' : ''}>
-              {index > 0 && ' → '}
-              {section.title}
-            </span>
-          ))}
+          <span className={0 === currentStep ? 'text-brand-primary font-medium' : ''}>
+            Contact Details
+          </span>
+          {applicationFormData.map((section, index) => {
+            const stepIndex = index + 1;
+            return (
+              <span
+                key={section.id}
+                className={stepIndex === currentStep ? 'text-brand-primary font-medium' : ''}>
+                {' → '}
+                {section.title}
+              </span>
+            );
+          })}
         </p>
       </div>
     </div>
