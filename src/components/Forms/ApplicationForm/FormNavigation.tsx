@@ -21,18 +21,15 @@ const FormNavigation = ({
   const isLastStep = currentStep >= totalSteps - 1;
 
   return (
-    <div className='flex justify-between mt-8 pt-6 border-t border-gray-200'>
-      <button
-        type='button'
-        onClick={onPrevious}
-        disabled={isFirstStep}
-        className={`px-6 py-3 rounded-lg font-medium transition-all ${
-          isFirstStep
-            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-        }`}>
-        Previous
-      </button>
+    <div className={`flex mt-8 pt-6 border-t border-gray-200 ${isFirstStep ? 'justify-end' : 'justify-between'}`}>
+      {!isFirstStep && (
+        <button
+          type='button'
+          onClick={onPrevious}
+          className='px-6 py-3 rounded-lg font-medium transition-all bg-gray-200 text-gray-700 hover:bg-gray-300'>
+          Previous
+        </button>
+      )}
 
       {isLastStep ? (
         <button
