@@ -240,6 +240,24 @@ const ApplicationForm = () => {
     }));
   };
 
+  // Check if the last group in the current section has been visited and completed
+  const isLastGroupVisitedAndComplete = (): boolean => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    if (questionGroups.length === 0) return false;
+
+    const lastGroupIndex = questionGroups.length - 1;
+    const lastGroupState = groupState[currentStep]?.[lastGroupIndex];
+
+    // Check if last group is visited
+    if (!lastGroupState?.isVisited) return false;
+
+    // Check if last group is complete
+    return isGroupComplete(lastGroupIndex);
+  };
+
   // Handle clicking the "Next Question" button
   const handleNextQuestion = (groupIndex: number) => {
     const questionGroups = isContactDetailsStep
@@ -765,16 +783,21 @@ const ApplicationForm = () => {
               <button
                 type='button'
                 onClick={handleNext}
-                className='px-6 py-3 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary/90 transition-colors'>
+                disabled={!isLastGroupVisitedAndComplete()}
+                className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                  isLastGroupVisitedAndComplete()
+                    ? 'bg-brand-primary text-white hover:bg-brand-primary/90'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}>
                 Next Step
               </button>
             ) : (
               <button
                 type='submit'
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isLastGroupVisitedAndComplete()}
                 onClick={() => setIsActuallySubmitting(true)}
                 className={`px-8 py-3 rounded-lg font-medium transition-all ${
-                  isSubmitting
+                  isSubmitting || !isLastGroupVisitedAndComplete()
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-lg'
                 }`}>
