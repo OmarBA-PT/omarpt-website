@@ -249,6 +249,16 @@ const ApplicationForm = () => {
     }
   };
 
+  const handleStepIndicatorClick = (stepIndex: number) => {
+    // Only allow clicking back to previous steps
+    if (stepIndex < currentStep) {
+      setCurrentStep(stepIndex);
+      setTimeout(() => {
+        scrollToTop();
+      }, 50);
+    }
+  };
+
   // Handle form validation errors
   const onError = () => {
     if (isActuallySubmitting) {
@@ -324,6 +334,7 @@ const ApplicationForm = () => {
         currentStep={currentStep}
         contactDetailsTitle={contactDetailsStepData.title}
         sections={applicationFormData}
+        onStepClick={handleStepIndicatorClick}
       />
 
       <SectionHeader
