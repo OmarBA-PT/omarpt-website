@@ -8,7 +8,7 @@ interface FormFieldProps {
   errors: FieldErrors<any>;
   watch: UseFormWatch<any>;
   setValue: UseFormSetValue<any>;
-  getValidationRules: (required: boolean, questionId: string) => object;
+  getValidationRules: (required: boolean) => object;
 }
 
 const FormField = ({
@@ -29,7 +29,7 @@ const FormField = ({
             <input
               type='text'
               id={question.id}
-              {...register(question.id, getValidationRules(question.required || false, question.id))}
+              {...register(question.id, getValidationRules(question.required || false))}
               placeholder={question.placeholder}
               className={`w-full px-4 py-3 rounded-lg border text-black ${
                 errors[question.id]
@@ -45,7 +45,7 @@ const FormField = ({
           <>
             <textarea
               id={question.id}
-              {...register(question.id, getValidationRules(question.required || false, question.id))}
+              {...register(question.id, getValidationRules(question.required || false))}
               placeholder={question.placeholder}
               rows={4}
               className={`w-full px-4 py-3 rounded-lg border ${
@@ -53,23 +53,6 @@ const FormField = ({
                   ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
                   : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
               } focus:outline-none focus:ring-2 transition-colors text-body-base resize-y min-h-[100px]`}
-            />
-          </>
-        );
-
-      case 'number':
-        return (
-          <>
-            <input
-              type='number'
-              id={question.id}
-              {...register(question.id, getValidationRules(question.required || false, question.id))}
-              placeholder={question.placeholder}
-              className={`w-full px-4 py-3 rounded-lg border ${
-                errors[question.id]
-                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                  : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
-              } focus:outline-none focus:ring-2 transition-colors text-body-base`}
             />
           </>
         );
@@ -84,7 +67,7 @@ const FormField = ({
                 <input
                   type='radio'
                   value={option.value}
-                  {...register(question.id, getValidationRules(question.required || false, question.id))}
+                  {...register(question.id, getValidationRules(question.required || false))}
                   className='mt-1 w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer'
                 />
                 <span className='text-body-base text-gray-700 group-hover:text-gray-900 flex-1'>
@@ -130,7 +113,7 @@ const FormField = ({
               <input
                 type='radio'
                 value='yes'
-                {...register(question.id, getValidationRules(question.required || false, question.id))}
+                {...register(question.id, getValidationRules(question.required || false))}
                 className='w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer'
               />
               <span className='text-body-base text-gray-700 group-hover:text-gray-900'>Yes</span>
@@ -139,7 +122,7 @@ const FormField = ({
               <input
                 type='radio'
                 value='no'
-                {...register(question.id, getValidationRules(question.required || false, question.id))}
+                {...register(question.id, getValidationRules(question.required || false))}
                 className='w-4 h-4 text-brand-primary focus:ring-brand-primary focus:ring-2 cursor-pointer'
               />
               <span className='text-body-base text-gray-700 group-hover:text-gray-900'>No</span>
@@ -158,7 +141,7 @@ const FormField = ({
         return (
           <textarea
             id={subQuestion.id}
-            {...register(subQuestion.id, getValidationRules(subQuestion.required || false, subQuestion.id))}
+            {...register(subQuestion.id, getValidationRules(subQuestion.required || false))}
             placeholder={subQuestion.placeholder}
             rows={3}
             className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-brand-primary focus:outline-none focus:ring-2 transition-colors text-body-base resize-y min-h-20'
@@ -169,7 +152,7 @@ const FormField = ({
           <input
             type='text'
             id={subQuestion.id}
-            {...register(subQuestion.id, getValidationRules(subQuestion.required || false, subQuestion.id))}
+            {...register(subQuestion.id, getValidationRules(subQuestion.required || false))}
             placeholder={subQuestion.placeholder}
             className='w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-brand-primary focus:outline-none focus:ring-2 transition-colors text-body-base'
           />

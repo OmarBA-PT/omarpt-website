@@ -7,7 +7,6 @@ export type QuestionType =
   | 'checkbox'
   | 'text'
   | 'textarea'
-  | 'number'
   | 'yesno';
 
 export interface QuestionOption {
