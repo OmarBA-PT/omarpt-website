@@ -484,24 +484,24 @@ export const applicationFormData: FormSection[] = [
           {
             id: 'fitnessGoals3to6Months',
             question:
-              'What fitness or nutrition related GOALS you would like to accomplish within the next 3-6 months?',
+              'What fitness or nutrition related GOALS would you like to accomplish within the next 3-6 months?',
             type: 'textarea',
-            required: true,
-            placeholder: 'Describe your primary fitness and nutrition goals...',
+            placeholder: 'E.g. lose weight, build muscle, improve endurance, etc.',
+            required: false,
             subQuestions: [
               {
                 id: 'whyImportant',
                 question: 'Why is this important to you?',
                 type: 'textarea',
                 required: false,
-                placeholder: 'What motivates you to make this change?',
+                placeholder: 'E.g. boost confidence, improve longevity etc.',
               },
               {
                 id: 'achievementFeeling',
                 question: 'What feeling can you imagine having upon achieving this?',
                 type: 'textarea',
                 required: false,
-                placeholder: 'How will you feel when you reach your goal?',
+                placeholder: 'E.g. proud, accomplished, healthier, more energetic, etc.',
               },
             ],
           },
@@ -514,10 +514,10 @@ export const applicationFormData: FormSection[] = [
           {
             id: 'wellnessGoals',
             question:
-              'LIST any other wellness GOALS that you would like to accomplish as soon as possible',
+              'LIST any other wellness GOALS that you would like to accomplish as soon as possible:',
             type: 'textarea',
             required: false,
-            placeholder: 'Ex: lower stress, find more relaxation time, meditate regularly, etc.',
+            placeholder: 'e.g, lower stress, find more relaxation time, meditate regularly, etc.',
             helperText: 'Think beyond just fitness - overall wellness matters too',
             subQuestions: [
               {
@@ -525,7 +525,7 @@ export const applicationFormData: FormSection[] = [
                 question: 'What impact will this have on your life?',
                 type: 'textarea',
                 required: false,
-                placeholder: 'How will your life improve?',
+                placeholder: 'e.g, better work-life balance, improved relationships, etc.',
               },
             ],
           },
@@ -540,9 +540,9 @@ export const applicationFormData: FormSection[] = [
             question: 'What would you would like to see change in your life within 1 year?',
             type: 'textarea',
             required: false,
-            placeholder: 'If you are unsure, just write the first thing that comes to your mind...',
+            placeholder: 'e.g, healthier habits, improved fitness, more energy, etc.',
             helperText:
-              'You may revisit or add to this any time. Sometimes new desires come up while on the journey of other goals being reached. List 1-5 things.',
+              'If you are unsure, just write the first thing that comes to your mind and we may revisit or add to this any time. Sometimes new desires come up while on the journey of other goals being reached.',
           },
         ],
       },

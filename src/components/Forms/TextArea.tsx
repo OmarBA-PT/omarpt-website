@@ -39,6 +39,7 @@ const TextArea = ({
           showOptionalLabel && <span className={formStyles.label.optional}>(optional)</span>
         )}
       </label>
+      {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
       <textarea
         id={id}
         placeholder={placeholder}
@@ -48,7 +49,6 @@ const TextArea = ({
         className={getTextareaClassNames(!!error, disabled)}
         aria-invalid={error ? 'true' : 'false'}
       />
-      {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
       {error && <p className={formStyles.error.text}>{error.message as string}</p>}
     </div>
   );
