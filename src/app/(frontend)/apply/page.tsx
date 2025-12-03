@@ -103,12 +103,12 @@ const ApplyPage = () => {
             <p className='text-body-base mb-6'>
               Print, complete by hand, scan and email back to us.
             </p>
-            <button
-              disabled
-              className='inline-block bg-gray-300 text-gray-500 font-semibold px-6 py-3 rounded-lg text-body-sm cursor-not-allowed'>
+            <a
+              href='/api/generate-application-pdf'
+              download
+              className='inline-block bg-brand-primary hover:bg-brand-secondary text-brand-white font-semibold px-6 py-3 rounded-lg text-body-sm transition-colors'>
               Download Forms
-            </button>
-            <p className='text-body-xs text-gray-500 mt-2'>Coming soon</p>
+            </a>
           </div>
 
           {/* Simple Enquiry Option */}
