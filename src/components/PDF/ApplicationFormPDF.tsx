@@ -1,6 +1,7 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import { FormSection, FormQuestion, QuestionType } from '@/data/applicationFormData';
+import { contactDetailsStepData } from '@/components/Forms/ApplicationForm/contactDetailsStepData';
 
 // Register fonts for better typography
 // Using Google Fonts CDN with proper variant support
@@ -399,11 +400,13 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
     }
   };
 
-  const isLastSection = (index: number) => index === formData.length - 1;
+  // Combine contact details section with form sections
+  const allSections = [contactDetailsStepData, ...formData];
+  const isLastSection = (index: number) => index === allSections.length - 1;
 
   return (
     <Document>
-      {formData.map((section, sectionIndex) => (
+      {allSections.map((section, sectionIndex) => (
         <Page key={section.id} size='A4' style={styles.page}>
           {/* Header with title - Only on first page (not fixed) */}
           {sectionIndex === 0 && (
