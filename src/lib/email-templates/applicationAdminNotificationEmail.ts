@@ -165,50 +165,73 @@ export function generateApplicationAdminNotificationEmail(
                       </tr>
                       <tr>
                         <td style="background-color: #f9f9f9; padding: 20px; border-radius: 0 0 4px 4px;">
-                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                            ${section.questionGroups
-                              .flatMap((group) => group.questions)
-                              .map((question, qIndex) => {
-                                const answer = formatAnswer(formData[question.id], question.type, question.options);
-                                let subQuestionsHtml = '';
+                          ${section.questionGroups
+                            .map((group, groupIndex) => {
+                              // Filter out questions that have conditionalOn (they are subquestions)
+                              const parentQuestions = group.questions.filter(q => !q.conditionalOn);
+                              const allQuestions = group.questions;
 
-                                // Handle sub-questions
-                                if (question.subQuestions && question.subQuestions.length > 0) {
-                                  subQuestionsHtml = question.subQuestions
-                                    .map((subQ) => {
-                                      const subAnswer = formatAnswer(formData[subQ.id], subQ.type, subQ.options);
+                              return `
+                                ${group.title ? `
+                                  <!-- Group Title -->
+                                  <div style="margin-top: ${groupIndex > 0 ? '20px' : '0'}; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #ffb200;">
+                                    <h4 style="margin: 0; color: #ff8400; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                                      ${group.title}
+                                    </h4>
+                                  </div>
+                                ` : ''}
+
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: ${groupIndex < section.questionGroups.length - 1 ? '15px' : '0'};">
+                                  ${parentQuestions
+                                    .map((question, qIndex) => {
+                                      const answer = formatAnswer(formData[question.id], question.type, question.options);
+
+                                      // Collect all subquestions (both from subQuestions array and sibling questions with conditionalOn)
+                                      const subQuestions = [
+                                        ...(question.subQuestions || []),
+                                        ...allQuestions.filter(q => q.conditionalOn?.questionId === question.id)
+                                      ];
+
+                                      let subQuestionsHtml = '';
+                                      if (subQuestions.length > 0) {
+                                        subQuestionsHtml = subQuestions
+                                          .map((subQ) => {
+                                            const subAnswer = formatAnswer(formData[subQ.id], subQ.type, subQ.options);
+                                            return `
+                                              <tr>
+                                                <td style="padding: 8px 0 8px 30px; border-left: 3px solid #ffb200; margin-left: 10px;">
+                                                  <div style="color: #666; font-size: 13px; font-style: italic; margin-bottom: 4px;">
+                                                    ↳ ${subQ.question}
+                                                  </div>
+                                                  <div style="color: #555; font-size: 14px; line-height: 1.6; padding-left: 15px;">
+                                                    ${subAnswer}
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                            `;
+                                          })
+                                          .join('');
+                                      }
+
                                       return `
                                         <tr>
-                                          <td style="padding: 12px 0 12px 20px; border-top: 1px solid #e0e0e0;">
-                                            <div style="color: #666; font-size: 13px; margin-bottom: 4px;">
-                                              <em>${subQ.question}</em>
+                                          <td style="padding: 10px 0; ${qIndex > 0 ? 'border-top: 1px solid #e0e0e0;' : ''}">
+                                            <div style="color: #282828; font-size: 14px; font-weight: 600; margin-bottom: 4px;">
+                                              ${question.question}
                                             </div>
-                                            <div style="color: #333; font-size: 14px; line-height: 1.6;">
-                                              ${subAnswer}
+                                            <div style="color: #555; font-size: 14px; line-height: 1.6; padding-left: 5px;">
+                                              ${answer}
                                             </div>
                                           </td>
                                         </tr>
+                                        ${subQuestionsHtml}
                                       `;
                                     })
-                                    .join('');
-                                }
-
-                                return `
-                                  <tr>
-                                    <td style="padding: 12px 0; ${qIndex > 0 ? 'border-top: 1px solid #e0e0e0;' : ''}">
-                                      <div style="color: #282828; font-size: 14px; font-weight: 600; margin-bottom: 4px;">
-                                        ${question.question}
-                                      </div>
-                                      <div style="color: #555; font-size: 14px; line-height: 1.6;">
-                                        ${answer}
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  ${subQuestionsHtml}
-                                `;
-                              })
-                              .join('')}
-                          </table>
+                                    .join('')}
+                                </table>
+                              `;
+                            })
+                            .join('')}
                         </td>
                       </tr>
                     </table>
