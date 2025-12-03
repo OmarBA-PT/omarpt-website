@@ -50,7 +50,14 @@ const ApplicationForm = () => {
 
   // Total steps = 1 (Contact Details) + number of sections from data
   const totalSteps = 1 + applicationFormData.length;
-  const progress = ((currentStep + 1) / totalSteps) * 100;
+
+  // Progress calculation: Shows percentage of steps COMPLETED (not including current step)
+  // When on step 0 of 4 total steps: 0/4 = 0% (starting, nothing completed yet)
+  // When on step 1 of 4 total steps: 1/4 = 25% (step 0 completed)
+  // When on step 2 of 4 total steps: 2/4 = 50% (steps 0-1 completed)
+  // When on step 3 of 4 total steps: 3/4 = 75% (steps 0-2 completed)
+  // After form submission: 100% (all steps completed)
+  const progress = (currentStep / totalSteps) * 100;
 
   // Check if we're on the Contact Details step (first step)
   const isContactDetailsStep = currentStep === 0;
