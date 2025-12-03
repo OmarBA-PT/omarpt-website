@@ -360,7 +360,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
 
             {/* Question Groups */}
             {section.questionGroups.map((group) => (
-              <View key={group.id} style={styles.questionGroup}>
+              <View key={group.id} style={styles.questionGroup} wrap={false}>
                 {group.title && <Text style={styles.questionGroupTitle}>{group.title}</Text>}
                 {group.questions.map((question) => renderQuestion(question))}
               </View>
