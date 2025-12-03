@@ -86,7 +86,7 @@ const ApplyPage = () => {
         </div>
 
         {/* Application Options */}
-        <div className='hidden grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16'>
           {/* Online Form Option */}
           <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 border-2 border-brand-primary'>
             <MdQuestionAnswer className='w-10 h-10 text-brand-primary mx-auto mb-4' />
@@ -97,7 +97,7 @@ const ApplyPage = () => {
           </div>
 
           {/* PDF Download Option */}
-          <div className='hidden bg-gray-50 rounded-lg p-8 border-2 border-gray-200'>
+          <div className='bg-gray-50 rounded-lg p-8 border-2 border-gray-200'>
             <MdDownload className='w-10 h-10 text-brand-primary mx-auto mb-4' />
             <h3 className='text-h5 font-semibold mb-4'>Download PDFs</h3>
             <p className='text-body-base mb-6'>
@@ -127,7 +127,7 @@ const ApplyPage = () => {
         </div>
 
         {/* Privacy Notice */}
-        <div className='hidden bg-brand-gradient-charcoal-linear rounded-lg p-8 max-w-3xl mx-auto mb-16'>
+        <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 max-w-3xl mx-auto mb-16'>
           <div className='flex items-start gap-4 text-left'>
             <MdLock className='w-6 h-6 text-brand-primary shrink-0 mt-1' />
             <div>
@@ -153,7 +153,7 @@ const ApplyPage = () => {
 
         {/* Application Form Section */}
         <div className='mb-16'>
-          <div className='hidden max-w-3xl mx-auto mb-8'>
+          <div className='max-w-3xl mx-auto mb-8'>
             <h2 className='text-h4 font-semibold mb-4'>Online Application Form</h2>
             <p className='text-body-base mb-6'>
               Please complete the form below as thoroughly as possible. The more information you
