@@ -77,6 +77,8 @@ const ApplicationForm = () => {
     isGroupComplete,
     groupHasOnlyRadioButtonRequiredFields,
     lastRequiredFieldHasVisibleConditionalSubQuestions,
+    groupHasAnyFilledFields,
+    groupHasIncompleteMandatoryFields,
     getValidationRules,
   } = useFormValidation({
     isContactDetailsStep,
@@ -416,6 +418,8 @@ const ApplicationForm = () => {
               const groupKey = `${currentStep}-${groupIndex}`;
               const hasOnlyRadioButtons = groupHasOnlyRadioButtonRequiredFields(groupIndex);
               const hasVisibleConditionals = lastRequiredFieldHasVisibleConditionalSubQuestions(groupIndex);
+              const hasFilledFields = groupHasAnyFilledFields(groupIndex);
+              const hasIncompleteMandatory = groupHasIncompleteMandatoryFields(groupIndex);
 
               return (
                 <QuestionGroup
@@ -430,6 +434,8 @@ const ApplicationForm = () => {
                   groupTitle={group.title}
                   hasOnlyRadioButtons={hasOnlyRadioButtons}
                   hasVisibleConditionals={hasVisibleConditionals}
+                  hasFilledFields={hasFilledFields}
+                  hasIncompleteMandatory={hasIncompleteMandatory}
                   onHeaderClick={handleGroupHeaderClick}
                   onNextQuestion={handleNextQuestion}
                   setGroupRef={setGroupRef}>

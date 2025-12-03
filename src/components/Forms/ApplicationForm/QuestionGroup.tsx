@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdExpandMore, MdCheckCircle } from 'react-icons/md';
+import { MdExpandMore, MdCheckCircle, MdCancel } from 'react-icons/md';
 import { GroupState } from './types';
 
 interface QuestionGroupProps {
@@ -13,6 +13,8 @@ interface QuestionGroupProps {
   groupTitle?: string;
   hasOnlyRadioButtons: boolean;
   hasVisibleConditionals: boolean;
+  hasFilledFields: boolean;
+  hasIncompleteMandatory: boolean;
   children: React.ReactNode;
   onHeaderClick: (groupIndex: number) => void;
   onNextQuestion: (groupIndex: number) => void;
@@ -30,6 +32,8 @@ const QuestionGroup = ({
   groupTitle,
   hasOnlyRadioButtons,
   hasVisibleConditionals,
+  hasFilledFields,
+  hasIncompleteMandatory,
   children,
   onHeaderClick,
   onNextQuestion,
@@ -39,6 +43,14 @@ const QuestionGroup = ({
   const isExpanded = currentGroupState?.isExpanded ?? false;
   const isVisited = currentGroupState?.isVisited ?? false;
   const nextGroupVisited = groupState[currentStep]?.[groupIndex + 1]?.isVisited;
+
+  // Determine validation state for visual feedback
+  // Show green tick: visited, has filled fields, no incomplete mandatory fields, collapsed
+  const showGreenTick = isVisited && hasFilledFields && !hasIncompleteMandatory && !isExpanded;
+  // Show red cross: visited, has incomplete mandatory fields, collapsed
+  // Note: We don't require hasFilledFields here because even if fields were cleared,
+  // we still want to show the error state if there are incomplete mandatory fields
+  const showRedCross = isVisited && hasIncompleteMandatory && !isExpanded;
 
   return (
     <div>
@@ -53,7 +65,13 @@ const QuestionGroup = ({
         <div
           className={`p-6 flex items-center justify-between ${
             !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-white/60' : ''
-          } transition-colors`}
+          } transition-colors ${
+            showGreenTick
+              ? 'bg-green-50/60'
+              : showRedCross
+              ? 'bg-red-50/60'
+              : ''
+          }`}
           onClick={() => !isSingleGroup && isVisited && onHeaderClick(groupIndex)}>
           <div className='flex items-center gap-3 flex-1'>
             {groupTitle && (
@@ -64,8 +82,11 @@ const QuestionGroup = ({
                 {groupTitle}
               </h3>
             )}
-            {isVisited && groupComplete && !isExpanded && (
+            {showGreenTick && (
               <MdCheckCircle className='w-5 h-5 text-green-500' />
+            )}
+            {showRedCross && (
+              <MdCancel className='w-5 h-5 text-red-500' />
             )}
           </div>
           {!isSingleGroup && (

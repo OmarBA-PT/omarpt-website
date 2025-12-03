@@ -117,9 +117,14 @@ export const useFormValidation = ({
         }
       }
 
-      // Check sub-questions
+      // Check sub-questions - ONLY if they are currently visible
       if (question.subQuestions) {
         for (const subQ of question.subQuestions) {
+          // Only check sub-questions that are currently visible (conditionally exposed)
+          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+            continue;
+          }
+
           if (subQ.required) {
             const subValue = formData[subQ.id];
             if (!subValue || (typeof subValue === 'string' && subValue.trim() === '')) {
@@ -158,9 +163,14 @@ export const useFormValidation = ({
         }
       }
 
-      // Check sub-questions
+      // Check sub-questions - ONLY if they are currently visible
       if (question.subQuestions) {
         for (const subQ of question.subQuestions) {
+          // Only check sub-questions that are currently visible (conditionally exposed)
+          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+            continue;
+          }
+
           if (subQ.required) {
             hasRequiredFields = true;
             if (subQ.type !== 'radio' && subQ.type !== 'yesno') {
@@ -215,6 +225,94 @@ export const useFormValidation = ({
     return false;
   };
 
+  // Check if a group has any fields filled in (for showing green tick)
+  const groupHasAnyFilledFields = (groupIndex: number): boolean => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const group = questionGroups[groupIndex];
+    if (!group) return false;
+
+    // Check all questions in the group
+    for (const question of group.questions) {
+      // Skip questions that shouldn't be displayed
+      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+        continue;
+      }
+
+      // Check if field has a value
+      const value = formData[question.id];
+      if (value && (typeof value !== 'string' || value.trim() !== '')) {
+        return true;
+      }
+
+      // Check sub-questions
+      if (question.subQuestions) {
+        for (const subQ of question.subQuestions) {
+          // Only check sub-questions that are currently visible
+          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+            continue;
+          }
+
+          const subValue = formData[subQ.id];
+          if (subValue && (typeof subValue !== 'string' || subValue.trim() !== '')) {
+            return true;
+          }
+        }
+      }
+    }
+
+    return false;
+  };
+
+  // Check if a group has incomplete mandatory fields (for showing red cross)
+  // This only applies if the group has been visited and has any filled fields
+  const groupHasIncompleteMandatoryFields = (groupIndex: number): boolean => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const group = questionGroups[groupIndex];
+    if (!group) return false;
+
+    // Check all questions in the group
+    for (const question of group.questions) {
+      // Skip questions that shouldn't be displayed
+      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+        continue;
+      }
+
+      // Check if required field is empty
+      if (question.required) {
+        const value = formData[question.id];
+        if (!value || (typeof value === 'string' && value.trim() === '')) {
+          return true;
+        }
+      }
+
+      // Check sub-questions that are conditionally required
+      if (question.subQuestions) {
+        for (const subQ of question.subQuestions) {
+          // Only check sub-questions that are currently visible (conditionally exposed)
+          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+            continue;
+          }
+
+          // Check if this visible sub-question is required and empty
+          if (subQ.required) {
+            const subValue = formData[subQ.id];
+            if (!subValue || (typeof subValue === 'string' && subValue.trim() === '')) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+
+    return false;
+  };
+
   // Custom validation function for required fields
   const getValidationRules = (required: boolean) => {
     if (!required) return {};
@@ -231,6 +329,8 @@ export const useFormValidation = ({
     isGroupComplete,
     groupHasOnlyRadioButtonRequiredFields,
     lastRequiredFieldHasVisibleConditionalSubQuestions,
+    groupHasAnyFilledFields,
+    groupHasIncompleteMandatoryFields,
     getValidationRules,
   };
 };
