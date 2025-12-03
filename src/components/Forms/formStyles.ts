@@ -29,7 +29,7 @@ const sharedStyles = {
 export const formStyles = {
   // Label styles
   label: {
-    base: 'block text-body-base font-medium mb-2',
+    base: 'block text-body-base font-medium text-brand-primary mb-2',
     required: 'text-red-500',
     optional: 'text-gray-400 text-body-sm',
   },
@@ -74,7 +74,7 @@ export const formStyles = {
 
   // Helper text styles
   helper: {
-    text: 'mt-2 text-body-sm text-gray-600',
+    text: 'mb-2 text-body-sm',
   },
 
   // Field wrapper styles

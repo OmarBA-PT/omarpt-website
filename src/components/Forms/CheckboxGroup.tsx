@@ -42,6 +42,7 @@ const CheckboxGroup = ({
       <label htmlFor={id} className={formStyles.label.base}>
         {label} {required && <span className={formStyles.label.required}>*</span>}
       </label>
+      {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
       <div className={formStyles.group.container}>
         {options.map((option) => (
           <label key={option.value} className={formStyles.option.container}>
@@ -56,7 +57,6 @@ const CheckboxGroup = ({
           </label>
         ))}
       </div>
-      {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
       {error && <p className={formStyles.error.text}>{error.message as string}</p>}
     </div>
   );

@@ -58,7 +58,10 @@ export const applicationFormData: FormSection[] = [
                 label: 'Moderately active (3 days per week for 30 mins physical activity)',
                 value: 'moderate',
               },
-              { label: 'Active (at least 5 days per week for at least 30 minutes)', value: 'active' },
+              {
+                label: 'Active (at least 5 days per week for at least 30 minutes)',
+                value: 'active',
+              },
               {
                 label: 'Very Active (More than 5 days per week for at least 45 minutes)',
                 value: 'very-active',
@@ -118,7 +121,7 @@ export const applicationFormData: FormSection[] = [
             question: 'Which gym equipment have you used before or feel comfortable with using?',
             type: 'checkbox',
             required: false,
-            helperText: 'Select all that apply',
+            helperText: 'Select all that apply; skip to next question if none.',
             options: [
               { label: 'Cardio machines', value: 'cardio-machines' },
               { label: 'Free weights', value: 'free-weights' },
@@ -127,9 +130,14 @@ export const applicationFormData: FormSection[] = [
               { label: 'Resistance bands', value: 'resistance-bands' },
               { label: 'Kettlebells', value: 'kettlebells' },
               { label: 'TRX', value: 'trx' },
-              { label: 'Other', value: 'other' },
-              { label: 'None', value: 'none' },
             ],
+          },
+          {
+            id: 'otherEquipment',
+            question:
+              'Please describe any other equipment not listed above that you are familiar with:',
+            type: 'textarea',
+            required: false,
           },
         ],
       },
@@ -176,7 +184,8 @@ export const applicationFormData: FormSection[] = [
             question: 'What activities do you enjoy? List any below:',
             type: 'textarea',
             required: false,
-            placeholder: 'List any activities you enjoy (e.g., running, swimming, cycling, yoga...)',
+            placeholder:
+              'List any activities you enjoy (e.g., running, swimming, cycling, yoga...)',
           },
         ],
       },
@@ -265,7 +274,8 @@ export const applicationFormData: FormSection[] = [
         questions: [
           {
             id: 'currentInjuries',
-            question: 'Do you have any current injuries or areas of pain in your body? List if any:',
+            question:
+              'Do you have any current injuries or areas of pain in your body? List if any:',
             type: 'textarea',
             required: false,
             placeholder: 'List any injuries or areas of pain, or write "none"',
@@ -489,7 +499,8 @@ export const applicationFormData: FormSection[] = [
         questions: [
           {
             id: 'additionalHealthComments',
-            question: 'If there are any other comments you would like to add, please add them here:',
+            question:
+              'If there are any other comments you would like to add, please add them here:',
             type: 'textarea',
             required: false,
             placeholder: 'Any additional information we should know...',
