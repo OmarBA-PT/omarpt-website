@@ -24,8 +24,8 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
     message,
     logoUrl,
     emailGreeting = 'Hi',
-    emailIntroMessage = 'We have successfully received your message and will aim to get back to you as soon as possible.',
-    emailOutroMessage = 'If you have any urgent questions, feel free to reach out to us directly.',
+    emailIntroMessage = 'I have successfully received your message and will aim to get back to you as soon as possible.',
+    emailOutroMessage = 'If you have any urgent questions, feel free to reach out to me directly.',
   } = data;
 
   return `
