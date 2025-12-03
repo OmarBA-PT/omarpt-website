@@ -38,7 +38,12 @@ const ApplicationForm = () => {
     clearErrors,
   } = useForm<ApplicationFormData>({
     mode: 'onTouched',
-    defaultValues: {},
+    defaultValues: {
+      // TODO: Remove these default values before production
+      fullName: 'Vitesh Bava',
+      email: 'victor.bava@gmail.com',
+      phone: '123456789',
+    },
   });
 
   const formData = watch();
@@ -71,6 +76,7 @@ const ApplicationForm = () => {
     getCurrentSectionErrorCount,
     isGroupComplete,
     groupHasOnlyRadioButtonRequiredFields,
+    lastRequiredFieldHasVisibleConditionalSubQuestions,
     getValidationRules,
   } = useFormValidation({
     isContactDetailsStep,
@@ -111,6 +117,9 @@ const ApplicationForm = () => {
 
       // Check if this group has only radio button required fields
       if (!groupHasOnlyRadioButtonRequiredFields(groupIndex)) return;
+
+      // Don't auto-progress if the last required field has conditional subQuestions that are now visible
+      if (lastRequiredFieldHasVisibleConditionalSubQuestions(groupIndex)) return;
 
       // Check if the group is complete
       if (isGroupComplete(groupIndex)) {
@@ -406,6 +415,7 @@ const ApplicationForm = () => {
               const groupComplete = isGroupComplete(groupIndex);
               const groupKey = `${currentStep}-${groupIndex}`;
               const hasOnlyRadioButtons = groupHasOnlyRadioButtonRequiredFields(groupIndex);
+              const hasVisibleConditionals = lastRequiredFieldHasVisibleConditionalSubQuestions(groupIndex);
 
               return (
                 <QuestionGroup
@@ -419,6 +429,7 @@ const ApplicationForm = () => {
                   groupKey={groupKey}
                   groupTitle={group.title}
                   hasOnlyRadioButtons={hasOnlyRadioButtons}
+                  hasVisibleConditionals={hasVisibleConditionals}
                   onHeaderClick={handleGroupHeaderClick}
                   onNextQuestion={handleNextQuestion}
                   setGroupRef={setGroupRef}>

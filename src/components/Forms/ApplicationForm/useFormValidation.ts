@@ -174,6 +174,47 @@ export const useFormValidation = ({
     return hasRequiredFields;
   };
 
+  // Check if the last required radio/yesno field has conditional subQuestions that are now visible
+  const lastRequiredFieldHasVisibleConditionalSubQuestions = (groupIndex: number): boolean => {
+    const questionGroups = isContactDetailsStep
+      ? contactDetailsStepData.questionGroups
+      : currentSection?.questionGroups || [];
+
+    const group = questionGroups[groupIndex];
+    if (!group) return false;
+
+    // Find all required radio/yesno questions in order
+    const requiredRadioYesNoQuestions: FormQuestion[] = [];
+
+    for (const question of group.questions) {
+      // Skip questions that shouldn't be displayed
+      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+        continue;
+      }
+
+      if (question.required && (question.type === 'radio' || question.type === 'yesno')) {
+        requiredRadioYesNoQuestions.push(question as FormQuestion);
+      }
+    }
+
+    // Get the last required radio/yesno question
+    const lastQuestion = requiredRadioYesNoQuestions[requiredRadioYesNoQuestions.length - 1];
+    if (!lastQuestion) return false;
+
+    // Check if it has subQuestions with conditional logic that are now visible
+    if (lastQuestion.subQuestions && lastQuestion.subQuestions.length > 0) {
+      return lastQuestion.subQuestions.some((subQ) => {
+        // Check if this subQuestion has conditionalOn logic
+        if (!subQ.conditionalOn) return false;
+
+        // Check if the condition is met (i.e., the subQuestion is now visible)
+        return shouldDisplayQuestion(subQ, formData);
+      });
+    }
+
+    return false;
+  };
+
   // Custom validation function for required fields
   const getValidationRules = (required: boolean) => {
     if (!required) return {};
@@ -189,6 +230,7 @@ export const useFormValidation = ({
     getCurrentSectionErrorCount,
     isGroupComplete,
     groupHasOnlyRadioButtonRequiredFields,
+    lastRequiredFieldHasVisibleConditionalSubQuestions,
     getValidationRules,
   };
 };

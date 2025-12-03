@@ -12,6 +12,7 @@ interface QuestionGroupProps {
   groupKey: string;
   groupTitle?: string;
   hasOnlyRadioButtons: boolean;
+  hasVisibleConditionals: boolean;
   children: React.ReactNode;
   onHeaderClick: (groupIndex: number) => void;
   onNextQuestion: (groupIndex: number) => void;
@@ -28,6 +29,7 @@ const QuestionGroup = ({
   groupKey,
   groupTitle,
   hasOnlyRadioButtons,
+  hasVisibleConditionals,
   children,
   onHeaderClick,
   onNextQuestion,
@@ -84,22 +86,25 @@ const QuestionGroup = ({
         </div>
       </div>
 
-      {/* Next Question Button - Hidden for radio-only groups since they auto-progress */}
-      {!isLastGroup && isExpanded && !nextGroupVisited && !hasOnlyRadioButtons && (
-        <div className='flex justify-center my-6'>
-          <button
-            type='button'
-            onClick={() => onNextQuestion(groupIndex)}
-            disabled={!groupComplete}
-            className={`px-6 py-3 rounded-lg font-medium transition-all ${
-              groupComplete
-                ? 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-md'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}>
-            Next Question
-          </button>
-        </div>
-      )}
+      {/* Next Question Button - Hidden for radio-only groups since they auto-progress, unless conditional fields are visible */}
+      {!isLastGroup &&
+        isExpanded &&
+        !nextGroupVisited &&
+        (!hasOnlyRadioButtons || hasVisibleConditionals) && (
+          <div className='flex justify-center my-6'>
+            <button
+              type='button'
+              onClick={() => onNextQuestion(groupIndex)}
+              disabled={!groupComplete}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                groupComplete
+                  ? 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-md'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              }`}>
+              Next Question
+            </button>
+          </div>
+        )}
     </div>
   );
 };
