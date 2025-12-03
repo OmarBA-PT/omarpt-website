@@ -68,6 +68,10 @@ const styles = StyleSheet.create({
     lineHeight: 1.4,
     marginTop: 10,
   },
+  businessNameText: {
+    fontSize: 11,
+    fontWeight: 700,
+  },
   title: {
     fontSize: 20,
     fontWeight: 700,
@@ -354,7 +358,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
               <View style={styles.logoContainer}>
                 <Image style={styles.logo} src={logoUrl} />
                 <View style={styles.contactInfo}>
-                  <Text>{businessName}</Text>
+                  <Text style={styles.businessNameText}>{businessName}</Text>
                   <Text>{contactEmail}</Text>
                   <Text>{contactPhone}</Text>
                   <Text>{contactAddress}</Text>
@@ -407,8 +411,9 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
 
           {/* Footer */}
           <View style={styles.footer} fixed>
-            <Text>
-              {businessName} | {websiteUrl} | {contactEmail} | {contactPhone}
+            <Text style={{ marginBottom: 4 }}>{businessName}</Text>
+            <Text style={{ marginBottom: 4 }}>
+              {websiteUrl} | {contactEmail} | {contactPhone}
             </Text>
             <Text
               style={styles.pageNumber}
