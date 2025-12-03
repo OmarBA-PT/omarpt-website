@@ -131,6 +131,12 @@ const styles = StyleSheet.create({
     color: '#999999',
     marginBottom: 4,
   },
+  conditionalNotice: {
+    fontSize: 8,
+    fontStyle: 'italic',
+    color: '#666666',
+    marginBottom: 4,
+  },
   required: {
     color: '#CC0000',
     fontSize: 10,
@@ -233,20 +239,25 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
 }) => {
   const renderQuestion = (question: FormQuestion, level: number = 0) => {
     const isRequired = question.required;
+    const isConditional = !!question.conditionalOn;
 
     return (
       <View key={question.id} style={styles.question} wrap={false}>
         {/* Question Text */}
-        <Text style={styles.questionText}>
-          {question.question}
-          {isRequired && <Text style={styles.required}> *</Text>}
-        </Text>
+        <Text style={styles.questionText}>{question.question}</Text>
 
         {/* Helper Text */}
         {question.helperText && <Text style={styles.helperText}>{question.helperText}</Text>}
 
         {/* Placeholder Text */}
         {question.placeholder && <Text style={styles.placeholder}>({question.placeholder})</Text>}
+
+        {/* Conditional Question Notice for radio/yesno types */}
+        {isConditional && (question.type === 'radio' || question.type === 'yesno') && (
+          <Text style={styles.conditionalNotice}>
+            (Leave blank if this question does not apply)
+          </Text>
+        )}
 
         {/* Render input based on type */}
         {renderQuestionInput(question)}
