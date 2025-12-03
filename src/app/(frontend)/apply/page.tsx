@@ -12,6 +12,7 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdDownload, MdQuestionAnswer, MdLock } from 'react-icons/md';
 import ApplicationForm from '@/components/Forms/ApplicationForm/ApplicationForm';
+import DownloadPdfButton from '@/components/Buttons/DownloadPdfButton';
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -103,12 +104,7 @@ const ApplyPage = () => {
             <p className='text-body-base mb-6'>
               Print, complete by hand, scan and email back to us.
             </p>
-            <a
-              href='/api/generate-application-pdf'
-              download
-              className='inline-block bg-brand-primary hover:bg-brand-secondary text-brand-white font-semibold px-6 py-3 rounded-lg text-body-sm transition-colors'>
-              Download Forms
-            </a>
+            <DownloadPdfButton />
           </div>
 
           {/* Simple Enquiry Option */}

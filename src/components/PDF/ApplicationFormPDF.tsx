@@ -48,14 +48,27 @@ const styles = StyleSheet.create({
     borderBottom: '2 solid #000000',
     paddingBottom: 15,
   },
+  headerLogoOnly: {
+    marginBottom: 15,
+    paddingBottom: 10,
+  },
   logoContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: 10,
   },
+  logoContainerSimple: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
   logo: {
     width: 120,
+    height: 'auto',
+  },
+  logoSmall: {
+    width: 80,
     height: 'auto',
   },
   contactInfo: {
@@ -314,9 +327,9 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
     <Document>
       {formData.map((section, sectionIndex) => (
         <Page key={section.id} size="A4" style={styles.page}>
-          {/* Header - Only on first page */}
+          {/* Header with title - Only on first page (not fixed) */}
           {sectionIndex === 0 && (
-            <View style={styles.header} fixed>
+            <View style={styles.header}>
               <View style={styles.logoContainer}>
                 <Image style={styles.logo} src={logoUrl} />
                 <View style={styles.contactInfo}>
@@ -332,6 +345,13 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
               </Text>
             </View>
           )}
+
+          {/* Logo only header - All pages (fixed so it repeats) */}
+          <View style={styles.headerLogoOnly} fixed>
+            <View style={styles.logoContainerSimple}>
+              <Image style={styles.logoSmall} src={logoUrl} />
+            </View>
+          </View>
 
           {/* Section */}
           <View style={styles.section}>
