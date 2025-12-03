@@ -224,6 +224,7 @@ interface ApplicationFormPDFProps {
   contactEmail: string;
   contactPhone: string;
   contactAddress: string;
+  websiteUrl: string;
 }
 
 const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
@@ -233,6 +234,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   contactEmail,
   contactPhone,
   contactAddress,
+  websiteUrl,
 }) => {
   const renderQuestion = (question: FormQuestion, level: number = 0) => {
     const isRequired = question.required;
@@ -334,6 +336,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
                 <Image style={styles.logo} src={logoUrl} />
                 <View style={styles.contactInfo}>
                   <Text>{businessName}</Text>
+                  <Text>{websiteUrl}</Text>
                   <Text>{contactEmail}</Text>
                   <Text>{contactPhone}</Text>
                   <Text>{contactAddress}</Text>
@@ -374,7 +377,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
           {/* Footer */}
           <View style={styles.footer} fixed>
             <Text>
-              {businessName} | {contactEmail} | {contactPhone}
+              {businessName} | {websiteUrl} | {contactEmail} | {contactPhone}
             </Text>
             <Text
               style={styles.pageNumber}

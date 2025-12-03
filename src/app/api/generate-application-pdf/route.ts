@@ -21,6 +21,7 @@ export async function GET() {
       contactEmail: SITE_CONFIG.ORGANIZATION_EMAIL.value,
       contactPhone: SITE_CONFIG.ORGANIZATION_PHONE.value,
       contactAddress: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
+      websiteUrl: SITE_CONFIG.PRODUCTION_DOMAIN,
     });
 
     // Render to stream (type assertion needed because ApplicationFormPDF returns a Document component)
