@@ -4,6 +4,7 @@ import { generateApplicationConfirmationEmail } from '@/lib/email-templates/appl
 import { generateApplicationAdminNotificationEmail } from '@/lib/email-templates/applicationAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
 import { applicationFormData } from '@/data/applicationFormData';
+import { generateApplicationPDFBuffer, generatePDFFilename } from '@/lib/utils/generateApplicationPDF';
 
 // Initialize Resend with API key from environment variable
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -156,6 +157,20 @@ export async function POST(request: Request) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const logoUrl = `${baseUrl}/images/logos/logo-white.png`;
 
+    // Generate PDF with submitted answers
+    let pdfBuffer: Buffer | null = null;
+    let pdfFilename = '';
+    try {
+      console.log('Generating PDF with submitted form data...');
+      pdfBuffer = await generateApplicationPDFBuffer(sanitizedFormData);
+      pdfFilename = generatePDFFilename(sanitizedName);
+      console.log(`✓ PDF generated successfully: ${pdfFilename}`);
+    } catch (pdfError) {
+      console.error('Error generating PDF:', pdfError);
+      // Continue without PDF attachment if generation fails
+      console.warn('Continuing to send email without PDF attachment');
+    }
+
     // Send email to business owner using styled template
     const adminEmailHtml = generateApplicationAdminNotificationEmail({
       name: sanitizedName,
@@ -165,20 +180,34 @@ export async function POST(request: Request) {
       sections: applicationFormData,
     });
 
-    const adminEmailResult = await resend.emails.send({
+    // Prepare email payload with optional PDF attachment
+    const emailPayload: any = {
       from: fromEmail,
       to: contactEmail,
       replyTo: sanitizedEmail,
       subject: `New Application Form Submission from ${sanitizedName}`,
       html: adminEmailHtml,
-    });
+    };
+
+    // Add PDF attachment if generated successfully
+    if (pdfBuffer) {
+      emailPayload.attachments = [
+        {
+          filename: pdfFilename,
+          content: pdfBuffer.toString('base64'),
+        },
+      ];
+      console.log('✓ PDF attachment added to email');
+    }
+
+    const adminEmailResult = await resend.emails.send(emailPayload);
 
     if (adminEmailResult.error) {
       console.error('Error sending admin email:', adminEmailResult.error);
       throw new Error('Failed to send notification email');
     }
 
-    console.log('✓ Admin notification email sent successfully');
+    console.log('✓ Admin notification email sent successfully (with PDF attachment)');
 
     // Send confirmation email to the applicant using styled template
     try {

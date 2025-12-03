@@ -19,7 +19,11 @@ interface ApplicationAdminNotificationEmailData {
  * Handles arrays (checkboxes), yes/no, and regular text
  * For radio buttons and checkboxes, looks up the full label text from the question options
  */
-function formatAnswer(value: any, questionType?: string, questionOptions?: { label: string; value: string }[]): string {
+function formatAnswer(
+  value: any,
+  questionType?: string,
+  questionOptions?: { label: string; value: string }[]
+): string {
   if (value === undefined || value === null || value === '') {
     return '<em style="color: #999;">Not answered</em>';
   }
@@ -109,7 +113,7 @@ export function generateApplicationAdminNotificationEmail(
               <tr>
                 <td style="padding: 40px 30px;">
                   <p style="margin: 0 0 30px 0; color: #333333; font-size: 16px; line-height: 1.6;">
-                    Someone has submitted an application form via your website. They have also received a confirmation email. Below are the details of their submission:
+                    Someone has submitted an application form via your website. They have also received a confirmation email. The details from their submission are below, and a PDF copy of their application is also attached for your records.
                   </p>
 
                   <!-- Contact Details Box -->
@@ -153,7 +157,7 @@ export function generateApplicationAdminNotificationEmail(
 
                   ${sections
                     .map(
-                      section => `
+                      (section) => `
                     <!-- Section: ${section.title} -->
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; page-break-inside: avoid;">
                       <tr>
@@ -168,35 +172,51 @@ export function generateApplicationAdminNotificationEmail(
                           ${section.questionGroups
                             .map((group, groupIndex) => {
                               // Filter out questions that have conditionalOn (they are subquestions)
-                              const parentQuestions = group.questions.filter(q => !q.conditionalOn);
+                              const parentQuestions = group.questions.filter(
+                                (q) => !q.conditionalOn
+                              );
                               const allQuestions = group.questions;
 
                               return `
-                                ${group.title ? `
+                                ${
+                                  group.title
+                                    ? `
                                   <!-- Group Title -->
                                   <div style="margin-top: ${groupIndex > 0 ? '20px' : '0'}; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #ffb200;">
                                     <h4 style="margin: 0; color: #ff8400; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                                       ${group.title}
                                     </h4>
                                   </div>
-                                ` : ''}
+                                `
+                                    : ''
+                                }
 
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: ${groupIndex < section.questionGroups.length - 1 ? '15px' : '0'};">
                                   ${parentQuestions
                                     .map((question, qIndex) => {
-                                      const answer = formatAnswer(formData[question.id], question.type, question.options);
+                                      const answer = formatAnswer(
+                                        formData[question.id],
+                                        question.type,
+                                        question.options
+                                      );
 
                                       // Collect all subquestions (both from subQuestions array and sibling questions with conditionalOn)
                                       const subQuestions = [
                                         ...(question.subQuestions || []),
-                                        ...allQuestions.filter(q => q.conditionalOn?.questionId === question.id)
+                                        ...allQuestions.filter(
+                                          (q) => q.conditionalOn?.questionId === question.id
+                                        ),
                                       ];
 
                                       let subQuestionsHtml = '';
                                       if (subQuestions.length > 0) {
                                         subQuestionsHtml = subQuestions
                                           .map((subQ) => {
-                                            const subAnswer = formatAnswer(formData[subQ.id], subQ.type, subQ.options);
+                                            const subAnswer = formatAnswer(
+                                              formData[subQ.id],
+                                              subQ.type,
+                                              subQ.options
+                                            );
                                             return `
                                               <tr>
                                                 <td style="padding: 8px 0 8px 30px; border-left: 3px solid #ffb200; margin-left: 10px;">

@@ -232,10 +232,44 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#666666',
   },
+  // Styles for filled/checked answers
+  checkedCheckbox: {
+    width: 12,
+    height: 12,
+    border: '1 solid #000000',
+    marginRight: 6,
+    backgroundColor: '#000000',
+  },
+  checkedRadio: {
+    width: 12,
+    height: 12,
+    border: '1 solid #000000',
+    borderRadius: 6,
+    marginRight: 6,
+    backgroundColor: '#000000',
+  },
+  answeredText: {
+    fontSize: 9,
+    marginTop: 4,
+    marginLeft: 5,
+    paddingBottom: 4,
+    borderBottom: '1 solid #CCCCCC',
+    color: '#000000',
+  },
+  answeredTextArea: {
+    fontSize: 9,
+    border: '1 solid #CCCCCC',
+    marginTop: 4,
+    marginLeft: 5,
+    padding: 5,
+    minHeight: 60,
+    color: '#000000',
+  },
 });
 
 interface ApplicationFormPDFProps {
   formData: FormSection[];
+  submittedAnswers?: Record<string, any>; // Optional: user's submitted answers to populate the form
   logoUrl: string;
   businessName: string;
   contactEmail: string;
@@ -246,6 +280,7 @@ interface ApplicationFormPDFProps {
 
 const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   formData,
+  submittedAnswers,
   logoUrl,
   businessName,
   contactEmail,
@@ -288,28 +323,38 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   };
 
   const renderQuestionInput = (question: FormQuestion) => {
+    // Get the submitted answer for this question (if any)
+    const answer = submittedAnswers?.[question.id];
+
     switch (question.type) {
       case 'radio':
         return (
           <View style={styles.optionsContainer}>
-            {question.options?.map((option) => (
-              <View key={option.value} style={styles.option}>
-                <View style={styles.radioButton} />
-                <Text style={styles.optionLabel}>{option.label}</Text>
-              </View>
-            ))}
+            {question.options?.map((option) => {
+              const isChecked = answer === option.value;
+              return (
+                <View key={option.value} style={styles.option}>
+                  <View style={isChecked ? styles.checkedRadio : styles.radioButton} />
+                  <Text style={styles.optionLabel}>{option.label}</Text>
+                </View>
+              );
+            })}
           </View>
         );
 
       case 'checkbox':
         return (
           <View style={styles.optionsContainer}>
-            {question.options?.map((option) => (
-              <View key={option.value} style={styles.option}>
-                <View style={styles.checkbox} />
-                <Text style={styles.optionLabel}>{option.label}</Text>
-              </View>
-            ))}
+            {question.options?.map((option) => {
+              // Check if this option is in the answer array
+              const isChecked = Array.isArray(answer) && answer.includes(option.value);
+              return (
+                <View key={option.value} style={styles.option}>
+                  <View style={isChecked ? styles.checkedCheckbox : styles.checkbox} />
+                  <Text style={styles.optionLabel}>{option.label}</Text>
+                </View>
+              );
+            })}
           </View>
         );
 
@@ -317,20 +362,28 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
         return (
           <View style={styles.yesNoContainer}>
             <View style={styles.option}>
-              <View style={styles.radioButton} />
+              <View style={answer === 'yes' ? styles.checkedRadio : styles.radioButton} />
               <Text style={styles.optionLabel}>Yes</Text>
             </View>
             <View style={styles.option}>
-              <View style={styles.radioButton} />
+              <View style={answer === 'no' ? styles.checkedRadio : styles.radioButton} />
               <Text style={styles.optionLabel}>No</Text>
             </View>
           </View>
         );
 
       case 'text':
+        // Show the answer text if provided, otherwise show empty line
+        if (answer && typeof answer === 'string') {
+          return <Text style={styles.answeredText}>{answer}</Text>;
+        }
         return <View style={styles.textInputLine} />;
 
       case 'textarea':
+        // Show the answer text if provided, otherwise show empty text area
+        if (answer && typeof answer === 'string') {
+          return <Text style={styles.answeredTextArea}>{answer}</Text>;
+        }
         return (
           <View style={styles.textAreaBox}>
             <View style={styles.textAreaLines}>
