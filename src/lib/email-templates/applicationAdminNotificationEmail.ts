@@ -17,8 +17,9 @@ interface ApplicationAdminNotificationEmailData {
 /**
  * Formats the answer for display in the email
  * Handles arrays (checkboxes), yes/no, and regular text
+ * For radio buttons and checkboxes, looks up the full label text from the question options
  */
-function formatAnswer(value: any, questionType?: string): string {
+function formatAnswer(value: any, questionType?: string, questionOptions?: { label: string; value: string }[]): string {
   if (value === undefined || value === null || value === '') {
     return '<em style="color: #999;">Not answered</em>';
   }
@@ -27,11 +28,30 @@ function formatAnswer(value: any, questionType?: string): string {
     if (value.length === 0) {
       return '<em style="color: #999;">Not answered</em>';
     }
+
+    // For checkbox arrays, look up the full label text for each value
+    if (questionOptions && questionOptions.length > 0) {
+      return value
+        .map((val) => {
+          const option = questionOptions.find((opt) => opt.value === val);
+          return option ? option.label : val;
+        })
+        .join(', ');
+    }
+
     return value.join(', ');
   }
 
   if (typeof value === 'boolean' || questionType === 'yesno') {
     return value === true || value === 'yes' ? 'Yes' : 'No';
+  }
+
+  // For radio buttons, look up the full label text
+  if (questionType === 'radio' && questionOptions && questionOptions.length > 0) {
+    const option = questionOptions.find((opt) => opt.value === value);
+    if (option) {
+      return option.label;
+    }
   }
 
   return String(value).replace(/\n/g, '<br>');
@@ -149,14 +169,14 @@ export function generateApplicationAdminNotificationEmail(
                             ${section.questionGroups
                               .flatMap((group) => group.questions)
                               .map((question, qIndex) => {
-                                const answer = formatAnswer(formData[question.id], question.type);
+                                const answer = formatAnswer(formData[question.id], question.type, question.options);
                                 let subQuestionsHtml = '';
 
                                 // Handle sub-questions
                                 if (question.subQuestions && question.subQuestions.length > 0) {
                                   subQuestionsHtml = question.subQuestions
                                     .map((subQ) => {
-                                      const subAnswer = formatAnswer(formData[subQ.id], subQ.type);
+                                      const subAnswer = formatAnswer(formData[subQ.id], subQ.type, subQ.options);
                                       return `
                                         <tr>
                                           <td style="padding: 12px 0 12px 20px; border-top: 1px solid #e0e0e0;">
