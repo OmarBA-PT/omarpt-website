@@ -51,6 +51,7 @@ export const applicationFormData: FormSection[] = [
             id: 'physicianSupervision',
             question:
               'Are you currently under, or have been under the supervision of a physician for any physical issues, surgeries, or disease?',
+            helperText: 'Eg: muscular, joint, bone, lungs, heart, diabetes, renal etc',
             type: 'yesno',
             required: true,
             subQuestions: [
@@ -58,14 +59,23 @@ export const applicationFormData: FormSection[] = [
                 id: 'supervisionDetails',
                 question: 'Please briefly list or explain:',
                 type: 'textarea',
-                required: false,
-                placeholder: 'Eg: muscular, joint, bone, lungs, heart, diabetes, renal etc',
+                required: true,
                 conditionalOn: {
                   questionId: 'physicianSupervision',
                   value: 'yes',
                 },
               },
             ],
+          },
+          {
+            id: 'clearedToExercise',
+            question: 'Have you been cleared by the physician to exercise?',
+            type: 'yesno',
+            required: true,
+            conditionalOn: {
+              questionId: 'physicianSupervision',
+              value: 'yes',
+            },
           },
         ],
       },
@@ -78,6 +88,18 @@ export const applicationFormData: FormSection[] = [
             question: 'Are you on medication for your blood pressure, heart, or kidneys?',
             type: 'yesno',
             required: true,
+            subQuestions: [
+              {
+                id: 'medicationDetails',
+                question: 'Please give details of the medication and purpose:',
+                type: 'textarea',
+                required: true,
+                conditionalOn: {
+                  questionId: 'medicationForPressure',
+                  value: 'yes',
+                },
+              },
+            ],
           },
         ],
       },
@@ -88,41 +110,20 @@ export const applicationFormData: FormSection[] = [
           {
             id: 'shouldSeePhysician',
             question:
-              'Do you have any issues right now that you should see a physician for? (includes occasional chest pains, or any pain or physical complications)',
-            type: 'yesno',
-            required: true,
-          },
-        ],
-      },
-      {
-        id: 'clearedToExercise-group',
-        title: 'Exercise Clearance',
-        questions: [
-          {
-            id: 'clearedToExercise',
-            question:
-              'Have you been cleared by a physician to exercise? This is recommended if you have any physical condition currently being treated by a physician.',
-            type: 'yesno',
-            required: true,
-          },
-        ],
-      },
-      {
-        id: 'activityRestrictions-group',
-        title: 'Activity Restrictions',
-        questions: [
-          {
-            id: 'activityRestrictions',
-            question: 'Do you have any restrictions with certain activities?',
+              'Do you have any symptoms or health concerns you feel may require medical assessment?',
+            helperText: 'Includes occasional chest pains, or any pain or physical complications',
             type: 'yesno',
             required: true,
             subQuestions: [
               {
-                id: 'restrictionDetails',
-                question: 'If yes, please describe:',
+                id: 'physicalIssuesDetails',
+                question: 'Please briefly list or explain:',
                 type: 'textarea',
-                required: false,
-                placeholder: 'Please describe your activity restrictions...',
+                required: true,
+                conditionalOn: {
+                  questionId: 'shouldSeePhysician',
+                  value: 'yes',
+                },
               },
             ],
           },
@@ -130,15 +131,27 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'difficultMovements-group',
-        title: 'Movement Difficulties',
+        title: 'Movement Restrictions & Difficulties',
         questions: [
           {
-            id: 'difficultMovements',
+            id: 'difficultyMoving',
             question:
-              'List any physical activities or movements are difficult for you to perform or cause you discomfort? You can write none if you are all good:',
-            type: 'textarea',
-            required: false,
-            placeholder: 'You can write "none" if you are all good',
+              'Do you have any restrictions with certain activities, or any movements that cause pain or discomfort?',
+            helperText: 'Example: squatting, bending, lifting arms, climbing stairs, etc.',
+            type: 'yesno',
+            required: true,
+            subQuestions: [
+              {
+                id: 'difficultyDetails',
+                question: 'If yes, please list or explain:',
+                type: 'textarea',
+                required: true,
+                conditionalOn: {
+                  questionId: 'difficultyMoving',
+                  value: 'yes',
+                },
+              },
+            ],
           },
         ],
       },
@@ -151,12 +164,39 @@ export const applicationFormData: FormSection[] = [
             question: 'Do you drink alcohol?',
             type: 'yesno',
             required: true,
+            subQuestions: [
+              {
+                id: 'alcoholDetails',
+                question: 'Please describe quantity and frequency:',
+                type: 'textarea',
+                required: true,
+                placeholder:
+                  'E.g. 1-3 drinks daily, 3-5 drinks on weekends, 1-2 drinks occasionally, etc.',
+                conditionalOn: {
+                  questionId: 'drinksAlcohol',
+                  value: 'yes',
+                },
+              },
+            ],
           },
           {
             id: 'smokes',
             question: 'Do you smoke?',
             type: 'yesno',
             required: true,
+            subQuestions: [
+              {
+                id: 'smokingDetails',
+                question: 'Please describe quantity and frequency:',
+                type: 'textarea',
+                required: true,
+                placeholder: 'E.g. 5-10 cigarettes daily, occasional social smoking, etc.',
+                conditionalOn: {
+                  questionId: 'smokes',
+                  value: 'yes',
+                },
+              },
+            ],
           },
         ],
       },
@@ -170,7 +210,6 @@ export const applicationFormData: FormSection[] = [
               'If there are any other comments you would like to add, please add them here:',
             type: 'textarea',
             required: false,
-            placeholder: 'Any additional information we should know...',
           },
         ],
       },

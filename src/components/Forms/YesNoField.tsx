@@ -26,6 +26,7 @@ const YesNoField = ({
       <label htmlFor={id} className={formStyles.label.base}>
         {label} {required && <span className={formStyles.label.required}>*</span>}
       </label>
+      {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
       <div className={formStyles.yesNo.container}>
         <label className={formStyles.yesNo.option}>
           <input
@@ -46,7 +47,6 @@ const YesNoField = ({
           <span className={formStyles.yesNo.label}>No</span>
         </label>
       </div>
-      {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
       {error && <p className={formStyles.error.text}>{error.message as string}</p>}
     </div>
   );

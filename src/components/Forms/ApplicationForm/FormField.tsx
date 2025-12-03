@@ -123,6 +123,7 @@ const FormField = ({
     const validation = getValidationRules(subQuestion.required || false);
     // Only show error if field has been touched or validation was attempted
     const shouldShowError = touchedFields[subQuestion.id] || attemptedValidation;
+    const subQuestionValue = watch(subQuestion.id);
 
     switch (subQuestion.type) {
       case 'textarea':
@@ -151,6 +152,44 @@ const FormField = ({
             helperText={subQuestion.helperText}
             register={register}
             validation={validation}
+          />
+        );
+      case 'yesno':
+        return (
+          <YesNoField
+            id={subQuestion.id}
+            label={subQuestion.question}
+            required={subQuestion.required}
+            error={shouldShowError ? errors[subQuestion.id] : undefined}
+            helperText={subQuestion.helperText}
+            register={register}
+            validation={validation}
+          />
+        );
+      case 'radio':
+        return (
+          <RadioGroup
+            id={subQuestion.id}
+            label={subQuestion.question}
+            options={subQuestion.options || []}
+            required={subQuestion.required}
+            error={shouldShowError ? errors[subQuestion.id] : undefined}
+            helperText={subQuestion.helperText}
+            register={register}
+            validation={validation}
+          />
+        );
+      case 'checkbox':
+        return (
+          <CheckboxGroup
+            id={subQuestion.id}
+            label={subQuestion.question}
+            options={subQuestion.options || []}
+            required={subQuestion.required}
+            error={shouldShowError ? errors[subQuestion.id] : undefined}
+            helperText={subQuestion.helperText}
+            value={subQuestionValue}
+            setValue={setValue}
           />
         );
       default:
