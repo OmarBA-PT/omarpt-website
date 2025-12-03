@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  Font,
-} from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import { FormSection, FormQuestion, QuestionType } from '@/data/applicationFormData';
 
 // Register fonts for better typography
@@ -40,7 +32,10 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 40,
+    paddingTop: 40,
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingBottom: 60, // Extra space for footer to prevent overlap
     fontFamily: 'Roboto',
   },
   header: {
@@ -328,7 +323,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   return (
     <Document>
       {formData.map((section, sectionIndex) => (
-        <Page key={section.id} size="A4" style={styles.page}>
+        <Page key={section.id} size='A4' style={styles.page}>
           {/* Header with title - Only on first page (not fixed) */}
           {sectionIndex === 0 && (
             <View style={styles.header}>
@@ -366,9 +361,7 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
             {/* Question Groups */}
             {section.questionGroups.map((group) => (
               <View key={group.id} style={styles.questionGroup}>
-                {group.title && (
-                  <Text style={styles.questionGroupTitle}>{group.title}</Text>
-                )}
+                {group.title && <Text style={styles.questionGroupTitle}>{group.title}</Text>}
                 {group.questions.map((question) => renderQuestion(question))}
               </View>
             ))}
