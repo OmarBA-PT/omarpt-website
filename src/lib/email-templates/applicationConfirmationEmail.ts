@@ -118,7 +118,7 @@ export function generateApplicationConfirmationEmail(
                     Hi <strong>${name}</strong>,
                   </p>
                   <p style="margin: 0 0 30px 0; color: #333333; font-size: 16px; line-height: 1.6;">
-                    Thank you for submitting your application! We have successfully received your submission and will review it carefully. We'll get back to you as soon as possible.
+                    Thank you for submitting your application! I have successfully received your submission and will review it carefully. I'll get back to you as soon as possible.
                   </p>
 
                   <!-- Contact Information Box -->
@@ -243,7 +243,7 @@ export function generateApplicationConfirmationEmail(
                     .join('')}
 
                   <p style="margin: 30px 0 0 0; color: #666666; font-size: 16px; line-height: 1.6;">
-                    If you have any urgent questions, feel free to reach out to us directly.
+                    If you have any urgent questions, feel free to reach out to me directly.
                   </p>
                 </td>
               </tr>
