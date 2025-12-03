@@ -39,9 +39,147 @@ export interface FormSection {
 
 export const applicationFormData: FormSection[] = [
   {
+    id: 'health-history',
+    title: 'Health History',
+    description: 'Important information about your current health status',
+    questionGroups: [
+      {
+        id: 'physicianSupervision-group',
+        title: 'Physician Supervision',
+        questions: [
+          {
+            id: 'physicianSupervision',
+            question:
+              'Are you currently under, or have been under the supervision of a physician for any physical issues, surgeries, or disease?',
+            type: 'yesno',
+            required: true,
+            subQuestions: [
+              {
+                id: 'supervisionDetails',
+                question: 'Please briefly list or explain:',
+                type: 'textarea',
+                required: false,
+                placeholder: 'Eg: muscular, joint, bone, lungs, heart, diabetes, renal etc',
+                conditionalOn: {
+                  questionId: 'physicianSupervision',
+                  value: 'yes',
+                },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'medicationForPressure-group',
+        title: 'Medication',
+        questions: [
+          {
+            id: 'medicationForPressure',
+            question: 'Are you on medication for your blood pressure, heart, or kidneys?',
+            type: 'yesno',
+            required: true,
+          },
+        ],
+      },
+      {
+        id: 'shouldSeePhysician-group',
+        title: 'Current Health Concerns',
+        questions: [
+          {
+            id: 'shouldSeePhysician',
+            question:
+              'Do you have any issues right now that you should see a physician for? (includes occasional chest pains, or any pain or physical complications)',
+            type: 'yesno',
+            required: true,
+          },
+        ],
+      },
+      {
+        id: 'clearedToExercise-group',
+        title: 'Exercise Clearance',
+        questions: [
+          {
+            id: 'clearedToExercise',
+            question:
+              'Have you been cleared by a physician to exercise? This is recommended if you have any physical condition currently being treated by a physician.',
+            type: 'yesno',
+            required: true,
+          },
+        ],
+      },
+      {
+        id: 'activityRestrictions-group',
+        title: 'Activity Restrictions',
+        questions: [
+          {
+            id: 'activityRestrictions',
+            question: 'Do you have any restrictions with certain activities?',
+            type: 'yesno',
+            required: true,
+            subQuestions: [
+              {
+                id: 'restrictionDetails',
+                question: 'If yes, please describe:',
+                type: 'textarea',
+                required: false,
+                placeholder: 'Please describe your activity restrictions...',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'difficultMovements-group',
+        title: 'Movement Difficulties',
+        questions: [
+          {
+            id: 'difficultMovements',
+            question:
+              'List any physical activities or movements are difficult for you to perform or cause you discomfort? You can write none if you are all good:',
+            type: 'textarea',
+            required: false,
+            placeholder: 'You can write "none" if you are all good',
+          },
+        ],
+      },
+      {
+        id: 'alcohol-smoking-group',
+        title: 'Alcohol & Smoking',
+        questions: [
+          {
+            id: 'drinksAlcohol',
+            question: 'Do you drink alcohol?',
+            type: 'yesno',
+            required: true,
+          },
+          {
+            id: 'smokes',
+            question: 'Do you smoke?',
+            type: 'yesno',
+            required: true,
+          },
+        ],
+      },
+      {
+        id: 'additionalHealthComments-group',
+        title: 'Additional Comments',
+        questions: [
+          {
+            id: 'additionalHealthComments',
+            question:
+              'If there are any other comments you would like to add, please add them here:',
+            type: 'textarea',
+            required: false,
+            placeholder: 'Any additional information we should know...',
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: 'fitness-background',
-    title: 'Fitness Questionnaire',
-    description: 'Help us understand your current fitness level and experience',
+    title: 'Fitness Background',
+    description: 'Help me understand your current fitness level and experience',
     questionGroups: [
       {
         id: 'activityLevel-group',
@@ -300,9 +438,9 @@ export const applicationFormData: FormSection[] = [
     ],
   },
   {
-    id: 'goals',
-    title: 'Goal Sheet',
-    description: 'Share your goals and aspirations with us',
+    id: 'goals-motivation',
+    title: 'Goals & Motivation',
+    description: 'Share your goals and aspirations with me',
     questionGroups: [
       {
         id: 'fitnessGoals3to6Months-group',
@@ -370,140 +508,6 @@ export const applicationFormData: FormSection[] = [
             placeholder: 'If you are unsure, just write the first thing that comes to your mind...',
             helperText:
               'You may revisit or add to this any time. Sometimes new desires come up while on the journey of other goals being reached. List 1-5 things.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'health-information',
-    title: 'General Health Questionnaire',
-    description: 'Important information about your current health status',
-    questionGroups: [
-      {
-        id: 'physicianSupervision-group',
-        title: 'Physician Supervision',
-        questions: [
-          {
-            id: 'physicianSupervision',
-            question:
-              'Are you currently under, or have been under the supervision of a physician for any physical issues, surgeries, or disease (Ex: muscular, joint, bone, lungs, heart, diabetes, renal)?',
-            type: 'yesno',
-            required: true,
-            subQuestions: [
-              {
-                id: 'physicianDetails',
-                question: 'If so, please briefly list or explain:',
-                type: 'textarea',
-                required: false,
-                placeholder: 'Please provide details...',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'medicationForPressure-group',
-        title: 'Medication',
-        questions: [
-          {
-            id: 'medicationForPressure',
-            question: 'Are you on medication for your blood pressure, heart, or kidneys?',
-            type: 'yesno',
-            required: true,
-          },
-        ],
-      },
-      {
-        id: 'shouldSeePhysician-group',
-        title: 'Current Health Concerns',
-        questions: [
-          {
-            id: 'shouldSeePhysician',
-            question:
-              'Do you have any issues right now that you should see a physician for? (includes occasional chest pains, or any pain or physical complications)',
-            type: 'yesno',
-            required: true,
-          },
-        ],
-      },
-      {
-        id: 'clearedToExercise-group',
-        title: 'Exercise Clearance',
-        questions: [
-          {
-            id: 'clearedToExercise',
-            question:
-              'Have you been cleared by a physician to exercise? This is recommended if you have any physical condition currently being treated by a physician.',
-            type: 'yesno',
-            required: true,
-          },
-        ],
-      },
-      {
-        id: 'activityRestrictions-group',
-        title: 'Activity Restrictions',
-        questions: [
-          {
-            id: 'activityRestrictions',
-            question: 'Do you have any restrictions with certain activities?',
-            type: 'yesno',
-            required: true,
-            subQuestions: [
-              {
-                id: 'restrictionDetails',
-                question: 'If yes, please describe:',
-                type: 'textarea',
-                required: false,
-                placeholder: 'Please describe your activity restrictions...',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'difficultMovements-group',
-        title: 'Movement Difficulties',
-        questions: [
-          {
-            id: 'difficultMovements',
-            question:
-              'List any physical activities or movements are difficult for you to perform or cause you discomfort? You can write none if you are all good:',
-            type: 'textarea',
-            required: false,
-            placeholder: 'You can write "none" if you are all good',
-          },
-        ],
-      },
-      {
-        id: 'alcohol-smoking-group',
-        title: 'Alcohol & Smoking',
-        questions: [
-          {
-            id: 'drinksAlcohol',
-            question: 'Do you drink alcohol?',
-            type: 'yesno',
-            required: true,
-          },
-          {
-            id: 'smokes',
-            question: 'Do you smoke?',
-            type: 'yesno',
-            required: true,
-          },
-        ],
-      },
-      {
-        id: 'additionalHealthComments-group',
-        title: 'Additional Comments',
-        questions: [
-          {
-            id: 'additionalHealthComments',
-            question:
-              'If there are any other comments you would like to add, please add them here:',
-            type: 'textarea',
-            required: false,
-            placeholder: 'Any additional information we should know...',
           },
         ],
       },

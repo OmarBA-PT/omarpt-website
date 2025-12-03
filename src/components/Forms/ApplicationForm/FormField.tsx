@@ -6,7 +6,7 @@ import {
   UseFormSetValue,
   FieldNamesMarkedBoolean,
 } from 'react-hook-form';
-import { FormQuestion } from '@/data/applicationFormData';
+import { FormQuestion, shouldDisplayQuestion } from '@/data/applicationFormData';
 import TextInput from '@/components/Forms/TextInput';
 import TextArea from '@/components/Forms/TextArea';
 import RadioGroup from '@/components/Forms/RadioGroup';
@@ -165,9 +165,15 @@ const FormField = ({
       {/* Render sub-questions if they exist */}
       {question.subQuestions && question.subQuestions.length > 0 && (
         <div className={formStyles.field.subQuestionWrapper}>
-          {question.subQuestions.map((subQuestion: FormQuestion) => (
-            <div key={subQuestion.id}>{renderSubQuestion(subQuestion)}</div>
-          ))}
+          {question.subQuestions.map((subQuestion: FormQuestion) => {
+            // Check if subQuestion should be displayed based on conditionalOn logic
+            const formData = watch();
+            if (!shouldDisplayQuestion(subQuestion, formData)) {
+              return null;
+            }
+
+            return <div key={subQuestion.id}>{renderSubQuestion(subQuestion)}</div>;
+          })}
         </div>
       )}
     </div>
