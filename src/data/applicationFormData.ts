@@ -361,8 +361,7 @@ export const applicationFormData: FormSection[] = [
             question: 'What activities do you enjoy? List any below:',
             type: 'textarea',
             required: false,
-            placeholder:
-              'List any activities you enjoy (e.g., running, swimming, cycling, yoga...)',
+            placeholder: 'e.g, running, swimming, cycling, yoga etc',
           },
         ],
       },
@@ -372,11 +371,10 @@ export const applicationFormData: FormSection[] = [
         questions: [
           {
             id: 'desiredBodyShape',
-            question:
-              'What sort of body shape do you desire to achieve? (i.e. toned, muscular, fit, or unsure)',
+            question: 'What sort of body shape do you desire to achieve?',
             type: 'text',
             required: false,
-            placeholder: 'e.g., toned, muscular, fit, lean, or unsure',
+            placeholder: 'e.g, toned, muscular, fit, lean, or unsure',
           },
         ],
       },
@@ -469,8 +467,6 @@ export const applicationFormData: FormSection[] = [
               'Is there any additional information or concern in regards to training you would like to share with your trainer?',
             type: 'textarea',
             required: false,
-            placeholder:
-              'Any concerns, preferences, or information that would help us serve you better...',
           },
         ],
       },
