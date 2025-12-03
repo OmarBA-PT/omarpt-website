@@ -4,14 +4,18 @@ import ReactPDF from '@react-pdf/renderer';
 import ApplicationFormPDF from '@/components/PDF/ApplicationFormPDF';
 import { applicationFormData } from '@/data/applicationFormData';
 import { SITE_CONFIG } from '@/lib/constants';
+import fs from 'fs';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    // Get the base URL for the logo
-    const baseUrl = SITE_CONFIG.PRODUCTION_DOMAIN;
-    const logoUrl = `${baseUrl}/images/logos/logo.png`;
+    // Read logo file and convert to base64 data URI for reliable PDF embedding
+    const logoPath = path.join(process.cwd(), 'public', 'images', 'logos', 'logo.png');
+    const logoBuffer = fs.readFileSync(logoPath);
+    const logoBase64 = logoBuffer.toString('base64');
+    const logoUrl = `data:image/png;base64,${logoBase64}`;
 
     // Create the PDF document element using JSX-like syntax
     const pdfDocument = React.createElement(ApplicationFormPDF, {

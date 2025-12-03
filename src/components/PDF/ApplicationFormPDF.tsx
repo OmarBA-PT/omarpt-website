@@ -59,10 +59,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   logo: {
-    width: 120,
-    height: 'auto',
-  },
-  logoSmall: {
     width: 80,
     height: 'auto',
   },
@@ -70,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 9,
     textAlign: 'right',
     lineHeight: 1.4,
+    marginTop: 10,
   },
   title: {
     fontSize: 20,
@@ -378,13 +375,6 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
               </View>
             </View>
           )}
-
-          {/* Logo only header - All pages (fixed so it repeats) */}
-          <View style={styles.headerLogoOnly} fixed>
-            <View style={styles.logoContainerSimple}>
-              <Image style={styles.logoSmall} src={logoUrl} />
-            </View>
-          </View>
 
           {/* Section */}
           <View style={styles.section}>
