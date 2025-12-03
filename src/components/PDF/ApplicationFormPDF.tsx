@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 10,
+    marginBottom: 30,
   },
   logoContainerSimple: {
     flexDirection: 'row',
@@ -238,7 +238,6 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   websiteUrl,
 }) => {
   const renderQuestion = (question: FormQuestion, level: number = 0) => {
-    const isRequired = question.required;
     const isConditional = !!question.conditionalOn;
 
     return (
@@ -342,7 +341,6 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
                 <Image style={styles.logo} src={logoUrl} />
                 <View style={styles.contactInfo}>
                   <Text>{businessName}</Text>
-                  <Text>{websiteUrl}</Text>
                   <Text>{contactEmail}</Text>
                   <Text>{contactPhone}</Text>
                   <Text>{contactAddress}</Text>
