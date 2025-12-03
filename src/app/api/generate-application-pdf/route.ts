@@ -11,8 +11,9 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    // Read logo file and convert to base64 data URI for reliable PDF embedding
-    const logoPath = path.join(process.cwd(), 'public', 'images', 'logos', 'logo.png');
+    // Read optimized logo file (much smaller for PDFs) and convert to base64 data URI
+    // Using logo-pdf-optimized.png (13KB) instead of logo.png (1.6MB) to keep PDF file size small
+    const logoPath = path.join(process.cwd(), 'public', 'images', 'logos', 'logo-pdf-optimized.png');
     const logoBuffer = fs.readFileSync(logoPath);
     const logoBase64 = logoBuffer.toString('base64');
     const logoUrl = `data:image/png;base64,${logoBase64}`;
