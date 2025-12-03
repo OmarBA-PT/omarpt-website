@@ -74,14 +74,29 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 700,
-    marginBottom: 5,
+    marginBottom: 10,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 10,
     textAlign: 'center',
     color: '#555555',
+    marginBottom: 10,
+  },
+  submissionInstructions: {
+    fontSize: 9,
+    textAlign: 'center',
+    marginTop: 10,
     marginBottom: 15,
+    paddingTop: 10,
+    borderTop: '1 solid #DDDDDD',
+  },
+  instructionLine: {
+    marginBottom: 3,
+  },
+  emailHighlight: {
+    fontWeight: 700,
+    textDecoration: 'underline',
   },
   section: {
     marginBottom: 20,
@@ -330,6 +345,8 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
     }
   };
 
+  const isLastSection = (index: number) => index === formData.length - 1;
+
   return (
     <Document>
       {formData.map((section, sectionIndex) => (
@@ -348,8 +365,17 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
               </View>
               <Text style={styles.title}>Coaching Application Form</Text>
               <Text style={styles.subtitle}>
-                Please complete all sections as thoroughly as possible
+                Please complete the form below as thoroughly as possible.
               </Text>
+              <View style={styles.submissionInstructions}>
+                <Text style={styles.instructionLine}>
+                  Once the form is complete, please email to{' '}
+                  <Text style={styles.emailHighlight}>{contactEmail}</Text>
+                </Text>
+                <Text style={styles.instructionLine}>
+                  You can also complete this form online instead at {websiteUrl}/apply
+                </Text>
+              </View>
             </View>
           )}
 
@@ -375,6 +401,19 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
               </View>
             ))}
           </View>
+
+          {/* Submission Instructions - at the end of the last section */}
+          {isLastSection(sectionIndex) && (
+            <View style={styles.submissionInstructions}>
+              <Text style={styles.instructionLine}>
+                Once the form is complete, please email to{' '}
+                <Text style={styles.emailHighlight}>{contactEmail}</Text>
+              </Text>
+              <Text style={styles.instructionLine}>
+                You can also complete this form online instead at {websiteUrl}/apply
+              </Text>
+            </View>
+          )}
 
           {/* Footer */}
           <View style={styles.footer} fixed>
