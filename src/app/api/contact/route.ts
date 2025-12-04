@@ -182,7 +182,8 @@ export async function POST(request: Request) {
 
     if (adminEmailResult.error) {
       console.error('[Contact API] Error sending admin email:', adminEmailResult.error);
-      throw new Error('Failed to send notification email');
+      console.error('[Contact API] Full Resend error object:', JSON.stringify(adminEmailResult.error, null, 2));
+      throw new Error(`Failed to send notification email: ${JSON.stringify(adminEmailResult.error)}`);
     }
     console.log('[Contact API] Admin email sent successfully');
 
