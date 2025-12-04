@@ -13,7 +13,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings, getContactPage } from '@/actions';
-import CardLight from '@/components/CardLight/CardLight';
+import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
 
