@@ -548,6 +548,26 @@ export const applicationFormData: FormSection[] = [
       },
     ],
   },
+  {
+    id: 'additional-info-questions',
+    title: 'Additional Information',
+    description: 'Additional information or questions you may have',
+    questionGroups: [
+      {
+        id: 'additionalInfo-group',
+        title: 'Additional Information or Questions',
+        questions: [
+          {
+            id: 'additionalInfo',
+            question:
+              'Is there any other information you would like to share, or any questions you have?',
+            type: 'textarea',
+            required: false,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Helper function to get all questions across all sections
