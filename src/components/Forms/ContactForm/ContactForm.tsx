@@ -53,18 +53,23 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
   // Scroll to form when success message appears
   useEffect(() => {
-    console.log('[ContactForm] Status:', status);
     if (status === 'success' && formRef.current) {
       formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [status]);
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
+    console.log('[ContactForm] ===== SUBMIT HANDLER CALLED =====');
+    console.log('[ContactForm] Form data received:', data);
+
+    // Temporary alert for debugging - remove after issue is fixed
+    // alert('Form submitted! Check console for logs.');
+
     setStatus('loading');
     setErrorMessage('');
 
     try {
-      console.log('[ContactForm] Submitting form data:', { name: data.name, email: data.email });
+      console.log('[ContactForm] About to submit form data:', { name: data.name, email: data.email });
 
       const response = await fetch('/api/contact', {
         method: 'POST',
