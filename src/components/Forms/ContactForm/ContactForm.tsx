@@ -78,9 +78,15 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
         reset();
       } else {
         console.error('[ContactForm] Error response:', responseData);
+        console.error('[ContactForm] Full response object:', JSON.stringify(responseData, null, 2));
         if (responseData.debugInfo) {
-          console.error('[ContactForm] Debug info:', responseData.debugInfo);
+          console.error('[ContactForm] Debug info present:', responseData.debugInfo);
+          console.error('[ContactForm] Error message:', responseData.debugInfo.message);
+          console.error('[ContactForm] Error name:', responseData.debugInfo.name);
+          console.error('[ContactForm] Environment info:', responseData.debugInfo.env);
           console.error('[ContactForm] Full stack trace:', responseData.debugInfo.stack);
+        } else {
+          console.error('[ContactForm] No debugInfo in response');
         }
         setStatus('error');
         setErrorMessage(

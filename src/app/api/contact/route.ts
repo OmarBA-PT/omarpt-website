@@ -252,21 +252,37 @@ export async function POST(request: Request) {
       error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
 
     // Include detailed error info in non-production environments for debugging
+    // Only hide debug info in true production environment
     const isProd = process.env.NEXT_PUBLIC_ENV === 'production';
-    const errorDetails = !isProd && error instanceof Error
+
+    console.error('[Contact API] Environment check:', {
+      NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
+      VERCEL_ENV: process.env.VERCEL_ENV,
+      isProd,
+      willIncludeDebugInfo: !isProd,
+    });
+
+    const errorDetails = error instanceof Error
       ? {
           message: error.message,
           stack: error.stack,
           name: error.name,
+          env: {
+            NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
+            VERCEL_ENV: process.env.VERCEL_ENV,
+            hasResendKey: !!process.env.RESEND_API_KEY,
+            hasContactEmail: !!process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+            hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
+          }
         }
-      : undefined;
+      : null;
 
     return NextResponse.json(
       {
         error:
           'We encountered an issue sending your message. Please try contacting us directly via email or phone.',
         details: errorMessage,
-        ...(errorDetails && { debugInfo: errorDetails }),
+        debugInfo: isProd ? null : errorDetails, // Only include debug info in non-production
       },
       { status: 500 }
     );
