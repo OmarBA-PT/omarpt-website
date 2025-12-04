@@ -63,6 +63,8 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
     setErrorMessage('');
 
     try {
+      console.log('[ContactForm] Submitting form data:', { name: data.name, email: data.email });
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -71,7 +73,22 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
         body: JSON.stringify(data),
       });
 
-      const responseData = await response.json();
+      console.log('[ContactForm] Response received:', {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok,
+      });
+
+      let responseData;
+      try {
+        const responseText = await response.text();
+        console.log('[ContactForm] Raw response text:', responseText);
+        responseData = JSON.parse(responseText);
+        console.log('[ContactForm] Parsed response data:', responseData);
+      } catch (parseError) {
+        console.error('[ContactForm] Failed to parse response:', parseError);
+        throw new Error('Invalid response from server');
+      }
 
       if (response.ok) {
         setStatus('success');
