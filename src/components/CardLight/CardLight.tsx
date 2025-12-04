@@ -10,14 +10,12 @@ interface CardLightProps {
 
 const CardLight = ({ title = '', children, icon: Icon, className = '' }: CardLightProps) => {
   return (
-    <div className={`bg-brand-charcoal-light rounded-lg p-6 text-left ${className}`}>
-      <div className='flex gap-4'>
-        {Icon ? <Icon className='w-8 h-8 text-brand-secondary mb-3' /> : null}
-        <div className='grow'>
-          <h3 className='text-h6 text-brand-primary mb-2'>{title}</h3>
-          {children}
-        </div>
+    <div className={`bg-brand-charcoal-light rounded-lg p-4 md:p-8 text-center ${className}`}>
+      <div className='flex flex-col justify-center md:justify-start items-center gap-2 md:gap-4'>
+        {Icon ? <Icon className='w-8 h-8 text-brand-secondary' /> : null}
+        <p className='text-h4 text-gradient-primary mb-2'>{title}</p>
       </div>
+      {children}
     </div>
   );
 };

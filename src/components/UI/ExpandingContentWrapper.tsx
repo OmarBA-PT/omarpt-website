@@ -9,6 +9,7 @@ interface ExpandingContentWrapperProps {
   expandLabel?: string;
   collapseLabel?: string;
   className?: string;
+  alwaysCentered?: boolean;
 }
 
 const ExpandingContentWrapper = ({
@@ -17,6 +18,7 @@ const ExpandingContentWrapper = ({
   expandLabel = 'Read More',
   collapseLabel = 'Read Less',
   className = '',
+  alwaysCentered = false,
 }: ExpandingContentWrapperProps) => {
   // State for expansion
   const [isExpanded, setIsExpanded] = useState(false);
@@ -48,6 +50,7 @@ const ExpandingContentWrapper = ({
         expandLabel={expandLabel}
         collapseLabel={collapseLabel}
         showOnDesktop={showOnDesktop}
+        alwaysCentered={alwaysCentered}
       />
     </div>
   );

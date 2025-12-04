@@ -100,14 +100,15 @@ const ContactPage = async () => {
         {/* Contact Methods */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Contact Form */}
-          <CardLight className='col-span-2' title='Send me a message' icon={MdEmail}>
+          <CardLight className='md:col-span-2' title='Send me a message' icon={MdEmail}>
             <p className='mb-4'>Submit your enquiry using my contact form.</p>
 
             <ExpandingContentWrapper
               expandLabel='Show Contact Form'
               collapseLabel='Hide Contact Form'
-              showOnDesktop={true}>
-              <ContactForm className='pr-8 py-8' settings={contactFormSettings} />
+              showOnDesktop={true}
+              alwaysCentered={true}>
+              <ContactForm className='py-8' settings={contactFormSettings} />
             </ExpandingContentWrapper>
           </CardLight>
 

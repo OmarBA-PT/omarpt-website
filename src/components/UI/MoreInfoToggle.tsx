@@ -6,6 +6,7 @@ interface MoreInfoToggleProps {
   expandLabel?: string;
   collapseLabel?: string;
   showOnDesktop?: boolean;
+  alwaysCentered?: boolean;
 }
 
 const MoreInfoToggle = ({
@@ -14,11 +15,12 @@ const MoreInfoToggle = ({
   expandLabel = 'Read More',
   collapseLabel = 'Read Less',
   showOnDesktop = false,
+  alwaysCentered = false,
 }: MoreInfoToggleProps) => {
   return (
     <div
       onClick={() => setIsExpanded(!isExpanded)}
-      className={`${showOnDesktop ? 'flex' : 'lg:hidden flex'} justify-center md:justify-start items-center gap-2 hover:font-semibold mt-2 cursor-pointer`}
+      className={`${showOnDesktop ? 'flex' : 'lg:hidden flex'} justify-center ${alwaysCentered ? '' : ' md:justify-start'} items-center gap-2 hover:font-semibold mt-2 cursor-pointer`}
       aria-expanded={isExpanded}
       aria-label={isExpanded ? 'Show less information' : 'Show more information'}>
       <span className='inline-block text-gradient-primary'>
