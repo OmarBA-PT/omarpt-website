@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
-import { contactDetailsStepData } from './contactDetailsStepData';
+import { contactDetailsStepData } from './data/contactDetailsStepData';
 import FormField from './FormField';
 import ProgressBar from './ProgressBar';
 import StepIndicators from './StepIndicators';
@@ -424,7 +424,8 @@ const ApplicationForm = () => {
               const groupComplete = isGroupComplete(groupIndex);
               const groupKey = `${currentStep}-${groupIndex}`;
               const hasOnlyRadioButtons = groupHasOnlyRadioButtonRequiredFields(groupIndex);
-              const hasVisibleConditionals = lastRequiredFieldHasVisibleConditionalSubQuestions(groupIndex);
+              const hasVisibleConditionals =
+                lastRequiredFieldHasVisibleConditionalSubQuestions(groupIndex);
               const hasFilledFields = groupHasAnyFilledFields(groupIndex);
               const hasIncompleteMandatory = groupHasIncompleteMandatoryFields(groupIndex);
 

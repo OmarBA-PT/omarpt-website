@@ -1,7 +1,7 @@
 import React from 'react';
 import { UseFormRegister, FieldErrors, FieldNamesMarkedBoolean } from 'react-hook-form';
 import TextInput from './TextInput';
-import { contactDetailsStepData } from './ApplicationForm/contactDetailsStepData';
+import { contactDetailsStepData } from './ApplicationForm/data/contactDetailsStepData';
 
 interface ContactDetailsStepProps {
   register: UseFormRegister<any>;
@@ -17,15 +17,13 @@ const ContactDetailsStep = ({
   attemptedValidation,
 }: ContactDetailsStepProps) => {
   return (
-    <div className="space-y-6">
+    <div className='space-y-6'>
       {contactDetailsStepData.questionGroups.map((group) => (
-        <div key={group.id} className="p-6 bg-white/40 rounded-lg border border-gray-200">
+        <div key={group.id} className='p-6 bg-white/40 rounded-lg border border-gray-200'>
           {group.title && (
-            <h3 className="text-body-lg font-semibold text-brand-secondary mb-4">
-              {group.title}
-            </h3>
+            <h3 className='text-body-lg font-semibold text-brand-secondary mb-4'>{group.title}</h3>
           )}
-          <div className="space-y-4">
+          <div className='space-y-4'>
             {group.questions.map((question) => {
               // Determine input type and validation based on the question
               let inputType: 'text' | 'email' | 'tel' = 'text';

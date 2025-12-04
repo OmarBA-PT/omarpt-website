@@ -1,7 +1,7 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import { FormSection, FormQuestion, QuestionType } from '@/data/applicationFormData';
-import { contactDetailsStepData } from '@/components/Forms/ApplicationForm/contactDetailsStepData';
+import { contactDetailsStepData } from '@/components/Forms/ApplicationForm/data/contactDetailsStepData';
 
 // Register fonts for better typography
 // Using Google Fonts CDN with proper variant support
