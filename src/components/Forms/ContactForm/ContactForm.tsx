@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import CTA from '@/components/UI/CTA';
 import type { CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
@@ -21,6 +21,8 @@ interface ContactFormData {
 }
 
 const ContactForm = ({ className = '', settings }: ContactFormProps) => {
+  const formRef = useRef<HTMLDivElement>(null);
+
   const {
     register,
     handleSubmit,
@@ -48,6 +50,13 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Scroll to form when success message appears
+  useEffect(() => {
+    if (status === 'success' && formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [status]);
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
     setStatus('loading');
@@ -86,7 +95,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
   const fieldDisabled = status === 'loading' || status === 'success';
 
   return (
-    <div className={`max-w-2xl rounded-lg text-left ${className}`.trim()}>
+    <div ref={formRef} className={`max-w-2xl rounded-lg text-left ${className}`.trim()}>
       {/* Optional Title and Subtitle */}
       {(title || subtitle) && (
         <div className='mb-6'>
