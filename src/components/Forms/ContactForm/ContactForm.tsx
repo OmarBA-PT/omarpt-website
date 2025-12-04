@@ -182,16 +182,14 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
           )}
 
           {/* Submit button */}
-          <div className='flex justify-center'>
-            <CTA
-              as='button'
-              type='submit'
-              variant='filled'
-              disabled={fieldDisabled}
-              className='w-full'>
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
-            </CTA>
-          </div>
+          <CTA
+            as='button'
+            type='submit'
+            variant='filled'
+            disabled={fieldDisabled}
+            className='w-full'>
+            {status === 'loading' ? 'Sending...' : 'Send Message'}
+          </CTA>
         </form>
       )}
 
