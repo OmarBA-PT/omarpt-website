@@ -228,7 +228,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
           )}
 
           {/* Submit button */}
-          <h1>THIS IS SOME TEST TEXT FOR DEBUGGING!</h1>
+          <h1>THIS IS SOME TEST TEXT FOR DEBUGGING!!</h1>
           <CTA
             as='button'
             type='submit'
