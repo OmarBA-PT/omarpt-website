@@ -33,8 +33,8 @@ export function generateAdminNotificationEmail(data: AdminNotificationEmailData)
 
               <!-- Header with Brand Gradient -->
               <tr>
-                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
-                  <h1 style="margin: 0; color: #282828; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">
+                <td style="background: linear-gradient(90deg, #616161 0%, #000000 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                  <h1 style="margin: 0; color: #ffb200; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">
                     New Contact Form Submission
                   </h1>
                 </td>
