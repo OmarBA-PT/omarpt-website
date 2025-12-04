@@ -16,6 +16,7 @@ import { getContactFormSettings, getContactPage } from '@/actions';
 import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
+import CardGradient from '@/components/UI/CardGradient';
 
 export async function generateMetadata() {
   // Fetch contact page data for metadata
@@ -131,21 +132,12 @@ const ContactPage = async () => {
         </div>
 
         {/* Ready to Apply CTA */}
-        <div
-          className={`bg-brand-gradient-charcoal-linear rounded-lg p-8 md:p-12 max-w-3xl mx-auto ${maxCardWidth}`}>
-          <h2 className='text-h4 font-semibold text-gradient-primary mb-4'>
-            Ready to Start Your Coaching Journey?
-          </h2>
-          <p className='text-body-lg text-brand-white mb-6'>
-            If you&apos;re ready to commit to your fitness goals and want to begin coaching right
-            away, submit a full application instead.
-          </p>
-          <Link
-            href='/apply'
-            className='inline-block bg-brand-primary hover:bg-brand-secondary text-brand-charcoal font-semibold px-8 py-4 rounded-lg transition-colors text-body-lg'>
-            Apply for Coaching
-          </Link>
-        </div>
+        <CardGradient
+          title='Ready to Start Your Coaching Journey?'
+          body="If you're ready to commit to your fitness goals and want to begin coaching right away, submit a full application instead."
+          ctaText='Apply for Coaching'
+          ctaHref='/apply'
+        />
       </Container>
     </>
   );
