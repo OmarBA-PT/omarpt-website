@@ -14,6 +14,9 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings, getContactPage } from '@/actions';
 import CardLight from '@/components/CardLight/CardLight';
+import CTAButtonClient from '@/components/UI/CTAButtonClient';
+import ExpandingContent from '@/components/_blocks/ExpandingContent';
+import { maxCardWidth } from '@/utils/spacingConstants';
 
 export async function generateMetadata() {
   // Fetch contact page data for metadata
@@ -41,7 +44,8 @@ const ContactPage = async () => {
   // Fallback values if Sanity data is not available
   const pageTitle = contactPageData?.title || 'Contact Us';
   const pageSubtitle =
-    contactPageData?.subtitle || 'Get in touch for general enquiries or start your coaching journey';
+    contactPageData?.subtitle ||
+    'Get in touch for general enquiries or start your coaching journey';
 
   // Generate breadcrumb data
   const breadcrumbItems = [
@@ -88,18 +92,24 @@ const ContactPage = async () => {
         {/* Introduction */}
         <div className='max-w-3xl mx-auto mb-12'>
           <p className='text-body-lg'>
-            Have a question or want to learn more about our coaching services? Fill in the contact
-            form below and we&apos;ll get back to you as soon as possible.
+            Have a question or want to learn more about our coaching services? Get in touch using
+            any method below and we&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
         {/* Contact Methods */}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16'>
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
+          {/* Contact Form */}
+          <CardLight className='col-span-2' title='Send me a message' icon={MdEmail}>
+            <p>Submit your enquiry using my contact form.</p>
+            <ContactForm className='pr-8 py-8' settings={contactFormSettings} />
+          </CardLight>
+
           {/* Email */}
           <CardLight title='Email Us' icon={MdEmail}>
             <a
               href='mailto:info@omaniatraining.com'
-              className='text-body-base text-brand-primary hover:text-brand-secondary transition-colors'>
+              className='text-body-base hover:text-brand-secondary transition-colors'>
               info@omaniatraining.com
             </a>
           </CardLight>
@@ -108,20 +118,15 @@ const ContactPage = async () => {
           <CardLight title='Call Us' icon={MdPhone}>
             <a
               href='tel:+447555123456'
-              className='text-body-base text-brand-primary hover:text-brand-secondary transition-colors'>
+              className='text-body-base hover:text-brand-secondary transition-colors'>
               +44 7555 123456
             </a>
           </CardLight>
         </div>
 
-        {/* Contact Form */}
-        <div className='max-w-2xl mx-auto mb-16'>
-          <h2 className='text-h4 font-semibold mb-6'>Send us a message</h2>
-          <ContactForm settings={contactFormSettings} />
-        </div>
-
         {/* Ready to Apply CTA */}
-        <div className='bg-brand-gradient-charcoal-linear rounded-lg p-8 md:p-12 max-w-3xl mx-auto'>
+        <div
+          className={`bg-brand-gradient-charcoal-linear rounded-lg p-8 md:p-12 max-w-3xl mx-auto ${maxCardWidth}`}>
           <h2 className='text-h4 font-semibold text-gradient-primary mb-4'>
             Ready to Start Your Coaching Journey?
           </h2>

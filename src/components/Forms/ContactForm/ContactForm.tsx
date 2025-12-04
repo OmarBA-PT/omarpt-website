@@ -86,8 +86,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
   const fieldDisabled = status === 'loading' || status === 'success';
 
   return (
-    <div
-      className={`max-w-2xl bg-brand-white-dark rounded-lg px-6 md:px-8 py-8 shadow-sm text-left ${className}`.trim()}>
+    <div className={`max-w-2xl rounded-lg text-left ${className}`.trim()}>
       {/* Optional Title and Subtitle */}
       {(title || subtitle) && (
         <div className='mb-6'>
