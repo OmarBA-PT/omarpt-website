@@ -53,6 +53,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
   // Scroll to form when success message appears
   useEffect(() => {
+    console.log('[ContactForm] Status:', status);
     if (status === 'success' && formRef.current) {
       formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
