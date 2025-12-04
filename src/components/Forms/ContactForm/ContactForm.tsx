@@ -50,6 +50,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [debugOutput, setDebugOutput] = useState<string>('');
 
   // Scroll to form when success message appears
   useEffect(() => {
@@ -62,11 +63,9 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
     console.log('[ContactForm] ===== SUBMIT HANDLER CALLED =====');
     console.log('[ContactForm] Form data received:', data);
 
-    // Temporary alert for debugging - remove after issue is fixed
-    alert('Form submitted! Check console for logs.');
-
     setStatus('loading');
     setErrorMessage('');
+    setDebugOutput('Starting submission...\n');
 
     try {
       console.log('[ContactForm] About to submit form data:', {
@@ -88,14 +87,18 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
         ok: response.ok,
       });
 
+      setDebugOutput((prev) => prev + `Response status: ${response.status}\n`);
+
       let responseData;
       try {
         const responseText = await response.text();
         console.log('[ContactForm] Raw response text:', responseText);
+        setDebugOutput((prev) => prev + `Raw response: ${responseText.substring(0, 500)}\n`);
         responseData = JSON.parse(responseText);
         console.log('[ContactForm] Parsed response data:', responseData);
       } catch (parseError) {
         console.error('[ContactForm] Failed to parse response:', parseError);
+        setDebugOutput((prev) => prev + `Parse error: ${parseError}\n`);
         throw new Error('Invalid response from server');
       }
 
@@ -105,14 +108,26 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
       } else {
         console.error('[ContactForm] Error response:', responseData);
         console.error('[ContactForm] Full response object:', JSON.stringify(responseData, null, 2));
+
+        // Display debug info on page
         if (responseData.debugInfo) {
           console.error('[ContactForm] Debug info present:', responseData.debugInfo);
           console.error('[ContactForm] Error message:', responseData.debugInfo.message);
           console.error('[ContactForm] Error name:', responseData.debugInfo.name);
           console.error('[ContactForm] Environment info:', responseData.debugInfo.env);
           console.error('[ContactForm] Full stack trace:', responseData.debugInfo.stack);
+
+          setDebugOutput(
+            (prev) =>
+              prev +
+              `ERROR: ${responseData.debugInfo.message}\n` +
+              `Error Name: ${responseData.debugInfo.name}\n` +
+              `Env: ${JSON.stringify(responseData.debugInfo.env, null, 2)}\n` +
+              `Stack: ${responseData.debugInfo.stack}\n`
+          );
         } else {
           console.error('[ContactForm] No debugInfo in response');
+          setDebugOutput((prev) => prev + 'No debugInfo in response\n');
         }
         setStatus('error');
         setErrorMessage(
@@ -220,6 +235,16 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
             rows={6}
           />
 
+          {/* Debug output display */}
+          {debugOutput && (
+            <div className='bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-4'>
+              <p className='text-body-sm font-bold mb-2'>Debug Information:</p>
+              <pre className='text-body-xs font-mono whitespace-pre-wrap overflow-x-auto'>
+                {debugOutput}
+              </pre>
+            </div>
+          )}
+
           {/* Error message display */}
           {status === 'error' && (
             <div className='bg-red-50 border-2 border-red-200 rounded-lg p-4'>
@@ -228,7 +253,6 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
           )}
 
           {/* Submit button */}
-          <h1>THIS IS SOME TEST TEXT FOR DEBUGGING!!</h1>
           <CTA
             as='button'
             type='submit'
