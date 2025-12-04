@@ -12,13 +12,17 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
-import { getContactFormSettings } from '@/actions';
+import { getContactFormSettings, getContactPage } from '@/actions';
 import CardLight from '@/components/CardLight/CardLight';
 
 export async function generateMetadata() {
+  // Fetch contact page data for metadata
+  const contactPageData = await getContactPage();
+
   return generatePageMetadata({
-    title: 'Contact Us',
+    title: contactPageData?.title || 'Contact Us',
     description:
+      contactPageData?.subtitle ||
       "Get in touch with us for general enquiries or apply for coaching if you're ready to start your fitness journey.",
     siteSettings: null,
     canonicalUrl: generateCanonicalUrl('/contact'),
@@ -28,19 +32,27 @@ export async function generateMetadata() {
 const ContactPage = async () => {
   const baseUrl = getBaseUrl();
 
-  // Fetch contact form settings from Sanity
-  const contactFormSettings = await getContactFormSettings();
+  // Fetch contact page data and form settings from Sanity
+  const [contactPageData, contactFormSettings] = await Promise.all([
+    getContactPage(),
+    getContactFormSettings(),
+  ]);
+
+  // Fallback values if Sanity data is not available
+  const pageTitle = contactPageData?.title || 'Contact Us';
+  const pageSubtitle =
+    contactPageData?.subtitle || 'Get in touch for general enquiries or start your coaching journey';
 
   // Generate breadcrumb data
   const breadcrumbItems = [
     { name: 'Home', url: baseUrl },
-    { name: 'Contact Us', url: `${baseUrl}/contact` },
+    { name: pageTitle, url: `${baseUrl}/contact` },
   ];
 
   // Generate Article structured data
   const articleSchema = generateArticleSchema({
-    headline: 'Contact Us',
-    description: 'Get in touch with us for general enquiries or apply for coaching.',
+    headline: pageTitle,
+    description: pageSubtitle,
     datePublished: new Date().toISOString(),
     dateModified: new Date().toISOString(),
     author: {
@@ -67,13 +79,10 @@ const ContactPage = async () => {
       )}
 
       {/* Page Hero */}
-      <PageHero
-        title='Contact Us'
-        subtTitle='Get in touch for general enquiries or start your coaching journey'
-      />
+      <PageHero title={pageTitle} subtTitle={pageSubtitle} />
 
       {/* Breadcrumb */}
-      <Breadcrumb pageTitle='Contact Us' />
+      <Breadcrumb pageTitle={pageTitle} />
 
       <Container textAlign='center'>
         {/* Introduction */}

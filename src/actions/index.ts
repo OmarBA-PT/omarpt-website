@@ -2,7 +2,7 @@
 export { getHomePage, getPageBySlug, getAllPages } from './pages';
 
 // Site data actions
-export { getHeader, getFooter, getSiteSettings, getCompanyLinks, getContactFormSettings, getLegalPagesVisibility, getPageBuilderData } from './siteData';
+export { getHeader, getFooter, getSiteSettings, getCompanyLinks, getContactFormSettings, getLegalPagesVisibility, getContactPage, getApplyPage, getPageBuilderData } from './siteData';
 export type { PageBuilderData } from './siteData';
 
 // Legal actions

@@ -47,6 +47,8 @@ import { privacyPolicyType } from './privacyPolicyType';
 import { contactFormSettingsType } from './contactFormSettingsType';
 import { faqPageType } from './faqPageType';
 import { faqBlockType } from './blocks/faqBlockType';
+import { contactPageType } from './contactPageType';
+import { applyPageType } from './applyPageType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -57,6 +59,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homePageType,
     pageType,
     faqPageType,
+    contactPageType,
+    applyPageType,
     termsAndConditionsType,
     privacyPolicyType,
     blockContentType,

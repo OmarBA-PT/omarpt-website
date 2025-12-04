@@ -13,31 +13,43 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { MdDownload, MdQuestionAnswer, MdLock } from 'react-icons/md';
 import ApplicationForm from '@/components/Forms/ApplicationForm/ApplicationForm';
 import DownloadPdfButton from '@/components/Buttons/DownloadPdfButton';
+import { getApplyPage } from '@/actions';
 
 export async function generateMetadata() {
+  // Fetch apply page data for metadata
+  const applyPageData = await getApplyPage();
+
   return generatePageMetadata({
-    title: 'Apply for Coaching',
+    title: applyPageData?.title || 'Apply for Coaching',
     description:
+      applyPageData?.subtitle ||
       'Ready to start your fitness journey? Submit your coaching application and take the first step towards achieving your goals.',
     siteSettings: null,
     canonicalUrl: generateCanonicalUrl('/apply'),
   });
 }
 
-const ApplyPage = () => {
+const ApplyPage = async () => {
   const baseUrl = getBaseUrl();
+
+  // Fetch apply page data from Sanity
+  const applyPageData = await getApplyPage();
+
+  // Fallback values if Sanity data is not available
+  const pageTitle = applyPageData?.title || 'Apply for Coaching';
+  const pageSubtitle =
+    applyPageData?.subtitle || 'Take the first step towards achieving your fitness goals';
 
   // Generate breadcrumb data
   const breadcrumbItems = [
     { name: 'Home', url: baseUrl },
-    { name: 'Apply for Coaching', url: `${baseUrl}/apply` },
+    { name: pageTitle, url: `${baseUrl}/apply` },
   ];
 
   // Generate Article structured data
   const articleSchema = generateArticleSchema({
-    headline: 'Apply for Coaching',
-    description:
-      'Submit your coaching application and take the first step towards achieving your fitness goals.',
+    headline: pageTitle,
+    description: pageSubtitle,
     datePublished: new Date().toISOString(),
     dateModified: new Date().toISOString(),
     author: {
@@ -64,13 +76,10 @@ const ApplyPage = () => {
       )}
 
       {/* Page Hero */}
-      <PageHero
-        title='Apply for Coaching'
-        subtTitle='Take the first step towards achieving your fitness goals'
-      />
+      <PageHero title={pageTitle} subtTitle={pageSubtitle} />
 
       {/* Breadcrumb */}
-      <Breadcrumb pageTitle='Apply for Coaching' />
+      <Breadcrumb pageTitle={pageTitle} />
 
       <Container textAlign='center'>
         {/* Introduction */}

@@ -5,11 +5,21 @@ const internalLinkProjection = `{
   _id,
   _type,
   title,
-  slug,
+  "slug": select(
+    _type == "homePage" => {"current": ""},
+    _type == "faqPage" => {"current": "faq"},
+    _type == "contactPage" => {"current": "contact"},
+    _type == "applyPage" => {"current": "apply"},
+    _type == "termsAndConditions" => {"current": "terms-and-conditions"},
+    _type == "privacyPolicy" => {"current": "privacy-policy"},
+    slug
+  ),
   "pageType": _type,
   "href": select(
     _type == "homePage" => "/",
     _type == "faqPage" => "/faq",
+    _type == "contactPage" => "/contact",
+    _type == "applyPage" => "/apply",
     _type == "termsAndConditions" => "/terms-and-conditions",
     _type == "privacyPolicy" => "/privacy-policy",
     "/" + slug.current
@@ -436,4 +446,22 @@ export const FAQ_PAGE_QUERY = defineQuery(`*[_id == "faqPage"][0]{
 export const LEGAL_PAGES_VISIBILITY_QUERY = defineQuery(`{
   "termsAndConditions": *[_id == "termsAndConditions"][0]{_id, hide},
   "privacyPolicy": *[_id == "privacyPolicy"][0]{_id, hide}
+}`);
+
+// Contact Page query
+export const CONTACT_PAGE_QUERY = defineQuery(`*[_id == "contactPage"][0]{
+  _id,
+  _type,
+  _updatedAt,
+  title,
+  subtitle
+}`);
+
+// Apply Page query
+export const APPLY_PAGE_QUERY = defineQuery(`*[_id == "applyPage"][0]{
+  _id,
+  _type,
+  _updatedAt,
+  title,
+  subtitle
 }`);

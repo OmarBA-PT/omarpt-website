@@ -4,6 +4,7 @@ import {
   DocumentIcon,
   CogIcon,
   DocumentTextIcon,
+  EnvelopeIcon,
 } from '@sanity/icons';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -31,6 +32,26 @@ export const structure: StructureResolver = (S) =>
         .icon(DocumentTextIcon)
         .child(
           S.editor().id('faqPage').schemaType('faqPage').documentId('faqPage').title('FAQ Page')
+        ),
+
+      // === CONTACT PAGE ===
+      S.listItem()
+        .id('contactPage')
+        .schemaType('contactPage')
+        .title('Contact Page')
+        .icon(EnvelopeIcon)
+        .child(
+          S.editor().id('contactPage').schemaType('contactPage').documentId('contactPage').title('Contact Page')
+        ),
+
+      // === APPLY PAGE ===
+      S.listItem()
+        .id('applyPage')
+        .schemaType('applyPage')
+        .title('Apply Page')
+        .icon(DocumentIcon)
+        .child(
+          S.editor().id('applyPage').schemaType('applyPage').documentId('applyPage').title('Apply Page')
         ),
 
       S.divider(),
