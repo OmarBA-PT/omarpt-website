@@ -35,9 +35,6 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
     </head>
     <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
       <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5; padding: 40px 20px;">
@@ -64,20 +61,10 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                                 style="display: block; margin: 0; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));"
                               />
                             </td>
-                            <td align="left" valign="middle">
-                              <!-- Business Name -->
-                              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                                <tr>
-                                  <td style="padding: 0;">
-                                    <span style="font-family: 'Chau Philomene One', serif; font-size: 32px; font-weight: normal; background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; line-height: 1.2;">Omania</span>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td style="padding: 0;">
-                                    <span style="font-family: 'Chau Philomene One', serif; font-size: 20px; font-weight: normal; background: linear-gradient(135deg, #ffffff 0%, #999999 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; line-height: 1.2;">Training</span>
-                                  </td>
-                                </tr>
-                              </table>
+                            <td align="left" valign="middle" style="white-space: nowrap;">
+                              <!-- Business Name - Using solid colors for email client compatibility -->
+                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
+                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
                             </td>
                           </tr>
                         </table>
@@ -147,44 +134,39 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
 
               <!-- Signature Section -->
               <tr>
-                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 30px; border-radius: 0 0 8px 8px;">
+                <td style="background: linear-gradient(90deg, #616161 0%, #000000 100%); padding: 30px; border-radius: 0 0 8px 8px;">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
-                        <!-- Company Logo -->
-                        <img
-                          src="${logoUrl}"
-                          alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
-                          width="200"
-                          height="auto"
-                          style="display: block; margin: 0 auto 8px auto; font-family: 'Chau Philomene One', serif; color: #282828; font-size: 16px; letter-spacing: 0.25rem;"
-                        />
+                        <!-- Business Name -->
+                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
+                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_EMAIL.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_PHONE.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #282828; font-size: 14px;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_ADDRESS.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #282828; font-size: 14px;">
-                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
+                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.PRODUCTION_DOMAIN}
                               </a>
                             </td>
@@ -192,10 +174,10 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                         </table>
 
                         <!-- Divider -->
-                        <div style="border-top: 1px solid rgba(40, 40, 40, 0.3); margin: 20px 0;"></div>
+                        <div style="border-top: 1px solid rgba(255, 178, 0, 0.3); margin: 20px 0;"></div>
 
                         <!-- Footer Text -->
-                        <p style="margin: 0; color: #282828; font-size: 12px; text-align: center; line-height: 1.5;">
+                        <p style="margin: 0; color: #ffffff; font-size: 12px; text-align: center; line-height: 1.5;">
                           This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
                         </p>
                       </td>
