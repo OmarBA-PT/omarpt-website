@@ -14,6 +14,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // NEXT_PUBLIC_CONTACT_EMAIL=your_contact_email@example.com
 // RESEND_FROM_EMAIL=noreply@yourdomain.com (must be verified in Resend)
 
+// ========================================
+// RATE LIMITING CONFIGURATION
+// ========================================
+// Set this to false to disable rate limiting (useful for testing)
+const ENABLE_RATE_LIMITING = false;
+
 // Rate limiting configuration (in-memory, resets on server restart)
 // For production, consider using a more robust solution like Redis or Upstash
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
@@ -77,8 +83,8 @@ export async function POST(request: Request) {
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
 
-    // Check rate limit
-    if (!checkRateLimit(ip)) {
+    // Check rate limit (only if enabled)
+    if (ENABLE_RATE_LIMITING && !checkRateLimit(ip)) {
       return NextResponse.json(
         {
           error: 'Too many requests. Please try again later.',
