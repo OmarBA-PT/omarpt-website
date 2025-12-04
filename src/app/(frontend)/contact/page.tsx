@@ -10,7 +10,7 @@ import { generateArticleSchema, generateStructuredDataScript } from '@/lib/struc
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
-import { MdEmail, MdPhone } from 'react-icons/md';
+import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings, getContactPage } from '@/actions';
 import CardLight from '@/components/CardLight/CardLight';
@@ -99,7 +99,7 @@ const ContactPage = async () => {
         {/* Contact Methods */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Contact Form */}
-          <CardLight className='md:col-span-2' title='Send me a message' icon={MdEmail}>
+          <CardLight className='md:col-span-2' title='Send me a message' icon={MdMessage}>
             <p className='mb-4'>Submit your enquiry using my contact form.</p>
 
             <ExpandingContentWrapper
