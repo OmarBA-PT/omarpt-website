@@ -202,12 +202,12 @@ export const applicationFormData: FormSection[] = [
       },
       {
         id: 'additionalHealthComments-group',
-        title: 'Additional Comments',
+        title: 'Additional Health Comments',
         questions: [
           {
             id: 'additionalHealthComments',
             question:
-              'If there are any other comments you would like to add, please add them here:',
+              'If there are any other comments related to your health you would like to add, please add them here:',
             type: 'textarea',
             required: false,
           },
@@ -458,13 +458,13 @@ export const applicationFormData: FormSection[] = [
         ],
       },
       {
-        id: 'additionalTrainingInfo-group',
-        title: 'Additional Training Information',
+        id: 'additionalFitnessComments-group',
+        title: 'Additional Fitness Comments',
         questions: [
           {
-            id: 'additionalTrainingInfo',
+            id: 'additionalFitnessComments',
             question:
-              'Is there any additional information or concern in regards to training you would like to share with your trainer?',
+              'If there are any other comments related to your fitness background you would like to add, please add them here:',
             type: 'textarea',
             required: false,
           },
@@ -560,7 +560,7 @@ export const applicationFormData: FormSection[] = [
           {
             id: 'additionalInfo',
             question:
-              'Is there any other information you would like to share, or any questions you have?',
+              'Is there any other information, concerns, or questions you’d like to share with me?',
             type: 'textarea',
             required: false,
           },
