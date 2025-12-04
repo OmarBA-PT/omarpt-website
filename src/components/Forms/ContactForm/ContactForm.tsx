@@ -96,7 +96,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
       )}
 
       {status !== 'success' && (
-        <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 p-1'>
           {/* Honeypot field - hidden from users, only bots will fill it */}
           <div className='hidden' aria-hidden='true'>
             <label htmlFor='honeypot'>Leave this field empty</label>

@@ -21,6 +21,7 @@
   --color-brand-charcoal: #282828;
   --color-brand-charcoal-light: #454545;
   --color-brand-white: #ffffff;
+  --color-brand-offwhite: #fff0cd;
 
   /* Charcoal gradient color stops (for use with opacity) */
   --color-charcoal-gradient-start: 97, 97, 97; /* #616161 in RGB */

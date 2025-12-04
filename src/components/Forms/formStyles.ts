@@ -8,12 +8,13 @@
 // Base shared styles that are reused across components
 const sharedStyles = {
   // Common base styles for all input-like elements
-  baseInput: 'w-full px-4 py-3 border rounded-lg transition-colors text-body-base text-black',
+  baseInput:
+    'w-full px-4 py-3 border rounded-lg transition-colors text-body-base text-black focus:outline-none',
 
   // State-based border and background styles
   normalState:
-    'border-gray-300 bg-white focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary',
-  errorState: 'border-red-500 bg-red-50 focus:ring-2 focus:ring-red-500/20 focus:border-red-500',
+    'border-gray-300 bg-brand-offwhite focus:ring-2 focus:ring-brand-primary focus:border-brand-primary',
+  errorState: 'border-red-500 bg-red-100 focus:ring-2 focus:ring-red-500 focus:border-red-500',
   disabledState: 'bg-gray-100 cursor-not-allowed opacity-60',
 
   // Interactive option container (radio/checkbox)
