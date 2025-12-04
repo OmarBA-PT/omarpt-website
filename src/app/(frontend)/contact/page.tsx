@@ -15,7 +15,7 @@ import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings, getContactPage } from '@/actions';
 import CardLight from '@/components/CardLight/CardLight';
 import CTAButtonClient from '@/components/UI/CTAButtonClient';
-import ExpandingContent from '@/components/_blocks/ExpandingContent';
+import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
 
 export async function generateMetadata() {
@@ -101,8 +101,14 @@ const ContactPage = async () => {
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Contact Form */}
           <CardLight className='col-span-2' title='Send me a message' icon={MdEmail}>
-            <p>Submit your enquiry using my contact form.</p>
-            <ContactForm className='pr-8 py-8' settings={contactFormSettings} />
+            <p className='mb-4'>Submit your enquiry using my contact form.</p>
+
+            <ExpandingContentWrapper
+              expandLabel='Show Contact Form'
+              collapseLabel='Hide Contact Form'
+              showOnDesktop={true}>
+              <ContactForm className='pr-8 py-8' settings={contactFormSettings} />
+            </ExpandingContentWrapper>
           </CardLight>
 
           {/* Email */}

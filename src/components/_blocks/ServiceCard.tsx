@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import UnifiedImage from '@/components/UI/UnifiedImage';
 import ItemList from './ItemList';
 import type { ServiceCardBlock } from '@/types/blocks';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
-import MoreInfoToggle from '../UI/MoreInfoToggle';
+import ExpandingContentWrapper from '../UI/ExpandingContentWrapper';
 
 interface ServiceCardProps extends Omit<ServiceCardBlock, '_type' | '_key'> {
   className?: string;
@@ -26,9 +26,6 @@ const ServiceCard = ({
   fieldPathPrefix = '',
   index = 0,
 }: ServiceCardProps) => {
-  // State for mobile expansion
-  const [isExpanded, setIsExpanded] = useState(false);
-
   // Determine if image should be on left (odd index) or right (even index)
   const isImageOnLeft = index % 2 === 0;
 
@@ -90,12 +87,10 @@ const ServiceCard = ({
           )}
 
           {/* Expandable Content Container (Mobile) / Always Visible (Desktop) */}
-          <div
-            className={`
-              overflow-hidden transition-all duration-500 ease-in-out
-              lg:max-h-none! md:opacity-100!
-              ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 md:opacity-100'}
-            `}>
+          <ExpandingContentWrapper
+            expandLabel='Learn More'
+            collapseLabel='View Less'
+            showOnDesktop={false}>
             {/* Description */}
             <p
               className='text-brand-white/80 mb-4'
@@ -113,7 +108,7 @@ const ServiceCard = ({
             {list && list.items && list.items.length > 0 && (
               <ItemList title={list.title} items={list.items} inheritAlignment='left' />
             )}
-          </div>
+          </ExpandingContentWrapper>
 
           {/* Pricing Info */}
           {pricingInfo && (
@@ -129,14 +124,6 @@ const ServiceCard = ({
               {pricingInfo}
             </p>
           )}
-
-          {/* More Info Toggle (Mobile Only) */}
-          <MoreInfoToggle
-            isExpanded={isExpanded}
-            setIsExpanded={setIsExpanded}
-            expandLabel='Learn More'
-            collapseLabel='View Less'
-          />
         </div>
       </div>
     </div>
