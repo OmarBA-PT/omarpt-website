@@ -14,7 +14,6 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings, getContactPage } from '@/actions';
 import CardLight from '@/components/CardLight/CardLight';
-import CTAButtonClient from '@/components/UI/CTAButtonClient';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
 
@@ -115,18 +114,18 @@ const ContactPage = async () => {
           {/* Email */}
           <CardLight title='Email Us' icon={MdEmail}>
             <a
-              href='mailto:info@omaniatraining.com'
+              href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
-              info@omaniatraining.com
+              {SITE_CONFIG.ORGANIZATION_EMAIL.value}
             </a>
           </CardLight>
 
           {/* Phone */}
           <CardLight title='Call Us' icon={MdPhone}>
             <a
-              href='tel:+447555123456'
+              href={SITE_CONFIG.ORGANIZATION_PHONE.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
-              +44 7555 123456
+              {SITE_CONFIG.ORGANIZATION_PHONE.value}
             </a>
           </CardLight>
         </div>
