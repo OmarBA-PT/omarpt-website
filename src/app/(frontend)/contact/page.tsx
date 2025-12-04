@@ -100,7 +100,11 @@ const ContactPage = async () => {
         {/* Contact Methods */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Contact Form */}
-          <CardLight className='md:col-span-2' title='Send me a message' icon={MdMessage}>
+          <CardLight
+            showBorder
+            className='md:col-span-2'
+            title='Send me a message'
+            icon={MdMessage}>
             <p className='mb-4'>Submit your enquiry using my contact form.</p>
 
             <ExpandingContentWrapper

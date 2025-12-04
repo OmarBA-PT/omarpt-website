@@ -6,11 +6,19 @@ interface CardLightProps {
   children: React.ReactNode;
   icon?: IconType;
   className?: string;
+  showBorder?: boolean;
 }
 
-const CardLight = ({ title = '', children, icon: Icon, className = '' }: CardLightProps) => {
+const CardLight = ({
+  title = '',
+  children,
+  icon: Icon,
+  className = '',
+  showBorder = false,
+}: CardLightProps) => {
   return (
-    <div className={`bg-brand-charcoal-light rounded-lg p-4 md:p-8 text-center ${className}`}>
+    <div
+      className={`bg-brand-charcoal-light rounded-xl p-4 md:p-8 text-center ${showBorder ? 'border-4 border-brand-primary' : ''} ${className}`}>
       <div className='flex flex-col justify-center md:justify-start items-center gap-2 md:gap-4'>
         {Icon ? <Icon className='w-8 h-8 text-brand-secondary' /> : null}
         <p className='text-h4 text-gradient-primary mb-2'>{title}</p>
