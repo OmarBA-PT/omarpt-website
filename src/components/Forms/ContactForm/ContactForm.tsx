@@ -69,7 +69,10 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
     setErrorMessage('');
 
     try {
-      console.log('[ContactForm] About to submit form data:', { name: data.name, email: data.email });
+      console.log('[ContactForm] About to submit form data:', {
+        name: data.name,
+        email: data.email,
+      });
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -225,6 +228,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
           )}
 
           {/* Submit button */}
+          <h1>THIS IS SOME TEST TEXT FOR DEBUGGING</h1>
           <CTA
             as='button'
             type='submit'
