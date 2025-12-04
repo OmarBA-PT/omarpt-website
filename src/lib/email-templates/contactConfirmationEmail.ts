@@ -48,14 +48,42 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
 
               <!-- Header with Logo and Brand Gradient -->
               <tr>
-                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
-                  <img
-                    src="${logoUrl}"
-                    alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
-                    width="250"
-                    height="auto"
-                    style="display: block; margin: 0 auto; font-family: 'Chau Philomene One', serif; color: #282828; font-size: 24px; letter-spacing: 0.25rem;"
-                  />
+                <td style="background: linear-gradient(90deg, #616161 0%, #000000 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td align="center">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="display: inline-block;">
+                          <tr>
+                            <td align="center" valign="middle" style="padding-right: 12px;">
+                              <!-- Logo -->
+                              <img
+                                src="${logoUrl}"
+                                alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
+                                width="80"
+                                height="auto"
+                                style="display: block; margin: 0; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));"
+                              />
+                            </td>
+                            <td align="left" valign="middle">
+                              <!-- Business Name -->
+                              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                  <td style="padding: 0;">
+                                    <span style="font-family: 'Chau Philomene One', serif; font-size: 32px; font-weight: normal; background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; line-height: 1.2;">Omania</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="padding: 0;">
+                                    <span style="font-family: 'Chau Philomene One', serif; font-size: 20px; font-weight: normal; background: linear-gradient(135deg, #ffffff 0%, #999999 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; line-height: 1.2;">Training</span>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
 

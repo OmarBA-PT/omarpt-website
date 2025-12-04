@@ -152,7 +152,7 @@ export async function POST(request: Request) {
     // Note: In development (localhost), the image won't display in emails - this is expected
     // In production, ensure NEXT_PUBLIC_BASE_URL is set to your live domain in Vercel
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const logoUrl = `${baseUrl}/images/logos/logo-white.png`;
+    const logoUrl = `${baseUrl}/images/logos/logo.png`;
 
     // Fetch contact form settings from Sanity for customizable email content
     const contactFormSettings = await getContactFormSettings();
