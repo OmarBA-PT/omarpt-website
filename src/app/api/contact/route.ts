@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { generateConfirmationEmail } from '@/lib/email-templates/confirmationEmail';
-import { generateAdminNotificationEmail } from '@/lib/email-templates/adminNotificationEmail';
+import { generateConfirmationEmail } from '@/lib/email-templates/contactConfirmationEmail';
+import { generateAdminNotificationEmail } from '@/lib/email-templates/contactAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getContactFormSettings } from '@/actions';
 
