@@ -79,6 +79,8 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(request: Request) {
   try {
+    console.log('[Contact API] Request received');
+
     // Get client IP for rate limiting
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
@@ -153,11 +155,15 @@ export async function POST(request: Request) {
     // In production, ensure NEXT_PUBLIC_BASE_URL is set to your live domain in Vercel
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const logoUrl = `${baseUrl}/images/logos/logo.png`;
+    console.log('[Contact API] Logo URL:', logoUrl);
 
     // Fetch contact form settings from Sanity for customizable email content
+    console.log('[Contact API] Fetching contact form settings from Sanity...');
     const contactFormSettings = await getContactFormSettings();
+    console.log('[Contact API] Contact form settings fetched successfully');
 
     // Send email to business owner using styled template
+    console.log('[Contact API] Generating admin notification email...');
     const adminEmailHtml = generateAdminNotificationEmail({
       name: sanitizedName,
       email: sanitizedEmail,
@@ -165,6 +171,7 @@ export async function POST(request: Request) {
       message: sanitizedMessage,
     });
 
+    console.log('[Contact API] Sending admin email to:', contactEmail);
     const adminEmailResult = await resend.emails.send({
       from: fromEmail,
       to: contactEmail,
@@ -174,15 +181,17 @@ export async function POST(request: Request) {
     });
 
     if (adminEmailResult.error) {
-      console.error('Error sending admin email:', adminEmailResult.error);
+      console.error('[Contact API] Error sending admin email:', adminEmailResult.error);
       throw new Error('Failed to send notification email');
     }
+    console.log('[Contact API] Admin email sent successfully');
 
     // Send confirmation email to the sender using styled template
     // NOTE: On Resend free tier (without domain verification), confirmation emails can only
     // be sent to the email address you signed up with. Once you verify a domain, this will
     // work for any recipient email address.
     try {
+      console.log('[Contact API] Generating confirmation email...');
       const confirmationEmailHtml = generateConfirmationEmail({
         name: sanitizedName,
         email: sanitizedEmail,
@@ -193,6 +202,7 @@ export async function POST(request: Request) {
         emailIntroMessage: contactFormSettings?.emailIntroMessage || undefined,
         emailOutroMessage: contactFormSettings?.emailOutroMessage || undefined,
       });
+      console.log('[Contact API] Confirmation email generated');
 
       const confirmationEmailResult = await resend.emails.send({
         from: fromEmail,
@@ -229,17 +239,34 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('[Contact API] ERROR:', error);
+
+    // Log full error details for debugging
+    if (error instanceof Error) {
+      console.error('[Contact API] Error message:', error.message);
+      console.error('[Contact API] Error stack:', error.stack);
+    }
 
     // Check if it's a Resend-specific error
     const errorMessage =
       error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
+
+    // Include detailed error info in non-production environments for debugging
+    const isProd = process.env.NEXT_PUBLIC_ENV === 'production';
+    const errorDetails = !isProd && error instanceof Error
+      ? {
+          message: error.message,
+          stack: error.stack,
+          name: error.name,
+        }
+      : undefined;
 
     return NextResponse.json(
       {
         error:
           'We encountered an issue sending your message. Please try contacting us directly via email or phone.',
         details: errorMessage,
+        ...(errorDetails && { debugInfo: errorDetails }),
       },
       { status: 500 }
     );

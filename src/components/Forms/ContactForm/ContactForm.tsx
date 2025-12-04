@@ -77,6 +77,11 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
         setStatus('success');
         reset();
       } else {
+        console.error('[ContactForm] Error response:', responseData);
+        if (responseData.debugInfo) {
+          console.error('[ContactForm] Debug info:', responseData.debugInfo);
+          console.error('[ContactForm] Full stack trace:', responseData.debugInfo.stack);
+        }
         setStatus('error');
         setErrorMessage(
           responseData.error ||
