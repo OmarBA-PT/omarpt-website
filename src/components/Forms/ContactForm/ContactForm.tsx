@@ -63,7 +63,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
     console.log('[ContactForm] Form data received:', data);
 
     // Temporary alert for debugging - remove after issue is fixed
-    // alert('Form submitted! Check console for logs.');
+    alert('Form submitted! Check console for logs.');
 
     setStatus('loading');
     setErrorMessage('');
