@@ -5,6 +5,7 @@
  */
 
 import { SITE_CONFIG } from '@/lib/constants';
+import { EMAIL_COLORS, EMAIL_STYLES } from './emailStyles';
 
 interface ConfirmationEmailData {
   name: string;
@@ -37,16 +38,16 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5; padding: 40px 20px;">
+    <body style="${EMAIL_STYLES.body}">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="${EMAIL_STYLES.outerTable}">
         <tr>
           <td align="center">
             <!-- Main Container -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #1a1a1a; border-radius: 8px; border: 1px solid #333333;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="${EMAIL_STYLES.container}">
 
               <!-- Header with Logo and Brand -->
               <tr>
-                <td style="background-color: #2a2a2a; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                <td style="${EMAIL_STYLES.header}">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
@@ -64,8 +65,8 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                             </td>
                             <td align="left" valign="middle" style="white-space: nowrap;">
                               <!-- Business Name -->
-                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
-                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
+                              <span style="${EMAIL_STYLES.brandNameGold}">Omania</span>
+                              <span style="${EMAIL_STYLES.brandNameTraining}">Training</span>
                             </td>
                           </tr>
                         </table>
@@ -78,56 +79,56 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
               <!-- Main Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <p style="margin: 0 0 20px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
-                    ${emailGreeting} <strong style="color: #ffffff;">${name}</strong>,
+                  <p style="margin: 0 0 20px 0; ${EMAIL_STYLES.textPrimary}">
+                    ${emailGreeting} <strong style="color: ${EMAIL_COLORS.textWhite};">${name}</strong>,
                   </p>
-                  <p style="margin: 0 0 30px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0 0 30px 0; ${EMAIL_STYLES.textPrimary}">
                     ${emailIntroMessage}
                   </p>
 
                   <!-- Message Details Box -->
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #2a2a2a; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="${EMAIL_STYLES.infoBox}">
                     <tr>
                       <td style="padding: 20px;">
-                        <h2 style="margin: 0 0 15px 0; color: #ffb200; font-size: 18px; font-weight: 600;">
+                        <h2 style="${EMAIL_STYLES.infoBoxHeading}">
                           Your Message Details
                         </h2>
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Name:</strong> ${name}
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Name:</strong> ${name}
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Email:</strong> ${email}
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Email:</strong> ${email}
                             </td>
                           </tr>
                           ${
                             phone
                               ? `
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Phone:</strong> ${phone}
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Phone:</strong> ${phone}
                             </td>
                           </tr>
                           `
                               : ''
                           }
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Message:</strong>
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Message:</strong>
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0 0 0; color: #c0c0c0; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
+                            <td style="padding: 8px 0 0 0; color: ${EMAIL_COLORS.textInBox}; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                   </table>
 
-                  <p style="margin: 0; color: #b0b0b0; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0; ${EMAIL_STYLES.textSecondary}">
                     ${emailOutroMessage}
                   </p>
                 </td>
@@ -135,39 +136,39 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
 
               <!-- Signature Section -->
               <tr>
-                <td style="background-color: #2a2a2a; padding: 30px; border-radius: 0 0 8px 8px;">
+                <td style="${EMAIL_STYLES.footer}">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
                         <!-- Business Name -->
-                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
-                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
+                        <span style="${EMAIL_STYLES.brandNameGold}">Omania</span>
+                        <span style="${EMAIL_STYLES.brandNameTraining}">Training</span>
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.ORGANIZATION_EMAIL.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.ORGANIZATION_PHONE.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.ORGANIZATION_ADDRESS.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
-                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 14px;">
+                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.PRODUCTION_DOMAIN}
                               </a>
                             </td>
@@ -175,10 +176,10 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                         </table>
 
                         <!-- Divider -->
-                        <div style="border-top: 1px solid rgba(255, 178, 0, 0.3); margin: 20px 0;"></div>
+                        <div style="${EMAIL_STYLES.footerDivider}"></div>
 
                         <!-- Footer Text -->
-                        <p style="margin: 0; color: #ffffff; font-size: 12px; text-align: center; line-height: 1.5;">
+                        <p style="${EMAIL_STYLES.footerText}">
                           This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
                         </p>
                       </td>

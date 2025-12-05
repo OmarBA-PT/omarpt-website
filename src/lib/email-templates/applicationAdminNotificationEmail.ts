@@ -7,6 +7,7 @@
 
 import { SITE_CONFIG } from '@/lib/constants';
 import type { FormSection } from '@/data/applicationFormData';
+import { EMAIL_COLORS, EMAIL_STYLES } from './emailStyles';
 
 interface ApplicationAdminNotificationEmailData {
   name: string;
@@ -93,16 +94,16 @@ export function generateApplicationAdminNotificationEmail(
         }
       </style>
     </head>
-    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5; padding: 40px 20px;">
+    <body style="${EMAIL_STYLES.body}">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="${EMAIL_STYLES.outerTable}">
         <tr>
           <td align="center">
             <!-- Main Container -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" class="email-container" style="max-width: 700px; background-color: #1a1a1a; border-radius: 8px; border: 1px solid #333333;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" class="email-container" style="${EMAIL_STYLES.containerWide}">
 
               <!-- Header with Logo and Brand -->
               <tr>
-                <td style="background-color: #2a2a2a; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                <td style="${EMAIL_STYLES.header}">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
@@ -120,8 +121,8 @@ export function generateApplicationAdminNotificationEmail(
                             </td>
                             <td align="left" valign="middle" style="white-space: nowrap;">
                               <!-- Business Name -->
-                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
-                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
+                              <span style="${EMAIL_STYLES.brandNameGold}">Omania</span>
+                              <span style="${EMAIL_STYLES.brandNameTraining}">Training</span>
                             </td>
                           </tr>
                         </table>
@@ -129,7 +130,7 @@ export function generateApplicationAdminNotificationEmail(
                     </tr>
                   </table>
                   <!-- Header Title -->
-                  <h1 style="margin: 20px 0 0 0; color: #ffb200; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">
+                  <h1 style="margin: 20px 0 0 0; color: ${EMAIL_COLORS.brandGold}; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">
                     New Application Form Submission
                   </h1>
                 </td>
@@ -138,35 +139,35 @@ export function generateApplicationAdminNotificationEmail(
               <!-- Main Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <p style="margin: 0 0 30px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0 0 30px 0; ${EMAIL_STYLES.textPrimary}">
                     Someone has submitted an application form via your website. They have also received a confirmation email. The details from their submission are below, and a PDF copy of their application is also attached for your records.
                   </p>
 
                   <!-- Contact Details Box -->
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #2a2a2a; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="${EMAIL_STYLES.infoBox}">
                     <tr>
                       <td style="padding: 20px;">
-                        <h2 style="margin: 0 0 15px 0; color: #ffb200; font-size: 18px; font-weight: 600;">
+                        <h2 style="${EMAIL_STYLES.infoBoxHeading}">
                           Contact Information
                         </h2>
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Name:</strong> ${name}
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Name:</strong> ${name}
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Email:</strong>
-                              <a href="mailto:${email}" style="color: #ff8400; text-decoration: none;">
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Email:</strong>
+                              <a href="mailto:${email}" style="${EMAIL_STYLES.link}">
                                 ${email}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
-                              <strong style="color: #ffffff;">Phone:</strong>
-                              <a href="tel:${phone.replace(/\s/g, '')}" style="color: #ff8400; text-decoration: none;">
+                            <td style="${EMAIL_STYLES.infoBoxText}">
+                              <strong style="${EMAIL_STYLES.infoBoxLabel}">Phone:</strong>
+                              <a href="tel:${phone.replace(/\s/g, '')}" style="${EMAIL_STYLES.link}">
                                 ${phone}
                               </a>
                             </td>
@@ -177,7 +178,7 @@ export function generateApplicationAdminNotificationEmail(
                   </table>
 
                   <!-- Application Details -->
-                  <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 20px; font-weight: 600;">
+                  <h2 style="margin: 0 0 20px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 20px; font-weight: 600;">
                     Application Details
                   </h2>
 
@@ -187,14 +188,14 @@ export function generateApplicationAdminNotificationEmail(
                     <!-- Section: ${section.title} -->
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; page-break-inside: avoid;">
                       <tr>
-                        <td style="background-color: #3a3a3a; padding: 12px 20px; border-radius: 4px 4px 0 0;">
-                          <h3 style="margin: 0; color: #ffb200; font-size: 16px; font-weight: 600;">
+                        <td style="background-color: ${EMAIL_COLORS.sectionHeaderBackground}; padding: 12px 20px; border-radius: 4px 4px 0 0;">
+                          <h3 style="margin: 0; color: ${EMAIL_COLORS.brandGold}; font-size: 16px; font-weight: 600;">
                             ${section.title}
                           </h3>
                         </td>
                       </tr>
                       <tr>
-                        <td style="background-color: #2a2a2a; padding: 20px; border-radius: 0 0 4px 4px;">
+                        <td style="background-color: ${EMAIL_COLORS.infoBoxBackground}; padding: 20px; border-radius: 0 0 4px 4px;">
                           ${section.questionGroups
                             .map((group, groupIndex) => {
                               // Filter out questions that have conditionalOn (they are subquestions)
@@ -208,8 +209,8 @@ export function generateApplicationAdminNotificationEmail(
                                   group.title
                                     ? `
                                   <!-- Group Title -->
-                                  <div style="margin-top: ${groupIndex > 0 ? '20px' : '0'}; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #ffb200;">
-                                    <h4 style="margin: 0; color: #ff8400; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                                  <div style="margin-top: ${groupIndex > 0 ? '20px' : '0'}; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid ${EMAIL_COLORS.brandGold};">
+                                    <h4 style="margin: 0; color: ${EMAIL_COLORS.brandOrange}; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                                       ${group.title}
                                     </h4>
                                   </div>
@@ -245,11 +246,11 @@ export function generateApplicationAdminNotificationEmail(
                                             );
                                             return `
                                               <tr>
-                                                <td style="padding: 8px 0 8px 30px; border-left: 3px solid #ffb200; margin-left: 10px;">
-                                                  <div style="color: #b0b0b0; font-size: 13px; font-style: italic; margin-bottom: 4px;">
+                                                <td style="padding: 8px 0 8px 30px; border-left: 3px solid ${EMAIL_COLORS.brandGold}; margin-left: 10px;">
+                                                  <div style="color: ${EMAIL_COLORS.textSubQuestion}; font-size: 13px; font-style: italic; margin-bottom: 4px;">
                                                     ↳ ${subQ.question}
                                                   </div>
-                                                  <div style="color: #c0c0c0; font-size: 14px; line-height: 1.6; padding-left: 15px;">
+                                                  <div style="color: ${EMAIL_COLORS.textInBox}; font-size: 14px; line-height: 1.6; padding-left: 15px;">
                                                     ${subAnswer}
                                                   </div>
                                                 </td>
@@ -261,11 +262,11 @@ export function generateApplicationAdminNotificationEmail(
 
                                       return `
                                         <tr>
-                                          <td style="padding: 10px 0; ${qIndex > 0 ? 'border-top: 1px solid #404040;' : ''}">
-                                            <div style="color: #ffffff; font-size: 14px; font-weight: 600; margin-bottom: 4px;">
+                                          <td style="padding: 10px 0; ${qIndex > 0 ? `border-top: 1px solid ${EMAIL_COLORS.sectionDivider};` : ''}">
+                                            <div style="color: ${EMAIL_COLORS.textWhite}; font-size: 14px; font-weight: 600; margin-bottom: 4px;">
                                               ${question.question}
                                             </div>
-                                            <div style="color: #c0c0c0; font-size: 14px; line-height: 1.6; padding-left: 5px;">
+                                            <div style="color: ${EMAIL_COLORS.textInBox}; font-size: 14px; line-height: 1.6; padding-left: 5px;">
                                               ${answer}
                                             </div>
                                           </td>
@@ -289,11 +290,11 @@ export function generateApplicationAdminNotificationEmail(
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top: 30px;">
                     <tr>
                       <td align="center" style="padding: 20px 0;">
-                        <p style="margin: 0 0 10px 0; font-size: 16px; color: #ffffff; font-weight: 600;">
+                        <p style="margin: 0 0 10px 0; font-size: 16px; color: ${EMAIL_COLORS.textWhite}; font-weight: 600;">
                           Follow-up Actions
                         </p>
-                        <p style="margin: 0; font-size: 14px; color: #b0b0b0; line-height: 1.6;">
-                          You can reply directly to <a href="mailto:${email}" style="color: #ff8400; text-decoration: none;">${email}</a> or call <a href="tel:${phone.replace(/\s/g, '')}" style="color: #ff8400; text-decoration: none;">${phone}</a> to follow up with ${name}.
+                        <p style="margin: 0; font-size: 14px; color: ${EMAIL_COLORS.textSecondary}; line-height: 1.6;">
+                          You can reply directly to <a href="mailto:${email}" style="${EMAIL_STYLES.link}">${email}</a> or call <a href="tel:${phone.replace(/\s/g, '')}" style="${EMAIL_STYLES.link}">${phone}</a> to follow up with ${name}.
                         </p>
                       </td>
                     </tr>
@@ -303,39 +304,39 @@ export function generateApplicationAdminNotificationEmail(
 
               <!-- Signature Section -->
               <tr>
-                <td style="background-color: #2a2a2a; padding: 30px; border-radius: 0 0 8px 8px;">
+                <td style="${EMAIL_STYLES.footer}">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
                         <!-- Business Name -->
-                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
-                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
+                        <span style="${EMAIL_STYLES.brandNameGold}">Omania</span>
+                        <span style="${EMAIL_STYLES.brandNameTraining}">Training</span>
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.ORGANIZATION_EMAIL.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.ORGANIZATION_PHONE.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.ORGANIZATION_ADDRESS.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
-                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 14px;">
+                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="${EMAIL_STYLES.contactInfoLink}">
                                 ${SITE_CONFIG.PRODUCTION_DOMAIN}
                               </a>
                             </td>
@@ -343,10 +344,10 @@ export function generateApplicationAdminNotificationEmail(
                         </table>
 
                         <!-- Divider -->
-                        <div style="border-top: 1px solid rgba(255, 178, 0, 0.3); margin: 20px 0;"></div>
+                        <div style="${EMAIL_STYLES.footerDivider}"></div>
 
                         <!-- Footer Text -->
-                        <p style="margin: 0; color: #ffffff; font-size: 12px; text-align: center; line-height: 1.5;">
+                        <p style="${EMAIL_STYLES.footerText}">
                           This application was submitted via the application form on your website.<br>
                           The applicant has received a confirmation email with a copy of their submission.
                         </p>
