@@ -37,8 +37,8 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #000000;">
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #000000; padding: 40px 20px;">
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5; padding: 40px 20px;">
         <tr>
           <td align="center">
             <!-- Main Container -->
