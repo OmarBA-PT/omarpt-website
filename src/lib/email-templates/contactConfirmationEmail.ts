@@ -1,6 +1,7 @@
 /**
  * Styled confirmation email template for contact form submissions
  * Uses brand colors and includes professional signature
+ * IMPORTANT: Uses colors that work in both light and dark modes without media queries
  */
 
 import { SITE_CONFIG } from '@/lib/constants';
@@ -36,16 +37,16 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5; padding: 40px 20px;">
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #000000;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #000000; padding: 40px 20px;">
         <tr>
           <td align="center">
             <!-- Main Container -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #1a1a1a; border-radius: 8px; border: 1px solid #333333;">
 
-              <!-- Header with Logo and Brand Gradient -->
+              <!-- Header with Logo and Brand -->
               <tr>
-                <td style="background: linear-gradient(90deg, #616161 0%, #000000 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                <td style="background-color: #2a2a2a; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
@@ -62,7 +63,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                               />
                             </td>
                             <td align="left" valign="middle" style="white-space: nowrap;">
-                              <!-- Business Name - Using solid colors for email client compatibility -->
+                              <!-- Business Name -->
                               <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
                               <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
                             </td>
@@ -77,15 +78,15 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
               <!-- Main Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <p style="margin: 0 0 20px 0; color: #333333; font-size: 16px; line-height: 1.6;">
-                    ${emailGreeting} <strong>${name}</strong>,
+                  <p style="margin: 0 0 20px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
+                    ${emailGreeting} <strong style="color: #ffffff;">${name}</strong>,
                   </p>
-                  <p style="margin: 0 0 30px 0; color: #333333; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0 0 30px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
                     ${emailIntroMessage}
                   </p>
 
                   <!-- Message Details Box -->
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9f9f9; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #2a2a2a; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
                     <tr>
                       <td style="padding: 20px;">
                         <h2 style="margin: 0 0 15px 0; color: #ffb200; font-size: 18px; font-weight: 600;">
@@ -93,40 +94,40 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                         </h2>
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Name:</strong> ${name}
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Name:</strong> ${name}
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Email:</strong> ${email}
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Email:</strong> ${email}
                             </td>
                           </tr>
                           ${
                             phone
                               ? `
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Phone:</strong> ${phone}
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Phone:</strong> ${phone}
                             </td>
                           </tr>
                           `
                               : ''
                           }
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Message:</strong>
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Message:</strong>
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0 0 0; color: #555; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
+                            <td style="padding: 8px 0 0 0; color: #c0c0c0; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
                           </tr>
                         </table>
                       </td>
                     </tr>
                   </table>
 
-                  <p style="margin: 0; color: #666666; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0; color: #b0b0b0; font-size: 16px; line-height: 1.6;">
                     ${emailOutroMessage}
                   </p>
                 </td>
@@ -134,13 +135,13 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
 
               <!-- Signature Section -->
               <tr>
-                <td style="background: linear-gradient(90deg, #616161 0%, #000000 100%); padding: 30px; border-radius: 0 0 8px 8px;">
+                <td style="background-color: #2a2a2a; padding: 30px; border-radius: 0 0 8px 8px;">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
                         <!-- Business Name -->
                         <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
-                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
+                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
