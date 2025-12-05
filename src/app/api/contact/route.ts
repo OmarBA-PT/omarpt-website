@@ -79,8 +79,6 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(request: Request) {
   try {
-    console.log('[Contact API] Request received');
-
     // Get client IP for rate limiting
     const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
@@ -155,15 +153,11 @@ export async function POST(request: Request) {
     // In production, ensure NEXT_PUBLIC_BASE_URL is set to your live domain in Vercel
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const logoUrl = `${baseUrl}/images/logos/logo.png`;
-    console.log('[Contact API] Logo URL:', logoUrl);
 
     // Fetch contact form settings from Sanity for customizable email content
-    console.log('[Contact API] Fetching contact form settings from Sanity...');
     const contactFormSettings = await getContactFormSettings();
-    console.log('[Contact API] Contact form settings fetched successfully');
 
     // Send email to business owner using styled template
-    console.log('[Contact API] Generating admin notification email...');
     const adminEmailHtml = generateAdminNotificationEmail({
       name: sanitizedName,
       email: sanitizedEmail,
@@ -171,7 +165,6 @@ export async function POST(request: Request) {
       message: sanitizedMessage,
     });
 
-    console.log('[Contact API] Sending admin email to:', contactEmail);
     const adminEmailResult = await resend.emails.send({
       from: fromEmail,
       to: contactEmail,
@@ -181,18 +174,22 @@ export async function POST(request: Request) {
     });
 
     if (adminEmailResult.error) {
-      console.error('[Contact API] Error sending admin email:', adminEmailResult.error);
-      console.error('[Contact API] Full Resend error object:', JSON.stringify(adminEmailResult.error, null, 2));
-      throw new Error(`Failed to send notification email: ${JSON.stringify(adminEmailResult.error)}`);
+      // Log detailed Resend error to server console for debugging
+      console.error('❌ Failed to send admin notification email');
+      console.error('Resend Error Details:', {
+        statusCode: (adminEmailResult.error as any).statusCode,
+        name: (adminEmailResult.error as any).name,
+        message: (adminEmailResult.error as any).message,
+        fullError: adminEmailResult.error,
+      });
+      throw new Error('Failed to send notification email');
     }
-    console.log('[Contact API] Admin email sent successfully');
 
     // Send confirmation email to the sender using styled template
     // NOTE: On Resend free tier (without domain verification), confirmation emails can only
     // be sent to the email address you signed up with. Once you verify a domain, this will
     // work for any recipient email address.
     try {
-      console.log('[Contact API] Generating confirmation email...');
       const confirmationEmailHtml = generateConfirmationEmail({
         name: sanitizedName,
         email: sanitizedEmail,
@@ -203,7 +200,6 @@ export async function POST(request: Request) {
         emailIntroMessage: contactFormSettings?.emailIntroMessage || undefined,
         emailOutroMessage: contactFormSettings?.emailOutroMessage || undefined,
       });
-      console.log('[Contact API] Confirmation email generated');
 
       const confirmationEmailResult = await resend.emails.send({
         from: fromEmail,
@@ -218,18 +214,22 @@ export async function POST(request: Request) {
         const errorObj = confirmationEmailResult.error as { statusCode?: number; message?: string };
         if (errorObj.statusCode === 403) {
           console.warn(
-            'Confirmation email skipped - domain not verified. This is expected in development.',
-            'The admin notification email was sent successfully.'
+            '⚠️  Confirmation email skipped - domain not verified.',
+            'Admin notification email was sent successfully.'
           );
         } else {
-          console.error('Error sending confirmation email:', confirmationEmailResult.error);
+          console.error('❌ Error sending confirmation email:', {
+            statusCode: errorObj.statusCode,
+            message: errorObj.message,
+            fullError: confirmationEmailResult.error,
+          });
         }
       } else {
         console.log('✓ Confirmation email sent successfully to:', sanitizedEmail);
       }
     } catch (confirmationError) {
       // Log error but don't fail the request if confirmation email fails
-      console.error('Failed to send confirmation email to sender:', confirmationError);
+      console.error('❌ Failed to send confirmation email:', confirmationError);
     }
 
     return NextResponse.json(
@@ -240,50 +240,36 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('[Contact API] ERROR:', error);
+    // Log comprehensive error details to server console (visible in Vercel logs)
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.error('❌ CONTACT FORM ERROR');
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
-    // Log full error details for debugging
     if (error instanceof Error) {
-      console.error('[Contact API] Error message:', error.message);
-      console.error('[Contact API] Error stack:', error.stack);
+      console.error('Error Type:', error.name);
+      console.error('Error Message:', error.message);
+      console.error('Stack Trace:', error.stack);
+    } else {
+      console.error('Unknown Error:', error);
     }
 
-    // Check if it's a Resend-specific error
-    const errorMessage =
-      error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
-
-    // Include detailed error info in non-production environments for debugging
-    // Only hide debug info in true production environment
-    const isProd = process.env.NEXT_PUBLIC_ENV === 'production';
-
-    console.error('[Contact API] Environment check:', {
+    console.error('Environment:', {
       NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
       VERCEL_ENV: process.env.VERCEL_ENV,
-      isProd,
-      willIncludeDebugInfo: !isProd,
+      hasResendKey: !!process.env.RESEND_API_KEY,
+      hasContactEmail: !!process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+      hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
     });
+    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
-    const errorDetails = error instanceof Error
-      ? {
-          message: error.message,
-          stack: error.stack,
-          name: error.name,
-          env: {
-            NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
-            VERCEL_ENV: process.env.VERCEL_ENV,
-            hasResendKey: !!process.env.RESEND_API_KEY,
-            hasContactEmail: !!process.env.NEXT_PUBLIC_CONTACT_EMAIL,
-            hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
-          }
-        }
-      : null;
+    const errorMessage =
+      error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
 
     return NextResponse.json(
       {
         error:
           'We encountered an issue sending your message. Please try contacting us directly via email or phone.',
         details: errorMessage,
-        debugInfo: isProd ? null : errorDetails, // Only include debug info in non-production
       },
       { status: 500 }
     );
