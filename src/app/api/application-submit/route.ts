@@ -178,6 +178,7 @@ export async function POST(request: Request) {
       phone: sanitizedPhone,
       formData: sanitizedFormData,
       sections: applicationFormData,
+      logoUrl,
     });
 
     // Prepare email payload with optional PDF attachment

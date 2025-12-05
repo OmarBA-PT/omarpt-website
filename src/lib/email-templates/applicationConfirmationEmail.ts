@@ -2,6 +2,7 @@
  * Styled confirmation email template for application form submissions
  * Uses brand colors and includes professional signature
  * Designed to be print-friendly on A4 paper
+ * IMPORTANT: Uses colors that work in both light and dark modes without media queries
  */
 
 import { SITE_CONFIG } from '@/lib/constants';
@@ -71,9 +72,6 @@ export function generateApplicationConfirmationEmail(
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Application Received - ${SITE_CONFIG.ORGANIZATION_NAME}</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
       <style>
         @media print {
           body {
@@ -96,33 +94,51 @@ export function generateApplicationConfirmationEmail(
         <tr>
           <td align="center">
             <!-- Main Container -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" class="email-container" style="max-width: 700px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" class="email-container" style="max-width: 700px; background-color: #1a1a1a; border-radius: 8px; border: 1px solid #333333;">
 
-              <!-- Header with Logo and Brand Gradient -->
+              <!-- Header with Logo and Brand -->
               <tr>
-                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
-                  <img
-                    src="${logoUrl}"
-                    alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
-                    width="250"
-                    height="auto"
-                    style="display: block; margin: 0 auto; font-family: 'Chau Philomene One', serif; color: #282828; font-size: 24px; letter-spacing: 0.25rem;"
-                  />
+                <td style="background-color: #2a2a2a; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td align="center">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="display: inline-block;">
+                          <tr>
+                            <td align="center" valign="middle" style="padding-right: 12px;">
+                              <!-- Logo -->
+                              <img
+                                src="${logoUrl}"
+                                alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
+                                width="80"
+                                height="auto"
+                                style="display: block; margin: 0; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));"
+                              />
+                            </td>
+                            <td align="left" valign="middle" style="white-space: nowrap;">
+                              <!-- Business Name -->
+                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
+                              <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
 
               <!-- Main Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <p style="margin: 0 0 20px 0; color: #333333; font-size: 16px; line-height: 1.6;">
-                    Hi <strong>${name}</strong>,
+                  <p style="margin: 0 0 20px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
+                    Hi <strong style="color: #ffffff;">${name}</strong>,
                   </p>
-                  <p style="margin: 0 0 30px 0; color: #333333; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0 0 30px 0; color: #e0e0e0; font-size: 16px; line-height: 1.6;">
                     Thank you for submitting your application! I have successfully received your submission and will review it carefully. I'll get back to you as soon as possible.
                   </p>
 
                   <!-- Contact Information Box -->
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9f9f9; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #2a2a2a; border-left: 4px solid #ffb200; border-radius: 4px; margin-bottom: 30px;">
                     <tr>
                       <td style="padding: 20px;">
                         <h2 style="margin: 0 0 15px 0; color: #ffb200; font-size: 18px; font-weight: 600;">
@@ -130,18 +146,18 @@ export function generateApplicationConfirmationEmail(
                         </h2>
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Name:</strong> ${name}
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Name:</strong> ${name}
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Email:</strong> ${email}
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Email:</strong> ${email}
                             </td>
                           </tr>
                           <tr>
-                            <td style="padding: 8px 0; color: #555; font-size: 14px;">
-                              <strong style="color: #282828;">Phone:</strong> ${phone}
+                            <td style="padding: 8px 0; color: #c0c0c0; font-size: 14px;">
+                              <strong style="color: #ffffff;">Phone:</strong> ${phone}
                             </td>
                           </tr>
                         </table>
@@ -150,7 +166,7 @@ export function generateApplicationConfirmationEmail(
                   </table>
 
                   <!-- Application Details -->
-                  <h2 style="margin: 0 0 20px 0; color: #282828; font-size: 20px; font-weight: 600;">
+                  <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 20px; font-weight: 600;">
                     Your Application Details
                   </h2>
 
@@ -160,14 +176,14 @@ export function generateApplicationConfirmationEmail(
                     <!-- Section: ${section.title} -->
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px;">
                       <tr>
-                        <td style="background-color: #282828; padding: 12px 20px; border-radius: 4px 4px 0 0;">
+                        <td style="background-color: #3a3a3a; padding: 12px 20px; border-radius: 4px 4px 0 0;">
                           <h3 style="margin: 0; color: #ffb200; font-size: 16px; font-weight: 600;">
                             ${section.title}
                           </h3>
                         </td>
                       </tr>
                       <tr>
-                        <td style="background-color: #f9f9f9; padding: 20px; border-radius: 0 0 4px 4px;">
+                        <td style="background-color: #2a2a2a; padding: 20px; border-radius: 0 0 4px 4px;">
                           ${section.questionGroups
                             .map((group, groupIndex) => {
                               // Filter out questions that have conditionalOn (they are subquestions)
@@ -203,10 +219,10 @@ export function generateApplicationConfirmationEmail(
                                             return `
                                               <tr>
                                                 <td style="padding: 8px 0 8px 30px; border-left: 3px solid #ffb200; margin-left: 10px;">
-                                                  <div style="color: #666; font-size: 13px; font-style: italic; margin-bottom: 4px;">
+                                                  <div style="color: #b0b0b0; font-size: 13px; font-style: italic; margin-bottom: 4px;">
                                                     ↳ ${subQ.question}
                                                   </div>
-                                                  <div style="color: #555; font-size: 14px; line-height: 1.6; padding-left: 15px;">
+                                                  <div style="color: #c0c0c0; font-size: 14px; line-height: 1.6; padding-left: 15px;">
                                                     ${subAnswer}
                                                   </div>
                                                 </td>
@@ -218,11 +234,11 @@ export function generateApplicationConfirmationEmail(
 
                                       return `
                                         <tr>
-                                          <td style="padding: 10px 0; ${qIndex > 0 ? 'border-top: 1px solid #e0e0e0;' : ''}">
-                                            <div style="color: #282828; font-size: 14px; font-weight: 600; margin-bottom: 4px;">
+                                          <td style="padding: 10px 0; ${qIndex > 0 ? 'border-top: 1px solid #404040;' : ''}">
+                                            <div style="color: #ffffff; font-size: 14px; font-weight: 600; margin-bottom: 4px;">
                                               ${question.question}
                                             </div>
-                                            <div style="color: #555; font-size: 14px; line-height: 1.6; padding-left: 5px;">
+                                            <div style="color: #c0c0c0; font-size: 14px; line-height: 1.6; padding-left: 5px;">
                                               ${answer}
                                             </div>
                                           </td>
@@ -242,7 +258,7 @@ export function generateApplicationConfirmationEmail(
                     )
                     .join('')}
 
-                  <p style="margin: 30px 0 0 0; color: #666666; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 30px 0 0 0; color: #b0b0b0; font-size: 16px; line-height: 1.6;">
                     If you have any urgent questions, feel free to reach out to me directly.
                   </p>
                 </td>
@@ -250,44 +266,39 @@ export function generateApplicationConfirmationEmail(
 
               <!-- Signature Section -->
               <tr>
-                <td style="background: linear-gradient(135deg, #ffb200 0%, #ff8400 100%); padding: 30px; border-radius: 0 0 8px 8px;">
+                <td style="background-color: #2a2a2a; padding: 30px; border-radius: 0 0 8px 8px;">
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td align="center">
-                        <!-- Company Logo -->
-                        <img
-                          src="${logoUrl}"
-                          alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
-                          width="200"
-                          height="auto"
-                          style="display: block; margin: 0 auto 8px auto; font-family: 'Chau Philomene One', serif; color: #282828; font-size: 16px; letter-spacing: 0.25rem;"
-                        />
+                        <!-- Business Name -->
+                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 600; color: #ffb200; display: inline; line-height: 1.2; margin-right: 8px;">Omania</span>
+                        <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 500; color: #cccccc; display: inline; line-height: 1.2;">Training</span>
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_EMAIL.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_PHONE.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #282828; font-size: 14px;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
+                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.ORGANIZATION_ADDRESS.value}
                               </a>
                             </td>
                           </tr>
                           <tr>
-                            <td align="center" style="padding: 5px 0; color: #282828; font-size: 14px;">
-                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #282828; text-decoration: none; font-size: 14px;">
+                            <td align="center" style="padding: 5px 0; color: #ffffff; font-size: 14px;">
+                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="color: #ffffff; text-decoration: none; font-size: 14px;">
                                 ${SITE_CONFIG.PRODUCTION_DOMAIN}
                               </a>
                             </td>
@@ -295,10 +306,10 @@ export function generateApplicationConfirmationEmail(
                         </table>
 
                         <!-- Divider -->
-                        <div style="border-top: 1px solid rgba(40, 40, 40, 0.3); margin: 20px 0;"></div>
+                        <div style="border-top: 1px solid rgba(255, 178, 0, 0.3); margin: 20px 0;"></div>
 
                         <!-- Footer Text -->
-                        <p style="margin: 0; color: #282828; font-size: 12px; text-align: center; line-height: 1.5;">
+                        <p style="margin: 0; color: #ffffff; font-size: 12px; text-align: center; line-height: 1.5;">
                           This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
                         </p>
                       </td>
