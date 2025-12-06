@@ -31,8 +31,7 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
               key={section.id}
               className={`flex flex-col items-center flex-1 ${index > 0 ? 'ml-4' : ''} ${
                 isVisited ? 'cursor-pointer' : ''
-              } group`}
-              onClick={() => handleStepClick(stepIndex)}>
+              } group`}>
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
                   stepIndex < currentStep
@@ -41,13 +40,18 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
                       ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
                       : 'bg-gray-200 text-gray-500'
                 }`}>
-                {stepIndex < currentStep ? '✓' : stepIndex + 1}
+                {stepIndex + 1}
               </div>
               <span
                 className={`text-body-xs text-center transition-all ${
                   stepIndex <= currentStep ? 'text-brand-primary' : ''
-                } ${stepIndex < currentStep ? 'group-hover:text-brand-secondary' : ''}`}>
+                } ${stepIndex < currentStep ? 'group-hover:text-brand-secondary' : ''} ${
+                  stepIndex === currentStep ? 'font-medium' : ''
+                }`}>
                 {section.title}
+                {stepIndex < currentStep && (
+                  <span className='inline-block ml-1 text-brand-primary'>✓</span>
+                )}
               </span>
             </div>
           );
@@ -59,10 +63,14 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
         <p className='text-body-sm text-gray-600'>
           {sections.map((section, index) => (
             <span key={section.id}>
-              <span className={index === currentStep ? 'text-brand-primary font-medium' : ''}>
+              <span
+                className={`${index < currentStep ? 'hover:text-brand-secondary' : ''} ${index <= currentStep ? 'text-brand-primary cursor-pointer' : ''} ${
+                  index === currentStep ? 'font-medium' : ''
+                }`}
+                onClick={() => handleStepClick(index)}>
                 {section.title}
               </span>
-              {index < sections.length - 1 && ' → '}
+              <span className='text-brand-white mx-2'>{index < sections.length - 1 && ' → '}</span>
             </span>
           ))}
         </p>
