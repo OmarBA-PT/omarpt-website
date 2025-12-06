@@ -31,7 +31,8 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
               key={section.id}
               className={`flex flex-col items-center flex-1 ${index > 0 ? 'ml-4' : ''} ${
                 isVisited ? 'cursor-pointer' : ''
-              } group`}>
+              } group`}
+              onClick={() => handleStepClick(index)}>
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
                   stepIndex < currentStep

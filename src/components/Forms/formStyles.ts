@@ -19,7 +19,7 @@ const sharedStyles = {
 
   // Interactive option container (radio/checkbox)
   optionContainer:
-    'flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group',
+    'flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group',
   optionLabel: 'text-body-base group-hover:text-gray-900 flex-1',
 
   // Input controls
@@ -65,7 +65,7 @@ export const formStyles = {
     container: 'flex gap-4',
     option: `${sharedStyles.optionContainer} flex-1 items-center`,
     input: sharedStyles.radioCheckboxBase.replace('mt-1', ''), // Remove top margin for centered layout
-    label: 'text-body-base text-gray-700 group-hover:text-gray-900',
+    label: 'text-body-base group-hover:text-gray-900',
   },
 
   // Error message styles

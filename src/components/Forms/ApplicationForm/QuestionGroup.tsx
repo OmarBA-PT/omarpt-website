@@ -57,24 +57,18 @@ const QuestionGroup = ({
       <div
         ref={(el) => setGroupRef(groupKey, el)}
         className={`rounded-lg transition-all overflow-hidden ${
-          isVisited
-            ? 'bg-brand-charcoal-light rounded-xl'
-            : 'bg-gray-50/40 border-gray-300 border-dashed'
+          isVisited ? 'bg-brand-charcoal-light rounded-xl' : 'border border-brand-charcoal-light'
         }`}>
         {/* Group Header */}
         <div
           className={`p-6 flex items-center justify-between ${
             !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-black' : ''
-          } transition-colors ${
-            showGreenTick ? 'bg-green-50/60' : showRedCross ? 'bg-red-50/60' : ''
-          }`}
+          } transition-all ${showGreenTick || showRedCross ? 'bg-black hover:bg-white/10' : ''}`}
           onClick={() => !isSingleGroup && isVisited && onHeaderClick(groupIndex)}>
           <div className='flex items-center gap-3 flex-1'>
             {groupTitle && (
               <h3
-                className={`text-body-lg font-semibold ${
-                  isVisited ? 'text-brand-secondary' : 'text-gray-500'
-                }`}>
+                className={`text-body-lg font-semibold ${isVisited ? 'text-brand-secondary' : 'text-brand-charcoal-light'}`}>
                 {groupTitle}
               </h3>
             )}
@@ -84,14 +78,14 @@ const QuestionGroup = ({
           {!isSingleGroup && (
             <MdExpandMore
               className={`w-6 h-6 transition-transform ${isExpanded ? 'rotate-180' : ''} ${
-                isVisited ? 'text-brand-secondary' : 'text-gray-400'
+                isVisited ? 'text-brand-secondary' : 'text-brand-charcoal'
               }`}
             />
           )}
         </div>
 
         {/* Group Content */}
-        <div className={`px-6 pb-6 space-y-4 ${isExpanded ? '' : 'hidden'}`}>{children}</div>
+        <div className={`px-6 py-6 space-y-4 ${isExpanded ? '' : 'hidden'}`}>{children}</div>
       </div>
 
       {/* Next Question Button - Hidden for radio-only groups since they auto-progress, unless conditional fields are visible */}

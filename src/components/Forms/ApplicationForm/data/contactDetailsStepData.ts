@@ -11,6 +11,7 @@ export const contactDetailsStepData: FormSection = {
   questionGroups: [
     {
       id: 'contact-info',
+      title: 'Your Contact Information',
       questions: [
         {
           id: 'fullName',
