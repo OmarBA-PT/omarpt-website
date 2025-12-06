@@ -2,15 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { applicationFormData, shouldDisplayQuestion } from '@/data/applicationFormData';
-import { contactDetailsStepData } from './data/contactDetailsStepData';
+import { shouldDisplayQuestion } from '@/data/applicationFormData';
+import { combinedApplicationFormData } from '@/data/combinedApplicationFormData';
 import FormField from './FormField';
 import ProgressBar from './ProgressBar';
 import StepIndicators from './StepIndicators';
 import SectionHeader from './SectionHeader';
 import StatusMessages from './StatusMessages';
 import QuestionGroup from './QuestionGroup';
-import ContactDetailsQuestion from './ContactDetailsQuestion';
 import FormNavigation from './FormNavigation';
 import { useGroupState } from './useGroupState';
 import { useFormValidation } from './useFormValidation';
@@ -48,8 +47,8 @@ const ApplicationForm = () => {
 
   const formData = watch();
 
-  // Total steps = 1 (Contact Details) + number of sections from data
-  const totalSteps = 1 + applicationFormData.length;
+  // Total steps = all sections in combined data
+  const totalSteps = combinedApplicationFormData.length;
 
   // Progress calculation: Shows percentage of steps COMPLETED (not including current step)
   // When on step 0 of 4 total steps: 0/4 = 0% (starting, nothing completed yet)
@@ -59,16 +58,11 @@ const ApplicationForm = () => {
   // After form submission: 100% (all steps completed)
   const progress = (currentStep / totalSteps) * 100;
 
-  // Check if we're on the Contact Details step (first step)
-  const isContactDetailsStep = currentStep === 0;
-
-  // Get current section from applicationFormData (adjust index for Contact Details step)
-  const currentSection = !isContactDetailsStep ? applicationFormData[currentStep - 1] : null;
+  // Get current section from combined data
+  const currentSection = combinedApplicationFormData[currentStep];
 
   // Get current question groups
-  const questionGroups = isContactDetailsStep
-    ? contactDetailsStepData.questionGroups
-    : currentSection?.questionGroups || [];
+  const questionGroups = currentSection?.questionGroups || [];
 
   // Use custom hooks
   const { groupState, setGroupState } = useGroupState({
@@ -88,8 +82,6 @@ const ApplicationForm = () => {
     groupHasIncompleteMandatoryFields,
     getValidationRules,
   } = useFormValidation({
-    isContactDetailsStep,
-    contactDetailsStepData,
     currentSection,
     formData,
     errors,
@@ -387,20 +379,13 @@ const ApplicationForm = () => {
 
           <StepIndicators
             currentStep={currentStep}
-            contactDetailsTitle={contactDetailsStepData.title}
-            sections={applicationFormData}
+            sections={combinedApplicationFormData}
             onStepClick={handleStepIndicatorClick}
           />
 
           <SectionHeader
-            title={
-              isContactDetailsStep ? contactDetailsStepData.title : currentSection?.title || ''
-            }
-            description={
-              isContactDetailsStep
-                ? contactDetailsStepData.description
-                : currentSection?.description
-            }
+            title={currentSection?.title || ''}
+            description={currentSection?.description}
           />
         </>
       )}
@@ -447,38 +432,25 @@ const ApplicationForm = () => {
                   onHeaderClick={handleGroupHeaderClick}
                   onNextQuestion={handleNextQuestion}
                   setGroupRef={setGroupRef}>
-                  {isContactDetailsStep
-                    ? // Contact Details Questions
-                      group.questions.map((question) => (
-                        <ContactDetailsQuestion
-                          key={question.id}
-                          question={question}
-                          register={register}
-                          errors={errors}
-                          touchedFields={touchedFields}
-                          attemptedValidation={attemptedValidation}
-                        />
-                      ))
-                    : // Dynamic Form Fields
-                      group.questions.map((question) => {
-                        if (!shouldDisplayQuestion(question, formData)) {
-                          return null;
-                        }
+                  {group.questions.map((question) => {
+                    if (!shouldDisplayQuestion(question, formData)) {
+                      return null;
+                    }
 
-                        return (
-                          <FormField
-                            key={question.id}
-                            question={question}
-                            register={register}
-                            errors={errors}
-                            touchedFields={touchedFields}
-                            attemptedValidation={attemptedValidation}
-                            watch={watch}
-                            setValue={setValue}
-                            getValidationRules={getValidationRules}
-                          />
-                        );
-                      })}
+                    return (
+                      <FormField
+                        key={question.id}
+                        question={question}
+                        register={register}
+                        errors={errors}
+                        touchedFields={touchedFields}
+                        attemptedValidation={attemptedValidation}
+                        watch={watch}
+                        setValue={setValue}
+                        getValidationRules={getValidationRules}
+                      />
+                    );
+                  })}
                 </QuestionGroup>
               );
             })}

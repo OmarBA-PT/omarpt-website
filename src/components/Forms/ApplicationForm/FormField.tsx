@@ -38,9 +38,26 @@ const FormField = ({
   const value = watch(question.id);
 
   const renderField = () => {
-    const validation = getValidationRules(question.required || false);
+    let validation = getValidationRules(question.required || false);
+
+    // Add special validation for email fields
+    if (question.id === 'email') {
+      validation = {
+        ...validation,
+        pattern: {
+          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+          message: 'Please enter a valid email address',
+        },
+      };
+    }
+
     // Only show error if field has been touched or validation was attempted
     const shouldShowError = touchedFields[question.id] || attemptedValidation;
+
+    // Determine input type for text fields
+    let inputType: 'text' | 'email' | 'tel' = 'text';
+    if (question.id === 'email') inputType = 'email';
+    if (question.id === 'phone') inputType = 'tel';
 
     switch (question.type) {
       case 'text':
@@ -48,7 +65,7 @@ const FormField = ({
           <TextInput
             id={question.id}
             label={question.question}
-            type='text'
+            type={inputType}
             placeholder={question.placeholder}
             required={question.required}
             error={shouldShowError ? errors[question.id] : undefined}

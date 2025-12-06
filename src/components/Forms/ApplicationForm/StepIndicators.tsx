@@ -7,14 +7,12 @@ interface StepData {
 
 interface StepIndicatorsProps {
   currentStep: number;
-  contactDetailsTitle: string;
   sections: StepData[];
   onStepClick?: (stepIndex: number) => void;
 }
 
 const StepIndicators = ({
   currentStep,
-  contactDetailsTitle,
   sections,
   onStepClick,
 }: StepIndicatorsProps) => {
@@ -29,36 +27,13 @@ const StepIndicators = ({
     <>
       {/* Desktop Step Indicators */}
       <div className='mb-8 hidden md:flex justify-between'>
-        {/* Contact Details Step */}
-        <div
-          className={`flex flex-col items-center flex-1 ${0 < currentStep ? 'cursor-pointer' : ''}`}
-          onClick={() => handleStepClick(0)}>
-          <div
-            className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
-              0 < currentStep
-                ? 'bg-brand-primary text-white hover:ring-4 hover:ring-brand-primary/30'
-                : 0 === currentStep
-                  ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
-                  : 'bg-gray-200 text-gray-500'
-            }`}>
-            {0 < currentStep ? '✓' : 1}
-          </div>
-          <span
-            className={`text-body-xs text-center ${
-              0 === currentStep ? 'text-brand-primary font-medium' : 'text-brand-white'
-            }`}>
-            {contactDetailsTitle}
-          </span>
-        </div>
-
-        {/* Dynamic Steps */}
         {sections.map((section, index) => {
-          const stepIndex = index + 1;
+          const stepIndex = index;
           const isVisited = stepIndex < currentStep;
           return (
             <div
               key={section.id}
-              className={`flex flex-col items-center flex-1 ml-4 ${
+              className={`flex flex-col items-center flex-1 ${index > 0 ? 'ml-4' : ''} ${
                 isVisited ? 'cursor-pointer' : ''
               }`}
               onClick={() => handleStepClick(stepIndex)}>
@@ -86,20 +61,15 @@ const StepIndicators = ({
       {/* Mobile Step Indicator */}
       <div className='md:hidden mt-4 text-center'>
         <p className='text-body-sm text-gray-600'>
-          <span className={0 === currentStep ? 'text-brand-primary font-medium' : ''}>
-            {contactDetailsTitle}
-          </span>
-          {sections.map((section, index) => {
-            const stepIndex = index + 1;
-            return (
+          {sections.map((section, index) => (
+            <span key={section.id}>
               <span
-                key={section.id}
-                className={stepIndex === currentStep ? 'text-brand-primary font-medium' : ''}>
-                {' → '}
+                className={index === currentStep ? 'text-brand-primary font-medium' : ''}>
                 {section.title}
               </span>
-            );
-          })}
+              {index < sections.length - 1 && ' → '}
+            </span>
+          ))}
         </p>
       </div>
     </>

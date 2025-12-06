@@ -3,14 +3,11 @@ import { ApplicationFormData } from './types';
 import {
   shouldDisplayQuestion,
   FormQuestion,
-  QuestionGroup,
   FormSection,
 } from '@/data/applicationFormData';
 
 interface UseFormValidationProps {
-  isContactDetailsStep: boolean;
-  contactDetailsStepData: { questionGroups: QuestionGroup[] };
-  currentSection: FormSection | null;
+  currentSection: FormSection;
   formData: ApplicationFormData;
   errors: FieldErrors;
   touchedFields: any;
@@ -18,8 +15,6 @@ interface UseFormValidationProps {
 }
 
 export const useFormValidation = ({
-  isContactDetailsStep,
-  contactDetailsStepData,
   currentSection,
   formData,
   errors,
@@ -30,45 +25,31 @@ export const useFormValidation = ({
   const getCurrentSectionQuestionIds = () => {
     const ids: string[] = [];
 
-    // Contact Details step
-    if (isContactDetailsStep) {
-      contactDetailsStepData.questionGroups.forEach((group) => {
-        group.questions.forEach((question) => {
+    currentSection.questionGroups.forEach((group) => {
+      group.questions.forEach((question) => {
+        if (shouldDisplayQuestion(question as FormQuestion, formData)) {
           ids.push(question.id);
-        });
+          // Add sub-question IDs
+          question.subQuestions?.forEach((subQ) => {
+            ids.push(subQ.id);
+          });
+        }
       });
-      return ids;
-    }
+    });
 
-    // Dynamic sections
-    if (currentSection) {
-      currentSection.questionGroups.forEach((group) => {
-        group.questions.forEach((question) => {
-          if (shouldDisplayQuestion(question as FormQuestion, formData)) {
-            ids.push(question.id);
-            // Add sub-question IDs
-            question.subQuestions?.forEach((subQ) => {
-              ids.push(subQ.id);
-            });
-          }
-        });
-      });
-    }
     return ids;
   };
 
   // Get question IDs for a specific group
   const getGroupQuestionIds = (groupIndex: number) => {
     const ids: string[] = [];
-    const questionGroups = isContactDetailsStep
-      ? contactDetailsStepData.questionGroups
-      : currentSection?.questionGroups || [];
+    const questionGroups = currentSection.questionGroups;
 
     const group = questionGroups[groupIndex];
     if (!group) return ids;
 
     group.questions.forEach((question) => {
-      if (isContactDetailsStep || shouldDisplayQuestion(question as FormQuestion, formData)) {
+      if (shouldDisplayQuestion(question as FormQuestion, formData)) {
         ids.push(question.id);
         // Add sub-question IDs
         question.subQuestions?.forEach((subQ) => {
@@ -95,9 +76,7 @@ export const useFormValidation = ({
 
   // Check if all required fields in a group are filled
   const isGroupComplete = (groupIndex: number): boolean => {
-    const questionGroups = isContactDetailsStep
-      ? contactDetailsStepData.questionGroups
-      : currentSection?.questionGroups || [];
+    const questionGroups = currentSection.questionGroups;
 
     const group = questionGroups[groupIndex];
     if (!group) return true;
@@ -105,7 +84,7 @@ export const useFormValidation = ({
     // Check all questions in the group
     for (const question of group.questions) {
       // Skip questions that shouldn't be displayed
-      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+      if (!shouldDisplayQuestion(question as FormQuestion, formData)) {
         continue;
       }
 
@@ -121,7 +100,7 @@ export const useFormValidation = ({
       if (question.subQuestions) {
         for (const subQ of question.subQuestions) {
           // Only check sub-questions that are currently visible (conditionally exposed)
-          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+          if (!shouldDisplayQuestion(subQ as FormQuestion, formData)) {
             continue;
           }
 
@@ -140,9 +119,7 @@ export const useFormValidation = ({
 
   // Check if a group has only radio button or yes/no required fields
   const groupHasOnlyRadioButtonRequiredFields = (groupIndex: number): boolean => {
-    const questionGroups = isContactDetailsStep
-      ? contactDetailsStepData.questionGroups
-      : currentSection?.questionGroups || [];
+    const questionGroups = currentSection.questionGroups;
 
     const group = questionGroups[groupIndex];
     if (!group) return false;
@@ -151,7 +128,7 @@ export const useFormValidation = ({
 
     for (const question of group.questions) {
       // Skip questions that shouldn't be displayed
-      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+      if (!shouldDisplayQuestion(question as FormQuestion, formData)) {
         continue;
       }
 
@@ -167,7 +144,7 @@ export const useFormValidation = ({
       if (question.subQuestions) {
         for (const subQ of question.subQuestions) {
           // Only check sub-questions that are currently visible (conditionally exposed)
-          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+          if (!shouldDisplayQuestion(subQ as FormQuestion, formData)) {
             continue;
           }
 
@@ -186,9 +163,7 @@ export const useFormValidation = ({
 
   // Check if the last required radio/yesno field has conditional subQuestions that are now visible
   const lastRequiredFieldHasVisibleConditionalSubQuestions = (groupIndex: number): boolean => {
-    const questionGroups = isContactDetailsStep
-      ? contactDetailsStepData.questionGroups
-      : currentSection?.questionGroups || [];
+    const questionGroups = currentSection.questionGroups;
 
     const group = questionGroups[groupIndex];
     if (!group) return false;
@@ -198,7 +173,7 @@ export const useFormValidation = ({
 
     for (const question of group.questions) {
       // Skip questions that shouldn't be displayed
-      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+      if (!shouldDisplayQuestion(question as FormQuestion, formData)) {
         continue;
       }
 
@@ -227,9 +202,7 @@ export const useFormValidation = ({
 
   // Check if a group has any fields filled in (for showing green tick)
   const groupHasAnyFilledFields = (groupIndex: number): boolean => {
-    const questionGroups = isContactDetailsStep
-      ? contactDetailsStepData.questionGroups
-      : currentSection?.questionGroups || [];
+    const questionGroups = currentSection.questionGroups;
 
     const group = questionGroups[groupIndex];
     if (!group) return false;
@@ -237,7 +210,7 @@ export const useFormValidation = ({
     // Check all questions in the group
     for (const question of group.questions) {
       // Skip questions that shouldn't be displayed
-      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+      if (!shouldDisplayQuestion(question as FormQuestion, formData)) {
         continue;
       }
 
@@ -251,7 +224,7 @@ export const useFormValidation = ({
       if (question.subQuestions) {
         for (const subQ of question.subQuestions) {
           // Only check sub-questions that are currently visible
-          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+          if (!shouldDisplayQuestion(subQ as FormQuestion, formData)) {
             continue;
           }
 
@@ -269,9 +242,7 @@ export const useFormValidation = ({
   // Check if a group has incomplete mandatory fields (for showing red cross)
   // This only applies if the group has been visited and has any filled fields
   const groupHasIncompleteMandatoryFields = (groupIndex: number): boolean => {
-    const questionGroups = isContactDetailsStep
-      ? contactDetailsStepData.questionGroups
-      : currentSection?.questionGroups || [];
+    const questionGroups = currentSection.questionGroups;
 
     const group = questionGroups[groupIndex];
     if (!group) return false;
@@ -279,7 +250,7 @@ export const useFormValidation = ({
     // Check all questions in the group
     for (const question of group.questions) {
       // Skip questions that shouldn't be displayed
-      if (!isContactDetailsStep && !shouldDisplayQuestion(question as FormQuestion, formData)) {
+      if (!shouldDisplayQuestion(question as FormQuestion, formData)) {
         continue;
       }
 
@@ -295,7 +266,7 @@ export const useFormValidation = ({
       if (question.subQuestions) {
         for (const subQ of question.subQuestions) {
           // Only check sub-questions that are currently visible (conditionally exposed)
-          if (!isContactDetailsStep && !shouldDisplayQuestion(subQ as FormQuestion, formData)) {
+          if (!shouldDisplayQuestion(subQ as FormQuestion, formData)) {
             continue;
           }
 
