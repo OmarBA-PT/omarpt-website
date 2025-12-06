@@ -401,7 +401,7 @@ const ApplicationForm = () => {
         <form
           onSubmit={handleSubmit(onSubmit, onError)}
           onKeyDown={handleKeyDown}
-          className='bg-black/20 rounded-xl shadow-lg p-8 text-left'>
+          className='text-left'>
           <div className='space-y-6'>
             {questionGroups.map((group, groupIndex) => {
               const isSingleGroup = questionGroups.length === 1;

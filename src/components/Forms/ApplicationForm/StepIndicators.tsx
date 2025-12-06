@@ -22,7 +22,7 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
   return (
     <>
       {/* Desktop Step Indicators */}
-      <div className='mb-8 hidden md:flex justify-between'>
+      <div className='mb-16 hidden md:flex justify-between'>
         {sections.map((section, index) => {
           const stepIndex = index;
           const isVisited = stepIndex < currentStep;
@@ -59,7 +59,7 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
       </div>
 
       {/* Mobile Step Indicator */}
-      <div className='md:hidden my-4 text-center'>
+      <div className='md:hidden mt-4 mb-10 text-center'>
         <p className='text-body-sm text-gray-600'>
           {sections.map((section, index) => (
             <span key={section.id}>
