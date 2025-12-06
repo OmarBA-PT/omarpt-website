@@ -50,7 +50,7 @@ const StatusMessages = ({
       {/* Validation Error Summary Banner */}
       {status !== 'success' && showValidationError && errorCount > 0 && (
         <div className='mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg'>
-          <div className='flex items-start'>
+          <div className='flex items-start text-left'>
             <MdError className='w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0' />
             <div>
               <h3 className='text-body-base font-semibold text-red-800 mb-1'>

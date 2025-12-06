@@ -81,7 +81,7 @@ export const formStyles = {
   // Field wrapper styles
   field: {
     wrapper: 'mb-6',
-    subQuestionWrapper: 'mt-4 ml-4 pl-4 border-l-4 border-brand-primary/30 space-y-4',
+    subQuestionWrapper: 'mt-4 ml-2 pl-4 border-l-4 border-brand-primary/30 space-y-4',
   },
 
   // Group containers (for radio/checkbox groups)
