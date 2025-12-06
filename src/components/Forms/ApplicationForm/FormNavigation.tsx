@@ -1,4 +1,5 @@
 import React from 'react';
+import CTA from '@/components/UI/CTA';
 
 interface FormNavigationProps {
   currentStep: number;
@@ -23,40 +24,33 @@ const FormNavigation = ({
   const isLastStep = currentStep >= totalSteps - 1;
 
   return (
-    <div className={`flex mt-8 pt-6 border-t border-gray-200 ${isFirstStep ? 'justify-end' : 'justify-between'}`}>
+    <div
+      className={`flex mt-8 pt-6 border-t border-gray-200 ${isFirstStep ? 'justify-end' : 'justify-between'}`}>
       {!isFirstStep && (
-        <button
-          type='button'
-          onClick={onPrevious}
-          className='px-6 py-3 rounded-lg font-medium transition-all bg-gray-200 text-gray-700 hover:bg-gray-300'>
+        <CTA as='button' type='button' onClick={onPrevious} variant='outline-light'>
           Previous
-        </button>
+        </CTA>
       )}
 
       {isLastStep ? (
-        <button
+        <CTA
+          as='button'
           type='submit'
           onClick={onSubmitClick}
           disabled={isSubmitting || !isLastGroupComplete}
-          className={`px-8 py-3 rounded-lg font-medium transition-all ${
-            isSubmitting || !isLastGroupComplete
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-lg'
-          }`}>
+          variant='filled'
+          className='px-8'>
           {isSubmitting ? 'Submitting...' : 'Submit Application'}
-        </button>
+        </CTA>
       ) : (
-        <button
+        <CTA
+          as='button'
           type='button'
           onClick={onNext}
           disabled={!isLastGroupComplete}
-          className={`px-6 py-3 rounded-lg font-medium transition-all ${
-            isLastGroupComplete
-              ? 'bg-brand-primary text-white hover:bg-brand-primary/90'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}>
+          variant='filled'>
           Next Step
-        </button>
+        </CTA>
       )}
     </div>
   );

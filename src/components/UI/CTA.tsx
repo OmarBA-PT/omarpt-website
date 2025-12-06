@@ -5,7 +5,7 @@ import { FiChevronRight, FiExternalLink } from 'react-icons/fi';
 type BaseCTAProps = {
   children: React.ReactNode;
   className?: string;
-  variant?: 'filled' | 'outline-light' | 'outline-dark' | 'text-link';
+  variant?: 'filled' | 'outline-light' | 'outline-dark' | 'text-link' | 'secondary';
   shortOnMobile?: boolean;
 };
 
@@ -27,7 +27,7 @@ type ButtonCTAProps = BaseCTAProps & {
 type CTAProps = LinkCTAProps | ButtonCTAProps;
 
 const getVariantStyles = (
-  variant: 'filled' | 'outline-light' | 'outline-dark' | 'text-link' = 'filled',
+  variant: 'filled' | 'outline-light' | 'outline-dark' | 'text-link' | 'secondary' = 'filled',
   disabled: boolean = false,
   shortOnMobile: boolean = false
 ) => {
@@ -53,6 +53,11 @@ const getVariantStyles = (
   if (variant === 'outline-dark') {
     // Outline button on dark background - light border and text
     return `${baseStyles} border-2 border-brand-white text-brand-white bg-transparent hover:bg-brand-white hover:text-brand-primary focus:ring-brand-white ${disabledStyles}`.trim();
+  }
+
+  if (variant === 'secondary') {
+    // Secondary button - gray background for less prominent actions
+    return `${baseStyles} bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-400 ${disabledStyles}`.trim();
   }
 
   // Default to filled variant with brand gradient

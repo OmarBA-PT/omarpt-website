@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdExpandMore, MdCheckCircle, MdCancel } from 'react-icons/md';
+import CTA from '@/components/UI/CTA';
 import { GroupState } from './types';
 
 interface QuestionGroupProps {
@@ -94,17 +95,14 @@ const QuestionGroup = ({
         !nextGroupVisited &&
         (!hasOnlyRadioButtons || hasVisibleConditionals) && (
           <div className='flex justify-center my-6'>
-            <button
+            <CTA
+              as='button'
               type='button'
               onClick={() => onNextQuestion(groupIndex)}
               disabled={!groupComplete}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                groupComplete
-                  ? 'bg-brand-primary text-white hover:bg-brand-primary/90 hover:shadow-md'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              }`}>
+              variant='filled'>
               Next Question
-            </button>
+            </CTA>
           </div>
         )}
     </div>
