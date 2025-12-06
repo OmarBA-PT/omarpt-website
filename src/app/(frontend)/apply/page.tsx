@@ -6,7 +6,6 @@ import Container from '@/components/Layout/Container';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { MdDownload, MdPlayArrow, MdArrowBack } from 'react-icons/md';
 import ApplicationForm from '@/components/Forms/ApplicationForm/ApplicationForm';
-import DownloadPdfButton from '@/components/Buttons/DownloadPdfButton';
 import CardLight from '@/components/UI/CardLight';
 import CardGradient from '@/components/UI/CardGradient';
 import CTA from '@/components/UI/CTA';
@@ -17,6 +16,12 @@ const ApplyPage = () => {
 
   const pageTitle = 'Apply for Coaching';
   const pageSubtitle = 'Take the first step towards achieving your fitness goals';
+
+  const handleDownloadPdf = () => {
+    // Add timestamp to prevent caching
+    const url = `/api/generate-application-pdf?v=${Date.now()}`;
+    window.location.href = url;
+  };
 
   if (showForm) {
     // Form view - full page application form
@@ -66,33 +71,29 @@ const ApplyPage = () => {
         {/* Application Options */}
         <div className={`grid grid-cols-1 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Start Application Option */}
-          <CardLight
-            showBorder
-            title='Start Your Application'
-            icon={MdPlayArrow}>
-            <p className='mb-6'>
-              Complete the application form online. Quick, easy, and secure.
-            </p>
+          <CardLight showBorder title='Start Your Online Application' icon={MdPlayArrow}>
+            <p className='mb-6'>Complete the application form online. Quick, easy, and secure.</p>
             <CTA as='button' variant='filled' onClick={() => setShowForm(true)}>
               Begin Application
             </CTA>
           </CardLight>
 
           {/* PDF Download Option */}
-          <CardLight
-            title='Download PDF Forms'
-            icon={MdDownload}>
+          <CardLight title='Download PDF Forms' icon={MdDownload}>
             <p className='mb-6'>
-              Prefer to complete the forms offline? Download the PDF, fill it out, and email it back to us.
+              Prefer to complete the forms offline? Download the PDF, fill it out, and email it back
+              to us.
             </p>
-            <DownloadPdfButton />
+            <CTA as='button' variant='filled' onClick={handleDownloadPdf}>
+              Download Forms
+            </CTA>
           </CardLight>
         </div>
 
         {/* Just Enquiring CTA */}
         <CardGradient
           title='Just Enquiring?'
-          body="Not ready to apply yet? No problem! Use our contact form to ask any questions you might have about our coaching services."
+          body='Not ready to apply yet? No problem! Use our contact form to ask any questions you might have about our coaching services.'
           ctaText='Contact Us'
           ctaHref='/contact'
         />
