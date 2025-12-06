@@ -71,18 +71,17 @@ const ApplyPage = () => {
         {/* Application Options */}
         <div className={`grid grid-cols-1 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Start Application Option */}
-          <CardLight showBorder title='Start Your Online Application' icon={MdPlayArrow}>
-            <p className='mb-6'>Complete the application form online. Quick, easy, and secure.</p>
+          <CardLight showBorder title='Start your online application' icon={MdPlayArrow}>
+            <p className='mb-6'>Start your application using my online form.</p>
             <CTA as='button' variant='filled' onClick={() => setShowForm(true)}>
               Begin Application
             </CTA>
           </CardLight>
 
           {/* PDF Download Option */}
-          <CardLight title='Download PDF Forms' icon={MdDownload}>
+          <CardLight title='Download PDFs instead' icon={MdDownload}>
             <p className='mb-6'>
-              Prefer to complete the forms offline? Download the PDF, fill it out, and email it back
-              to us.
+              If you prefer, you can complete my forms on PDF and email them to me instead.
             </p>
             <CTA as='button' variant='filled' onClick={handleDownloadPdf}>
               Download Forms
