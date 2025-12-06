@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import Breadcrumb from '@/components/UI/Breadcrumb';
@@ -14,9 +14,18 @@ import { maxCardWidth } from '@/utils/spacingConstants';
 
 const ApplyPage = () => {
   const [showForm, setShowForm] = useState(false);
+  const backButtonRef = useRef<HTMLDivElement>(null);
 
   const pageTitle = 'Apply for Coaching';
   const pageSubtitle = 'Take the first step towards achieving your fitness goals';
+
+  const handleStartApplication = () => {
+    setShowForm(true);
+    // Smooth scroll to back button after state updates
+    setTimeout(() => {
+      backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   const handleDownloadPdf = () => {
     // Add timestamp to prevent caching
@@ -36,7 +45,7 @@ const ApplyPage = () => {
 
         <Container textAlign='center'>
           {/* Back/Cancel Button */}
-          <div className='mb-8'>
+          <div ref={backButtonRef} className='mb-8'>
             <CTA as='button' variant='outline-light' onClick={() => setShowForm(false)}>
               <div className='flex items-center gap-2'>
                 <MdArrowBack className='w-5 h-5' />
@@ -72,18 +81,16 @@ const ApplyPage = () => {
         {/* Application Options */}
         <div className={`grid grid-cols-1 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Start Application Option */}
-          <CardLight showBorder title='Start your online application' icon={BsClipboard2CheckFill}>
-            <p className='mb-6'>Start your application using my online form.</p>
-            <CTA as='button' variant='filled' onClick={() => setShowForm(true)}>
-              Begin Application
+          <CardLight showBorder title='Submit online' icon={BsClipboard2CheckFill}>
+            <p className='mb-6'>Submit your application using my online form.</p>
+            <CTA as='button' variant='filled' onClick={handleStartApplication}>
+              Start Application
             </CTA>
           </CardLight>
 
           {/* PDF Download Option */}
-          <CardLight title='Download PDFs instead' icon={MdDownload}>
-            <p className='mb-6'>
-              If you prefer, you can complete my forms on PDF and email back to me.
-            </p>
+          <CardLight title='Download PDF' icon={MdDownload}>
+            <p className='mb-6'>If you prefer, you can apply via PDF and email back to me.</p>
             <CTA as='button' variant='filled' onClick={handleDownloadPdf}>
               Download Form
             </CTA>
