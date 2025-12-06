@@ -75,7 +75,7 @@ export const formStyles = {
 
   // Helper text styles
   helper: {
-    text: 'mb-2 text-body-sm',
+    text: 'mb-3 text-body-sm',
   },
 
   // Field wrapper styles

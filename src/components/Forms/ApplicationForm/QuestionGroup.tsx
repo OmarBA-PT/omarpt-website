@@ -61,7 +61,7 @@ const QuestionGroup = ({
         }`}>
         {/* Group Header */}
         <div
-          className={`p-6 flex items-center justify-between ${
+          className={`px-6 py-4 flex items-center justify-between ${
             !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-black' : ''
           } transition-all ${showGreenTick || showRedCross ? 'bg-black hover:bg-white/10' : ''}`}
           onClick={() => !isSingleGroup && isVisited && onHeaderClick(groupIndex)}>
@@ -85,7 +85,7 @@ const QuestionGroup = ({
         </div>
 
         {/* Group Content */}
-        <div className={`px-6 py-6 space-y-4 ${isExpanded ? '' : 'hidden'}`}>{children}</div>
+        <div className={`px-6 pb-6 pt-3 space-y-4 ${isExpanded ? '' : 'hidden'}`}>{children}</div>
       </div>
 
       {/* Next Question Button - Hidden for radio-only groups since they auto-progress, unless conditional fields are visible */}
