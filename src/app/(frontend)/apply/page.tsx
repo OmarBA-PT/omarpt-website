@@ -4,7 +4,8 @@ import { useState } from 'react';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import { MdDownload, MdPlayArrow, MdArrowBack } from 'react-icons/md';
+import { MdDownload, MdArrowBack } from 'react-icons/md';
+import { BsClipboard2CheckFill } from 'react-icons/bs';
 import ApplicationForm from '@/components/Forms/ApplicationForm/ApplicationForm';
 import CardLight from '@/components/UI/CardLight';
 import CardGradient from '@/components/UI/CardGradient';
@@ -71,7 +72,7 @@ const ApplyPage = () => {
         {/* Application Options */}
         <div className={`grid grid-cols-1 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Start Application Option */}
-          <CardLight showBorder title='Start your online application' icon={MdPlayArrow}>
+          <CardLight showBorder title='Start your online application' icon={BsClipboard2CheckFill}>
             <p className='mb-6'>Start your application using my online form.</p>
             <CTA as='button' variant='filled' onClick={() => setShowForm(true)}>
               Begin Application
@@ -81,10 +82,10 @@ const ApplyPage = () => {
           {/* PDF Download Option */}
           <CardLight title='Download PDFs instead' icon={MdDownload}>
             <p className='mb-6'>
-              If you prefer, you can complete my forms on PDF and email them to me instead.
+              If you prefer, you can complete my forms on PDF and email back to me.
             </p>
             <CTA as='button' variant='filled' onClick={handleDownloadPdf}>
-              Download Forms
+              Download Form
             </CTA>
           </CardLight>
         </div>
