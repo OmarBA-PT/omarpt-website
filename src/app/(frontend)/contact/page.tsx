@@ -92,8 +92,8 @@ const ContactPage = async () => {
         {/* Introduction */}
         <div className='max-w-3xl mx-auto mb-12'>
           <p className='text-body-lg'>
-            Have a question or want to learn more about our coaching services? Get in touch using
-            any method below and we&apos;ll get back to you as soon as possible.
+            Have a question or want to learn more about my coaching services? Get in touch using any
+            method below and I&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Email */}
-          <CardLight title='Email Us' icon={MdEmail}>
+          <CardLight title='Email Me' icon={MdEmail}>
             <a
               href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
@@ -126,7 +126,7 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Phone */}
-          <CardLight title='Call Us' icon={MdPhone}>
+          <CardLight title='Call Me' icon={MdPhone}>
             <a
               href={SITE_CONFIG.ORGANIZATION_PHONE.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
@@ -137,7 +137,7 @@ const ContactPage = async () => {
 
         {/* Ready to Apply CTA */}
         <CardGradient
-          title='Ready to Start Your Coaching Journey?'
+          title='Ready to start your coaching journey?'
           body="If you're ready to commit to your fitness goals and want to begin coaching right away, submit a full application instead."
           ctaText='Apply for Coaching'
           ctaHref='/apply'

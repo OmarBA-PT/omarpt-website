@@ -12,7 +12,12 @@ interface StepIndicatorsProps {
   onStepClick?: (stepIndex: number) => void;
 }
 
-const StepIndicators = ({ currentStep, contactDetailsTitle, sections, onStepClick }: StepIndicatorsProps) => {
+const StepIndicators = ({
+  currentStep,
+  contactDetailsTitle,
+  sections,
+  onStepClick,
+}: StepIndicatorsProps) => {
   const handleStepClick = (stepIndex: number) => {
     // Only allow clicking on visited steps (previous steps)
     if (stepIndex < currentStep && onStepClick) {
@@ -26,11 +31,8 @@ const StepIndicators = ({ currentStep, contactDetailsTitle, sections, onStepClic
       <div className='mb-8 hidden md:flex justify-between'>
         {/* Contact Details Step */}
         <div
-          className={`flex flex-col items-center flex-1 ${
-            0 < currentStep ? 'cursor-pointer' : ''
-          }`}
-          onClick={() => handleStepClick(0)}
-        >
+          className={`flex flex-col items-center flex-1 ${0 < currentStep ? 'cursor-pointer' : ''}`}
+          onClick={() => handleStepClick(0)}>
           <div
             className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
               0 < currentStep
@@ -43,7 +45,7 @@ const StepIndicators = ({ currentStep, contactDetailsTitle, sections, onStepClic
           </div>
           <span
             className={`text-body-xs text-center ${
-              0 === currentStep ? 'text-brand-primary font-medium' : 'text-gray-500'
+              0 === currentStep ? 'text-brand-primary font-medium' : 'text-brand-white'
             }`}>
             {contactDetailsTitle}
           </span>
@@ -59,8 +61,7 @@ const StepIndicators = ({ currentStep, contactDetailsTitle, sections, onStepClic
               className={`flex flex-col items-center flex-1 ml-4 ${
                 isVisited ? 'cursor-pointer' : ''
               }`}
-              onClick={() => handleStepClick(stepIndex)}
-            >
+              onClick={() => handleStepClick(stepIndex)}>
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
                   stepIndex < currentStep
