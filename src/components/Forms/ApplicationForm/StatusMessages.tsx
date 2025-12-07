@@ -54,7 +54,7 @@ const StatusMessages = ({
           <div className='flex items-start text-left'>
             <MdError className='w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0' />
             <div>
-              <h3 className='text-body-base font-semibold text-red-800 mb-1'>
+              <h3 className='text-body-base font-semibold text-red-800 mb-1 text-left'>
                 Fields Require Attention
               </h3>
               <p className='text-body-sm text-red-700'>
