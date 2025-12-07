@@ -2,12 +2,14 @@ import React from 'react';
 import { MdError } from 'react-icons/md';
 import { FormStatus } from './types';
 import { maxCardWidth } from '@/utils/spacingConstants';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface StatusMessagesProps {
   status: FormStatus;
   errorMessage?: string;
   errorCount?: number;
   showValidationError?: boolean;
+  onDownloadPDF?: () => void;
 }
 
 const StatusMessages = ({
@@ -15,6 +17,7 @@ const StatusMessages = ({
   errorMessage,
   errorCount = 0,
   showValidationError = false,
+  onDownloadPDF,
 }: StatusMessagesProps) => {
   return (
     <>
@@ -38,11 +41,34 @@ const StatusMessages = ({
         <div className='mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg'>
           <div className='flex items-start'>
             <MdError className='w-5 h-5 text-red-500 mt-0.5 mr-3 shrink-0' />
-            <div>
-              <h3 className='text-body-base font-semibold text-red-800 mb-1 text-left'>
-                Submission Error
-              </h3>
-              <p className='text-body-sm text-red-700'>{errorMessage}</p>
+            <div className='flex-1 text-left'>
+              <h3 className='text-body-base font-semibold text-red-800 mb-1'>Submission Error</h3>
+              <p className='text-body-sm text-red-700 mb-3'>{errorMessage}</p>
+              <div className='text-body-sm text-red-700'>
+                <p className='mb-2'>
+                  I sincerely apologize for this inconvenience. However don't worry, your answers
+                  have been collected and inserted into a PDF for your convenience. To complete your
+                  application, please follow these steps:
+                </p>
+                <ol className='list-decimal list-inside space-y-1 mb-3'>
+                  <li>
+                    <button
+                      type='button'
+                      onClick={onDownloadPDF}
+                      className='text-red-900 underline hover:text-red-950 font-semibold cursor-pointer text-left'>
+                      Download your application (answers already inserted) as a PDF
+                    </button>
+                  </li>
+                  <li>
+                    Email it to me at{' '}
+                    <a
+                      href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
+                      className='text-red-900 underline hover:text-red-950 font-semibold'>
+                      {SITE_CONFIG.ORGANIZATION_EMAIL.value}
+                    </a>
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>

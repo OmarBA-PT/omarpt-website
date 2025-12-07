@@ -22,6 +22,7 @@ const ApplicationForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [attemptedValidation, setAttemptedValidation] = useState(false);
   const [userClickedSubmit, setUserClickedSubmit] = useState(false);
+  const [isDownloadingPDF, setIsDownloadingPDF] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
   const groupRefs = useRef<GroupRefs>({});
   const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(new Set());
@@ -371,6 +372,63 @@ const ApplicationForm = () => {
     setUserClickedSubmit(true);
   };
 
+  // Handle PDF download when form submission fails
+  const handleDownloadPDF = async () => {
+    setIsDownloadingPDF(true);
+
+    try {
+      // Get current form values (including any changes made after the error)
+      const currentFormData = watch();
+
+      // Call API to generate PDF with current form data
+      const response = await fetch('/api/generate-application-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData: currentFormData,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF');
+      }
+
+      // Get the PDF blob
+      const blob = await response.blob();
+
+      // Create download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+
+      // Generate filename using applicant name
+      const applicantName = currentFormData.fullName || 'Application';
+      const sanitizedName = applicantName
+        .replace(/[^a-zA-Z0-9\s]/g, '')
+        .replace(/\s+/g, '_')
+        .substring(0, 50);
+      const date = new Date().toISOString().split('T')[0];
+      link.download = `Application_${sanitizedName}_${date}.pdf`;
+
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+      alert(
+        'We encountered an issue generating the PDF. Please try again or contact us directly via phone or email.'
+      );
+    } finally {
+      setIsDownloadingPDF(false);
+    }
+  };
+
   return (
     <div className='w-full max-w-4xl mx-auto' ref={formTopRef}>
       {status !== 'success' && (
@@ -395,6 +453,7 @@ const ApplicationForm = () => {
         errorMessage={errorMessage}
         errorCount={getCurrentSectionErrorCount()}
         showValidationError={currentSectionHasErrors()}
+        onDownloadPDF={handleDownloadPDF}
       />
 
       {status !== 'success' && (

@@ -4,7 +4,10 @@ import { generateApplicationConfirmationEmail } from '@/lib/email-templates/appl
 import { generateApplicationAdminNotificationEmail } from '@/lib/email-templates/applicationAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
 import { applicationFormData } from '@/data/applicationFormData';
-import { generateApplicationPDFBuffer, generatePDFFilename } from '@/lib/utils/generateApplicationPDF';
+import {
+  generateApplicationPDFBuffer,
+  generatePDFFilename,
+} from '@/lib/utils/generateApplicationPDF';
 
 // Initialize Resend with API key from environment variable
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -130,7 +133,7 @@ export async function POST(request: Request) {
       if (typeof value === 'string') {
         sanitizedFormData[key] = sanitizeInput(value);
       } else if (Array.isArray(value)) {
-        sanitizedFormData[key] = value.map(v => (typeof v === 'string' ? sanitizeInput(v) : v));
+        sanitizedFormData[key] = value.map((v) => (typeof v === 'string' ? sanitizeInput(v) : v));
       } else {
         sanitizedFormData[key] = value;
       }
@@ -266,8 +269,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       {
-        error:
-          'We encountered an issue submitting your application. Please try contacting us directly via email or phone.',
+        error: 'We encountered an issue submitting your application.',
         details: errorMessage,
       },
       { status: 500 }
