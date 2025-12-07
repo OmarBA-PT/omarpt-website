@@ -14,6 +14,8 @@ import { maxCardWidth } from '@/utils/spacingConstants';
 
 const ApplyPage = () => {
   const [showForm, setShowForm] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
   const backButtonRef = useRef<HTMLDivElement>(null);
 
   const pageTitle = 'Apply for Coaching';
@@ -27,10 +29,46 @@ const ApplyPage = () => {
     }, 100);
   };
 
-  const handleDownloadPdf = () => {
-    // Add timestamp to prevent caching
-    const url = `/api/generate-application-pdf?v=${Date.now()}`;
-    window.location.href = url;
+  const handleDownloadPdf = async () => {
+    setPdfError(null);
+    setIsDownloading(true);
+
+    try {
+      // Add timestamp to prevent caching
+      const url = `/api/generate-application-pdf?v=${Date.now()}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        // Try to parse error message from JSON response
+        let errorMessage = 'Failed to download PDF. Please try again or contact me directly.';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          // If JSON parsing fails, use default message
+        }
+        setPdfError(errorMessage);
+        setIsDownloading(false);
+        return;
+      }
+
+      // Get the PDF blob and create download link
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = 'Omania-Training-Application-Form.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(downloadUrl);
+
+      setIsDownloading(false);
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+      setPdfError('An unexpected error occurred. Please try again.');
+      setIsDownloading(false);
+    }
   };
 
   const handleScrollToBackButton = () => {
@@ -96,9 +134,14 @@ const ApplyPage = () => {
           {/* PDF Download Option */}
           <CardLight title='Download PDF' icon={MdDownload}>
             <p className='mb-6'>If you prefer, you can apply via PDF and email back to me.</p>
-            <CTA as='button' variant='filled' onClick={handleDownloadPdf}>
-              Download Form
+            <CTA as='button' variant='filled' onClick={handleDownloadPdf} disabled={isDownloading}>
+              {isDownloading ? 'Downloading...' : 'Download Form'}
             </CTA>
+            {pdfError && (
+              <div className='mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-body-sm'>
+                {pdfError}
+              </div>
+            )}
           </CardLight>
         </div>
 

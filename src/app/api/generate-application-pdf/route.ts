@@ -24,7 +24,7 @@ export async function GET() {
     console.error('Error generating PDF:', error);
     return NextResponse.json(
       {
-        error: 'Failed to generate PDF',
+        error: 'Failed to generate PDF. Please try again or contact me directly.',
         details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     console.error('Error generating PDF:', error);
     return NextResponse.json(
       {
-        error: 'Failed to generate PDF',
+        error: 'Failed to generate PDF. Please try again or contact me directly.',
         details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
