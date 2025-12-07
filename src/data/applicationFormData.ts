@@ -518,7 +518,6 @@ export const applicationFormData: FormSection[] = [
             type: 'textarea',
             required: false,
             placeholder: 'e.g, lower stress, find more relaxation time, meditate regularly, etc.',
-            helperText: 'Think beyond just fitness - overall wellness matters too',
             subQuestions: [
               {
                 id: 'wellnessImpact',
