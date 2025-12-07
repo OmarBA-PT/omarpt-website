@@ -23,28 +23,21 @@ export const metadata: Metadata = {
 
 const navigationLinks = [
   {
-    href: '/',
-    icon: '🏠',
-    title: 'Home',
-    description: 'Discover my latest news and featured content',
+    href: '/contact',
+    title: 'Contact Me',
+    description: 'Get in touch with me for general enquiries or to start your coaching journey',
   },
   {
-    href: '/discography',
-    icon: '🎵',
-    title: 'Discography',
-    description: 'Explore my complete collection of music releases',
-  },
-  {
-    href: '/blog',
-    icon: '📝',
-    title: 'Blog',
-    description: 'Read my latest news, stories, and insights',
+    href: '/apply',
+    title: 'Apply for Coaching',
+    description:
+      'Take the first step towards achieving your fitness goals by submitting an application',
   },
 ];
 
 interface NavigationLinkProps {
   href: string;
-  icon: string;
+  icon?: string;
   title: string;
   description: string;
 }
@@ -63,23 +56,23 @@ const NavigationLink = ({ href, icon, title, description }: NavigationLinkProps)
 export default function NotFound() {
   return (
     <>
-      <PageHero title='Page Not Found' />
+      <PageHero
+        title='Page Not Found'
+        subtTitle='Sorry, the page you are looking for could not be found.'
+      />
       <Breadcrumb pageTitle='Page Not Found' />
 
       <Container>
         <div className='flex flex-col items-center text-center pb-12 md:pb-16'>
-          <FaQuestionCircle className='text-[150px] sm:text-[250px] text-brand-primary mb-8 md:mb-12' />
-
           <div className='max-w-2xl mb-8 md:mb-12'>
-            <h2 className='text-h3 md:text-h2 mb-4'>Oops! We can&apos;t find that page</h2>
             <p className='text-body-lg md:text-body-xl leading-relaxed mb-6'>
-              {`The page you're looking for doesn't exist or may have been moved. Don't worry though - there's plenty to explore at ${SITE_CONFIG.ORGANIZATION_NAME}!`}
+              The page you're looking for doesn't exist or may have been moved. Please check the URL
+              for errors, or explore the links below.
             </p>
           </div>
 
           <div className='w-full max-w-4xl mb-12'>
-            <h3 className='text-h4 mb-6'>Here are some popular pages to get you back on track:</h3>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-8'>
               {navigationLinks.map((link, index) => (
                 <NavigationLink key={index} {...link} />
               ))}
@@ -87,7 +80,7 @@ export default function NotFound() {
           </div>
 
           <CTA href='/' variant='filled' className='text-body-lg'>
-            Take Me Home
+            Back to home
           </CTA>
         </div>
       </Container>
