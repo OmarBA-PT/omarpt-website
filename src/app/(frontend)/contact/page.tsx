@@ -117,7 +117,7 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Email */}
-          <CardLight title='Email Me' icon={MdEmail}>
+          <CardLight title='Email me' icon={MdEmail}>
             <a
               href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
@@ -126,7 +126,7 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Phone */}
-          <CardLight title='Call Me' icon={MdPhone}>
+          <CardLight title='Call me' icon={MdPhone}>
             <a
               href={SITE_CONFIG.ORGANIZATION_PHONE.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
