@@ -88,6 +88,8 @@ export const maxHeightViewport = {
 };
 
 /**
- *  * Scroll margin top for anchor links to account for fixed header
+ * Scroll margin top for anchor links to account for fixed header
+ * Set to 0 because scroll-padding-top on html element already handles the offset
+ * The html scroll-padding-top (4.5rem mobile, 6rem desktop) matches the header height
  */
-export const anchorLinkScrollMarginTop = 'scroll-mt-8 md:scroll-mt-12';
+export const anchorLinkScrollMarginTop = '';

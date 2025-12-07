@@ -56,12 +56,12 @@ const RootLayout = ({
             __html: `
             /* Critical layout-only styles - KEEP IN SYNC with globals.css */
             html {
-              scroll-padding-top: 5rem; 
+              scroll-padding-top: 4.5rem; /* 72px - matches h-18 mobile header */
             }
 
             @media (min-width: 768px) {
               html {
-                scroll-padding-top: 6rem; 
+                scroll-padding-top: 6rem; /* 96px - matches h-24 desktop header */
               }
             }
 

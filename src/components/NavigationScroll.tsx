@@ -42,7 +42,7 @@ export default function NavigationScroll() {
 
       if (element) {
         requestAnimationFrame(() => {
-          element.scrollIntoView({ behavior: 'instant' });
+          element.scrollIntoView({ behavior: 'instant', block: 'start' });
           hasScrolledRef.current = true;
           pendingScrollRef.current = '';
         });
