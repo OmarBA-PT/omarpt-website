@@ -23,7 +23,7 @@ export async function generateMetadata() {
   const contactPageData = await getContactPage();
 
   return generatePageMetadata({
-    title: contactPageData?.title || 'Contact Us',
+    title: contactPageData?.title || 'Contact Me',
     description:
       contactPageData?.subtitle ||
       "Get in touch with me for general enquiries or apply for coaching if you're ready to start your fitness journey.",
@@ -42,7 +42,7 @@ const ContactPage = async () => {
   ]);
 
   // Fallback values if Sanity data is not available
-  const pageTitle = contactPageData?.title || 'Contact Us';
+  const pageTitle = contactPageData?.title || 'Contact Me';
   const pageSubtitle =
     contactPageData?.subtitle ||
     'Get in touch for general enquiries or start your coaching journey';

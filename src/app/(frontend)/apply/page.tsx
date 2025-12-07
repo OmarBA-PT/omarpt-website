@@ -149,7 +149,7 @@ const ApplyPage = () => {
         <CardGradient
           title='Just Enquiring?'
           body='Not ready to apply yet? No problem! Use my contact form to ask any questions you might have about my coaching services.'
-          ctaText='Contact Us'
+          ctaText='Contact Me'
           ctaHref='/contact'
         />
       </Container>
