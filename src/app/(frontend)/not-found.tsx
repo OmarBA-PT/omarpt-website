@@ -45,11 +45,11 @@ interface NavigationLinkProps {
 const NavigationLink = ({ href, icon, title, description }: NavigationLinkProps) => (
   <Link
     href={href}
-    className='group bg-brand-white-dark shadow-sm rounded-lg p-4 hover:bg-brand-primary/10 hover:shadow-md transition-all duration-200'>
-    <div className='text-body-base font-medium mb-2 group-hover:underline group-hover:underline-offset-4'>
+    className='group bg-brand-charcoal-light shadow-sm rounded-lg p-4 hover:bg-brand-primary/10 hover:shadow-md transition-all duration-200'>
+    <div className='text-body-xl font-medium mb-2 text-brand-secondary'>
       {icon} {title}
     </div>
-    <div className='text-body-sm text-gray-600'>{description}</div>
+    <div className='text-body-base'>{description}</div>
   </Link>
 );
 
