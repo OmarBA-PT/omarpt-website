@@ -33,6 +33,11 @@ const ApplyPage = () => {
     window.location.href = url;
   };
 
+  const handleScrollToBackButton = () => {
+    // Scroll to show the Back to Options button (for successful submissions)
+    backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   if (showForm) {
     // Form view - full page application form
     return (
@@ -55,7 +60,7 @@ const ApplyPage = () => {
           </div>
 
           {/* Application Form */}
-          <ApplicationForm />
+          <ApplicationForm onScrollToBackButton={handleScrollToBackButton} />
         </Container>
       </>
     );

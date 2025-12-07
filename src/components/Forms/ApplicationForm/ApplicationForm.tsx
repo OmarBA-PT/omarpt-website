@@ -15,7 +15,11 @@ import { useGroupState } from './useGroupState';
 import { useFormValidation } from './useFormValidation';
 import { ApplicationFormData, GroupRefs, FormStatus } from './types';
 
-const ApplicationForm = () => {
+interface ApplicationFormProps {
+  onScrollToBackButton?: () => void;
+}
+
+const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<FormStatus>('idle');
@@ -128,6 +132,16 @@ const ApplicationForm = () => {
   // Scroll to top of form
   const scrollToTop = () => {
     formTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // Scroll to back button (only for successful submissions)
+  const scrollToBackButton = () => {
+    if (onScrollToBackButton) {
+      onScrollToBackButton();
+    } else {
+      // Fallback to scrollToTop if no callback provided
+      scrollToTop();
+    }
   };
 
   // Handle clicking on a group header
@@ -324,7 +338,7 @@ const ApplicationForm = () => {
 
       setStatus('success');
       setIsSubmitting(false);
-      scrollToTop();
+      scrollToBackButton();
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('error');
