@@ -143,7 +143,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'difficultyDetails',
-                question: 'If yes, please list or explain:',
+                question: 'Please list or explain:',
                 type: 'textarea',
                 required: true,
                 conditionalOn: {
