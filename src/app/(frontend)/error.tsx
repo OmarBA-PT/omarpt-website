@@ -28,20 +28,18 @@ export default function ErrorPage({ error }: ErrorPageProps) {
 
           {/* Message */}
           <div className='max-w-2xl mb-8 md:mb-12'>
-            <h2 className='text-h3 md:text-h2 mb-4'>Sorry, something went wrong</h2>
-            <p className='text-body-lg md:text-body-xl text-gray-600 leading-relaxed mb-6'>
-              I encountered an unexpected error while processing your request. This could be a
-              temporary issue with my services. Please try again, or contact an admin if the
-              problem persists.
+            <p className='text-body-lg md:text-body-xl leading-relaxed mb-6'>
+              An unexpected error occurred while processing your request. This could be a temporary
+              issue with my services. Please try again, or contact me if the problem persists.
             </p>
 
             {/* Error details for development (hidden in production) */}
             {process.env.NODE_ENV === 'development' && (
               <details className='mt-4 p-4 bg-gray-100 rounded-lg text-left max-w-lg'>
-                <summary className='cursor-pointer text-body-sm font-medium text-gray-700 mb-2'>
+                <summary className='cursor-pointer text-body-sm font-medium text-black mb-2'>
                   Error Details (Development Only)
                 </summary>
-                <pre className='text-body-xs text-gray-600 whitespace-pre-wrap break-words'>
+                <pre className='text-body-xs text-gray-600 whitespace-pre-wrap wrap-break-word'>
                   {error.message}
                   {error.digest && `\nDigest: ${error.digest}`}
                 </pre>
@@ -51,7 +49,7 @@ export default function ErrorPage({ error }: ErrorPageProps) {
 
           {/* Action Buttons */}
           <CTA href='/' variant='filled' className='text-body-lg'>
-            Go to Home Page
+            Back to Home Page
           </CTA>
         </div>
       </Container>
