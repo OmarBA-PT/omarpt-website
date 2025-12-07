@@ -25,6 +25,7 @@ import { twoColumnLayoutType } from './blocks/twoColumnLayoutType';
 import { expandingContentType } from './blocks/expandingContentType';
 import { ctaButtonType } from './blocks/ctaButtonType';
 import { ctaCalloutLinkType } from './blocks/ctaCalloutLinkType';
+import { cardType } from './blocks/cardType';
 import { embeddedCtaButtonType } from './blocks/embeddedCtaButtonType';
 import { homeHeroCtaButtonType } from './blocks/homeHeroCtaButtonType';
 import { companyLinksBlockType } from './blocks/companyLinksBlockType';
@@ -86,6 +87,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     expandingContentType,
     ctaButtonType,
     ctaCalloutLinkType,
+    cardType,
     embeddedCtaButtonType,
     homeHeroCtaButtonType,
     companyLinksBlockType,

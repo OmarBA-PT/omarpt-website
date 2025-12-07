@@ -2,7 +2,7 @@
 // This type represents any block that can contain other blocks
 
 
-import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, ResponsiveWrapper, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, FaqBlock } from '@/sanity/types';
+import type { Divider, RichText, Statement, Quote, TwoColumnLayout, ExpandingContent, ResponsiveWrapper, GridLayout, ImageBlock as SanityImageBlock, ImageGallery, GoogleMap, YouTubeVideo, PageSection, CtaButton, CtaCalloutLink, Card, EmbeddedCtaButton, SubSection, SubSubSection, ContentWrapper, CompanyLinksBlock, IconList, DetailedList, BlockListWithStats, CheckList, ItemList, ServiceCard, FaqBlock } from '@/sanity/types';
 
 export interface BaseBlock {
   _key: string;
@@ -36,6 +36,7 @@ export type GoogleMapBlock = GoogleMap & { _key: string };
 export type YouTubeVideoBlock = YouTubeVideo & { _key: string };
 export type CTAButtonBlock = CtaButton & { _key: string };
 export type CTACalloutLinkBlock = CtaCalloutLink & { _key: string };
+export type CardBlock = Card & { _key: string };
 export type EmbeddedCTAButtonBlock = EmbeddedCtaButton & { _key: string };
 export type CompanyLinksBlockType = CompanyLinksBlock & { _key: string };
 export type IconListBlock = IconList & { _key: string };
@@ -67,6 +68,7 @@ export type NestedBlock =
   | YouTubeVideoBlock
   | CTAButtonBlock
   | CTACalloutLinkBlock
+  | CardBlock
   | CompanyLinksBlockType
   | IconListBlock
   | DetailedListBlock
@@ -158,6 +160,10 @@ export const isCTAButtonBlock = (block: NestedBlock): block is CTAButtonBlock =>
 
 export const isCTACalloutLinkBlock = (block: NestedBlock): block is CTACalloutLinkBlock => {
   return block._type === 'ctaCalloutLink';
+};
+
+export const isCardBlock = (block: NestedBlock): block is CardBlock => {
+  return block._type === 'card';
 };
 
 export const isCompanyLinksBlock = (block: NestedBlock): block is CompanyLinksBlockType => {

@@ -130,31 +130,13 @@ const contentProjection = `
   },
   _type == "ctaButton" => {${fullLinkProjection}},
   _type == "ctaCalloutLink" => {${fullLinkProjection}},
+  _type == "card" => {${fullLinkProjection}},
   _type == "ctaCard" => {${fullLinkProjection}},
-  _type == "card" => {
-    ...,
-    image{
-      asset,
-      alt,
-      hotspot,
-      crop
-    },
-    content[]{${cardContentProjection}}
-  },
   _type == "twoColumnLayout" => {
     ...,
     leftColumn[]{
       ...,
-      _type == "card" => {
-        ...,
-        image{
-          asset,
-          alt,
-          hotspot,
-          crop
-        },
-        content[]{${cardContentProjection}}
-      },
+      _type == "card" => {${fullLinkProjection}},
       _type == "ctaButton" => {${fullLinkProjection}},
       _type == "ctaCalloutLink" => {${fullLinkProjection}},
       _type == "imageBlock" => {
@@ -181,16 +163,7 @@ const contentProjection = `
     },
     rightColumn[]{
       ...,
-      _type == "card" => {
-        ...,
-        image{
-          asset,
-          alt,
-          hotspot,
-          crop
-        },
-        content[]{${cardContentProjection}}
-      },
+      _type == "card" => {${fullLinkProjection}},
       _type == "ctaButton" => {${fullLinkProjection}},
       _type == "ctaCalloutLink" => {${fullLinkProjection}},
       _type == "imageBlock" => {
@@ -220,16 +193,7 @@ const contentProjection = `
     ...,
     content[]{
       ...,
-      _type == "card" => {
-        ...,
-        image{
-          asset,
-          alt,
-          hotspot,
-          crop
-        },
-        content[]{${cardContentProjection}}
-      },
+      _type == "card" => {${fullLinkProjection}},
       _type == "ctaButton" => {${fullLinkProjection}},
       _type == "ctaCalloutLink" => {${fullLinkProjection}},
       _type == "imageBlock" => {

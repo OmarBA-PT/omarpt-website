@@ -8,6 +8,7 @@ import type {
   ExpandingContent as ExpandingContentType,
   CtaButton as CtaButtonType,
   CtaCalloutLink as CtaCalloutLinkType,
+  Card as CardType,
   ImageBlock as ImageBlockType,
   ImageGallery as ImageGalleryType,
   GoogleMap as GoogleMapType,
@@ -34,6 +35,7 @@ import TwoColumnLayout from '@/components/_blocks/TwoColumnLayout';
 import ExpandingContent from '@/components/_blocks/ExpandingContent';
 import CTAButton from '@/components/_blocks/CTAButton';
 import CTACalloutLinkComponent from '@/components/_blocks/CTACalloutLink';
+import CardComponent from '@/components/_blocks/Card';
 import ImageBlock from '@/components/_blocks/Image';
 import ImageGallery from '@/components/_blocks/ImageGallery';
 import GoogleMap from '@/components/_blocks/GoogleMap';
@@ -77,6 +79,7 @@ type BlockType =
   | WithKey<ExpandingContentType>
   | WithKey<CtaButtonType>
   | WithKey<CtaCalloutLinkType>
+  | WithKey<CardType>
   | WithKey<ImageBlockType>
   | WithKey<ImageGalleryType>
   | WithKey<GoogleMapType>
@@ -222,6 +225,15 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
       return (
         <BlockWrapper key={ctaCalloutBlock._key}>
           <CTACalloutLinkComponent {...ctaCalloutBlock} />
+        </BlockWrapper>
+      );
+    }
+
+    case 'card': {
+      const cardBlock = typedBlock as WithKey<CardType>;
+      return (
+        <BlockWrapper key={cardBlock._key}>
+          <CardComponent {...cardBlock} />
         </BlockWrapper>
       );
     }

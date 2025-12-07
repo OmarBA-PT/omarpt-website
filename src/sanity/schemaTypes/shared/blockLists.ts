@@ -35,6 +35,7 @@ export const CONTENT_ONLY_BLOCKS = [
   defineArrayMember({ type: 'youTubeVideo' }),
   defineArrayMember({ type: 'ctaButton' }),
   defineArrayMember({ type: 'ctaCalloutLink' }),
+  defineArrayMember({ type: 'card' }),
   defineArrayMember({ type: 'iconList' }),
   defineArrayMember({ type: 'detailedList' }),
   defineArrayMember({ type: 'blockListWithStats' }),
