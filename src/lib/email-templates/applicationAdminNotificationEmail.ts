@@ -15,7 +15,6 @@ interface ApplicationAdminNotificationEmailData {
   phone: string;
   formData: Record<string, any>;
   sections: FormSection[];
-  logoUrl: string;
 }
 
 /**
@@ -68,7 +67,7 @@ function formatAnswer(
 export function generateApplicationAdminNotificationEmail(
   data: ApplicationAdminNotificationEmailData
 ): string {
-  const { name, email, phone, formData, sections, logoUrl } = data;
+  const { name, email, phone, formData, sections } = data;
 
   return `
     <!DOCTYPE html>
@@ -104,31 +103,6 @@ export function generateApplicationAdminNotificationEmail(
               <!-- Header with Logo and Brand -->
               <tr>
                 <td style="${EMAIL_STYLES.header}">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td align="center">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="display: inline-block;">
-                          <tr>
-                            <td align="center" valign="middle" style="padding-right: 12px;">
-                              <!-- Logo -->
-                              <img
-                                src="${logoUrl}"
-                                alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
-                                width="80"
-                                height="auto"
-                                style="display: block; margin: 0; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));"
-                              />
-                            </td>
-                            <td align="left" valign="middle" style="white-space: nowrap;">
-                              <!-- Business Name -->
-                              <span style="${EMAIL_STYLES.brandNameGold}">Omania</span>
-                              <span style="${EMAIL_STYLES.brandNameTraining}">Training</span>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
                   <!-- Header Title -->
                   <h1 style="margin: 20px 0 0 0; color: ${EMAIL_COLORS.brandGold}; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">
                     New Application Form Submission

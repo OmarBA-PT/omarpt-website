@@ -158,7 +158,7 @@ export async function POST(request: Request) {
 
     // Construct logo URL for email
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const logoUrl = `${baseUrl}/images/logos/logo-white.png`;
+    const logoUrl = `${baseUrl}/images/logos/logo.png`;
 
     // Generate PDF with submitted answers
     let pdfBuffer: Buffer | null = null;
@@ -181,7 +181,6 @@ export async function POST(request: Request) {
       phone: sanitizedPhone,
       formData: sanitizedFormData,
       sections: applicationFormData,
-      logoUrl,
     });
 
     // Prepare email payload with optional PDF attachment
