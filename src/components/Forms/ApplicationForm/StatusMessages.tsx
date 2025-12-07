@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdError } from 'react-icons/md';
 import { FormStatus } from './types';
+import { maxCardWidth } from '@/utils/spacingConstants';
 
 interface StatusMessagesProps {
   status: FormStatus;
@@ -19,17 +20,15 @@ const StatusMessages = ({
     <>
       {/* Success Message */}
       {status === 'success' && (
-        <div className='mb-6 bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg'>
+        <div className={`mb-6 bg-black p-8 mx-auto rounded-lg ${maxCardWidth}`}>
           <div className='text-center'>
-            <h3 className='text-h4 font-bold text-green-800 mb-2'>
+            <h3 className='text-h4 font-bold text-brand-secondary mb-2'>
               Thank you for your application!
             </h3>
-            <p className='text-body-base text-green-700 mb-2'>
+            <p className='text-body-base mb-2'>
               We have received your submission and will get back to you as soon as possible.
             </p>
-            <p className='text-body-sm text-green-600'>
-              You should also receive a confirmation email shortly.
-            </p>
+            <p className=''>You should also receive a confirmation email shortly.</p>
           </div>
         </div>
       )}
