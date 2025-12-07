@@ -323,12 +323,12 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
           );
         } else if (result.configError) {
           setErrorMessage(
-            'The application form is currently unavailable. Please contact us directly via phone or email.'
+            'The application form is currently unavailable. Please contact me directly via phone or email.'
           );
         } else {
           setErrorMessage(
             result.error ||
-              'We encountered an issue submitting your application. Please try contacting us directly.'
+              'I encountered an issue submitting your application. Please try contacting me directly.'
           );
         }
         setIsSubmitting(false);
@@ -343,7 +343,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
       console.error('Form submission error:', error);
       setStatus('error');
       setErrorMessage(
-        'We encountered an issue submitting your application. Please check your internet connection and try again, or contact us directly via phone or email.'
+        'I encountered an issue submitting your application. Please check your internet connection and try again, or contact me directly via phone or email.'
       );
       setIsSubmitting(false);
       scrollToTop();
@@ -430,7 +430,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
     } catch (error) {
       console.error('Error downloading PDF:', error);
       alert(
-        'We encountered an issue generating the PDF. Please try again or contact us directly via phone or email.'
+        'I encountered an issue generating the PDF. Please try again or contact me directly via phone or email.'
       );
     } finally {
       setIsDownloadingPDF(false);

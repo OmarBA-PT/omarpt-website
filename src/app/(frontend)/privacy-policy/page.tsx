@@ -29,7 +29,7 @@ export async function generateMetadata() {
   if (!siteSettings) {
     return {
       title: `Privacy Policy | ${SITE_CONFIG.ORGANIZATION_NAME}`,
-      description: 'Privacy policy for our website and how we handle your data',
+      description: 'Privacy policy for my website and how I handle your data',
     };
   }
 
@@ -38,7 +38,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title,
     description:
-      siteSettings.siteDescription || 'Privacy policy for our website and how we handle your data',
+      siteSettings.siteDescription || 'Privacy policy for my website and how I handle your data',
     siteSettings,
     canonicalUrl: generateCanonicalUrl('/privacy-policy'),
   });

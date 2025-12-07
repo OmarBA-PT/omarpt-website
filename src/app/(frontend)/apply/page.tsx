@@ -148,7 +148,7 @@ const ApplyPage = () => {
         {/* Just Enquiring CTA */}
         <CardGradient
           title='Just Enquiring?'
-          body='Not ready to apply yet? No problem! Use our contact form to ask any questions you might have about our coaching services.'
+          body='Not ready to apply yet? No problem! Use my contact form to ask any questions you might have about my coaching services.'
           ctaText='Contact Us'
           ctaHref='/contact'
         />

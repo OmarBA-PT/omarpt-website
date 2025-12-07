@@ -149,7 +149,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            'Application form is currently unavailable. Please contact us directly via phone or email.',
+            'Application form is currently unavailable. Please contact me directly via phone or email.',
           configError: true,
         },
         { status: 500 }
@@ -269,7 +269,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       {
-        error: 'We encountered an issue submitting your application.',
+        error: 'I encountered an issue submitting your application.',
         details: errorMessage,
       },
       { status: 500 }

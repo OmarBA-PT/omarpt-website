@@ -28,12 +28,12 @@ export async function generateMetadata() {
   if (!siteSettings) {
     return {
       title: `FAQ | ${SITE_CONFIG.ORGANIZATION_NAME}`,
-      description: 'Frequently asked questions about our services',
+      description: 'Frequently asked questions about my services',
     };
   }
 
   const title = faqData?.title || 'FAQ';
-  const description = faqData?.subtitle || siteSettings.siteDescription || 'Frequently asked questions about our services';
+  const description = faqData?.subtitle || siteSettings.siteDescription || 'Frequently asked questions about my services';
 
   return generatePageMetadata({
     title,

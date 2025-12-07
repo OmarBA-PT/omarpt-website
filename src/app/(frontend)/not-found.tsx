@@ -26,19 +26,19 @@ const navigationLinks = [
     href: '/',
     icon: '🏠',
     title: 'Home',
-    description: 'Discover our latest news and featured content',
+    description: 'Discover my latest news and featured content',
   },
   {
     href: '/discography',
     icon: '🎵',
     title: 'Discography',
-    description: 'Explore our complete collection of music releases',
+    description: 'Explore my complete collection of music releases',
   },
   {
     href: '/blog',
     icon: '📝',
     title: 'Blog',
-    description: 'Read our latest news, stories, and insights',
+    description: 'Read my latest news, stories, and insights',
   },
 ];
 

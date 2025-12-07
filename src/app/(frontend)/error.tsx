@@ -30,8 +30,8 @@ export default function ErrorPage({ error }: ErrorPageProps) {
           <div className='max-w-2xl mb-8 md:mb-12'>
             <h2 className='text-h3 md:text-h2 mb-4'>Sorry, something went wrong</h2>
             <p className='text-body-lg md:text-body-xl text-gray-600 leading-relaxed mb-6'>
-              We encountered an unexpected error while processing your request. This could be a
-              temporary issue with our services. Please try again, or contact an admin if the
+              I encountered an unexpected error while processing your request. This could be a
+              temporary issue with my services. Please try again, or contact an admin if the
               problem persists.
             </p>
 

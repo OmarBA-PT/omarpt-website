@@ -141,7 +141,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            'Contact form is currently unavailable. Please contact us directly via phone or email.',
+            'Contact form is currently unavailable. Please contact me directly via phone or email.',
           configError: true,
         },
         { status: 500 }
@@ -268,7 +268,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          'We encountered an issue sending your message. Please try contacting us directly via email or phone.',
+          'I encountered an issue sending your message. Please try contacting me directly via email or phone.',
         details: errorMessage,
       },
       { status: 500 }

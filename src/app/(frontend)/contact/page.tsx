@@ -26,7 +26,7 @@ export async function generateMetadata() {
     title: contactPageData?.title || 'Contact Us',
     description:
       contactPageData?.subtitle ||
-      "Get in touch with us for general enquiries or apply for coaching if you're ready to start your fitness journey.",
+      "Get in touch with me for general enquiries or apply for coaching if you're ready to start your fitness journey.",
     siteSettings: null,
     canonicalUrl: generateCanonicalUrl('/contact'),
   });

@@ -42,7 +42,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
   // Fallback values if settings are not provided
   const title = settings?.title;
   const subtitle = settings?.subtitle;
-  const messagePlaceholder = settings?.messagePlaceholder || 'Tell us how we can help you...';
+  const messagePlaceholder = settings?.messagePlaceholder || 'Tell me how I can help you...';
   const successHeading = settings?.successHeading || 'Thank you for your message!';
   const successMessage =
     settings?.successMessage ||
@@ -80,13 +80,13 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
         setStatus('error');
         setErrorMessage(
           responseData.error ||
-            'We encountered an issue sending your message. Please try contacting us directly via email or phone.'
+            'I encountered an issue sending your message. Please try contacting me directly via email or phone.'
         );
       }
     } catch (error) {
       setStatus('error');
       setErrorMessage(
-        'We encountered an issue sending your message. Please try contacting us directly via email or phone.'
+        'I encountered an issue sending your message. Please try contacting me directly via email or phone.'
       );
       console.error('Contact form submission error:', error);
     }

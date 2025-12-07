@@ -541,7 +541,7 @@ export const applicationFormData: FormSection[] = [
             required: false,
             placeholder: 'e.g, healthier habits, improved fitness, more energy, etc.',
             helperText:
-              'If you are unsure, just write the first thing that comes to your mind and we may revisit or add to this any time. Sometimes new desires come up while on the journey of other goals being reached.',
+              'If you are unsure, just write the first thing that comes to your mind and I may revisit or add to this any time. Sometimes new desires come up while on the journey of other goals being reached.',
           },
         ],
       },

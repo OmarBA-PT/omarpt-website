@@ -29,7 +29,7 @@ export async function generateMetadata() {
   if (!siteSettings) {
     return {
       title: `Terms & Conditions | ${SITE_CONFIG.ORGANIZATION_NAME}`,
-      description: 'Terms and conditions for using our website and services',
+      description: 'Terms and conditions for using my website and services',
     };
   }
 
@@ -38,7 +38,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title,
     description:
-      siteSettings.siteDescription || 'Terms and conditions for using our website and services',
+      siteSettings.siteDescription || 'Terms and conditions for using my website and services',
     siteSettings,
     canonicalUrl: generateCanonicalUrl('/terms-and-conditions'),
   });
