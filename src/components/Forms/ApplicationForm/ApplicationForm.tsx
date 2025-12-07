@@ -38,12 +38,6 @@ const ApplicationForm = () => {
     clearErrors,
   } = useForm<ApplicationFormData>({
     mode: 'onTouched',
-    defaultValues: {
-      // TODO: Remove these default values before production
-      fullName: 'Vitesh Bava',
-      email: 'victor.bava@gmail.com',
-      phone: '123456789',
-    },
   });
 
   const formData = watch();
