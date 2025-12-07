@@ -19,7 +19,7 @@ const sharedStyles = {
 
   // Interactive option container (radio/checkbox)
   optionContainer:
-    'flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group',
+    'flex items-center gap-3 p-3 rounded-lg border border-brand-offwhite/30 hover:border-brand-primary hover:bg-brand-primary/5 cursor-pointer transition-all group',
   optionLabel: 'text-body-base group-hover:text-gray-900 flex-1',
 
   // Input controls

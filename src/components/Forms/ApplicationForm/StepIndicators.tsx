@@ -44,8 +44,8 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
                 {stepIndex + 1}
               </div>
               <span
-                className={`text-body-xs text-center transition-all ${
-                  stepIndex <= currentStep ? 'text-brand-primary' : ''
+                className={`text-body-xs text-center  transition-all ${
+                  stepIndex <= currentStep ? 'text-brand-primary' : 'text-gray-600'
                 } ${stepIndex < currentStep ? 'group-hover:text-brand-secondary' : ''} ${
                   stepIndex === currentStep ? 'font-medium' : ''
                 }`}>
