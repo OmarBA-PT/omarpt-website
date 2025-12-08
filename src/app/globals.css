@@ -492,16 +492,16 @@ input[type='range']::-moz-range-track {
 .background-image-wrapper {
   position: relative;
   overflow: hidden; /* Ensure background doesn't overflow container */
+  isolation: isolate; /* Create a new stacking context */
 }
 
 .background-image-layer {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0; /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; */
   z-index: -1;
   background-repeat: no-repeat;
-  background-size: cover; /* Same as object-cover in Next.js Image */
-  background-position: center; /* Same as object-center in Next.js Image */
+  background-size: cover; /* Maintains aspect ratio while covering entire area - same as object-cover */
+  background-position: center; /* Centers the image - same as object-center */
+  /* The image will maintain its aspect ratio and crop to fill the container,
+     just like Next.js Image with fill and object-cover */
 }
