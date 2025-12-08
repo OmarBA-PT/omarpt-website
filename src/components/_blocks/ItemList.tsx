@@ -68,7 +68,12 @@ const ItemList = ({
         {items.map((item, idx) => (
           <li key={item._key || idx} className={`flex items-center gap-3 ${flexJustifyClasses}`}>
             {/* Dumbbell Icon Bullet */}
-            <AnimateIn animation='fade' trigger='scroll' duration={800} threshold={0.5}>
+            <AnimateIn
+              animation='fade'
+              trigger='scroll'
+              duration={800}
+              delay={idx * 100}
+              threshold={0.5}>
               <div className='shrink-0 mt-1'>
                 <Icon iconKey='dumbell' width={1.5} colorClassName='text-gradient-primary' />
               </div>
@@ -79,7 +84,7 @@ const ItemList = ({
               animation='slideLeft'
               trigger='scroll'
               duration={800}
-              delay={100}
+              delay={idx * 100 + 150}
               threshold={0.5}>
               <p className='text-body-lg'>{item.text}</p>
             </AnimateIn>
