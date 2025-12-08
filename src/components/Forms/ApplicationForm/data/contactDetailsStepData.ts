@@ -31,7 +31,7 @@ export const contactDetailsStepData: FormSection = {
           id: 'phone',
           question: 'Phone Number',
           type: 'text',
-          placeholder: '+44 7XXX XXXXXX',
+          placeholder: '+64 21 123 4567',
           required: true,
         },
       ],
