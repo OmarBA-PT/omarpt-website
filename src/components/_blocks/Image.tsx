@@ -5,6 +5,7 @@ import { stegaClean } from 'next-sanity';
 import type { ImageBlock } from '@/types/blocks';
 import { createSanityDataAttribute, type SanityLiveEditingProps } from '../../utils/sectionHelpers';
 import UnifiedImage from '../UI/UnifiedImage';
+import AnimateIn from '../UI/AnimateIn';
 
 interface ImageProps
   extends ImageBlock,
@@ -43,32 +44,38 @@ const Image: React.FC<ImageProps> = ({
     : {};
 
   return (
-    <figure className={`${sizeClasses} ${className}`}>
-      <UnifiedImage
-        src={image}
-        alt="Content image"
-        mode="sized"
-        width={1200}
-        height={800}
-        sizeContext="full"
-        objectFit="cover"
-        enableModal
-        modalCaption={cleanCaption}
-        generateSchema
-        schemaContext="article"
-        className="w-full h-auto rounded-lg"
-        documentId={documentId}
-        documentType={documentType}
-        fieldPath={pathPrefix ? `${pathPrefix}.image` : 'image'}
-      />
-      {cleanCaption && (
-        <figcaption
-          className='mt-2 text-body-sm text-gray-600 text-center italic'
-          {...captionDataAttribute}>
-          {cleanCaption}
-        </figcaption>
-      )}
-    </figure>
+    <AnimateIn
+      animation='slideUp'
+      trigger='scroll'
+      duration={800}
+      threshold={0.2}>
+      <figure className={`${sizeClasses} ${className}`}>
+        <UnifiedImage
+          src={image}
+          alt="Content image"
+          mode="sized"
+          width={1200}
+          height={800}
+          sizeContext="full"
+          objectFit="cover"
+          enableModal
+          modalCaption={cleanCaption}
+          generateSchema
+          schemaContext="article"
+          className="w-full h-auto rounded-lg"
+          documentId={documentId}
+          documentType={documentType}
+          fieldPath={pathPrefix ? `${pathPrefix}.image` : 'image'}
+        />
+        {cleanCaption && (
+          <figcaption
+            className='mt-2 text-body-sm text-gray-600 text-center italic'
+            {...captionDataAttribute}>
+            {cleanCaption}
+          </figcaption>
+        )}
+      </figure>
+    </AnimateIn>
   );
 };
 
