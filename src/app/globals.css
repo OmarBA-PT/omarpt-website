@@ -501,27 +501,7 @@ input[type='range']::-moz-range-track {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-repeat: no-repeat, no-repeat;
-
-  /* Mobile: Image fits section height (cover behavior) */
-  /* First value is for gradient (100% coverage), second is for image */
-  background-size:
-    100% 100%,
-    cover;
-  background-position:
-    0 0,
-    center top; /* Gradient at origin, image aligned to top */
-}
-
-/* Desktop: Image fills viewport width, anchored to top */
-@media (min-width: 768px) {
-  .background-image-layer {
-    /* First value is for gradient (100% coverage), second is for image */
-    background-size:
-      100% 100%,
-      100vw auto; /* Gradient covers all, image fills viewport width */
-    background-position:
-      0 0,
-      center top; /* Gradient at origin, image anchored to top */
-  }
+  background-repeat: no-repeat;
+  background-size: cover; /* Same as object-cover in Next.js Image */
+  background-position: center; /* Same as object-center in Next.js Image */
 }

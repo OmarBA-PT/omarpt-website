@@ -8,8 +8,8 @@ import { resolveAlignment } from '../_blocks/shared/alignmentUtils';
 import { anchorLinkScrollMarginTop, pageTitleBottomSpacing } from '@/utils/spacingConstants';
 import SectionContainer from './SectionContainer';
 import { parseColoredText } from '@/utils/textHelpers';
-import { urlFor } from '@/sanity/lib/image';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import BackgroundImage, { useBackgroundWrapperProps } from './BackgroundImage';
 
 // Context to track if PageSection has a title (affects nested section heading levels)
 const PageSectionContext = createContext<{ hasTitle: boolean }>({ hasTitle: false });
@@ -63,58 +63,21 @@ const PageSection = ({
 
   const hasTitle = Boolean(title);
 
-  // Get background image URL for smokey presets or custom images
-  const getBackgroundImageUrl = () => {
-    // Custom image uploaded by user
-    if (backgroundStyle === 'image' && backgroundImage) {
-      return urlFor(backgroundImage).width(3840).height(2160).quality(90).url();
-    }
-
-    // Smokey preset backgrounds (smokey-1 through smokey-8)
-    if (backgroundStyle?.startsWith('smokey-')) {
-      return `/images/backgrounds/${backgroundStyle}.jpg`;
-    }
-
-    return null;
-  };
-
-  const backgroundImageUrl = getBackgroundImageUrl();
-
-  // Apply base class for image backgrounds
-  const getBackgroundClass = () => {
-    if (backgroundImageUrl) {
-      return 'background-image-wrapper';
-    }
-    return '';
-  };
-
-  // Build inline styles for backgrounds
-  const getBackgroundStyles = (): React.CSSProperties => {
-    // Radial gradient (no image)
-    if (backgroundStyle === 'radial-gradient') {
-      return {
-        background: 'var(--background-image-brand-gradient-charcoal-radial)',
-      };
-    }
-    return {};
-  };
+  // Get wrapper props (className and style) from background helper
+  const wrapperProps = useBackgroundWrapperProps(backgroundStyle, backgroundImage);
 
   return (
     <PageSectionContext.Provider value={{ hasTitle }}>
       <section
         id={anchorId ? stegaClean(anchorId) : undefined}
-        className={`${getBackgroundClass()} ${className} ${anchorLinkScrollMarginTop}`.trim()}
-        style={getBackgroundStyles()}
+        className={`${wrapperProps.className} ${className} ${anchorLinkScrollMarginTop}`.trim()}
+        style={wrapperProps.style}
       >
-        {/* Background image layer with gradient fade */}
-        {backgroundImageUrl && (
-          <div
-            className="background-image-layer"
-            style={{
-              backgroundImage: `linear-gradient(to bottom, transparent 0%, transparent 75%, var(--color-brand-charcoal) 100%), url(${backgroundImageUrl})`,
-            }}
-          />
-        )}
+        {/* Background image layer */}
+        <BackgroundImage
+          backgroundStyle={backgroundStyle}
+          backgroundImage={backgroundImage}
+        />
 
         {/* SectionContainer provides internal padding while section element has background */}
         <SectionContainer useCompactPadding={useCompactGap}>
