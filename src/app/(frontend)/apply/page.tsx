@@ -11,9 +11,11 @@ import CardLight from '@/components/UI/CardLight';
 import CardGradient from '@/components/UI/CardGradient';
 import CTA from '@/components/UI/CTA';
 import { maxCardWidth } from '@/utils/spacingConstants';
+import PrivacyStatement from '@/components/UI/PrivacyStatement';
 
 const ApplyPage = () => {
   const [showForm, setShowForm] = useState(false);
+  const [showPrivacyConsent, setShowPrivacyConsent] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const backButtonRef = useRef<HTMLDivElement>(null);
@@ -22,11 +24,24 @@ const ApplyPage = () => {
   const pageSubtitle = 'Take the first step towards achieving your fitness goals';
 
   const handleStartApplication = () => {
+    setShowPrivacyConsent(true);
+    // Smooth scroll to back button after state updates
+    setTimeout(() => {
+      backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const handleProceedToForm = () => {
     setShowForm(true);
     // Smooth scroll to back button after state updates
     setTimeout(() => {
       backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
+  };
+
+  const handleBackToOptions = () => {
+    setShowForm(false);
+    setShowPrivacyConsent(false);
   };
 
   const handleDownloadPdf = async () => {
@@ -76,6 +91,41 @@ const ApplyPage = () => {
     backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  if (showPrivacyConsent && !showForm) {
+    // Privacy consent view - shown before the form
+    return (
+      <>
+        {/* Page Hero */}
+        <PageHero title={pageTitle} subtTitle={pageSubtitle} />
+
+        {/* Breadcrumb */}
+        <Breadcrumb pageTitle={pageTitle} />
+
+        <Container textAlign='center'>
+          {/* Back/Cancel Button */}
+          <div ref={backButtonRef} className='mb-8'>
+            <CTA as='button' variant='outline-light' onClick={handleBackToOptions}>
+              <div className='flex items-center gap-2'>
+                <MdArrowBack className='w-5 h-5' />
+                <span>Back to Options</span>
+              </div>
+            </CTA>
+          </div>
+
+          {/* Privacy Statement */}
+          <div className='mb-8'>
+            <PrivacyStatement />
+          </div>
+
+          {/* Proceed Button */}
+          <CTA as='button' variant='filled' onClick={handleProceedToForm}>
+            Proceed
+          </CTA>
+        </Container>
+      </>
+    );
+  }
+
   if (showForm) {
     // Form view - full page application form
     return (
@@ -89,7 +139,7 @@ const ApplyPage = () => {
         <Container textAlign='center'>
           {/* Back/Cancel Button */}
           <div ref={backButtonRef} className='mb-8'>
-            <CTA as='button' variant='outline-light' onClick={() => setShowForm(false)}>
+            <CTA as='button' variant='outline-light' onClick={handleBackToOptions}>
               <div className='flex items-center gap-2'>
                 <MdArrowBack className='w-5 h-5' />
                 <span>Back to Options</span>
@@ -99,6 +149,11 @@ const ApplyPage = () => {
 
           {/* Application Form */}
           <ApplicationForm onScrollToBackButton={handleScrollToBackButton} />
+
+          {/* Privacy Statement Below Form */}
+          <div className='mt-12'>
+            <PrivacyStatement />
+          </div>
         </Container>
       </>
     );
