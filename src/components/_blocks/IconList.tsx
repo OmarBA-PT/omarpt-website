@@ -3,6 +3,7 @@ import Icon from '@/lib/iconLibrary';
 import type { IconKey } from '@/lib/iconLibrary';
 import type { IconListBlock } from '@/types/blocks';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
+import AnimateIn from '@/components/UI/AnimateIn';
 
 interface IconListProps extends Omit<IconListBlock, '_type' | '_key'> {
   className?: string;
@@ -24,6 +25,9 @@ const IconList = ({
   }
 
   const isHorizontal = layout === 'horizontal';
+  // Stagger animation delays for each item (200ms between items)
+  const baseDelay = 0;
+  const staggerDelay = 200;
 
   return (
     <div className={`flex flex-col items-center w-full ${className}`.trim()}>
@@ -33,27 +37,38 @@ const IconList = ({
             ? `${fieldPathPrefix}.items[${index}]`
             : `items[${index}]`;
 
+          // Calculate delays for icon and text animations
+          const iconDelay = baseDelay + index * staggerDelay;
+          const textDelay = iconDelay + 100; // Text animates 100ms after icon
+
           return (
             <div
               key={item._key}
               className={`flex justify-center flex-col items-center gap-4 ${
                 isHorizontal ? 'md:flex-row md:gap-6' : 'w-full'
               }`}>
-              {/* Icon */}
-              <div
-                className={`flex justify-center items-center`}
-                {...(documentId && documentType
-                  ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
-                  : {})}>
-                <Icon
-                  iconKey={item.icon as IconKey}
-                  width={3}
-                  colorClassName='text-gradient-firey'
-                />
-              </div>
+              {/* Icon - Fade in */}
+              <AnimateIn animation='fade' trigger='scroll' duration={600} delay={iconDelay}>
+                <div
+                  className={`flex justify-center items-center`}
+                  {...(documentId && documentType
+                    ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
+                    : {})}>
+                  <Icon
+                    iconKey={item.icon as IconKey}
+                    width={3}
+                    colorClassName='text-gradient-firey'
+                  />
+                </div>
+              </AnimateIn>
 
-              {/* Description */}
-              <div className={`${isHorizontal ? '' : 'flex-1'}`}>
+              {/* Description - Slide in from right (horizontal) or bottom (vertical) + fade */}
+              <AnimateIn
+                animation={isHorizontal ? 'slideLeft' : 'slideUp'}
+                trigger='scroll'
+                duration={700}
+                delay={textDelay}
+                className={`${isHorizontal ? '' : 'flex-1'}`}>
                 <p
                   {...(documentId && documentType
                     ? createSanityDataAttribute(documentId, documentType, `${itemPath}.description`)
@@ -61,7 +76,7 @@ const IconList = ({
                   className='text-body-3xl font-bold text-center'>
                   {item.description}
                 </p>
-              </div>
+              </AnimateIn>
             </div>
           );
         })}
