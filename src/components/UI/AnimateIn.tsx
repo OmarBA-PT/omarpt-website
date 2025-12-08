@@ -40,7 +40,7 @@ interface AnimateInProps {
   /** Additional CSS classes to apply to wrapper */
   className?: string;
   /** Custom easing function */
-  easing?: 'ease-out' | 'ease-in' | 'ease-in-out' | 'linear';
+  easing?: 'out' | 'in' | 'in-out' | 'linear';
 }
 
 const AnimateIn = ({
@@ -52,7 +52,7 @@ const AnimateIn = ({
   triggerOnce = true,
   threshold = 0.1,
   className = '',
-  easing = 'ease-out',
+  easing = 'out',
 }: AnimateInProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -136,7 +136,7 @@ const AnimateIn = ({
   return (
     <div
       ref={ref}
-      className={`transition-all ${easing} ${getAnimationClasses()} ${className}`}
+      className={`transition-all ease-${easing} ${getAnimationClasses()} ${className}`}
       style={{
         transitionDuration: `${duration}ms`,
       }}>

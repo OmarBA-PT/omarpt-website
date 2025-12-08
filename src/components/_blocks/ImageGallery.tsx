@@ -86,7 +86,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                       setIsModalOpen(true);
                     }
                   }}
-                  className='relative cursor-pointer transition hover:scale-102 aspect-[4/3] block w-full'
+                  className='relative cursor-pointer transition hover:scale-102 aspect-4/3 block w-full'
                   tabIndex={0}
                   aria-label={
                     hasImage
