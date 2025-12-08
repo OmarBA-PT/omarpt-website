@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { MdLock } from 'react-icons/md';
+import { MdLock, MdOpenInNew } from 'react-icons/md';
 
 const PrivacyStatement = () => {
   return (
@@ -19,8 +19,11 @@ const PrivacyStatement = () => {
           </p>
           <Link
             href='/privacy-policy'
-            className='text-brand-primary hover:text-brand-secondary transition-colors text-body-base underline'>
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-brand-primary hover:text-brand-secondary transition-colors text-body-base underline inline-flex items-center gap-1'>
             Read my full Privacy Policy
+            <MdOpenInNew className='w-4 h-4' />
           </Link>
         </div>
       </div>
