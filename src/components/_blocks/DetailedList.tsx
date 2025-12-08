@@ -3,6 +3,7 @@ import Icon from '@/lib/iconLibrary';
 import type { IconKey } from '@/lib/iconLibrary';
 import type { DetailedList as DetailedListType } from '@/sanity/types';
 import { createSanityDataAttribute } from '@/utils/sectionHelpers';
+import AnimateIn from '@/components/UI/AnimateIn';
 
 interface DetailedListProps extends Omit<DetailedListType, '_type' | '_key'> {
   className?: string;
@@ -47,33 +48,48 @@ const DetailedList = ({
               <div className={`flex ${hasIcon ? 'gap-4' : ''} items-start`}>
                 {/* Icon (if provided) */}
                 {hasIcon && (
-                  <div
-                    className='shrink-0'
-                    {...(documentId && documentType
-                      ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
-                      : {})}>
-                    <Icon
-                      iconKey={item.icon as IconKey}
-                      width={3}
-                      colorClassName='text-gradient-firey'
-                    />
-                  </div>
+                  <AnimateIn
+                    animation='fade'
+                    trigger='scroll'
+                    duration={800}
+                    delay={index * 100}
+                    threshold={0.2}>
+                    <div
+                      className='shrink-0'
+                      {...(documentId && documentType
+                        ? createSanityDataAttribute(documentId, documentType, `${itemPath}.icon`)
+                        : {})}>
+                      <Icon
+                        iconKey={item.icon as IconKey}
+                        width={3}
+                        colorClassName='text-gradient-firey'
+                      />
+                    </div>
+                  </AnimateIn>
                 )}
 
                 {/* Description */}
-                <div className='flex-1 text-body-lg'>
-                  <p
-                    {...(documentId && documentType
-                      ? createSanityDataAttribute(
-                          documentId,
-                          documentType,
-                          `${itemPath}.description`
-                        )
-                      : {})}
-                    className='whitespace-pre-line'>
-                    {item.description}
-                  </p>
-                </div>
+                <AnimateIn
+                  animation='slideUp'
+                  trigger='scroll'
+                  duration={800}
+                  delay={index * 100 + 150}
+                  threshold={0.2}
+                  className='flex-1'>
+                  <div className='text-body-lg'>
+                    <p
+                      {...(documentId && documentType
+                        ? createSanityDataAttribute(
+                            documentId,
+                            documentType,
+                            `${itemPath}.description`
+                          )
+                        : {})}
+                      className='whitespace-pre-line'>
+                      {item.description}
+                    </p>
+                  </div>
+                </AnimateIn>
               </div>
 
               {/* Gradient Underline Border */}

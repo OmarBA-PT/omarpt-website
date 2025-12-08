@@ -102,19 +102,19 @@ const AnimateIn = ({
     const animations: Record<AnimationType, { visible: string; hidden: string }> = {
       slideUp: {
         visible: 'opacity-100 translate-y-0',
-        hidden: 'opacity-0 translate-y-12',
+        hidden: 'opacity-0 translate-y-6',
       },
       slideDown: {
         visible: 'opacity-100 translate-y-0',
-        hidden: 'opacity-0 -translate-y-12',
+        hidden: 'opacity-0 -translate-y-6',
       },
       slideLeft: {
         visible: 'opacity-100 translate-x-0',
-        hidden: 'opacity-0 translate-x-12',
+        hidden: 'opacity-0 translate-x-6',
       },
       slideRight: {
         visible: 'opacity-100 translate-x-0',
-        hidden: 'opacity-0 -translate-x-12',
+        hidden: 'opacity-0 -translate-x-6',
       },
       fade: {
         visible: 'opacity-100',
