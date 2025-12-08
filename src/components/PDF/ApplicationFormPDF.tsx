@@ -1,7 +1,8 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Image, Font, Link } from '@react-pdf/renderer';
 import { FormSection, FormQuestion, QuestionType } from '@/data/applicationFormData';
 import { contactDetailsStepData } from '@/components/Forms/ApplicationForm/data/contactDetailsStepData';
+import { SITE_CONFIG } from '@/lib/constants';
 
 // Register fonts for better typography
 // Using Google Fonts CDN with proper variant support
@@ -266,6 +267,32 @@ const styles = StyleSheet.create({
     minHeight: 60,
     color: '#000000',
   },
+  privacyStatement: {
+    backgroundColor: '#F5F5F5',
+    border: '1 solid #DDDDDD',
+    borderRadius: 4,
+    padding: 12,
+    marginTop: 20,
+    marginBottom: 15,
+  },
+  privacyTitle: {
+    fontSize: 11,
+    fontWeight: 700,
+    marginBottom: 6,
+    color: '#000000',
+  },
+  privacyText: {
+    fontSize: 8,
+    lineHeight: 1.5,
+    marginBottom: 4,
+    color: '#333333',
+  },
+  privacyLink: {
+    fontSize: 8,
+    color: '#0066CC',
+    textDecoration: 'underline',
+    marginTop: 4,
+  },
 });
 
 interface ApplicationFormPDFProps {
@@ -451,6 +478,25 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
               </View>
             ))}
           </View>
+
+          {/* Privacy Statement - at the end of the last section */}
+          {isLastSection(sectionIndex) && (
+            <View style={styles.privacyStatement} wrap={false}>
+              <Text style={styles.privacyTitle}>Your Privacy Matters</Text>
+              <Text style={styles.privacyText}>
+                I take your privacy seriously. All information you provide will be used solely for
+                processing your coaching application and creating your personalised fitness plan.
+              </Text>
+              <Text style={styles.privacyText}>
+                I will never share your personal information with third parties, and it will only be
+                retained for as long as necessary to provide my coaching services to you.
+              </Text>
+              <Text style={styles.privacyText}>
+                For more information please read my full privacy policy at{' '}
+                {SITE_CONFIG.PRODUCTION_DOMAIN}/privacy-policy
+              </Text>
+            </View>
+          )}
 
           {/* Submission Instructions - at the end of the last section */}
           {isLastSection(sectionIndex) && (
