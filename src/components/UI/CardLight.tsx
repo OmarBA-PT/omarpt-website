@@ -7,6 +7,7 @@ interface CardLightProps {
   icon?: IconType;
   className?: string;
   showBorder?: boolean;
+  id?: string;
 }
 
 const CardLight = ({
@@ -15,9 +16,11 @@ const CardLight = ({
   icon: Icon,
   className = '',
   showBorder = false,
+  id,
 }: CardLightProps) => {
   return (
     <div
+      id={id}
       className={`bg-brand-charcoal-light rounded-xl p-4 md:p-8 text-center ${showBorder ? 'border-4 border-brand-primary' : ''} ${className}`}>
       <div className='flex flex-col justify-center md:justify-start items-center gap-2 md:gap-4'>
         {Icon ? <Icon className='w-8 h-8 text-brand-secondary' /> : null}

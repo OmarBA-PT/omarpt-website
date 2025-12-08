@@ -101,6 +101,7 @@ const ContactPage = async () => {
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Contact Form */}
           <CardLight
+            id='contact-form'
             showBorder
             className='md:col-span-2'
             title='Send me a message'

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import CTA from '@/components/UI/CTA';
 import type { CONTACT_FORM_SETTINGS_QUERYResult } from '@/sanity/types';
@@ -21,7 +21,6 @@ interface ContactFormData {
 }
 
 const ContactForm = ({ className = '', settings }: ContactFormProps) => {
-  const formRef = useRef<HTMLDivElement>(null);
 
   const {
     register,
@@ -53,8 +52,10 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
   // Scroll to form when success message appears
   useEffect(() => {
-    if (status === 'success' && formRef.current) {
-      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (status === 'success') {
+      // Use hash navigation to scroll to the contact form card
+      // This ensures the entire card is visible under the header
+      window.location.hash = '#contact-form';
     }
   }, [status]);
 
@@ -95,7 +96,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
   const fieldDisabled = status === 'loading' || status === 'success';
 
   return (
-    <div ref={formRef} className={`max-w-2xl rounded-lg text-left ${className}`.trim()}>
+    <div className={`max-w-2xl rounded-lg text-left ${className}`.trim()}>
       {/* Optional Title and Subtitle */}
       {(title || subtitle) && (
         <div className='mb-6'>
