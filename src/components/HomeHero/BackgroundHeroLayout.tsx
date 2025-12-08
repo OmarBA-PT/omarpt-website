@@ -1,9 +1,9 @@
-import React from 'react';
 import { stegaClean } from 'next-sanity';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import HeroTitle from './HeroTitle';
 import HeroCTA from './HeroCTA';
+import AnimateIn from '@/components/UI/AnimateIn';
 
 interface VideoImageBackgroundHeroLayoutProps {
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
@@ -96,7 +96,11 @@ const VideoImageBackgroundHeroLayout = (props: VideoImageBackgroundHeroLayoutPro
       `}
       {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
       {/* Content container with responsive alignment */}
-      <div
+      <AnimateIn
+        animation='slideUp'
+        trigger='mount'
+        duration={1000}
+        delay={300}
         className={`flex flex-col ${horizontalConfig.content} ${horizontalConfig.text} gap-4 sm:gap-6 max-w-4xl w-full mt-6`}>
         {/* Title - priority content */}
         <div className='shrink-0'>
@@ -109,7 +113,7 @@ const VideoImageBackgroundHeroLayout = (props: VideoImageBackgroundHeroLayoutPro
             <HeroCTA {...componentProps} />
           </div>
         )}
-      </div>
+      </AnimateIn>
     </div>
   );
 };

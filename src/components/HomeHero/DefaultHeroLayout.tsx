@@ -1,10 +1,10 @@
-import React from 'react';
 import { stegaClean } from 'next-sanity';
 import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import HeroTitle from './HeroTitle';
 import HeroCTA from './HeroCTA';
 import HeroImages from './HeroImages';
+import AnimateIn from '@/components/UI/AnimateIn';
 
 interface DefaultHeroLayoutProps {
   h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
@@ -77,7 +77,11 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
         `}
         {...createSanityDataAttribute(documentId, documentType, 'heroContentPosition')}>
         {/* Content column */}
-        <div
+        <AnimateIn
+          animation='slideUp'
+          trigger='mount'
+          duration={1000}
+          delay={300}
           className={`flex flex-col gap-4 sm:gap-6 max-w-2xl ${
             isContentLeft ? 'order-1 items-start' : 'order-2 items-end'
           }`}>
@@ -92,7 +96,7 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
               <HeroCTA {...heroCTAProps} />
             </div>
           )}
-        </div>
+        </AnimateIn>
 
         {/* Images column - constrained by max-height to fit viewport */}
         <div
@@ -110,7 +114,12 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
           py-12
         `}>
         {/* Content */}
-        <div className='flex flex-col items-center text-center gap-4 sm:gap-6 max-w-2xl w-full'>
+        <AnimateIn
+          animation='slideUp'
+          trigger='mount'
+          duration={1000}
+          delay={300}
+          className='flex flex-col items-center text-center gap-4 sm:gap-6 max-w-2xl w-full'>
           {/* Title */}
           <div className='shrink-0'>
             <HeroTitle {...heroTitleProps} textAlignment='center' />
@@ -122,7 +131,7 @@ const DefaultHeroLayout = (props: DefaultHeroLayoutProps) => {
               <HeroCTA {...heroCTAProps} />
             </div>
           )}
-        </div>
+        </AnimateIn>
 
         {/* Images - responsive sizing on mobile */}
         <div className={`relative w-full max-w-2xl overflow-hidden ${frameShapeClasses}`}>
