@@ -15,7 +15,7 @@ const PageHero = ({ title = null, subtTitle = null, documentId, documentType }: 
     <div {...createSanityDataAttribute(documentId, documentType, 'heroImage')}>
       <section
         data-hero
-        className='bg-brand-gradient-charcoal-linear text-center overflow-hidden px-5 pb-12'>
+        className='bg-brand-gradient-charcoal-linear text-center overflow-hidden px-5 pb-12 mb-8 md:mb-12'>
         {/* Header spacer */}
         <div className={`${headerHeight}`}></div>
         {title && (
