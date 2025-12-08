@@ -6,6 +6,7 @@ import {
   getResponsiveContainerAlignClass,
 } from '@/utils/sectionHelpers';
 import { resolveResponsiveAlignment } from './shared/alignmentUtils';
+import AnimateIn from '../UI/AnimateIn';
 
 interface ItemListProps extends Omit<ItemListBlock, '_type' | '_key'> {
   className?: string;
@@ -67,12 +68,21 @@ const ItemList = ({
         {items.map((item, idx) => (
           <li key={item._key || idx} className={`flex items-center gap-3 ${flexJustifyClasses}`}>
             {/* Dumbbell Icon Bullet */}
-            <div className='shrink-0 mt-1'>
-              <Icon iconKey='dumbell' width={1.5} colorClassName='text-gradient-primary' />
-            </div>
+            <AnimateIn animation='fade' trigger='scroll' duration={800} threshold={0.5}>
+              <div className='shrink-0 mt-1'>
+                <Icon iconKey='dumbell' width={1.5} colorClassName='text-gradient-primary' />
+              </div>
+            </AnimateIn>
 
             {/* List Item Text */}
-            <span className='text-brand-white/80 text-body-lg'>{item.text}</span>
+            <AnimateIn
+              animation='slideLeft'
+              trigger='scroll'
+              duration={800}
+              delay={100}
+              threshold={0.5}>
+              <p className='text-body-lg'>{item.text}</p>
+            </AnimateIn>
           </li>
         ))}
       </ul>
