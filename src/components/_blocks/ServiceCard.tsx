@@ -129,7 +129,7 @@ const ServiceCard = ({
 
           {/* Pricing Info */}
           {pricingInfo && (
-            <AnimateIn animation='slideLeft' trigger='scroll' duration={800} threshold={0.5}>
+            <AnimateIn animation='slideUp' trigger='scroll' duration={800} threshold={0.5}>
               <p
                 className='text-body-2xl text-gradient-primary font-bold mt-2'
                 {...(documentId && documentType
