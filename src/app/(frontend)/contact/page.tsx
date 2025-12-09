@@ -22,7 +22,7 @@ export async function generateMetadata() {
   // Fetch contact page data for metadata
   const contactPageData = await getContactPage();
 
-  // Hard-coded values for now - will eventually come from Sanity
+  // Default values
   const ogTitle = 'Contact Me';
   const ogDescription =
     'Get in touch with Omania Training for general enquiries or to discuss your fitness goals and coaching options.';

@@ -13,7 +13,7 @@ export async function generateMetadata() {
   // Fetch apply page data for metadata
   const applyPageData = await getApplyPage();
 
-  // Hard-coded values for now - will eventually come from Sanity
+  // Default values
   const ogTitle = 'Apply Now';
   const ogDescription =
     'Take the first step towards achieving your fitness goals. Apply for personalised coaching with Omania Training today.';
