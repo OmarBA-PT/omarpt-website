@@ -22,7 +22,7 @@ export const pageTitleBottomSpacing = 'mb-12 md:mb-18';
  * Vertical padding for section containers (top and bottom)
  * Creates breathing room for content while keeping sections flush with each other
  */
-export const sectionContainerPaddingY = 'py-12 md:py-32';
+export const sectionContainerPaddingY = 'py-20 md:py-32';
 
 /**
  * Compact vertical padding for sections when useCompactGap is enabled
