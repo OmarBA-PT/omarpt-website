@@ -31,7 +31,7 @@ const IconList = ({
 
   return (
     <div className={`flex flex-col items-center w-full ${className}`.trim()}>
-      <div className='space-y-12 mb-12 w-full'>
+      <div className='space-y-8 md:space-y-12 w-full'>
         {items.map((item, index) => {
           const itemPath = fieldPathPrefix
             ? `${fieldPathPrefix}.items[${index}]`
@@ -44,7 +44,7 @@ const IconList = ({
           return (
             <div
               key={item._key}
-              className={`flex justify-center flex-col items-center gap-4 ${
+              className={`flex justify-center flex-col items-center gap-2 ${
                 isHorizontal ? 'md:flex-row md:gap-6' : 'w-full'
               }`}>
               {/* Icon - Fade in */}
@@ -74,7 +74,7 @@ const IconList = ({
                   {...(documentId && documentType
                     ? createSanityDataAttribute(documentId, documentType, `${itemPath}.description`)
                     : {})}
-                  className='text-body-2xl md:text-body-3xl font-bold text-center'>
+                  className='text-body-2xl md:text-body-3xl font-bold md:font-bold text-center'>
                   {item.description}
                 </p>
               </AnimateIn>
