@@ -82,46 +82,46 @@ const FrontendLayout = async ({
             <NavigationScroll />
             <PageReadyTrigger />
 
-        {/* Structured Data */}
-        {organizationSchema && (
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={generateStructuredDataScript(organizationSchema)}
-          />
-        )}
-        {webSiteSchema && (
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={generateStructuredDataScript(webSiteSchema)}
-          />
-        )}
-        {localBusinessSchema && (
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={generateStructuredDataScript(localBusinessSchema)}
-          />
-        )}
+            {/* Structured Data */}
+            {organizationSchema && (
+              <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={generateStructuredDataScript(organizationSchema)}
+              />
+            )}
+            {webSiteSchema && (
+              <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={generateStructuredDataScript(webSiteSchema)}
+              />
+            )}
+            {localBusinessSchema && (
+              <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={generateStructuredDataScript(localBusinessSchema)}
+              />
+            )}
 
-        <div className='min-h-screen flex flex-col'>
-          <Header headerData={headerData} />
-          <main id='main-content' className='flex-1'>
-            {children}
-          </main>
-          <Footer
-            footerData={footerData}
-            companyLinksData={companyLinksData}
-            legalPagesVisibilityData={legalPagesVisibilityData}
-          />
-          {(await draftMode()).isEnabled && (
-            <>
-              <SanityLive />
-              <VisualEditingProvider />
-              <DisableDraftMode />
-            </>
-          )}
-        </div>
-        </HeaderProvider>
-      </PageLoadProvider>
+            <div className='min-h-screen flex flex-col'>
+              <Header headerData={headerData} />
+              <main id='main-content' className='flex-1 min-h-screen'>
+                {children}
+              </main>
+              <Footer
+                footerData={footerData}
+                companyLinksData={companyLinksData}
+                legalPagesVisibilityData={legalPagesVisibilityData}
+              />
+              {(await draftMode()).isEnabled && (
+                <>
+                  <SanityLive />
+                  <VisualEditingProvider />
+                  <DisableDraftMode />
+                </>
+              )}
+            </div>
+          </HeaderProvider>
+        </PageLoadProvider>
       </HeroStyleProvider>
     </ColorProvider>
   );
