@@ -45,7 +45,7 @@ const DetailedList = ({
               </p>
 
               {/* Icon and Description Container */}
-              <div className={`flex ${hasIcon ? 'gap-4' : ''} items-start`}>
+              <div className={`flex ${hasIcon ? 'gap-6' : ''} items-start`}>
                 {/* Icon (if provided) */}
                 {hasIcon && (
                   <AnimateIn
@@ -61,7 +61,7 @@ const DetailedList = ({
                         : {})}>
                       <Icon
                         iconKey={item.icon as IconKey}
-                        width={3}
+                        width={2.5}
                         colorClassName='text-gradient-firey'
                       />
                     </div>
