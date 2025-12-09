@@ -12,25 +12,32 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
-import { getContactFormSettings, getContactPage } from '@/actions';
+import { getContactFormSettings, getContactPage, getSiteSettings } from '@/actions';
 import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
 import CardGradient from '@/components/UI/CardGradient';
 
 export async function generateMetadata() {
-  // Fetch contact page data for metadata
-  const contactPageData = await getContactPage();
+  // Fetch contact page data and site settings for metadata
+  const [contactPageData, siteSettings] = await Promise.all([
+    getContactPage(),
+    getSiteSettings(),
+  ]);
 
-  // Default values
-  const ogTitle = 'Contact Me';
-  const ogDescription =
+  // Hard-coded fallback values (lowest priority)
+  const fallbackTitle = 'Contact Me';
+  const fallbackDescription =
     'Get in touch with Omania Training for general enquiries or to discuss your fitness goals and coaching options.';
 
+  // Priority: Page-specific Sanity data > Hard-coded fallbacks
+  const ogTitle = contactPageData?.title || fallbackTitle;
+  const ogDescription = contactPageData?.subtitle || fallbackDescription;
+
   return generatePageMetadata({
-    title: contactPageData?.title || ogTitle,
-    description: contactPageData?.subtitle || ogDescription,
-    siteSettings: null,
+    title: ogTitle,
+    description: ogDescription,
+    siteSettings,
     canonicalUrl: generateCanonicalUrl('/contact'),
   });
 }

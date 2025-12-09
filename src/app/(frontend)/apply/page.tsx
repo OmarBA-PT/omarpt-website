@@ -6,22 +6,29 @@ import {
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPage } from '@/actions';
+import { getApplyPage, getSiteSettings } from '@/actions';
 import ApplyPageClient from './ApplyPageClient';
 
 export async function generateMetadata() {
-  // Fetch apply page data for metadata
-  const applyPageData = await getApplyPage();
+  // Fetch apply page data and site settings for metadata
+  const [applyPageData, siteSettings] = await Promise.all([
+    getApplyPage(),
+    getSiteSettings(),
+  ]);
 
-  // Default values
-  const ogTitle = 'Apply Now';
-  const ogDescription =
+  // Hard-coded fallback values (lowest priority)
+  const fallbackTitle = 'Apply Now';
+  const fallbackDescription =
     'Take the first step towards achieving your fitness goals. Apply for personalised coaching with Omania Training today.';
 
+  // Priority: Page-specific Sanity data > Hard-coded fallbacks
+  const ogTitle = applyPageData?.title || fallbackTitle;
+  const ogDescription = applyPageData?.subtitle || fallbackDescription;
+
   return generatePageMetadata({
-    title: applyPageData?.title || ogTitle,
-    description: applyPageData?.subtitle || ogDescription,
-    siteSettings: null,
+    title: ogTitle,
+    description: ogDescription,
+    siteSettings,
     canonicalUrl: generateCanonicalUrl('/apply'),
   });
 }
