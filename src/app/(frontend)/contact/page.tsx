@@ -22,11 +22,14 @@ export async function generateMetadata() {
   // Fetch contact page data for metadata
   const contactPageData = await getContactPage();
 
+  // Hard-coded values for now - will eventually come from Sanity
+  const ogTitle = 'Contact Me';
+  const ogDescription =
+    'Get in touch with Omania Training for general enquiries or to discuss your fitness goals and coaching options.';
+
   return generatePageMetadata({
-    title: contactPageData?.title || 'Contact Me',
-    description:
-      contactPageData?.subtitle ||
-      "Get in touch with me for general enquiries or apply for coaching if you're ready to start your fitness journey.",
+    title: contactPageData?.title || ogTitle,
+    description: contactPageData?.subtitle || ogDescription,
     siteSettings: null,
     canonicalUrl: generateCanonicalUrl('/contact'),
   });
