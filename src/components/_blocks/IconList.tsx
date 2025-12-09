@@ -31,7 +31,7 @@ const IconList = ({
 
   return (
     <div className={`flex flex-col items-center w-full ${className}`.trim()}>
-      <div className='space-y-12 mt-10 mb-12 w-full'>
+      <div className='space-y-12 mb-12 w-full'>
         {items.map((item, index) => {
           const itemPath = fieldPathPrefix
             ? `${fieldPathPrefix}.items[${index}]`
@@ -57,6 +57,7 @@ const IconList = ({
                   <Icon
                     iconKey={item.icon as IconKey}
                     width={3}
+                    mobileWidth={2.5}
                     colorClassName='text-gradient-firey'
                   />
                 </div>
@@ -73,7 +74,7 @@ const IconList = ({
                   {...(documentId && documentType
                     ? createSanityDataAttribute(documentId, documentType, `${itemPath}.description`)
                     : {})}
-                  className='text-body-3xl font-bold text-center'>
+                  className='text-body-2xl md:text-body-3xl font-bold text-center'>
                   {item.description}
                 </p>
               </AnimateIn>

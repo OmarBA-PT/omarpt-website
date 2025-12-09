@@ -33,10 +33,16 @@ export type IconKey = keyof typeof ICON_LIBRARY;
 export interface IconComponentProps {
   iconKey: IconKey;
   /**
-   * Width of the icon in rem units (e.g., 3 = 3rem)
+   * Width of the icon in rem units (e.g., 3 = 3rem) for desktop
    * Height will auto-calculate based on the icon's aspect ratio
    */
   width: number;
+  /**
+   * Optional mobile width in rem units (e.g., 2 = 2rem)
+   * When provided, icon will use this width on mobile screens and 'width' on desktop
+   * If not provided, 'width' will be used on all screen sizes
+   */
+  mobileWidth?: number;
   /**
    * Controls the icon color - supports:
    * - Solid colors: 'text-brand-primary', 'text-brand-secondary', 'text-brand-charcoal', 'text-brand-white'
@@ -63,13 +69,18 @@ export const getIconOptions = () => {
  *
  * Features:
  * - Size control via width prop (in rem units)
+ * - Responsive sizing with optional mobileWidth
  * - Automatic aspect ratio maintenance
  * - Color control via solid colors or gradients
  * - Falls back to red star if icon SVG not implemented yet
  *
  * @example
- * // Basic usage - 3rem wide with default color
+ * // Basic usage - 3rem wide with default color on all screens
  * <Icon iconKey="dumbell" width={3} />
+ *
+ * @example
+ * // Responsive - 2rem on mobile, 4rem on desktop
+ * <Icon iconKey="dumbell" width={4} mobileWidth={2} />
  *
  * @example
  * // With solid brand color - 4rem wide
@@ -82,6 +93,7 @@ export const getIconOptions = () => {
 const Icon = ({
   iconKey,
   width,
+  mobileWidth,
   colorClassName = 'text-brand-primary',
   className = '',
 }: IconComponentProps) => {
@@ -89,6 +101,7 @@ const Icon = ({
     <CustomIcon
       iconKey={iconKey as CustomIconKey}
       width={width}
+      mobileWidth={mobileWidth}
       colorClassName={colorClassName}
       className={className}
     />
