@@ -101,13 +101,13 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
 
   return (
     <footer
-      className={`bg-brand-gradient-charcoal-linear text-brand-white py-10 px-6 md:px-16 w-full transition-opacity duration-500 ease-in-out ${
+      className={`bg-brand-gradient-charcoal-linear text-brand-white pt-16 pb-10 px-6 md:px-16 w-full transition-opacity duration-500 ease-in-out ${
         isPageReady ? 'opacity-100' : 'opacity-0'
       }`}
       aria-label='Site Footer'>
       <div className='container mx-auto'>
         {/* TOP ROW */}
-        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-18 justify-between'>
+        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-12 justify-between'>
           {/* LOGO & MESSAGE */}
           <div className='flex flex-col items-center lg:items-start text-center lg:text-left mx-auto lg:mx-0 lg:max-w-1/3'>
             {/* Logo */}
