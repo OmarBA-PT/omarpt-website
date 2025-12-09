@@ -2,10 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import PageBuilder from '@/components/PageBuilder';
 import PageHero from '@/components/Page/PageHero';
-import {
-  getTermsAndConditions,
-  getPageBuilderData,
-} from '@/actions';
+import { getTermsAndConditions, getPageBuilderData } from '@/actions';
 import Container from '@/components/Layout/Container';
 import {
   generateMetadata as generatePageMetadata,
@@ -20,9 +17,13 @@ import {
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
+import PageSection from '@/components/Layout/PageSection';
 
 export async function generateMetadata() {
-  const [pageBuilderData, termsData] = await Promise.all([getPageBuilderData(), getTermsAndConditions()]);
+  const [pageBuilderData, termsData] = await Promise.all([
+    getPageBuilderData(),
+    getTermsAndConditions(),
+  ]);
 
   const siteSettings = pageBuilderData.siteSettings;
 
@@ -117,6 +118,28 @@ const TermsAndConditionsPage = async () => {
             alignment='left'
           />
         )}
+        {/* Hard-coded Contact Information Section */}
+        <PageSection title='Contact Information'>
+          <div className='space-y-4'>
+            <p>If you have questions about these Terms &amp; Conditions, please contact me:</p>
+            <p>
+              <strong>Email:</strong>{' '}
+              <a
+                href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
+                className='text-brand-primary hover:underline'>
+                {SITE_CONFIG.ORGANIZATION_EMAIL.value}
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{' '}
+              <a
+                href={SITE_CONFIG.ORGANIZATION_PHONE.link}
+                className='text-brand-primary hover:underline'>
+                {SITE_CONFIG.ORGANIZATION_PHONE.value}
+              </a>
+            </p>
+          </div>
+        </PageSection>
       </Container>
     </>
   );
