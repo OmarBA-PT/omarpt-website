@@ -5,12 +5,12 @@ import { SITE_CONFIG } from '@/lib/constants';
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Block development/test routes (anything under /dev-test/) in non-development environments
+  // Block development/test routes (anything under /dev-test/) in production environment
   // This runs BEFORE maintenance mode check to ensure dev-test routes are always protected
   if (pathname.startsWith('/dev-test/') || pathname === '/dev-test') {
-    if (process.env.NEXT_PUBLIC_ENV !== 'development') {
-      // Redirect to 404 page in production/staging
-      return NextResponse.redirect(new URL('/404', request.url));
+    if (process.env.NEXT_PUBLIC_ENV === 'production') {
+      // Rewrite to not-found page in production (shows custom 404 page)
+      return NextResponse.rewrite(new URL('/not-found', request.url));
     }
   }
 
