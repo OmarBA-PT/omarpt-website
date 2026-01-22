@@ -57,6 +57,14 @@ export const SOCIAL_PLATFORMS: PlatformConfig[] = [
       'Please enter a valid X URL',
   },
   {
+    key: 'tiktok',
+    label: 'TikTok',
+    icon: 'tiktok',
+    placeholder: 'https://tiktok.com/@yourusername',
+    urlValidation: (value: string) =>
+      value.includes('tiktok.com') || 'Please enter a valid TikTok URL',
+  },
+  {
     key: 'soundcloud',
     label: 'SoundCloud',
     icon: 'soundcloud',

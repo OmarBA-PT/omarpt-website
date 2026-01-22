@@ -59,9 +59,9 @@ export const SITE_CONFIG = {
     { type: 'City', name: 'Auckland' },
   ],
 
-  // Social Media Profiles - Used for LocalBusiness structured data
-  // Add additional social media URLs as they become available
-  SOCIAL_MEDIA_PROFILES: [],
+  // Social Media Profiles - Managed in Sanity CMS under "Company Links > Social Links"
+  // Social links are fetched from Sanity and used for LocalBusiness structured data (sameAs)
+  // To add/edit social profiles, use the Sanity Studio: Company Links section
 
   // PWA Manifest Settings - Used for Progressive Web App configuration
   // Update these values to customize the "Add to Home Screen" experience

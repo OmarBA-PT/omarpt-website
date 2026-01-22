@@ -67,7 +67,11 @@ const FrontendLayout = async ({
   if (siteSettingsData) {
     const organizationData = getOrganizationDataFromSiteSettings(siteSettingsData, baseUrl);
     const webSiteData = getWebSiteDataFromSiteSettings(siteSettingsData, baseUrl);
-    const localBusinessData = getLocalBusinessDataFromSiteSettings(siteSettingsData, baseUrl);
+    const localBusinessData = getLocalBusinessDataFromSiteSettings(
+      siteSettingsData,
+      baseUrl,
+      companyLinksData
+    );
 
     organizationSchema = generateOrganizationSchema(organizationData);
     webSiteSchema = generateWebSiteSchema(webSiteData);

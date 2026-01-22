@@ -21,6 +21,7 @@ const getPlatformEmoji = (platformKey: string): string => {
     youtube: '📺', // TV for YouTube
     linkedin: '👔', // Professional/business attire for LinkedIn
     twitter: '❌', // X symbol for Twitter/X
+    tiktok: '🎬', // Clapper board for TikTok
     soundcloud: '🎵', // Musical note for SoundCloud
     bandcamp: '🎸', // Guitar for Bandcamp
     spotify: '🎧', // Headphones for Spotify

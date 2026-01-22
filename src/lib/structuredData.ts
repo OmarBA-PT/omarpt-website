@@ -1,5 +1,5 @@
 import { urlFor } from '@/sanity/lib/image';
-import type { SITE_SETTINGS_QUERYResult } from '@/sanity/types';
+import type { SITE_SETTINGS_QUERYResult, COMPANY_LINKS_QUERYResult } from '@/sanity/types';
 import type { ImageObjectData } from '@/lib/imageUtils';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -255,16 +255,42 @@ export function getWebSiteDataFromSiteSettings(
 }
 
 /**
+ * Extracts social media profile URLs from Sanity company links data.
+ * Used for the sameAs property in structured data schemas.
+ */
+export function getSocialMediaUrlsFromCompanyLinks(
+  companyLinks: COMPANY_LINKS_QUERYResult | null
+): string[] {
+  if (!companyLinks || companyLinks._type !== 'companyLinks') {
+    return [];
+  }
+
+  const socialLinksArray = companyLinks.companyLinks?.socialLinksArray;
+  if (!Array.isArray(socialLinksArray)) {
+    return [];
+  }
+
+  return socialLinksArray
+    .filter((link): link is typeof link & { url: string } => typeof link.url === 'string')
+    .map((link) => link.url);
+}
+
+/**
  * Generates LocalBusiness structured data from site settings and business constants.
  *
- * Business-specific data (location, hours, service areas, social media) is centralized
+ * Business-specific data (location, hours, service areas) is centralized
  * in SITE_CONFIG in constants.ts for easy maintenance. Update constants.ts to change
  * business information across the entire site.
+ *
+ * Social media profiles are pulled from Sanity Company Links for content editor control.
  */
 export function getLocalBusinessDataFromSiteSettings(
   siteSettings: SITE_SETTINGS_QUERYResult,
-  baseUrl: string
+  baseUrl: string,
+  companyLinks?: COMPANY_LINKS_QUERYResult | null
 ): LocalBusinessData {
+  const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
+
   return {
     name: siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
     description: siteSettings?.siteDescription || SITE_CONFIG.ORGANIZATION_DESCRIPTION,
@@ -291,7 +317,7 @@ export function getLocalBusinessDataFromSiteSettings(
       logo: urlFor(siteSettings.defaultOgImage).width(512).height(512).url(),
     }),
     areaServed: SITE_CONFIG.SERVICE_AREAS,
-    sameAs: SITE_CONFIG.SOCIAL_MEDIA_PROFILES,
+    sameAs: socialMediaUrls,
   };
 }
 

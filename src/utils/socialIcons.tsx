@@ -10,7 +10,7 @@ import {
   FaLink,
   FaLinkedin
 } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaXTwitter, FaTiktok } from 'react-icons/fa6';
 import { SOCIAL_PLATFORMS, getPlatformByKey } from '@/sanity/schemaTypes/shared/platformsConfig';
 
 export type SocialPlatform =
@@ -19,6 +19,7 @@ export type SocialPlatform =
   | 'youtube'
   | 'linkedin'
   | 'twitter'
+  | 'tiktok'
   | 'soundcloud'
   | 'bandcamp'
   | 'spotify'
@@ -39,6 +40,7 @@ const iconComponents = {
   linkedin: FaLinkedin,
   twitter: FaXTwitter, // Updated to X icon
   x: FaXTwitter, // Alternative key for X platform
+  tiktok: FaTiktok,
   soundcloud: FaSoundcloud,
   bandcamp: FaBandcamp,
   spotify: FaSpotify,
