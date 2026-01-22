@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAllPages, getTermsAndConditions, getPrivacyPolicy } from '@/actions';
+import { getAllPages, getTermsAndConditions, getPrivacyPolicy, getFaqPage, getContactPage, getApplyPage } from '@/actions';
 import { SITE_CONFIG } from '@/lib/constants';
 import type { ALL_PAGES_QUERYResult } from '@/sanity/types';
 
@@ -17,14 +17,20 @@ export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || SITE_CONFIG.PRODUCTION_DOMAIN;
 
   // Fetch all content from Sanity
-  const [pages, termsAndConditions, privacyPolicy] = await Promise.all([
+  const [pages, termsAndConditions, privacyPolicy, faqPage, contactPage, applyPage] = await Promise.all([
     getAllPages(),
     getTermsAndConditions(),
     getPrivacyPolicy(),
+    getFaqPage(),
+    getContactPage(),
+    getApplyPage(),
   ]);
 
   const staticPages: SitemapUrl[] = [
     { url: '', changefreq: 'weekly', priority: '1.0' },
+    { url: '/faq', lastmod: faqPage?._updatedAt, changefreq: 'monthly', priority: '0.7' },
+    { url: '/apply', lastmod: applyPage?._updatedAt, changefreq: 'monthly', priority: '0.8' },
+    { url: '/contact', lastmod: contactPage?._updatedAt, changefreq: 'monthly', priority: '0.8' },
   ];
 
   // Add legal pages if they exist and are not hidden
