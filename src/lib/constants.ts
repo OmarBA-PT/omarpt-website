@@ -22,7 +22,7 @@ export const SITE_CONFIG = {
     value: 'omar@omaniatraining.com',
     link: 'mailto:omar@omaniatraining.com',
   },
-  ORGANIZATION_PHONE: { value: '+64 12 345 678', link: 'tel:+6412345678' },
+  ORGANIZATION_PHONE: { value: '+64 210 503 128', link: 'tel:+64210503128' },
   ORGANIZATION_ADDRESS: {
     value: 'Auckland, New Zealand',
     link: 'https://maps.app.goo.gl/LQrGoawnfvgoi25m9',
