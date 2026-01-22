@@ -400,6 +400,7 @@ export const PRIVACY_POLICY_QUERY = defineQuery(`*[_id == "privacyPolicy"][0]{
 export const FAQ_PAGE_QUERY = defineQuery(`*[_id == "faqPage"][0]{
   _id,
   _type,
+  _createdAt,
   _updatedAt,
   title,
   subtitle,
@@ -416,6 +417,7 @@ export const LEGAL_PAGES_VISIBILITY_QUERY = defineQuery(`{
 export const CONTACT_PAGE_QUERY = defineQuery(`*[_id == "contactPage"][0]{
   _id,
   _type,
+  _createdAt,
   _updatedAt,
   title,
   subtitle
@@ -425,6 +427,7 @@ export const CONTACT_PAGE_QUERY = defineQuery(`*[_id == "contactPage"][0]{
 export const APPLY_PAGE_QUERY = defineQuery(`*[_id == "applyPage"][0]{
   _id,
   _type,
+  _createdAt,
   _updatedAt,
   title,
   subtitle

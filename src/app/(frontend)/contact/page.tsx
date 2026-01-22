@@ -63,12 +63,12 @@ const ContactPage = async () => {
     { name: pageTitle, url: `${baseUrl}/contact` },
   ];
 
-  // Generate Article structured data
+  // Generate Article structured data using actual Sanity dates
   const articleSchema = generateArticleSchema({
     headline: pageTitle,
     description: pageSubtitle,
-    datePublished: new Date().toISOString(),
-    dateModified: new Date().toISOString(),
+    datePublished: contactPageData?._createdAt || new Date().toISOString(),
+    dateModified: contactPageData?._updatedAt || new Date().toISOString(),
     author: {
       name: SITE_CONFIG.ORGANIZATION_NAME,
       type: 'Organization',

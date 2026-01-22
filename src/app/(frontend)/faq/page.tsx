@@ -13,8 +13,10 @@ import {
 } from '@/lib/metadata';
 import {
   generateArticleSchema,
+  generateFAQPageSchema,
   getOrganizationDataFromSiteSettings,
   generateStructuredDataScript,
+  FAQItem,
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
@@ -43,6 +45,45 @@ export async function generateMetadata() {
   });
 }
 
+/**
+ * Recursively extracts FAQ items from page content.
+ * Searches through all content blocks including nested structures.
+ */
+function extractFAQItemsFromContent(content: unknown[]): FAQItem[] {
+  const faqItems: FAQItem[] = [];
+
+  const processBlock = (block: unknown) => {
+    if (!block || typeof block !== 'object') return;
+
+    const typedBlock = block as { _type?: string; faqItems?: Array<{ question?: string; answer?: string }>; content?: unknown[] };
+
+    // Check if this is an FAQ block
+    if (typedBlock._type === 'faqBlock' && Array.isArray(typedBlock.faqItems)) {
+      for (const item of typedBlock.faqItems) {
+        if (item.question && item.answer) {
+          faqItems.push({
+            question: item.question,
+            answer: item.answer,
+          });
+        }
+      }
+    }
+
+    // Recursively process nested content
+    if (Array.isArray(typedBlock.content)) {
+      for (const nestedBlock of typedBlock.content) {
+        processBlock(nestedBlock);
+      }
+    }
+  };
+
+  for (const block of content) {
+    processBlock(block);
+  }
+
+  return faqItems;
+}
+
 const FAQPage = async () => {
   const [faqData, pageBuilderData] = await Promise.all([
     getFaqPage(),
@@ -64,6 +105,10 @@ const FAQPage = async () => {
     { name: faqData.title || 'FAQ', url: `${baseUrl}/faq` },
   ];
 
+  // Extract FAQ items from page content for FAQPage schema
+  const faqItems = faqData.content ? extractFAQItemsFromContent(faqData.content as unknown[]) : [];
+  const faqPageSchema = generateFAQPageSchema(faqItems);
+
   // Generate Article structured data
   let articleSchema;
   if (siteSettings && faqData._updatedAt) {
@@ -72,7 +117,7 @@ const FAQPage = async () => {
     articleSchema = generateArticleSchema({
       headline: faqData.title || 'FAQ',
       description: faqData.subtitle || siteSettings.siteDescription || undefined,
-      datePublished: faqData._updatedAt,
+      datePublished: faqData._createdAt || faqData._updatedAt,
       dateModified: faqData._updatedAt,
       author: {
         name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
@@ -87,6 +132,12 @@ const FAQPage = async () => {
     <>
       {/* Structured Data */}
       <BreadcrumbStructuredData items={breadcrumbItems} />
+      {faqPageSchema && (
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={generateStructuredDataScript(faqPageSchema)}
+        />
+      )}
       {articleSchema && (
         <script
           type='application/ld+json'

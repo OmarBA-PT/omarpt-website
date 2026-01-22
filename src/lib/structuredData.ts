@@ -85,6 +85,11 @@ export interface BreadcrumbItem {
   url: string;
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export function generateImageObjectSchema(data: ImageObjectData) {
   return {
     '@type': 'ImageObject',
@@ -226,10 +231,40 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
+/**
+ * Generates FAQPage structured data for rich snippets in search results.
+ * Use this on FAQ pages to enable FAQ rich results in Google.
+ */
+export function generateFAQPageSchema(items: FAQItem[]) {
+  if (!items || items.length === 0) {
+    return null;
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * Generates Organization data from site settings.
+ * Optionally includes social media profiles from company links for the sameAs field.
+ */
 export function getOrganizationDataFromSiteSettings(
   siteSettings: SITE_SETTINGS_QUERYResult,
-  baseUrl: string
+  baseUrl: string,
+  companyLinks?: COMPANY_LINKS_QUERYResult | null
 ): OrganizationData {
+  const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
+
   return {
     name: siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
     url: baseUrl,
@@ -240,6 +275,7 @@ export function getOrganizationDataFromSiteSettings(
     ...(siteSettings?.defaultOgImage && {
       logo: urlFor(siteSettings.defaultOgImage).width(512).height(512).url(),
     }),
+    ...(socialMediaUrls.length > 0 && { sameAs: socialMediaUrls }),
   };
 }
 
