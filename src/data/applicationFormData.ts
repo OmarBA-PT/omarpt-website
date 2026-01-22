@@ -57,7 +57,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'supervisionDetails',
-                question: 'Please briefly list or explain:',
+                question: 'If yes, please briefly list or explain:',
                 type: 'textarea',
                 required: true,
                 conditionalOn: {
@@ -91,7 +91,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'medicationDetails',
-                question: 'Please give details of the medication and purpose:',
+                question: 'If yes, please give details of the medication and purpose:',
                 type: 'textarea',
                 required: true,
                 conditionalOn: {
@@ -117,7 +117,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'physicalIssuesDetails',
-                question: 'Please briefly list or explain:',
+                question: 'If yes, please briefly list or explain:',
                 type: 'textarea',
                 required: true,
                 conditionalOn: {
@@ -143,7 +143,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'difficultyDetails',
-                question: 'Please list or explain:',
+                question: 'If yes, please list or explain:',
                 type: 'textarea',
                 required: true,
                 conditionalOn: {
@@ -167,7 +167,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'alcoholDetails',
-                question: 'Please describe quantity and frequency:',
+                question: 'If yes, please describe quantity and frequency:',
                 type: 'textarea',
                 required: true,
                 placeholder:
@@ -187,7 +187,7 @@ export const applicationFormData: FormSection[] = [
             subQuestions: [
               {
                 id: 'smokingDetails',
-                question: 'Please describe quantity and frequency:',
+                question: 'If yes, please describe quantity and frequency:',
                 type: 'textarea',
                 required: true,
                 placeholder: 'E.g. 5-10 cigarettes daily, occasional social smoking, etc.',
@@ -572,7 +572,7 @@ export const applicationFormData: FormSection[] = [
 // Helper function to get all questions across all sections
 export const getAllQuestions = (): FormQuestion[] => {
   return applicationFormData.flatMap((section) =>
-    section.questionGroups.flatMap((group) => group.questions)
+    section.questionGroups.flatMap((group) => group.questions),
   );
 };
 
@@ -584,7 +584,7 @@ export const getQuestionById = (id: string): FormQuestion | undefined => {
 // Helper function to check if a question should be displayed based on conditional logic
 export const shouldDisplayQuestion = (
   question: FormQuestion,
-  formData: Record<string, any>
+  formData: Record<string, any>,
 ): boolean => {
   if (!question.conditionalOn) return true;
 
