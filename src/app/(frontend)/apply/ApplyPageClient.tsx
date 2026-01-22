@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import Breadcrumb from '@/components/UI/Breadcrumb';
@@ -12,13 +12,26 @@ import CardGradient from '@/components/UI/CardGradient';
 import CTA from '@/components/UI/CTA';
 import { maxCardWidth } from '@/utils/spacingConstants';
 import PrivacyStatement from '@/components/UI/PrivacyStatement';
+import {
+  loadPersistedFormState,
+  clearPersistedFormState,
+} from '@/components/Forms/ApplicationForm/useFormPersistence';
 
 const ApplyPageClient = () => {
   const [showForm, setShowForm] = useState(false);
   const [showPrivacyConsent, setShowPrivacyConsent] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [hasSavedApplication, setHasSavedApplication] = useState(false);
   const backButtonRef = useRef<HTMLDivElement>(null);
+
+  // Check for saved application data when returning to default view
+  useEffect(() => {
+    if (!showForm && !showPrivacyConsent) {
+      const savedState = loadPersistedFormState();
+      setHasSavedApplication(!!savedState);
+    }
+  }, [showForm, showPrivacyConsent]);
 
   const pageTitle = 'Apply for Coaching';
   const pageSubtitle = 'Take the first step towards achieving your fitness goals';
@@ -26,6 +39,24 @@ const ApplyPageClient = () => {
   const handleStartApplication = () => {
     setShowPrivacyConsent(true);
     // Smooth scroll to back button after state updates
+    setTimeout(() => {
+      backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const handleContinueApplication = () => {
+    // Skip privacy consent, go directly to form (data is already saved)
+    setShowForm(true);
+    setTimeout(() => {
+      backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const handleRestartApplication = () => {
+    // Clear saved data and start fresh with privacy consent
+    clearPersistedFormState();
+    setHasSavedApplication(false);
+    setShowPrivacyConsent(true);
     setTimeout(() => {
       backButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
@@ -42,6 +73,9 @@ const ApplyPageClient = () => {
   const handleBackToOptions = () => {
     setShowForm(false);
     setShowPrivacyConsent(false);
+    // Re-check for saved application data (may have been cleared on successful submission)
+    const savedState = loadPersistedFormState();
+    setHasSavedApplication(!!savedState);
   };
 
   const handleDownloadPdf = async () => {
@@ -181,9 +215,20 @@ const ApplyPageClient = () => {
           {/* Start Application Option */}
           <CardLight showBorder title='Submit online' icon={BsClipboard2CheckFill}>
             <p className='mb-6'>Submit your application using my online form.</p>
-            <CTA as='button' variant='filled' onClick={handleStartApplication}>
-              Start Application
-            </CTA>
+            {hasSavedApplication ? (
+              <div className='flex flex-col md:flex-row gap-4 justify-center items-center'>
+                <CTA as='button' variant='filled' onClick={handleContinueApplication}>
+                  Continue Application
+                </CTA>
+                <CTA as='button' variant='outline-light' onClick={handleRestartApplication}>
+                  Restart
+                </CTA>
+              </div>
+            ) : (
+              <CTA as='button' variant='filled' onClick={handleStartApplication}>
+                Start Application
+              </CTA>
+            )}
           </CardLight>
 
           {/* PDF Download Option */}

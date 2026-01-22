@@ -4,26 +4,36 @@ import { GroupState } from './types';
 interface QuestionGroup {
   id: string;
   title?: string;
-  questions: any[];
+  questions: unknown[];
 }
 
 interface UseGroupStateProps {
   currentStep: number;
   questionGroups: QuestionGroup[];
   stepsVisitedForward: Set<number>;
+  initialGroupState?: GroupState;
 }
 
 export const useGroupState = ({
   currentStep,
   questionGroups,
   stepsVisitedForward,
+  initialGroupState,
 }: UseGroupStateProps) => {
-  const [groupState, setGroupState] = useState<GroupState>({});
+  const [groupState, setGroupState] = useState<GroupState>(initialGroupState || {});
   const prevStepRef = useRef(currentStep);
+  const hasRestoredRef = useRef(!!initialGroupState);
 
   // Initialize group state when step changes
   useEffect(() => {
     const initializeGroupState = () => {
+      // Skip initialization on first render if we restored from localStorage
+      if (hasRestoredRef.current && groupState[currentStep]) {
+        hasRestoredRef.current = false; // Only skip once
+        prevStepRef.current = currentStep;
+        return;
+      }
+
       // Check if we're moving backwards or if this step hasn't been initialized
       const isMovingBackwards = currentStep < prevStepRef.current;
       const stepNotInitialized = !groupState[currentStep];

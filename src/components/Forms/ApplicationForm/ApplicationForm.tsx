@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { shouldDisplayQuestion } from '@/data/applicationFormData';
 import { combinedApplicationFormData } from '@/data/combinedApplicationFormData';
@@ -13,6 +13,7 @@ import QuestionGroup from './QuestionGroup';
 import FormNavigation from './FormNavigation';
 import { useGroupState } from './useGroupState';
 import { useFormValidation } from './useFormValidation';
+import { useFormPersistence, loadPersistedFormState } from './useFormPersistence';
 import { ApplicationFormData, GroupRefs, FormStatus } from './types';
 
 interface ApplicationFormProps {
@@ -20,7 +21,13 @@ interface ApplicationFormProps {
 }
 
 const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) => {
-  const [currentStep, setCurrentStep] = useState(0);
+  // Load persisted state once on client mount
+  const persistedState = useMemo(() => {
+    if (typeof window === 'undefined') return null;
+    return loadPersistedFormState();
+  }, []);
+
+  const [currentStep, setCurrentStep] = useState(persistedState?.currentStep ?? 0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -29,8 +36,12 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
   const [isDownloadingPDF, setIsDownloadingPDF] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
   const groupRefs = useRef<GroupRefs>({});
-  const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(new Set());
-  const [stepsCompletedForward, setStepsCompletedForward] = useState<Set<number>>(new Set());
+  const [stepsVisitedForward, setStepsVisitedForward] = useState<Set<number>>(
+    () => new Set(persistedState?.stepsVisitedForward ?? [])
+  );
+  const [stepsCompletedForward, setStepsCompletedForward] = useState<Set<number>>(
+    () => new Set(persistedState?.stepsCompletedForward ?? [])
+  );
 
   const {
     register,
@@ -42,6 +53,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
     clearErrors,
   } = useForm<ApplicationFormData>({
     mode: 'onTouched',
+    defaultValues: persistedState?.formData ?? {},
   });
 
   const formData = watch();
@@ -68,6 +80,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
     currentStep,
     questionGroups,
     stepsVisitedForward,
+    initialGroupState: persistedState?.groupState,
   });
 
   const {
@@ -86,6 +99,15 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
     errors,
     touchedFields,
     attemptedValidation,
+  });
+
+  // Form persistence - saves form data to localStorage
+  const { clearSavedData } = useFormPersistence({
+    formData,
+    currentStep,
+    groupState,
+    stepsVisitedForward,
+    stepsCompletedForward,
   });
 
   // Reset attemptedValidation and clear errors when step changes
@@ -338,6 +360,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
 
       setStatus('success');
       setIsSubmitting(false);
+      clearSavedData(); // Clear localStorage on successful submission
       scrollToBackButton();
     } catch (error) {
       console.error('Form submission error:', error);
