@@ -33,12 +33,12 @@ export const SITE_CONFIG = {
   BUSINESS_LOCATION: {
     streetAddress: '',
     addressLocality: 'Auckland',
-    postalCode: '',
+    postalCode: '1021',
     addressRegion: 'Auckland',
     addressCountry: 'NZ',
     // GPS coordinates from Google Maps - used for local SEO and map integration
-    latitude: -36.8323794,
-    longitude: 174.396916,
+    latitude: -36.859063,
+    longitude: 174.748266,
     // ISO 3166-2 region code for Auckland, New Zealand
     regionCode: 'NZ-AUK',
   },
