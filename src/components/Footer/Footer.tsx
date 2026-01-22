@@ -121,12 +121,11 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
                 src='/images/logos/logo.png'
                 alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
                 mode='sized'
-                width={200}
-                height={125}
-                sizeContext='logo'
+                width={80}
+                height={50}
                 objectFit='contain'
                 className='w-14 md:w-20 h-auto'
-                priority
+                sizes='(max-width: 768px) 56px, 80px'
               />
               <div className='hidden xxs:flex items-baseline gap-2'>
                 <span
