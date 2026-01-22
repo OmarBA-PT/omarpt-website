@@ -71,7 +71,7 @@ export const SITE_CONFIG = {
     description:
       'Professional personal training service in Auckland, New Zealand. Over a decade of experience helping clients achieve their fitness goals.',
     // Theme colors should match brand colors in globals.css
-    themeColor: 'ffb200;', // --color-brand-primary
+    themeColor: 'ff6600', // --color-brand-primary
     backgroundColor: '282828', // --color-brand-secondary
   },
 } as const;

@@ -39,7 +39,7 @@ interface ColorContextType {
 const ColorContext = createContext<ColorContextType | undefined>(undefined);
 
 export const ColorProvider = ({ children }: { children: ReactNode }) => {
-  const [currentScheme, setCurrentScheme] = useState<ColorSchemeKey>('option1');
+  const [currentScheme, setCurrentScheme] = useState<ColorSchemeKey>('option4');
 
   // Apply color scheme to CSS variables
   useEffect(() => {

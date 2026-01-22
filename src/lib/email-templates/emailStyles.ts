@@ -22,18 +22,18 @@ export const EMAIL_COLORS = {
   textSubQuestion: '#b0b0b0',        // Medium gray - sub-question text (application forms)
 
   // Brand colors
-  brandGold: '#ffb200',              // Primary brand gold
-  brandOrange: '#ff8400',            // Secondary brand orange (links, accents)
+  brandGold: '#ff6600',              // Primary brand orange
+  brandOrange: '#ff9d00',            // Secondary brand light orange (links, accents)
   brandLightGray: '#cccccc',         // Light gray for "Training" text
 
   // Border and divider colors
   border: '#333333',                 // Border for main container
-  infoBoxBorder: '#ffb200',          // Gold border for info boxes (left border)
+  infoBoxBorder: '#ff6600',          // Primary brand border for info boxes (left border)
   sectionDivider: '#404040',         // Dark gray divider between items
-  footerDivider: 'rgba(255, 178, 0, 0.3)', // Semi-transparent gold divider
+  footerDivider: 'rgba(255, 102, 0, 0.3)', // Semi-transparent primary brand divider
 
   // Link colors
-  linkColor: '#ff8400',              // Orange for clickable links
+  linkColor: '#ff9d00',              // Secondary brand for clickable links
 
   // Special colors
   notAnswered: '#999999',            // Gray for "Not answered" text (application forms)
