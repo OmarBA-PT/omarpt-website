@@ -251,7 +251,8 @@ export const PAGE_QUERY = defineQuery(`*[_type == "page" && slug.current == $slu
   closingCard${closingCardProjection}
 }`);
 
-export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
+// Home Page Hero Query - fetches the hero section data
+export const HOME_PAGE_HERO_QUERY = defineQuery(`*[_id == "homePageHero"][0]{
   _id,
   _type,
   heroStyle,
@@ -278,8 +279,13 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "homePage"][0]{
   },
   hideScrollIndicator,
   heroDefaultContentPosition,
-  heroImageFrameShape,
-  heroContentPosition,
+  heroContentPosition
+}`);
+
+// Home Page Sections Query - fetches the custom sections data
+export const HOME_PAGE_SECTIONS_QUERY = defineQuery(`*[_id == "homePageSections"][0]{
+  _id,
+  _type,
   ${recursiveContent}
 }`);
 

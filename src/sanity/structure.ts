@@ -5,6 +5,8 @@ import {
   CogIcon,
   DocumentTextIcon,
   EnvelopeIcon,
+  SparklesIcon,
+  BlockContentIcon,
 } from '@sanity/icons';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -15,11 +17,39 @@ export const structure: StructureResolver = (S) =>
       // === HOME PAGE ===
       S.listItem()
         .id('homePage')
-        .schemaType('homePage')
         .title('Home Page')
         .icon(HomeIcon)
         .child(
-          S.editor().id('homePage').schemaType('homePage').documentId('homePage').title('Home Page')
+          S.list()
+            .title('Home Page')
+            .items([
+              // Hero Section
+              S.listItem()
+                .id('homePageHero')
+                .schemaType('homePageHero')
+                .title('Hero')
+                .icon(SparklesIcon)
+                .child(
+                  S.editor()
+                    .id('homePageHero')
+                    .schemaType('homePageHero')
+                    .documentId('homePageHero')
+                    .title('Hero')
+                ),
+              // Custom Sections
+              S.listItem()
+                .id('homePageSections')
+                .schemaType('homePageSections')
+                .title('Custom Sections')
+                .icon(BlockContentIcon)
+                .child(
+                  S.editor()
+                    .id('homePageSections')
+                    .schemaType('homePageSections')
+                    .documentId('homePageSections')
+                    .title('Custom Sections')
+                ),
+            ])
         ),
 
       S.divider(),

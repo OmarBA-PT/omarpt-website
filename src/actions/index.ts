@@ -1,5 +1,5 @@
 // Pages actions
-export { getHomePage, getPageBySlug, getAllPages } from './pages';
+export { getHomePageHero, getHomePageSections, getPageBySlug, getAllPages } from './pages';
 
 // Site data actions
 export { getHeader, getFooter, getSiteSettings, getCompanyLinks, getContactFormSettings, getLegalPagesVisibility, getContactPage, getApplyPage, getPageBuilderData } from './siteData';
@@ -13,6 +13,7 @@ export { getFaqPage } from './faq';
 
 // Types
 export type {
-  HOME_PAGE_QUERYResult,
+  HOME_PAGE_HERO_QUERYResult,
+  HOME_PAGE_SECTIONS_QUERYResult,
   PAGE_QUERYResult,
 } from './types';

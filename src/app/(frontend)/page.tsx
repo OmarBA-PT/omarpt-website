@@ -1,8 +1,9 @@
 import PageBuilder from '@/components/PageBuilder';
 import Hero from '@/components/HomeHero/Hero';
-import { getHomePage, getPageBuilderData } from '@/actions';
+import { getHomePageHero, getHomePageSections, getPageBuilderData } from '@/actions';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl } from '@/lib/metadata';
 import { SITE_CONFIG } from '@/lib/constants';
+import type { PAGE_QUERYResult } from '@/sanity/types';
 
 export async function generateMetadata() {
   const pageBuilderData = await getPageBuilderData();
@@ -22,12 +23,13 @@ export async function generateMetadata() {
 }
 
 const Page = async () => {
-  const [page, pageBuilderData] = await Promise.all([
-    getHomePage(),
+  const [hero, sections, pageBuilderData] = await Promise.all([
+    getHomePageHero(),
+    getHomePageSections(),
     getPageBuilderData(),
   ]);
 
-  if (!page) {
+  if (!hero) {
     return <div>Page not found</div>;
   }
 
@@ -35,27 +37,27 @@ const Page = async () => {
     <>
       {/* Hero Section */}
       <Hero
-        heroStyle={page.heroStyle}
-        heroImages={page.heroImages}
-        heroVideo={page.heroVideo}
-        heroImageTransitionDuration={page.heroImageTransitionDuration}
-        h1Title={page.h1Title}
-        mainTitle={page.mainTitle}
-        subTitle={page.subTitle}
-        heroCallToActionList={page.heroCallToActionList}
-        hideScrollIndicator={page.hideScrollIndicator}
-        heroDefaultContentPosition={page.heroDefaultContentPosition}
-        heroContentPosition={page.heroContentPosition}
-        documentId={page._id}
-        documentType={page._type}
+        heroStyle={hero.heroStyle}
+        heroImages={hero.heroImages}
+        heroVideo={hero.heroVideo}
+        heroImageTransitionDuration={hero.heroImageTransitionDuration}
+        h1Title={hero.h1Title}
+        mainTitle={hero.mainTitle}
+        subTitle={hero.subTitle}
+        heroCallToActionList={hero.heroCallToActionList}
+        hideScrollIndicator={hero.hideScrollIndicator}
+        heroDefaultContentPosition={hero.heroDefaultContentPosition}
+        heroContentPosition={hero.heroContentPosition}
+        documentId={hero._id}
+        documentType={hero._type}
       />
 
       {/* Additional Page Builder Content */}
-      {page.content && (
+      {sections?.content && (
         <PageBuilder
-          content={page.content as any}
-          documentId={page._id}
-          documentType={page._type}
+          content={sections.content as NonNullable<PAGE_QUERYResult>['content']}
+          documentId={sections._id}
+          documentType={sections._type}
           pageBuilderData={pageBuilderData}
           alignment='center'
         />

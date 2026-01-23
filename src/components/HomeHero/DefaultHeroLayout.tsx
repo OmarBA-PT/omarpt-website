@@ -1,5 +1,5 @@
 import { stegaClean } from 'next-sanity';
-import type { HOME_PAGE_QUERYResult } from '@/sanity/types';
+import type { HOME_PAGE_HERO_QUERYResult } from '@/sanity/types';
 import { createSanityDataAttribute } from '../../utils/sectionHelpers';
 import HeroTitle from './HeroTitle';
 import HeroCTA from './HeroCTA';
@@ -7,11 +7,11 @@ import HeroImages from './HeroImages';
 import AnimateIn from '@/components/UI/AnimateIn';
 
 interface DefaultHeroLayoutProps {
-  h1Title: NonNullable<HOME_PAGE_QUERYResult>['h1Title'];
-  mainTitle: NonNullable<HOME_PAGE_QUERYResult>['mainTitle'];
-  subTitle: NonNullable<HOME_PAGE_QUERYResult>['subTitle'];
-  heroCallToActionList: NonNullable<HOME_PAGE_QUERYResult>['heroCallToActionList'];
-  heroContentPosition: NonNullable<HOME_PAGE_QUERYResult>['heroContentPosition'];
+  h1Title: NonNullable<HOME_PAGE_HERO_QUERYResult>['h1Title'];
+  mainTitle: NonNullable<HOME_PAGE_HERO_QUERYResult>['mainTitle'];
+  subTitle: NonNullable<HOME_PAGE_HERO_QUERYResult>['subTitle'];
+  heroCallToActionList: NonNullable<HOME_PAGE_HERO_QUERYResult>['heroCallToActionList'];
+  heroContentPosition: NonNullable<HOME_PAGE_HERO_QUERYResult>['heroContentPosition'];
   images: Array<{ imageUrl: string; altText: string }>;
   imageDuration: number;
   documentId: string;

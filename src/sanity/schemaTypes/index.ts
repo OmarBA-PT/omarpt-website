@@ -4,6 +4,8 @@ import { type SchemaTypeDefinition } from 'sanity';
 import { blockContentType } from './blockContentType';
 import { pageType } from './pageType';
 import { homePageType } from './homePageType';
+import { homePageHeroType } from './homePageHeroType';
+import { homePageSectionsType } from './homePageSectionsType';
 import { headerType } from './headerType';
 import { footerType } from './footerType';
 import { pageBuilderType } from './pageBuilderType';
@@ -58,6 +60,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     companyLinksType,
     contactFormSettingsType,
     homePageType,
+    homePageHeroType,
+    homePageSectionsType,
     pageType,
     faqPageType,
     contactPageType,

@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "predev": "npm run typegen",
     "prebuild": "npm run typegen",
-    "typegen": "sanity schema extract --path=./src/sanity/extract.json && sanity typegen generate"
+    "typegen": "sanity schema extract --path=./src/sanity/extract.json && sanity typegen generate",
+    "migrate:homepage": "tsx scripts/migrate-homepage.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.1",
@@ -45,6 +46,7 @@
   ],
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@sanity/client": "^7.14.0",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24",
@@ -54,6 +56,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "tailwindcss": "^4.1.17",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
