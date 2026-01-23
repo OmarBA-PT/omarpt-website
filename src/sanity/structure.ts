@@ -34,7 +34,7 @@ export const structure: StructureResolver = (S) =>
                     .id('homePageHero')
                     .schemaType('homePageHero')
                     .documentId('homePageHero')
-                    .title('Hero')
+                    .title('Hero'),
                 ),
               // Custom Sections
               S.listItem()
@@ -47,9 +47,9 @@ export const structure: StructureResolver = (S) =>
                     .id('homePageSections')
                     .schemaType('homePageSections')
                     .documentId('homePageSections')
-                    .title('Custom Sections')
+                    .title('Custom Sections'),
                 ),
-            ])
+            ]),
         ),
 
       S.divider(),
@@ -61,27 +61,35 @@ export const structure: StructureResolver = (S) =>
         .title('FAQ Page')
         .icon(DocumentTextIcon)
         .child(
-          S.editor().id('faqPage').schemaType('faqPage').documentId('faqPage').title('FAQ Page')
+          S.editor().id('faqPage').schemaType('faqPage').documentId('faqPage').title('FAQ Page'),
         ),
 
       // === CONTACT PAGE ===
       S.listItem()
         .id('contactPage')
         .schemaType('contactPage')
-        .title('Contact Page')
+        .title('Contact')
         .icon(EnvelopeIcon)
         .child(
-          S.editor().id('contactPage').schemaType('contactPage').documentId('contactPage').title('Contact Page')
+          S.editor()
+            .id('contactPage')
+            .schemaType('contactPage')
+            .documentId('contactPage')
+            .title('Contact Page'),
         ),
 
       // === APPLY PAGE ===
       S.listItem()
         .id('applyPage')
         .schemaType('applyPage')
-        .title('Apply Page')
+        .title('Apply')
         .icon(DocumentIcon)
         .child(
-          S.editor().id('applyPage').schemaType('applyPage').documentId('applyPage').title('Apply Page')
+          S.editor()
+            .id('applyPage')
+            .schemaType('applyPage')
+            .documentId('applyPage')
+            .title('Apply Page'),
         ),
 
       S.divider(),
@@ -92,7 +100,7 @@ export const structure: StructureResolver = (S) =>
         .title('Pages')
         .icon(DocumentIcon)
         .child(
-          S.documentTypeList('page').title('Pages').filter('_type == "page" && _id != "homePage"')
+          S.documentTypeList('page').title('Pages').filter('_type == "page" && _id != "homePage"'),
         ),
 
       S.divider(),
@@ -111,7 +119,7 @@ export const structure: StructureResolver = (S) =>
                 .schemaType('header')
                 .title('Header')
                 .child(
-                  S.editor().id('header').schemaType('header').documentId('header').title('Header')
+                  S.editor().id('header').schemaType('header').documentId('header').title('Header'),
                 ),
               // Footer - Singleton
               S.listItem()
@@ -119,7 +127,7 @@ export const structure: StructureResolver = (S) =>
                 .schemaType('footer')
                 .title('Footer')
                 .child(
-                  S.editor().id('footer').schemaType('footer').documentId('footer').title('Footer')
+                  S.editor().id('footer').schemaType('footer').documentId('footer').title('Footer'),
                 ),
               // Company Links - Singleton
               S.listItem()
@@ -131,7 +139,7 @@ export const structure: StructureResolver = (S) =>
                     .id('companyLinks')
                     .schemaType('companyLinks')
                     .documentId('companyLinks')
-                    .title('Company Links')
+                    .title('Company Links'),
                 ),
               // Site Settings - Singleton
               S.listItem()
@@ -143,7 +151,7 @@ export const structure: StructureResolver = (S) =>
                     .id('siteSettings')
                     .schemaType('siteSettings')
                     .documentId('siteSettings')
-                    .title('Site Settings')
+                    .title('Site Settings'),
                 ),
               // Contact Form Settings - Singleton
               S.listItem()
@@ -155,7 +163,7 @@ export const structure: StructureResolver = (S) =>
                     .id('contactFormSettings')
                     .schemaType('contactFormSettings')
                     .documentId('contactFormSettings')
-                    .title('Contact Form Settings')
+                    .title('Contact Form Settings'),
                 ),
 
               S.divider(),
@@ -179,7 +187,7 @@ export const structure: StructureResolver = (S) =>
                             .id('termsAndConditions')
                             .schemaType('termsAndConditions')
                             .documentId('termsAndConditions')
-                            .title('Terms & Conditions')
+                            .title('Terms & Conditions'),
                         ),
                       // Privacy Policy - Singleton
                       S.listItem()
@@ -191,10 +199,10 @@ export const structure: StructureResolver = (S) =>
                             .id('privacyPolicy')
                             .schemaType('privacyPolicy')
                             .documentId('privacyPolicy')
-                            .title('Privacy Policy')
+                            .title('Privacy Policy'),
                         ),
-                    ])
+                    ]),
                 ),
-            ])
+            ]),
         ),
     ]);
