@@ -1,6 +1,6 @@
 import { sanityFetch } from '@/sanity/lib/live';
-import { HEADER_QUERY, FOOTER_QUERY, SITE_SETTINGS_QUERY, COMPANY_LINKS_QUERY, CONTACT_FORM_SETTINGS_QUERY, LEGAL_PAGES_VISIBILITY_QUERY, CONTACT_PAGE_QUERY, APPLY_PAGE_QUERY } from '@/sanity/lib/queries';
-import type { FOOTER_QUERYResult, HEADER_QUERYResult, SITE_SETTINGS_QUERYResult, COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult, LEGAL_PAGES_VISIBILITY_QUERYResult, CONTACT_PAGE_QUERYResult, APPLY_PAGE_QUERYResult } from '@/sanity/types';
+import { HEADER_QUERY, FOOTER_QUERY, SITE_SETTINGS_QUERY, COMPANY_LINKS_QUERY, CONTACT_FORM_SETTINGS_QUERY, LEGAL_PAGES_VISIBILITY_QUERY, CONTACT_GENERAL_CONTENT_QUERY, CONTACT_CONFIRMATION_EMAIL_QUERY, APPLY_PAGE_QUERY } from '@/sanity/lib/queries';
+import type { FOOTER_QUERYResult, HEADER_QUERYResult, SITE_SETTINGS_QUERYResult, COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult, LEGAL_PAGES_VISIBILITY_QUERYResult, CONTACT_GENERAL_CONTENT_QUERYResult, CONTACT_CONFIRMATION_EMAIL_QUERYResult, APPLY_PAGE_QUERYResult } from '@/sanity/types';
 
 // Header actions
 export async function getHeader(): Promise<HEADER_QUERYResult | null> {
@@ -56,10 +56,19 @@ export async function getLegalPagesVisibility(): Promise<LEGAL_PAGES_VISIBILITY_
   return data;
 }
 
-// Contact Page actions
-export async function getContactPage(): Promise<CONTACT_PAGE_QUERYResult | null> {
+// Contact General Content actions
+export async function getContactGeneralContent(): Promise<CONTACT_GENERAL_CONTENT_QUERYResult | null> {
   const { data } = await sanityFetch({
-    query: CONTACT_PAGE_QUERY,
+    query: CONTACT_GENERAL_CONTENT_QUERY,
+  });
+
+  return data;
+}
+
+// Contact Confirmation Email actions
+export async function getContactConfirmationEmail(): Promise<CONTACT_CONFIRMATION_EMAIL_QUERYResult | null> {
+  const { data } = await sanityFetch({
+    query: CONTACT_CONFIRMATION_EMAIL_QUERY,
   });
 
   return data;

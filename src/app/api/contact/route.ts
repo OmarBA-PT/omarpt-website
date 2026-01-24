@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { generateConfirmationEmail } from '@/lib/email-templates/contactConfirmationEmail';
 import { generateAdminNotificationEmail } from '@/lib/email-templates/contactAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getContactFormSettings } from '@/actions';
+import { getContactConfirmationEmail } from '@/actions';
 
 // Initialize Resend with API key from environment variable
 // IMPORTANT: Add RESEND_API_KEY to your .env.local file
@@ -154,8 +154,8 @@ export async function POST(request: Request) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const logoUrl = `${baseUrl}/images/logos/logo.png`;
 
-    // Fetch contact form settings from Sanity for customizable email content
-    const contactFormSettings = await getContactFormSettings();
+    // Fetch confirmation email settings from Sanity for customizable email content
+    const confirmationEmailSettings = await getContactConfirmationEmail();
 
     // Send email to business owner using styled template
     const adminEmailHtml = generateAdminNotificationEmail({
@@ -196,9 +196,9 @@ export async function POST(request: Request) {
         phone: sanitizedPhone,
         message: sanitizedMessage,
         logoUrl,
-        emailGreeting: contactFormSettings?.emailGreeting || undefined,
-        emailIntroMessage: contactFormSettings?.emailIntroMessage || undefined,
-        emailOutroMessage: contactFormSettings?.emailOutroMessage || undefined,
+        emailGreeting: confirmationEmailSettings?.emailGreeting || undefined,
+        emailIntroMessage: confirmationEmailSettings?.emailIntroMessage || undefined,
+        emailOutroMessage: confirmationEmailSettings?.emailOutroMessage || undefined,
       });
 
       const confirmationEmailResult = await resend.emails.send({

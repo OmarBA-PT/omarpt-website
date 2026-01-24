@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import {
@@ -12,7 +11,7 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
-import { getContactFormSettings, getContactPage, getSiteSettings } from '@/actions';
+import { getContactFormSettings, getContactGeneralContent, getSiteSettings } from '@/actions';
 import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
@@ -21,7 +20,7 @@ import CardGradient from '@/components/UI/CardGradient';
 export async function generateMetadata() {
   // Fetch contact page data and site settings for metadata
   const [contactPageData, siteSettings] = await Promise.all([
-    getContactPage(),
+    getContactGeneralContent(),
     getSiteSettings(),
   ]);
 
@@ -47,7 +46,7 @@ const ContactPage = async () => {
 
   // Fetch contact page data and form settings from Sanity
   const [contactPageData, contactFormSettings] = await Promise.all([
-    getContactPage(),
+    getContactGeneralContent(),
     getContactFormSettings(),
   ]);
 
@@ -56,6 +55,33 @@ const ContactPage = async () => {
   const pageSubtitle =
     contactPageData?.subtitle ||
     'Get in touch for general enquiries or start your coaching journey';
+
+  // Introduction text
+  const introduction =
+    contactPageData?.introduction ||
+    "Have a question or want to learn more about my coaching services? Get in touch using any method below and I'll get back to you as soon as possible.";
+
+  // Contact card titles
+  const emailTitle = contactPageData?.emailTitle || 'Email me';
+  const phoneTitle = contactPageData?.phoneTitle || 'Call me';
+
+  // Closing card data
+  const closingCardTitle =
+    contactPageData?.closingCardTitle || 'Ready to start your coaching journey?';
+  const closingCardBody =
+    contactPageData?.closingCardBody ||
+    "If you're ready to commit to your fitness goals and want to begin coaching right away, submit a full application instead.";
+  const closingCardCtaText = contactPageData?.closingCardCtaText || 'Apply for Coaching';
+
+  // Compute the closing card href
+  let closingCardHref = '/apply'; // default fallback
+  if (contactPageData?.linkType === 'external' && contactPageData?.externalUrl) {
+    closingCardHref = contactPageData.externalUrl;
+  } else if (contactPageData?.linkType === 'internal') {
+    const internalHref = contactPageData?.internalLink?.href || '/';
+    const sectionId = contactPageData?.pageSectionId;
+    closingCardHref = sectionId ? `${internalHref}#${sectionId}` : internalHref;
+  }
 
   // Generate breadcrumb data
   const breadcrumbItems = [
@@ -101,10 +127,7 @@ const ContactPage = async () => {
       <Container textAlign='center'>
         {/* Introduction */}
         <div className='max-w-3xl mx-auto mb-12'>
-          <p className='text-body-lg'>
-            Have a question or want to learn more about my coaching services? Get in touch using any
-            method below and I&apos;ll get back to you as soon as possible.
-          </p>
+          <p className='text-body-lg'>{introduction}</p>
         </div>
 
         {/* Contact Methods */}
@@ -128,7 +151,7 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Email */}
-          <CardLight title='Email me' icon={MdEmail}>
+          <CardLight title={emailTitle} icon={MdEmail}>
             <a
               href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
@@ -137,7 +160,7 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Phone */}
-          <CardLight title='Call me' icon={MdPhone}>
+          <CardLight title={phoneTitle} icon={MdPhone}>
             <a
               href={SITE_CONFIG.ORGANIZATION_PHONE.link}
               className='text-body-base hover:text-brand-secondary transition-colors'>
@@ -148,10 +171,10 @@ const ContactPage = async () => {
 
         {/* Ready to Apply CTA */}
         <CardGradient
-          title='Ready to start your coaching journey?'
-          body="If you're ready to commit to your fitness goals and want to begin coaching right away, submit a full application instead."
-          ctaText='Apply for Coaching'
-          ctaHref='/apply'
+          title={closingCardTitle}
+          body={closingCardBody}
+          ctaText={closingCardCtaText}
+          ctaHref={closingCardHref}
         />
       </Container>
     </>

@@ -12,10 +12,11 @@ const PROTECTED_DOCUMENT_TYPES = [
   'homePageHero',
   'homePageSections',
   'faqPage',
-  'contactPage',
+  'contactGeneralContent',
+  'contactFormSettings',
+  'contactConfirmationEmail',
   'applyPage',
   'companyLinks',
-  'contactFormSettings',
   'termsAndConditions',
   'privacyPolicy'
 ];

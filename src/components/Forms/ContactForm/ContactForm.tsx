@@ -39,9 +39,6 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
   });
 
   // Fallback values if settings are not provided
-  const title = settings?.title;
-  const subtitle = settings?.subtitle;
-  const messagePlaceholder = settings?.messagePlaceholder || 'Tell me how I can help you...';
   const successHeading = settings?.successHeading || 'Thank you for your message!';
   const successMessage =
     settings?.successMessage ||
@@ -97,14 +94,6 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
 
   return (
     <div className={`max-w-2xl rounded-lg text-left ${className}`.trim()}>
-      {/* Optional Title and Subtitle */}
-      {(title || subtitle) && (
-        <div className='mb-6'>
-          {title && <p className='text-h5 font-bold mb-2'>{title}</p>}
-          {subtitle && <p className='text-body-lg text-subtle'>{subtitle}</p>}
-        </div>
-      )}
-
       {status !== 'success' && (
         <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 p-1'>
           {/* Honeypot field - hidden from users, only bots will fill it */}
@@ -169,7 +158,7 @@ const ContactForm = ({ className = '', settings }: ContactFormProps) => {
           <TextArea
             id='message'
             label='Message'
-            placeholder={messagePlaceholder}
+            placeholder='Tell me how I can help you...'
             required
             disabled={fieldDisabled}
             error={errors.message}

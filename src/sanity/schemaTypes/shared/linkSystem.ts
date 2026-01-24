@@ -13,7 +13,7 @@ export const LINKABLE_PAGE_TYPES = [
   { type: 'page' },
   { type: 'homePage' },
   { type: 'faqPage' },
-  { type: 'contactPage' },
+  { type: 'contactGeneralContent' },
   { type: 'applyPage' },
   { type: 'termsAndConditions' },
   { type: 'privacyPolicy' },

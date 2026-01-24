@@ -48,9 +48,10 @@ import { navSectionType } from './navigation/navSectionType';
 import { termsAndConditionsType } from './termsAndConditionsType';
 import { privacyPolicyType } from './privacyPolicyType';
 import { contactFormSettingsType } from './contactFormSettingsType';
+import { contactGeneralContentType } from './contactGeneralContentType';
+import { contactConfirmationEmailType } from './contactConfirmationEmailType';
 import { faqPageType } from './faqPageType';
 import { faqBlockType } from './blocks/faqBlockType';
-import { contactPageType } from './contactPageType';
 import { applyPageType } from './applyPageType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -64,7 +65,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homePageSectionsType,
     pageType,
     faqPageType,
-    contactPageType,
+    contactGeneralContentType,
+    contactConfirmationEmailType,
     applyPageType,
     termsAndConditionsType,
     privacyPolicyType,

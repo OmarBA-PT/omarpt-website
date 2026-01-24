@@ -8,7 +8,7 @@ const internalLinkProjection = `{
   "slug": select(
     _type == "homePage" => {"current": ""},
     _type == "faqPage" => {"current": "faq"},
-    _type == "contactPage" => {"current": "contact"},
+    _type == "contactGeneralContent" => {"current": "contact"},
     _type == "applyPage" => {"current": "apply"},
     _type == "termsAndConditions" => {"current": "terms-and-conditions"},
     _type == "privacyPolicy" => {"current": "privacy-policy"},
@@ -18,7 +18,7 @@ const internalLinkProjection = `{
   "href": select(
     _type == "homePage" => "/",
     _type == "faqPage" => "/faq",
-    _type == "contactPage" => "/contact",
+    _type == "contactGeneralContent" => "/contact",
     _type == "applyPage" => "/apply",
     _type == "termsAndConditions" => "/terms-and-conditions",
     _type == "privacyPolicy" => "/privacy-policy",
@@ -348,14 +348,8 @@ export const COMPANY_LINKS_QUERY = defineQuery(`*[_id == "companyLinks"][0]{
 export const CONTACT_FORM_SETTINGS_QUERY = defineQuery(`*[_id == "contactFormSettings"][0]{
   _id,
   _type,
-  title,
-  subtitle,
-  messagePlaceholder,
   successHeading,
-  successMessage,
-  emailGreeting,
-  emailIntroMessage,
-  emailOutroMessage
+  successMessage
 }`);
 
 export const FOOTER_QUERY = defineQuery(`*[_type == "footer" && _id == "footer"][0]{
@@ -419,14 +413,56 @@ export const LEGAL_PAGES_VISIBILITY_QUERY = defineQuery(`{
   "privacyPolicy": *[_id == "privacyPolicy"][0]{_id, hide}
 }`);
 
-// Contact Page query
-export const CONTACT_PAGE_QUERY = defineQuery(`*[_id == "contactPage"][0]{
+// Contact General Content query
+export const CONTACT_GENERAL_CONTENT_QUERY = defineQuery(`*[_id == "contactGeneralContent"][0]{
   _id,
   _type,
   _createdAt,
   _updatedAt,
   title,
-  subtitle
+  subtitle,
+  introduction,
+  emailTitle,
+  phoneTitle,
+  closingCardTitle,
+  closingCardBody,
+  closingCardCtaText,
+  linkType,
+  internalLink->{
+    _id,
+    _type,
+    title,
+    "slug": select(
+      _type == "homePage" => {"current": ""},
+      _type == "faqPage" => {"current": "faq"},
+      _type == "contactGeneralContent" => {"current": "contact"},
+      _type == "applyPage" => {"current": "apply"},
+      _type == "termsAndConditions" => {"current": "terms-and-conditions"},
+      _type == "privacyPolicy" => {"current": "privacy-policy"},
+      slug
+    ),
+    "href": select(
+      _type == "homePage" => "/",
+      _type == "faqPage" => "/faq",
+      _type == "contactGeneralContent" => "/contact",
+      _type == "applyPage" => "/apply",
+      _type == "termsAndConditions" => "/terms-and-conditions",
+      _type == "privacyPolicy" => "/privacy-policy",
+      "/" + slug.current
+    )
+  },
+  externalUrl,
+  pageSectionId,
+  openInNewTab
+}`);
+
+// Contact Confirmation Email query
+export const CONTACT_CONFIRMATION_EMAIL_QUERY = defineQuery(`*[_id == "contactConfirmationEmail"][0]{
+  _id,
+  _type,
+  emailGreeting,
+  emailIntroMessage,
+  emailOutroMessage
 }`);
 
 // Apply Page query

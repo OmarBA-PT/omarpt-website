@@ -7,6 +7,7 @@ import {
   EnvelopeIcon,
   SparklesIcon,
   BlockContentIcon,
+  CheckmarkCircleIcon,
 } from '@sanity/icons';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -66,16 +67,53 @@ export const structure: StructureResolver = (S) =>
 
       // === CONTACT PAGE ===
       S.listItem()
-        .id('contactPage')
-        .schemaType('contactPage')
+        .id('contact')
         .title('Contact')
         .icon(EnvelopeIcon)
         .child(
-          S.editor()
-            .id('contactPage')
-            .schemaType('contactPage')
-            .documentId('contactPage')
-            .title('Contact Page'),
+          S.list()
+            .title('Contact')
+            .items([
+              // General Content
+              S.listItem()
+                .id('contactGeneralContent')
+                .schemaType('contactGeneralContent')
+                .title('General Content')
+                .icon(DocumentTextIcon)
+                .child(
+                  S.editor()
+                    .id('contactGeneralContent')
+                    .schemaType('contactGeneralContent')
+                    .documentId('contactGeneralContent')
+                    .title('General Content'),
+                ),
+              // Contact Form
+              S.listItem()
+                .id('contactFormSettings')
+                .schemaType('contactFormSettings')
+                .title('Contact Form')
+                .icon(CheckmarkCircleIcon)
+                .child(
+                  S.editor()
+                    .id('contactFormSettings')
+                    .schemaType('contactFormSettings')
+                    .documentId('contactFormSettings')
+                    .title('Contact Form'),
+                ),
+              // Confirmation Email
+              S.listItem()
+                .id('contactConfirmationEmail')
+                .schemaType('contactConfirmationEmail')
+                .title('Confirmation Email')
+                .icon(EnvelopeIcon)
+                .child(
+                  S.editor()
+                    .id('contactConfirmationEmail')
+                    .schemaType('contactConfirmationEmail')
+                    .documentId('contactConfirmationEmail')
+                    .title('Confirmation Email'),
+                ),
+            ]),
         ),
 
       // === APPLY PAGE ===
@@ -152,18 +190,6 @@ export const structure: StructureResolver = (S) =>
                     .schemaType('siteSettings')
                     .documentId('siteSettings')
                     .title('Site Settings'),
-                ),
-              // Contact Form Settings - Singleton
-              S.listItem()
-                .id('contactFormSettings')
-                .schemaType('contactFormSettings')
-                .title('Contact Form')
-                .child(
-                  S.editor()
-                    .id('contactFormSettings')
-                    .schemaType('contactFormSettings')
-                    .documentId('contactFormSettings')
-                    .title('Contact Form Settings'),
                 ),
 
               S.divider(),
