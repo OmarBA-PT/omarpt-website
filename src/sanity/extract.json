@@ -10726,6 +10726,20 @@
           "type": "string"
         }
       },
+      "formTitle": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "formSubtitle": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "successHeading": {
         "type": "objectAttribute",
         "value": {

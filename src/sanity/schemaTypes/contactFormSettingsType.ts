@@ -12,6 +12,23 @@ export const contactFormSettingsType = defineType({
   icon: CheckmarkCircleIcon,
   fields: [
     defineField({
+      name: 'formTitle',
+      type: 'string',
+      title: 'Form Title',
+      description: 'Title displayed above the contact form (e.g., "Send me a message")',
+      initialValue: 'Send me a message',
+      validation: (Rule) => Rule.max(100),
+    }),
+    defineField({
+      name: 'formSubtitle',
+      type: 'string',
+      title: 'Form Subtitle',
+      description:
+        'Subtitle displayed below the form title (e.g., "Submit your enquiry using my contact form.")',
+      initialValue: 'Submit your enquiry using my contact form.',
+      validation: (Rule) => Rule.max(200),
+    }),
+    defineField({
       name: 'successHeading',
       type: 'string',
       title: 'Success Message Heading',

@@ -65,6 +65,11 @@ const ContactPage = async () => {
   const emailTitle = contactPageData?.emailTitle || 'Email me';
   const phoneTitle = contactPageData?.phoneTitle || 'Call me';
 
+  // Contact form card data
+  const formTitle = contactFormSettings?.formTitle || 'Send me a message';
+  const formSubtitle =
+    contactFormSettings?.formSubtitle || 'Submit your enquiry using my contact form.';
+
   // Closing card data
   const closingCardTitle =
     contactPageData?.closingCardTitle || 'Ready to start your coaching journey?';
@@ -137,9 +142,9 @@ const ContactPage = async () => {
             id='contact-form'
             showBorder
             className='md:col-span-2'
-            title='Send me a message'
+            title={formTitle}
             icon={MdMessage}>
-            <p className='mb-4'>Submit your enquiry using my contact form.</p>
+            <p className='mb-4'>{formSubtitle}</p>
 
             <ExpandingContentWrapper
               expandLabel='Show Contact Form'
