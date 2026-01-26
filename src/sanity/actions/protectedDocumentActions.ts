@@ -16,6 +16,9 @@ const PROTECTED_DOCUMENT_TYPES = [
   'contactFormSettings',
   'contactConfirmationEmail',
   'applyPage',
+  'applyQuestionnaire',
+  'applyPdfSettings',
+  'applyPrivacyStatement',
   'companyLinks',
   'termsAndConditions',
   'privacyPolicy'

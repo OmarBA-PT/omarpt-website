@@ -1195,6 +1195,34 @@ export type BlockContent = Array<{
   _key: string;
 }>;
 
+export type ApplyPrivacyStatement = {
+  _id: string;
+  _type: "applyPrivacyStatement";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  body?: string;
+};
+
+export type ApplyPdfSettings = {
+  _id: string;
+  _type: "applyPdfSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  placeholder?: string;
+};
+
+export type ApplyQuestionnaire = {
+  _id: string;
+  _type: "applyQuestionnaire";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  placeholder?: string;
+};
+
 export type ContactConfirmationEmail = {
   _id: string;
   _type: "contactConfirmationEmail";
@@ -1217,6 +1245,64 @@ export type ContactGeneralContent = {
   introduction?: string;
   emailTitle?: string;
   phoneTitle?: string;
+  closingCardTitle?: string;
+  closingCardBody?: string;
+  closingCardCtaText?: string;
+  linkType?: "internal" | "external";
+  internalLink?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "page";
+  } | {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "homePage";
+  } | {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "faqPage";
+  } | {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "contactGeneralContent";
+  } | {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "applyPage";
+  } | {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "termsAndConditions";
+  } | {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "privacyPolicy";
+  };
+  externalUrl?: string;
+  pageSectionId?: string;
+  openInNewTab?: boolean;
+};
+
+export type ApplyPage = {
+  _id: string;
+  _type: "applyPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  subtitle?: string;
+  introduction?: string;
+  applyOnlineTitle?: string;
+  applyOnlineSubtitle?: string;
+  downloadPdfTitle?: string;
+  downloadPdfSubtitle?: string;
   closingCardTitle?: string;
   closingCardBody?: string;
   closingCardCtaText?: string;
@@ -1380,16 +1466,6 @@ export type TermsAndConditions = {
   } & GridLayout | {
     _key: string;
   } & ResponsiveWrapper>;
-};
-
-export type ApplyPage = {
-  _id: string;
-  _type: "applyPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  subtitle?: string;
 };
 
 export type FaqPage = {
@@ -1766,7 +1842,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | FaqBlock | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | Card | CtaCalloutLink | CtaButton | ExpandingContent | TwoColumnLayout | Statement | Quote | YouTubeVideo | GoogleMap | ImageGallery | ImageBlock | GridLayout | ResponsiveWrapper | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | ContactConfirmationEmail | ContactGeneralContent | PrivacyPolicy | TermsAndConditions | ApplyPage | FaqPage | Page | Slug | HomePageSections | SanityImageCrop | SanityImageHotspot | HomePageHero | HomePage | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = NavSection | VerticalNavDivider | VerticalNavLink | NavLink | CtaList | CompanyLinksArray | FaqBlock | ServiceCard | ItemList | CheckList | BlockListWithStats | DetailedList | IconList | CompanyLinksBlock | HomeHeroCtaButton | EmbeddedCtaButton | Card | CtaCalloutLink | CtaButton | ExpandingContent | TwoColumnLayout | Statement | Quote | YouTubeVideo | GoogleMap | ImageGallery | ImageBlock | GridLayout | ResponsiveWrapper | RichText | Divider | ContentWrapper | SubSubSection | SubSection | PageSection | PageBuilder | Footer | Header | BlockContent | ApplyPrivacyStatement | ApplyPdfSettings | ApplyQuestionnaire | ContactConfirmationEmail | ContactGeneralContent | ApplyPage | PrivacyPolicy | TermsAndConditions | FaqPage | Page | Slug | HomePageSections | SanityImageCrop | SanityImageHotspot | HomePageHero | HomePage | ContactFormSettings | CompanyLinks | SiteSettings | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PAGE_QUERY
@@ -12130,6 +12206,48 @@ export type HOME_PAGE_HERO_QUERYResult = {
   heroContentPosition: null;
 } | {
   _id: "homePageHero";
+  _type: "applyPdfSettings";
+  heroStyle: null;
+  heroImages: null;
+  heroVideo: null;
+  heroImageTransitionDuration: null;
+  h1Title: null;
+  mainTitle: null;
+  subTitle: null;
+  heroCallToActionList: null;
+  hideScrollIndicator: null;
+  heroDefaultContentPosition: null;
+  heroContentPosition: null;
+} | {
+  _id: "homePageHero";
+  _type: "applyPrivacyStatement";
+  heroStyle: null;
+  heroImages: null;
+  heroVideo: null;
+  heroImageTransitionDuration: null;
+  h1Title: null;
+  mainTitle: null;
+  subTitle: null;
+  heroCallToActionList: null;
+  hideScrollIndicator: null;
+  heroDefaultContentPosition: null;
+  heroContentPosition: null;
+} | {
+  _id: "homePageHero";
+  _type: "applyQuestionnaire";
+  heroStyle: null;
+  heroImages: null;
+  heroVideo: null;
+  heroImageTransitionDuration: null;
+  h1Title: null;
+  mainTitle: null;
+  subTitle: null;
+  heroCallToActionList: null;
+  hideScrollIndicator: null;
+  heroDefaultContentPosition: null;
+  heroContentPosition: null;
+} | {
+  _id: "homePageHero";
   _type: "companyLinks";
   heroStyle: null;
   heroImages: null;
@@ -12449,6 +12567,18 @@ export type HOME_PAGE_HERO_QUERYResult = {
 export type HOME_PAGE_SECTIONS_QUERYResult = {
   _id: "homePageSections";
   _type: "applyPage";
+  content: null;
+} | {
+  _id: "homePageSections";
+  _type: "applyPdfSettings";
+  content: null;
+} | {
+  _id: "homePageSections";
+  _type: "applyPrivacyStatement";
+  content: null;
+} | {
+  _id: "homePageSections";
+  _type: "applyQuestionnaire";
   content: null;
 } | {
   _id: "homePageSections";
@@ -64145,6 +64275,30 @@ export type HEADER_QUERYResult = {
   verticalNavCtas: null;
 } | {
   _id: "header";
+  _type: "applyPdfSettings";
+  showVerticalNavOnDesktop: null;
+  horizontalNav: null;
+  horizontalNavCtas: null;
+  verticalNav: null;
+  verticalNavCtas: null;
+} | {
+  _id: "header";
+  _type: "applyPrivacyStatement";
+  showVerticalNavOnDesktop: null;
+  horizontalNav: null;
+  horizontalNavCtas: null;
+  verticalNav: null;
+  verticalNavCtas: null;
+} | {
+  _id: "header";
+  _type: "applyQuestionnaire";
+  showVerticalNavOnDesktop: null;
+  horizontalNav: null;
+  horizontalNavCtas: null;
+  verticalNav: null;
+  verticalNavCtas: null;
+} | {
+  _id: "header";
   _type: "companyLinks";
   showVerticalNavOnDesktop: null;
   horizontalNav: null;
@@ -64579,6 +64733,30 @@ export type SITE_SETTINGS_QUERYResult = {
   defaultOgImage: null;
 } | {
   _id: "siteSettings";
+  _type: "applyPdfSettings";
+  siteTitle: null;
+  siteTagline: null;
+  siteDescription: null;
+  seoKeywords: null;
+  defaultOgImage: null;
+} | {
+  _id: "siteSettings";
+  _type: "applyPrivacyStatement";
+  siteTitle: null;
+  siteTagline: null;
+  siteDescription: null;
+  seoKeywords: null;
+  defaultOgImage: null;
+} | {
+  _id: "siteSettings";
+  _type: "applyQuestionnaire";
+  siteTitle: null;
+  siteTagline: null;
+  siteDescription: null;
+  seoKeywords: null;
+  defaultOgImage: null;
+} | {
+  _id: "siteSettings";
   _type: "companyLinks";
   siteTitle: null;
   siteTagline: null;
@@ -64724,6 +64902,18 @@ export type COMPANY_LINKS_QUERYResult = {
   companyLinks: null;
 } | {
   _id: "companyLinks";
+  _type: "applyPdfSettings";
+  companyLinks: null;
+} | {
+  _id: "companyLinks";
+  _type: "applyPrivacyStatement";
+  companyLinks: null;
+} | {
+  _id: "companyLinks";
+  _type: "applyQuestionnaire";
+  companyLinks: null;
+} | {
+  _id: "companyLinks";
   _type: "companyLinks";
   companyLinks: {
     _type: "companyLinksArray";
@@ -64801,6 +64991,27 @@ export type COMPANY_LINKS_QUERYResult = {
 export type CONTACT_FORM_SETTINGS_QUERYResult = {
   _id: "contactFormSettings";
   _type: "applyPage";
+  formTitle: null;
+  formSubtitle: null;
+  successHeading: null;
+  successMessage: null;
+} | {
+  _id: "contactFormSettings";
+  _type: "applyPdfSettings";
+  formTitle: null;
+  formSubtitle: null;
+  successHeading: null;
+  successMessage: null;
+} | {
+  _id: "contactFormSettings";
+  _type: "applyPrivacyStatement";
+  formTitle: null;
+  formSubtitle: null;
+  successHeading: null;
+  successMessage: null;
+} | {
+  _id: "contactFormSettings";
+  _type: "applyQuestionnaire";
   formTitle: null;
   formSubtitle: null;
   successHeading: null;
@@ -65017,6 +65228,30 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   _updatedAt: string;
   hide: null;
   title: string | null;
+  topText: null;
+  content: null;
+} | {
+  _id: "termsAndConditions";
+  _type: "applyPdfSettings";
+  _updatedAt: string;
+  hide: null;
+  title: null;
+  topText: null;
+  content: null;
+} | {
+  _id: "termsAndConditions";
+  _type: "applyPrivacyStatement";
+  _updatedAt: string;
+  hide: null;
+  title: string | null;
+  topText: null;
+  content: null;
+} | {
+  _id: "termsAndConditions";
+  _type: "applyQuestionnaire";
+  _updatedAt: string;
+  hide: null;
+  title: null;
   topText: null;
   content: null;
 } | {
@@ -116778,6 +117013,30 @@ export type PRIVACY_POLICY_QUERYResult = {
   content: null;
 } | {
   _id: "privacyPolicy";
+  _type: "applyPdfSettings";
+  _updatedAt: string;
+  hide: null;
+  title: null;
+  topText: null;
+  content: null;
+} | {
+  _id: "privacyPolicy";
+  _type: "applyPrivacyStatement";
+  _updatedAt: string;
+  hide: null;
+  title: string | null;
+  topText: null;
+  content: null;
+} | {
+  _id: "privacyPolicy";
+  _type: "applyQuestionnaire";
+  _updatedAt: string;
+  hide: null;
+  title: null;
+  topText: null;
+  content: null;
+} | {
+  _id: "privacyPolicy";
   _type: "companyLinks";
   _updatedAt: string;
   hide: null;
@@ -168532,6 +168791,30 @@ export type FAQ_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: string | null;
+  content: null;
+} | {
+  _id: "faqPage";
+  _type: "applyPdfSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  title: null;
+  subtitle: null;
+  content: null;
+} | {
+  _id: "faqPage";
+  _type: "applyPrivacyStatement";
+  _createdAt: string;
+  _updatedAt: string;
+  title: string | null;
+  subtitle: null;
+  content: null;
+} | {
+  _id: "faqPage";
+  _type: "applyQuestionnaire";
+  _createdAt: string;
+  _updatedAt: string;
+  title: null;
+  subtitle: null;
   content: null;
 } | {
   _id: "faqPage";
@@ -220307,6 +220590,114 @@ export type CONTACT_GENERAL_CONTENT_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: string | null;
+  introduction: string | null;
+  emailTitle: null;
+  phoneTitle: null;
+  closingCardTitle: string | null;
+  closingCardBody: string | null;
+  closingCardCtaText: string | null;
+  linkType: "external" | "internal" | null;
+  internalLink: {
+    _id: string;
+    _type: "applyPage";
+    title: string | null;
+    slug: {
+      current: "apply";
+    };
+    href: "/apply";
+  } | {
+    _id: string;
+    _type: "contactGeneralContent";
+    title: string | null;
+    slug: {
+      current: "contact";
+    };
+    href: "/contact";
+  } | {
+    _id: string;
+    _type: "faqPage";
+    title: string | null;
+    slug: {
+      current: "faq";
+    };
+    href: "/faq";
+  } | {
+    _id: string;
+    _type: "homePage";
+    title: string | null;
+    slug: {
+      current: "";
+    };
+    href: "/";
+  } | {
+    _id: string;
+    _type: "page";
+    title: string | null;
+    slug: Slug | null;
+    href: string | null;
+  } | {
+    _id: string;
+    _type: "privacyPolicy";
+    title: string | null;
+    slug: {
+      current: "privacy-policy";
+    };
+    href: "/privacy-policy";
+  } | {
+    _id: string;
+    _type: "termsAndConditions";
+    title: string | null;
+    slug: {
+      current: "terms-and-conditions";
+    };
+    href: "/terms-and-conditions";
+  } | null;
+  externalUrl: string | null;
+  pageSectionId: string | null;
+  openInNewTab: boolean | null;
+} | {
+  _id: "contactGeneralContent";
+  _type: "applyPdfSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  title: null;
+  subtitle: null;
+  introduction: null;
+  emailTitle: null;
+  phoneTitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
+} | {
+  _id: "contactGeneralContent";
+  _type: "applyPrivacyStatement";
+  _createdAt: string;
+  _updatedAt: string;
+  title: string | null;
+  subtitle: null;
+  introduction: null;
+  emailTitle: null;
+  phoneTitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
+} | {
+  _id: "contactGeneralContent";
+  _type: "applyQuestionnaire";
+  _createdAt: string;
+  _updatedAt: string;
+  title: null;
+  subtitle: null;
   introduction: null;
   emailTitle: null;
   phoneTitle: null;
@@ -220671,6 +221062,24 @@ export type CONTACT_CONFIRMATION_EMAIL_QUERYResult = {
   emailOutroMessage: null;
 } | {
   _id: "contactConfirmationEmail";
+  _type: "applyPdfSettings";
+  emailGreeting: null;
+  emailIntroMessage: null;
+  emailOutroMessage: null;
+} | {
+  _id: "contactConfirmationEmail";
+  _type: "applyPrivacyStatement";
+  emailGreeting: null;
+  emailIntroMessage: null;
+  emailOutroMessage: null;
+} | {
+  _id: "contactConfirmationEmail";
+  _type: "applyQuestionnaire";
+  emailGreeting: null;
+  emailIntroMessage: null;
+  emailOutroMessage: null;
+} | {
+  _id: "contactConfirmationEmail";
   _type: "companyLinks";
   emailGreeting: null;
   emailIntroMessage: null;
@@ -220767,7 +221176,7 @@ export type CONTACT_CONFIRMATION_EMAIL_QUERYResult = {
   emailOutroMessage: null;
 } | null;
 // Variable: APPLY_PAGE_QUERY
-// Query: *[_id == "applyPage"][0]{  _id,  _type,  _createdAt,  _updatedAt,  title,  subtitle}
+// Query: *[_id == "applyPage"][0]{  _id,  _type,  _createdAt,  _updatedAt,  title,  subtitle,  introduction,  applyOnlineTitle,  applyOnlineSubtitle,  downloadPdfTitle,  downloadPdfSubtitle,  closingCardTitle,  closingCardBody,  closingCardCtaText,  linkType,  internalLink->{    _id,    _type,    title,    "slug": select(      _type == "homePage" => {"current": ""},      _type == "faqPage" => {"current": "faq"},      _type == "contactGeneralContent" => {"current": "contact"},      _type == "applyPage" => {"current": "apply"},      _type == "termsAndConditions" => {"current": "terms-and-conditions"},      _type == "privacyPolicy" => {"current": "privacy-policy"},      slug    ),    "href": select(      _type == "homePage" => "/",      _type == "faqPage" => "/faq",      _type == "contactGeneralContent" => "/contact",      _type == "applyPage" => "/apply",      _type == "termsAndConditions" => "/terms-and-conditions",      _type == "privacyPolicy" => "/privacy-policy",      "/" + slug.current    )  },  externalUrl,  pageSectionId,  openInNewTab}
 export type APPLY_PAGE_QUERYResult = {
   _id: "applyPage";
   _type: "applyPage";
@@ -220775,6 +221184,133 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: string | null;
+  introduction: string | null;
+  applyOnlineTitle: string | null;
+  applyOnlineSubtitle: string | null;
+  downloadPdfTitle: string | null;
+  downloadPdfSubtitle: string | null;
+  closingCardTitle: string | null;
+  closingCardBody: string | null;
+  closingCardCtaText: string | null;
+  linkType: "external" | "internal" | null;
+  internalLink: {
+    _id: string;
+    _type: "applyPage";
+    title: string | null;
+    slug: {
+      current: "apply";
+    };
+    href: "/apply";
+  } | {
+    _id: string;
+    _type: "contactGeneralContent";
+    title: string | null;
+    slug: {
+      current: "contact";
+    };
+    href: "/contact";
+  } | {
+    _id: string;
+    _type: "faqPage";
+    title: string | null;
+    slug: {
+      current: "faq";
+    };
+    href: "/faq";
+  } | {
+    _id: string;
+    _type: "homePage";
+    title: string | null;
+    slug: {
+      current: "";
+    };
+    href: "/";
+  } | {
+    _id: string;
+    _type: "page";
+    title: string | null;
+    slug: Slug | null;
+    href: string | null;
+  } | {
+    _id: string;
+    _type: "privacyPolicy";
+    title: string | null;
+    slug: {
+      current: "privacy-policy";
+    };
+    href: "/privacy-policy";
+  } | {
+    _id: string;
+    _type: "termsAndConditions";
+    title: string | null;
+    slug: {
+      current: "terms-and-conditions";
+    };
+    href: "/terms-and-conditions";
+  } | null;
+  externalUrl: string | null;
+  pageSectionId: string | null;
+  openInNewTab: boolean | null;
+} | {
+  _id: "applyPage";
+  _type: "applyPdfSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  title: null;
+  subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
+} | {
+  _id: "applyPage";
+  _type: "applyPrivacyStatement";
+  _createdAt: string;
+  _updatedAt: string;
+  title: string | null;
+  subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
+} | {
+  _id: "applyPage";
+  _type: "applyQuestionnaire";
+  _createdAt: string;
+  _updatedAt: string;
+  title: null;
+  subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "companyLinks";
@@ -220782,6 +221318,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "contactConfirmationEmail";
@@ -220789,6 +221338,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "contactFormSettings";
@@ -220796,6 +221358,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "contactGeneralContent";
@@ -220803,6 +221378,73 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: string | null;
+  introduction: string | null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: string | null;
+  closingCardBody: string | null;
+  closingCardCtaText: string | null;
+  linkType: "external" | "internal" | null;
+  internalLink: {
+    _id: string;
+    _type: "applyPage";
+    title: string | null;
+    slug: {
+      current: "apply";
+    };
+    href: "/apply";
+  } | {
+    _id: string;
+    _type: "contactGeneralContent";
+    title: string | null;
+    slug: {
+      current: "contact";
+    };
+    href: "/contact";
+  } | {
+    _id: string;
+    _type: "faqPage";
+    title: string | null;
+    slug: {
+      current: "faq";
+    };
+    href: "/faq";
+  } | {
+    _id: string;
+    _type: "homePage";
+    title: string | null;
+    slug: {
+      current: "";
+    };
+    href: "/";
+  } | {
+    _id: string;
+    _type: "page";
+    title: string | null;
+    slug: Slug | null;
+    href: string | null;
+  } | {
+    _id: string;
+    _type: "privacyPolicy";
+    title: string | null;
+    slug: {
+      current: "privacy-policy";
+    };
+    href: "/privacy-policy";
+  } | {
+    _id: string;
+    _type: "termsAndConditions";
+    title: string | null;
+    slug: {
+      current: "terms-and-conditions";
+    };
+    href: "/terms-and-conditions";
+  } | null;
+  externalUrl: string | null;
+  pageSectionId: string | null;
+  openInNewTab: boolean | null;
 } | {
   _id: "applyPage";
   _type: "faqPage";
@@ -220810,6 +221452,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: string | null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "footer";
@@ -220817,6 +221472,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "header";
@@ -220824,6 +221492,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "homePage";
@@ -220831,6 +221512,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "homePageHero";
@@ -220838,6 +221532,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "homePageSections";
@@ -220845,6 +221552,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "page";
@@ -220852,6 +221572,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: string | null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "privacyPolicy";
@@ -220859,6 +221592,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "sanity.fileAsset";
@@ -220866,6 +221612,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "sanity.imageAsset";
@@ -220873,6 +221632,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "siteSettings";
@@ -220880,6 +221652,19 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
 } | {
   _id: "applyPage";
   _type: "termsAndConditions";
@@ -220887,6 +221672,122 @@ export type APPLY_PAGE_QUERYResult = {
   _updatedAt: string;
   title: string | null;
   subtitle: null;
+  introduction: null;
+  applyOnlineTitle: null;
+  applyOnlineSubtitle: null;
+  downloadPdfTitle: null;
+  downloadPdfSubtitle: null;
+  closingCardTitle: null;
+  closingCardBody: null;
+  closingCardCtaText: null;
+  linkType: null;
+  internalLink: null;
+  externalUrl: null;
+  pageSectionId: null;
+  openInNewTab: null;
+} | null;
+// Variable: APPLY_PRIVACY_STATEMENT_QUERY
+// Query: *[_id == "applyPrivacyStatement"][0]{  _id,  _type,  title,  body}
+export type APPLY_PRIVACY_STATEMENT_QUERYResult = {
+  _id: "applyPrivacyStatement";
+  _type: "applyPage";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "applyPdfSettings";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "applyPrivacyStatement";
+  title: string | null;
+  body: string | null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "applyQuestionnaire";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "companyLinks";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "contactConfirmationEmail";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "contactFormSettings";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "contactGeneralContent";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "faqPage";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "footer";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "header";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "homePage";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "homePageHero";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "homePageSections";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "page";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "privacyPolicy";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "sanity.fileAsset";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "sanity.imageAsset";
+  title: string | null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "siteSettings";
+  title: null;
+  body: null;
+} | {
+  _id: "applyPrivacyStatement";
+  _type: "termsAndConditions";
+  title: string | null;
+  body: null;
 } | null;
 
 // Query TypeMap
@@ -220908,6 +221809,7 @@ declare module "@sanity/client" {
     "{\n  \"termsAndConditions\": *[_id == \"termsAndConditions\"][0]{_id, hide},\n  \"privacyPolicy\": *[_id == \"privacyPolicy\"][0]{_id, hide}\n}": LEGAL_PAGES_VISIBILITY_QUERYResult;
     "*[_id == \"contactGeneralContent\"][0]{\n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  title,\n  subtitle,\n  introduction,\n  emailTitle,\n  phoneTitle,\n  closingCardTitle,\n  closingCardBody,\n  closingCardCtaText,\n  linkType,\n  internalLink->{\n    _id,\n    _type,\n    title,\n    \"slug\": select(\n      _type == \"homePage\" => {\"current\": \"\"},\n      _type == \"faqPage\" => {\"current\": \"faq\"},\n      _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n      _type == \"applyPage\" => {\"current\": \"apply\"},\n      _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n      _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n      slug\n    ),\n    \"href\": select(\n      _type == \"homePage\" => \"/\",\n      _type == \"faqPage\" => \"/faq\",\n      _type == \"contactGeneralContent\" => \"/contact\",\n      _type == \"applyPage\" => \"/apply\",\n      _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n      _type == \"privacyPolicy\" => \"/privacy-policy\",\n      \"/\" + slug.current\n    )\n  },\n  externalUrl,\n  pageSectionId,\n  openInNewTab\n}": CONTACT_GENERAL_CONTENT_QUERYResult;
     "*[_id == \"contactConfirmationEmail\"][0]{\n  _id,\n  _type,\n  emailGreeting,\n  emailIntroMessage,\n  emailOutroMessage\n}": CONTACT_CONFIRMATION_EMAIL_QUERYResult;
-    "*[_id == \"applyPage\"][0]{\n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  title,\n  subtitle\n}": APPLY_PAGE_QUERYResult;
+    "*[_id == \"applyPage\"][0]{\n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  title,\n  subtitle,\n  introduction,\n  applyOnlineTitle,\n  applyOnlineSubtitle,\n  downloadPdfTitle,\n  downloadPdfSubtitle,\n  closingCardTitle,\n  closingCardBody,\n  closingCardCtaText,\n  linkType,\n  internalLink->{\n    _id,\n    _type,\n    title,\n    \"slug\": select(\n      _type == \"homePage\" => {\"current\": \"\"},\n      _type == \"faqPage\" => {\"current\": \"faq\"},\n      _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n      _type == \"applyPage\" => {\"current\": \"apply\"},\n      _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n      _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n      slug\n    ),\n    \"href\": select(\n      _type == \"homePage\" => \"/\",\n      _type == \"faqPage\" => \"/faq\",\n      _type == \"contactGeneralContent\" => \"/contact\",\n      _type == \"applyPage\" => \"/apply\",\n      _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n      _type == \"privacyPolicy\" => \"/privacy-policy\",\n      \"/\" + slug.current\n    )\n  },\n  externalUrl,\n  pageSectionId,\n  openInNewTab\n}": APPLY_PAGE_QUERYResult;
+    "*[_id == \"applyPrivacyStatement\"][0]{\n  _id,\n  _type,\n  title,\n  body\n}": APPLY_PRIVACY_STATEMENT_QUERYResult;
   }
 }

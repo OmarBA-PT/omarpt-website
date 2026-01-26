@@ -16,8 +16,17 @@ import {
   loadPersistedFormState,
   clearPersistedFormState,
 } from '@/components/Forms/ApplicationForm/useFormPersistence';
+import type {
+  APPLY_PAGE_QUERYResult,
+  APPLY_PRIVACY_STATEMENT_QUERYResult,
+} from '@/sanity/types';
 
-const ApplyPageClient = () => {
+interface ApplyPageClientProps {
+  generalContent: APPLY_PAGE_QUERYResult | null;
+  privacyStatement: APPLY_PRIVACY_STATEMENT_QUERYResult | null;
+}
+
+const ApplyPageClient = ({ generalContent, privacyStatement }: ApplyPageClientProps) => {
   const [showForm, setShowForm] = useState(false);
   const [showPrivacyConsent, setShowPrivacyConsent] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
@@ -33,8 +42,39 @@ const ApplyPageClient = () => {
     }
   }, [showForm, showPrivacyConsent]);
 
-  const pageTitle = 'Apply for Coaching';
-  const pageSubtitle = 'Take the first step towards achieving your fitness goals';
+  // Derive values with fallbacks from Sanity data
+  const pageTitle = generalContent?.title || 'Apply for Coaching';
+  const pageSubtitle =
+    generalContent?.subtitle || 'Take the first step towards achieving your fitness goals';
+  const introduction =
+    generalContent?.introduction ||
+    "Ready to start your fitness journey? Choose how you'd like to apply below.";
+  const applyOnlineTitle = generalContent?.applyOnlineTitle || 'Submit online';
+  const applyOnlineSubtitle =
+    generalContent?.applyOnlineSubtitle || 'Submit your application using my online form.';
+  const downloadPdfTitle = generalContent?.downloadPdfTitle || 'Download PDF';
+  const downloadPdfSubtitle =
+    generalContent?.downloadPdfSubtitle ||
+    'If you prefer, you can apply via PDF and email back to me.';
+  const closingCardTitle = generalContent?.closingCardTitle || 'Just enquiring?';
+  const closingCardBody =
+    generalContent?.closingCardBody ||
+    'Not ready to apply yet? No problem! Get in contact to ask any questions you might have about my coaching services.';
+  const closingCardCtaText = generalContent?.closingCardCtaText || 'Contact Me';
+
+  // Compute closing card href (following Contact page pattern)
+  let closingCardHref = '/contact'; // default fallback
+  if (generalContent?.linkType === 'external' && generalContent?.externalUrl) {
+    closingCardHref = generalContent.externalUrl;
+  } else if (generalContent?.linkType === 'internal') {
+    const internalHref = generalContent?.internalLink?.href || '/';
+    const sectionId = generalContent?.pageSectionId;
+    closingCardHref = sectionId ? `${internalHref}#${sectionId}` : internalHref;
+  }
+
+  // Privacy statement values
+  const privacyTitle = privacyStatement?.title;
+  const privacyBody = privacyStatement?.body;
 
   const handleStartApplication = () => {
     setShowPrivacyConsent(true);
@@ -148,7 +188,7 @@ const ApplyPageClient = () => {
 
           {/* Privacy Statement */}
           <div className='mb-8'>
-            <PrivacyStatement />
+            <PrivacyStatement title={privacyTitle} body={privacyBody} />
           </div>
 
           {/* Proceed Button */}
@@ -186,7 +226,7 @@ const ApplyPageClient = () => {
 
           {/* Privacy Statement Below Form */}
           <div className='mt-12'>
-            <PrivacyStatement />
+            <PrivacyStatement title={privacyTitle} body={privacyBody} />
           </div>
         </Container>
       </>
@@ -205,16 +245,14 @@ const ApplyPageClient = () => {
       <Container textAlign='center'>
         {/* Introduction */}
         <div className='max-w-3xl mx-auto mb-12'>
-          <p className='text-body-lg'>
-            Ready to start your fitness journey? Choose how you&apos;d like to apply below.
-          </p>
+          <p className='text-body-lg'>{introduction}</p>
         </div>
 
         {/* Application Options */}
         <div className={`grid grid-cols-1 gap-6 mx-auto mb-16 ${maxCardWidth}`}>
           {/* Start Application Option */}
-          <CardLight showBorder title='Submit online' icon={BsClipboard2CheckFill}>
-            <p className='mb-6'>Submit your application using my online form.</p>
+          <CardLight showBorder title={applyOnlineTitle} icon={BsClipboard2CheckFill}>
+            <p className='mb-6'>{applyOnlineSubtitle}</p>
             {hasSavedApplication ? (
               <div className='flex flex-col md:flex-row gap-4 justify-center items-center'>
                 <CTA as='button' variant='filled' onClick={handleContinueApplication}>
@@ -232,8 +270,8 @@ const ApplyPageClient = () => {
           </CardLight>
 
           {/* PDF Download Option */}
-          <CardLight title='Download PDF' icon={MdDownload}>
-            <p className='mb-6'>If you prefer, you can apply via PDF and email back to me.</p>
+          <CardLight title={downloadPdfTitle} icon={MdDownload}>
+            <p className='mb-6'>{downloadPdfSubtitle}</p>
             <CTA as='button' variant='filled' onClick={handleDownloadPdf} disabled={isDownloading}>
               {isDownloading ? 'Downloading...' : 'Download Form'}
             </CTA>
@@ -247,10 +285,10 @@ const ApplyPageClient = () => {
 
         {/* Just Enquiring CTA */}
         <CardGradient
-          title='Just enquiring?'
-          body='Not ready to apply yet? No problem! Get in contact to ask any questions you might have about my coaching services.'
-          ctaText='Contact Me'
-          ctaHref='/contact'
+          title={closingCardTitle}
+          body={closingCardBody}
+          ctaText={closingCardCtaText}
+          ctaHref={closingCardHref}
         />
       </Container>
     </>

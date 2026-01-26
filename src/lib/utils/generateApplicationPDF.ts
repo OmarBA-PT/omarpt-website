@@ -3,6 +3,7 @@ import ReactPDF from '@react-pdf/renderer';
 import ApplicationFormPDF from '@/components/PDF/ApplicationFormPDF';
 import { applicationFormData } from '@/data/applicationFormData';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getApplyPrivacyStatement } from '@/actions';
 import fs from 'fs';
 import path from 'path';
 
@@ -24,6 +25,9 @@ export async function generateApplicationPDFBuffer(
     const logoBase64 = logoBuffer.toString('base64');
     const logoUrl = `data:image/png;base64,${logoBase64}`;
 
+    // Fetch privacy statement data from Sanity
+    const privacyStatement = await getApplyPrivacyStatement();
+
     // Create the PDF document element with submitted form data
     const pdfDocument = React.createElement(ApplicationFormPDF, {
       formData: applicationFormData,
@@ -34,6 +38,8 @@ export async function generateApplicationPDFBuffer(
       contactPhone: SITE_CONFIG.ORGANIZATION_PHONE.value,
       contactAddress: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
       websiteUrl: SITE_CONFIG.PRODUCTION_DOMAIN,
+      privacyTitle: privacyStatement?.title,
+      privacyBody: privacyStatement?.body,
     });
 
     // Render to stream

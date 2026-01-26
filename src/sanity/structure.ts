@@ -8,6 +8,9 @@ import {
   SparklesIcon,
   BlockContentIcon,
   CheckmarkCircleIcon,
+  ClipboardIcon,
+  DocumentPdfIcon,
+  LockIcon,
 } from '@sanity/icons';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -116,18 +119,67 @@ export const structure: StructureResolver = (S) =>
             ]),
         ),
 
-      // === APPLY PAGE ===
+      // === APPLY SECTION ===
       S.listItem()
-        .id('applyPage')
-        .schemaType('applyPage')
+        .id('apply')
         .title('Apply')
         .icon(DocumentIcon)
         .child(
-          S.editor()
-            .id('applyPage')
-            .schemaType('applyPage')
-            .documentId('applyPage')
-            .title('Apply Page'),
+          S.list()
+            .title('Apply')
+            .items([
+              // General Content
+              S.listItem()
+                .id('applyPage')
+                .schemaType('applyPage')
+                .title('General Content')
+                .icon(DocumentTextIcon)
+                .child(
+                  S.editor()
+                    .id('applyPage')
+                    .schemaType('applyPage')
+                    .documentId('applyPage')
+                    .title('General Content'),
+                ),
+              // Questionnaire
+              S.listItem()
+                .id('applyQuestionnaire')
+                .schemaType('applyQuestionnaire')
+                .title('Questionnaire')
+                .icon(ClipboardIcon)
+                .child(
+                  S.editor()
+                    .id('applyQuestionnaire')
+                    .schemaType('applyQuestionnaire')
+                    .documentId('applyQuestionnaire')
+                    .title('Questionnaire'),
+                ),
+              // PDF Settings
+              S.listItem()
+                .id('applyPdfSettings')
+                .schemaType('applyPdfSettings')
+                .title('PDF Specific')
+                .icon(DocumentPdfIcon)
+                .child(
+                  S.editor()
+                    .id('applyPdfSettings')
+                    .schemaType('applyPdfSettings')
+                    .documentId('PDF Specific'),
+                ),
+              // Privacy Statement
+              S.listItem()
+                .id('applyPrivacyStatement')
+                .schemaType('applyPrivacyStatement')
+                .title('Privacy Statement')
+                .icon(LockIcon)
+                .child(
+                  S.editor()
+                    .id('applyPrivacyStatement')
+                    .schemaType('applyPrivacyStatement')
+                    .documentId('applyPrivacyStatement')
+                    .title('Privacy Statement'),
+                ),
+            ]),
         ),
 
       S.divider(),

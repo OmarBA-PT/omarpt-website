@@ -304,6 +304,8 @@ interface ApplicationFormPDFProps {
   contactPhone: string;
   contactAddress: string;
   websiteUrl: string;
+  privacyTitle?: string | null;
+  privacyBody?: string | null;
 }
 
 const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
@@ -315,7 +317,17 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   contactPhone,
   contactAddress,
   websiteUrl,
+  privacyTitle,
+  privacyBody,
 }) => {
+  // Default privacy statement values
+  const displayPrivacyTitle = privacyTitle || 'Your Privacy Matters';
+  const defaultPrivacyBody = `I take your privacy seriously. All information you provide will be used solely for processing your coaching application and creating your personalised fitness plan.
+
+I will never share your personal information with third parties, and it will only be retained for as long as necessary to provide my coaching services to you.`;
+  const displayPrivacyBody = privacyBody || defaultPrivacyBody;
+  // Split body into paragraphs for rendering
+  const privacyParagraphs = displayPrivacyBody.split('\n\n').filter((p) => p.trim());
   const renderQuestion = (question: FormQuestion, level: number = 0) => {
     const isConditional = !!question.conditionalOn;
 
@@ -482,15 +494,12 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
           {/* Privacy Statement - at the end of the last section */}
           {isLastSection(sectionIndex) && (
             <View style={styles.privacyStatement} wrap={false}>
-              <Text style={styles.privacyTitle}>Your Privacy Matters</Text>
-              <Text style={styles.privacyText}>
-                I take your privacy seriously. All information you provide will be used solely for
-                processing your coaching application and creating your personalised fitness plan.
-              </Text>
-              <Text style={styles.privacyText}>
-                I will never share your personal information with third parties, and it will only be
-                retained for as long as necessary to provide my coaching services to you.
-              </Text>
+              <Text style={styles.privacyTitle}>{displayPrivacyTitle}</Text>
+              {privacyParagraphs.map((paragraph, index) => (
+                <Text key={index} style={styles.privacyText}>
+                  {paragraph}
+                </Text>
+              ))}
               <Text style={styles.privacyText}>
                 For more information please read my full privacy policy at{' '}
                 {SITE_CONFIG.PRODUCTION_DOMAIN}/privacy-policy

@@ -474,5 +474,48 @@ export const APPLY_PAGE_QUERY = defineQuery(`*[_id == "applyPage"][0]{
   _createdAt,
   _updatedAt,
   title,
-  subtitle
+  subtitle,
+  introduction,
+  applyOnlineTitle,
+  applyOnlineSubtitle,
+  downloadPdfTitle,
+  downloadPdfSubtitle,
+  closingCardTitle,
+  closingCardBody,
+  closingCardCtaText,
+  linkType,
+  internalLink->{
+    _id,
+    _type,
+    title,
+    "slug": select(
+      _type == "homePage" => {"current": ""},
+      _type == "faqPage" => {"current": "faq"},
+      _type == "contactGeneralContent" => {"current": "contact"},
+      _type == "applyPage" => {"current": "apply"},
+      _type == "termsAndConditions" => {"current": "terms-and-conditions"},
+      _type == "privacyPolicy" => {"current": "privacy-policy"},
+      slug
+    ),
+    "href": select(
+      _type == "homePage" => "/",
+      _type == "faqPage" => "/faq",
+      _type == "contactGeneralContent" => "/contact",
+      _type == "applyPage" => "/apply",
+      _type == "termsAndConditions" => "/terms-and-conditions",
+      _type == "privacyPolicy" => "/privacy-policy",
+      "/" + slug.current
+    )
+  },
+  externalUrl,
+  pageSectionId,
+  openInNewTab
+}`);
+
+// Apply Privacy Statement query
+export const APPLY_PRIVACY_STATEMENT_QUERY = defineQuery(`*[_id == "applyPrivacyStatement"][0]{
+  _id,
+  _type,
+  title,
+  body
 }`);

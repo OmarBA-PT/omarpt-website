@@ -53,6 +53,9 @@ import { contactConfirmationEmailType } from './contactConfirmationEmailType';
 import { faqPageType } from './faqPageType';
 import { faqBlockType } from './blocks/faqBlockType';
 import { applyPageType } from './applyPageType';
+import { applyQuestionnaireType } from './applyQuestionnaireType';
+import { applyPdfSettingsType } from './applyPdfSettingsType';
+import { applyPrivacyStatementType } from './applyPrivacyStatementType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -68,6 +71,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactGeneralContentType,
     contactConfirmationEmailType,
     applyPageType,
+    applyQuestionnaireType,
+    applyPdfSettingsType,
+    applyPrivacyStatementType,
     termsAndConditionsType,
     privacyPolicyType,
     blockContentType,

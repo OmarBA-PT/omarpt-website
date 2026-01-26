@@ -6,7 +6,7 @@ import {
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPage, getSiteSettings } from '@/actions';
+import { getApplyPage, getApplyPrivacyStatement, getSiteSettings } from '@/actions';
 import ApplyPageClient from './ApplyPageClient';
 
 export async function generateMetadata() {
@@ -37,7 +37,10 @@ const ApplyPage = async () => {
   const baseUrl = getBaseUrl();
 
   // Fetch apply page data from Sanity
-  const applyPageData = await getApplyPage();
+  const [applyPageData, applyPrivacyStatement] = await Promise.all([
+    getApplyPage(),
+    getApplyPrivacyStatement(),
+  ]);
 
   // Fallback values if Sanity data is not available
   const pageTitle = applyPageData?.title || 'Apply for Coaching';
@@ -80,7 +83,10 @@ const ApplyPage = async () => {
       )}
 
       {/* Client Component */}
-      <ApplyPageClient />
+      <ApplyPageClient
+        generalContent={applyPageData}
+        privacyStatement={applyPrivacyStatement}
+      />
     </>
   );
 };
