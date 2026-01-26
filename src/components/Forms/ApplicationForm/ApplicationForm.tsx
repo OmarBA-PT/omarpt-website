@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { shouldDisplayQuestion } from '@/data/applicationFormData';
-import { combinedApplicationFormData } from '@/data/combinedApplicationFormData';
+import { shouldDisplayQuestion, FormSection, applicationFormData } from '@/data/applicationFormData';
+import { contactDetailsStepData } from './data/contactDetailsStepData';
 import FormField from './FormField';
 import ProgressBar from './ProgressBar';
 import StepIndicators from './StepIndicators';
@@ -18,9 +18,21 @@ import { ApplicationFormData, GroupRefs, FormStatus } from './types';
 
 interface ApplicationFormProps {
   onScrollToBackButton?: () => void;
+  /**
+   * The questionnaire sections from Sanity CMS.
+   * If not provided, falls back to hardcoded applicationFormData.
+   */
+  questionnaireSections?: FormSection[];
 }
 
-const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) => {
+const ApplicationForm = ({ onScrollToBackButton, questionnaireSections }: ApplicationFormProps = {}) => {
+  // Combine contact details (hardcoded) with questionnaire sections (from props or fallback)
+  // Contact details step is always first, followed by questionnaire sections
+  const combinedFormData = useMemo((): FormSection[] => {
+    const sections = questionnaireSections || applicationFormData;
+    return [contactDetailsStepData, ...sections];
+  }, [questionnaireSections]);
+
   // Load persisted state once on client mount
   const persistedState = useMemo(() => {
     if (typeof window === 'undefined') return null;
@@ -59,7 +71,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
   const formData = watch();
 
   // Total steps = all sections in combined data
-  const totalSteps = combinedApplicationFormData.length;
+  const totalSteps = combinedFormData.length;
 
   // Progress calculation: Shows percentage of steps COMPLETED (not including current step)
   // When on step 0 of 4 total steps: 0/4 = 0% (starting, nothing completed yet)
@@ -70,7 +82,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
   const progress = (currentStep / totalSteps) * 100;
 
   // Get current section from combined data
-  const currentSection = combinedApplicationFormData[currentStep];
+  const currentSection = combinedFormData[currentStep];
 
   // Get current question groups
   const questionGroups = currentSection?.questionGroups || [];
@@ -468,7 +480,7 @@ const ApplicationForm = ({ onScrollToBackButton }: ApplicationFormProps = {}) =>
 
           <StepIndicators
             currentStep={currentStep}
-            sections={combinedApplicationFormData}
+            sections={combinedFormData}
             onStepClick={handleStepIndicatorClick}
           />
 

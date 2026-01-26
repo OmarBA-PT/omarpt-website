@@ -519,3 +519,56 @@ export const APPLY_PRIVACY_STATEMENT_QUERY = defineQuery(`*[_id == "applyPrivacy
   title,
   body
 }`);
+
+// Apply Questionnaire query - fetches the full application form structure
+export const APPLY_QUESTIONNAIRE_QUERY = defineQuery(`*[_id == "applyQuestionnaire"][0]{
+  _id,
+  _type,
+  sections[]{
+    _key,
+    id,
+    title,
+    description,
+    questionGroups[]{
+      _key,
+      id,
+      title,
+      questions[]{
+        _key,
+        id,
+        question,
+        type,
+        required,
+        placeholder,
+        helperText,
+        options[]{
+          _key,
+          label,
+          value
+        },
+        subQuestions[]{
+          _key,
+          id,
+          question,
+          type,
+          required,
+          placeholder,
+          helperText,
+          options[]{
+            _key,
+            label,
+            value
+          },
+          conditionalOn{
+            questionId,
+            value
+          }
+        },
+        conditionalOn{
+          questionId,
+          value
+        }
+      }
+    }
+  }
+}`);

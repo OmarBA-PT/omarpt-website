@@ -20,13 +20,15 @@ import type {
   APPLY_PAGE_QUERYResult,
   APPLY_PRIVACY_STATEMENT_QUERYResult,
 } from '@/sanity/types';
+import type { FormSection } from '@/data/applicationFormData';
 
 interface ApplyPageClientProps {
   generalContent: APPLY_PAGE_QUERYResult | null;
   privacyStatement: APPLY_PRIVACY_STATEMENT_QUERYResult | null;
+  questionnaireSections: FormSection[];
 }
 
-const ApplyPageClient = ({ generalContent, privacyStatement }: ApplyPageClientProps) => {
+const ApplyPageClient = ({ generalContent, privacyStatement, questionnaireSections }: ApplyPageClientProps) => {
   const [showForm, setShowForm] = useState(false);
   const [showPrivacyConsent, setShowPrivacyConsent] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
@@ -222,7 +224,10 @@ const ApplyPageClient = ({ generalContent, privacyStatement }: ApplyPageClientPr
           </div>
 
           {/* Application Form */}
-          <ApplicationForm onScrollToBackButton={handleScrollToBackButton} />
+          <ApplicationForm
+            onScrollToBackButton={handleScrollToBackButton}
+            questionnaireSections={questionnaireSections}
+          />
 
           {/* Privacy Statement Below Form */}
           <div className='mt-12'>

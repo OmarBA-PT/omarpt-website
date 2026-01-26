@@ -8163,10 +8163,420 @@
           "type": "string"
         }
       },
-      "placeholder": {
+      "sections": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "id": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "title": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "description": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "questionGroups": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "id": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "title": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "questions": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "array",
+                          "of": {
+                            "type": "object",
+                            "attributes": {
+                              "id": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                },
+                                "optional": true
+                              },
+                              "question": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                },
+                                "optional": true
+                              },
+                              "type": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "union",
+                                  "of": [
+                                    {
+                                      "type": "string",
+                                      "value": "text"
+                                    },
+                                    {
+                                      "type": "string",
+                                      "value": "textarea"
+                                    },
+                                    {
+                                      "type": "string",
+                                      "value": "yesno"
+                                    },
+                                    {
+                                      "type": "string",
+                                      "value": "radio"
+                                    },
+                                    {
+                                      "type": "string",
+                                      "value": "checkbox"
+                                    }
+                                  ]
+                                },
+                                "optional": true
+                              },
+                              "required": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "boolean"
+                                },
+                                "optional": true
+                              },
+                              "placeholder": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                },
+                                "optional": true
+                              },
+                              "helperText": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                },
+                                "optional": true
+                              },
+                              "options": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "array",
+                                  "of": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "label": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "optional": true
+                                      },
+                                      "value": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "optional": true
+                                      },
+                                      "_type": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string",
+                                          "value": "questionOption"
+                                        }
+                                      }
+                                    },
+                                    "rest": {
+                                      "type": "object",
+                                      "attributes": {
+                                        "_key": {
+                                          "type": "objectAttribute",
+                                          "value": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "optional": true
+                              },
+                              "subQuestions": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "array",
+                                  "of": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "id": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "optional": true
+                                      },
+                                      "question": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "optional": true
+                                      },
+                                      "type": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "union",
+                                          "of": [
+                                            {
+                                              "type": "string",
+                                              "value": "text"
+                                            },
+                                            {
+                                              "type": "string",
+                                              "value": "textarea"
+                                            },
+                                            {
+                                              "type": "string",
+                                              "value": "yesno"
+                                            },
+                                            {
+                                              "type": "string",
+                                              "value": "radio"
+                                            },
+                                            {
+                                              "type": "string",
+                                              "value": "checkbox"
+                                            }
+                                          ]
+                                        },
+                                        "optional": true
+                                      },
+                                      "required": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "boolean"
+                                        },
+                                        "optional": true
+                                      },
+                                      "placeholder": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "optional": true
+                                      },
+                                      "helperText": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "optional": true
+                                      },
+                                      "options": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "array",
+                                          "of": {
+                                            "type": "object",
+                                            "attributes": {
+                                              "label": {
+                                                "type": "objectAttribute",
+                                                "value": {
+                                                  "type": "string"
+                                                },
+                                                "optional": true
+                                              },
+                                              "value": {
+                                                "type": "objectAttribute",
+                                                "value": {
+                                                  "type": "string"
+                                                },
+                                                "optional": true
+                                              },
+                                              "_type": {
+                                                "type": "objectAttribute",
+                                                "value": {
+                                                  "type": "string",
+                                                  "value": "questionOption"
+                                                }
+                                              }
+                                            },
+                                            "rest": {
+                                              "type": "object",
+                                              "attributes": {
+                                                "_key": {
+                                                  "type": "objectAttribute",
+                                                  "value": {
+                                                    "type": "string"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "optional": true
+                                      },
+                                      "conditionalOn": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "object",
+                                          "attributes": {
+                                            "questionId": {
+                                              "type": "objectAttribute",
+                                              "value": {
+                                                "type": "string"
+                                              },
+                                              "optional": true
+                                            },
+                                            "value": {
+                                              "type": "objectAttribute",
+                                              "value": {
+                                                "type": "string"
+                                              },
+                                              "optional": true
+                                            }
+                                          }
+                                        },
+                                        "optional": true
+                                      },
+                                      "_type": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string",
+                                          "value": "subQuestion"
+                                        }
+                                      }
+                                    },
+                                    "rest": {
+                                      "type": "object",
+                                      "attributes": {
+                                        "_key": {
+                                          "type": "objectAttribute",
+                                          "value": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "optional": true
+                              },
+                              "conditionalOn": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "object",
+                                  "attributes": {
+                                    "questionId": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "string"
+                                      },
+                                      "optional": true
+                                    },
+                                    "value": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "string"
+                                      },
+                                      "optional": true
+                                    }
+                                  }
+                                },
+                                "optional": true
+                              },
+                              "_type": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string",
+                                  "value": "formQuestion"
+                                }
+                              }
+                            },
+                            "rest": {
+                              "type": "object",
+                              "attributes": {
+                                "_key": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "questionGroup"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "formSection"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
         },
         "optional": true
       }

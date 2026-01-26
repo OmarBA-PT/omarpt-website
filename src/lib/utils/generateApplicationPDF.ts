@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactPDF from '@react-pdf/renderer';
 import ApplicationFormPDF from '@/components/PDF/ApplicationFormPDF';
-import { applicationFormData } from '@/data/applicationFormData';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPrivacyStatement } from '@/actions';
+import { getApplyPrivacyStatement, getApplyQuestionnaire } from '@/actions';
+import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import fs from 'fs';
 import path from 'path';
 
@@ -25,12 +25,18 @@ export async function generateApplicationPDFBuffer(
     const logoBase64 = logoBuffer.toString('base64');
     const logoUrl = `data:image/png;base64,${logoBase64}`;
 
-    // Fetch privacy statement data from Sanity
-    const privacyStatement = await getApplyPrivacyStatement();
+    // Fetch questionnaire and privacy statement data from Sanity
+    const [questionnaireData, privacyStatement] = await Promise.all([
+      getApplyQuestionnaire(),
+      getApplyPrivacyStatement(),
+    ]);
+
+    // Transform questionnaire data from Sanity format to form-compatible format
+    const questionnaireSections = transformQuestionnaireData(questionnaireData);
 
     // Create the PDF document element with submitted form data
     const pdfDocument = React.createElement(ApplicationFormPDF, {
-      formData: applicationFormData,
+      formData: questionnaireSections,
       submittedAnswers: submittedFormData, // Pass the user's submitted answers
       logoUrl: logoUrl,
       businessName: SITE_CONFIG.ORGANIZATION_NAME,

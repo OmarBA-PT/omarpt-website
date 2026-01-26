@@ -3,7 +3,8 @@ import { Resend } from 'resend';
 import { generateApplicationConfirmationEmail } from '@/lib/email-templates/applicationConfirmationEmail';
 import { generateApplicationAdminNotificationEmail } from '@/lib/email-templates/applicationAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
-import { applicationFormData } from '@/data/applicationFormData';
+import { getApplyQuestionnaire } from '@/actions';
+import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import {
   generateApplicationPDFBuffer,
   generatePDFFilename,
@@ -160,6 +161,10 @@ export async function POST(request: Request) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const logoUrl = `${baseUrl}/images/logos/logo.png`;
 
+    // Fetch questionnaire data from Sanity and transform it
+    const questionnaireData = await getApplyQuestionnaire();
+    const questionnaireSections = transformQuestionnaireData(questionnaireData);
+
     // Generate PDF with submitted answers
     let pdfBuffer: Buffer | null = null;
     let pdfFilename = '';
@@ -180,7 +185,7 @@ export async function POST(request: Request) {
       email: sanitizedEmail,
       phone: sanitizedPhone,
       formData: sanitizedFormData,
-      sections: applicationFormData,
+      sections: questionnaireSections,
     });
 
     // Prepare email payload with optional PDF attachment
@@ -219,7 +224,7 @@ export async function POST(request: Request) {
         email: sanitizedEmail,
         phone: sanitizedPhone,
         formData: sanitizedFormData,
-        sections: applicationFormData,
+        sections: questionnaireSections,
         logoUrl,
       });
 

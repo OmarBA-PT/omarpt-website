@@ -1220,7 +1220,59 @@ export type ApplyQuestionnaire = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  placeholder?: string;
+  sections?: Array<{
+    id?: string;
+    title?: string;
+    description?: string;
+    questionGroups?: Array<{
+      id?: string;
+      title?: string;
+      questions?: Array<{
+        id?: string;
+        question?: string;
+        type?: "text" | "textarea" | "yesno" | "radio" | "checkbox";
+        required?: boolean;
+        placeholder?: string;
+        helperText?: string;
+        options?: Array<{
+          label?: string;
+          value?: string;
+          _type: "questionOption";
+          _key: string;
+        }>;
+        subQuestions?: Array<{
+          id?: string;
+          question?: string;
+          type?: "text" | "textarea" | "yesno" | "radio" | "checkbox";
+          required?: boolean;
+          placeholder?: string;
+          helperText?: string;
+          options?: Array<{
+            label?: string;
+            value?: string;
+            _type: "questionOption";
+            _key: string;
+          }>;
+          conditionalOn?: {
+            questionId?: string;
+            value?: string;
+          };
+          _type: "subQuestion";
+          _key: string;
+        }>;
+        conditionalOn?: {
+          questionId?: string;
+          value?: string;
+        };
+        _type: "formQuestion";
+        _key: string;
+      }>;
+      _type: "questionGroup";
+      _key: string;
+    }>;
+    _type: "formSection";
+    _key: string;
+  }>;
 };
 
 export type ContactConfirmationEmail = {
@@ -221789,6 +221841,135 @@ export type APPLY_PRIVACY_STATEMENT_QUERYResult = {
   title: string | null;
   body: null;
 } | null;
+// Variable: APPLY_QUESTIONNAIRE_QUERY
+// Query: *[_id == "applyQuestionnaire"][0]{  _id,  _type,  sections[]{    _key,    id,    title,    description,    questionGroups[]{      _key,      id,      title,      questions[]{        _key,        id,        question,        type,        required,        placeholder,        helperText,        options[]{          _key,          label,          value        },        subQuestions[]{          _key,          id,          question,          type,          required,          placeholder,          helperText,          options[]{            _key,            label,            value          },          conditionalOn{            questionId,            value          }        },        conditionalOn{          questionId,          value        }      }    }  }}
+export type APPLY_QUESTIONNAIRE_QUERYResult = {
+  _id: "applyQuestionnaire";
+  _type: "applyPage";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "applyPdfSettings";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "applyPrivacyStatement";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "applyQuestionnaire";
+  sections: Array<{
+    _key: string;
+    id: string | null;
+    title: string | null;
+    description: string | null;
+    questionGroups: Array<{
+      _key: string;
+      id: string | null;
+      title: string | null;
+      questions: Array<{
+        _key: string;
+        id: string | null;
+        question: string | null;
+        type: "checkbox" | "radio" | "text" | "textarea" | "yesno" | null;
+        required: boolean | null;
+        placeholder: string | null;
+        helperText: string | null;
+        options: Array<{
+          _key: string;
+          label: string | null;
+          value: string | null;
+        }> | null;
+        subQuestions: Array<{
+          _key: string;
+          id: string | null;
+          question: string | null;
+          type: "checkbox" | "radio" | "text" | "textarea" | "yesno" | null;
+          required: boolean | null;
+          placeholder: string | null;
+          helperText: string | null;
+          options: Array<{
+            _key: string;
+            label: string | null;
+            value: string | null;
+          }> | null;
+          conditionalOn: {
+            questionId: string | null;
+            value: string | null;
+          } | null;
+        }> | null;
+        conditionalOn: {
+          questionId: string | null;
+          value: string | null;
+        } | null;
+      }> | null;
+    }> | null;
+  }> | null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "companyLinks";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "contactConfirmationEmail";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "contactFormSettings";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "contactGeneralContent";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "faqPage";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "footer";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "header";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "homePage";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "homePageHero";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "homePageSections";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "page";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "privacyPolicy";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "sanity.fileAsset";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "sanity.imageAsset";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "siteSettings";
+  sections: null;
+} | {
+  _id: "applyQuestionnaire";
+  _type: "termsAndConditions";
+  sections: null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -221811,5 +221992,6 @@ declare module "@sanity/client" {
     "*[_id == \"contactConfirmationEmail\"][0]{\n  _id,\n  _type,\n  emailGreeting,\n  emailIntroMessage,\n  emailOutroMessage\n}": CONTACT_CONFIRMATION_EMAIL_QUERYResult;
     "*[_id == \"applyPage\"][0]{\n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  title,\n  subtitle,\n  introduction,\n  applyOnlineTitle,\n  applyOnlineSubtitle,\n  downloadPdfTitle,\n  downloadPdfSubtitle,\n  closingCardTitle,\n  closingCardBody,\n  closingCardCtaText,\n  linkType,\n  internalLink->{\n    _id,\n    _type,\n    title,\n    \"slug\": select(\n      _type == \"homePage\" => {\"current\": \"\"},\n      _type == \"faqPage\" => {\"current\": \"faq\"},\n      _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n      _type == \"applyPage\" => {\"current\": \"apply\"},\n      _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n      _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n      slug\n    ),\n    \"href\": select(\n      _type == \"homePage\" => \"/\",\n      _type == \"faqPage\" => \"/faq\",\n      _type == \"contactGeneralContent\" => \"/contact\",\n      _type == \"applyPage\" => \"/apply\",\n      _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n      _type == \"privacyPolicy\" => \"/privacy-policy\",\n      \"/\" + slug.current\n    )\n  },\n  externalUrl,\n  pageSectionId,\n  openInNewTab\n}": APPLY_PAGE_QUERYResult;
     "*[_id == \"applyPrivacyStatement\"][0]{\n  _id,\n  _type,\n  title,\n  body\n}": APPLY_PRIVACY_STATEMENT_QUERYResult;
+    "*[_id == \"applyQuestionnaire\"][0]{\n  _id,\n  _type,\n  sections[]{\n    _key,\n    id,\n    title,\n    description,\n    questionGroups[]{\n      _key,\n      id,\n      title,\n      questions[]{\n        _key,\n        id,\n        question,\n        type,\n        required,\n        placeholder,\n        helperText,\n        options[]{\n          _key,\n          label,\n          value\n        },\n        subQuestions[]{\n          _key,\n          id,\n          question,\n          type,\n          required,\n          placeholder,\n          helperText,\n          options[]{\n            _key,\n            label,\n            value\n          },\n          conditionalOn{\n            questionId,\n            value\n          }\n        },\n        conditionalOn{\n          questionId,\n          value\n        }\n      }\n    }\n  }\n}": APPLY_QUESTIONNAIRE_QUERYResult;
   }
 }
