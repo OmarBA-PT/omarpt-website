@@ -11,22 +11,28 @@ export const applyPdfSettingsType = defineType({
   type: 'document',
   icon: DocumentPdfIcon,
   fields: [
-    // Placeholder field - will be replaced with actual PDF settings fields
     defineField({
-      name: 'placeholder',
+      name: 'pdfTitle',
       type: 'string',
-      title: 'Coming Soon',
-      description: 'PDF settings will be added here in a future update.',
-      readOnly: true,
-      initialValue: 'PDF settings coming soon...',
-      hidden: true,
+      title: 'PDF Title',
+      description: 'The main title that appears at the top of the PDF form (e.g., "Coaching Application Form")',
+      initialValue: 'Coaching Application Form',
+      validation: (Rule) => Rule.max(100),
+    }),
+    defineField({
+      name: 'pdfSubtitle',
+      type: 'string',
+      title: 'PDF Subtitle',
+      description: 'The subtitle that appears below the PDF title (e.g., "Please complete the form below as thoroughly as possible.")',
+      initialValue: 'Please complete the form below as thoroughly as possible.',
+      validation: (Rule) => Rule.max(200),
     }),
   ],
   preview: {
     prepare() {
       return {
         title: 'Apply - PDF Settings',
-        subtitle: 'PDF generation settings (coming soon)',
+        subtitle: 'PDF title, subtitle, and generation settings',
       };
     },
   },

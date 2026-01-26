@@ -520,6 +520,14 @@ export const APPLY_PRIVACY_STATEMENT_QUERY = defineQuery(`*[_id == "applyPrivacy
   body
 }`);
 
+// Apply PDF Settings query
+export const APPLY_PDF_SETTINGS_QUERY = defineQuery(`*[_id == "applyPdfSettings"][0]{
+  _id,
+  _type,
+  pdfTitle,
+  pdfSubtitle
+}`);
+
 // Apply Questionnaire query - fetches the full application form structure
 export const APPLY_QUESTIONNAIRE_QUERY = defineQuery(`*[_id == "applyQuestionnaire"][0]{
   _id,

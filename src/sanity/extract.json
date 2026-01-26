@@ -8119,7 +8119,14 @@
           "type": "string"
         }
       },
-      "placeholder": {
+      "pdfTitle": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "pdfSubtitle": {
         "type": "objectAttribute",
         "value": {
           "type": "string"

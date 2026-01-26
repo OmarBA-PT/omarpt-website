@@ -304,6 +304,8 @@ interface ApplicationFormPDFProps {
   contactPhone: string;
   contactAddress: string;
   websiteUrl: string;
+  pdfTitle?: string | null;
+  pdfSubtitle?: string | null;
   privacyTitle?: string | null;
   privacyBody?: string | null;
 }
@@ -317,9 +319,15 @@ const ApplicationFormPDF: React.FC<ApplicationFormPDFProps> = ({
   contactPhone,
   contactAddress,
   websiteUrl,
+  pdfTitle,
+  pdfSubtitle,
   privacyTitle,
   privacyBody,
 }) => {
+  // Default PDF title and subtitle values
+  const displayPdfTitle = pdfTitle || 'Coaching Application Form';
+  const displayPdfSubtitle = pdfSubtitle || 'Please complete the form below as thoroughly as possible.';
+
   // Default privacy statement values
   const displayPrivacyTitle = privacyTitle || 'Your Privacy Matters';
   const defaultPrivacyBody = `I take your privacy seriously. All information you provide will be used solely for processing your coaching application and creating your personalised fitness plan.
@@ -459,10 +467,8 @@ I will never share your personal information with third parties, and it will onl
                   <Text>{contactAddress}</Text>
                 </View>
               </View>
-              <Text style={styles.title}>Coaching Application Form</Text>
-              <Text style={styles.subtitle}>
-                Please complete the form below as thoroughly as possible.
-              </Text>
+              <Text style={styles.title}>{displayPdfTitle}</Text>
+              <Text style={styles.subtitle}>{displayPdfSubtitle}</Text>
               <View style={styles.submissionInstructions}>
                 <Text style={styles.instructionLine}>
                   Once the form is complete, please email to{' '}

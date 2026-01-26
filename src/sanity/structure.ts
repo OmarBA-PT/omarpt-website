@@ -164,7 +164,7 @@ export const structure: StructureResolver = (S) =>
                   S.editor()
                     .id('applyPdfSettings')
                     .schemaType('applyPdfSettings')
-                    .documentId('PDF Specific'),
+                    .documentId('applyPdfSettings'),
                 ),
               // Privacy Statement
               S.listItem()

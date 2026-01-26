@@ -1211,7 +1211,8 @@ export type ApplyPdfSettings = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  placeholder?: string;
+  pdfTitle?: string;
+  pdfSubtitle?: string;
 };
 
 export type ApplyQuestionnaire = {
@@ -221841,6 +221842,109 @@ export type APPLY_PRIVACY_STATEMENT_QUERYResult = {
   title: string | null;
   body: null;
 } | null;
+// Variable: APPLY_PDF_SETTINGS_QUERY
+// Query: *[_id == "applyPdfSettings"][0]{  _id,  _type,  pdfTitle,  pdfSubtitle}
+export type APPLY_PDF_SETTINGS_QUERYResult = {
+  _id: "applyPdfSettings";
+  _type: "applyPage";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "applyPdfSettings";
+  pdfTitle: string | null;
+  pdfSubtitle: string | null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "applyPrivacyStatement";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "applyQuestionnaire";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "companyLinks";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "contactConfirmationEmail";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "contactFormSettings";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "contactGeneralContent";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "faqPage";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "footer";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "header";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "homePage";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "homePageHero";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "homePageSections";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "page";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "privacyPolicy";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "sanity.fileAsset";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "sanity.imageAsset";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "siteSettings";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | {
+  _id: "applyPdfSettings";
+  _type: "termsAndConditions";
+  pdfTitle: null;
+  pdfSubtitle: null;
+} | null;
 // Variable: APPLY_QUESTIONNAIRE_QUERY
 // Query: *[_id == "applyQuestionnaire"][0]{  _id,  _type,  sections[]{    _key,    id,    title,    description,    questionGroups[]{      _key,      id,      title,      questions[]{        _key,        id,        question,        type,        required,        placeholder,        helperText,        options[]{          _key,          label,          value        },        subQuestions[]{          _key,          id,          question,          type,          required,          placeholder,          helperText,          options[]{            _key,            label,            value          },          conditionalOn{            questionId,            value          }        },        conditionalOn{          questionId,          value        }      }    }  }}
 export type APPLY_QUESTIONNAIRE_QUERYResult = {
@@ -221992,6 +222096,7 @@ declare module "@sanity/client" {
     "*[_id == \"contactConfirmationEmail\"][0]{\n  _id,\n  _type,\n  emailGreeting,\n  emailIntroMessage,\n  emailOutroMessage\n}": CONTACT_CONFIRMATION_EMAIL_QUERYResult;
     "*[_id == \"applyPage\"][0]{\n  _id,\n  _type,\n  _createdAt,\n  _updatedAt,\n  title,\n  subtitle,\n  introduction,\n  applyOnlineTitle,\n  applyOnlineSubtitle,\n  downloadPdfTitle,\n  downloadPdfSubtitle,\n  closingCardTitle,\n  closingCardBody,\n  closingCardCtaText,\n  linkType,\n  internalLink->{\n    _id,\n    _type,\n    title,\n    \"slug\": select(\n      _type == \"homePage\" => {\"current\": \"\"},\n      _type == \"faqPage\" => {\"current\": \"faq\"},\n      _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n      _type == \"applyPage\" => {\"current\": \"apply\"},\n      _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n      _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n      slug\n    ),\n    \"href\": select(\n      _type == \"homePage\" => \"/\",\n      _type == \"faqPage\" => \"/faq\",\n      _type == \"contactGeneralContent\" => \"/contact\",\n      _type == \"applyPage\" => \"/apply\",\n      _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n      _type == \"privacyPolicy\" => \"/privacy-policy\",\n      \"/\" + slug.current\n    )\n  },\n  externalUrl,\n  pageSectionId,\n  openInNewTab\n}": APPLY_PAGE_QUERYResult;
     "*[_id == \"applyPrivacyStatement\"][0]{\n  _id,\n  _type,\n  title,\n  body\n}": APPLY_PRIVACY_STATEMENT_QUERYResult;
+    "*[_id == \"applyPdfSettings\"][0]{\n  _id,\n  _type,\n  pdfTitle,\n  pdfSubtitle\n}": APPLY_PDF_SETTINGS_QUERYResult;
     "*[_id == \"applyQuestionnaire\"][0]{\n  _id,\n  _type,\n  sections[]{\n    _key,\n    id,\n    title,\n    description,\n    questionGroups[]{\n      _key,\n      id,\n      title,\n      questions[]{\n        _key,\n        id,\n        question,\n        type,\n        required,\n        placeholder,\n        helperText,\n        options[]{\n          _key,\n          label,\n          value\n        },\n        subQuestions[]{\n          _key,\n          id,\n          question,\n          type,\n          required,\n          placeholder,\n          helperText,\n          options[]{\n            _key,\n            label,\n            value\n          },\n          conditionalOn{\n            questionId,\n            value\n          }\n        },\n        conditionalOn{\n          questionId,\n          value\n        }\n      }\n    }\n  }\n}": APPLY_QUESTIONNAIRE_QUERYResult;
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPDF from '@react-pdf/renderer';
 import ApplicationFormPDF from '@/components/PDF/ApplicationFormPDF';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPrivacyStatement, getApplyQuestionnaire } from '@/actions';
+import { getApplyPrivacyStatement, getApplyPdfSettings, getApplyQuestionnaire } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import fs from 'fs';
 import path from 'path';
@@ -25,10 +25,11 @@ export async function generateApplicationPDFBuffer(
     const logoBase64 = logoBuffer.toString('base64');
     const logoUrl = `data:image/png;base64,${logoBase64}`;
 
-    // Fetch questionnaire and privacy statement data from Sanity
-    const [questionnaireData, privacyStatement] = await Promise.all([
+    // Fetch questionnaire, privacy statement, and PDF settings data from Sanity
+    const [questionnaireData, privacyStatement, pdfSettings] = await Promise.all([
       getApplyQuestionnaire(),
       getApplyPrivacyStatement(),
+      getApplyPdfSettings(),
     ]);
 
     // Transform questionnaire data from Sanity format to form-compatible format
@@ -44,6 +45,8 @@ export async function generateApplicationPDFBuffer(
       contactPhone: SITE_CONFIG.ORGANIZATION_PHONE.value,
       contactAddress: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
       websiteUrl: SITE_CONFIG.PRODUCTION_DOMAIN,
+      pdfTitle: pdfSettings?.pdfTitle,
+      pdfSubtitle: pdfSettings?.pdfSubtitle,
       privacyTitle: privacyStatement?.title,
       privacyBody: privacyStatement?.body,
     });
