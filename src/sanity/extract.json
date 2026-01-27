@@ -11643,7 +11643,7 @@
     }
   },
   {
-    "name": "siteSettings",
+    "name": "seoMetaData",
     "type": "document",
     "attributes": {
       "_id": {
@@ -11656,7 +11656,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "siteSettings"
+          "value": "seoMetaData"
         }
       },
       "_createdAt": {

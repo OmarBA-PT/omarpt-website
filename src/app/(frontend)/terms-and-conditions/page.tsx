@@ -11,7 +11,7 @@ import {
 } from '@/lib/metadata';
 import {
   generateArticleSchema,
-  getOrganizationDataFromSiteSettings,
+  getOrganizationDataFromSeoMetaData,
   generateStructuredDataScript,
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
@@ -25,9 +25,9 @@ export async function generateMetadata() {
     getTermsAndConditions(),
   ]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
-  if (!siteSettings) {
+  if (!seoMetaData) {
     return {
       title: `Terms & Conditions | ${SITE_CONFIG.ORGANIZATION_NAME}`,
       description: 'Terms and conditions for using my website and services',
@@ -39,8 +39,8 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title,
     description:
-      siteSettings.siteDescription || 'Terms and conditions for using my website and services',
-    siteSettings,
+      seoMetaData.siteDescription || 'Terms and conditions for using my website and services',
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl('/terms-and-conditions'),
   });
 }
@@ -51,7 +51,7 @@ const TermsAndConditionsPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
   // If the page is hidden or doesn't exist, show 404
   if (!termsData || termsData.hide) {
@@ -68,16 +68,16 @@ const TermsAndConditionsPage = async () => {
 
   // Generate Article structured data
   let articleSchema;
-  if (siteSettings && termsData._updatedAt) {
-    const organizationData = getOrganizationDataFromSiteSettings(siteSettings, baseUrl);
+  if (seoMetaData && termsData._updatedAt) {
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
 
     articleSchema = generateArticleSchema({
       headline: termsData.title || 'Terms & Conditions',
-      description: siteSettings.siteDescription || undefined,
+      description: seoMetaData.siteDescription || undefined,
       datePublished: termsData._updatedAt,
       dateModified: termsData._updatedAt,
       author: {
-        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,

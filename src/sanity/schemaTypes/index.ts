@@ -37,7 +37,7 @@ import { blockListWithStatsType } from './blocks/blockListWithStatsType';
 import { checkListType } from './blocks/checkListType';
 import { itemListType } from './blocks/itemListType';
 import { serviceCardType } from './blocks/serviceCardType';
-import { siteSettingsType } from './siteSettingsType';
+import { seoMetaDataType } from './seoMetaDataType';
 import { companyLinksType } from './companyLinksType';
 import { companyLinksArrayType } from './shared/socialLinksArrayType';
 import { ctaListType } from './shared/ctaListType';
@@ -60,7 +60,7 @@ import { applyPrivacyStatementType } from './applyPrivacyStatementType';
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Documents
-    siteSettingsType,
+    seoMetaDataType,
     companyLinksType,
     contactFormSettingsType,
     homePageType,

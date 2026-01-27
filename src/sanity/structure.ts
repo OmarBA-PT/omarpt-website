@@ -278,19 +278,19 @@ export const structure: StructureResolver = (S) =>
                     .id('companyLinks')
                     .schemaType('companyLinks')
                     .documentId('companyLinks')
-                    .title('Company Links'),
+                    .title('Company & Social Links'),
                 ),
-              // Site Settings - Singleton
+              // SEO and Meta Data - Singleton
               S.listItem()
-                .id('siteSettings')
-                .schemaType('siteSettings')
-                .title('Site Settings')
+                .id('seoMetaData')
+                .schemaType('seoMetaData')
+                .title('SEO & Meta Data')
                 .child(
                   S.editor()
-                    .id('siteSettings')
-                    .schemaType('siteSettings')
-                    .documentId('siteSettings')
-                    .title('Site Settings'),
+                    .id('seoMetaData')
+                    .schemaType('seoMetaData')
+                    .documentId('seoMetaData')
+                    .title('SEO & Meta Data'),
                 ),
             ]),
         ),

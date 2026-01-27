@@ -11,17 +11,17 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
-import { getContactFormSettings, getContactGeneralContent, getSiteSettings } from '@/actions';
+import { getContactFormSettings, getContactGeneralContent, getSeoMetaData } from '@/actions';
 import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
 import CardGradient from '@/components/UI/CardGradient';
 
 export async function generateMetadata() {
-  // Fetch contact page data and site settings for metadata
-  const [contactPageData, siteSettings] = await Promise.all([
+  // Fetch contact page data and SEO meta data for metadata
+  const [contactPageData, seoMetaData] = await Promise.all([
     getContactGeneralContent(),
-    getSiteSettings(),
+    getSeoMetaData(),
   ]);
 
   // Hard-coded fallback values (lowest priority)
@@ -36,7 +36,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: ogTitle,
     description: ogDescription,
-    siteSettings,
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl('/contact'),
   });
 }

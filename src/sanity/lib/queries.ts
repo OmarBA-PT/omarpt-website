@@ -315,7 +315,7 @@ export const HEADER_QUERY = defineQuery(`*[_id == "header"][0]{
   }
 }`);
 
-export const SITE_SETTINGS_QUERY = defineQuery(`*[_id == "siteSettings"][0]{
+export const SEO_META_DATA_QUERY = defineQuery(`*[_id == "seoMetaData"][0]{
   _id,
   _type,
   siteTitle,

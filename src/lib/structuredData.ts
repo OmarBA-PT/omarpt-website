@@ -1,5 +1,5 @@
 import { urlFor } from '@/sanity/lib/image';
-import type { SITE_SETTINGS_QUERYResult, COMPANY_LINKS_QUERYResult } from '@/sanity/types';
+import type { SEO_META_DATA_QUERYResult, COMPANY_LINKS_QUERYResult } from '@/sanity/types';
 import type { ImageObjectData } from '@/lib/imageUtils';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -258,35 +258,35 @@ export function generateFAQPageSchema(items: FAQItem[]) {
  * Generates Organization data from site settings.
  * Optionally includes social media profiles from company links for the sameAs field.
  */
-export function getOrganizationDataFromSiteSettings(
-  siteSettings: SITE_SETTINGS_QUERYResult,
+export function getOrganizationDataFromSeoMetaData(
+  seoMetaData: SEO_META_DATA_QUERYResult,
   baseUrl: string,
   companyLinks?: COMPANY_LINKS_QUERYResult | null
 ): OrganizationData {
   const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
 
   return {
-    name: siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+    name: seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
     url: baseUrl,
     email: SITE_CONFIG.ORGANIZATION_EMAIL.value,
     telephone: SITE_CONFIG.ORGANIZATION_PHONE.value,
     address: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
-    ...(siteSettings?.siteDescription && { description: siteSettings.siteDescription }),
-    ...(siteSettings?.defaultOgImage && {
-      logo: urlFor(siteSettings.defaultOgImage).width(512).height(512).url(),
+    ...(seoMetaData?.siteDescription && { description: seoMetaData.siteDescription }),
+    ...(seoMetaData?.defaultOgImage && {
+      logo: urlFor(seoMetaData.defaultOgImage).width(512).height(512).url(),
     }),
     ...(socialMediaUrls.length > 0 && { sameAs: socialMediaUrls }),
   };
 }
 
-export function getWebSiteDataFromSiteSettings(
-  siteSettings: SITE_SETTINGS_QUERYResult,
+export function getWebSiteDataFromSeoMetaData(
+  seoMetaData: SEO_META_DATA_QUERYResult,
   baseUrl: string
 ): WebSiteData {
   return {
-    name: siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+    name: seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
     url: baseUrl,
-    ...(siteSettings?.siteDescription && { description: siteSettings.siteDescription }),
+    ...(seoMetaData?.siteDescription && { description: seoMetaData.siteDescription }),
   };
 }
 
@@ -312,7 +312,7 @@ export function getSocialMediaUrlsFromCompanyLinks(
 }
 
 /**
- * Generates LocalBusiness structured data from site settings and business constants.
+ * Generates LocalBusiness structured data from SEO meta data and business constants.
  *
  * Business-specific data (location, hours, service areas) is centralized
  * in SITE_CONFIG in constants.ts for easy maintenance. Update constants.ts to change
@@ -320,16 +320,16 @@ export function getSocialMediaUrlsFromCompanyLinks(
  *
  * Social media profiles are pulled from Sanity Company Links for content editor control.
  */
-export function getLocalBusinessDataFromSiteSettings(
-  siteSettings: SITE_SETTINGS_QUERYResult,
+export function getLocalBusinessDataFromSeoMetaData(
+  seoMetaData: SEO_META_DATA_QUERYResult,
   baseUrl: string,
   companyLinks?: COMPANY_LINKS_QUERYResult | null
 ): LocalBusinessData {
   const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
 
   return {
-    name: siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
-    description: siteSettings?.siteDescription || SITE_CONFIG.ORGANIZATION_DESCRIPTION,
+    name: seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+    description: seoMetaData?.siteDescription || SITE_CONFIG.ORGANIZATION_DESCRIPTION,
     url: baseUrl,
     telephone: SITE_CONFIG.ORGANIZATION_PHONE.value,
     email: SITE_CONFIG.ORGANIZATION_EMAIL.value,
@@ -346,11 +346,11 @@ export function getLocalBusinessDataFromSiteSettings(
     },
     openingHours: SITE_CONFIG.BUSINESS_HOURS,
     ...(SITE_CONFIG.PRICE_RANGE !== '' && { priceRange: SITE_CONFIG.PRICE_RANGE }),
-    ...(siteSettings?.defaultOgImage && {
-      image: urlFor(siteSettings.defaultOgImage).width(1200).height(630).url(),
+    ...(seoMetaData?.defaultOgImage && {
+      image: urlFor(seoMetaData.defaultOgImage).width(1200).height(630).url(),
     }),
-    ...(siteSettings?.defaultOgImage && {
-      logo: urlFor(siteSettings.defaultOgImage).width(512).height(512).url(),
+    ...(seoMetaData?.defaultOgImage && {
+      logo: urlFor(seoMetaData.defaultOgImage).width(512).height(512).url(),
     }),
     areaServed: SITE_CONFIG.SERVICE_AREAS,
     sameAs: socialMediaUrls,

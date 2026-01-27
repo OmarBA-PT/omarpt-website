@@ -5,7 +5,7 @@ import { DocumentActionsResolver } from 'sanity';
 
 // List of document types that should be protected from deletion and duplication
 const PROTECTED_DOCUMENT_TYPES = [
-  'siteSettings',
+  'seoMetaData',
   'header',
   'footer',
   'homePage',

@@ -11,7 +11,7 @@ import {
 } from '@/lib/metadata';
 import {
   generateArticleSchema,
-  getOrganizationDataFromSiteSettings,
+  getOrganizationDataFromSeoMetaData,
   generateStructuredDataScript,
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
@@ -25,9 +25,9 @@ export async function generateMetadata() {
     getPrivacyPolicy(),
   ]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
-  if (!siteSettings) {
+  if (!seoMetaData) {
     return {
       title: `Privacy Policy | ${SITE_CONFIG.ORGANIZATION_NAME}`,
       description: 'Privacy policy for my website and how I handle your data',
@@ -39,8 +39,8 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title,
     description:
-      siteSettings.siteDescription || 'Privacy policy for my website and how I handle your data',
-    siteSettings,
+      seoMetaData.siteDescription || 'Privacy policy for my website and how I handle your data',
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl('/privacy-policy'),
   });
 }
@@ -51,7 +51,7 @@ const PrivacyPolicyPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
   // If the page is hidden or doesn't exist, show 404
   if (!privacyData || privacyData.hide) {
@@ -68,16 +68,16 @@ const PrivacyPolicyPage = async () => {
 
   // Generate Article structured data
   let articleSchema;
-  if (siteSettings && privacyData._updatedAt) {
-    const organizationData = getOrganizationDataFromSiteSettings(siteSettings, baseUrl);
+  if (seoMetaData && privacyData._updatedAt) {
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
 
     articleSchema = generateArticleSchema({
       headline: privacyData.title || 'Privacy Policy',
-      description: siteSettings.siteDescription || undefined,
+      description: seoMetaData.siteDescription || undefined,
       datePublished: privacyData._updatedAt,
       dateModified: privacyData._updatedAt,
       author: {
-        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,

@@ -7,9 +7,9 @@ import type { PAGE_QUERYResult } from '@/sanity/types';
 
 export async function generateMetadata() {
   const pageBuilderData = await getPageBuilderData();
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
-  if (!siteSettings) {
+  if (!seoMetaData) {
     return {
       title: SITE_CONFIG.ORGANIZATION_NAME,
       description: SITE_CONFIG.ORGANIZATION_DESCRIPTION,
@@ -17,7 +17,7 @@ export async function generateMetadata() {
   }
 
   return generatePageMetadata({
-    siteSettings,
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl('/'),
   });
 }

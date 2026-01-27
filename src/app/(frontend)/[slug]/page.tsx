@@ -11,7 +11,7 @@ import {
 } from '@/lib/metadata';
 import {
   generateArticleSchema,
-  getOrganizationDataFromSiteSettings,
+  getOrganizationDataFromSeoMetaData,
   generateStructuredDataScript,
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const [pageBuilderData, page] = await Promise.all([getPageBuilderData(), getPageBySlug(slug)]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
-  if (!siteSettings) {
+  if (!seoMetaData) {
     return {
       title: SITE_CONFIG.ORGANIZATION_NAME,
       description: SITE_CONFIG.ORGANIZATION_DESCRIPTION,
@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return generatePageMetadata({
     title: page.title || undefined,
-    description: page.subtitle || siteSettings.siteDescription || undefined,
-    siteSettings,
+    description: page.subtitle || seoMetaData.siteDescription || undefined,
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl(`/${slug}`),
   });
 }
@@ -54,7 +54,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     getPageBuilderData(),
   ]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
   if (!page) {
     notFound();
@@ -70,8 +70,8 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   // Generate Article structured data
   let articleSchema;
-  if (siteSettings && page._createdAt && page._updatedAt) {
-    const organizationData = getOrganizationDataFromSiteSettings(siteSettings, baseUrl);
+  if (seoMetaData && page._createdAt && page._updatedAt) {
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
 
     articleSchema = generateArticleSchema({
       headline: page.title || 'Page',
@@ -80,7 +80,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       datePublished: page._createdAt,
       dateModified: page._updatedAt,
       author: {
-        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,

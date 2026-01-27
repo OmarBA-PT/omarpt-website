@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { urlFor } from '@/sanity/lib/image';
-import type { SITE_SETTINGS_QUERYResult } from '@/sanity/types';
+import type { SEO_META_DATA_QUERYResult } from '@/sanity/types';
 import { SITE_CONFIG } from '@/lib/constants';
 
 /**
@@ -35,7 +35,7 @@ export interface MetadataConfig {
     alt?: string | null;
   } | null;
   canonicalUrl?: string;
-  siteSettings: SITE_SETTINGS_QUERYResult;
+  seoMetaData: SEO_META_DATA_QUERYResult;
   publishedTime?: string;
   modifiedTime?: string;
 }
@@ -45,14 +45,14 @@ export function generateMetadata({
   description,
   image,
   canonicalUrl,
-  siteSettings,
+  seoMetaData,
   publishedTime,
   modifiedTime,
 }: MetadataConfig): Metadata {
-  const siteTitle = siteSettings?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME;
-  const siteTagline = siteSettings?.siteTagline ? ` | ${siteSettings.siteTagline}` : '';
-  const siteDescription = siteSettings?.siteDescription || '';
-  const seoKeywords = siteSettings?.seoKeywords || '';
+  const siteTitle = seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME;
+  const siteTagline = seoMetaData?.siteTagline ? ` | ${seoMetaData.siteTagline}` : '';
+  const siteDescription = seoMetaData?.siteDescription || '';
+  const seoKeywords = seoMetaData?.seoKeywords || '';
 
   // Generate page title
   const pageTitle = title ? `${siteTitle} | ${title}` : `${siteTitle}${siteTagline}`;
@@ -68,10 +68,10 @@ export function generateMetadata({
     // Use provided image
     ogImageUrl = urlFor(image).width(1200).height(630).url();
     ogImageAlt = image.alt || `${siteTitle} - ${title || siteTagline}`;
-  } else if (siteSettings?.defaultOgImage?.asset?._ref) {
+  } else if (seoMetaData?.defaultOgImage?.asset?._ref) {
     // Fall back to site default image
-    ogImageUrl = urlFor(siteSettings.defaultOgImage).width(1200).height(630).url();
-    ogImageAlt = siteSettings.defaultOgImage.alt || `${siteTitle} - ${title || siteTagline}`;
+    ogImageUrl = urlFor(seoMetaData.defaultOgImage).width(1200).height(630).url();
+    ogImageAlt = seoMetaData.defaultOgImage.alt || `${siteTitle} - ${title || siteTagline}`;
   }
 
   const metadata: Metadata = {

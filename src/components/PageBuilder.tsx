@@ -58,7 +58,7 @@ const BlockRenderer = ({
   alignment = 'center',
 }: BlockRendererProps) => {
   // Destructure for easier access
-  const { siteSettings, companyLinks, contactFormSettings } = pageBuilderData;
+  const { seoMetaData, companyLinks, contactFormSettings } = pageBuilderData;
   if (!Array.isArray(blocks)) {
     return null;
   }

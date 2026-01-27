@@ -111,7 +111,7 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
   } = options;
 
   // Destructure for easier access
-  const { siteSettings, companyLinks, contactFormSettings } = pageBuilderData;
+  const { seoMetaData, companyLinks, contactFormSettings } = pageBuilderData;
 
   // Type narrow to BlockType
   const typedBlock = block as BlockType;

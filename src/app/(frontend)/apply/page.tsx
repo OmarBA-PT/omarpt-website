@@ -6,15 +6,15 @@ import {
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPage, getApplyPrivacyStatement, getApplyQuestionnaire, getSiteSettings } from '@/actions';
+import { getApplyPage, getApplyPrivacyStatement, getApplyQuestionnaire, getSeoMetaData } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import ApplyPageClient from './ApplyPageClient';
 
 export async function generateMetadata() {
-  // Fetch apply page data and site settings for metadata
-  const [applyPageData, siteSettings] = await Promise.all([
+  // Fetch apply page data and SEO meta data for metadata
+  const [applyPageData, seoMetaData] = await Promise.all([
     getApplyPage(),
-    getSiteSettings(),
+    getSeoMetaData(),
   ]);
 
   // Hard-coded fallback values (lowest priority)
@@ -29,7 +29,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: ogTitle,
     description: ogDescription,
-    siteSettings,
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl('/apply'),
   });
 }

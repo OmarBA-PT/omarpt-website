@@ -14,7 +14,7 @@ import {
 import {
   generateArticleSchema,
   generateFAQPageSchema,
-  getOrganizationDataFromSiteSettings,
+  getOrganizationDataFromSeoMetaData,
   generateStructuredDataScript,
   FAQItem,
 } from '@/lib/structuredData';
@@ -25,9 +25,9 @@ import { SITE_CONFIG } from '@/lib/constants';
 export async function generateMetadata() {
   const [pageBuilderData, faqData] = await Promise.all([getPageBuilderData(), getFaqPage()]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
-  if (!siteSettings) {
+  if (!seoMetaData) {
     return {
       title: `FAQ | ${SITE_CONFIG.ORGANIZATION_NAME}`,
       description: 'Frequently asked questions about my services',
@@ -35,12 +35,12 @@ export async function generateMetadata() {
   }
 
   const title = faqData?.title || 'FAQ';
-  const description = faqData?.subtitle || siteSettings.siteDescription || 'Frequently asked questions about my services';
+  const description = faqData?.subtitle || seoMetaData.siteDescription || 'Frequently asked questions about my services';
 
   return generatePageMetadata({
     title,
     description,
-    siteSettings,
+    seoMetaData,
     canonicalUrl: generateCanonicalUrl('/faq'),
   });
 }
@@ -90,7 +90,7 @@ const FAQPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const siteSettings = pageBuilderData.siteSettings;
+  const seoMetaData = pageBuilderData.seoMetaData;
 
   // If the page doesn't exist, show 404
   if (!faqData) {
@@ -111,16 +111,16 @@ const FAQPage = async () => {
 
   // Generate Article structured data
   let articleSchema;
-  if (siteSettings && faqData._updatedAt) {
-    const organizationData = getOrganizationDataFromSiteSettings(siteSettings, baseUrl);
+  if (seoMetaData && faqData._updatedAt) {
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
 
     articleSchema = generateArticleSchema({
       headline: faqData.title || 'FAQ',
-      description: faqData.subtitle || siteSettings.siteDescription || undefined,
+      description: faqData.subtitle || seoMetaData.siteDescription || undefined,
       datePublished: faqData._createdAt || faqData._updatedAt,
       dateModified: faqData._updatedAt,
       author: {
-        name: siteSettings.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
         type: 'Organization',
       },
       publisher: organizationData,
