@@ -11,6 +11,7 @@ import {
   ClipboardIcon,
   DocumentPdfIcon,
   LockIcon,
+  MenuIcon,
 } from '@sanity/icons';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -218,6 +219,34 @@ export const structure: StructureResolver = (S) =>
             ]),
         ),
 
+      // === NAVIGATION ===
+      S.listItem()
+        .id('navigation')
+        .title('Navigation')
+        .icon(MenuIcon)
+        .child(
+          S.list()
+            .title('Navigation')
+            .items([
+              // Header - Singleton
+              S.listItem()
+                .id('header')
+                .schemaType('header')
+                .title('Header')
+                .child(
+                  S.editor().id('header').schemaType('header').documentId('header').title('Header'),
+                ),
+              // Footer - Singleton
+              S.listItem()
+                .id('footer')
+                .schemaType('footer')
+                .title('Footer')
+                .child(
+                  S.editor().id('footer').schemaType('footer').documentId('footer').title('Footer'),
+                ),
+            ]),
+        ),
+
       S.divider(),
 
       // === PAGES ===
@@ -239,22 +268,6 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title('Site Management')
             .items([
-              // Header - Singleton
-              S.listItem()
-                .id('header')
-                .schemaType('header')
-                .title('Header')
-                .child(
-                  S.editor().id('header').schemaType('header').documentId('header').title('Header'),
-                ),
-              // Footer - Singleton
-              S.listItem()
-                .id('footer')
-                .schemaType('footer')
-                .title('Footer')
-                .child(
-                  S.editor().id('footer').schemaType('footer').documentId('footer').title('Footer'),
-                ),
               // Company Links - Singleton
               S.listItem()
                 .id('companyLinks')
