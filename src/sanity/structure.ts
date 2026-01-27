@@ -182,12 +182,48 @@ export const structure: StructureResolver = (S) =>
             ]),
         ),
 
+      // === LEGAL ===
+      S.listItem()
+        .id('legal')
+        .title('Legal')
+        .icon(DocumentTextIcon)
+        .child(
+          S.list()
+            .title('Legal Documents')
+            .items([
+              // Terms & Conditions - Singleton
+              S.listItem()
+                .id('termsAndConditions')
+                .schemaType('termsAndConditions')
+                .title('Terms & Conditions')
+                .child(
+                  S.editor()
+                    .id('termsAndConditions')
+                    .schemaType('termsAndConditions')
+                    .documentId('termsAndConditions')
+                    .title('Terms & Conditions'),
+                ),
+              // Privacy Policy - Singleton
+              S.listItem()
+                .id('privacyPolicy')
+                .schemaType('privacyPolicy')
+                .title('Privacy Policy')
+                .child(
+                  S.editor()
+                    .id('privacyPolicy')
+                    .schemaType('privacyPolicy')
+                    .documentId('privacyPolicy')
+                    .title('Privacy Policy'),
+                ),
+            ]),
+        ),
+
       S.divider(),
 
       // === PAGES ===
       S.listItem()
         .id('pages')
-        .title('Pages')
+        .title(' Custom Pages')
         .icon(DocumentIcon)
         .child(
           S.documentTypeList('page').title('Pages').filter('_type == "page" && _id != "homePage"'),
@@ -242,44 +278,6 @@ export const structure: StructureResolver = (S) =>
                     .schemaType('siteSettings')
                     .documentId('siteSettings')
                     .title('Site Settings'),
-                ),
-
-              S.divider(),
-
-              // Legal - Menu for Terms & Conditions and Privacy Policy
-              S.listItem()
-                .id('legal')
-                .title('Legal')
-                .icon(DocumentTextIcon)
-                .child(
-                  S.list()
-                    .title('Legal Documents')
-                    .items([
-                      // Terms & Conditions - Singleton
-                      S.listItem()
-                        .id('termsAndConditions')
-                        .schemaType('termsAndConditions')
-                        .title('Terms & Conditions')
-                        .child(
-                          S.editor()
-                            .id('termsAndConditions')
-                            .schemaType('termsAndConditions')
-                            .documentId('termsAndConditions')
-                            .title('Terms & Conditions'),
-                        ),
-                      // Privacy Policy - Singleton
-                      S.listItem()
-                        .id('privacyPolicy')
-                        .schemaType('privacyPolicy')
-                        .title('Privacy Policy')
-                        .child(
-                          S.editor()
-                            .id('privacyPolicy')
-                            .schemaType('privacyPolicy')
-                            .documentId('privacyPolicy')
-                            .title('Privacy Policy'),
-                        ),
-                    ]),
                 ),
             ]),
         ),
