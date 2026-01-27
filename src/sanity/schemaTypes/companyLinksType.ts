@@ -7,7 +7,7 @@ import { LinkIcon } from '@sanity/icons';
 
 export const companyLinksType = defineType({
   name: 'companyLinks',
-  title: 'Company Links',
+  title: 'Company & Social Links',
   type: 'document',
   icon: LinkIcon,
   fields: [
@@ -15,13 +15,14 @@ export const companyLinksType = defineType({
       name: 'companyLinks',
       type: 'companyLinksArray',
       title: 'Company Social Links',
-      description: 'Manage your company\'s social media links with drag-and-drop ordering. These can be displayed throughout your site.',
+      description:
+        "Manage your company's social media links with drag-and-drop ordering. These can be displayed throughout your site.",
     }),
   ],
   preview: {
     prepare() {
       return {
-        title: 'Company Links',
+        title: 'Company & Social Links',
         subtitle: 'Social media and external links',
       };
     },

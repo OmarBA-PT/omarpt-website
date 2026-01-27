@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 
 export const seoMetaDataType = defineType({
   name: 'seoMetaData',
-  title: 'SEO and Meta Data',
+  title: 'SEO & Meta Data',
   type: 'document',
   icon: ControlsIcon,
   fields: [
@@ -59,7 +59,7 @@ export const seoMetaDataType = defineType({
   preview: {
     prepare() {
       return {
-        title: 'SEO and Meta Data',
+        title: 'SEO & Meta Data',
       };
     },
   },
