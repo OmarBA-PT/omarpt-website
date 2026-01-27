@@ -272,7 +272,7 @@ export const structure: StructureResolver = (S) =>
               S.listItem()
                 .id('companyLinks')
                 .schemaType('companyLinks')
-                .title('Company Links')
+                .title('Company & Social Links')
                 .child(
                   S.editor()
                     .id('companyLinks')
