@@ -91,7 +91,7 @@ export async function POST(request: Request) {
           error: 'Too many requests. Please try again later.',
           rateLimited: true,
         },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
       // Return success to not alert the bot
       return NextResponse.json(
         { success: true, message: 'Message sent successfully' },
-        { status: 200 }
+        { status: 200 },
       );
     }
 
@@ -112,7 +112,7 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are required fields.' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -137,8 +137,7 @@ export async function POST(request: Request) {
 
     // Get contact email from environment variable
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
-    const fromEmail =
-      process.env.RESEND_FROM_EMAIL || `${organizationName} <onboarding@resend.dev>`;
+    const fromEmail = `${organizationName} <${process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'}>`;
 
     if (!contactEmail) {
       console.error('NEXT_PUBLIC_CONTACT_EMAIL environment variable is not set');
@@ -148,7 +147,7 @@ export async function POST(request: Request) {
             'Contact form is currently unavailable. Please contact me directly via phone or email.',
           configError: true,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -220,7 +219,7 @@ export async function POST(request: Request) {
         if (errorObj.statusCode === 403) {
           console.warn(
             '⚠️  Confirmation email skipped - domain not verified.',
-            'Admin notification email was sent successfully.'
+            'Admin notification email was sent successfully.',
           );
         } else {
           console.error('❌ Error sending confirmation email:', {
@@ -242,7 +241,7 @@ export async function POST(request: Request) {
         success: true,
         message: 'Message sent successfully',
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     // Log comprehensive error details to server console (visible in Vercel logs)
@@ -276,7 +275,7 @@ export async function POST(request: Request) {
           'I encountered an issue sending your message. Please try contacting me directly via email or phone.',
         details: errorMessage,
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -89,7 +89,7 @@ export async function POST(request: Request) {
           error: 'Too many application submissions. Please try again later.',
           rateLimited: true,
         },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -102,7 +102,7 @@ export async function POST(request: Request) {
       // Return success to not alert the bot
       return NextResponse.json(
         { success: true, message: 'Application submitted successfully' },
-        { status: 200 }
+        { status: 200 },
       );
     }
 
@@ -110,7 +110,7 @@ export async function POST(request: Request) {
     if (!formData.fullName || !formData.email || !formData.phone) {
       return NextResponse.json(
         { error: 'Name, email, and phone are required fields.' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -146,8 +146,7 @@ export async function POST(request: Request) {
 
     // Get contact email from environment variable
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
-    const fromEmail =
-      process.env.RESEND_FROM_EMAIL || `${organizationName} <onboarding@resend.dev>`;
+    const fromEmail = `${organizationName} <${process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'}>`;
 
     if (!contactEmail) {
       console.error('NEXT_PUBLIC_CONTACT_EMAIL environment variable is not set');
@@ -157,7 +156,7 @@ export async function POST(request: Request) {
             'Application form is currently unavailable. Please contact me directly via phone or email.',
           configError: true,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -247,7 +246,7 @@ export async function POST(request: Request) {
         if (errorObj.statusCode === 403) {
           console.warn(
             'Confirmation email skipped - domain not verified. This is expected in development.',
-            'The admin notification email was sent successfully.'
+            'The admin notification email was sent successfully.',
           );
         } else {
           console.error('Error sending confirmation email:', confirmationEmailResult.error);
@@ -265,7 +264,7 @@ export async function POST(request: Request) {
         success: true,
         message: 'Application submitted successfully',
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error('Application form submission error:', error);
@@ -281,7 +280,7 @@ export async function POST(request: Request) {
         error: 'I encountered an issue submitting your application.',
         details: errorMessage,
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
