@@ -12,6 +12,7 @@ import {
   getHeader,
   getFooter,
   getSeoMetaData,
+  getBusinessContactInfo,
   getCompanyLinks,
   getLegalPagesVisibility,
 } from '@/actions';
@@ -30,18 +31,27 @@ import {
   generateStructuredDataScript,
 } from '@/lib/structuredData';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName, getOrganizationDescription } from '@/lib/organizationInfo';
 
 export async function generateMetadata() {
-  const seoMetaData = await getSeoMetaData();
+  const [seoMetaData, businessContactInfo] = await Promise.all([
+    getSeoMetaData(),
+    getBusinessContactInfo(),
+  ]);
+
+  const orgName = getOrganizationName(businessContactInfo);
+  const orgDescription = getOrganizationDescription(businessContactInfo);
+
   if (!seoMetaData) {
     return {
-      title: `${SITE_CONFIG.ORGANIZATION_NAME} | ${SITE_CONFIG.ORGANIZATION_DESCRIPTION}`,
-      description: `Welcome to ${SITE_CONFIG.ORGANIZATION_NAME}`,
+      title: `${orgName} | ${orgDescription}`,
+      description: `Welcome to ${orgName}`,
     };
   }
 
   return generateDefaultMetadata({
     seoMetaData,
+    businessContactInfo,
     image: seoMetaData.defaultOgImage, // Set default OG image at layout level
   });
 }
@@ -51,13 +61,19 @@ const FrontendLayout = async ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  const headerData = await getHeader();
-  const footerData = await getFooter();
-  const seoMetaDataResult = await getSeoMetaData();
-  const companyLinksData = await getCompanyLinks();
-  const legalPagesVisibilityData = await getLegalPagesVisibility();
+  const [headerData, footerData, seoMetaDataResult, businessContactInfoData, companyLinksData, legalPagesVisibilityData] = await Promise.all([
+    getHeader(),
+    getFooter(),
+    getSeoMetaData(),
+    getBusinessContactInfo(),
+    getCompanyLinks(),
+    getLegalPagesVisibility(),
+  ]);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || SITE_CONFIG.PRODUCTION_DOMAIN;
+
+  // Get organization name for passing to client components
+  const orgName = getOrganizationName(businessContactInfoData);
 
   // Generate structured data if SEO meta data is available
   let organizationSchema;
@@ -68,13 +84,15 @@ const FrontendLayout = async ({
     const organizationData = getOrganizationDataFromSeoMetaData(
       seoMetaDataResult,
       baseUrl,
-      companyLinksData
+      companyLinksData,
+      businessContactInfoData
     );
-    const webSiteData = getWebSiteDataFromSeoMetaData(seoMetaDataResult, baseUrl);
+    const webSiteData = getWebSiteDataFromSeoMetaData(seoMetaDataResult, baseUrl, businessContactInfoData);
     const localBusinessData = getLocalBusinessDataFromSeoMetaData(
       seoMetaDataResult,
       baseUrl,
-      companyLinksData
+      companyLinksData,
+      businessContactInfoData
     );
 
     organizationSchema = generateOrganizationSchema(organizationData);
@@ -111,7 +129,7 @@ const FrontendLayout = async ({
             )}
 
             <div className='min-h-screen flex flex-col'>
-              <Header headerData={headerData} />
+              <Header headerData={headerData} organizationName={orgName} />
               <main id='main-content' className='flex-1 min-h-screen'>
                 {children}
               </main>
@@ -119,6 +137,7 @@ const FrontendLayout = async ({
                 footerData={footerData}
                 companyLinksData={companyLinksData}
                 legalPagesVisibilityData={legalPagesVisibilityData}
+                organizationName={orgName}
               />
               {(await draftMode()).isEnabled && (
                 <>

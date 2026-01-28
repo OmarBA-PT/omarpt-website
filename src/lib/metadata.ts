@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { urlFor } from '@/sanity/lib/image';
-import type { SEO_META_DATA_QUERYResult } from '@/sanity/types';
+import type { SEO_META_DATA_QUERYResult, BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName } from '@/lib/organizationInfo';
 
 /**
  * Get the base URL for the site
@@ -36,6 +37,7 @@ export interface MetadataConfig {
   } | null;
   canonicalUrl?: string;
   seoMetaData: SEO_META_DATA_QUERYResult;
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null;
   publishedTime?: string;
   modifiedTime?: string;
 }
@@ -46,10 +48,11 @@ export function generateMetadata({
   image,
   canonicalUrl,
   seoMetaData,
+  businessContactInfo,
   publishedTime,
   modifiedTime,
 }: MetadataConfig): Metadata {
-  const siteTitle = seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME;
+  const siteTitle = seoMetaData?.siteTitle || getOrganizationName(businessContactInfo);
   const siteTagline = seoMetaData?.siteTagline ? ` | ${seoMetaData.siteTagline}` : '';
   const siteDescription = seoMetaData?.siteDescription || '';
   const seoKeywords = seoMetaData?.seoKeywords || '';

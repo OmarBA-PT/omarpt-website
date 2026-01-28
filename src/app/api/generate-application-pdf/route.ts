@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { generateApplicationPDFBuffer } from '@/lib/utils/generateApplicationPDF';
+import { fetchOrganizationName } from '@/lib/organizationInfo';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,8 +9,11 @@ export const dynamic = 'force-dynamic';
  */
 export async function GET() {
   try {
+    // Fetch organization name from Sanity (with fallback)
+    const organizationName = await fetchOrganizationName();
+
     // Generate PDF without form data (blank form)
-    const pdfBuffer = await generateApplicationPDFBuffer({});
+    const pdfBuffer = await generateApplicationPDFBuffer({}, organizationName);
 
     // Return the PDF as a downloadable file
     // Note: Buffer is compatible with Response body in Next.js (type assertion needed for TS)
@@ -44,8 +48,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Form data is required' }, { status: 400 });
     }
 
+    // Fetch organization name from Sanity (with fallback)
+    const organizationName = await fetchOrganizationName();
+
     // Generate PDF with submitted form data using the shared utility function
-    const pdfBuffer = await generateApplicationPDFBuffer(formData);
+    const pdfBuffer = await generateApplicationPDFBuffer(formData, organizationName);
 
     // Generate filename using applicant name if available
     let filename = 'Omania-Training-Application-Form.pdf';

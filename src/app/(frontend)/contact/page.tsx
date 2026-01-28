@@ -11,18 +11,21 @@ import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
-import { getContactFormSettings, getContactGeneralContent, getSeoMetaData } from '@/actions';
+import { getContactFormSettings, getContactGeneralContent, getPageBuilderData } from '@/actions';
+import { getOrganizationName } from '@/lib/organizationInfo';
 import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
 import CardGradient from '@/components/UI/CardGradient';
 
 export async function generateMetadata() {
-  // Fetch contact page data and SEO meta data for metadata
-  const [contactPageData, seoMetaData] = await Promise.all([
+  // Fetch contact page data and page builder data for metadata
+  const [contactPageData, pageBuilderData] = await Promise.all([
     getContactGeneralContent(),
-    getSeoMetaData(),
+    getPageBuilderData(),
   ]);
+
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
 
   // Hard-coded fallback values (lowest priority)
   const fallbackTitle = 'Contact Me';
@@ -37,6 +40,7 @@ export async function generateMetadata() {
     title: ogTitle,
     description: ogDescription,
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl('/contact'),
   });
 }
@@ -44,11 +48,15 @@ export async function generateMetadata() {
 const ContactPage = async () => {
   const baseUrl = getBaseUrl();
 
-  // Fetch contact page data and form settings from Sanity
-  const [contactPageData, contactFormSettings] = await Promise.all([
+  // Fetch contact page data, form settings, and page builder data from Sanity
+  const [contactPageData, contactFormSettings, pageBuilderData] = await Promise.all([
     getContactGeneralContent(),
     getContactFormSettings(),
+    getPageBuilderData(),
   ]);
+
+  const { businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   // Fallback values if Sanity data is not available
   const pageTitle = contactPageData?.title || 'Contact Me';
@@ -101,11 +109,11 @@ const ContactPage = async () => {
     datePublished: contactPageData?._createdAt || new Date().toISOString(),
     dateModified: contactPageData?._updatedAt || new Date().toISOString(),
     author: {
-      name: SITE_CONFIG.ORGANIZATION_NAME,
+      name: orgName,
       type: 'Organization',
     },
     publisher: {
-      name: SITE_CONFIG.ORGANIZATION_NAME,
+      name: orgName,
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
     },

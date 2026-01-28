@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { generateConfirmationEmail } from '@/lib/email-templates/contactConfirmationEmail';
 import { generateAdminNotificationEmail } from '@/lib/email-templates/contactAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
+import { fetchOrganizationName } from '@/lib/organizationInfo';
 import { getContactConfirmationEmail } from '@/actions';
 
 // Initialize Resend with API key from environment variable
@@ -131,10 +132,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid input detected.' }, { status: 400 });
     }
 
+    // Fetch organization name from Sanity (with fallback)
+    const organizationName = await fetchOrganizationName();
+
     // Get contact email from environment variable
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
     const fromEmail =
-      process.env.RESEND_FROM_EMAIL || `${SITE_CONFIG.ORGANIZATION_NAME} <onboarding@resend.dev>`;
+      process.env.RESEND_FROM_EMAIL || `${organizationName} <onboarding@resend.dev>`;
 
     if (!contactEmail) {
       console.error('NEXT_PUBLIC_CONTACT_EMAIL environment variable is not set');
@@ -196,6 +200,7 @@ export async function POST(request: Request) {
         phone: sanitizedPhone,
         message: sanitizedMessage,
         logoUrl,
+        organizationName,
         emailGreeting: confirmationEmailSettings?.emailGreeting || undefined,
         emailIntroMessage: confirmationEmailSettings?.emailIntroMessage || undefined,
         emailOutroMessage: confirmationEmailSettings?.emailOutroMessage || undefined,
@@ -205,7 +210,7 @@ export async function POST(request: Request) {
         from: fromEmail,
         to: sanitizedEmail,
         replyTo: SITE_CONFIG.ORGANIZATION_EMAIL.value,
-        subject: `Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}`,
+        subject: `Thank you for contacting ${organizationName}`,
         html: confirmationEmailHtml,
       });
 

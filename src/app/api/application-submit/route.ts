@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { generateApplicationConfirmationEmail } from '@/lib/email-templates/applicationConfirmationEmail';
 import { generateApplicationAdminNotificationEmail } from '@/lib/email-templates/applicationAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
+import { fetchOrganizationName } from '@/lib/organizationInfo';
 import { getApplyQuestionnaire } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import {
@@ -140,10 +141,13 @@ export async function POST(request: Request) {
       }
     }
 
+    // Fetch organization name from Sanity (with fallback)
+    const organizationName = await fetchOrganizationName();
+
     // Get contact email from environment variable
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
     const fromEmail =
-      process.env.RESEND_FROM_EMAIL || `${SITE_CONFIG.ORGANIZATION_NAME} <onboarding@resend.dev>`;
+      process.env.RESEND_FROM_EMAIL || `${organizationName} <onboarding@resend.dev>`;
 
     if (!contactEmail) {
       console.error('NEXT_PUBLIC_CONTACT_EMAIL environment variable is not set');
@@ -170,7 +174,7 @@ export async function POST(request: Request) {
     let pdfFilename = '';
     try {
       console.log('Generating PDF with submitted form data...');
-      pdfBuffer = await generateApplicationPDFBuffer(sanitizedFormData);
+      pdfBuffer = await generateApplicationPDFBuffer(sanitizedFormData, organizationName);
       pdfFilename = generatePDFFilename(sanitizedName);
       console.log(`✓ PDF generated successfully: ${pdfFilename}`);
     } catch (pdfError) {
@@ -226,13 +230,14 @@ export async function POST(request: Request) {
         formData: sanitizedFormData,
         sections: questionnaireSections,
         logoUrl,
+        organizationName,
       });
 
       const confirmationEmailResult = await resend.emails.send({
         from: fromEmail,
         to: sanitizedEmail,
         replyTo: SITE_CONFIG.ORGANIZATION_EMAIL.value,
-        subject: `Application Received - ${SITE_CONFIG.ORGANIZATION_NAME}`,
+        subject: `Application Received - ${organizationName}`,
         html: confirmationEmailHtml,
       });
 

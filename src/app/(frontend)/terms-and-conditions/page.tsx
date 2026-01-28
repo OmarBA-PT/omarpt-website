@@ -17,6 +17,7 @@ import {
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName } from '@/lib/organizationInfo';
 import PageSection from '@/components/Layout/PageSection';
 
 export async function generateMetadata() {
@@ -25,11 +26,12 @@ export async function generateMetadata() {
     getTermsAndConditions(),
   ]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   if (!seoMetaData) {
     return {
-      title: `Terms & Conditions | ${SITE_CONFIG.ORGANIZATION_NAME}`,
+      title: `Terms & Conditions | ${orgName}`,
       description: 'Terms and conditions for using my website and services',
     };
   }
@@ -41,6 +43,7 @@ export async function generateMetadata() {
     description:
       seoMetaData.siteDescription || 'Terms and conditions for using my website and services',
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl('/terms-and-conditions'),
   });
 }
@@ -51,7 +54,8 @@ const TermsAndConditionsPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   // If the page is hidden or doesn't exist, show 404
   if (!termsData || termsData.hide) {
@@ -69,7 +73,7 @@ const TermsAndConditionsPage = async () => {
   // Generate Article structured data
   let articleSchema;
   if (seoMetaData && termsData._updatedAt) {
-    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl, null, businessContactInfo);
 
     articleSchema = generateArticleSchema({
       headline: termsData.title || 'Terms & Conditions',
@@ -77,7 +81,7 @@ const TermsAndConditionsPage = async () => {
       datePublished: termsData._updatedAt,
       dateModified: termsData._updatedAt,
       author: {
-        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || orgName,
         type: 'Organization',
       },
       publisher: organizationData,

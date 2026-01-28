@@ -2,6 +2,7 @@ import React from 'react';
 import { Saira_Condensed } from 'next/font/google';
 import '@/app/globals.css';
 import { SITE_CONFIG } from '@/lib/constants';
+import { fetchOrganizationInfo } from '@/lib/organizationInfo';
 
 const sairaCondensed = Saira_Condensed({
   subsets: ['latin'],
@@ -9,7 +10,7 @@ const sairaCondensed = Saira_Condensed({
   display: 'swap',
 });
 
-const RootLayout = ({
+const RootLayout = async ({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -23,13 +24,16 @@ const RootLayout = ({
   // 2. In production AND maintenance mode is OFF
   const shouldHideFromRobots = !isProd || SITE_CONFIG.MAINTENANCE_MODE_ENABLED;
 
+  // Fetch organization info from Sanity (with fallback to defaults)
+  const { name: orgName, description: orgDescription } = await fetchOrganizationInfo();
+
   // Basic organization structured data
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE_CONFIG.ORGANIZATION_NAME,
+    name: orgName,
     url: baseUrl,
-    description: SITE_CONFIG.ORGANIZATION_DESCRIPTION,
+    description: orgDescription,
   };
 
   return (

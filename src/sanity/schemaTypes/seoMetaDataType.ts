@@ -4,7 +4,6 @@
 
 import { defineType, defineField } from 'sanity';
 import { ControlsIcon } from '@sanity/icons';
-import { SITE_CONFIG } from '@/lib/constants';
 
 export const seoMetaDataType = defineType({
   name: 'seoMetaData',
@@ -17,7 +16,7 @@ export const seoMetaDataType = defineType({
       type: 'string',
       title: 'Site Title',
       description: 'The main title/brand name of your website',
-      initialValue: `${SITE_CONFIG.ORGANIZATION_NAME}`,
+      initialValue: 'Your Organization Name',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

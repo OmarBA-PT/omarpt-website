@@ -13,6 +13,7 @@ interface ConfirmationEmailData {
   phone?: string;
   message: string;
   logoUrl: string;
+  organizationName: string;
   emailGreeting?: string;
   emailIntroMessage?: string;
   emailOutroMessage?: string;
@@ -25,6 +26,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
     phone,
     message,
     logoUrl,
+    organizationName,
     emailGreeting = 'Hi',
     emailIntroMessage = 'I have successfully received your message and will aim to get back to you as soon as possible.',
     emailOutroMessage = 'If you have any urgent questions, feel free to reach out to me directly.',
@@ -36,7 +38,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Thank you for contacting ${SITE_CONFIG.ORGANIZATION_NAME}</title>
+      <title>Thank you for contacting ${organizationName}</title>
     </head>
     <body style="${EMAIL_STYLES.body}">
       <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="${EMAIL_STYLES.outerTable}">
@@ -57,7 +59,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
                               <!-- Logo -->
                               <img
                                 src="${logoUrl}"
-                                alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
+                                alt="${organizationName} Logo"
                                 width="80"
                                 height="auto"
                                 style="display: block; margin: 0; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));"
@@ -180,7 +182,7 @@ export function generateConfirmationEmail(data: ConfirmationEmailData): string {
 
                         <!-- Footer Text -->
                         <p style="${EMAIL_STYLES.footerText}">
-                          This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
+                          This is an automated confirmation email from ${organizationName}.
                         </p>
                       </td>
                     </tr>

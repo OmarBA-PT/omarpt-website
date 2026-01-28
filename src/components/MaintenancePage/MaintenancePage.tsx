@@ -2,7 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/constants';
 
-const MaintenancePage = () => {
+interface MaintenancePageProps {
+  organizationName: string;
+}
+
+const MaintenancePage = ({ organizationName }: MaintenancePageProps) => {
+
   return (
     <div className='min-h-svh bg-brand-gradient-brown flex items-center justify-center px-4'>
       <div className='max-w-2xl w-full text-center space-y-8'>
@@ -10,7 +15,7 @@ const MaintenancePage = () => {
         <div className='flex justify-center'>
           <Image
             src='/images/logos/logo-white.png'
-            alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
+            alt={`${organizationName} Logo`}
             width={300}
             height={208}
             priority

@@ -5,17 +5,19 @@ import {
 } from '@/lib/metadata';
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPage, getApplyPrivacyStatement, getApplyQuestionnaire, getSeoMetaData } from '@/actions';
+import { getApplyPage, getApplyPrivacyStatement, getApplyQuestionnaire, getPageBuilderData } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
+import { getOrganizationName } from '@/lib/organizationInfo';
 import ApplyPageClient from './ApplyPageClient';
 
 export async function generateMetadata() {
-  // Fetch apply page data and SEO meta data for metadata
-  const [applyPageData, seoMetaData] = await Promise.all([
+  // Fetch apply page data and page builder data for metadata
+  const [applyPageData, pageBuilderData] = await Promise.all([
     getApplyPage(),
-    getSeoMetaData(),
+    getPageBuilderData(),
   ]);
+
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
 
   // Hard-coded fallback values (lowest priority)
   const fallbackTitle = 'Apply Now';
@@ -30,6 +32,7 @@ export async function generateMetadata() {
     title: ogTitle,
     description: ogDescription,
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl('/apply'),
   });
 }
@@ -38,11 +41,15 @@ const ApplyPage = async () => {
   const baseUrl = getBaseUrl();
 
   // Fetch apply page data from Sanity
-  const [applyPageData, applyPrivacyStatement, applyQuestionnaire] = await Promise.all([
+  const [applyPageData, applyPrivacyStatement, applyQuestionnaire, pageBuilderData] = await Promise.all([
     getApplyPage(),
     getApplyPrivacyStatement(),
     getApplyQuestionnaire(),
+    getPageBuilderData(),
   ]);
+
+  const { businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   // Transform questionnaire data from Sanity format to form-compatible format
   const questionnaireSections = transformQuestionnaireData(applyQuestionnaire);
@@ -65,11 +72,11 @@ const ApplyPage = async () => {
     datePublished: applyPageData?._createdAt || new Date().toISOString(),
     dateModified: applyPageData?._updatedAt || new Date().toISOString(),
     author: {
-      name: SITE_CONFIG.ORGANIZATION_NAME,
+      name: orgName,
       type: 'Organization',
     },
     publisher: {
-      name: SITE_CONFIG.ORGANIZATION_NAME,
+      name: orgName,
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
     },

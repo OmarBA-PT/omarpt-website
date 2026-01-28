@@ -19,16 +19,16 @@ import CTAList from '@/components/UI/CTAList';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import styles from './VerticalNav.module.css';
 import { headerHeight } from '@/utils/spacingConstants';
-import { SITE_CONFIG } from '@/lib/constants';
 
 interface VerticalNavProps {
   isMenuOpen: boolean;
   onClose: () => void;
   navLinks: VerticalNavData | null;
   navCtas: VerticalNavCTAData | null;
+  organizationName: string;
 }
 
-const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProps) => {
+const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas, organizationName }: VerticalNavProps) => {
   useBodyScrollLock(isMenuOpen);
   const focusTrapRef = useFocusTrap(isMenuOpen);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -83,7 +83,7 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas }: VerticalNavProp
             }}>
             <UnifiedImage
               src='/images/logos/logo.png'
-              alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
+              alt={`${organizationName} Logo`}
               mode='sized'
               width={80}
               height={50}

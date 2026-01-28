@@ -1,6 +1,6 @@
 import { sanityFetch } from '@/sanity/lib/live';
-import { HEADER_QUERY, FOOTER_QUERY, SEO_META_DATA_QUERY, COMPANY_LINKS_QUERY, CONTACT_FORM_SETTINGS_QUERY, LEGAL_PAGES_VISIBILITY_QUERY, CONTACT_GENERAL_CONTENT_QUERY, CONTACT_CONFIRMATION_EMAIL_QUERY, APPLY_PAGE_QUERY, APPLY_PRIVACY_STATEMENT_QUERY, APPLY_PDF_SETTINGS_QUERY, APPLY_QUESTIONNAIRE_QUERY } from '@/sanity/lib/queries';
-import type { FOOTER_QUERYResult, HEADER_QUERYResult, SEO_META_DATA_QUERYResult, COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult, LEGAL_PAGES_VISIBILITY_QUERYResult, CONTACT_GENERAL_CONTENT_QUERYResult, CONTACT_CONFIRMATION_EMAIL_QUERYResult, APPLY_PAGE_QUERYResult, APPLY_PRIVACY_STATEMENT_QUERYResult, APPLY_PDF_SETTINGS_QUERYResult, APPLY_QUESTIONNAIRE_QUERYResult } from '@/sanity/types';
+import { HEADER_QUERY, FOOTER_QUERY, SEO_META_DATA_QUERY, BUSINESS_CONTACT_INFO_QUERY, COMPANY_LINKS_QUERY, CONTACT_FORM_SETTINGS_QUERY, LEGAL_PAGES_VISIBILITY_QUERY, CONTACT_GENERAL_CONTENT_QUERY, CONTACT_CONFIRMATION_EMAIL_QUERY, APPLY_PAGE_QUERY, APPLY_PRIVACY_STATEMENT_QUERY, APPLY_PDF_SETTINGS_QUERY, APPLY_QUESTIONNAIRE_QUERY } from '@/sanity/lib/queries';
+import type { FOOTER_QUERYResult, HEADER_QUERYResult, SEO_META_DATA_QUERYResult, BUSINESS_CONTACT_INFO_QUERYResult, COMPANY_LINKS_QUERYResult, CONTACT_FORM_SETTINGS_QUERYResult, LEGAL_PAGES_VISIBILITY_QUERYResult, CONTACT_GENERAL_CONTENT_QUERYResult, CONTACT_CONFIRMATION_EMAIL_QUERYResult, APPLY_PAGE_QUERYResult, APPLY_PRIVACY_STATEMENT_QUERYResult, APPLY_PDF_SETTINGS_QUERYResult, APPLY_QUESTIONNAIRE_QUERYResult } from '@/sanity/types';
 
 // Header actions
 export async function getHeader(): Promise<HEADER_QUERYResult | null> {
@@ -24,6 +24,15 @@ export async function getFooter(): Promise<FOOTER_QUERYResult | null> {
 export async function getSeoMetaData(): Promise<SEO_META_DATA_QUERYResult | null> {
   const { data } = await sanityFetch({
     query: SEO_META_DATA_QUERY,
+  });
+
+  return data;
+}
+
+// Business & Contact Info actions
+export async function getBusinessContactInfo(): Promise<BUSINESS_CONTACT_INFO_QUERYResult | null> {
+  const { data } = await sanityFetch({
+    query: BUSINESS_CONTACT_INFO_QUERY,
   });
 
   return data;
@@ -115,19 +124,22 @@ export async function getApplyQuestionnaire(): Promise<APPLY_QUESTIONNAIRE_QUERY
 // When adding new global data (e.g., FAQ settings), add it here and to the return type
 export interface PageBuilderData {
   seoMetaData: SEO_META_DATA_QUERYResult | null;
+  businessContactInfo: BUSINESS_CONTACT_INFO_QUERYResult | null;
   companyLinks: COMPANY_LINKS_QUERYResult | null;
   contactFormSettings: CONTACT_FORM_SETTINGS_QUERYResult | null;
 }
 
 export async function getPageBuilderData(): Promise<PageBuilderData> {
-  const [seoMetaData, companyLinks, contactFormSettings] = await Promise.all([
+  const [seoMetaData, businessContactInfo, companyLinks, contactFormSettings] = await Promise.all([
     getSeoMetaData(),
+    getBusinessContactInfo(),
     getCompanyLinks(),
     getContactFormSettings(),
   ]);
 
   return {
     seoMetaData,
+    businessContactInfo,
     companyLinks,
     contactFormSettings,
   };

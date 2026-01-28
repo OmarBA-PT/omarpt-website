@@ -5,7 +5,6 @@
 import { ComponentIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 import { createLinkFieldSet } from './shared/linkSystem';
-import { SITE_CONFIG } from '@/lib/constants';
 
 export const footerType = defineType({
   name: 'footer',
@@ -135,7 +134,7 @@ export const footerType = defineType({
       type: 'string',
       title: 'Copyright Text',
       description: 'Copyright notice that appears at the bottom of the footer',
-      initialValue: `© ${SITE_CONFIG.ORGANIZATION_NAME} 2025`,
+      initialValue: '© Your Organization Name 2025',
       validation: (Rule) => Rule.required().error('Copyright text is required'),
     }),
   ],

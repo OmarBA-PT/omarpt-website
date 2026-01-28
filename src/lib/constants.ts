@@ -2,6 +2,9 @@
 // This file centralizes all site-specific configuration values
 // Update these values when setting up a new project
 
+// NOTE: Organization name and description are managed in @/lib/organizationInfo.ts
+// Import DEFAULT_ORGANIZATION_NAME, DEFAULT_ORGANIZATION_DESCRIPTION, or use the helper functions from there
+
 export const SITE_CONFIG = {
   // Production domain - update this for your new project
   // IMPORTANT: Always use HTTPS (not HTTP) and no trailing slash for SEO consistency
@@ -11,11 +14,6 @@ export const SITE_CONFIG = {
   // When true: All routes redirect to maintenance page (except /studio)
   // When false: Site operates normally
   MAINTENANCE_MODE_ENABLED: false,
-
-  // Organization information
-  ORGANIZATION_NAME: 'Omania Training',
-  ORGANIZATION_DESCRIPTION:
-    'Omania Training is a personal training service based in Auckland, New Zealand.',
 
   // Contact information - single source of truth for all company contact details
   ORGANIZATION_EMAIL: {

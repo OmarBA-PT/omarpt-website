@@ -16,6 +16,7 @@ interface ApplicationConfirmationEmailData {
   formData: Record<string, any>;
   sections: FormSection[];
   logoUrl: string;
+  organizationName: string;
 }
 
 /**
@@ -64,7 +65,7 @@ function formatAnswer(value: any, questionType?: string, questionOptions?: { lab
 export function generateApplicationConfirmationEmail(
   data: ApplicationConfirmationEmailData
 ): string {
-  const { name, email, phone, formData, sections, logoUrl } = data;
+  const { name, email, phone, formData, sections, logoUrl, organizationName } = data;
 
   return `
     <!DOCTYPE html>
@@ -72,7 +73,7 @@ export function generateApplicationConfirmationEmail(
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Application Received - ${SITE_CONFIG.ORGANIZATION_NAME}</title>
+      <title>Application Received - ${organizationName}</title>
       <style>
         @media print {
           body {
@@ -109,7 +110,7 @@ export function generateApplicationConfirmationEmail(
                               <!-- Logo -->
                               <img
                                 src="${logoUrl}"
-                                alt="${SITE_CONFIG.ORGANIZATION_NAME} Logo"
+                                alt="${organizationName} Logo"
                                 width="80"
                                 height="auto"
                                 style="display: block; margin: 0; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));"
@@ -311,7 +312,7 @@ export function generateApplicationConfirmationEmail(
 
                         <!-- Footer Text -->
                         <p style="${EMAIL_STYLES.footerText}">
-                          This is an automated confirmation email from ${SITE_CONFIG.ORGANIZATION_NAME}.
+                          This is an automated confirmation email from ${organizationName}.
                         </p>
                       </td>
                     </tr>

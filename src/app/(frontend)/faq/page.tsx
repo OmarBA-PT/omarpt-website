@@ -20,16 +20,17 @@ import {
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName } from '@/lib/organizationInfo';
 
 export async function generateMetadata() {
   const [pageBuilderData, faqData] = await Promise.all([getPageBuilderData(), getFaqPage()]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   if (!seoMetaData) {
     return {
-      title: `FAQ | ${SITE_CONFIG.ORGANIZATION_NAME}`,
+      title: `FAQ | ${orgName}`,
       description: 'Frequently asked questions about my services',
     };
   }
@@ -41,6 +42,7 @@ export async function generateMetadata() {
     title,
     description,
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl('/faq'),
   });
 }
@@ -90,7 +92,8 @@ const FAQPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   // If the page doesn't exist, show 404
   if (!faqData) {
@@ -112,7 +115,7 @@ const FAQPage = async () => {
   // Generate Article structured data
   let articleSchema;
   if (seoMetaData && faqData._updatedAt) {
-    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl, null, businessContactInfo);
 
     articleSchema = generateArticleSchema({
       headline: faqData.title || 'FAQ',
@@ -120,7 +123,7 @@ const FAQPage = async () => {
       datePublished: faqData._createdAt || faqData._updatedAt,
       dateModified: faqData._updatedAt,
       author: {
-        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || orgName,
         type: 'Organization',
       },
       publisher: organizationData,

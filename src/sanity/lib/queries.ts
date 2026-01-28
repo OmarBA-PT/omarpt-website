@@ -330,6 +330,13 @@ export const SEO_META_DATA_QUERY = defineQuery(`*[_id == "seoMetaData"][0]{
   }
 }`);
 
+export const BUSINESS_CONTACT_INFO_QUERY = defineQuery(`*[_id == "businessContactInfo"][0]{
+  _id,
+  _type,
+  organizationName,
+  organizationDescription
+}`);
+
 export const COMPANY_LINKS_QUERY = defineQuery(`*[_id == "companyLinks"][0]{
   _id,
   _type,

@@ -12,10 +12,12 @@ import path from 'path';
  * This buffer can be used for email attachments or downloads
  *
  * @param submittedFormData - The form data submitted by the user
+ * @param organizationName - The organization name to display in the PDF
  * @returns Promise<Buffer> - PDF file as a Buffer
  */
 export async function generateApplicationPDFBuffer(
-  submittedFormData: Record<string, any>
+  submittedFormData: Record<string, any>,
+  organizationName: string
 ): Promise<Buffer> {
   try {
     // Read optimized logo file (much smaller for PDFs) and convert to base64 data URI
@@ -40,7 +42,7 @@ export async function generateApplicationPDFBuffer(
       formData: questionnaireSections,
       submittedAnswers: submittedFormData, // Pass the user's submitted answers
       logoUrl: logoUrl,
-      businessName: SITE_CONFIG.ORGANIZATION_NAME,
+      businessName: organizationName,
       contactEmail: SITE_CONFIG.ORGANIZATION_EMAIL.value,
       contactPhone: SITE_CONFIG.ORGANIZATION_PHONE.value,
       contactAddress: SITE_CONFIG.ORGANIZATION_ADDRESS.value,

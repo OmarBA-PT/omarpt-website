@@ -17,6 +17,7 @@ import {
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName } from '@/lib/organizationInfo';
 import PageSection from '@/components/Layout/PageSection';
 
 export async function generateMetadata() {
@@ -25,11 +26,12 @@ export async function generateMetadata() {
     getPrivacyPolicy(),
   ]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   if (!seoMetaData) {
     return {
-      title: `Privacy Policy | ${SITE_CONFIG.ORGANIZATION_NAME}`,
+      title: `Privacy Policy | ${orgName}`,
       description: 'Privacy policy for my website and how I handle your data',
     };
   }
@@ -41,6 +43,7 @@ export async function generateMetadata() {
     description:
       seoMetaData.siteDescription || 'Privacy policy for my website and how I handle your data',
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl('/privacy-policy'),
   });
 }
@@ -51,7 +54,8 @@ const PrivacyPolicyPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   // If the page is hidden or doesn't exist, show 404
   if (!privacyData || privacyData.hide) {
@@ -69,7 +73,7 @@ const PrivacyPolicyPage = async () => {
   // Generate Article structured data
   let articleSchema;
   if (seoMetaData && privacyData._updatedAt) {
-    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl, null, businessContactInfo);
 
     articleSchema = generateArticleSchema({
       headline: privacyData.title || 'Privacy Policy',
@@ -77,7 +81,7 @@ const PrivacyPolicyPage = async () => {
       datePublished: privacyData._updatedAt,
       dateModified: privacyData._updatedAt,
       author: {
-        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || orgName,
         type: 'Organization',
       },
       publisher: organizationData,

@@ -1,7 +1,8 @@
 import { urlFor } from '@/sanity/lib/image';
-import type { SEO_META_DATA_QUERYResult, COMPANY_LINKS_QUERYResult } from '@/sanity/types';
+import type { SEO_META_DATA_QUERYResult, COMPANY_LINKS_QUERYResult, BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
 import type { ImageObjectData } from '@/lib/imageUtils';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName, getOrganizationDescription } from '@/lib/organizationInfo';
 
 export interface OrganizationData {
   name: string;
@@ -261,12 +262,13 @@ export function generateFAQPageSchema(items: FAQItem[]) {
 export function getOrganizationDataFromSeoMetaData(
   seoMetaData: SEO_META_DATA_QUERYResult,
   baseUrl: string,
-  companyLinks?: COMPANY_LINKS_QUERYResult | null
+  companyLinks?: COMPANY_LINKS_QUERYResult | null,
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null
 ): OrganizationData {
   const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
 
   return {
-    name: seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+    name: seoMetaData?.siteTitle || getOrganizationName(businessContactInfo),
     url: baseUrl,
     email: SITE_CONFIG.ORGANIZATION_EMAIL.value,
     telephone: SITE_CONFIG.ORGANIZATION_PHONE.value,
@@ -281,10 +283,11 @@ export function getOrganizationDataFromSeoMetaData(
 
 export function getWebSiteDataFromSeoMetaData(
   seoMetaData: SEO_META_DATA_QUERYResult,
-  baseUrl: string
+  baseUrl: string,
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null
 ): WebSiteData {
   return {
-    name: seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+    name: seoMetaData?.siteTitle || getOrganizationName(businessContactInfo),
     url: baseUrl,
     ...(seoMetaData?.siteDescription && { description: seoMetaData.siteDescription }),
   };
@@ -323,13 +326,14 @@ export function getSocialMediaUrlsFromCompanyLinks(
 export function getLocalBusinessDataFromSeoMetaData(
   seoMetaData: SEO_META_DATA_QUERYResult,
   baseUrl: string,
-  companyLinks?: COMPANY_LINKS_QUERYResult | null
+  companyLinks?: COMPANY_LINKS_QUERYResult | null,
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null
 ): LocalBusinessData {
   const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
 
   return {
-    name: seoMetaData?.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
-    description: seoMetaData?.siteDescription || SITE_CONFIG.ORGANIZATION_DESCRIPTION,
+    name: seoMetaData?.siteTitle || getOrganizationName(businessContactInfo),
+    description: seoMetaData?.siteDescription || getOrganizationDescription(businessContactInfo),
     url: baseUrl,
     telephone: SITE_CONFIG.ORGANIZATION_PHONE.value,
     email: SITE_CONFIG.ORGANIZATION_EMAIL.value,

@@ -10,14 +10,14 @@ import VerticalNav from './VerticalNav/VerticalNav';
 import SkipLink from '@/components/UI/SkipLink';
 import { useHeader } from '@/contexts/HeaderContext';
 import { headerHeight } from '@/utils/spacingConstants';
-import { SITE_CONFIG } from '@/lib/constants';
 import ColorSwitchModal from '@/components/UI/ColorSwitchModal'; // TEMPORARY_DEV
 
 interface HeaderProps {
   headerData: HEADER_QUERYResult | null;
+  organizationName: string;
 }
 
-const Header = ({ headerData }: HeaderProps) => {
+const Header = ({ headerData, organizationName }: HeaderProps) => {
   const { enableOpacityFade } = useHeader();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Always start transparent - useEffect will set correct value
@@ -117,7 +117,7 @@ const Header = ({ headerData }: HeaderProps) => {
           }}>
           <UnifiedImage
             src='/images/logos/logo.png'
-            alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
+            alt={`${organizationName} Logo`}
             mode='sized'
             width={80}
             height={50}
@@ -182,6 +182,7 @@ const Header = ({ headerData }: HeaderProps) => {
         onClose={closeMenu}
         navLinks={headerData?.verticalNav || null}
         navCtas={headerData?.verticalNavCtas || null}
+        organizationName={organizationName}
       />
 
       {/* TEMPORARY_DEV - Color Switch Modal */}

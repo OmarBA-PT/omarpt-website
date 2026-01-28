@@ -56,10 +56,12 @@ import { applyPageType } from './applyPageType';
 import { applyQuestionnaireType } from './applyQuestionnaireType';
 import { applyPdfSettingsType } from './applyPdfSettingsType';
 import { applyPrivacyStatementType } from './applyPrivacyStatementType';
+import { businessContactInfoType } from './businessContactInfoType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Documents
+    businessContactInfoType,
     seoMetaDataType,
     companyLinksType,
     contactFormSettingsType,

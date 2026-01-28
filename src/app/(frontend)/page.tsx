@@ -2,22 +2,26 @@ import PageBuilder from '@/components/PageBuilder';
 import Hero from '@/components/HomeHero/Hero';
 import { getHomePageHero, getHomePageSections, getPageBuilderData } from '@/actions';
 import { generateMetadata as generatePageMetadata, generateCanonicalUrl } from '@/lib/metadata';
-import { SITE_CONFIG } from '@/lib/constants';
 import type { PAGE_QUERYResult } from '@/sanity/types';
+import { getOrganizationName, getOrganizationDescription } from '@/lib/organizationInfo';
 
 export async function generateMetadata() {
   const pageBuilderData = await getPageBuilderData();
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+
+  const orgName = getOrganizationName(businessContactInfo);
+  const orgDescription = getOrganizationDescription(businessContactInfo);
 
   if (!seoMetaData) {
     return {
-      title: SITE_CONFIG.ORGANIZATION_NAME,
-      description: SITE_CONFIG.ORGANIZATION_DESCRIPTION,
+      title: orgName,
+      description: orgDescription,
     };
   }
 
   return generatePageMetadata({
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl('/'),
   });
 }

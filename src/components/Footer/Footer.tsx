@@ -29,9 +29,10 @@ interface FooterProps {
   footerData: FOOTER_QUERYResult | null;
   companyLinksData: COMPANY_LINKS_QUERYResult | null;
   legalPagesVisibilityData: LEGAL_PAGES_VISIBILITY_QUERYResult | null;
+  organizationName: string;
 }
 
-const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: FooterProps) => {
+const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData, organizationName }: FooterProps) => {
   const { isPageReady } = usePageLoad();
 
   const contactDetails = [
@@ -119,7 +120,7 @@ const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData }: Foot
               }}>
               <UnifiedImage
                 src='/images/logos/logo.png'
-                alt={`${SITE_CONFIG.ORGANIZATION_NAME} Logo`}
+                alt={`${organizationName} Logo`}
                 mode='sized'
                 width={80}
                 height={50}

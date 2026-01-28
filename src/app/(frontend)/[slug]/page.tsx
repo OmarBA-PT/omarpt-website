@@ -17,24 +17,26 @@ import {
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { urlFor } from '@/sanity/lib/image';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import { SITE_CONFIG } from '@/lib/constants';
+import { getOrganizationName, getOrganizationDescription } from '@/lib/organizationInfo';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const [pageBuilderData, page] = await Promise.all([getPageBuilderData(), getPageBySlug(slug)]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
+  const orgDescription = getOrganizationDescription(businessContactInfo);
 
   if (!seoMetaData) {
     return {
-      title: SITE_CONFIG.ORGANIZATION_NAME,
-      description: SITE_CONFIG.ORGANIZATION_DESCRIPTION,
+      title: orgName,
+      description: orgDescription,
     };
   }
 
   if (!page) {
     return {
-      title: `Page Not Found | ${SITE_CONFIG.ORGANIZATION_NAME}`,
+      title: `Page Not Found | ${orgName}`,
       description: 'The page you are looking for could not be found.',
     };
   }
@@ -43,6 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: page.title || undefined,
     description: page.subtitle || seoMetaData.siteDescription || undefined,
     seoMetaData,
+    businessContactInfo,
     canonicalUrl: generateCanonicalUrl(`/${slug}`),
   });
 }
@@ -54,7 +57,8 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     getPageBuilderData(),
   ]);
 
-  const seoMetaData = pageBuilderData.seoMetaData;
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
+  const orgName = getOrganizationName(businessContactInfo);
 
   if (!page) {
     notFound();
@@ -71,7 +75,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   // Generate Article structured data
   let articleSchema;
   if (seoMetaData && page._createdAt && page._updatedAt) {
-    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl);
+    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl, null, businessContactInfo);
 
     articleSchema = generateArticleSchema({
       headline: page.title || 'Page',
@@ -80,7 +84,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       datePublished: page._createdAt,
       dateModified: page._updatedAt,
       author: {
-        name: seoMetaData.siteTitle || SITE_CONFIG.ORGANIZATION_NAME,
+        name: seoMetaData.siteTitle || orgName,
         type: 'Organization',
       },
       publisher: organizationData,

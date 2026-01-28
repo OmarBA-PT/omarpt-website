@@ -5,21 +5,24 @@ import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import CTA from '@/components/UI/CTA';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import { FaQuestionCircle } from 'react-icons/fa';
-import { SITE_CONFIG } from '@/lib/constants';
+import { fetchOrganizationName } from '@/lib/organizationInfo';
 
 const META_DESCRIPTION = 'Sorry, the page you are looking for could not be found.';
 
-export const metadata: Metadata = {
-  title: `Page Not Found - ${SITE_CONFIG.ORGANIZATION_NAME}`,
-  description: META_DESCRIPTION,
-  robots: 'noindex, nofollow',
-  openGraph: {
-    title: `Page Not Found - ${SITE_CONFIG.ORGANIZATION_NAME}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const orgName = await fetchOrganizationName();
+
+  return {
+    title: `Page Not Found - ${orgName}`,
     description: META_DESCRIPTION,
-    type: 'website',
-  },
-};
+    robots: 'noindex, nofollow',
+    openGraph: {
+      title: `Page Not Found - ${orgName}`,
+      description: META_DESCRIPTION,
+      type: 'website',
+    },
+  };
+}
 
 const navigationLinks = [
   {
