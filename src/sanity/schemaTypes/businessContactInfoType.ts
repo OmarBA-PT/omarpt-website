@@ -40,7 +40,7 @@ export const businessContactInfoType = defineType({
       name: 'organizationPhone',
       title: 'Organisation Phone',
       type: 'string',
-      description: 'Primary contact phone number (e.g., "+64 210 503 128")',
+      description: 'Primary contact phone number (e.g., "+64 210 123 454")',
     }),
     defineField({
       name: 'organizationAddress',
@@ -77,7 +77,8 @@ export const businessContactInfoType = defineType({
       name: 'businessLocation',
       title: 'Business Location',
       type: 'object',
-      description: 'Detailed address and geographic data used for LocalBusiness structured data (SEO)',
+      description:
+        'Detailed address and geographic data used for LocalBusiness structured data (SEO)',
       fields: [
         defineField({
           name: 'streetAddress',
