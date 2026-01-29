@@ -9,7 +9,7 @@
   When changing these values, update BOTH locations:
   1. This file (globals.css) - for full styling and consistency
   2. src/app/layout.tsx inline styles - for critical performance CSS
-  3. For brand colours, also change the same in PWA_MANIFEST in src/lib/constants.ts
+  3. src/app/manifest.ts - for PWA theme colors (THEME_COLOR, BACKGROUND_COLOR)
 
   DUPLICATED STYLES (simplified): scroll-padding-top, main padding-top, brand colors (--color-brand-primary/secondary)
 */

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { SITE_CONFIG } from '@/lib/constants';
+import { sanityFetch } from '@/sanity/lib/live';
+import { SEO_META_DATA_QUERY } from '@/sanity/lib/queries';
 
 /**
  * Web App Manifest - Enables "Add to Home Screen" functionality
@@ -7,18 +8,38 @@ import { SITE_CONFIG } from '@/lib/constants';
  * This manifest allows users to install the website as a Progressive Web App (PWA)
  * on mobile devices, providing an app-like experience.
  *
- * PWA settings (name, colors, description) are centralized in SITE_CONFIG.PWA_MANIFEST
- * in constants.ts for easy maintenance. Update constants.ts to change PWA configuration.
+ * - name & short_name: Fetched from Sanity CMS (SEO Meta Data > Site Title)
+ * - description: Fetched from Sanity CMS (SEO Meta Data > Site Description)
+ * - Theme colors: Hardcoded below (must match brand colors in globals.css)
+ *
+ * ⚠️ IMPORTANT: Theme colors must match brand colors in globals.css
+ * When changing brand colors in globals.css, update these values too:
+ *   - THEME_COLOR: should match --color-brand-primary
+ *   - BACKGROUND_COLOR: should match --color-brand-charcoal
  */
-export default function manifest(): MetadataRoute.Manifest {
+
+// Theme colors - MUST be kept in sync with globals.css brand colors
+// See: src/app/globals.css @theme section
+const THEME_COLOR = '#ff6600'; // --color-brand-primary
+const BACKGROUND_COLOR = '#282828'; // --color-brand-charcoal
+
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  // Fetch site title and description from Sanity
+  const { data: seoMetaData } = await sanityFetch({
+    query: SEO_META_DATA_QUERY,
+  });
+
+  const siteTitle = seoMetaData?.siteTitle || 'Website';
+  const siteDescription = seoMetaData?.siteDescription || '';
+
   return {
-    name: SITE_CONFIG.PWA_MANIFEST.name,
-    short_name: SITE_CONFIG.PWA_MANIFEST.shortName,
-    description: SITE_CONFIG.PWA_MANIFEST.description,
+    name: siteTitle,
+    short_name: siteTitle,
+    description: siteDescription,
     start_url: '/',
     display: 'standalone',
-    background_color: SITE_CONFIG.PWA_MANIFEST.backgroundColor,
-    theme_color: SITE_CONFIG.PWA_MANIFEST.themeColor,
+    background_color: BACKGROUND_COLOR,
+    theme_color: THEME_COLOR,
     icons: [
       {
         src: '/icon2.png',

@@ -26,17 +26,9 @@ export const SITE_CONFIG = {
   // Social links are fetched from Sanity and used for LocalBusiness structured data (sameAs)
   // To add/edit social profiles, use the Sanity Studio: Company Links section
 
-  // PWA Manifest Settings - Used for Progressive Web App configuration
-  // Update these values to customize the "Add to Home Screen" experience
-  PWA_MANIFEST: {
-    name: 'Omania Training - Personal Trainer',
-    shortName: 'Omania Training',
-    description:
-      'Professional personal training service in Auckland, New Zealand. Over a decade of experience helping clients achieve their fitness goals.',
-    // Theme colors should match brand colors in globals.css
-    themeColor: 'ff6600', // --color-brand-primary
-    backgroundColor: '282828', // --color-brand-secondary
-  },
+  // PWA Manifest Settings - Now managed in src/app/manifest.ts
+  // Name and description are fetched from Sanity CMS (SEO Meta Data)
+  // Theme colors are hardcoded in manifest.ts (must match globals.css brand colors)
 } as const;
 
 // Type-safe access to configuration values
