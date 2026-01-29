@@ -26,7 +26,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
       name: 'title',
       title: 'Section Title',
       type: 'string',
-      description: `Title for this ${config.title.toLowerCase()} (will render as ${config.name === 'pageSection' ? 'h2' : config.name === 'subSection' ? 'h3' : config.name === 'subSubSection' ? 'h4' : 'heading'}). Use {curly braces} around text to make it white. Example: "Welcome to {Omania} Training" - the rest will be orange.`,
+      description: `Title for this ${config.title.toLowerCase()} (will render as ${config.name === 'pageSection' ? 'h2' : config.name === 'subSection' ? 'h3' : config.name === 'subSubSection' ? 'h4' : 'heading'}). Use {curly braces} around text to make it white. Example: "Welcome to {My} Company" - the rest will be orange.`,
       validation: (Rule) => Rule.required().error(`${config.title} title is required`),
     }),
     defineField({
@@ -55,7 +55,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
 
             // Flatten all content to find sections
             const getAllSections = (
-              content: unknown[]
+              content: unknown[],
             ): { _type: string; anchorId?: string; _key?: string }[] => {
               const sections: { _type: string; anchorId?: string; _key?: string }[] = [];
               for (const item of content || []) {
@@ -84,7 +84,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
 
             // Count occurrences of this anchor ID (excluding current section being edited)
             const duplicates = allSections.filter(
-              (section) => section.anchorId === value && section._key !== currentSection?._key
+              (section) => section.anchorId === value && section._key !== currentSection?._key,
             );
 
             if (duplicates.length > 0) {
@@ -106,7 +106,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
         title: 'Section Subtitle',
         type: 'text',
         description: 'Optional subtitle for this section',
-      })
+      }),
     );
   }
 
@@ -122,7 +122,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
         type: 'string',
         description:
           'Optional text displayed at the top of the section. Can be used for posting dates, timestamps, or any contextual information.',
-      })
+      }),
     );
   }
 
@@ -139,7 +139,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
         description:
           'Add a smaller gap after this section instead of the default spacing. Note: Gap size may be overridden by other layout rules depending on content placement. Large gaps work best for long sections with varied content, while compact gaps suit shorter text-focused sections.',
         initialValue: false,
-      })
+      }),
     );
   }
 
@@ -163,7 +163,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
         description:
           'When enabled, the section heading and subtitle will appear in the left column, and you can add content to both the left column (below the heading) and a separate right column. On mobile, left column content appears first, followed by right column content.',
         initialValue: false,
-      })
+      }),
     );
   }
 
@@ -171,13 +171,12 @@ export function createSectionSchema(config: SectionFactoryConfig) {
   const contentOf = createSectionBlockList(config.allowedChildSections);
 
   // For PageSection, make the content field title conditional based on twoColumnLayout
-  const contentFieldTitle = config.name === 'pageSection'
-    ? 'Left Column Content'
-    : 'Content';
+  const contentFieldTitle = config.name === 'pageSection' ? 'Left Column Content' : 'Content';
 
-  const contentFieldDescription = config.name === 'pageSection'
-    ? 'Content for the left column (below the heading/subtitle). When two-column layout is disabled, this is the main content area.'
-    : undefined;
+  const contentFieldDescription =
+    config.name === 'pageSection'
+      ? 'Content for the left column (below the heading/subtitle). When two-column layout is disabled, this is the main content area.'
+      : undefined;
 
   fields.push(
     defineField({
@@ -186,7 +185,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
       type: 'array',
       of: contentOf,
       description: contentFieldDescription,
-    })
+    }),
   );
 
   // Add right column field for PageSection only (when twoColumnLayout is enabled)
@@ -199,7 +198,7 @@ export function createSectionSchema(config: SectionFactoryConfig) {
         of: contentOf,
         description: 'Content for the right column (appears after left column on mobile).',
         hidden: ({ parent }) => !parent?.twoColumnLayout,
-      })
+      }),
     );
   }
 

@@ -15,7 +15,7 @@ export const businessContactInfoType = defineType({
       name: 'organizationName',
       title: 'Organisation Name',
       type: 'string',
-      description: 'The official name of your business or organisation (e.g., "Omania Training")',
+      description: 'The official name of your business or organisation',
       validation: (Rule) => Rule.required().max(100),
     }),
     defineField({

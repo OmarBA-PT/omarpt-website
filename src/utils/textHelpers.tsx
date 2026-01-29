@@ -6,7 +6,7 @@ type ColorScheme = 'orange-white' | 'white-orange';
  * Parses a string with color markers {text} and returns JSX elements.
  * Handles gradient text properly and preserves spacing and line breaks.
  *
- * @param text - The string to parse (e.g., "Welcome to {Omania} Training")
+ * @param text - The string to parse (e.g., "Welcome to {My} Company")
  * @param colorScheme - The color scheme to use:
  *   - 'orange-white' (default): Default text is orange gradient, {tagged} text is white
  *   - 'white-orange': Default text is white, {tagged} text is orange gradient
@@ -14,8 +14,8 @@ type ColorScheme = 'orange-white' | 'white-orange';
  *
  * @example
  * // Orange gradient default, white tagged
- * parseColoredText("Welcome to {Omania} Training", 'orange-white')
- * // Renders: "Welcome to " (orange) + "Omania" (white) + " Training" (orange)
+ * parseColoredText("Welcome to {My} Company", 'orange-white')
+ * // Renders: "Welcome to " (orange) + "My" (white) + " Company" (orange)
  *
  * @example
  * // White default, orange gradient tagged
@@ -24,7 +24,7 @@ type ColorScheme = 'orange-white' | 'white-orange';
  */
 export const parseColoredText = (
   text: string,
-  colorScheme: ColorScheme = 'orange-white'
+  colorScheme: ColorScheme = 'orange-white',
 ): React.ReactNode[] => {
   if (!text) return [];
 
@@ -63,7 +63,8 @@ export const parseColoredText = (
         result = leadingSpaces[0].replace(/ /g, '\u00A0') + result.slice(leadingSpaces[0].length);
       }
       if (trailingSpaces) {
-        result = result.slice(0, -trailingSpaces[0].length) + trailingSpaces[0].replace(/ /g, '\u00A0');
+        result =
+          result.slice(0, -trailingSpaces[0].length) + trailingSpaces[0].replace(/ /g, '\u00A0');
       }
 
       return result;
@@ -96,9 +97,7 @@ export const parseColoredText = (
 
           return (
             <React.Fragment key={`${i}-${lineIndex}`}>
-              <span className={colorClass}>
-                {preserveWhitespace(line) || '\u00A0'}
-              </span>
+              <span className={colorClass}>{preserveWhitespace(line) || '\u00A0'}</span>
               {lineIndex < lines.length - 1 && <br />}
             </React.Fragment>
           );

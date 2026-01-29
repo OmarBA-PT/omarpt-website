@@ -148,7 +148,7 @@ export const homePageHeroType = defineType({
       type: 'text',
       title: 'Main Title',
       description:
-        'Main visual heading for the hero section. Supports line breaks (press Enter for new line). Use {curly braces} around text to make it white. Example: "Welcome to {Omania} Training" - the rest will be orange.',
+        'Main visual heading for the hero section. Supports line breaks (press Enter for new line). Use {curly braces} around text to make it white. Example: "Welcome to {My} Company" - the rest will be orange.',
       rows: 3,
     }),
     defineField({
