@@ -34,8 +34,7 @@ export async function generateMetadata() {
 
   // Hard-coded fallback values (lowest priority)
   const fallbackTitle = 'Contact Me';
-  const fallbackDescription =
-    'Get in touch with Omania Training for general enquiries or to discuss your fitness goals and coaching options.';
+  const fallbackDescription = '';
 
   // Priority: Page-specific Sanity data > Hard-coded fallbacks
   const ogTitle = contactPageData?.title || fallbackTitle;

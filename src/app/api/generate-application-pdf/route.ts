@@ -4,6 +4,14 @@ import { fetchOrganizationName } from '@/lib/organizationInfo';
 
 export const dynamic = 'force-dynamic';
 
+// Helper function to convert a string to dash-separated format for filenames
+const toDashSeparated = (str: string): string => {
+  return str
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-zA-Z0-9-]/g, '');
+};
+
 /**
  * GET endpoint - generates blank application form PDF (no submitted data)
  */
@@ -20,7 +28,7 @@ export async function GET() {
     return new Response(pdfBuffer as BodyInit, {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="Omania-Training-Application-Form.pdf"',
+        'Content-Disposition': `attachment; filename="${toDashSeparated(organizationName)}-Application-Form.pdf"`,
         'Cache-Control': 'no-cache, no-store, must-revalidate',
       },
     });
@@ -55,7 +63,7 @@ export async function POST(request: Request) {
     const pdfBuffer = await generateApplicationPDFBuffer(formData, organizationName);
 
     // Generate filename using applicant name if available
-    let filename = 'Omania-Training-Application-Form.pdf';
+    let filename = `${toDashSeparated(organizationName)}-Application-Form.pdf`;
     if (formData.fullName) {
       const sanitizedName = formData.fullName
         .replace(/[^a-zA-Z0-9\s]/g, '')

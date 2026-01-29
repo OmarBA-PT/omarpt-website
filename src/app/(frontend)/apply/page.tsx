@@ -5,7 +5,12 @@ import {
 } from '@/lib/metadata';
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import { getApplyPage, getApplyPrivacyStatement, getApplyQuestionnaire, getPageBuilderData } from '@/actions';
+import {
+  getApplyPage,
+  getApplyPrivacyStatement,
+  getApplyQuestionnaire,
+  getPageBuilderData,
+} from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import {
   getOrganizationName,
@@ -25,8 +30,7 @@ export async function generateMetadata() {
 
   // Hard-coded fallback values (lowest priority)
   const fallbackTitle = 'Apply Now';
-  const fallbackDescription =
-    'Take the first step towards achieving your fitness goals. Apply for personalised coaching with Omania Training today.';
+  const fallbackDescription = '';
 
   // Priority: Page-specific Sanity data > Hard-coded fallbacks
   const ogTitle = applyPageData?.title || fallbackTitle;
@@ -45,12 +49,13 @@ const ApplyPage = async () => {
   const baseUrl = getBaseUrl();
 
   // Fetch apply page data from Sanity
-  const [applyPageData, applyPrivacyStatement, applyQuestionnaire, pageBuilderData] = await Promise.all([
-    getApplyPage(),
-    getApplyPrivacyStatement(),
-    getApplyQuestionnaire(),
-    getPageBuilderData(),
-  ]);
+  const [applyPageData, applyPrivacyStatement, applyQuestionnaire, pageBuilderData] =
+    await Promise.all([
+      getApplyPage(),
+      getApplyPrivacyStatement(),
+      getApplyQuestionnaire(),
+      getPageBuilderData(),
+    ]);
 
   const { businessContactInfo } = pageBuilderData;
   const orgName = getOrganizationName(businessContactInfo);
