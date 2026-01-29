@@ -1,13 +1,16 @@
 import { urlFor } from '@/sanity/lib/image';
 import type { SEO_META_DATA_QUERYResult, COMPANY_LINKS_QUERYResult, BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
 import type { ImageObjectData } from '@/lib/imageUtils';
-import { SITE_CONFIG } from '@/lib/constants';
 import {
   getOrganizationName,
   getOrganizationDescription,
   getOrganizationEmail,
   getOrganizationPhone,
   getOrganizationAddress,
+  getBusinessLocation,
+  getBusinessHours,
+  getPriceRange,
+  getServiceAreas,
 } from '@/lib/organizationInfo';
 
 export interface OrganizationData {
@@ -325,13 +328,12 @@ export function getSocialMediaUrlsFromCompanyLinks(
 }
 
 /**
- * Generates LocalBusiness structured data from SEO meta data and business constants.
+ * Generates LocalBusiness structured data from SEO meta data and business info.
  *
- * Business-specific data (location, hours, service areas) is centralized
- * in SITE_CONFIG in constants.ts for easy maintenance. Update constants.ts to change
- * business information across the entire site.
+ * Business-specific data (location, hours, service areas) is managed in Sanity CMS
+ * under Site Management > Business & Contact Info for content editor control.
  *
- * Social media profiles are pulled from Sanity Company Links for content editor control.
+ * Social media profiles are pulled from Sanity Company Links.
  */
 export function getLocalBusinessDataFromSeoMetaData(
   seoMetaData: SEO_META_DATA_QUERYResult,
@@ -343,6 +345,10 @@ export function getLocalBusinessDataFromSeoMetaData(
 
   const email = getOrganizationEmail(businessContactInfo);
   const telephone = getOrganizationPhone(businessContactInfo);
+  const location = getBusinessLocation(businessContactInfo);
+  const businessHours = getBusinessHours(businessContactInfo);
+  const priceRange = getPriceRange(businessContactInfo);
+  const serviceAreas = getServiceAreas(businessContactInfo);
 
   return {
     name: seoMetaData?.siteTitle || getOrganizationName(businessContactInfo),
@@ -351,25 +357,25 @@ export function getLocalBusinessDataFromSeoMetaData(
     telephone: telephone || '',
     email: email || '',
     address: {
-      streetAddress: SITE_CONFIG.BUSINESS_LOCATION.streetAddress,
-      addressLocality: SITE_CONFIG.BUSINESS_LOCATION.addressLocality,
-      postalCode: SITE_CONFIG.BUSINESS_LOCATION.postalCode,
-      addressRegion: SITE_CONFIG.BUSINESS_LOCATION.addressRegion,
-      addressCountry: SITE_CONFIG.BUSINESS_LOCATION.addressCountry,
+      streetAddress: location.streetAddress,
+      addressLocality: location.addressLocality,
+      postalCode: location.postalCode,
+      addressRegion: location.addressRegion,
+      addressCountry: location.addressCountry,
     },
     geo: {
-      latitude: SITE_CONFIG.BUSINESS_LOCATION.latitude,
-      longitude: SITE_CONFIG.BUSINESS_LOCATION.longitude,
+      latitude: parseFloat(location.latitude) || 0,
+      longitude: parseFloat(location.longitude) || 0,
     },
-    openingHours: SITE_CONFIG.BUSINESS_HOURS,
-    ...(SITE_CONFIG.PRICE_RANGE !== '' && { priceRange: SITE_CONFIG.PRICE_RANGE }),
+    openingHours: businessHours,
+    ...(priceRange !== '' && { priceRange }),
     ...(seoMetaData?.defaultOgImage && {
       image: urlFor(seoMetaData.defaultOgImage).width(1200).height(630).url(),
     }),
     ...(seoMetaData?.defaultOgImage && {
       logo: urlFor(seoMetaData.defaultOgImage).width(512).height(512).url(),
     }),
-    areaServed: SITE_CONFIG.SERVICE_AREAS,
+    areaServed: serviceAreas,
     sameAs: socialMediaUrls,
   };
 }

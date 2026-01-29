@@ -153,3 +153,81 @@ export function getGoogleMapsEmbedCode(
 ): string {
   return businessContactInfo?.googleMapsEmbedCode || '';
 }
+
+// ============================================================================
+// Business Location & SEO Helpers
+// These return empty strings/objects/arrays when data is not available (no defaults)
+// ============================================================================
+
+export interface BusinessLocation {
+  streetAddress: string;
+  addressLocality: string;
+  postalCode: string;
+  addressRegion: string;
+  addressCountry: string;
+  latitude: string;
+  longitude: string;
+  regionCode: string;
+}
+
+/**
+ * Get business location data from businessContactInfo.
+ * Returns object with empty strings for all fields if not set.
+ */
+export function getBusinessLocation(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): BusinessLocation {
+  const location = businessContactInfo?.businessLocation;
+  return {
+    streetAddress: location?.streetAddress || '',
+    addressLocality: location?.addressLocality || '',
+    postalCode: location?.postalCode || '',
+    addressRegion: location?.addressRegion || '',
+    addressCountry: location?.addressCountry || '',
+    latitude: location?.latitude || '',
+    longitude: location?.longitude || '',
+    regionCode: location?.regionCode || '',
+  };
+}
+
+/**
+ * Get business hours from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getBusinessHours(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.businessHours || '';
+}
+
+/**
+ * Get price range from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getPriceRange(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.priceRange || '';
+}
+
+export interface ServiceArea {
+  type: string;
+  name: string;
+}
+
+/**
+ * Get service areas from businessContactInfo.
+ * Returns empty array if not set.
+ */
+export function getServiceAreas(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): ServiceArea[] {
+  const areas = businessContactInfo?.serviceAreas;
+  if (!areas || !Array.isArray(areas)) {
+    return [];
+  }
+  return areas.map((area) => ({
+    type: area.areaType || '',
+    name: area.areaName || '',
+  }));
+}

@@ -339,7 +339,23 @@ export const BUSINESS_CONTACT_INFO_QUERY = defineQuery(`*[_id == "businessContac
   organizationPhone,
   organizationAddress,
   googleMapsLink,
-  googleMapsEmbedCode
+  googleMapsEmbedCode,
+  businessLocation{
+    streetAddress,
+    addressLocality,
+    postalCode,
+    addressRegion,
+    addressCountry,
+    latitude,
+    longitude,
+    regionCode
+  },
+  businessHours,
+  priceRange,
+  serviceAreas[]{
+    areaType,
+    areaName
+  }
 }`);
 
 export const COMPANY_LINKS_QUERY = defineQuery(`*[_id == "companyLinks"][0]{

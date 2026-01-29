@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { urlFor } from '@/sanity/lib/image';
 import type { SEO_META_DATA_QUERYResult, BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getOrganizationName } from '@/lib/organizationInfo';
+import { getOrganizationName, getBusinessLocation } from '@/lib/organizationInfo';
 
 /**
  * Get the base URL for the site
@@ -77,6 +77,21 @@ export function generateMetadata({
     ogImageAlt = seoMetaData.defaultOgImage.alt || `${siteTitle} - ${title || siteTagline}`;
   }
 
+  const location = getBusinessLocation(businessContactInfo);
+
+  // Build geographic meta tags only if location data is available
+  const geoMetaTags: Record<string, string> = {};
+  if (location.regionCode) {
+    geoMetaTags['geo.region'] = location.regionCode;
+  }
+  if (location.addressLocality) {
+    geoMetaTags['geo.placename'] = location.addressLocality;
+  }
+  if (location.latitude && location.longitude) {
+    geoMetaTags['geo.position'] = `${location.latitude};${location.longitude}`;
+    geoMetaTags['ICBM'] = `${location.latitude}, ${location.longitude}`;
+  }
+
   const metadata: Metadata = {
     metadataBase: new URL(getBaseUrl()),
     title: pageTitle,
@@ -87,13 +102,8 @@ export function generateMetadata({
         canonical: canonicalUrl,
       },
     }),
-    // Geographic meta tags for local SEO
-    other: {
-      'geo.region': SITE_CONFIG.BUSINESS_LOCATION.regionCode,
-      'geo.placename': SITE_CONFIG.BUSINESS_LOCATION.addressLocality,
-      'geo.position': `${SITE_CONFIG.BUSINESS_LOCATION.latitude};${SITE_CONFIG.BUSINESS_LOCATION.longitude}`,
-      ICBM: `${SITE_CONFIG.BUSINESS_LOCATION.latitude}, ${SITE_CONFIG.BUSINESS_LOCATION.longitude}`,
-    },
+    // Geographic meta tags for local SEO (only included if data is available)
+    ...(Object.keys(geoMetaTags).length > 0 && { other: geoMetaTags }),
     openGraph: {
       title: pageTitle,
       description: pageDescription,

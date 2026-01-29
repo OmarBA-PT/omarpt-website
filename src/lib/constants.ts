@@ -15,40 +15,12 @@ export const SITE_CONFIG = {
   // When false: Site operates normally
   MAINTENANCE_MODE_ENABLED: false,
 
-  // NOTE: Contact information (email, phone, address) is now managed in Sanity CMS
+  // NOTE: Contact information (email, phone, address) and business details are now managed in Sanity CMS
   // Go to: Site Management → Business & Contact Info
-  // Access in code via: getOrganizationEmail(), getOrganizationPhone(), etc. from @/lib/organizationInfo
-
-  // Business Location Details - Used for LocalBusiness structured data (SEO)
-  // Update these values if the studio relocates or business details change
-  BUSINESS_LOCATION: {
-    streetAddress: '',
-    addressLocality: 'Auckland',
-    postalCode: '1021',
-    addressRegion: 'Auckland',
-    addressCountry: 'NZ',
-    // GPS coordinates from Google Maps - used for local SEO and map integration
-    latitude: -36.859063,
-    longitude: 174.748266,
-    // ISO 3166-2 region code for Auckland, New Zealand
-    regionCode: 'NZ-AUK',
-  },
-
-  // Business Hours - Used for LocalBusiness structured data
-  BUSINESS_HOURS: 'By Appointment Only',
-
-  // Price Range - Used for LocalBusiness structured data
-  // Leave as empty string ('') to omit from schema if pricing varies
-  // Valid values: '$', '$$', '$$$', '$$$$' or descriptive text
-  PRICE_RANGE: '',
-
-  // Service Areas - Geographic areas served by the business
-  // Used for LocalBusiness structured data to improve local/regional SEO
-  // Add or remove cities/regions as needed
-  SERVICE_AREAS: [
-    { type: 'Country', name: 'New Zealand' },
-    { type: 'City', name: 'Auckland' },
-  ],
+  // This includes: Business Location, Business Hours, Price Range, Service Areas
+  // Access in code via helper functions from @/lib/organizationInfo:
+  //   - getOrganizationEmail(), getOrganizationPhone(), getOrganizationAddress()
+  //   - getBusinessLocation(), getBusinessHours(), getPriceRange(), getServiceAreas()
 
   // Social Media Profiles - Managed in Sanity CMS under "Company Links > Social Links"
   // Social links are fetched from Sanity and used for LocalBusiness structured data (sameAs)

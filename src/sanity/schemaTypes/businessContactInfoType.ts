@@ -72,6 +72,112 @@ export const businessContactInfoType = defineType({
           return true;
         }),
     }),
+    // Business Location Details - Used for LocalBusiness structured data (SEO)
+    defineField({
+      name: 'businessLocation',
+      title: 'Business Location',
+      type: 'object',
+      description: 'Detailed address and geographic data used for LocalBusiness structured data (SEO)',
+      fields: [
+        defineField({
+          name: 'streetAddress',
+          title: 'Street Address',
+          type: 'string',
+          description: 'Street address (e.g., "123 Main Street")',
+        }),
+        defineField({
+          name: 'addressLocality',
+          title: 'City/Locality',
+          type: 'string',
+          description: 'City or locality (e.g., "Auckland")',
+        }),
+        defineField({
+          name: 'postalCode',
+          title: 'Postal Code',
+          type: 'string',
+          description: 'Postal/ZIP code (e.g., "1021")',
+        }),
+        defineField({
+          name: 'addressRegion',
+          title: 'Region/State',
+          type: 'string',
+          description: 'Region or state (e.g., "Auckland")',
+        }),
+        defineField({
+          name: 'addressCountry',
+          title: 'Country Code',
+          type: 'string',
+          description: 'ISO country code (e.g., "NZ")',
+        }),
+        defineField({
+          name: 'latitude',
+          title: 'Latitude',
+          type: 'string',
+          description: 'GPS latitude coordinate (e.g., "-36.859063")',
+        }),
+        defineField({
+          name: 'longitude',
+          title: 'Longitude',
+          type: 'string',
+          description: 'GPS longitude coordinate (e.g., "174.748266")',
+        }),
+        defineField({
+          name: 'regionCode',
+          title: 'Region Code',
+          type: 'string',
+          description: 'ISO 3166-2 region code (e.g., "NZ-AUK" for Auckland, New Zealand)',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'businessHours',
+      title: 'Business Hours',
+      type: 'string',
+      description: 'Business hours description (e.g., "By Appointment Only", "Mon-Fri 9am-5pm")',
+    }),
+    defineField({
+      name: 'priceRange',
+      title: 'Price Range',
+      type: 'string',
+      description: 'Price range indicator for structured data (e.g., "$", "$$", "$$$", "$$$$")',
+    }),
+    defineField({
+      name: 'serviceAreas',
+      title: 'Service Areas',
+      type: 'array',
+      description: 'Geographic areas served by the business (used for local/regional SEO)',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'areaType',
+              title: 'Area Type',
+              type: 'string',
+              description: 'Type of area (e.g., "Country", "City", "State", "Region")',
+            }),
+            defineField({
+              name: 'areaName',
+              title: 'Area Name',
+              type: 'string',
+              description: 'Name of the area (e.g., "New Zealand", "Auckland")',
+            }),
+          ],
+          preview: {
+            select: {
+              areaType: 'areaType',
+              areaName: 'areaName',
+            },
+            prepare({ areaType, areaName }) {
+              return {
+                title: areaName || 'Unnamed Area',
+                subtitle: areaType || 'No type specified',
+              };
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     prepare() {
