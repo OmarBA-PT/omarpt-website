@@ -19,9 +19,15 @@ import { urlFor } from '@/sanity/lib/image';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import { getOrganizationName, getOrganizationDescription } from '@/lib/organizationInfo';
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
-  const [pageBuilderData, page] = await Promise.all([getPageBuilderData(), getPageBySlug(slug)]);
+  // Join slug array to create the full path (e.g., ['about', 'team'] -> 'about/team')
+  // For single segments, this is just the slug itself
+  const slugPath = slug.join('/');
+  // For Sanity query, we only use the first segment (top-level pages)
+  const pageSlug = slug[0];
+
+  const [pageBuilderData, page] = await Promise.all([getPageBuilderData(), getPageBySlug(pageSlug)]);
 
   const { seoMetaData, businessContactInfo } = pageBuilderData;
   const orgName = getOrganizationName(businessContactInfo);
@@ -34,7 +40,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
-  if (!page) {
+  // For nested paths (e.g., /about/team), or if page not found, show 404 metadata
+  if (!page || slug.length > 1) {
     return {
       title: `Page Not Found | ${orgName}`,
       description: 'The page you are looking for could not be found.',
@@ -46,30 +53,35 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: page.subtitle || seoMetaData.siteDescription || undefined,
     seoMetaData,
     businessContactInfo,
-    canonicalUrl: generateCanonicalUrl(`/${slug}`),
+    canonicalUrl: generateCanonicalUrl(`/${slugPath}`),
   });
 }
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+const Page = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
   const { slug } = await params;
+  // Join slug array to create the full path
+  const slugPath = slug.join('/');
+  // For Sanity query, we only use the first segment (top-level pages)
+  const pageSlug = slug[0];
+
   const [page, pageBuilderData] = await Promise.all([
-    getPageBySlug(slug),
+    getPageBySlug(pageSlug),
     getPageBuilderData(),
   ]);
 
-  const { seoMetaData, businessContactInfo } = pageBuilderData;
-  const orgName = getOrganizationName(businessContactInfo);
-
-  if (!page) {
+  // For nested paths (e.g., /about/team), or if page not found, trigger 404
+  if (!page || slug.length > 1) {
     notFound();
   }
+
+  const { seoMetaData, businessContactInfo } = pageBuilderData;
 
   const baseUrl = getBaseUrl();
 
   // Generate breadcrumb data
   const breadcrumbItems = [
     { name: 'Home', url: baseUrl },
-    { name: page.title || 'Page', url: `${baseUrl}/${slug}` },
+    { name: page.title || 'Page', url: `${baseUrl}/${slugPath}` },
   ];
 
   // Generate Article structured data
@@ -84,11 +96,11 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       datePublished: page._createdAt,
       dateModified: page._updatedAt,
       author: {
-        name: seoMetaData.siteTitle || orgName,
+        name: seoMetaData.siteTitle || getOrganizationName(businessContactInfo),
         type: 'Organization',
       },
       publisher: organizationData,
-      url: `${baseUrl}/${slug}`,
+      url: `${baseUrl}/${slugPath}`,
     });
   }
 
