@@ -9,7 +9,7 @@ import {
   getOrganizationAddress,
   getOrganizationAddressLink,
 } from '@/lib/organizationInfo';
-import { getApplyQuestionnaire } from '@/actions';
+import { getApplyQuestionnaire, getApplyConfirmationEmail } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import { sanityFetch } from '@/sanity/lib/live';
 import { BUSINESS_CONTACT_INFO_QUERY } from '@/sanity/lib/queries';
@@ -181,8 +181,11 @@ export async function POST(request: Request) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const logoUrl = `${baseUrl}/images/logos/logo.png`;
 
-    // Fetch questionnaire data from Sanity and transform it
-    const questionnaireData = await getApplyQuestionnaire();
+    // Fetch questionnaire data and confirmation email settings from Sanity
+    const [questionnaireData, applyConfirmationEmail] = await Promise.all([
+      getApplyQuestionnaire(),
+      getApplyConfirmationEmail(),
+    ]);
     const questionnaireSections = transformQuestionnaireData(questionnaireData);
 
     // Generate PDF with submitted answers
@@ -257,6 +260,10 @@ export async function POST(request: Request) {
         organizationAddress,
         organizationAddressLink,
         productionDomain: SITE_CONFIG.PRODUCTION_DOMAIN,
+        // Email content from Sanity (optional fields - empty string if not set)
+        emailGreeting: applyConfirmationEmail?.emailGreeting || '',
+        emailIntroMessage: applyConfirmationEmail?.emailIntroMessage || '',
+        emailClosingMessage: applyConfirmationEmail?.emailClosingMessage || '',
       });
 
       const confirmationEmailResult = await resend.emails.send({

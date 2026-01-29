@@ -56,6 +56,7 @@ import { applyPageType } from './applyPageType';
 import { applyQuestionnaireType } from './applyQuestionnaireType';
 import { applyPdfSettingsType } from './applyPdfSettingsType';
 import { applyPrivacyStatementType } from './applyPrivacyStatementType';
+import { applyConfirmationEmailType } from './applyConfirmationEmailType';
 import { businessContactInfoType } from './businessContactInfoType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -76,6 +77,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     applyQuestionnaireType,
     applyPdfSettingsType,
     applyPrivacyStatementType,
+    applyConfirmationEmailType,
     termsAndConditionsType,
     privacyPolicyType,
     blockContentType,

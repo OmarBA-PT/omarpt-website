@@ -608,3 +608,12 @@ export const APPLY_QUESTIONNAIRE_QUERY = defineQuery(`*[_id == "applyQuestionnai
     }
   }
 }`);
+
+// Apply Confirmation Email query
+export const APPLY_CONFIRMATION_EMAIL_QUERY = defineQuery(`*[_id == "applyConfirmationEmail"][0]{
+  _id,
+  _type,
+  emailGreeting,
+  emailIntroMessage,
+  emailClosingMessage
+}`);

@@ -22,6 +22,10 @@ interface ApplicationConfirmationEmailData {
   organizationAddress: string;
   organizationAddressLink: string;
   productionDomain: string;
+  // Email content from Sanity (optional - if not provided, content is omitted)
+  emailGreeting?: string;
+  emailIntroMessage?: string;
+  emailClosingMessage?: string;
 }
 
 /**
@@ -83,6 +87,9 @@ export function generateApplicationConfirmationEmail(
     organizationAddress,
     organizationAddressLink,
     productionDomain,
+    emailGreeting,
+    emailIntroMessage,
+    emailClosingMessage,
   } = data;
 
   // Generate links from values
@@ -154,12 +161,12 @@ export function generateApplicationConfirmationEmail(
               <!-- Main Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <p style="margin: 0 0 20px 0; ${EMAIL_STYLES.textPrimary}">
-                    Hi <strong style="color: ${EMAIL_COLORS.textWhite};">${name}</strong>,
-                  </p>
-                  <p style="margin: 0 0 30px 0; ${EMAIL_STYLES.textPrimary}">
-                    Thank you for submitting your application! I have successfully received your submission and will review it carefully. I'll get back to you as soon as possible.
-                  </p>
+                  ${emailGreeting ? `<p style="margin: 0 0 20px 0; ${EMAIL_STYLES.textPrimary}">
+                    ${emailGreeting} <strong style="color: ${EMAIL_COLORS.textWhite};">${name}</strong>,
+                  </p>` : ''}
+                  ${emailIntroMessage ? `<p style="margin: 0 0 30px 0; ${EMAIL_STYLES.textPrimary}">
+                    ${emailIntroMessage}
+                  </p>` : ''}
 
                   <!-- Contact Information Box -->
                   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="${EMAIL_STYLES.infoBox}">
@@ -282,9 +289,9 @@ export function generateApplicationConfirmationEmail(
                     )
                     .join('')}
 
-                  <p style="margin: 30px 0 0 0; ${EMAIL_STYLES.textSecondary}">
-                    If you have any urgent questions, feel free to reach out to me directly.
-                  </p>
+                  ${emailClosingMessage ? `<p style="margin: 30px 0 0 0; ${EMAIL_STYLES.textSecondary}">
+                    ${emailClosingMessage}
+                  </p>` : ''}
                 </td>
               </tr>
 

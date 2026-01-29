@@ -180,6 +180,19 @@ export const structure: StructureResolver = (S) =>
                     .documentId('applyPrivacyStatement')
                     .title('Privacy Statement'),
                 ),
+              // Confirmation Email
+              S.listItem()
+                .id('applyConfirmationEmail')
+                .schemaType('applyConfirmationEmail')
+                .title('Confirmation Email')
+                .icon(EnvelopeIcon)
+                .child(
+                  S.editor()
+                    .id('applyConfirmationEmail')
+                    .schemaType('applyConfirmationEmail')
+                    .documentId('applyConfirmationEmail')
+                    .title('Confirmation Email'),
+                ),
             ]),
         ),
 
