@@ -237,11 +237,11 @@ const Footer = ({
                           href={href}
                           target={shouldOpenInNewTab ? '_blank' : undefined}
                           rel={shouldOpenInNewTab ? 'noopener noreferrer' : undefined}
-                          className='block text-white hover:text-brand-primary transition-colors duration-200'
+                          className='block text-brand-white hover:text-brand-primary transition-colors duration-200'
                           {...createSanityDataAttribute(
                             'footer',
                             'footer',
-                            `quickLinks[_key=="${link._key}"]`
+                            `quickLinks[_key=="${link._key}"]`,
                           )}>
                           {link.label}
                         </Link>
@@ -269,7 +269,7 @@ const Footer = ({
                         {...createSanityDataAttribute(
                           'companyLinks',
                           'companyLinks',
-                          `companyLinks.socialLinksArray[_key=="${link._key}"]`
+                          `companyLinks.socialLinksArray[_key=="${link._key}"]`,
                         )}>
                         <div className='rounded-full flex items-center justify-center gap-x-4 transition-transform duration-200'>
                           <SocialIcon

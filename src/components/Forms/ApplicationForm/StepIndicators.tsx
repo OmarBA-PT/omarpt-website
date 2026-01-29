@@ -36,9 +36,9 @@ const StepIndicators = ({ currentStep, sections, onStepClick }: StepIndicatorsPr
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
                   stepIndex < currentStep
-                    ? 'bg-brand-primary text-white group-hover:ring-4 group-hover:ring-brand-primary/30'
+                    ? 'bg-brand-primary text-brand-white group-hover:ring-4 group-hover:ring-brand-primary/30'
                     : stepIndex === currentStep
-                      ? 'bg-brand-primary text-white ring-4 ring-brand-primary/20'
+                      ? 'bg-brand-primary text-brand-white ring-4 ring-brand-primary/20'
                       : 'bg-gray-200 text-gray-500'
                 }`}>
                 {stepIndex + 1}

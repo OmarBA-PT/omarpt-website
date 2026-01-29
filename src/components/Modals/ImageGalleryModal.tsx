@@ -162,7 +162,7 @@ const ImageGalleryModal = ({
       ? createSanityDataAttribute(
           documentId,
           documentType,
-          `${pathPrefix}.images[${imageIndex}].caption`
+          `${pathPrefix}.images[${imageIndex}].caption`,
         )
       : {};
   };
@@ -200,7 +200,7 @@ const ImageGalleryModal = ({
                   className='cursor-pointer flex items-center justify-center w-8 md:w-12 h-8 md:h-12 bg-black/50 hover:bg-black/90 rounded-full transition-colors group'
                   aria-label={`Previous image (${currentIndex} of ${totalImages})`}
                   title='Previous image (Left arrow key)'>
-                  <FaChevronLeft className='text-white text-body-lg md:text-body-xl' />
+                  <FaChevronLeft className='text-brand-white text-body-lg md:text-body-xl' />
                 </button>
               </div>
             )}
@@ -237,7 +237,7 @@ const ImageGalleryModal = ({
                   className='cursor-pointer flex items-center justify-center w-8 md:w-12 h-8 md:h-12 bg-black/50 hover:bg-black/90 rounded-full transition-colors group'
                   aria-label={`Next image (${currentIndex + 2} of ${totalImages})`}
                   title='Next image (Right arrow key)'>
-                  <FaChevronRight className='text-white text-body-lg md:text-body-xl' />
+                  <FaChevronRight className='text-brand-white text-body-lg md:text-body-xl' />
                 </button>
               </div>
             )}
@@ -248,7 +248,7 @@ const ImageGalleryModal = ({
         {currentImage.caption && (
           <div className='text-center py-2 px-4'>
             <p
-              className='text-body-sm sm:text-body-base text-white italic max-w-2xl mx-auto'
+              className='text-body-sm sm:text-body-base text-brand-white italic max-w-2xl mx-auto'
               {...getCaptionDataAttribute(currentIndex)}>
               {stegaClean(currentImage.caption)}
             </p>
@@ -312,7 +312,7 @@ const ImageGalleryModal = ({
 
             {/* Image Counter */}
             <div className='text-center py-2'>
-              <span className='text-body-sm text-white' role='status' aria-live='polite'>
+              <span className='text-body-sm text-brand-white' role='status' aria-live='polite'>
                 {currentIndex + 1} of {totalImages}
               </span>
             </div>

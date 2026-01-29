@@ -107,7 +107,7 @@ const TypographyShowcase = () => {
         <h3 className='text-h3 heading-underline-h3'>Available Typography Utilities</h3>
         <div className='bg-gray-50 p-6 rounded-lg space-y-4'>
           <h4 className='text-h4 heading-underline-h4'>Complete Utility Reference:</h4>
-          <div className='text-body-sm space-y-3 font-mono bg-white p-4 rounded border'>
+          <div className='text-body-sm space-y-3 font-mono bg-brand-white p-4 rounded border'>
             <div>
               <strong className='text-h6 font-mono'>Headings (with responsive scaling):</strong>
               <p>text-h1, text-h2, text-h3, text-h4, text-h5, text-h6</p>

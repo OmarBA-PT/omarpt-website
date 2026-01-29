@@ -64,7 +64,7 @@ const QuestionGroup = ({
         <div
           className={`px-6 py-4 flex items-center justify-between ${
             !isSingleGroup && isVisited ? 'cursor-pointer hover:bg-black' : ''
-          } transition-all ${showGreenTick || showRedCross ? 'bg-black hover:bg-white/10' : ''}`}
+          } transition-all ${showGreenTick || showRedCross ? 'bg-black hover:bg-brand-white/10' : ''}`}
           onClick={() => !isSingleGroup && isVisited && onHeaderClick(groupIndex)}>
           <div className='flex items-center gap-3 flex-1'>
             {groupTitle && (

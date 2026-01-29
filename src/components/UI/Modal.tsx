@@ -83,10 +83,10 @@ const Modal: React.FC<ModalProps> = ({
       {/* Close button */}
       <button
         onClick={closeDialog}
-        className='cursor-pointer absolute top-4 right-4 z-50 p-2 bg-black/70 hover:bg-white rounded-full transition-colors group'
+        className='cursor-pointer absolute top-4 right-4 z-50 p-2 bg-black/70 hover:bg-brand-white rounded-full transition-colors group'
         aria-label='Close modal'>
         <svg
-          className='w-6 h-6 text-white group-hover:text-black transition-colors'
+          className='w-6 h-6 text-brand-white group-hover:text-black transition-colors'
           fill='none'
           stroke='currentColor'
           viewBox='0 0 24 24'>

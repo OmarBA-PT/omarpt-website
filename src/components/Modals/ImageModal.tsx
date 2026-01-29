@@ -47,7 +47,9 @@ const ImageModal: React.FC<ImageModalProps> = ({
         {/* Caption */}
         {caption && (
           <div className='flex-shrink-0 w-full mt-4'>
-            <p className='text-white text-center max-w-2xl px-4 mx-auto text-body-sm'>{caption}</p>
+            <p className='text-brand-white text-center max-w-2xl px-4 mx-auto text-body-sm'>
+              {caption}
+            </p>
           </div>
         )}
       </div>

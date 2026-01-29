@@ -19,7 +19,7 @@ const ContactDetailsStep = ({
   return (
     <div className='space-y-6'>
       {contactDetailsStepData.questionGroups.map((group) => (
-        <div key={group.id} className='p-6 bg-white/40 rounded-lg border border-gray-200'>
+        <div key={group.id} className='p-6 bg-brand-white/40 rounded-lg border border-gray-200'>
           {group.title && (
             <h3 className='text-body-lg font-semibold text-brand-secondary mb-4'>{group.title}</h3>
           )}

@@ -29,7 +29,7 @@ type CTAProps = LinkCTAProps | ButtonCTAProps;
 const getVariantStyles = (
   variant: 'filled' | 'outline-light' | 'outline-dark' | 'text-link' | 'secondary' = 'filled',
   disabled: boolean = false,
-  shortOnMobile: boolean = false
+  shortOnMobile: boolean = false,
 ) => {
   // Disabled/read-only styling - applies to all variants
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
@@ -61,7 +61,7 @@ const getVariantStyles = (
   }
 
   // Default to filled variant with brand gradient
-  return `${baseStyles} bg-brand-gradient-primary text-black hover:text-white focus:ring-brand-primary hover:shadow-md ${disabledStyles}`.trim();
+  return `${baseStyles} bg-brand-gradient-primary text-black hover:text-brand-white focus:ring-brand-primary hover:shadow-md ${disabledStyles}`.trim();
 };
 
 const CTA = (props: CTAProps) => {

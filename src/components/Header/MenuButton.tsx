@@ -25,7 +25,7 @@ const MenuButton = ({
     return (
       <button
         onClick={onClick}
-        className={`w-8 h-8 flex items-center justify-center cursor-pointer text-white focus:outline-none group transition-opacity duration-300 ${
+        className={`w-8 h-8 flex items-center justify-center cursor-pointer text-brand-white focus:outline-none group transition-opacity duration-300 ${
           isMenuOpen ? 'opacity-100 delay-150' : 'opacity-0'
         } ${className}`}
         aria-label='Close menu'>
@@ -59,15 +59,15 @@ const MenuButton = ({
       aria-expanded={isMenuOpen}
       aria-controls={ariaControls}>
       <span
-        className='block w-6 h-0.5 bg-white group-hover:bg-brand-secondary transition-colors duration-300'
+        className='block w-6 h-0.5 bg-brand-white group-hover:bg-brand-secondary transition-colors duration-300'
         style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8))' }}
       />
       <span
-        className='block w-6 h-0.5 bg-white group-hover:bg-brand-secondary transition-colors duration-300 mt-1.5'
+        className='block w-6 h-0.5 bg-brand-white group-hover:bg-brand-secondary transition-colors duration-300 mt-1.5'
         style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8))' }}
       />
       <span
-        className='block w-6 h-0.5 bg-white group-hover:bg-brand-secondary transition-colors duration-300 mt-1.5'
+        className='block w-6 h-0.5 bg-brand-white group-hover:bg-brand-secondary transition-colors duration-300 mt-1.5'
         style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8))' }}
       />
     </button>

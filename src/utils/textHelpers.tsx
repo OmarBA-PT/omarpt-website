@@ -32,8 +32,9 @@ export const parseColoredText = (
   const parts = text.split(/(\{[^}]+\})/g);
 
   // Determine colors based on scheme
-  const defaultColor = colorScheme === 'orange-white' ? 'text-gradient-primary' : 'text-white';
-  const taggedColor = colorScheme === 'orange-white' ? 'text-white' : 'text-gradient-primary';
+  const defaultColor =
+    colorScheme === 'orange-white' ? 'text-gradient-primary' : 'text-brand-white';
+  const taggedColor = colorScheme === 'orange-white' ? 'text-brand-white' : 'text-gradient-primary';
 
   return parts.map((part, i) => {
     // Skip empty strings but keep them in the array to maintain proper spacing
