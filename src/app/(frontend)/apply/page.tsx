@@ -107,6 +107,7 @@ const ApplyPage = async () => {
         questionnaireSections={questionnaireSections}
         organizationEmail={organizationEmail}
         organizationEmailLink={organizationEmailLink}
+        organizationName={orgName}
       />
     </>
   );

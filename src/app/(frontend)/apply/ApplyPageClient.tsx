@@ -28,7 +28,16 @@ interface ApplyPageClientProps {
   questionnaireSections: FormSection[];
   organizationEmail: string;
   organizationEmailLink: string;
+  organizationName: string;
 }
+
+// Helper function to convert a string to dash-separated format for filenames
+const toDashSeparated = (str: string): string => {
+  return str
+    .trim()
+    .replace(/\s+/g, '-') // Replace spaces with dashes
+    .replace(/[^a-zA-Z0-9-]/g, ''); // Remove any characters that aren't alphanumeric or dashes
+};
 
 const ApplyPageClient = ({
   generalContent,
@@ -36,6 +45,7 @@ const ApplyPageClient = ({
   questionnaireSections,
   organizationEmail,
   organizationEmailLink,
+  organizationName,
 }: ApplyPageClientProps) => {
   const [showForm, setShowForm] = useState(false);
   const [showPrivacyConsent, setShowPrivacyConsent] = useState(false);
@@ -156,7 +166,7 @@ const ApplyPageClient = ({
       const downloadUrl = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = downloadUrl;
-      link.download = 'Omania-Training-Application-Form.pdf';
+      link.download = `${toDashSeparated(organizationName)}-Application-Form.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
