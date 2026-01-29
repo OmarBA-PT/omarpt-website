@@ -3989,7 +3989,7 @@
             "value": "googleMap"
           }
         },
-        "embedCode": {
+        "placeholder": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
@@ -11819,6 +11819,41 @@
         "optional": true
       },
       "organizationDescription": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "organizationEmail": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "organizationPhone": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "organizationAddress": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "googleMapsLink": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "googleMapsEmbedCode": {
         "type": "objectAttribute",
         "value": {
           "type": "string"

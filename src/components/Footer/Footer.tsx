@@ -13,8 +13,16 @@ import type {
   FOOTER_QUERYResult,
   COMPANY_LINKS_QUERYResult,
   LEGAL_PAGES_VISIBILITY_QUERYResult,
+  BUSINESS_CONTACT_INFO_QUERYResult,
 } from '@/sanity/types';
-import { SITE_CONFIG } from '@/lib/constants';
+import {
+  getOrganizationEmail,
+  getOrganizationEmailLink,
+  getOrganizationPhone,
+  getOrganizationPhoneLink,
+  getOrganizationAddress,
+  getOrganizationAddressLink,
+} from '@/lib/organizationInfo';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { GoLocation } from 'react-icons/go';
@@ -30,28 +38,36 @@ interface FooterProps {
   companyLinksData: COMPANY_LINKS_QUERYResult | null;
   legalPagesVisibilityData: LEGAL_PAGES_VISIBILITY_QUERYResult | null;
   organizationName: string;
+  businessContactInfo: BUSINESS_CONTACT_INFO_QUERYResult | null;
 }
 
-const Footer = ({ footerData, companyLinksData, legalPagesVisibilityData, organizationName }: FooterProps) => {
+const Footer = ({
+  footerData,
+  companyLinksData,
+  legalPagesVisibilityData,
+  organizationName,
+  businessContactInfo,
+}: FooterProps) => {
   const { isPageReady } = usePageLoad();
 
+  // Build contact details array, filtering out empty values
   const contactDetails = [
     {
       icon: <FaPhoneAlt />,
-      value: SITE_CONFIG.ORGANIZATION_PHONE.value,
-      link: SITE_CONFIG.ORGANIZATION_PHONE.link,
+      value: getOrganizationPhone(businessContactInfo),
+      link: getOrganizationPhoneLink(businessContactInfo),
     },
     {
       icon: <MdEmail />,
-      value: SITE_CONFIG.ORGANIZATION_EMAIL.value,
-      link: SITE_CONFIG.ORGANIZATION_EMAIL.link,
+      value: getOrganizationEmail(businessContactInfo),
+      link: getOrganizationEmailLink(businessContactInfo),
     },
     {
       icon: <GoLocation />,
-      value: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
-      link: SITE_CONFIG.ORGANIZATION_ADDRESS.link,
+      value: getOrganizationAddress(businessContactInfo),
+      link: getOrganizationAddressLink(businessContactInfo),
     },
-  ];
+  ].filter((detail) => detail.value);
 
   // Get quick links from CMS, filtering out invalid entries
   const quickLinks =

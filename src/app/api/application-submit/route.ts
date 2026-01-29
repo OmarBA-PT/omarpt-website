@@ -2,10 +2,18 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { generateApplicationConfirmationEmail } from '@/lib/email-templates/applicationConfirmationEmail';
 import { generateApplicationAdminNotificationEmail } from '@/lib/email-templates/applicationAdminNotificationEmail';
-import { SITE_CONFIG } from '@/lib/constants';
-import { fetchOrganizationName } from '@/lib/organizationInfo';
+import {
+  fetchOrganizationName,
+  getOrganizationEmail,
+  getOrganizationPhone,
+  getOrganizationAddress,
+  getOrganizationAddressLink,
+} from '@/lib/organizationInfo';
 import { getApplyQuestionnaire } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
+import { sanityFetch } from '@/sanity/lib/live';
+import { BUSINESS_CONTACT_INFO_QUERY } from '@/sanity/lib/queries';
+import { SITE_CONFIG } from '@/lib/constants';
 import {
   generateApplicationPDFBuffer,
   generatePDFFilename,
@@ -141,8 +149,17 @@ export async function POST(request: Request) {
       }
     }
 
-    // Fetch organization name from Sanity (with fallback)
+    // Fetch organization name and business contact info from Sanity
     const organizationName = await fetchOrganizationName();
+    const { data: businessContactInfo } = await sanityFetch({
+      query: BUSINESS_CONTACT_INFO_QUERY,
+    });
+
+    // Get contact info values using helper functions
+    const organizationEmail = getOrganizationEmail(businessContactInfo);
+    const organizationPhone = getOrganizationPhone(businessContactInfo);
+    const organizationAddress = getOrganizationAddress(businessContactInfo);
+    const organizationAddressLink = getOrganizationAddressLink(businessContactInfo);
 
     // Get contact email from environment variable
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
@@ -189,6 +206,11 @@ export async function POST(request: Request) {
       phone: sanitizedPhone,
       formData: sanitizedFormData,
       sections: questionnaireSections,
+      organizationEmail,
+      organizationPhone,
+      organizationAddress,
+      organizationAddressLink,
+      productionDomain: SITE_CONFIG.PRODUCTION_DOMAIN,
     });
 
     // Prepare email payload with optional PDF attachment
@@ -230,12 +252,17 @@ export async function POST(request: Request) {
         sections: questionnaireSections,
         logoUrl,
         organizationName,
+        organizationEmail,
+        organizationPhone,
+        organizationAddress,
+        organizationAddressLink,
+        productionDomain: SITE_CONFIG.PRODUCTION_DOMAIN,
       });
 
       const confirmationEmailResult = await resend.emails.send({
         from: fromEmail,
         to: sanitizedEmail,
-        replyTo: SITE_CONFIG.ORGANIZATION_EMAIL.value,
+        replyTo: organizationEmail || sanitizedEmail,
         subject: `Application Received - ${organizationName}`,
         html: confirmationEmailHtml,
       });

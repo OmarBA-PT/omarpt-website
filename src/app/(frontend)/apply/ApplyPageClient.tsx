@@ -26,9 +26,17 @@ interface ApplyPageClientProps {
   generalContent: APPLY_PAGE_QUERYResult | null;
   privacyStatement: APPLY_PRIVACY_STATEMENT_QUERYResult | null;
   questionnaireSections: FormSection[];
+  organizationEmail: string;
+  organizationEmailLink: string;
 }
 
-const ApplyPageClient = ({ generalContent, privacyStatement, questionnaireSections }: ApplyPageClientProps) => {
+const ApplyPageClient = ({
+  generalContent,
+  privacyStatement,
+  questionnaireSections,
+  organizationEmail,
+  organizationEmailLink,
+}: ApplyPageClientProps) => {
   const [showForm, setShowForm] = useState(false);
   const [showPrivacyConsent, setShowPrivacyConsent] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
@@ -227,6 +235,8 @@ const ApplyPageClient = ({ generalContent, privacyStatement, questionnaireSectio
           <ApplicationForm
             onScrollToBackButton={handleScrollToBackButton}
             questionnaireSections={questionnaireSections}
+            organizationEmail={organizationEmail}
+            organizationEmailLink={organizationEmailLink}
           />
 
           {/* Privacy Statement Below Form */}

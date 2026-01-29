@@ -16,8 +16,13 @@ import {
 } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import { SITE_CONFIG } from '@/lib/constants';
-import { getOrganizationName } from '@/lib/organizationInfo';
+import {
+  getOrganizationName,
+  getOrganizationEmail,
+  getOrganizationEmailLink,
+  getOrganizationPhone,
+  getOrganizationPhoneLink,
+} from '@/lib/organizationInfo';
 import PageSection from '@/components/Layout/PageSection';
 
 export async function generateMetadata() {
@@ -56,6 +61,10 @@ const TermsAndConditionsPage = async () => {
 
   const { seoMetaData, businessContactInfo } = pageBuilderData;
   const orgName = getOrganizationName(businessContactInfo);
+  const email = getOrganizationEmail(businessContactInfo);
+  const emailLink = getOrganizationEmailLink(businessContactInfo);
+  const phone = getOrganizationPhone(businessContactInfo);
+  const phoneLink = getOrganizationPhoneLink(businessContactInfo);
 
   // If the page is hidden or doesn't exist, show 404
   if (!termsData || termsData.hide) {
@@ -122,28 +131,30 @@ const TermsAndConditionsPage = async () => {
             alignment='left'
           />
         )}
-        {/* Hard-coded Contact Information Section */}
-        <PageSection title='Contact Information'>
-          <div className='space-y-4'>
-            <p>If you have questions about these Terms &amp; Conditions, please contact me:</p>
-            <p>
-              <strong>Email:</strong>{' '}
-              <a
-                href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
-                className='text-brand-primary hover:underline'>
-                {SITE_CONFIG.ORGANIZATION_EMAIL.value}
-              </a>
-            </p>
-            <p>
-              <strong>Phone:</strong>{' '}
-              <a
-                href={SITE_CONFIG.ORGANIZATION_PHONE.link}
-                className='text-brand-primary hover:underline'>
-                {SITE_CONFIG.ORGANIZATION_PHONE.value}
-              </a>
-            </p>
-          </div>
-        </PageSection>
+        {/* Contact Information Section */}
+        {(email || phone) && (
+          <PageSection title='Contact Information'>
+            <div className='space-y-4'>
+              <p>If you have questions about these Terms &amp; Conditions, please contact me:</p>
+              {email && (
+                <p>
+                  <strong>Email:</strong>{' '}
+                  <a href={emailLink} className='text-brand-primary hover:underline'>
+                    {email}
+                  </a>
+                </p>
+              )}
+              {phone && (
+                <p>
+                  <strong>Phone:</strong>{' '}
+                  <a href={phoneLink} className='text-brand-primary hover:underline'>
+                    {phone}
+                  </a>
+                </p>
+              )}
+            </div>
+          </PageSection>
+        )}
       </Container>
     </>
   );

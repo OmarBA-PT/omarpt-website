@@ -642,7 +642,7 @@ export type YouTubeVideo = {
 
 export type GoogleMap = {
   _type: "googleMap";
-  embedCode?: string;
+  placeholder?: string;
 };
 
 export type ImageGallery = {
@@ -1774,6 +1774,11 @@ export type BusinessContactInfo = {
   _rev: string;
   organizationName?: string;
   organizationDescription?: string;
+  organizationEmail?: string;
+  organizationPhone?: string;
+  organizationAddress?: string;
+  googleMapsLink?: string;
+  googleMapsEmbedCode?: string;
 };
 
 export type Color = {
@@ -2264,7 +2269,7 @@ export type PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -2617,7 +2622,7 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -3042,7 +3047,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -3693,7 +3698,7 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -4046,7 +4051,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -4461,7 +4466,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -5071,7 +5076,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -5633,7 +5638,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -5976,7 +5981,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -6551,7 +6556,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -7073,7 +7078,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -7406,7 +7411,7 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -8048,7 +8053,7 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -8530,7 +8535,7 @@ export type PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -9025,7 +9030,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -9507,7 +9512,7 @@ export type PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -10004,7 +10009,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -10486,7 +10491,7 @@ export type PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -11058,7 +11063,7 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -11601,7 +11606,7 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -12083,7 +12088,7 @@ export type PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -13026,7 +13031,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -13379,7 +13384,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -13804,7 +13809,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -14455,7 +14460,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -14808,7 +14813,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -15223,7 +15228,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -15833,7 +15838,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -16395,7 +16400,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -16738,7 +16743,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -17313,7 +17318,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -17835,7 +17840,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -18168,7 +18173,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -18810,7 +18815,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -19292,7 +19297,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -19787,7 +19792,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -20269,7 +20274,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -20766,7 +20771,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -21248,7 +21253,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -21820,7 +21825,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -22363,7 +22368,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -22845,7 +22850,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -23391,7 +23396,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -23744,7 +23749,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -24159,7 +24164,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -24769,7 +24774,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -25311,7 +25316,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -25793,7 +25798,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -26327,7 +26332,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -26680,7 +26685,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -27095,7 +27100,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -27705,7 +27710,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -28267,7 +28272,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -28610,7 +28615,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -29185,7 +29190,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -29707,7 +29712,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -30040,7 +30045,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -30682,7 +30687,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -31164,7 +31169,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -31659,7 +31664,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -32141,7 +32146,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -32638,7 +32643,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -33120,7 +33125,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -33684,7 +33689,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -34037,7 +34042,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -34462,7 +34467,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -35113,7 +35118,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -35466,7 +35471,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -35881,7 +35886,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -36491,7 +36496,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -37053,7 +37058,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -37396,7 +37401,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -37971,7 +37976,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -38493,7 +38498,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -38826,7 +38831,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -39468,7 +39473,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -39950,7 +39955,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -40445,7 +40450,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -40927,7 +40932,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -41424,7 +41429,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -41906,7 +41911,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -42478,7 +42483,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -43021,7 +43026,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -43503,7 +43508,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -44016,7 +44021,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -44369,7 +44374,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -44794,7 +44799,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -45445,7 +45450,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -45798,7 +45803,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -46213,7 +46218,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -46823,7 +46828,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -47385,7 +47390,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -47728,7 +47733,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -48303,7 +48308,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -48825,7 +48830,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -49158,7 +49163,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -49800,7 +49805,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -50282,7 +50287,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -50777,7 +50782,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -51259,7 +51264,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -51756,7 +51761,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -52238,7 +52243,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -52810,7 +52815,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -53353,7 +53358,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -53835,7 +53840,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -54360,7 +54365,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -54713,7 +54718,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -55138,7 +55143,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -55789,7 +55794,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -56142,7 +56147,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -56557,7 +56562,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -57167,7 +57172,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -57729,7 +57734,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -58072,7 +58077,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -58647,7 +58652,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -59169,7 +59174,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -59502,7 +59507,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -60144,7 +60149,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -60626,7 +60631,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -61121,7 +61126,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -61603,7 +61608,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -62100,7 +62105,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -62582,7 +62587,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -63154,7 +63159,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -63697,7 +63702,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -64179,7 +64184,7 @@ export type HOME_PAGE_SECTIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -64992,112 +64997,217 @@ export type SEO_META_DATA_QUERYResult = {
   defaultOgImage: null;
 } | null;
 // Variable: BUSINESS_CONTACT_INFO_QUERY
-// Query: *[_id == "businessContactInfo"][0]{  _id,  _type,  organizationName,  organizationDescription}
+// Query: *[_id == "businessContactInfo"][0]{  _id,  _type,  organizationName,  organizationDescription,  organizationEmail,  organizationPhone,  organizationAddress,  googleMapsLink,  googleMapsEmbedCode}
 export type BUSINESS_CONTACT_INFO_QUERYResult = {
   _id: "businessContactInfo";
   _type: "applyPage";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "applyPdfSettings";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "applyPrivacyStatement";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "applyQuestionnaire";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "businessContactInfo";
   organizationName: string | null;
   organizationDescription: string | null;
+  organizationEmail: string | null;
+  organizationPhone: string | null;
+  organizationAddress: string | null;
+  googleMapsLink: string | null;
+  googleMapsEmbedCode: string | null;
 } | {
   _id: "businessContactInfo";
   _type: "companyLinks";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "contactConfirmationEmail";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "contactFormSettings";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "contactGeneralContent";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "faqPage";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "footer";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "header";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "homePage";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "homePageHero";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "homePageSections";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "page";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "privacyPolicy";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "sanity.fileAsset";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "sanity.imageAsset";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "seoMetaData";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | {
   _id: "businessContactInfo";
   _type: "termsAndConditions";
   organizationName: null;
   organizationDescription: null;
+  organizationEmail: null;
+  organizationPhone: null;
+  organizationAddress: null;
+  googleMapsLink: null;
+  googleMapsEmbedCode: null;
 } | null;
 // Variable: COMPANY_LINKS_QUERY
 // Query: *[_id == "companyLinks"][0]{  _id,  _type,  companyLinks{    _type,    socialLinksArray[]{      _key,      platform,      url,      customTitle,      hideFromFooter    }  }}
@@ -65863,7 +65973,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -66216,7 +66326,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -66641,7 +66751,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -67292,7 +67402,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -67645,7 +67755,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -68060,7 +68170,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -68670,7 +68780,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -69232,7 +69342,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -69575,7 +69685,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -70150,7 +70260,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -70672,7 +70782,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -71005,7 +71115,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -71647,7 +71757,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -72129,7 +72239,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -72624,7 +72734,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -73106,7 +73216,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -73603,7 +73713,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -74085,7 +74195,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -74657,7 +74767,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -75200,7 +75310,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -75682,7 +75792,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -76248,7 +76358,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -76601,7 +76711,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -77016,7 +77126,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -77626,7 +77736,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -78168,7 +78278,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -78650,7 +78760,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -79184,7 +79294,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -79537,7 +79647,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -79952,7 +80062,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -80562,7 +80672,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -81124,7 +81234,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -81467,7 +81577,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -82042,7 +82152,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -82564,7 +82674,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -82897,7 +83007,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -83539,7 +83649,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -84021,7 +84131,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -84516,7 +84626,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -84998,7 +85108,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -85495,7 +85605,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -85977,7 +86087,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -86545,7 +86655,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -86898,7 +87008,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -87323,7 +87433,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -87974,7 +88084,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -88327,7 +88437,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -88742,7 +88852,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -89352,7 +89462,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -89914,7 +90024,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -90257,7 +90367,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -90832,7 +90942,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -91354,7 +91464,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -91687,7 +91797,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -92329,7 +92439,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -92811,7 +92921,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -93306,7 +93416,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -93788,7 +93898,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -94285,7 +94395,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -94767,7 +94877,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -95339,7 +95449,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -95882,7 +95992,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -96364,7 +96474,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -96881,7 +96991,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -97234,7 +97344,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -97659,7 +97769,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -98310,7 +98420,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -98663,7 +98773,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -99078,7 +99188,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -99688,7 +99798,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -100250,7 +100360,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -100593,7 +100703,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -101168,7 +101278,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -101690,7 +101800,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -102023,7 +102133,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -102665,7 +102775,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -103147,7 +103257,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -103642,7 +103752,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -104124,7 +104234,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -104621,7 +104731,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -105103,7 +105213,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -105675,7 +105785,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -106218,7 +106328,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -106700,7 +106810,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -107241,7 +107351,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -107594,7 +107704,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -108019,7 +108129,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -108670,7 +108780,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -109023,7 +109133,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -109438,7 +109548,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -110048,7 +110158,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -110610,7 +110720,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -110953,7 +111063,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -111528,7 +111638,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -112050,7 +112160,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -112383,7 +112493,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -113025,7 +113135,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -113507,7 +113617,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -114002,7 +114112,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -114484,7 +114594,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -114981,7 +115091,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -115463,7 +115573,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -116035,7 +116145,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -116578,7 +116688,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -117060,7 +117170,7 @@ export type TERMS_AND_CONDITIONS_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -117652,7 +117762,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -118005,7 +118115,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -118430,7 +118540,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -119081,7 +119191,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -119434,7 +119544,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -119849,7 +119959,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -120459,7 +120569,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -121021,7 +121131,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -121364,7 +121474,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -121939,7 +122049,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -122461,7 +122571,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -122794,7 +122904,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -123436,7 +123546,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -123918,7 +124028,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -124413,7 +124523,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -124895,7 +125005,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -125392,7 +125502,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -125874,7 +125984,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -126446,7 +126556,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -126989,7 +127099,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -127471,7 +127581,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -128037,7 +128147,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -128390,7 +128500,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -128805,7 +128915,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -129415,7 +129525,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -129957,7 +130067,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -130439,7 +130549,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -130973,7 +131083,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -131326,7 +131436,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -131741,7 +131851,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -132351,7 +132461,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -132913,7 +133023,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -133256,7 +133366,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -133831,7 +133941,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -134353,7 +134463,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -134686,7 +134796,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -135328,7 +135438,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -135810,7 +135920,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -136305,7 +136415,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -136787,7 +136897,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -137284,7 +137394,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -137766,7 +137876,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -138334,7 +138444,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -138687,7 +138797,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -139112,7 +139222,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -139763,7 +139873,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -140116,7 +140226,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -140531,7 +140641,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -141141,7 +141251,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -141703,7 +141813,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -142046,7 +142156,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -142621,7 +142731,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -143143,7 +143253,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -143476,7 +143586,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -144118,7 +144228,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -144600,7 +144710,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -145095,7 +145205,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -145577,7 +145687,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -146074,7 +146184,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -146556,7 +146666,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -147128,7 +147238,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -147671,7 +147781,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -148153,7 +148263,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -148670,7 +148780,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -149023,7 +149133,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -149448,7 +149558,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -150099,7 +150209,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -150452,7 +150562,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -150867,7 +150977,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -151477,7 +151587,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -152039,7 +152149,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -152382,7 +152492,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -152957,7 +153067,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -153479,7 +153589,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -153812,7 +153922,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -154454,7 +154564,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -154936,7 +155046,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -155431,7 +155541,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -155913,7 +156023,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -156410,7 +156520,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -156892,7 +157002,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -157464,7 +157574,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -158007,7 +158117,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -158489,7 +158599,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -159030,7 +159140,7 @@ export type PRIVACY_POLICY_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -159383,7 +159493,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -159808,7 +159918,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -160459,7 +160569,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -160812,7 +160922,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -161227,7 +161337,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -161837,7 +161947,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -162399,7 +162509,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -162742,7 +162852,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -163317,7 +163427,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -163839,7 +163949,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -164172,7 +164282,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -164814,7 +164924,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -165296,7 +165406,7 @@ export type PRIVACY_POLICY_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -165791,7 +165901,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -166273,7 +166383,7 @@ export type PRIVACY_POLICY_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -166770,7 +166880,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -167252,7 +167362,7 @@ export type PRIVACY_POLICY_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -167824,7 +167934,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -168367,7 +168477,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -168849,7 +168959,7 @@ export type PRIVACY_POLICY_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -169441,7 +169551,7 @@ export type FAQ_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -169794,7 +169904,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -170219,7 +170329,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -170870,7 +170980,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -171223,7 +171333,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -171638,7 +171748,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -172248,7 +172358,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -172810,7 +172920,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -173153,7 +173263,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -173728,7 +173838,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -174250,7 +174360,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -174583,7 +174693,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -175225,7 +175335,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -175707,7 +175817,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -176202,7 +176312,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -176684,7 +176794,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -177181,7 +177291,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -177663,7 +177773,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -178235,7 +178345,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -178778,7 +178888,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -179260,7 +179370,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -179826,7 +179936,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -180179,7 +180289,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -180594,7 +180704,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -181204,7 +181314,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -181746,7 +181856,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -182228,7 +182338,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -182762,7 +182872,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -183115,7 +183225,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -183530,7 +183640,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -184140,7 +184250,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -184702,7 +184812,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -185045,7 +185155,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -185620,7 +185730,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -186142,7 +186252,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -186475,7 +186585,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -187117,7 +187227,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -187599,7 +187709,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -188094,7 +188204,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -188576,7 +188686,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -189073,7 +189183,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -189555,7 +189665,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -190123,7 +190233,7 @@ export type FAQ_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -190476,7 +190586,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -190901,7 +191011,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -191552,7 +191662,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -191905,7 +192015,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -192320,7 +192430,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -192930,7 +193040,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -193492,7 +193602,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -193835,7 +193945,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -194410,7 +194520,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -194932,7 +195042,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -195265,7 +195375,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -195907,7 +196017,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -196389,7 +196499,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -196884,7 +196994,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -197366,7 +197476,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -197863,7 +197973,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -198345,7 +198455,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -198917,7 +199027,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -199460,7 +199570,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -199942,7 +200052,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -200459,7 +200569,7 @@ export type FAQ_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -200812,7 +200922,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -201237,7 +201347,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -201888,7 +201998,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -202241,7 +202351,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -202656,7 +202766,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -203266,7 +203376,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -203828,7 +203938,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -204171,7 +204281,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -204746,7 +204856,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -205268,7 +205378,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -205601,7 +205711,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -206243,7 +206353,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -206725,7 +206835,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -207220,7 +207330,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -207702,7 +207812,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -208199,7 +208309,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -208681,7 +208791,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -209253,7 +209363,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -209796,7 +209906,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -210278,7 +210388,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -210819,7 +210929,7 @@ export type FAQ_PAGE_QUERYResult = {
   } | {
     _key: string;
     _type: "googleMap";
-    embedCode?: string;
+    placeholder?: string;
     image: null;
     content: null;
   } | {
@@ -211172,7 +211282,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -211597,7 +211707,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -212248,7 +212358,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -212601,7 +212711,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -213016,7 +213126,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -213626,7 +213736,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -214188,7 +214298,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
         image: null;
         content: null;
       } | {
@@ -214531,7 +214641,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -215106,7 +215216,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -215628,7 +215738,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
           image: null;
         } | {
           _key: string;
@@ -215961,7 +216071,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -216603,7 +216713,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -217085,7 +217195,7 @@ export type FAQ_PAGE_QUERYResult = {
           } | {
             _key: string;
             _type: "googleMap";
-            embedCode?: string;
+            placeholder?: string;
           } | {
             _key: string;
             _type: "iconList";
@@ -217580,7 +217690,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -218062,7 +218172,7 @@ export type FAQ_PAGE_QUERYResult = {
         } | {
           _key: string;
           _type: "googleMap";
-          embedCode?: string;
+          placeholder?: string;
         } | {
           _key: string;
           _type: "iconList";
@@ -218559,7 +218669,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -219041,7 +219151,7 @@ export type FAQ_PAGE_QUERYResult = {
       } | {
         _key: string;
         _type: "googleMap";
-        embedCode?: string;
+        placeholder?: string;
       } | {
         _key: string;
         _type: "iconList";
@@ -219613,7 +219723,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
       image: null;
       content: null;
     } | {
@@ -220156,7 +220266,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -220638,7 +220748,7 @@ export type FAQ_PAGE_QUERYResult = {
     } | {
       _key: string;
       _type: "googleMap";
-      embedCode?: string;
+      placeholder?: string;
     } | {
       _key: string;
       _type: "iconList";
@@ -222329,7 +222439,7 @@ declare module "@sanity/client" {
     "*[_id == \"homePageSections\"][0]{\n  _id,\n  _type,\n  content[]{\n  ...,\n  image{\n    asset,\n    alt,\n    hotspot,\n    crop\n  },\n  _type == \"imageGallery\" => {\n    ...,\n    images[]{\n      _key,\n      image{\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  },\n  _type == \"pageSection\" => {\n    ...,\n    anchorId,\n    topText\n  },\n  _type == \"subSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"subSubSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"contentWrapper\" => {\n    ...,\n    backgroundStyle,\n    useCompactGap\n  },\n  _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCard\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"twoColumnLayout\" => {\n    ...,\n    leftColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    },\n    rightColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  },\n  _type == \"gridLayout\" => {\n    ...,\n    content[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  }\n,\n  \"content\": content[]{\n  ...,\n  image{\n    asset,\n    alt,\n    hotspot,\n    crop\n  },\n  _type == \"imageGallery\" => {\n    ...,\n    images[]{\n      _key,\n      image{\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  },\n  _type == \"pageSection\" => {\n    ...,\n    anchorId,\n    topText\n  },\n  _type == \"subSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"subSubSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"contentWrapper\" => {\n    ...,\n    backgroundStyle,\n    useCompactGap\n  },\n  _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCard\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"twoColumnLayout\" => {\n    ...,\n    leftColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    },\n    rightColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  },\n  _type == \"gridLayout\" => {\n    ...,\n    content[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  }\n,\n    \"content\": content[]{\n  ...,\n  image{\n    asset,\n    alt,\n    hotspot,\n    crop\n  },\n  _type == \"imageGallery\" => {\n    ...,\n    images[]{\n      _key,\n      image{\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  },\n  _type == \"pageSection\" => {\n    ...,\n    anchorId,\n    topText\n  },\n  _type == \"subSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"subSubSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"contentWrapper\" => {\n    ...,\n    backgroundStyle,\n    useCompactGap\n  },\n  _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCard\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"twoColumnLayout\" => {\n    ...,\n    leftColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    },\n    rightColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  },\n  _type == \"gridLayout\" => {\n    ...,\n    content[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  }\n,\n      \"content\": content[]{\n  ...,\n  image{\n    asset,\n    alt,\n    hotspot,\n    crop\n  },\n  _type == \"imageGallery\" => {\n    ...,\n    images[]{\n      _key,\n      image{\n        asset,\n        alt,\n        hotspot,\n        crop\n      }\n    }\n  },\n  _type == \"pageSection\" => {\n    ...,\n    anchorId,\n    topText\n  },\n  _type == \"subSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"subSubSection\" => {\n    ...,\n    anchorId\n  },\n  _type == \"contentWrapper\" => {\n    ...,\n    backgroundStyle,\n    useCompactGap\n  },\n  _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"ctaCard\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  _type == \"twoColumnLayout\" => {\n    ...,\n    leftColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    },\n    rightColumn[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  },\n  _type == \"gridLayout\" => {\n    ...,\n    content[]{\n      ...,\n      _type == \"card\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"ctaCalloutLink\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n      _type == \"imageBlock\" => {\n        ...,\n        image{\n          asset,\n          alt,\n          hotspot,\n          crop\n        }\n      },\n      _type == \"imageGallery\" => {\n        ...,\n        images[]{\n          _key,\n          image{\n            asset,\n            alt,\n            hotspot,\n            crop\n          }\n        }\n      }\n    }\n  }\n\n      }\n    }\n  }\n}\n}": HOME_PAGE_SECTIONS_QUERYResult;
     "*[_id == \"header\"][0]{\n  _id,\n  _type,\n  showVerticalNavOnDesktop,\n  horizontalNav[]{\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n  horizontalNavCtas[]{\n    _type,\n    _key,\n    _type == \"embeddedCtaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n    _type == \"embeddedCtaEmailButton\" => {...}\n  },\n  verticalNav[]{\n    _type,\n    hideSection,\n    hideOnDesktop,\n    heading,\n    links[]{\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n}\n  },\n  verticalNavCtas[]{\n    _type,\n    _key,\n    _type == \"embeddedCtaButton\" => {\n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n},\n    _type == \"embeddedCtaEmailButton\" => {...}\n  }\n}": HEADER_QUERYResult;
     "*[_id == \"seoMetaData\"][0]{\n  _id,\n  _type,\n  siteTitle,\n  siteTagline,\n  siteDescription,\n  seoKeywords,\n  defaultOgImage{\n    asset,\n    alt,\n    hotspot,\n    crop\n  }\n}": SEO_META_DATA_QUERYResult;
-    "*[_id == \"businessContactInfo\"][0]{\n  _id,\n  _type,\n  organizationName,\n  organizationDescription\n}": BUSINESS_CONTACT_INFO_QUERYResult;
+    "*[_id == \"businessContactInfo\"][0]{\n  _id,\n  _type,\n  organizationName,\n  organizationDescription,\n  organizationEmail,\n  organizationPhone,\n  organizationAddress,\n  googleMapsLink,\n  googleMapsEmbedCode\n}": BUSINESS_CONTACT_INFO_QUERYResult;
     "*[_id == \"companyLinks\"][0]{\n  _id,\n  _type,\n  companyLinks{\n    _type,\n    socialLinksArray[]{\n      _key,\n      platform,\n      url,\n      customTitle,\n      hideFromFooter\n    }\n  }\n}": COMPANY_LINKS_QUERYResult;
     "*[_id == \"contactFormSettings\"][0]{\n  _id,\n  _type,\n  formTitle,\n  formSubtitle,\n  successHeading,\n  successMessage\n}": CONTACT_FORM_SETTINGS_QUERYResult;
     "*[_type == \"footer\" && _id == \"footer\"][0]{\n  _id,\n  _type,\n  footerMessages[]{\n    _key,\n    title,\n    message\n  },\n  quickLinks[]{\n    _key,\n    label,\n    \n  ...,\n  internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n},\n  \"computedHref\": select(\n    linkType == \"external\" => externalUrl,\n    linkType == \"internal\" && defined(pageSectionId) && pageSectionId != \"\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\") + \"#\" + pageSectionId,\n    linkType == \"internal\" =>\n      coalesce(internalLink->{\n  _id,\n  _type,\n  title,\n  \"slug\": select(\n    _type == \"homePage\" => {\"current\": \"\"},\n    _type == \"faqPage\" => {\"current\": \"faq\"},\n    _type == \"contactGeneralContent\" => {\"current\": \"contact\"},\n    _type == \"applyPage\" => {\"current\": \"apply\"},\n    _type == \"termsAndConditions\" => {\"current\": \"terms-and-conditions\"},\n    _type == \"privacyPolicy\" => {\"current\": \"privacy-policy\"},\n    slug\n  ),\n  \"pageType\": _type,\n  \"href\": select(\n    _type == \"homePage\" => \"/\",\n    _type == \"faqPage\" => \"/faq\",\n    _type == \"contactGeneralContent\" => \"/contact\",\n    _type == \"applyPage\" => \"/apply\",\n    _type == \"termsAndConditions\" => \"/terms-and-conditions\",\n    _type == \"privacyPolicy\" => \"/privacy-policy\",\n    \"/\" + slug.current\n  )\n}.href, \"/\"),\n    \"/\"\n  )\n\n  },\n  copyrightText\n}": FOOTER_QUERYResult;

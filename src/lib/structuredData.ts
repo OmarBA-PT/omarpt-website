@@ -2,7 +2,13 @@ import { urlFor } from '@/sanity/lib/image';
 import type { SEO_META_DATA_QUERYResult, COMPANY_LINKS_QUERYResult, BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
 import type { ImageObjectData } from '@/lib/imageUtils';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getOrganizationName, getOrganizationDescription } from '@/lib/organizationInfo';
+import {
+  getOrganizationName,
+  getOrganizationDescription,
+  getOrganizationEmail,
+  getOrganizationPhone,
+  getOrganizationAddress,
+} from '@/lib/organizationInfo';
 
 export interface OrganizationData {
   name: string;
@@ -267,12 +273,16 @@ export function getOrganizationDataFromSeoMetaData(
 ): OrganizationData {
   const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
 
+  const email = getOrganizationEmail(businessContactInfo);
+  const telephone = getOrganizationPhone(businessContactInfo);
+  const address = getOrganizationAddress(businessContactInfo);
+
   return {
     name: seoMetaData?.siteTitle || getOrganizationName(businessContactInfo),
     url: baseUrl,
-    email: SITE_CONFIG.ORGANIZATION_EMAIL.value,
-    telephone: SITE_CONFIG.ORGANIZATION_PHONE.value,
-    address: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
+    ...(email && { email }),
+    ...(telephone && { telephone }),
+    ...(address && { address }),
     ...(seoMetaData?.siteDescription && { description: seoMetaData.siteDescription }),
     ...(seoMetaData?.defaultOgImage && {
       logo: urlFor(seoMetaData.defaultOgImage).width(512).height(512).url(),
@@ -331,12 +341,15 @@ export function getLocalBusinessDataFromSeoMetaData(
 ): LocalBusinessData {
   const socialMediaUrls = getSocialMediaUrlsFromCompanyLinks(companyLinks ?? null);
 
+  const email = getOrganizationEmail(businessContactInfo);
+  const telephone = getOrganizationPhone(businessContactInfo);
+
   return {
     name: seoMetaData?.siteTitle || getOrganizationName(businessContactInfo),
     description: seoMetaData?.siteDescription || getOrganizationDescription(businessContactInfo),
     url: baseUrl,
-    telephone: SITE_CONFIG.ORGANIZATION_PHONE.value,
-    email: SITE_CONFIG.ORGANIZATION_EMAIL.value,
+    telephone: telephone || '',
+    email: email || '',
     address: {
       streetAddress: SITE_CONFIG.BUSINESS_LOCATION.streetAddress,
       addressLocality: SITE_CONFIG.BUSINESS_LOCATION.addressLocality,

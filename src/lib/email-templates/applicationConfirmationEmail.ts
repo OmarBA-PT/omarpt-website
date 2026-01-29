@@ -5,7 +5,6 @@
  * IMPORTANT: Uses colors that work in both light and dark modes without media queries
  */
 
-import { SITE_CONFIG } from '@/lib/constants';
 import type { FormSection } from '@/data/applicationFormData';
 import { EMAIL_COLORS, EMAIL_STYLES } from './emailStyles';
 
@@ -17,6 +16,12 @@ interface ApplicationConfirmationEmailData {
   sections: FormSection[];
   logoUrl: string;
   organizationName: string;
+  // Contact info from Sanity
+  organizationEmail: string;
+  organizationPhone: string;
+  organizationAddress: string;
+  organizationAddressLink: string;
+  productionDomain: string;
 }
 
 /**
@@ -65,7 +70,24 @@ function formatAnswer(value: any, questionType?: string, questionOptions?: { lab
 export function generateApplicationConfirmationEmail(
   data: ApplicationConfirmationEmailData
 ): string {
-  const { name, email, phone, formData, sections, logoUrl, organizationName } = data;
+  const {
+    name,
+    email,
+    phone,
+    formData,
+    sections,
+    logoUrl,
+    organizationName,
+    organizationEmail,
+    organizationPhone,
+    organizationAddress,
+    organizationAddressLink,
+    productionDomain,
+  } = data;
+
+  // Generate links from values
+  const emailLink = organizationEmail ? `mailto:${organizationEmail}` : '';
+  const phoneLink = organizationPhone ? `tel:${organizationPhone.replace(/\s+/g, '')}` : '';
 
   return `
     <!DOCTYPE html>
@@ -277,34 +299,34 @@ export function generateApplicationConfirmationEmail(
                         <span style="${EMAIL_STYLES.brandNameTraining}">Training</span>
                         <!-- Contact Info -->
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
+                          ${organizationEmail ? `<tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_EMAIL.link}" style="${EMAIL_STYLES.contactInfoLink}">
-                                ${SITE_CONFIG.ORGANIZATION_EMAIL.value}
+                              <a href="${emailLink}" style="${EMAIL_STYLES.contactInfoLink}">
+                                ${organizationEmail}
                               </a>
                             </td>
-                          </tr>
-                          <tr>
+                          </tr>` : ''}
+                          ${organizationPhone ? `<tr>
                             <td align="center" style="padding: 5px 0;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_PHONE.link}" style="${EMAIL_STYLES.contactInfoLink}">
-                                ${SITE_CONFIG.ORGANIZATION_PHONE.value}
+                              <a href="${phoneLink}" style="${EMAIL_STYLES.contactInfoLink}">
+                                ${organizationPhone}
                               </a>
                             </td>
-                          </tr>
-                          <tr>
+                          </tr>` : ''}
+                          ${organizationAddress ? `<tr>
                             <td align="center" style="padding: 5px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 14px;">
-                              <a href="${SITE_CONFIG.ORGANIZATION_ADDRESS.link}" style="${EMAIL_STYLES.contactInfoLink}">
-                                ${SITE_CONFIG.ORGANIZATION_ADDRESS.value}
+                              <a href="${organizationAddressLink || '#'}" style="${EMAIL_STYLES.contactInfoLink}">
+                                ${organizationAddress}
                               </a>
                             </td>
-                          </tr>
-                          <tr>
+                          </tr>` : ''}
+                          ${productionDomain ? `<tr>
                             <td align="center" style="padding: 5px 0; color: ${EMAIL_COLORS.textWhite}; font-size: 14px;">
-                              <a href="${SITE_CONFIG.PRODUCTION_DOMAIN}" style="${EMAIL_STYLES.contactInfoLink}">
-                                ${SITE_CONFIG.PRODUCTION_DOMAIN}
+                              <a href="${productionDomain}" style="${EMAIL_STYLES.contactInfoLink}">
+                                ${productionDomain}
                               </a>
                             </td>
-                          </tr>
+                          </tr>` : ''}
                         </table>
 
                         <!-- Divider -->

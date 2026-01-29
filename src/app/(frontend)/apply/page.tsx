@@ -7,7 +7,11 @@ import { generateArticleSchema, generateStructuredDataScript } from '@/lib/struc
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { getApplyPage, getApplyPrivacyStatement, getApplyQuestionnaire, getPageBuilderData } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
-import { getOrganizationName } from '@/lib/organizationInfo';
+import {
+  getOrganizationName,
+  getOrganizationEmail,
+  getOrganizationEmailLink,
+} from '@/lib/organizationInfo';
 import ApplyPageClient from './ApplyPageClient';
 
 export async function generateMetadata() {
@@ -50,6 +54,8 @@ const ApplyPage = async () => {
 
   const { businessContactInfo } = pageBuilderData;
   const orgName = getOrganizationName(businessContactInfo);
+  const organizationEmail = getOrganizationEmail(businessContactInfo);
+  const organizationEmailLink = getOrganizationEmailLink(businessContactInfo);
 
   // Transform questionnaire data from Sanity format to form-compatible format
   const questionnaireSections = transformQuestionnaireData(applyQuestionnaire);
@@ -99,6 +105,8 @@ const ApplyPage = async () => {
         generalContent={applyPageData}
         privacyStatement={applyPrivacyStatement}
         questionnaireSections={questionnaireSections}
+        organizationEmail={organizationEmail}
+        organizationEmailLink={organizationEmailLink}
       />
     </>
   );

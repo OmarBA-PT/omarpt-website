@@ -1,6 +1,7 @@
 import MaintenancePage from '@/components/MaintenancePage/MaintenancePage';
 import type { Metadata } from 'next';
-import { fetchOrganizationName } from '@/lib/organizationInfo';
+import { fetchOrganizationName, getOrganizationName } from '@/lib/organizationInfo';
+import { getBusinessContactInfo } from '@/actions';
 
 export async function generateMetadata(): Promise<Metadata> {
   const orgName = await fetchOrganizationName();
@@ -30,9 +31,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const MaintenanceModePage = async () => {
-  const orgName = await fetchOrganizationName();
+  const businessContactInfo = await getBusinessContactInfo();
+  const orgName = getOrganizationName(businessContactInfo);
 
-  return <MaintenancePage organizationName={orgName} />;
+  return <MaintenancePage organizationName={orgName} businessContactInfo={businessContactInfo} />;
 };
 
 export default MaintenanceModePage;

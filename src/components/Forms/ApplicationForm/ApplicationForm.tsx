@@ -23,9 +23,18 @@ interface ApplicationFormProps {
    * If not provided, falls back to hardcoded applicationFormData.
    */
   questionnaireSections?: FormSection[];
+  /** Organization email for error message contact link */
+  organizationEmail?: string;
+  /** Organization email link (mailto:) for error message contact link */
+  organizationEmailLink?: string;
 }
 
-const ApplicationForm = ({ onScrollToBackButton, questionnaireSections }: ApplicationFormProps = {}) => {
+const ApplicationForm = ({
+  onScrollToBackButton,
+  questionnaireSections,
+  organizationEmail = '',
+  organizationEmailLink = '',
+}: ApplicationFormProps = {}) => {
   // Combine contact details (hardcoded) with questionnaire sections (from props or fallback)
   // Contact details step is always first, followed by questionnaire sections
   const combinedFormData = useMemo((): FormSection[] => {
@@ -497,6 +506,8 @@ const ApplicationForm = ({ onScrollToBackButton, questionnaireSections }: Applic
         errorCount={getCurrentSectionErrorCount()}
         showValidationError={currentSectionHasErrors()}
         onDownloadPDF={handleDownloadPDF}
+        organizationEmail={organizationEmail}
+        organizationEmailLink={organizationEmailLink}
       />
 
       {status !== 'success' && (

@@ -26,6 +26,7 @@ import type {
   FaqBlock as FaqBlockType,
 } from '@/sanity/types';
 import type { PageBuilderData } from '@/actions';
+import { getGoogleMapsEmbedCode } from '@/lib/organizationInfo';
 
 // Import all block components
 import RichText from '@/components/_blocks/RichText';
@@ -268,9 +269,10 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
 
     case 'googleMap': {
       const googleMapBlock = typedBlock as WithKey<GoogleMapType>;
+      const embedCode = getGoogleMapsEmbedCode(pageBuilderData.businessContactInfo);
       return (
         <BlockWrapper key={googleMapBlock._key}>
-          <GoogleMap {...googleMapBlock} />
+          <GoogleMap googleMapsEmbedCode={embedCode} />
         </BlockWrapper>
       );
     }

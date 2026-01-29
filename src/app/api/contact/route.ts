@@ -3,8 +3,14 @@ import { Resend } from 'resend';
 import { generateConfirmationEmail } from '@/lib/email-templates/contactConfirmationEmail';
 import { generateAdminNotificationEmail } from '@/lib/email-templates/contactAdminNotificationEmail';
 import { SITE_CONFIG } from '@/lib/constants';
-import { fetchOrganizationName } from '@/lib/organizationInfo';
-import { getContactConfirmationEmail } from '@/actions';
+import {
+  getOrganizationName,
+  getOrganizationEmail,
+  getOrganizationPhone,
+  getOrganizationAddress,
+  getOrganizationAddressLink,
+} from '@/lib/organizationInfo';
+import { getContactConfirmationEmail, getBusinessContactInfo } from '@/actions';
 
 // Initialize Resend with API key from environment variable
 // IMPORTANT: Add RESEND_API_KEY to your .env.local file
@@ -132,8 +138,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid input detected.' }, { status: 400 });
     }
 
-    // Fetch organization name from Sanity (with fallback)
-    const organizationName = await fetchOrganizationName();
+    // Fetch business contact info from Sanity
+    const businessContactInfo = await getBusinessContactInfo();
+    const organizationName = getOrganizationName(businessContactInfo);
+    const organizationEmail = getOrganizationEmail(businessContactInfo);
+    const organizationPhone = getOrganizationPhone(businessContactInfo);
+    const organizationAddress = getOrganizationAddress(businessContactInfo);
+    const organizationAddressLink = getOrganizationAddressLink(businessContactInfo);
+    const productionDomain = SITE_CONFIG.PRODUCTION_DOMAIN;
 
     // Get contact email from environment variable
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
@@ -203,12 +215,17 @@ export async function POST(request: Request) {
         emailGreeting: confirmationEmailSettings?.emailGreeting || undefined,
         emailIntroMessage: confirmationEmailSettings?.emailIntroMessage || undefined,
         emailOutroMessage: confirmationEmailSettings?.emailOutroMessage || undefined,
+        organizationEmail,
+        organizationPhone,
+        organizationAddress,
+        organizationAddressLink,
+        productionDomain,
       });
 
       const confirmationEmailResult = await resend.emails.send({
         from: fromEmail,
         to: sanitizedEmail,
-        replyTo: SITE_CONFIG.ORGANIZATION_EMAIL.value,
+        replyTo: organizationEmail || sanitizedEmail,
         subject: `Thank you for contacting ${organizationName}`,
         html: confirmationEmailHtml,
       });

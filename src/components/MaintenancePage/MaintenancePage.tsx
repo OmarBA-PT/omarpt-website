@@ -1,12 +1,23 @@
 import React from 'react';
 import Image from 'next/image';
-import { SITE_CONFIG } from '@/lib/constants';
+import type { BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
+import {
+  getOrganizationEmail,
+  getOrganizationEmailLink,
+  getOrganizationPhone,
+  getOrganizationPhoneLink,
+} from '@/lib/organizationInfo';
 
 interface MaintenancePageProps {
   organizationName: string;
+  businessContactInfo: BUSINESS_CONTACT_INFO_QUERYResult | null;
 }
 
-const MaintenancePage = ({ organizationName }: MaintenancePageProps) => {
+const MaintenancePage = ({ organizationName, businessContactInfo }: MaintenancePageProps) => {
+  const email = getOrganizationEmail(businessContactInfo);
+  const emailLink = getOrganizationEmailLink(businessContactInfo);
+  const phone = getOrganizationPhone(businessContactInfo);
+  const phoneLink = getOrganizationPhoneLink(businessContactInfo);
 
   return (
     <div className='min-h-svh bg-brand-gradient-brown flex items-center justify-center px-4'>
@@ -30,27 +41,33 @@ const MaintenancePage = ({ organizationName }: MaintenancePageProps) => {
         </div>
 
         {/* Contact Information */}
-        <div className='space-y-3 pt-8 border-t border-brand-white/20'>
-          <p className='text-body-lg text-brand-white/80 font-semibold'>
-            For all enquiries, please contact Lance:
-          </p>
-          <div className='space-y-2 text-body-base text-brand-white/80'>
-            <p>
-              <a
-                href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
-                className='hover:text-brand-white transition-colors underline'>
-                {SITE_CONFIG.ORGANIZATION_EMAIL.value}
-              </a>
+        {(email || phone) && (
+          <div className='space-y-3 pt-8 border-t border-brand-white/20'>
+            <p className='text-body-lg text-brand-white/80 font-semibold'>
+              For all enquiries, please contact Lance:
             </p>
-            <p>
-              <a
-                href={SITE_CONFIG.ORGANIZATION_PHONE.link}
-                className='hover:text-brand-white transition-colors underline'>
-                {SITE_CONFIG.ORGANIZATION_PHONE.value}
-              </a>
-            </p>
+            <div className='space-y-2 text-body-base text-brand-white/80'>
+              {email && (
+                <p>
+                  <a
+                    href={emailLink}
+                    className='hover:text-brand-white transition-colors underline'>
+                    {email}
+                  </a>
+                </p>
+              )}
+              {phone && (
+                <p>
+                  <a
+                    href={phoneLink}
+                    className='hover:text-brand-white transition-colors underline'>
+                    {phone}
+                  </a>
+                </p>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

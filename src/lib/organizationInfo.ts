@@ -76,3 +76,80 @@ export async function fetchOrganizationInfo(): Promise<{
     description: getOrganizationDescription(businessContactInfo),
   };
 }
+
+// ============================================================================
+// Contact Info Helpers (Email, Phone, Address)
+// These return empty strings when data is not available (no defaults)
+// ============================================================================
+
+/**
+ * Get organization email from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getOrganizationEmail(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.organizationEmail || '';
+}
+
+/**
+ * Get organization email as mailto link.
+ * Returns empty string if email not set.
+ */
+export function getOrganizationEmailLink(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  const email = getOrganizationEmail(businessContactInfo);
+  return email ? `mailto:${email}` : '';
+}
+
+/**
+ * Get organization phone from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getOrganizationPhone(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.organizationPhone || '';
+}
+
+/**
+ * Get organization phone as tel link (removes spaces).
+ * Returns empty string if phone not set.
+ */
+export function getOrganizationPhoneLink(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  const phone = getOrganizationPhone(businessContactInfo);
+  return phone ? `tel:${phone.replace(/\s+/g, '')}` : '';
+}
+
+/**
+ * Get organization address from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getOrganizationAddress(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.organizationAddress || '';
+}
+
+/**
+ * Get Google Maps link from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getOrganizationAddressLink(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.googleMapsLink || '';
+}
+
+/**
+ * Get Google Maps embed code from businessContactInfo.
+ * Returns empty string if not set.
+ */
+export function getGoogleMapsEmbedCode(
+  businessContactInfo?: BUSINESS_CONTACT_INFO_QUERYResult | null,
+): string {
+  return businessContactInfo?.googleMapsEmbedCode || '';
+}

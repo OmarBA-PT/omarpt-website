@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { stegaClean } from 'next-sanity';
-import type { GoogleMap as GoogleMapType } from '@/sanity/types';
 import { maxCardWidth } from '@/utils/spacingConstants';
 import AnimateIn from '../UI/AnimateIn';
 
-interface GoogleMapProps extends GoogleMapType {
+interface GoogleMapProps {
+  /** Google Maps embed code from businessContactInfo */
+  googleMapsEmbedCode: string;
   className?: string;
 }
 
@@ -19,11 +20,18 @@ const extractEmbedUrl = (embedCode: string): string | null => {
   return match ? match[1] : null;
 };
 
-const GoogleMap: React.FC<GoogleMapProps> = ({ embedCode, className = '' }) => {
-  const cleanEmbedCode = stegaClean(embedCode);
+const GoogleMap: React.FC<GoogleMapProps> = ({ googleMapsEmbedCode, className = '' }) => {
+  const cleanEmbedCode = stegaClean(googleMapsEmbedCode);
 
   if (!cleanEmbedCode) {
-    return null;
+    return (
+      <div
+        className={`${className} p-4 border border-yellow-200 rounded-lg bg-yellow-50 ${maxCardWidth} mx-auto`}>
+        <p className='text-yellow-700'>
+          Google Maps iframe not found. Configure in Site Management → Business &amp; Contact Info.
+        </p>
+      </div>
+    );
   }
 
   const embedUrl = extractEmbedUrl(cleanEmbedCode);

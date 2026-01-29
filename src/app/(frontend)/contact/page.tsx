@@ -8,11 +8,16 @@ import {
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
 import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import Breadcrumb from '@/components/UI/Breadcrumb';
-import { SITE_CONFIG } from '@/lib/constants';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import { getContactFormSettings, getContactGeneralContent, getPageBuilderData } from '@/actions';
-import { getOrganizationName } from '@/lib/organizationInfo';
+import {
+  getOrganizationName,
+  getOrganizationEmail,
+  getOrganizationEmailLink,
+  getOrganizationPhone,
+  getOrganizationPhoneLink,
+} from '@/lib/organizationInfo';
 import CardLight from '@/components/UI/CardLight';
 import ExpandingContentWrapper from '@/components/UI/ExpandingContentWrapper';
 import { maxCardWidth } from '@/utils/spacingConstants';
@@ -57,6 +62,10 @@ const ContactPage = async () => {
 
   const { businessContactInfo } = pageBuilderData;
   const orgName = getOrganizationName(businessContactInfo);
+  const email = getOrganizationEmail(businessContactInfo);
+  const emailLink = getOrganizationEmailLink(businessContactInfo);
+  const phone = getOrganizationPhone(businessContactInfo);
+  const phoneLink = getOrganizationPhoneLink(businessContactInfo);
 
   // Fallback values if Sanity data is not available
   const pageTitle = contactPageData?.title || 'Contact Me';
@@ -164,22 +173,26 @@ const ContactPage = async () => {
           </CardLight>
 
           {/* Email */}
-          <CardLight title={emailTitle} icon={MdEmail}>
-            <a
-              href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
-              className='text-body-base hover:text-brand-secondary transition-colors'>
-              {SITE_CONFIG.ORGANIZATION_EMAIL.value}
-            </a>
-          </CardLight>
+          {email && (
+            <CardLight title={emailTitle} icon={MdEmail}>
+              <a
+                href={emailLink}
+                className='text-body-base hover:text-brand-secondary transition-colors'>
+                {email}
+              </a>
+            </CardLight>
+          )}
 
           {/* Phone */}
-          <CardLight title={phoneTitle} icon={MdPhone}>
-            <a
-              href={SITE_CONFIG.ORGANIZATION_PHONE.link}
-              className='text-body-base hover:text-brand-secondary transition-colors'>
-              {SITE_CONFIG.ORGANIZATION_PHONE.value}
-            </a>
-          </CardLight>
+          {phone && (
+            <CardLight title={phoneTitle} icon={MdPhone}>
+              <a
+                href={phoneLink}
+                className='text-body-base hover:text-brand-secondary transition-colors'>
+                {phone}
+              </a>
+            </CardLight>
+          )}
         </div>
 
         {/* Ready to Apply CTA */}

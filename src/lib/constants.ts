@@ -15,16 +15,9 @@ export const SITE_CONFIG = {
   // When false: Site operates normally
   MAINTENANCE_MODE_ENABLED: false,
 
-  // Contact information - single source of truth for all company contact details
-  ORGANIZATION_EMAIL: {
-    value: 'omar@omaniatraining.com',
-    link: 'mailto:omar@omaniatraining.com',
-  },
-  ORGANIZATION_PHONE: { value: '+64 210 503 128', link: 'tel:+64210503128' },
-  ORGANIZATION_ADDRESS: {
-    value: 'Auckland, New Zealand',
-    link: 'https://maps.app.goo.gl/LQrGoawnfvgoi25m9',
-  },
+  // NOTE: Contact information (email, phone, address) is now managed in Sanity CMS
+  // Go to: Site Management → Business & Contact Info
+  // Access in code via: getOrganizationEmail(), getOrganizationPhone(), etc. from @/lib/organizationInfo
 
   // Business Location Details - Used for LocalBusiness structured data (SEO)
   // Update these values if the studio relocates or business details change

@@ -2,7 +2,6 @@ import React from 'react';
 import { MdError } from 'react-icons/md';
 import { FormStatus } from './types';
 import { maxCardWidth } from '@/utils/spacingConstants';
-import { SITE_CONFIG } from '@/lib/constants';
 
 interface StatusMessagesProps {
   status: FormStatus;
@@ -10,6 +9,8 @@ interface StatusMessagesProps {
   errorCount?: number;
   showValidationError?: boolean;
   onDownloadPDF?: () => void;
+  organizationEmail: string;
+  organizationEmailLink: string;
 }
 
 const StatusMessages = ({
@@ -18,6 +19,8 @@ const StatusMessages = ({
   errorCount = 0,
   showValidationError = false,
   onDownloadPDF,
+  organizationEmail,
+  organizationEmailLink,
 }: StatusMessagesProps) => {
   return (
     <>
@@ -61,11 +64,15 @@ const StatusMessages = ({
                   </li>
                   <li>
                     Email it to me at{' '}
-                    <a
-                      href={SITE_CONFIG.ORGANIZATION_EMAIL.link}
-                      className='text-red-900 underline hover:text-red-950 font-semibold'>
-                      {SITE_CONFIG.ORGANIZATION_EMAIL.value}
-                    </a>
+                    {organizationEmail ? (
+                      <a
+                        href={organizationEmailLink}
+                        className='text-red-900 underline hover:text-red-950 font-semibold'>
+                        {organizationEmail}
+                      </a>
+                    ) : (
+                      <span className='font-semibold'>the contact email</span>
+                    )}
                   </li>
                 </ol>
               </div>

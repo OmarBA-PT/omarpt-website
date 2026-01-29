@@ -334,7 +334,12 @@ export const BUSINESS_CONTACT_INFO_QUERY = defineQuery(`*[_id == "businessContac
   _id,
   _type,
   organizationName,
-  organizationDescription
+  organizationDescription,
+  organizationEmail,
+  organizationPhone,
+  organizationAddress,
+  googleMapsLink,
+  googleMapsEmbedCode
 }`);
 
 export const COMPANY_LINKS_QUERY = defineQuery(`*[_id == "companyLinks"][0]{

@@ -2,7 +2,17 @@ import React from 'react';
 import ReactPDF from '@react-pdf/renderer';
 import ApplicationFormPDF from '@/components/PDF/ApplicationFormPDF';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getApplyPrivacyStatement, getApplyPdfSettings, getApplyQuestionnaire } from '@/actions';
+import {
+  getApplyPrivacyStatement,
+  getApplyPdfSettings,
+  getApplyQuestionnaire,
+  getBusinessContactInfo,
+} from '@/actions';
+import {
+  getOrganizationEmail,
+  getOrganizationPhone,
+  getOrganizationAddress,
+} from '@/lib/organizationInfo';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import fs from 'fs';
 import path from 'path';
@@ -27,15 +37,21 @@ export async function generateApplicationPDFBuffer(
     const logoBase64 = logoBuffer.toString('base64');
     const logoUrl = `data:image/png;base64,${logoBase64}`;
 
-    // Fetch questionnaire, privacy statement, and PDF settings data from Sanity
-    const [questionnaireData, privacyStatement, pdfSettings] = await Promise.all([
+    // Fetch questionnaire, privacy statement, PDF settings, and business contact info from Sanity
+    const [questionnaireData, privacyStatement, pdfSettings, businessContactInfo] = await Promise.all([
       getApplyQuestionnaire(),
       getApplyPrivacyStatement(),
       getApplyPdfSettings(),
+      getBusinessContactInfo(),
     ]);
 
     // Transform questionnaire data from Sanity format to form-compatible format
     const questionnaireSections = transformQuestionnaireData(questionnaireData);
+
+    // Get contact info from Sanity
+    const contactEmail = getOrganizationEmail(businessContactInfo);
+    const contactPhone = getOrganizationPhone(businessContactInfo);
+    const contactAddress = getOrganizationAddress(businessContactInfo);
 
     // Create the PDF document element with submitted form data
     const pdfDocument = React.createElement(ApplicationFormPDF, {
@@ -43,9 +59,9 @@ export async function generateApplicationPDFBuffer(
       submittedAnswers: submittedFormData, // Pass the user's submitted answers
       logoUrl: logoUrl,
       businessName: organizationName,
-      contactEmail: SITE_CONFIG.ORGANIZATION_EMAIL.value,
-      contactPhone: SITE_CONFIG.ORGANIZATION_PHONE.value,
-      contactAddress: SITE_CONFIG.ORGANIZATION_ADDRESS.value,
+      contactEmail,
+      contactPhone,
+      contactAddress,
       websiteUrl: SITE_CONFIG.PRODUCTION_DOMAIN,
       pdfTitle: pdfSettings?.pdfTitle,
       pdfSubtitle: pdfSettings?.pdfSubtitle,

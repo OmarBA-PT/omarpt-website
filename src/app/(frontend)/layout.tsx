@@ -138,6 +138,7 @@ const FrontendLayout = async ({
                 companyLinksData={companyLinksData}
                 legalPagesVisibilityData={legalPagesVisibilityData}
                 organizationName={orgName}
+                businessContactInfo={businessContactInfoData}
               />
               {(await draftMode()).isEnabled && (
                 <>
