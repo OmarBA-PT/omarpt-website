@@ -1,29 +1,10 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import PageBuilder from '@/components/PageBuilder';
-import PageHero from '@/components/Page/PageHero';
 import { getTermsAndConditions, getPageBuilderData } from '@/actions';
-import Container from '@/components/Layout/Container';
 import {
   generateMetadata as generatePageMetadata,
   generateCanonicalUrl,
-  getBaseUrl,
 } from '@/lib/metadata';
-import {
-  generateArticleSchema,
-  getOrganizationDataFromSeoMetaData,
-  generateStructuredDataScript,
-} from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import Breadcrumb from '@/components/UI/Breadcrumb';
-import {
-  getOrganizationName,
-  getOrganizationEmail,
-  getOrganizationEmailLink,
-  getOrganizationPhone,
-  getOrganizationPhoneLink,
-} from '@/lib/organizationInfo';
-import PageSection from '@/components/Layout/PageSection';
+import { getOrganizationName } from '@/lib/organizationInfo';
+import LegalPageContent from '@/components/pages/LegalPageContent';
 
 export async function generateMetadata() {
   const [pageBuilderData, termsData] = await Promise.all([
@@ -59,104 +40,14 @@ const TermsAndConditionsPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const { seoMetaData, businessContactInfo } = pageBuilderData;
-  const orgName = getOrganizationName(businessContactInfo);
-  const email = getOrganizationEmail(businessContactInfo);
-  const emailLink = getOrganizationEmailLink(businessContactInfo);
-  const phone = getOrganizationPhone(businessContactInfo);
-  const phoneLink = getOrganizationPhoneLink(businessContactInfo);
-
-  // If the page is hidden or doesn't exist, show 404
-  if (!termsData || termsData.hide) {
-    notFound();
-  }
-
-  const baseUrl = getBaseUrl();
-
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: termsData.title || 'Terms & Conditions', url: `${baseUrl}/terms-and-conditions` },
-  ];
-
-  // Generate Article structured data
-  let articleSchema;
-  if (seoMetaData && termsData._updatedAt) {
-    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl, null, businessContactInfo);
-
-    articleSchema = generateArticleSchema({
-      headline: termsData.title || 'Terms & Conditions',
-      description: seoMetaData.siteDescription || undefined,
-      datePublished: termsData._updatedAt,
-      dateModified: termsData._updatedAt,
-      author: {
-        name: seoMetaData.siteTitle || orgName,
-        type: 'Organization',
-      },
-      publisher: organizationData,
-      url: `${baseUrl}/terms-and-conditions`,
-    });
-  }
-
   return (
-    <>
-      {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
-      {articleSchema && (
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={generateStructuredDataScript(articleSchema)}
-        />
-      )}
-
-      {/* Page Hero */}
-      <PageHero
-        title={termsData.title || 'Terms & Conditions'}
-        documentId={termsData._id}
-        documentType={termsData._type}
-      />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={termsData.title || 'Terms & Conditions'} />
-
-      <Container textAlign='left'>
-        {/* Page Content */}
-        {termsData.topText && <p className='font-bold mb-8'>{termsData.topText}</p>}
-        {termsData.content && (
-          <PageBuilder
-            content={termsData.content as any}
-            documentId={termsData._id}
-            documentType={termsData._type}
-            pageBuilderData={pageBuilderData}
-            alignment='left'
-          />
-        )}
-        {/* Contact Information Section */}
-        {(email || phone) && (
-          <PageSection title='Contact Information'>
-            <div className='space-y-4'>
-              <p>If you have questions about these Terms &amp; Conditions, please contact me:</p>
-              {email && (
-                <p>
-                  <strong>Email:</strong>{' '}
-                  <a href={emailLink} className='text-brand-primary hover:underline'>
-                    {email}
-                  </a>
-                </p>
-              )}
-              {phone && (
-                <p>
-                  <strong>Phone:</strong>{' '}
-                  <a href={phoneLink} className='text-brand-primary hover:underline'>
-                    {phone}
-                  </a>
-                </p>
-              )}
-            </div>
-          </PageSection>
-        )}
-      </Container>
-    </>
+    <LegalPageContent
+      legalData={termsData}
+      pageBuilderData={pageBuilderData}
+      defaultTitle='Terms &amp; Conditions'
+      urlPath='/terms-and-conditions'
+      contactQuestionText='these Terms &amp; Conditions'
+    />
   );
 };
 

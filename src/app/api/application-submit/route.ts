@@ -11,8 +11,9 @@ import {
 } from '@/lib/organizationInfo';
 import { getApplyQuestionnaire, getApplyConfirmationEmail } from '@/actions';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
-import { sanityFetch } from '@/sanity/lib/live';
+import { staticSanityFetch } from '@/sanity/lib/fetch';
 import { BUSINESS_CONTACT_INFO_QUERY } from '@/sanity/lib/queries';
+import type { BUSINESS_CONTACT_INFO_QUERYResult } from '@/sanity/types';
 import { SITE_CONFIG } from '@/lib/constants';
 import {
   generateApplicationPDFBuffer,
@@ -151,8 +152,9 @@ export async function POST(request: Request) {
 
     // Fetch organization name and business contact info from Sanity
     const organizationName = await fetchOrganizationName();
-    const { data: businessContactInfo } = await sanityFetch({
+    const { data: businessContactInfo } = await staticSanityFetch<BUSINESS_CONTACT_INFO_QUERYResult>({
       query: BUSINESS_CONTACT_INFO_QUERY,
+      tags: ['sanity', 'businessContactInfo'],
     });
 
     // Get contact info values using helper functions

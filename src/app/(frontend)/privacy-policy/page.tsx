@@ -1,29 +1,10 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import PageBuilder from '@/components/PageBuilder';
-import PageHero from '@/components/Page/PageHero';
 import { getPrivacyPolicy, getPageBuilderData } from '@/actions';
-import Container from '@/components/Layout/Container';
 import {
   generateMetadata as generatePageMetadata,
   generateCanonicalUrl,
-  getBaseUrl,
 } from '@/lib/metadata';
-import {
-  generateArticleSchema,
-  getOrganizationDataFromSeoMetaData,
-  generateStructuredDataScript,
-} from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import Breadcrumb from '@/components/UI/Breadcrumb';
-import {
-  getOrganizationName,
-  getOrganizationEmail,
-  getOrganizationEmailLink,
-  getOrganizationPhone,
-  getOrganizationPhoneLink,
-} from '@/lib/organizationInfo';
-import PageSection from '@/components/Layout/PageSection';
+import { getOrganizationName } from '@/lib/organizationInfo';
+import LegalPageContent from '@/components/pages/LegalPageContent';
 
 export async function generateMetadata() {
   const [pageBuilderData, privacyData] = await Promise.all([
@@ -59,104 +40,14 @@ const PrivacyPolicyPage = async () => {
     getPageBuilderData(),
   ]);
 
-  const { seoMetaData, businessContactInfo } = pageBuilderData;
-  const orgName = getOrganizationName(businessContactInfo);
-  const email = getOrganizationEmail(businessContactInfo);
-  const emailLink = getOrganizationEmailLink(businessContactInfo);
-  const phone = getOrganizationPhone(businessContactInfo);
-  const phoneLink = getOrganizationPhoneLink(businessContactInfo);
-
-  // If the page is hidden or doesn't exist, show 404
-  if (!privacyData || privacyData.hide) {
-    notFound();
-  }
-
-  const baseUrl = getBaseUrl();
-
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: privacyData.title || 'Privacy Policy', url: `${baseUrl}/privacy-policy` },
-  ];
-
-  // Generate Article structured data
-  let articleSchema;
-  if (seoMetaData && privacyData._updatedAt) {
-    const organizationData = getOrganizationDataFromSeoMetaData(seoMetaData, baseUrl, null, businessContactInfo);
-
-    articleSchema = generateArticleSchema({
-      headline: privacyData.title || 'Privacy Policy',
-      description: seoMetaData.siteDescription || undefined,
-      datePublished: privacyData._updatedAt,
-      dateModified: privacyData._updatedAt,
-      author: {
-        name: seoMetaData.siteTitle || orgName,
-        type: 'Organization',
-      },
-      publisher: organizationData,
-      url: `${baseUrl}/privacy-policy`,
-    });
-  }
-
   return (
-    <>
-      {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
-      {articleSchema && (
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={generateStructuredDataScript(articleSchema)}
-        />
-      )}
-
-      {/* Page Hero */}
-      <PageHero
-        title={privacyData.title || 'Privacy Policy'}
-        documentId={privacyData._id}
-        documentType={privacyData._type}
-      />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={privacyData.title || 'Privacy Policy'} />
-
-      <Container textAlign='left'>
-        {/* Page Content */}
-        {privacyData.topText && <p className='font-bold mb-8'>{privacyData.topText}</p>}
-        {privacyData.content && (
-          <PageBuilder
-            content={privacyData.content as any}
-            documentId={privacyData._id}
-            documentType={privacyData._type}
-            pageBuilderData={pageBuilderData}
-            alignment='left'
-          />
-        )}
-        {/* Contact Information Section */}
-        {(email || phone) && (
-          <PageSection title='Contact Information'>
-            <div className='space-y-4'>
-              <p>If you have questions about this Privacy Policy, please contact me:</p>
-              {email && (
-                <p>
-                  <strong>Email:</strong>{' '}
-                  <a href={emailLink} className='text-brand-primary hover:underline'>
-                    {email}
-                  </a>
-                </p>
-              )}
-              {phone && (
-                <p>
-                  <strong>Phone:</strong>{' '}
-                  <a href={phoneLink} className='text-brand-primary hover:underline'>
-                    {phone}
-                  </a>
-                </p>
-              )}
-            </div>
-          </PageSection>
-        )}
-      </Container>
-    </>
+    <LegalPageContent
+      legalData={privacyData}
+      pageBuilderData={pageBuilderData}
+      defaultTitle='Privacy Policy'
+      urlPath='/privacy-policy'
+      contactQuestionText='this Privacy Policy'
+    />
   );
 };
 

@@ -17,3 +17,6 @@ export type {
   HOME_PAGE_SECTIONS_QUERYResult,
   PAGE_QUERYResult,
 } from './types';
+
+// Re-export FetchFn type for convenience
+export type { FetchFn } from '@/sanity/lib/fetch';

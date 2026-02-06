@@ -1,23 +1,14 @@
 import {
   generateMetadata as generatePageMetadata,
   generateCanonicalUrl,
-  getBaseUrl,
 } from '@/lib/metadata';
-import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import {
   getApplyPage,
   getApplyPrivacyStatement,
   getApplyQuestionnaire,
   getPageBuilderData,
 } from '@/actions';
-import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
-import {
-  getOrganizationName,
-  getOrganizationEmail,
-  getOrganizationEmailLink,
-} from '@/lib/organizationInfo';
-import ApplyPageClient from './ApplyPageClient';
+import ApplyPageContent from '@/components/pages/ApplyPageContent';
 
 export async function generateMetadata() {
   // Fetch apply page data and page builder data for metadata
@@ -46,8 +37,6 @@ export async function generateMetadata() {
 }
 
 const ApplyPage = async () => {
-  const baseUrl = getBaseUrl();
-
   // Fetch apply page data from Sanity
   const [applyPageData, applyPrivacyStatement, applyQuestionnaire, pageBuilderData] =
     await Promise.all([
@@ -57,64 +46,13 @@ const ApplyPage = async () => {
       getPageBuilderData(),
     ]);
 
-  const { businessContactInfo } = pageBuilderData;
-  const orgName = getOrganizationName(businessContactInfo);
-  const organizationEmail = getOrganizationEmail(businessContactInfo);
-  const organizationEmailLink = getOrganizationEmailLink(businessContactInfo);
-
-  // Transform questionnaire data from Sanity format to form-compatible format
-  const questionnaireSections = transformQuestionnaireData(applyQuestionnaire);
-
-  // Fallback values if Sanity data is not available
-  const pageTitle = applyPageData?.title || 'Apply for Coaching';
-  const pageSubtitle =
-    applyPageData?.subtitle || 'Take the first step towards achieving your fitness goals';
-
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: pageTitle, url: `${baseUrl}/apply` },
-  ];
-
-  // Generate Article structured data using actual Sanity dates
-  const articleSchema = generateArticleSchema({
-    headline: pageTitle,
-    description: pageSubtitle,
-    datePublished: applyPageData?._createdAt || new Date().toISOString(),
-    dateModified: applyPageData?._updatedAt || new Date().toISOString(),
-    author: {
-      name: orgName,
-      type: 'Organization',
-    },
-    publisher: {
-      name: orgName,
-      url: baseUrl,
-      logo: `${baseUrl}/logo.png`,
-    },
-    url: `${baseUrl}/apply`,
-  });
-
   return (
-    <>
-      {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
-      {articleSchema && (
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={generateStructuredDataScript(articleSchema)}
-        />
-      )}
-
-      {/* Client Component */}
-      <ApplyPageClient
-        generalContent={applyPageData}
-        privacyStatement={applyPrivacyStatement}
-        questionnaireSections={questionnaireSections}
-        organizationEmail={organizationEmail}
-        organizationEmailLink={organizationEmailLink}
-        organizationName={orgName}
-      />
-    </>
+    <ApplyPageContent
+      applyPageData={applyPageData}
+      applyPrivacyStatement={applyPrivacyStatement}
+      applyQuestionnaire={applyQuestionnaire}
+      pageBuilderData={pageBuilderData}
+    />
   );
 };
 

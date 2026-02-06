@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { sanityFetch } from '@/sanity/lib/live';
+import { staticSanityFetch } from '@/sanity/lib/fetch';
 import { SEO_META_DATA_QUERY } from '@/sanity/lib/queries';
+import type { SEO_META_DATA_QUERYResult } from '@/sanity/types';
 
 /**
  * Web App Manifest - Enables "Add to Home Screen" functionality
@@ -25,8 +26,9 @@ const BACKGROUND_COLOR = '#282828'; // --color-brand-charcoal
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
   // Fetch site title and description from Sanity
-  const { data: seoMetaData } = await sanityFetch({
+  const { data: seoMetaData } = await staticSanityFetch<SEO_META_DATA_QUERYResult>({
     query: SEO_META_DATA_QUERY,
+    tags: ['sanity', 'seoMetaData'],
   });
 
   const siteTitle = seoMetaData?.siteTitle || 'Website';
