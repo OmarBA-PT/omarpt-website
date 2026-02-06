@@ -1,6 +1,10 @@
 import React from 'react';
 import '../globals.css';
+import { draftMode } from 'next/headers';
+import { SanityLive } from '@/sanity/lib/live';
 import BaseLayout from '@/components/Layout/BaseLayout';
+import DisableDraftMode from '@/components/DisableDraftMode';
+import { VisualEditingProvider } from '@/components/VisualEditingProvider';
 import {
   getHeader,
   getFooter,
@@ -49,6 +53,15 @@ const FrontendLayout = async ({
     getLegalPagesVisibility(),
   ]);
 
+  // Draft mode components for Sanity Presentation Tool
+  const draftModeSlot = (await draftMode()).isEnabled ? (
+    <>
+      <SanityLive />
+      <VisualEditingProvider />
+      <DisableDraftMode />
+    </>
+  ) : null;
+
   return (
     <BaseLayout
       headerData={headerData}
@@ -57,6 +70,7 @@ const FrontendLayout = async ({
       businessContactInfoData={businessContactInfoData}
       companyLinksData={companyLinksData}
       legalPagesVisibilityData={legalPagesVisibilityData}
+      draftModeSlot={draftModeSlot}
     >
       {children}
     </BaseLayout>

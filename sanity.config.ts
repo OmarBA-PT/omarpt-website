@@ -34,8 +34,6 @@ export default defineConfig({
     presentationTool({
       resolve,
       previewUrl: {
-        // Use location.origin for dynamic origin detection (works for both localhost and production)
-        origin: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000',
         previewMode: {
           enable: '/api/draft-mode/enable',
         },
