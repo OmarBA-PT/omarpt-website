@@ -208,50 +208,53 @@ Singletons represent unique pages that should only exist once (like "About Us", 
 
 **ALWAYS complete all 6 steps when creating any singleton page to ensure proper functionality and prevent issues discovered later.**
 
-## Static Generation & Revalidation Architecture
+## Data Fetching & Revalidation Architecture
 
-**CRITICAL: This project uses a dual-route architecture for static pages + live preview. Follow these rules to avoid breaking static generation.**
+**CRITICAL: This project uses cached data fetching with on-demand revalidation via Sanity webhooks.**
 
 ### Architecture Overview
 
-Public visitors receive truly static pages served from the CDN. Editors using Sanity's Presentation Tool (draft mode) are routed via middleware to a separate dynamic route group with full live preview.
+The `(frontend)` layout checks for draft mode on each request. The data fetching is cached separately from the page rendering:
+
+- **Public visitors**: `draftMode().isEnabled` = false → page renders with cached Sanity data
+- **Sanity editors (draft mode)**: `draftMode().isEnabled` = true → SanityLive provides real-time content updates
+- **Local development**: Data fetching uses `revalidate: 0` so changes appear immediately on refresh
 
 ```
-Request → Middleware (src/middleware.ts)
-  ├─ No draft cookie → (frontend)/ routes [STATIC]
-  │   - Uses staticSanityFetch (src/sanity/lib/fetch.ts)
-  │   - No draftMode() calls anywhere in the render path
-  │   - Pages are in the Full Route Cache (CDN)
+Request → (frontend)/layout.tsx
   │
-  └─ Has draft cookie → /_draft/ routes [DYNAMIC]
-      - Uses defineLive's sanityFetch (src/sanity/lib/live.ts)
+  ├─ draftMode().isEnabled = false (public user)
+  │   - Data fetched via staticSanityFetch (cached with tags)
+  │   - No SanityLive/VisualEditing components rendered
+  │
+  └─ draftMode().isEnabled = true (Sanity editor)
       - SanityLive provides real-time content updates
-      - draftMode() is called → forces dynamic rendering (expected)
+      - VisualEditing enables click-to-edit in Presentation Tool
 ```
 
-### The Golden Rule
+### Data Fetching with staticSanityFetch
 
-**NEVER call `draftMode()`, `cookies()`, or `headers()` in any file under `src/app/(frontend)/`.** These are Next.js dynamic functions — a single call anywhere in the render path (layout, page, or any server component they import) will force the ENTIRE route out of the Full Route Cache, making it dynamically rendered on every request.
+The `staticSanityFetch` function (`src/sanity/lib/fetch.ts`) handles caching differently based on environment:
 
-The only place these functions are allowed is in the `src/app/_draft/` route group, which is intentionally dynamic.
+- **Development** (`NODE_ENV === 'development'`): Uses `revalidate: 0` — fresh data on every request
+- **Production**: Uses `revalidate: false` with tags — cached indefinitely until webhook revalidates
 
-### Data Fetching Rules
-
-- **Action functions** (`src/actions/*.ts`) accept an optional `fetchFn` parameter
-- They default to `staticSanityFetch` — this is what `(frontend)` pages use
-- The `_draft` catch-all passes `liveSanityFetch` (from `defineLive`) to get live data
-- **NEVER** import directly from `@/sanity/lib/live` in `(frontend)` pages or layout
+```typescript
+const data = await authenticatedClient.fetch<T>(query, await params, {
+  next: isDev
+    ? { revalidate: 0 }
+    : { tags, revalidate: false },
+});
+```
 
 ### When Adding a New Action Function
 
 1. Create the action in `src/actions/` with the standard pattern:
    ```typescript
-   import { staticSanityFetch, type FetchFn } from '@/sanity/lib/fetch';
+   import { staticSanityFetch } from '@/sanity/lib/fetch';
 
-   export async function getNewData(
-     fetchFn: FetchFn = staticSanityFetch
-   ): Promise<NEW_QUERYResult> {
-     const { data } = await fetchFn({
+   export async function getNewData(): Promise<NEW_QUERYResult> {
+     const { data } = await staticSanityFetch({
        query: NEW_QUERY,
        tags: ['sanity', 'newDocumentType'], // Tag with the Sanity _type
      });
@@ -264,63 +267,39 @@ The only place these functions are allowed is in the `src/app/_draft/` route gro
 ### When Adding a New Page
 
 1. **Create the page** in `src/app/(frontend)/your-page/page.tsx`
-   - Fetch data using action functions (they default to `staticSanityFetch`)
-   - Delegate rendering to a shared content component
-   - **Do NOT** import from `@/sanity/lib/live`
-   - **Do NOT** call `draftMode()`, `cookies()`, or `headers()`
+   - Fetch data using action functions (they use `staticSanityFetch` internally)
+   - Create and render the page content
 
-2. **Create a shared content component** in `src/components/pages/YourPageContent.tsx`
-   - Accepts data as props, handles all rendering (structured data, hero, breadcrumbs, PageBuilder, etc.)
-   - Used by both `(frontend)` page and `_draft` catch-all
-
-3. **Add the route to the draft catch-all** in `src/app/_draft/[[...path]]/page.tsx`
-   - Add a new `case` in the switch statement for your route
-   - Fetch data using action functions with `liveSanityFetch`
-   - Render using the same shared content component
-
-4. **Verify static generation**: Run `npm run build` and confirm your new page shows as Static (circle) in the build output
-
-### When Adding a New Sanity Document Type
-
-1. Follow the existing schema creation process
-2. Create action function(s) with proper tags (see above)
-3. The webhook automatically picks up new document types — when content of that type is published, `revalidateTag('<documentType>')` is called, invalidating all cached fetches with that tag
+2. **No additional setup needed for Presentation Tool** — the `(frontend)/layout.tsx` automatically handles draft mode detection and renders SanityLive/VisualEditing when needed
 
 ### Revalidation & Caching
 
-- **Static pages** use `revalidate: false` — cached indefinitely until explicitly revalidated
+- **Production data** uses `revalidate: false` — cached indefinitely until explicitly revalidated
 - **Revalidation** is triggered by a Sanity webhook → `POST /api/revalidate` → `revalidateTag(documentType)`
 - **Tag strategy**: Every fetch is tagged with `['sanity', '<documentType>']`
   - `revalidateTag('faqPage')` — invalidates only FAQ-related data
   - `revalidateTag('sanity')` — invalidates ALL Sanity data (nuclear option)
-- **New pages** created after build are generated on-demand on first visit, then cached
 
 ### Key Files
 
 | File | Purpose |
 |---|---|
-| `src/sanity/lib/fetch.ts` | Static fetch function (`staticSanityFetch`) + `FetchFn` type |
-| `src/sanity/lib/live.ts` | Live fetch function (from `defineLive`) — only used by `_draft` route |
-| `src/middleware.ts` | Routes draft mode requests to `_draft/` |
+| `src/sanity/lib/fetch.ts` | Static fetch function (`staticSanityFetch`) with environment-aware caching |
+| `src/sanity/lib/live.ts` | Live fetch function (from `defineLive`) for real-time updates in draft mode |
 | `src/app/api/revalidate/route.ts` | Webhook endpoint for on-demand revalidation |
-| `src/app/(frontend)/` | Static route group — **no dynamic functions allowed** |
-| `src/app/_draft/` | Dynamic route group — full live preview with SanityLive |
-| `src/components/pages/` | Shared page content components (used by both routes) |
-| `src/components/Layout/BaseLayout.tsx` | Shared layout rendering (used by both layouts) |
+| `src/app/(frontend)/layout.tsx` | Layout with draft mode detection — renders SanityLive/VisualEditing when in draft mode |
+| `src/proxy.ts` | Handles maintenance mode and dev-test route blocking |
 
 ### Common Mistakes to Avoid
 
-- **Importing from `@/sanity/lib/live` in `(frontend)` pages** — this pulls in `defineLive`'s `sanityFetch` which calls `draftMode()`, breaking static generation
-- **Calling `draftMode()` in shared components** — if a component is used by `(frontend)` pages, it must not use dynamic functions
 - **Forgetting tags on new action functions** — without tags, the webhook can't invalidate the cached data
-- **Forgetting to add new pages to the `_draft` catch-all** — editors won't be able to preview that page in Presentation Tool
-- **Using `revalidate: 0` or `no-store`** — this disables caching entirely; use `revalidate: false` with tag-based revalidation instead
+- **Using `revalidate: 0` or `no-store` in production** — this disables caching entirely; use `revalidate: false` with tag-based revalidation instead
 
 ### Debugging
 
-- **Page showing as Dynamic in build output?** — Search for `draftMode`, `cookies`, or `headers` calls in the render path
 - **Content not updating after publish?** — Check the webhook is configured correctly in Sanity dashboard, verify `SANITY_WEBHOOK_SECRET` matches, and check `/api/revalidate` logs in Vercel
-- **Draft preview not working?** — Verify middleware is rewriting to `_draft/`, check the `__prerender_bypass` cookie exists, and verify `SanityLive` is rendering in the `_draft` layout
+- **Local dev changes not appearing?** — Restart the dev server to ensure `NODE_ENV` is correctly set to `'development'`
+- **Presentation Tool not connecting?** — Ensure you're logged into Sanity Studio and have editor permissions
 
 ## Typography Guidelines
 
