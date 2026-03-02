@@ -20,59 +20,61 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 
 ---
 
+<a id="action-checklist"></a>
+
 # ACTION CHECKLIST
 
 ## 🔴 Critical — Fix Immediately
 
-- [x] **C1 · Security** — Add security headers (CSP, HSTS, X-Frame-Options, etc.) → `next.config.ts`
-- [x] **C2 · Security** — Enable rate limiting on contact & application form APIs → `src/app/api/contact/route.ts`, `src/app/api/application-submit/route.ts`
-- [ ] **C3 · SEO** — Install analytics tracking (GA4 + Google Search Console at minimum)
-- [x] **C4 · Performance** — Remove `HeroVideo` console logs that run in production → `src/components/HomeHero/HeroVideo.tsx`
-- [ ] **C5 · Performance** — Install and configure `@next/bundle-analyzer` → `next.config.ts`
-- [ ] **C6 · Accessibility** — Add `id="main-content"` to main wrapper so skip link works → `src/components/Layout/BaseLayout.tsx`
-- [ ] **C7 · Accessibility** — Replace `MoreInfoToggle` div with a `<button>` element → `src/components/UI/MoreInfoToggle.tsx`
-- [ ] **C8 · Accessibility** — Link form error messages to fields via `aria-describedby` → `src/components/Forms/TextInput.tsx`, `TextArea.tsx`
-- [ ] **C9 · Accessibility** — Replace `text-gray-400` with `text-gray-500`/`text-gray-600` (WCAG AA contrast fail) → `src/components/Forms/formStyles.ts`
+- [x] [**C1 · Security** — Add security headers (CSP, HSTS, X-Frame-Options, etc.) → `next.config.ts`](#c1)
+- [x] [**C2 · Security** — Enable rate limiting on contact & application form APIs → `src/app/api/contact/route.ts`, `src/app/api/application-submit/route.ts`](#c2)
+- [ ] [**C3 · SEO** — Install analytics tracking (GA4 + Google Search Console at minimum)](#c3)
+- [x] [**C4 · Performance** — Remove `HeroVideo` console logs that run in production → `src/components/HomeHero/HeroVideo.tsx`](#c4)
+- [ ] [**C5 · Performance** — Install and configure `@next/bundle-analyzer` → `next.config.ts`](#c5)
+- [ ] [**C6 · Accessibility** — Add `id="main-content"` to main wrapper so skip link works → `src/components/Layout/BaseLayout.tsx`](#c6)
+- [ ] [**C7 · Accessibility** — Replace `MoreInfoToggle` div with a `<button>` element → `src/components/UI/MoreInfoToggle.tsx`](#c7)
+- [ ] [**C8 · Accessibility** — Link form error messages to fields via `aria-describedby` → `src/components/Forms/TextInput.tsx`, `TextArea.tsx`](#c8)
+- [ ] [**C9 · Accessibility** — Replace `text-gray-400` with `text-gray-500`/`text-gray-600` (WCAG AA contrast fail) → `src/components/Forms/formStyles.ts`](#c9)
 
 ## 🟠 High — Fix Before Launch
 
-- [ ] **H1 · SEO** — Re-enable the visual breadcrumb component (currently returns `null`) → `src/components/UI/Breadcrumb.tsx`
-- [ ] **H2 · SEO** — Create missing favicon and PWA icon files → `public/` folder
-- [ ] **H3 · Security** — Replace in-memory rate limiter with Redis-backed store (Upstash) for Vercel compatibility → both API route files
-- [ ] **H4 · Security** — Add rate limiting to PDF generation endpoint → `src/app/api/generate-application-pdf/route.ts`
-- [ ] **H5 · Accessibility** — Add `aria-current="page"` to active navigation links → `HorizontalNav.tsx`, `VerticalNav.tsx`
-- [ ] **H6 · Accessibility** — Re-enable breadcrumb component for screen reader location context → `src/components/UI/Breadcrumb.tsx`
-- [ ] **H7 · Accessibility** — Add `prefers-reduced-motion` media query to disable animations → `src/app/globals.css`
+- [ ] [**H1 · SEO** — Re-enable the visual breadcrumb component (currently returns `null`) → `src/components/UI/Breadcrumb.tsx`](#h1)
+- [ ] [**H2 · SEO** — Create missing favicon and PWA icon files → `public/` folder](#h2)
+- [ ] [**H3 · Security** — Replace in-memory rate limiter with Redis-backed store (Upstash) for Vercel compatibility → both API route files](#h3)
+- [ ] [**H4 · Security** — Add rate limiting to PDF generation endpoint → `src/app/api/generate-application-pdf/route.ts`](#h4)
+- [ ] [**H5 · Accessibility** — Add `aria-current="page"` to active navigation links → `HorizontalNav.tsx`, `VerticalNav.tsx`](#h5)
+- [ ] [**H6 · Accessibility** — Re-enable breadcrumb component for screen reader location context → `src/components/UI/Breadcrumb.tsx`](#h6)
+- [ ] [**H7 · Accessibility** — Add `prefers-reduced-motion` media query to disable animations → `src/app/globals.css`](#h7)
 
 ## 🟡 Medium — Fix Within Next Sprint
 
-- [ ] **M1 · SEO** — Use `BlogPosting` schema type for blog content instead of generic `Article` → `src/lib/structuredData.ts`
-- [ ] **M2 · SEO** — Add `Review`/`AggregateRating` schema if testimonials are displayed
-- [ ] **M3 · SEO** — Add `lastmod` dates to static sitemap entries → `src/app/sitemap.xml/route.ts`
-- [ ] **M4 · SEO** — Replace default org name placeholder `"Temporary Company Name Ltd"` → `src/lib/organizationInfo.ts`
-- [ ] **M5 · Security** — Strengthen input sanitization (currently only strips `<>`) → both API route files
-- [ ] **M6 · Security** — Return 401 (not 500) for missing webhook secret → `src/app/api/revalidate/route.ts`
-- [ ] **M7 · Security** — Add explicit auth/origin check to draft mode enable endpoint → `src/app/api/draft-mode/enable/route.ts`
-- [ ] **M8 · Performance** — Add `next/dynamic` lazy loading for modals and GoogleMap block → multiple component files
-- [ ] **M9 · Performance** — Pause hero carousel `setInterval` when component is off-screen → `src/components/HomeHero/HeroImages.tsx`
-- [ ] **M10 · Performance** — Change `video preload='auto'` to `preload='metadata'` → `src/components/HomeHero/HeroVideo.tsx`
-- [ ] **M11 · Performance** — Replace `PageReadyTrigger` 100ms polling with `MutationObserver` → `src/components/PageReadyTrigger.tsx`
-- [ ] **M12 · Accessibility** — Use descriptive video title for YouTube iframe `title` attribute → `src/components/_blocks/YouTubeVideo.tsx`
-- [ ] **M13 · Accessibility** — Fix gallery `aria-describedby` referencing a non-existent DOM ID → `src/components/_blocks/ImageGallery.tsx`
-- [ ] **M14 · Accessibility** — Add `role="alert"` to form-level error message container → `src/components/Forms/ContactForm/ContactForm.tsx`
+- [ ] [**M1 · SEO** — Use `BlogPosting` schema type for blog content instead of generic `Article` → `src/lib/structuredData.ts`](#m1)
+- [ ] [**M2 · SEO** — Add `Review`/`AggregateRating` schema if testimonials are displayed](#m2)
+- [ ] [**M3 · SEO** — Add `lastmod` dates to static sitemap entries → `src/app/sitemap.xml/route.ts`](#m3)
+- [ ] [**M4 · SEO** — Replace default org name placeholder `"Temporary Company Name Ltd"` → `src/lib/organizationInfo.ts`](#m4)
+- [ ] [**M5 · Security** — Strengthen input sanitization (currently only strips `<>`) → both API route files](#m5)
+- [ ] [**M6 · Security** — Return 401 (not 500) for missing webhook secret → `src/app/api/revalidate/route.ts`](#m6)
+- [ ] [**M7 · Security** — Add explicit auth/origin check to draft mode enable endpoint → `src/app/api/draft-mode/enable/route.ts`](#m7)
+- [ ] [**M8 · Performance** — Add `next/dynamic` lazy loading for modals and GoogleMap block → multiple component files](#m8)
+- [ ] [**M9 · Performance** — Pause hero carousel `setInterval` when component is off-screen → `src/components/HomeHero/HeroImages.tsx`](#m9)
+- [ ] [**M10 · Performance** — Change `video preload='auto'` to `preload='metadata'` → `src/components/HomeHero/HeroVideo.tsx`](#m10)
+- [ ] [**M11 · Performance** — Replace `PageReadyTrigger` 100ms polling with `MutationObserver` → `src/components/PageReadyTrigger.tsx`](#m11)
+- [ ] [**M12 · Accessibility** — Use descriptive video title for YouTube iframe `title` attribute → `src/components/_blocks/YouTubeVideo.tsx`](#m12)
+- [ ] [**M13 · Accessibility** — Fix gallery `aria-describedby` referencing a non-existent DOM ID → `src/components/_blocks/ImageGallery.tsx`](#m13)
+- [ ] [**M14 · Accessibility** — Add `role="alert"` to form-level error message container → `src/components/Forms/ContactForm/ContactForm.tsx`](#m14)
 
 ## 🟢 Low — Address When Possible
 
-- [ ] **L1 · SEO** — Add blog posts to XML sitemap (if blog content exists) → `src/app/sitemap.xml/route.ts`
-- [ ] **L2 · SEO** — Add `VideoObject` schema for embedded YouTube videos → `src/components/_blocks/YouTubeVideo.tsx`
-- [ ] **L3 · SEO** — Enforce meaningful alt text on gallery images (currently falls back to `Gallery image N`) → `src/components/_blocks/ImageGallery.tsx`
-- [ ] **L4 · Security** — Add `Cache-Control: no-store` to API error responses → API route files
-- [ ] **L5 · Security** — Verify and remove `styled-components` if unused → `package.json`
-- [ ] **L6 · Performance** — Remove 71-line deprecated CSS block → `src/app/globals.css` lines 432–484
-- [ ] **L7 · Performance** — Add `revalidate: 86400` as a webhook-failure safety net → `src/sanity/lib/fetch.ts`
-- [ ] **L8 · Performance** — Consider adding a Service Worker for offline support (`next-pwa`)
-- [ ] **L9 · Performance** — Debounce `localStorage` writes in form persistence hook → `src/hooks/useFormPersistence.ts`
-- [ ] **L10 · Performance** — Add `will-change` CSS hints to animated elements → `LoadingOverlay.tsx`, `HeroImages.tsx`
+- [ ] [**L1 · SEO** — Add blog posts to XML sitemap (if blog content exists) → `src/app/sitemap.xml/route.ts`](#l1)
+- [ ] [**L2 · SEO** — Add `VideoObject` schema for embedded YouTube videos → `src/components/_blocks/YouTubeVideo.tsx`](#l2)
+- [ ] [**L3 · SEO** — Enforce meaningful alt text on gallery images (currently falls back to `Gallery image N`) → `src/components/_blocks/ImageGallery.tsx`](#l3)
+- [ ] [**L4 · Security** — Add `Cache-Control: no-store` to API error responses → API route files](#l4)
+- [ ] [**L5 · Security** — Verify and remove `styled-components` if unused → `package.json`](#l5)
+- [ ] [**L6 · Performance** — Remove 71-line deprecated CSS block → `src/app/globals.css` lines 432–484](#l6)
+- [ ] [**L7 · Performance** — Add `revalidate: 86400` as a webhook-failure safety net → `src/sanity/lib/fetch.ts`](#l7)
+- [ ] [**L8 · Performance** — Consider adding a Service Worker for offline support (`next-pwa`)](#l8)
+- [ ] [**L9 · Performance** — Debounce `localStorage` writes in form persistence hook → `src/hooks/useFormPersistence.ts`](#l9)
+- [ ] [**L10 · Performance** — Add `will-change` CSS hints to animated elements → `LoadingOverlay.tsx`, `HeroImages.tsx`](#l10)
 
 ---
 
@@ -152,17 +154,29 @@ BreadcrumbList JSON-LD is generated on all major pages (FAQ, contact, legal, dyn
 `src/components/UI/UnifiedImage/UnifiedImage.tsx` lines 316–329
 `generateSchema` prop triggers ImageObject JSON-LD per image. Used on gallery, blog, profile, and article images.
 
+<a id="m1"></a>
+
 ### - [ ] M1 · 🟡 Medium — BlogPosting schema not differentiated from Article
+
+[↑ Back to checklist](#action-checklist)
 
 `src/lib/structuredData.ts`
 Blog posts use the generic `Article` schema type rather than the more specific `BlogPosting`. While not incorrect, Google gives additional signal from `BlogPosting` including `wordCount`, `commentCount`, and `keywords`. Implement a dedicated `BlogPosting` schema for blog content.
 
+<a id="m2"></a>
+
 ### - [ ] M2 · 🟡 Medium — No Review / AggregateRating schema
+
+[↑ Back to checklist](#action-checklist)
 
 `src/lib/structuredData.ts`
 If the site displays testimonials or star ratings, there is no `Review` or `AggregateRating` schema to support rich result star snippets in search results. Add this if testimonial content is present.
 
+<a id="l2"></a>
+
 ### - [ ] L2 · 🟢 Low — No VideoObject schema
+
+[↑ Back to checklist](#action-checklist)
 
 If embedded YouTube videos or Sanity-hosted video files are used on public content pages, they are missing `VideoObject` structured data. Add a `VideoObject` schema wrapper to the `YouTubeVideo` block component.
 
@@ -170,7 +184,11 @@ If embedded YouTube videos or Sanity-hosted video files are used on public conte
 
 ## 1.3 Navigation & Breadcrumbs
 
+<a id="h1"></a>
+
 ### - [ ] H1 · 🟠 High — Visual breadcrumb component is completely disabled
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/UI/Breadcrumb.tsx` line 8
 The `Breadcrumb` component unconditionally returns `null`. The ARIA-compliant implementation is commented out at lines 17–43. Users receive no visual breadcrumb trail, and Google cannot see the breadcrumb navigation signal (though the BreadcrumbList schema is still rendered). Re-enable the component.
@@ -187,17 +205,29 @@ const Breadcrumb = (...) => {
 
 ## 1.4 Metadata Quality
 
+<a id="m4"></a>
+
 ### - [ ] M4 · 🟡 Medium — Default organisation name is a placeholder
+
+[↑ Back to checklist](#action-checklist)
 
 `src/lib/organizationInfo.ts`
 `DEFAULT_ORGANIZATION_NAME` is set to `"Temporary Company Name Ltd"`. If the Sanity CMS document for business contact info is not populated, this placeholder will appear in structured data and meta tags. Ensure the Sanity document is fully populated before launch.
 
+<a id="m3"></a>
+
 ### - [ ] M3 · 🟡 Medium — Static sitemap entries missing `<lastmod>` timestamps
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/sitemap.xml/route.ts` lines 29–34
 The homepage, FAQ, apply, and contact static entries do not include `lastmod` dates. Dynamic Sanity pages include `_updatedAt`, which is correct. Add a static last-modified date (or the current build date) to static entries.
 
+<a id="l1"></a>
+
 ### - [ ] L1 · 🟢 Low — Blog posts not in sitemap
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/sitemap.xml/route.ts`
 If blog/article content types exist in Sanity, they are not included in the sitemap. Add a `ALL_BLOG_POSTS_QUERY` and corresponding sitemap entries if blog content is live.
@@ -206,7 +236,11 @@ If blog/article content types exist in Sanity, they are not included in the site
 
 ## 1.5 Analytics & Monitoring
 
+<a id="c3"></a>
+
 ### - [ ] C3 · 🔴 Critical — No analytics tracking installed
+
+[↑ Back to checklist](#action-checklist)
 
 `package.json`
 No analytics library is present (no Google Analytics 4, no Vercel Analytics, no Plausible, no Clarity). Without analytics, there is no way to measure organic traffic, user behaviour, or conversion funnels. Install at minimum GA4 and Google Search Console.
@@ -215,7 +249,11 @@ No analytics library is present (no Google Analytics 4, no Vercel Analytics, no 
 
 ## 1.6 Icons & PWA
 
+<a id="h2"></a>
+
 ### - [ ] H2 · 🟠 High — Favicon not configured; PWA icon file missing
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/manifest.ts` line 47
 `public/` directory
@@ -241,7 +279,11 @@ The manifest references `/icon2.png` (192×192) which does not exist in the `pub
 
 ## 1.8 Content Quality
 
+<a id="l3"></a>
+
 ### - [ ] L3 · 🟢 Low — Generic gallery image alt text
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/_blocks/ImageGallery.tsx`
 Gallery images fall back to `Gallery image ${index + 1}` when no alt text is provided by the editor. This is meaningless for SEO and accessibility. Enforce alt text as a required field in the Sanity image gallery schema, or improve the fallback to use surrounding page context.
@@ -256,7 +298,11 @@ Gallery images fall back to `Gallery image ${index + 1}` when no alt text is pro
 
 ## 2.1 HTTP Security Headers
 
+<a id="c1"></a>
+
 ### - [ ] C1 · 🔴 Critical — No security headers configured
+
+[↑ Back to checklist](#action-checklist)
 
 `next.config.ts`
 No security headers are set anywhere in the codebase. All of the following are completely absent:
@@ -311,7 +357,11 @@ Note: tighten the CSP progressively after verifying no violations using `Content
 
 ## 2.2 API Rate Limiting
 
+<a id="c2"></a>
+
 ### - [ ] C2 · 🔴 Critical — Rate limiting disabled on all form endpoints
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/contact/route.ts` line ~12
 `src/app/api/application-submit/route.ts` line ~12
@@ -323,13 +373,21 @@ const ENABLE_RATE_LIMITING = false;
 
 Rate limiting code exists and is fully implemented, but the feature flag permanently disables it. Without rate limiting, both the contact form and application submission endpoint are open to spam, scraping, and abuse. Enable it immediately by setting `ENABLE_RATE_LIMITING = true`.
 
+<a id="h3"></a>
+
 ### - [ ] H3 · 🟠 High — In-memory rate limiting won't work on Vercel multi-instance deployments
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/contact/route.ts`
 `src/app/api/application-submit/route.ts`
 The rate limiting implementation stores request counts in memory. On Vercel (and any horizontally scaled deployment), each function instance maintains its own in-memory store, meaning the per-IP limits are not enforced across instances. Replace with a Redis-backed rate limiter (e.g. Upstash Redis with `@upstash/ratelimit`) for production effectiveness.
 
+<a id="h4"></a>
+
 ### - [ ] H4 · 🟠 High — No rate limiting on PDF generation endpoint
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/generate-application-pdf/route.ts`
 The PDF generation endpoint has no rate limiting. PDF rendering via `@react-pdf/renderer` is CPU-intensive. Without limits, this endpoint can be abused to exhaust server resources. Add rate limiting here as well.
@@ -338,7 +396,11 @@ The PDF generation endpoint has no rate limiting. PDF rendering via `@react-pdf/
 
 ## 2.3 Input Sanitization
 
+<a id="m5"></a>
+
 ### - [ ] M5 · 🟡 Medium — Sanitization removes only `<>` — insufficient for XSS prevention
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/contact/route.ts`
 `src/app/api/application-submit/route.ts`
@@ -361,7 +423,11 @@ Since these inputs are used to send emails (via Resend) and not rendered as HTML
 
 ## 2.4 Webhook Security
 
+<a id="m6"></a>
+
 ### - [ ] M6 · 🟡 Medium — Webhook returns 500 for missing secret (minor information leakage)
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/revalidate/route.ts` lines 5–10
 
@@ -382,7 +448,11 @@ Returning a 500 with a descriptive error message reveals server configuration de
 
 ## 2.5 Draft Mode
 
+<a id="m7"></a>
+
 ### - [ ] M7 · 🟡 Medium — Draft mode enable endpoint has no explicit authentication check
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/draft-mode/enable/route.ts`
 The endpoint uses `defineEnableDraftMode` from `next-sanity` which provides redirect-origin validation (CSRF-like protection), but there is no explicit check that the requestor is an authenticated Sanity Studio user. While the `next-sanity` library mitigates the most obvious risks, an explicit origin/referrer check would add defence-in-depth.
@@ -424,7 +494,11 @@ Both form API routes validate that the honeypot field is empty before processing
 
 ## 2.8 API Response Headers
 
+<a id="l4"></a>
+
 ### - [ ] L4 · 🟢 Low — Error API responses missing `Cache-Control: no-store`
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/api/contact/route.ts`
 `src/app/api/application-submit/route.ts`
@@ -440,7 +514,11 @@ Error responses (400, 429, 500) do not include `Cache-Control: no-store`. A cach
 
 ## 3.1 Bundle & Dependencies
 
+<a id="c5"></a>
+
 ### - [ ] C5 · 🔴 Critical — No bundle analyser configured
+
+[↑ Back to checklist](#action-checklist)
 
 `package.json` / `next.config.ts`
 There is no `@next/bundle-analyzer` or equivalent setup. Bundle size growth is invisible — large dependencies can be added without any visibility into their client-side cost. Install `@next/bundle-analyzer` and run it as part of your release process.
@@ -454,7 +532,11 @@ npm install --save-dev @next/bundle-analyzer
 `src/lib/utils/generateApplicationPDF.ts`
 PDF generation is only used when a user downloads a PDF on the apply page. However, `@react-pdf/renderer` is a large dependency. If it is included in the client bundle (verify with the analyser), move it to an API route or use a dynamic import so it is never shipped to the browser.
 
+<a id="l5"></a>
+
 ### - [ ] L5 · 🟢 Low — `styled-components` in dependencies but potentially unused
+
+[↑ Back to checklist](#action-checklist)
 
 `package.json`
 `styled-components` (~150KB) is listed as a dependency. The codebase appears to use `styled-jsx` (included with Next.js) for component-scoped styles rather than `styled-components`. Verify with `grep -r "from 'styled-components'"` and remove if unused.
@@ -468,7 +550,11 @@ PDF generation is only used when a user downloads a PDF on the apply page. Howev
 
 ## 3.2 Console Logging in Production
 
+<a id="c4"></a>
+
 ### - [ ] C4 · 🔴 Critical — `HeroVideo` has extensive console.log statements that run in production
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/HomeHero/HeroVideo.tsx` lines 15, 23–28, 37, 47, 61–63
 
@@ -486,7 +572,11 @@ onLoadedMetadata={() => console.log('HeroVideo: Metadata loaded')}
 
 ## 3.3 Code Splitting & Dynamic Imports
 
+<a id="m8"></a>
+
 ### - [ ] M8 · 🟡 Medium — Almost no dynamic imports used
+
+[↑ Back to checklist](#action-checklist)
 
 Only the Sanity Studio page uses a dynamic import. All other components — including heavy ones — are statically imported and included in the initial bundle. Add `next/dynamic` lazy loading for:
 
@@ -505,12 +595,20 @@ const ImageGalleryModal = dynamic(() => import('@/components/Modals/ImageGallery
 
 ## 3.4 Hero & Media Components
 
+<a id="m9"></a>
+
 ### - [ ] M9 · 🟡 Medium — Hero image carousel runs `setInterval` continuously even when off-screen
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/HomeHero/HeroImages.tsx` lines ~39–52
 The carousel interval fires every 4 seconds regardless of whether the hero section is in the viewport. This wastes CPU and battery when users scroll down. Add an `IntersectionObserver` to pause the interval when the component leaves the viewport.
 
+<a id="m10"></a>
+
 ### - [ ] M10 · 🟡 Medium — Hero video preloads entire file on page load
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/HomeHero/HeroVideo.tsx`
 
@@ -524,7 +622,11 @@ preload='auto'
 
 ## 3.5 PageReadyTrigger Polling
 
+<a id="m11"></a>
+
 ### - [ ] M11 · 🟡 Medium — `PageReadyTrigger` uses polling instead of `MutationObserver`
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/PageReadyTrigger.tsx` line ~47
 
@@ -543,7 +645,11 @@ The component polls every 100ms to detect when the page is ready. This runs up t
 `src/sanity/lib/fetch.ts`
 `staticSanityFetch` caches data indefinitely in production with tag-based invalidation triggered by Sanity webhooks. All parallel layout data is fetched with `Promise.all`. This is the correct architecture for a Sanity + Next.js project.
 
+<a id="l7"></a>
+
 ### - [ ] L7 · 🟢 Low — No fallback revalidation time as safety net
+
+[↑ Back to checklist](#action-checklist)
 
 `src/sanity/lib/fetch.ts`
 `revalidate: false` means data is cached until a webhook fires. If the webhook is misconfigured or Sanity's delivery fails, stale content could be served indefinitely. Consider adding `revalidate: 86400` (24 hours) as a safety net alongside tag-based invalidation.
@@ -552,7 +658,11 @@ The component polls every 100ms to detect when the page is ready. This runs up t
 
 ## 3.7 CSS
 
+<a id="l6"></a>
+
 ### - [ ] L6 · 🟢 Low — Deprecated CSS block (71 lines) in globals.css
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/globals.css` lines 432–484
 A large commented-out block of old section background styles remains in the CSS file. Remove it to reduce file size and maintenance confusion.
@@ -566,7 +676,11 @@ A large commented-out block of old section background styles remains in the CSS 
 
 ## 3.8 Animations & Paint Performance
 
+<a id="l10"></a>
+
 ### - [ ] L10 · 🟢 Low — Missing `will-change` hints on animated elements
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/UI/LoadingOverlay.tsx`
 `src/components/HomeHero/HeroImages.tsx`
@@ -576,7 +690,11 @@ Animated elements (loading spinner, hero image transitions) do not declare `will
 
 ## 3.9 Form Performance
 
+<a id="l9"></a>
+
 ### - [ ] L9 · 🟢 Low — `localStorage` writes on every form change (no debounce)
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/Forms/ApplicationForm/useFormPersistence.ts`
 Form state is saved to `localStorage` on every field change. For complex multi-step forms, this can trigger many synchronous writes. Add a debounce of 300–500ms to batch writes.
@@ -585,7 +703,11 @@ Form state is saved to `localStorage` on every field change. For complex multi-s
 
 ## 3.10 PWA & Offline
 
+<a id="l8"></a>
+
 ### - [ ] L8 · 🟢 Low — No Service Worker; PWA is manifest-only
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/manifest.ts`
 A web app manifest is present but there is no Service Worker, so the site has no offline capability and no asset pre-caching. Consider adding `next-pwa` if offline support is a goal.
@@ -617,7 +739,11 @@ The following are well-implemented and should not be changed:
 
 ## 4.1 Skip Navigation & Landmarks
 
+<a id="c6"></a>
+
 ### - [ ] C6 · 🔴 Critical — Skip link target `#main-content` does not exist in the DOM
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/UI/SkipLink.tsx`
 `src/components/Layout/BaseLayout.tsx`
@@ -636,7 +762,11 @@ The skip link exists and is correctly implemented (visible on focus, correct cla
 
 ## 4.2 Interactive Element Roles & Keyboard Support
 
+<a id="c7"></a>
+
 ### - [ ] C7 · 🔴 Critical — `MoreInfoToggle` is a non-interactive `div` acting as a button
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/UI/MoreInfoToggle.tsx`
 
@@ -671,7 +801,11 @@ This element:
 
 ## 4.3 Form Error Accessibility
 
+<a id="c8"></a>
+
 ### - [ ] C8 · 🔴 Critical — Form fields are not programmatically associated with their error messages
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/Forms/TextInput.tsx`
 `src/components/Forms/TextArea.tsx`
@@ -697,7 +831,11 @@ This element:
 
 ## 4.4 Colour Contrast
 
+<a id="c9"></a>
+
 ### - [ ] C9 · 🔴 Critical — `text-gray-400` on light/brand-offwhite backgrounds fails WCAG AA
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/Forms/formStyles.ts`
 `src/components/UI/CTA.tsx`
@@ -710,7 +848,11 @@ Affected uses include optional field labels and secondary descriptive text. Repl
 
 ## 4.5 Navigation — Current Page Indication
 
+<a id="h5"></a>
+
 ### - [ ] H5 · 🟠 High — No `aria-current="page"` on active navigation links
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/Header/HorizontalNav.tsx`
 `src/components/Header/VerticalNav/VerticalNav.tsx`
@@ -721,7 +863,11 @@ Neither navigation component marks the currently active page link with `aria-cur
 
 ## 4.6 Breadcrumb Navigation
 
+<a id="h6"></a>
+
 ### - [ ] H6 · 🟠 High — Breadcrumb component is completely disabled
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/UI/Breadcrumb.tsx` line 8
 The component returns `null`. The commented-out implementation already has proper ARIA structure (`<nav aria-label="Breadcrumb">`, `aria-hidden="true"` on separators). Re-enable it to provide location context for all users (WCAG 2.4.8 — Location).
@@ -730,7 +876,11 @@ The component returns `null`. The commented-out implementation already has prope
 
 ## 4.7 Motion & Animation
 
+<a id="h7"></a>
+
 ### - [ ] H7 · 🟠 High — No `prefers-reduced-motion` media query anywhere in the codebase
+
+[↑ Back to checklist](#action-checklist)
 
 `src/app/globals.css`
 All animation-using components (carousel, loading spinner, FAQ accordion, nav slide-in, AnimateIn) ignore the OS-level reduced motion preference. Users with vestibular disorders who have set "reduce motion" in their OS will still receive full animations.
@@ -756,7 +906,11 @@ For the hero carousel specifically, also disable the `setInterval` rotation when
 
 ## 4.8 Image & Media Accessibility
 
+<a id="m12"></a>
+
 ### - [ ] M12 · 🟡 Medium — YouTube `<iframe>` has a generic, non-descriptive title
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/_blocks/YouTubeVideo.tsx`
 
@@ -770,7 +924,11 @@ Screen readers announce iframe titles to give users context. "YouTube Video" is 
 <iframe title={videoTitle ? `Video: ${videoTitle}` : 'Embedded video'} ...>
 ```
 
+<a id="m13"></a>
+
 ### - [ ] M13 · 🟡 Medium — Gallery `aria-describedby` references a non-existent DOM element
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/_blocks/ImageGallery.tsx`
 
@@ -784,7 +942,11 @@ The ID `gallery-image-${idx}` is never rendered in the DOM. The `aria-describedb
 
 ## 4.9 Form & Alert Patterns
 
+<a id="m14"></a>
+
 ### - [ ] M14 · 🟡 Medium — Form-level error messages not announced immediately to screen readers
+
+[↑ Back to checklist](#action-checklist)
 
 `src/components/Forms/ContactForm/ContactForm.tsx`
 
