@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { SITE_CONFIG } from '@/lib/constants';
-
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -15,7 +13,7 @@ export function proxy(request: NextRequest) {
   }
 
   // If maintenance mode is disabled, allow normal site operation
-  if (!SITE_CONFIG.MAINTENANCE_MODE_ENABLED) {
+  if (process.env.MAINTENANCE_MODE_ENABLED !== 'true') {
     return NextResponse.next();
   }
 
