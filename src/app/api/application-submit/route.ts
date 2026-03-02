@@ -152,10 +152,11 @@ export async function POST(request: Request) {
 
     // Fetch organization name and business contact info from Sanity
     const organizationName = await fetchOrganizationName();
-    const { data: businessContactInfo } = await staticSanityFetch<BUSINESS_CONTACT_INFO_QUERYResult>({
-      query: BUSINESS_CONTACT_INFO_QUERY,
-      tags: ['sanity', 'businessContactInfo'],
-    });
+    const { data: businessContactInfo } =
+      await staticSanityFetch<BUSINESS_CONTACT_INFO_QUERYResult>({
+        query: BUSINESS_CONTACT_INFO_QUERY,
+        tags: ['sanity', 'businessContactInfo'],
+      });
 
     // Get contact info values using helper functions
     const organizationEmail = getOrganizationEmail(businessContactInfo);
@@ -164,11 +165,11 @@ export async function POST(request: Request) {
     const organizationAddressLink = getOrganizationAddressLink(businessContactInfo);
 
     // Get contact email from environment variable
-    const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+    const contactEmail = process.env.RESEND_CONTACT_EMAIL;
     const fromEmail = `${organizationName} <${process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'}>`;
 
     if (!contactEmail) {
-      console.error('NEXT_PUBLIC_CONTACT_EMAIL environment variable is not set');
+      console.error('RESEND_CONTACT_EMAIL environment variable is not set');
       return NextResponse.json(
         {
           error:
