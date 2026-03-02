@@ -8,7 +8,7 @@
 export const SITE_CONFIG = {
   // Production domain - update this for your new project
   // IMPORTANT: Always use HTTPS (not HTTP) and no trailing slash for SEO consistency
-  PRODUCTION_DOMAIN: 'https://omarpt-website-production.vercel.app',
+  PRODUCTION_DOMAIN: process.env.NEXT_PUBLIC_BASE_URL || 'https://your-domain.com',
 
   // NOTE: Contact information (email, phone, address) and business details are now managed in Sanity CMS
   // Go to: Site Management → Business & Contact Info
