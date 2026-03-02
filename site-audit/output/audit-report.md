@@ -31,8 +31,8 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [ ] [**C3 · SEO** — Install analytics tracking (GA4 + Google Search Console at minimum)](#c3)
 - [x] [**C4 · Performance** — Remove `HeroVideo` console logs that run in production → `src/components/HomeHero/HeroVideo.tsx`](#c4)
 - [ ] [**C5 · Performance** — Install and configure `@next/bundle-analyzer` → `next.config.ts`](#c5)
-- [ ] [**C6 · Accessibility** — Add `id="main-content"` to main wrapper so skip link works → `src/components/Layout/BaseLayout.tsx`](#c6)
-- [ ] [**C7 · Accessibility** — Replace `MoreInfoToggle` div with a `<button>` element → `src/components/UI/MoreInfoToggle.tsx`](#c7)
+- [x] [**C6 · Accessibility** — Add `id="main-content"` to main wrapper so skip link works → `src/components/Layout/BaseLayout.tsx`](#c6)
+- [x] [**C7 · Accessibility** — Replace `MoreInfoToggle` div with a `<button>` element → `src/components/UI/MoreInfoToggle.tsx`](#c7)
 - [ ] [**C8 · Accessibility** — Link form error messages to fields via `aria-describedby` → `src/components/Forms/TextInput.tsx`, `TextArea.tsx`](#c8)
 - [ ] [**C9 · Accessibility** — Replace `text-gray-400` with `text-gray-500`/`text-gray-600` (WCAG AA contrast fail) → `src/components/Forms/formStyles.ts`](#c9)
 
