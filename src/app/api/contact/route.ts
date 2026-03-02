@@ -25,7 +25,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // RATE LIMITING CONFIGURATION
 // ========================================
 // Set this to false to disable rate limiting (useful for testing)
-const ENABLE_RATE_LIMITING = false;
+const ENABLE_RATE_LIMITING = process.env.NEXT_PUBLIC_ENV === 'production';
 
 // Rate limiting configuration (in-memory, resets on server restart)
 // For production, consider using a more robust solution like Redis or Upstash

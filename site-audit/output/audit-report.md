@@ -25,7 +25,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 ## 🔴 Critical — Fix Immediately
 
 - [x] **C1 · Security** — Add security headers (CSP, HSTS, X-Frame-Options, etc.) → `next.config.ts`
-- [ ] **C2 · Security** — Enable rate limiting on contact & application form APIs → `src/app/api/contact/route.ts`, `src/app/api/application-submit/route.ts`
+- [x] **C2 · Security** — Enable rate limiting on contact & application form APIs → `src/app/api/contact/route.ts`, `src/app/api/application-submit/route.ts`
 - [ ] **C3 · SEO** — Install analytics tracking (GA4 + Google Search Console at minimum)
 - [ ] **C4 · Performance** — Remove `HeroVideo` console logs that run in production → `src/components/HomeHero/HeroVideo.tsx`
 - [ ] **C5 · Performance** — Install and configure `@next/bundle-analyzer` → `next.config.ts`
