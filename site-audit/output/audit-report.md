@@ -44,7 +44,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [ ] [**H4 · Security** — Add rate limiting to PDF generation endpoint → `src/app/api/generate-application-pdf/route.ts`](#h4)
 - [x] [**H5 · Accessibility** — Add `aria-current="page"` to active navigation links → `HorizontalNav.tsx`, `VerticalNav.tsx`](#h5)
 - [ ] [**H6 · Accessibility** — Re-enable breadcrumb component for screen reader location context → `src/components/UI/Breadcrumb.tsx`](#h6)
-- [ ] [**H7 · Accessibility** — Add `prefers-reduced-motion` media query to disable animations → `src/app/globals.css`](#h7)
+- [x] [**H7 · Accessibility** — Add `prefers-reduced-motion` media query to disable animations → `src/app/globals.css`](#h7)
 
 ## 🟡 Medium — Fix Within Next Sprint
 

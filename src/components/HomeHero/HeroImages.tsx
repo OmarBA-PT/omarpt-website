@@ -35,6 +35,7 @@ const HeroImages = ({ images, duration = 4000, onFirstImageLoaded }: HeroImagesP
   // Transition to next image
   useEffect(() => {
     if (images.length <= 1) return; // Don't rotate if only one image
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // Respect reduced motion
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
