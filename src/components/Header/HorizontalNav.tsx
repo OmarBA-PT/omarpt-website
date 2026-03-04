@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   HorizontalNavData,
   HorizontalNavCTAData,
@@ -16,6 +17,7 @@ interface HorizontalNavProps {
 }
 
 const HorizontalNav = ({ navLinks, navCtas }: HorizontalNavProps) => {
+  const pathname = usePathname();
   const hasLinks = navLinks && navLinks.length > 0;
   const hasCtas = navCtas && navCtas.length > 0;
 
@@ -36,11 +38,14 @@ const HorizontalNav = ({ navLinks, navCtas }: HorizontalNavProps) => {
             {visibleLinks.map((link, index) => {
               const linkProps = getHorizontalNavLinkProps(link);
               const label = getHorizontalNavLinkLabel(link);
+              const linkPath = (link.computedHref || '/').split('#')[0] || '/';
+              const isActive = pathname === linkPath;
               return (
                 <li key={`${link.computedHref}-${index}`}>
                   <Link
                     {...linkProps}
-                    className='text-brand-white hover:text-brand-primary transition-colors'
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`transition-colors ${isActive ? 'text-brand-primary' : 'text-brand-white hover:text-brand-primary'}`}
                     style={{
                       textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)',
                     }}>

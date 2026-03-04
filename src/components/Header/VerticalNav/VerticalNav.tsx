@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import UnifiedImage from '@/components/UI/UnifiedImage';
 import MenuButton from '../MenuButton';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
@@ -29,6 +30,7 @@ interface VerticalNavProps {
 }
 
 const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas, organizationName }: VerticalNavProps) => {
+  const pathname = usePathname();
   useBodyScrollLock(isMenuOpen);
   const focusTrapRef = useFocusTrap(isMenuOpen);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -181,6 +183,8 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas, organizationName 
                               const linkProps = getNavLinkProps(link);
                               const label = getNavLinkLabel(link);
                               const isExternal = link.linkType === 'external' || link.openInNewTab;
+                              const linkPath = (link.computedHref || '/').split('#')[0] || '/';
+                              const isActive = pathname === linkPath;
 
                               // RESPONSIVE VISIBILITY: hideOnDesktop aligns with HorizontalNav's lg breakpoint
                               // ⚠️ IMPORTANT: If HorizontalNav.tsx line 25 'lg:flex' changes, update this 'lg:hidden' accordingly
@@ -193,7 +197,8 @@ const VerticalNav = ({ isMenuOpen, onClose, navLinks, navCtas, organizationName 
                                   <Link
                                     {...linkProps}
                                     onClick={onClose}
-                                    className='text-xl flex items-center justify-between w-full text-brand-white hover:text-brand-primary transition-colors'>
+                                    aria-current={isActive ? 'page' : undefined}
+                                    className={`text-xl flex items-center justify-between w-full transition-colors ${isActive ? 'text-brand-primary' : 'text-brand-white hover:text-brand-primary'}`}>
                                     <span>{label}</span>
                                     {isExternal && (
                                       <FaExternalLinkAlt className='text-body-xs text-current ml-2 shrink-0' />
