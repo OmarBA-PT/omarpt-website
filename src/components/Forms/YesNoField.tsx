@@ -34,6 +34,7 @@ const YesNoField = ({
             value='yes'
             {...register(id, validation)}
             className={formStyles.yesNo.input}
+            aria-describedby={error ? `${id}-error` : undefined}
           />
           <span className={formStyles.yesNo.label}>Yes</span>
         </label>
@@ -43,11 +44,16 @@ const YesNoField = ({
             value='no'
             {...register(id, validation)}
             className={formStyles.yesNo.input}
+            aria-describedby={error ? `${id}-error` : undefined}
           />
           <span className={formStyles.yesNo.label}>No</span>
         </label>
       </div>
-      {error && <p className={formStyles.error.text}>{error.message as string}</p>}
+      {error && (
+        <p id={`${id}-error`} role='alert' className={formStyles.error.text}>
+          {error.message as string}
+        </p>
+      )}
     </div>
   );
 };

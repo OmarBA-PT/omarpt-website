@@ -52,12 +52,17 @@ const CheckboxGroup = ({
               checked={selectedValues.includes(option.value)}
               onChange={(e) => handleChange(option.value, e.target.checked)}
               className={formStyles.option.inputCheckbox}
+              aria-describedby={error ? `${id}-error` : undefined}
             />
             <span className={formStyles.option.label}>{option.label}</span>
           </label>
         ))}
       </div>
-      {error && <p className={formStyles.error.text}>{error.message as string}</p>}
+      {error && (
+        <p id={`${id}-error`} role='alert' className={formStyles.error.text}>
+          {error.message as string}
+        </p>
+      )}
     </div>
   );
 };

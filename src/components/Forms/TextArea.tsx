@@ -48,8 +48,13 @@ const TextArea = ({
         {...register(id, validation)}
         className={getTextareaClassNames(!!error, disabled)}
         aria-invalid={error ? 'true' : 'false'}
+        aria-describedby={error ? `${id}-error` : undefined}
       />
-      {error && <p className={formStyles.error.text}>{error.message as string}</p>}
+      {error && (
+        <p id={`${id}-error`} role='alert' className={formStyles.error.text}>
+          {error.message as string}
+        </p>
+      )}
     </div>
   );
 };

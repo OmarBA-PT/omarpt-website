@@ -41,13 +41,18 @@ const RadioGroup = ({
               value={option.value}
               {...register(id, validation)}
               className={formStyles.option.input}
+              aria-describedby={error ? `${id}-error` : undefined}
             />
             <span className={formStyles.option.label}>{option.label}</span>
           </label>
         ))}
       </div>
       {helperText && <p className={formStyles.helper.text}>{helperText}</p>}
-      {error && <p className={formStyles.error.text}>{error.message as string}</p>}
+      {error && (
+        <p id={`${id}-error`} role='alert' className={formStyles.error.text}>
+          {error.message as string}
+        </p>
+      )}
     </div>
   );
 };
