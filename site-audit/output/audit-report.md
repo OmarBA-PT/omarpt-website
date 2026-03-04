@@ -34,7 +34,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [x] [**C6 · Accessibility** — Add `id="main-content"` to main wrapper so skip link works → `src/components/Layout/BaseLayout.tsx`](#c6)
 - [x] [**C7 · Accessibility** — Replace `MoreInfoToggle` div with a `<button>` element → `src/components/UI/MoreInfoToggle.tsx`](#c7)
 - [x] [**C8 · Accessibility** — Link form error messages to fields via `aria-describedby` → `src/components/Forms/TextInput.tsx`, `TextArea.tsx`](#c8)
-- [ ] [**C9 · Accessibility** — Replace `text-gray-400` with `text-gray-500`/`text-gray-600` (WCAG AA contrast fail) → `src/components/Forms/formStyles.ts`](#c9)
+- [x] [**C9 · Accessibility** — Replace `text-gray-400` with `text-gray-500`/`text-gray-600` (WCAG AA contrast fail) → `src/components/Forms/formStyles.ts`](#c9)
 
 ## 🟠 High — Fix Before Launch
 

@@ -32,7 +32,7 @@ export const formStyles = {
   label: {
     base: 'block text-body-base font-medium text-brand-primary mb-2',
     required: 'text-red-500',
-    optional: 'text-gray-400 text-body-sm',
+    optional: 'text-gray-600 text-body-sm',
   },
 
   // Input field styles (text, email, tel, etc.)
