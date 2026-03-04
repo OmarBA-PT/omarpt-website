@@ -111,16 +111,16 @@ export default function TestUnifiedImagePage() {
 
         {/* Test 7: Schema generation */}
         <div className="space-y-4">
-          <h2 className="text-h3 font-semibold">Test 7: Schema Generation (Blog Context)</h2>
+          <h2 className="text-h3 font-semibold">Test 7: Schema Generation (Article Context)</h2>
           <div className="relative w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden max-w-md">
             <UnifiedImage
               src={testStringUrl}
-              alt="Blog post test image"
+              alt="Article test image"
               mode="fill"
               sizeContext="full"
               objectFit="cover"
               generateSchema
-              schemaContext="blog"
+              schemaContext="article"
               className="rounded-lg"
             />
           </div>

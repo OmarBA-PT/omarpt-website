@@ -153,7 +153,6 @@ export const renderBlock = (block: unknown, options: RenderBlockOptions): React.
             {...richTextBlock}
             inheritAlignment={alignment}
             fullWidth={
-              documentType === 'blogPost' ||
               documentType === 'termsAndConditions' ||
               documentType === 'privacyPolicy'
             }

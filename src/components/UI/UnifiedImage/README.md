@@ -103,7 +103,7 @@ import UnifiedImage from '@/components/UI/UnifiedImage';
 
 ### SEO Props
 - `generateSchema`: Generate ImageObject schema
-- `schemaContext`: 'blog' | 'article' | 'gallery' | 'profile'
+- `schemaContext`: 'article' | 'gallery' | 'profile'
 
 ### Behavior Props
 - `enableModal`: Enable full-screen modal

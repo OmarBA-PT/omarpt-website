@@ -7,38 +7,13 @@ import UnifiedImage from './UnifiedImage';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 // Example data types
-interface BlogPost {
-  mainImage?: SanityImageSource;
-  title: string;
-}
-
 interface HeaderData {
   _id?: string;
   logo?: SanityImageSource;
 }
 
 /**
- * 1. Blog Card Image (replaces BlogCard pattern)
- * - Previously: urlFor(mainImage).url() with fill and object-cover
- * - Now: Automatic sizing with 'card' context
- */
-export const BlogCardImageExample = ({ post }: { post: BlogPost }) => (
-  <div className='relative w-full aspect-[4/3] bg-gray-900 overflow-hidden'>
-    <UnifiedImage
-      src={post.mainImage}
-      alt={`${post.title} image`}
-      mode='fill'
-      sizeContext='card'
-      objectFit='cover'
-      priority
-      generateSchema
-      schemaContext='blog'
-    />
-  </div>
-);
-
-/**
- * 2. Header Logo (replaces Header pattern)
+ * 1. Header Logo (replaces Header pattern)
  * - Previously: urlFor(logo).url() with object-contain and fixed dimensions
  * - Now: Automatic sizing with 'logo' context
  */
@@ -149,28 +124,7 @@ export const FeaturedItemExample = ({
 );
 
 /**
- * 7. Blog Post Main Image (replaces blog post page pattern)
- * - Previously: urlFor(post.mainImage).url() with fill and specific sizing
- * - Now: Automatic optimization with schema generation
- */
-export const BlogPostMainImageExample = ({ post }: { post: BlogPost }) => (
-  <div className='relative w-full aspect-[16/9] overflow-hidden rounded-lg'>
-    <UnifiedImage
-      src={post.mainImage}
-      alt={post.title || 'Blog post image'}
-      mode='fill'
-      sizeContext='hero'
-      objectFit='cover'
-      priority
-      generateSchema
-      schemaContext='blog'
-      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw'
-    />
-  </div>
-);
-
-/**
- * 8. Content Block Image with Modal (replaces blocks/Image pattern)
+ * 7. Content Block Image with Modal (replaces blocks/Image pattern)
  * - Previously: urlFor(image).url() with width/height and modal support
  * - Now: Automatic optimization with built-in modal
  */

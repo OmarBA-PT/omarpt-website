@@ -210,7 +210,6 @@ const BlockRenderer = ({
                   inheritAlignment={alignment}
                   textAlign={(block as { textAlign?: string }).textAlign}
                   hideGraphic={
-                    documentType === 'blogPost' ||
                     documentType === 'termsAndConditions' ||
                     documentType === 'privacyPolicy'
                   }

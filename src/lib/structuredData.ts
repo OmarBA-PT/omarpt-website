@@ -62,20 +62,6 @@ export interface WebSiteData {
   };
 }
 
-export interface BlogPostData {
-  headline: string;
-  description?: string;
-  image?: string | ImageObjectData;
-  datePublished: string;
-  dateModified: string;
-  author: {
-    name: string;
-    type?: string;
-  };
-  publisher: OrganizationData;
-  url: string;
-}
-
 export interface ArticleData {
   headline: string;
   description?: string;
@@ -177,30 +163,6 @@ export function generateWebSiteSchema(data: WebSiteData) {
         'query-input': data.potentialAction.queryInput,
       },
     }),
-  };
-}
-
-export function generateBlogPostSchema(data: BlogPostData) {
-  const imageSchema = data.image
-    ? typeof data.image === 'string'
-      ? data.image
-      : generateImageObjectSchema(data.image)
-    : undefined;
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: data.headline,
-    ...(data.description && { description: data.description }),
-    ...(imageSchema && { image: imageSchema }),
-    datePublished: data.datePublished,
-    dateModified: data.dateModified,
-    author: {
-      '@type': data.author.type || 'Person',
-      name: data.author.name,
-    },
-    publisher: generateOrganizationSchema(data.publisher),
-    url: data.url,
   };
 }
 

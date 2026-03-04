@@ -72,7 +72,7 @@ interface UnifiedImageProps {
 
   // SEO & Schema
   generateSchema?: boolean;
-  schemaContext?: 'blog' | 'article' | 'gallery' | 'profile';
+  schemaContext?: 'article' | 'gallery' | 'profile';
 
   // Styling
   className?: string;
@@ -260,7 +260,6 @@ const UnifiedImage: React.FC<UnifiedImageProps> = ({
     }
 
     // Contextual fallbacks
-    if (schemaContext === 'blog') return 'Blog post image';
     if (schemaContext === 'gallery') return 'Gallery image';
     if (schemaContext === 'profile') return 'Profile image';
 
