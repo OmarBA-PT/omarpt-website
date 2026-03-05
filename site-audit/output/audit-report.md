@@ -60,7 +60,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [x] [**M10 · Performance** — Change `video preload='auto'` to `preload='metadata'` → `src/components/HomeHero/HeroVideo.tsx`](#m10)
 - [ ] [**M11 · Performance** — Replace `PageReadyTrigger` 100ms polling with `MutationObserver` → `src/components/PageReadyTrigger.tsx`](#m11)
 - [ ] [**M12 · Accessibility** — Use descriptive video title for YouTube iframe `title` attribute → `src/components/_blocks/YouTubeVideo.tsx`](#m12)
-- [ ] [**M13 · Accessibility** — Fix gallery `aria-describedby` referencing a non-existent DOM ID → `src/components/_blocks/ImageGallery.tsx`](#m13)
+- [x] [**M13 · Accessibility** — Fix gallery `aria-describedby` referencing a non-existent DOM ID → `src/components/_blocks/ImageGallery.tsx`](#m13)
 - [ ] [**M14 · Accessibility** — Add `role="alert"` to form-level error message container → `src/components/Forms/ContactForm/ContactForm.tsx`](#m14)
 
 ## 🟢 Low — Address When Possible

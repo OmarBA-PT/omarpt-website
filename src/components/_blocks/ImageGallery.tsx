@@ -95,7 +95,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                       ? `Open image ${idx + 1} of ${images.length} in modal: ${imageAlt}`
                       : `Gallery placeholder ${idx + 1}`
                   }
-                  aria-describedby={`gallery-image-${idx}`}
+                  aria-describedby={showCaption ? `gallery-caption-${idx}` : undefined}
                   disabled={!hasImage}>
                   <UnifiedImage
                     src={item.image}
@@ -110,7 +110,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                   />
                 </button>
                 {showCaption && (
-                  <figcaption className='mt-2 text-center font-bold'>{caption}</figcaption>
+                  <figcaption id={`gallery-caption-${idx}`} className='mt-2 text-center font-bold'>{caption}</figcaption>
                 )}
               </figure>
             </AnimateIn>
