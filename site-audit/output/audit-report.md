@@ -50,9 +50,9 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 
 - [x] [**M1 · SEO** — Use `BlogPosting` schema type for blog content instead of generic `Article` → `src/lib/structuredData.ts`](#m1)
 - [ ] [**M2 · SEO** — Add `Review`/`AggregateRating` schema if testimonials are displayed](#m2)
-- [ ] [**M3 · SEO** — Add `lastmod` dates to static sitemap entries → `src/app/sitemap.xml/route.ts`](#m3)
+- [x] [**M3 · SEO** — Add `lastmod` dates to static sitemap entries → `src/app/sitemap.xml/route.ts`](#m3)
 - [ ] [**M4 · SEO** — Replace default org name placeholder `"Temporary Company Name Ltd"` → `src/lib/organizationInfo.ts`](#m4)
-- [ ] [**M5 · Security** — Strengthen input sanitization (currently only strips `<>`) → both API route files](#m5)
+- [x] [**M5 · Security** — Strengthen input sanitization (currently only strips `<>`) → both API route files](#m5)
 - [ ] [**M6 · Security** — Return 401 (not 500) for missing webhook secret → `src/app/api/revalidate/route.ts`](#m6)
 - [ ] [**M7 · Security** — Add explicit auth/origin check to draft mode enable endpoint → `src/app/api/draft-mode/enable/route.ts`](#m7)
 - [ ] [**M8 · Performance** — Add `next/dynamic` lazy loading for modals and GoogleMap block → multiple component files](#m8)
@@ -398,7 +398,7 @@ The PDF generation endpoint has no rate limiting. PDF rendering via `@react-pdf/
 
 <a id="m5"></a>
 
-### - [ ] M5 · 🟡 Medium — Sanitization removes only `<>` — insufficient for XSS prevention
+### - [x] M5 · 🟡 Medium — Sanitization removes only `<>` — insufficient for XSS prevention
 
 [↑ Back to checklist](#action-checklist)
 

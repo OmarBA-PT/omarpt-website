@@ -56,9 +56,22 @@ function validateEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
-// Sanitize input to prevent injection attacks
+// Sanitize input: escape HTML entities to prevent injection in email templates.
+// Inputs are used in HTML email bodies (text content + href attributes), so
+// encoding is more correct than stripping — it preserves content while neutralising HTML.
 function sanitizeInput(input: string): string {
-  return input.replace(/[<>]/g, '').trim();
+  return input
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .trim();
+}
+
+// Validate phone contains only characters expected in a phone number
+function validatePhone(phone: string): boolean {
+  return /^[\d\s+\-().ext]+$/i.test(phone);
 }
 
 // Check rate limit for IP address
@@ -126,6 +139,11 @@ export async function POST(request: Request) {
     // Validate email format
     if (!validateEmail(formData.email)) {
       return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 });
+    }
+
+    // Validate phone format
+    if (!validatePhone(formData.phone)) {
+      return NextResponse.json({ error: 'Please provide a valid phone number.' }, { status: 400 });
     }
 
     // Sanitize personal information inputs
