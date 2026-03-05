@@ -57,7 +57,7 @@ const HeroVideo = ({ videoUrl, onVideoLoaded }: HeroVideoProps) => {
         playsInline
         onLoadedData={handleVideoLoad}
         onError={handleVideoError}
-        preload='auto'
+        preload='metadata'
       />
     </div>
   );

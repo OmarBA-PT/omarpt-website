@@ -57,7 +57,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [ ] [**M7 · Security** — Add explicit auth/origin check to draft mode enable endpoint → `src/app/api/draft-mode/enable/route.ts`](#m7)
 - [x] [**M8 · Performance** — Add `next/dynamic` lazy loading for modals and GoogleMap block → multiple component files](#m8)
 - [x] [**M9 · Performance** — Pause hero carousel `setInterval` when component is off-screen → `src/components/HomeHero/HeroImages.tsx`](#m9)
-- [ ] [**M10 · Performance** — Change `video preload='auto'` to `preload='metadata'` → `src/components/HomeHero/HeroVideo.tsx`](#m10)
+- [x] [**M10 · Performance** — Change `video preload='auto'` to `preload='metadata'` → `src/components/HomeHero/HeroVideo.tsx`](#m10)
 - [ ] [**M11 · Performance** — Replace `PageReadyTrigger` 100ms polling with `MutationObserver` → `src/components/PageReadyTrigger.tsx`](#m11)
 - [ ] [**M12 · Accessibility** — Use descriptive video title for YouTube iframe `title` attribute → `src/components/_blocks/YouTubeVideo.tsx`](#m12)
 - [ ] [**M13 · Accessibility** — Fix gallery `aria-describedby` referencing a non-existent DOM ID → `src/components/_blocks/ImageGallery.tsx`](#m13)
