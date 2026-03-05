@@ -1,6 +1,16 @@
 import { staticSanityFetch, type FetchFn } from '@/sanity/lib/fetch';
-import { HOME_PAGE_HERO_QUERY, HOME_PAGE_SECTIONS_QUERY, PAGE_QUERY, ALL_PAGES_QUERY } from '@/sanity/lib/queries';
+import { HOME_PAGE_HERO_QUERY, HOME_PAGE_SECTIONS_QUERY, HOME_PAGE_UPDATED_AT_QUERY, PAGE_QUERY, ALL_PAGES_QUERY } from '@/sanity/lib/queries';
 import type { HOME_PAGE_HERO_QUERYResult, HOME_PAGE_SECTIONS_QUERYResult, PAGE_QUERYResult, ALL_PAGES_QUERYResult } from '@/sanity/types';
+
+export async function getHomePageUpdatedAt(fetchFn: FetchFn = staticSanityFetch): Promise<string | undefined> {
+  const { data } = await fetchFn({
+    query: HOME_PAGE_UPDATED_AT_QUERY,
+    tags: ['sanity', 'homePageHero', 'homePageSections'],
+  });
+  const result = data as { heroUpdatedAt?: string; sectionsUpdatedAt?: string } | null;
+  const dates = [result?.heroUpdatedAt, result?.sectionsUpdatedAt].filter(Boolean) as string[];
+  return dates.length > 0 ? dates.sort().at(-1) : undefined;
+}
 
 export async function getHomePageHero(fetchFn: FetchFn = staticSanityFetch): Promise<HOME_PAGE_HERO_QUERYResult | null> {
   const { data: hero } = await fetchFn({

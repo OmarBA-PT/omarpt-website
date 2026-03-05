@@ -251,6 +251,12 @@ export const PAGE_QUERY = defineQuery(`*[_type == "page" && slug.current == $slu
   closingCard${closingCardProjection}
 }`);
 
+// Home Page Updated At Query - lightweight query for sitemap lastmod
+export const HOME_PAGE_UPDATED_AT_QUERY = defineQuery(`{
+  "heroUpdatedAt": *[_id == "homePageHero"][0]._updatedAt,
+  "sectionsUpdatedAt": *[_id == "homePageSections"][0]._updatedAt,
+}`);
+
 // Home Page Hero Query - fetches the hero section data
 export const HOME_PAGE_HERO_QUERY = defineQuery(`*[_id == "homePageHero"][0]{
   _id,

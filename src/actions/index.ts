@@ -1,5 +1,5 @@
 // Pages actions
-export { getHomePageHero, getHomePageSections, getPageBySlug, getAllPages } from './pages';
+export { getHomePageHero, getHomePageSections, getHomePageUpdatedAt, getPageBySlug, getAllPages } from './pages';
 
 // Site data actions
 export { getHeader, getFooter, getSeoMetaData, getBusinessContactInfo, getCompanyLinks, getContactFormSettings, getLegalPagesVisibility, getContactGeneralContent, getContactConfirmationEmail, getApplyPage, getApplyPrivacyStatement, getApplyPdfSettings, getApplyQuestionnaire, getApplyConfirmationEmail, getPageBuilderData } from './siteData';
