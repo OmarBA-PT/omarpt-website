@@ -9,8 +9,6 @@ import {
   getOrganizationDataFromSeoMetaData,
   generateStructuredDataScript,
 } from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import {
   getOrganizationName,
   getOrganizationEmail,
@@ -47,12 +45,6 @@ const LegalPageContent = ({ legalData, pageBuilderData, defaultTitle, urlPath, c
 
   const baseUrl = getBaseUrl();
 
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: legalData.title || defaultTitle, url: `${baseUrl}${urlPath}` },
-  ];
-
   // Generate Article structured data
   let articleSchema;
   if (seoMetaData && legalData._updatedAt) {
@@ -75,7 +67,6 @@ const LegalPageContent = ({ legalData, pageBuilderData, defaultTitle, urlPath, c
   return (
     <>
       {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
       {articleSchema && (
         <script
           type='application/ld+json'
@@ -89,9 +80,6 @@ const LegalPageContent = ({ legalData, pageBuilderData, defaultTitle, urlPath, c
         documentId={legalData._id}
         documentType={legalData._type}
       />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={legalData.title || defaultTitle} />
 
       <Container textAlign='left'>
         {/* Page Content */}

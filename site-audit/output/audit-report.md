@@ -41,7 +41,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [ ] [**H1 · SEO** — Re-enable the visual breadcrumb component (currently returns `null`) → `src/components/UI/Breadcrumb.tsx`](#h1)
 - [ ] [**H2 · SEO** — Create missing favicon and PWA icon files → `public/` folder](#h2)
 - [ ] [**H3 · Security** — Replace in-memory rate limiter with Redis-backed store (Upstash) for Vercel compatibility → both API route files](#h3)
-- [ ] [**H4 · Security** — Add rate limiting to PDF generation endpoint → `src/app/api/generate-application-pdf/route.ts`](#h4)
+- [x] [**H4 · Security** — Add rate limiting to PDF generation endpoint → `src/app/api/generate-application-pdf/route.ts`](#h4)
 - [x] [**H5 · Accessibility** — Add `aria-current="page"` to active navigation links → `HorizontalNav.tsx`, `VerticalNav.tsx`](#h5)
 - [ ] [**H6 · Accessibility** — Re-enable breadcrumb component for screen reader location context → `src/components/UI/Breadcrumb.tsx`](#h6)
 - [x] [**H7 · Accessibility** — Add `prefers-reduced-motion` media query to disable animations → `src/app/globals.css`](#h7)

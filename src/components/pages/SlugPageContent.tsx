@@ -9,9 +9,7 @@ import {
   getOrganizationDataFromSeoMetaData,
   generateStructuredDataScript,
 } from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { urlFor } from '@/sanity/lib/image';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import { getOrganizationName } from '@/lib/organizationInfo';
 import type { PAGE_QUERYResult } from '@/sanity/types';
 import type { PageBuilderData } from '@/actions';
@@ -33,12 +31,6 @@ const SlugPageContent = ({ page, pageBuilderData, slugPath, isNestedPath }: Slug
   const { seoMetaData, businessContactInfo } = pageBuilderData;
 
   const baseUrl = getBaseUrl();
-
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: page.title || 'Page', url: `${baseUrl}/${slugPath}` },
-  ];
 
   // Generate Article structured data
   let articleSchema;
@@ -63,7 +55,6 @@ const SlugPageContent = ({ page, pageBuilderData, slugPath, isNestedPath }: Slug
   return (
     <>
       {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
       {articleSchema && (
         <script
           type='application/ld+json'
@@ -78,9 +69,6 @@ const SlugPageContent = ({ page, pageBuilderData, slugPath, isNestedPath }: Slug
         documentId={page._id}
         documentType={page._type}
       />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={page.title || 'Untitled Page'} />
 
       <Container>
         {/* Page Content */}

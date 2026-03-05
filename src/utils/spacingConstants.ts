@@ -3,11 +3,6 @@
 // These constants should be imported and used instead of hardcoded spacing classes.
 
 /**
- * Space under breadcrumb navigation before page content
- */
-export const breadcrumbBottomSpacing = 'mb-8 md:mb-14';
-
-/**
  * Space under page titles
  */
 export const pageTitleBottomSpacing = 'mb-12 md:mb-18';

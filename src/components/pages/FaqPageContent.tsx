@@ -11,8 +11,6 @@ import {
   generateStructuredDataScript,
   FAQItem,
 } from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import { getOrganizationName } from '@/lib/organizationInfo';
 import type { FAQ_PAGE_QUERYResult } from '@/sanity/types';
 import type { PageBuilderData } from '@/actions';
@@ -72,12 +70,6 @@ const FaqPageContent = ({ faqData, pageBuilderData }: FaqPageContentProps) => {
 
   const baseUrl = getBaseUrl();
 
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: faqData.title || 'FAQ', url: `${baseUrl}/faq` },
-  ];
-
   // Extract FAQ items from page content for FAQPage schema
   const faqItems = faqData.content ? extractFAQItemsFromContent(faqData.content as unknown[]) : [];
   const faqPageSchema = generateFAQPageSchema(faqItems);
@@ -104,7 +96,6 @@ const FaqPageContent = ({ faqData, pageBuilderData }: FaqPageContentProps) => {
   return (
     <>
       {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
       {faqPageSchema && (
         <script
           type='application/ld+json'
@@ -125,9 +116,6 @@ const FaqPageContent = ({ faqData, pageBuilderData }: FaqPageContentProps) => {
         documentId={faqData._id}
         documentType={faqData._type}
       />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={faqData.title || 'FAQ'} />
 
       <Container textAlign='center'>
         {/* Page Content */}

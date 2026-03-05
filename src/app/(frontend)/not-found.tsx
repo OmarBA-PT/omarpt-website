@@ -4,7 +4,6 @@ import Link from 'next/link';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import CTA from '@/components/UI/CTA';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import { fetchOrganizationName } from '@/lib/organizationInfo';
 
 const META_DESCRIPTION = 'Sorry, the page you are looking for could not be found.';
@@ -63,8 +62,6 @@ export default function NotFound() {
         title='Page Not Found'
         subtTitle='Sorry, the page you are looking for could not be found.'
       />
-      <Breadcrumb pageTitle='Page Not Found' />
-
       <Container>
         <div className='flex flex-col items-center text-center pb-12 md:pb-16'>
           <div className='max-w-2xl mb-8 md:mb-12'>

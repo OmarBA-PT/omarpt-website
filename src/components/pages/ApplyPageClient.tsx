@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from 'react';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import { MdDownload, MdArrowBack } from 'react-icons/md';
 import { BsClipboard2CheckFill } from 'react-icons/bs';
 import ApplicationForm from '@/components/Forms/ApplicationForm/ApplicationForm';
@@ -192,9 +191,6 @@ const ApplyPageClient = ({
         {/* Page Hero */}
         <PageHero title={pageTitle} subtTitle={pageSubtitle} />
 
-        {/* Breadcrumb */}
-        <Breadcrumb pageTitle={pageTitle} />
-
         <Container textAlign='center'>
           {/* Back/Cancel Button */}
           <div ref={backButtonRef} className='mb-8'>
@@ -226,9 +222,6 @@ const ApplyPageClient = ({
       <>
         {/* Page Hero */}
         <PageHero title={pageTitle} subtTitle={pageSubtitle} />
-
-        {/* Breadcrumb */}
-        <Breadcrumb pageTitle={pageTitle} />
 
         <Container textAlign='center'>
           {/* Back/Cancel Button */}
@@ -263,9 +256,6 @@ const ApplyPageClient = ({
     <>
       {/* Page Hero */}
       <PageHero title={pageTitle} subtTitle={pageSubtitle} />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={pageTitle} />
 
       <Container textAlign='center'>
         {/* Introduction */}

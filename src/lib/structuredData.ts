@@ -76,11 +76,6 @@ export interface ArticleData {
   url: string;
 }
 
-export interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
-
 export interface FAQItem {
   question: string;
   answer: string;
@@ -187,19 +182,6 @@ export function generateArticleSchema(data: ArticleData) {
     },
     publisher: generateOrganizationSchema(data.publisher),
     url: data.url,
-  };
-}
-
-export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
   };
 }
 

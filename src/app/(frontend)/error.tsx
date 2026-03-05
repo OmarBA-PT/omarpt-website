@@ -4,7 +4,6 @@ import React from 'react';
 import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import CTA from '@/components/UI/CTA';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import { MdError } from 'react-icons/md';
 
 interface ErrorPageProps {
@@ -17,9 +16,6 @@ export default function ErrorPage({ error }: ErrorPageProps) {
     <>
       {/* Hero Section */}
       <PageHero title='Something Went Wrong' />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle='Error' />
 
       <Container>
         <div className='flex flex-col items-center text-center pb-12 md:pb-16'>

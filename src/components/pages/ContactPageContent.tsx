@@ -3,8 +3,6 @@ import PageHero from '@/components/Page/PageHero';
 import Container from '@/components/Layout/Container';
 import { getBaseUrl } from '@/lib/metadata';
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
-import Breadcrumb from '@/components/UI/Breadcrumb';
 import { MdEmail, MdPhone, MdMessage } from 'react-icons/md';
 import ContactForm from '@/components/Forms/ContactForm/ContactForm';
 import {
@@ -75,12 +73,6 @@ const ContactPageContent = ({ contactPageData, contactFormSettings, pageBuilderD
     closingCardHref = sectionId ? `${internalHref}#${sectionId}` : internalHref;
   }
 
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: pageTitle, url: `${baseUrl}/contact` },
-  ];
-
   // Generate Article structured data using actual Sanity dates
   const articleSchema = generateArticleSchema({
     headline: pageTitle,
@@ -102,7 +94,6 @@ const ContactPageContent = ({ contactPageData, contactFormSettings, pageBuilderD
   return (
     <>
       {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
       {articleSchema && (
         <script
           type='application/ld+json'
@@ -112,9 +103,6 @@ const ContactPageContent = ({ contactPageData, contactFormSettings, pageBuilderD
 
       {/* Page Hero */}
       <PageHero title={pageTitle} subtTitle={pageSubtitle} />
-
-      {/* Breadcrumb */}
-      <Breadcrumb pageTitle={pageTitle} />
 
       <Container textAlign='center'>
         {/* Introduction */}

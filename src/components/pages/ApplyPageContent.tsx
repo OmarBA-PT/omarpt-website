@@ -1,7 +1,6 @@
 import React from 'react';
 import { getBaseUrl } from '@/lib/metadata';
 import { generateArticleSchema, generateStructuredDataScript } from '@/lib/structuredData';
-import BreadcrumbStructuredData from '@/components/StructuredData/BreadcrumbStructuredData';
 import { transformQuestionnaireData } from '@/lib/utils/transformQuestionnaireData';
 import {
   getOrganizationName,
@@ -39,12 +38,6 @@ const ApplyPageContent = ({ applyPageData, applyPrivacyStatement, applyQuestionn
   const pageSubtitle =
     applyPageData?.subtitle || 'Take the first step towards achieving your fitness goals';
 
-  // Generate breadcrumb data
-  const breadcrumbItems = [
-    { name: 'Home', url: baseUrl },
-    { name: pageTitle, url: `${baseUrl}/apply` },
-  ];
-
   // Generate Article structured data using actual Sanity dates
   const articleSchema = generateArticleSchema({
     headline: pageTitle,
@@ -66,7 +59,6 @@ const ApplyPageContent = ({ applyPageData, applyPrivacyStatement, applyQuestionn
   return (
     <>
       {/* Structured Data */}
-      <BreadcrumbStructuredData items={breadcrumbItems} />
       {articleSchema && (
         <script
           type='application/ld+json'
