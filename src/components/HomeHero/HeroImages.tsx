@@ -112,6 +112,7 @@ const HeroImages = ({ images, duration = 4000, onFirstImageLoaded }: HeroImagesP
               src={image.imageUrl}
               alt={image.altText || `Hero background image ${index + 1}`}
               fill
+              sizes='100vw'
               className='object-center object-cover opacity-80'
               onLoad={() => handleImageLoad(index)}
             />

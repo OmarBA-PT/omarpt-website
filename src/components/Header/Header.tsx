@@ -123,6 +123,7 @@ const Header = ({ headerData, organizationName }: HeaderProps) => {
             height={50}
             objectFit='contain'
             className='w-14 md:w-20 h-auto'
+            style={{ height: 'auto' }}
             sizes='(max-width: 768px) 56px, 80px'
             priority
           />

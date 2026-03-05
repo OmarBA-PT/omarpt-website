@@ -22,6 +22,7 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://cdn.sanity.io",
       "font-src 'self' https://fonts.gstatic.com",
       "connect-src 'self' https://cdn.sanity.io https://*.sanity.io",
+      "media-src 'self' https://cdn.sanity.io",
       "frame-src https://www.youtube.com https://www.google.com",
       "frame-ancestors 'none'",
     ].join('; '),
