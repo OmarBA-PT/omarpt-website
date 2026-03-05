@@ -429,59 +429,6 @@ input[type='range']::-moz-range-track {
   height: 100%;
 }
 
-/* ===================================================================
- * DEPRECATED: Old Section Background System
- * These classes have been replaced by the unified background image system below.
- * Keeping commented for reference. Safe to delete after confirming migration.
- * =================================================================== */
-
-/*
-.section-background {
-  position: relative;
-}
-
-.section-background::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-.section-background-smokey-1::before {
-  background-image: url('/images/backgrounds/smokey-1.jpg');
-}
-
-.section-background-smokey-2::before {
-  background-image: url('/images/backgrounds/smokey-2.jpg');
-}
-
-.section-background-smokey-3::before {
-  background-image: url('/images/backgrounds/smokey-3.jpg');
-}
-
-.section-background-smokey-4::before {
-  background-image: url('/images/backgrounds/smokey-4.jpg');
-}
-
-.section-background-smokey-5::before {
-  background-image: url('/images/backgrounds/smokey-5.jpg');
-}
-
-.section-background-smokey-6::before {
-  background-image: url('/images/backgrounds/smokey-6.jpg');
-}
-
-.section-background-smokey-7::before {
-  background-image: url('/images/backgrounds/smokey-7.jpg');
-}
-
-.section-background-smokey-8::before {
-  background-image: url('/images/backgrounds/smokey-8.jpg');
-}
-*/
 
 /* ===================================================================
  * Unified Background Image System

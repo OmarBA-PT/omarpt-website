@@ -70,7 +70,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [ ] [**L3 · SEO** — Enforce meaningful alt text on gallery images (currently falls back to `Gallery image N`) → `src/components/_blocks/ImageGallery.tsx`](#l3)
 - [ ] [**L4 · Security** — Add `Cache-Control: no-store` to API error responses → API route files](#l4)
 - [ ] [**L5 · Security** — Verify and remove `styled-components` if unused → `package.json`](#l5)
-- [ ] [**L6 · Performance** — Remove 71-line deprecated CSS block → `src/app/globals.css` lines 432–484](#l6)
+- [x] [**L6 · Performance** — Remove 71-line deprecated CSS block → `src/app/globals.css` lines 432–484](#l6)
 - [ ] [**L7 · Performance** — Add `revalidate: 86400` as a webhook-failure safety net → `src/sanity/lib/fetch.ts`](#l7)
 - [ ] [**L8 · Performance** — Consider adding a Service Worker for offline support (`next-pwa`)](#l8)
 - [ ] [**L9 · Performance** — Debounce `localStorage` writes in form persistence hook → `src/hooks/useFormPersistence.ts`](#l9)
