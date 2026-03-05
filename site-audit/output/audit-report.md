@@ -56,7 +56,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [x] [**M6 · Security** — Return 401 (not 500) for missing webhook secret → `src/app/api/revalidate/route.ts`](#m6)
 - [ ] [**M7 · Security** — Add explicit auth/origin check to draft mode enable endpoint → `src/app/api/draft-mode/enable/route.ts`](#m7)
 - [x] [**M8 · Performance** — Add `next/dynamic` lazy loading for modals and GoogleMap block → multiple component files](#m8)
-- [ ] [**M9 · Performance** — Pause hero carousel `setInterval` when component is off-screen → `src/components/HomeHero/HeroImages.tsx`](#m9)
+- [x] [**M9 · Performance** — Pause hero carousel `setInterval` when component is off-screen → `src/components/HomeHero/HeroImages.tsx`](#m9)
 - [ ] [**M10 · Performance** — Change `video preload='auto'` to `preload='metadata'` → `src/components/HomeHero/HeroVideo.tsx`](#m10)
 - [ ] [**M11 · Performance** — Replace `PageReadyTrigger` 100ms polling with `MutationObserver` → `src/components/PageReadyTrigger.tsx`](#m11)
 - [ ] [**M12 · Accessibility** — Use descriptive video title for YouTube iframe `title` attribute → `src/components/_blocks/YouTubeVideo.tsx`](#m12)

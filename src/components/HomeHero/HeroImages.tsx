@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 
 interface HeroImage {
@@ -18,6 +18,8 @@ const HeroImages = ({ images, duration = 4000, onFirstImageLoaded }: HeroImagesP
   const [currentIndex, setCurrentIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisibleRef = useRef(true);
 
   // Track when each image loads
   const handleImageLoad = useCallback(
@@ -32,12 +34,29 @@ const HeroImages = ({ images, duration = 4000, onFirstImageLoaded }: HeroImagesP
     [onFirstImageLoaded]
   );
 
+  // Pause carousel when off-screen
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   // Transition to next image
   useEffect(() => {
     if (images.length <= 1) return; // Don't rotate if only one image
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // Respect reduced motion
 
     const interval = setInterval(() => {
+      if (!isVisibleRef.current) return; // Skip tick when off-screen
       setCurrentIndex((prevIndex) => {
         setPreviousIndex(prevIndex); // Track the previous index
         return (prevIndex + 1) % images.length;
@@ -56,7 +75,7 @@ const HeroImages = ({ images, duration = 4000, onFirstImageLoaded }: HeroImagesP
   const hasMultipleImages = images.length > 1;
 
   return (
-    <div className='absolute top-0 left-0 w-full h-full z-10 overflow-hidden'>
+    <div ref={containerRef} className='absolute top-0 left-0 w-full h-full z-10 overflow-hidden'>
       {images.map((image, index) => {
         const isCurrentImage = index === currentIndex;
         const isPreviousImage = index === previousIndex;
