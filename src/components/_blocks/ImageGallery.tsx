@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { stegaClean } from 'next-sanity';
 import type { ImageGalleryBlock } from '@/types/blocks';
 import type { SanityLiveEditingProps } from '../../utils/sectionHelpers';
-import ImageGalleryModal from '../Modals/ImageGalleryModal';
+import dynamic from 'next/dynamic';
+
+const ImageGalleryModal = dynamic(() => import('../Modals/ImageGalleryModal'), { ssr: false });
 import UnifiedImage from '../UI/UnifiedImage';
 import AnimateIn from '../UI/AnimateIn';
 
