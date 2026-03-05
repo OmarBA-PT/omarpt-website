@@ -61,7 +61,7 @@ Items you need to action are presented as checkboxes. ✅ items are already corr
 - [ ] [**M11 · Performance** — Replace `PageReadyTrigger` 100ms polling with `MutationObserver` → `src/components/PageReadyTrigger.tsx`](#m11)
 - [ ] [**M12 · Accessibility** — Use descriptive video title for YouTube iframe `title` attribute → `src/components/_blocks/YouTubeVideo.tsx`](#m12)
 - [x] [**M13 · Accessibility** — Fix gallery `aria-describedby` referencing a non-existent DOM ID → `src/components/_blocks/ImageGallery.tsx`](#m13)
-- [ ] [**M14 · Accessibility** — Add `role="alert"` to form-level error message container → `src/components/Forms/ContactForm/ContactForm.tsx`](#m14)
+- [x] [**M14 · Accessibility** — Add `role="alert"` to form-level error message container → `src/components/Forms/ContactForm/ContactForm.tsx`](#m14)
 
 ## 🟢 Low — Address When Possible
 
@@ -944,7 +944,7 @@ The ID `gallery-image-${idx}` is never rendered in the DOM. The `aria-describedb
 
 <a id="m14"></a>
 
-### - [ ] M14 · 🟡 Medium — Form-level error messages not announced immediately to screen readers
+### - [x] M14 · 🟡 Medium — Form-level error messages not announced immediately to screen readers
 
 [↑ Back to checklist](#action-checklist)
 
