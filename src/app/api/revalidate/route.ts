@@ -7,8 +7,8 @@ const WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET;
 export async function POST(req: NextRequest) {
   if (!WEBHOOK_SECRET) {
     return NextResponse.json(
-      { message: 'Missing SANITY_WEBHOOK_SECRET' },
-      { status: 500 }
+      { message: 'Unauthorized' },
+      { status: 401 }
     );
   }
 
@@ -41,9 +41,9 @@ export async function POST(req: NextRequest) {
       type: body._type,
       id: body._id,
     });
-  } catch (err) {
+  } catch {
     return NextResponse.json(
-      { message: 'Error processing webhook', error: String(err) },
+      { message: 'Error processing webhook' },
       { status: 500 }
     );
   }
